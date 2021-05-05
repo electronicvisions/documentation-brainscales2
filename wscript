@@ -26,12 +26,32 @@ def configure(cfg):
 
 def build(bld):
 
-    # build the in-code/API docs
-    for proj in ['haldls', 'lola', 'stadls', 'fisch', 'hxcomm']:
-        tgen = bld.get_tgen_by_name(f'doxygen_{proj}')
-        tgen.post()
+    # All-in-one documentation build via sphinx. We depend on:
+    # * doxygen-generated XML files for the projects mentioned in `depends_on`
+    # * symlinks from source/X to the repos containing documentation
+    bld(
+        target = 'sphinx_documentation_brainscales2',
+        features = 'sphinx',
+        sphinx_source = 'source',
+        sphinx_output_format = 'html',
+        depends_on = ['doxygen_' + proj for proj in ['haldls', 'lola',
+                                                     'stadls', 'fisch',
+                                                     'hxcomm']],
+    )
 
-    # all-in build
 
-    # sphinx-build
-
+# Explicitly add build synchronization border between the sphinx build and the
+# doxygen builds. This is needed as waf's doxygen & sphinx tools do not
+# generate the correct outputs / inputs lists --- file in/out tracking can't
+# work and the jobs would be spawned too early.
+from waflib.TaskGen import feature, after_method
+@feature('sphinx')
+@after_method('build_sphinx')
+def sphinx_tasks_depend_on_doxygen_tasks(self):
+    deps = getattr(self, 'depends_on', [])
+    for name in set(self.to_list(deps)):
+        other = self.bld.get_tgen_by_name(name)
+        other.post()
+        for dep_task in other.tasks:
+            for sphinx_task in self.tasks:
+                sphinx_task.set_run_after(dep_task)
