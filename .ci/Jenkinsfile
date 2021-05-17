@@ -1,0 +1,105 @@
+@Library("jenlib") _
+
+import org.electronicvisions.jenlib.ShellManipulator
+
+try {
+
+	boolean deploy = env.GERRIT_EVENT_TYPE == "change-merged"
+
+	// TODO: switch to dls-core (dls because virtualenv needed for now)
+	inSingularity(app: "dls") {
+		withWaf() {
+			String virtualEnvPath
+
+			runOnSlave(label: "frontend") {
+				stage("Prepare venv") {
+					virtualEnvPath = "${WORKSPACE}/venv"
+					jesh("virtualenv --system-site-packages ${virtualEnvPath}")
+
+					inVirtualEnv(virtualEnvPath) {
+						// The container doesn't contain
+						// sphinx/breathe in the version needed
+						// yet => install into virtual env.
+						jesh("pip install -U Sphinx~=3.5.4")
+						jesh("pip install myst-parser breathe")
+
+						// Fixup the environment:
+						// 1. generated shebang in python-config is too long
+						// 2. site.py is missing a function
+						jesh("sed -i \"1s|.*|#!/usr/bin/env python |\" ${virtualEnvPath}/bin/python-config")
+						jesh("tac ${virtualEnvPath}/lib/python3.8/site.py | sed \"4i\\    return ['/opt/spack_views/visionary-dls/lib/python3.8/site-packages']\\ndef getsitepackages():\" | tac > tmp_site.py")
+						jesh("mv tmp_site.py ${virtualEnvPath}/lib/python3.8/site.py")
+
+						// Patch breathe's sphinxrenderer.py
+						jesh("cat ${virtualEnvPath}/lib/python3.8/site-packages/breathe/renderer/sphinxrenderer.py | sed \"/python_classes = {/a\\        'property': (PyAttribute, 'attribute'),\" > sphinxrenderer.py")
+						jesh("mv sphinxrenderer.py ${virtualEnvPath}/lib/python3.8/site-packages/breathe/renderer/sphinxrenderer.py")
+					}
+				}
+
+				inVirtualEnv(virtualEnvPath) {
+					wafSetup(projects: ["documentation-brainscales2"])
+				}
+			}
+
+			onSlurmResource(partition: "jenkins", "cpus-per-task": "8") {
+				inVirtualEnv(virtualEnvPath) {
+					stage("Configure, build and install") {
+						withModules(modules: ["ppu-toolchain"]) {
+							jesh("waf configure")
+							jesh("waf install")
+						}
+					}
+				}
+			}
+		}
+	}
+
+	stage("Archive Results") {
+		runOnSlave(label: "frontend") {
+			// NFS flush, but filelist might come handy anyways
+			jesh("find doc/ -exec ls -lisa {} \\; > filelist_doc.txt")
+
+			archiveArtifacts("filelist_doc.txt, doc/sphinx_documentation_brainscales2/**/*")
+			publishHTML([allowMissing: false,
+			             keepAll     : true,
+			             reportDir   : "doc/sphinx_documentation_brainscales2",
+			             reportFiles : "index.html",
+			             reportName  : "BrainScaleS-2 User Documentation"])
+		}
+	}
+
+	conditionalStage(name: "Deployment to GitHub Pages", skip: !deploy) {
+		runOnSlave(label: "frontend") {
+			dir("build/documentation-brainscales2/html") {
+				jesh("touch .nojekyll")
+				jesh("git init")
+				jesh("git add .")
+				jesh("git commit -m \"build ${currentBuild.projectName} ${currentBuild.displayName}\"")
+				jesh("git remote add github git@github-documentation-brainscales2_gh-pages:electronicvisions/documentation-brainscales2.git")
+				jesh("git push --set-upstream -f github master:gh-pages")
+			}
+		}
+	}
+
+} catch (Throwable t) {
+	notifyFailure(mattermostChannel: "#dls-software")
+	throw t
+}
+
+if (currentBuild.currentResult != "SUCCESS") {
+	notifyFailure(mattermostChannel: "#dls-software")
+}
+
+
+void inVirtualEnv(String path, Closure content) {
+	ShellManipulator manipulator = ShellManipulator.fromEnvironment(this)
+	manipulator.add(". ${path}/bin/activate && ", "")
+
+	try {
+		content()
+	} catch (Throwable anything) {
+		throw anything
+	} finally {
+		manipulator.restore()
+	}
+}

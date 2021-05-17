@@ -34,6 +34,7 @@ def build(bld):
         features = 'sphinx',
         sphinx_source = 'source',
         sphinx_output_format = 'html',
+        install_path = '${PREFIX}/doc/sphinx_documentation_brainscales2',
         depends_on = ['doxygen_' + proj for proj in ['haldls', 'lola',
                                                      'stadls', 'fisch',
                                                      'hxcomm']],
