@@ -64,6 +64,8 @@ breathe_projects = {
     'fisch': '../../build/fisch/doc/xml',
     'hxcomm': '../../build/hxcomm/doc/xml',
     'pynn-brainscales2': '../../build/pynn-brainscales2/doc/xml',
+    'hxtorch': '../../build/hxtorch/doc/xml',
+    'pyhxtorch': '../../build/pyhxtorch/doc/xml',
 }
 
 #breathe_default_project = 'haldls'

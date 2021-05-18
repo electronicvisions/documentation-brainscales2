@@ -38,7 +38,8 @@ def build(bld):
         depends_on = ['doxygen_' + proj for proj in ['haldls', 'lola',
                                                      'stadls', 'fisch',
                                                      'hxcomm',
-                                                     'pynn-brainscales2']],
+                                                     'pynn-brainscales2',
+                                                     'hxtorch', 'pyhxtorch']],
     )
 
 
