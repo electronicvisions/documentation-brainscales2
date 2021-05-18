@@ -9,7 +9,8 @@ Every layer provides its own documentation:
 maxdepth: 2
 caption: Contents
 ---
-PyNN <pynn-brainscales/index>
+PyNN  <pynn-brainscales/index>
+hxtorch – a PyTorch interface for BrainScaleS-2 <hxtorch/index>
 Low-level Configuration and Control <haldls/index>
 Coordinate System <halco/index>
 FPGA Abstraction <fisch/index>
