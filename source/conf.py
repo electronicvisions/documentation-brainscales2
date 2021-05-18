@@ -63,6 +63,7 @@ breathe_projects = {
     'stadls': '../../build/haldls/stadls/doc/xml',
     'fisch': '../../build/fisch/doc/xml',
     'hxcomm': '../../build/hxcomm/doc/xml',
+    'pynn-brainscales2': '../../build/pynn-brainscales2/doc/xml',
 }
 
 #breathe_default_project = 'haldls'

@@ -5,6 +5,7 @@
 maxdepth: 2
 caption: Contents
 ---
+PyNN API <api_pynn-brainscales2>
 haldls API <api_haldls>
 lola API <api_lola>
 stadls API <api_stadls>
