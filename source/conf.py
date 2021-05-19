@@ -66,6 +66,7 @@ breathe_projects = {
     'pynn-brainscales2': '../../build/pynn-brainscales2/doc/xml',
     'hxtorch': '../../build/hxtorch/doc/xml',
     'pyhxtorch': '../../build/pyhxtorch/doc/xml',
+    'grenade': '../../build/grenade/doc/xml',
 }
 
 #breathe_default_project = 'haldls'

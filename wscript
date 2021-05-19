@@ -39,7 +39,8 @@ def build(bld):
                                                      'stadls', 'fisch',
                                                      'hxcomm',
                                                      'pynn-brainscales2',
-                                                     'hxtorch', 'pyhxtorch']],
+                                                     'hxtorch', 'pyhxtorch',
+                                                     'grenade']],
     )
 
 
