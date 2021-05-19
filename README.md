@@ -33,7 +33,7 @@ c bash venv.sh
 
 # 6) Build the project
 cat <<EOF >build.sh
-. venv_container/bin/activate
+source venv_container/bin/activate
 ./waf configure
 ./waf build -j1
 EOF
