@@ -11,6 +11,7 @@ caption: Contents
 ---
 PyNN  <pynn-brainscales/index>
 hxtorch – a PyTorch interface for BrainScaleS-2 <hxtorch/index>
+Graph-based Representation for Experiments <grenade/index>
 Low-level Configuration and Control <haldls/index>
 Coordinate System <halco/index>
 FPGA Abstraction <fisch/index>
