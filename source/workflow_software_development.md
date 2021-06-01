@@ -1,6 +1,24 @@
 # Software Development
 
 
+## General Aspects
+
+
+(containerized_software_environment)=
+### Containerized Software Environment
+
+BrainScaleS adopted a container-based approach to software environments.
+In particular, we use [singularity](https://sylabs.io/docs/)-based containers.
+In contrast to many other container ecosystems that focus on persistent services, our approach only provides a *wrapper* for the execution of commands in different environments.
+This can be easily layered with SLURM-based execution on our hardware-control cluster.
+E.g., to run a command inside a container on the cluster:
+```
+$ srun -p <PARTITION> singularity exec <CONTAINER.IMG> <COMMAND>
+```
+We typically make use of singularity's `--app <APP>` option to switch between different environments within the container.
+For BrainScaleS-2 most users rely on `--app dls`, the CI tries to work on a slimmer software dependency tree available via `--app dls-core`.
+
+
 (brainscales_build_system)=
 ## BrainScaleS Build System
 
