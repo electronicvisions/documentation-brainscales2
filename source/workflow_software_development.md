@@ -22,6 +22,30 @@ Further dependencies are found recursively.
 Finally, `waf install` by default installs into `{bin,lib,share}/` subfolders of the toplevel workspace.
 
 
+## Recommendations for Experiment Repositories
+
+Building and executing experiments on BrainScaleS is a complex task.
+Typical experiments comprise host-based control flow in C++ and Python and C++ running on the embedded processors.
+The [BSS-2 Experiment Template](https://github.com/electronicvisions/template-experiment-dls) provides a template for defining and conducting experiments on the BrainScaleS-2 hardware platform.
+This includes:
+* Host-based experiment code written
+  * in Python
+  * and C++
+* code running on BrainScaleS' embedded processors written in C++.
+The build processes support compilation of host-code as well as the cross-compilation of embedded code.
+Automatic tests can be defined and executed via a exemplary Jenkins CI setup.
+In particular, the repository employs the same build and CI tools as the remaining BrainScaleS software environment.
+
+Example:
+```
+$ mkdir my_experiment_workspace
+$ cd my_experiment_workspace
+$ git clone https://github.com/electronicvisions/template-experiment-dls my_experiment
+# for github-based builds append "--repo-db-url=https://github.com/electronicvisions/projects" to the next command
+$ waf setup --directory=my_workspace
+```
+Now continue with the steps described in {ref}`brainscales_build_system`.
+
 ## Development Environments
 
 ### CLI-based IDEs
