@@ -1,6 +1,27 @@
 # Software Development
 
 
+(brainscales_build_system)=
+## BrainScaleS Build System
+
+The BrainScaleS developers adopted the [waf](https://waf.io/) build system early in the development of the BrainScaleS-1 software eco-system.
+In each repository `wscript` files define the configuration, build, installation and tests steps.
+It uses the Python language.
+In contrast to the upstream code base, we extended the tool by a cross-repo dependency tracking mechanism (see `def depends(ctx):` sections in `wscript`s).
+The typical installation flow for a toplevel `X` is:
+```
+# for github-based builds append "--repo-db-url=https://github.com/electronicvisions/projects" to the next command
+$ waf setup --project=X
+$ waf configure
+$ waf install
+```
+The first command queries a repository database (default URL hardcoded in our fork of waf) to find and *check out* `X`.
+The build tool now looks for `depends()` in `X/wscript` to resolve the dependencies of `X`.
+Further dependencies are found recursively.
+`waf configure` and `waf build` perform configuration checks as well as build steps similar to other build systems.
+Finally, `waf install` by default installs into `{bin,lib,share}/` subfolders of the toplevel workspace.
+
+
 ## Development Environments
 
 ### CLI-based IDEs
@@ -17,6 +38,7 @@ The following steps will explain how to setup `vscode` in conjunction with `ssh`
 Due to `vscode`'s limited configurability we *abuse* `ssh/.authorized_keys` to containerize the working environment.
 Similarly, environment modules are also unsupported by `vscode`, we use `.env` files to inject the environment variables.
 
+* See {ref}`brainscales_build_system` and {ref}`containerized_software_environment` for information about the build process and the software environment.
 * Install vscode (see [here](https://code.visualstudio.com/docs/setup/setup-overview)), start it up and install the extension `Remote - SSH`.
 * For `vscode` a dedicated ssh key pair is needed:
   ```
