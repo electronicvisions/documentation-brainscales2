@@ -19,6 +19,15 @@ We typically make use of singularity's `--app <APP>` option to switch between di
 For BrainScaleS-2 most users rely on `--app dls`, the CI tries to work on a slimmer software dependency tree available via `--app dls-core`.
 
 
+### Neuromorphic Resources
+
+We extended SLURM to support special-purpose options describing requested neuromorphic hardware resources.
+To run, for example, an experiment on the single-chip lab setup (*cube*s) number 60, FPGA no. 3:
+```
+$ srun -p cube --wafer 60 --fpga-without-aout 3 <singularity call> experiment.py
+```
+
+
 (brainscales_build_system)=
 ## BrainScaleS Build System
 
