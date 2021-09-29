@@ -8,7 +8,8 @@ try {
 		projects           : ["documentation-brainscales2"],
 		container          : [app: "dls"],
 		moduleOptions      : [modules: ["ppu-toolchain"]],
-		notificationChannel: "#jenkins-trashbin"  // success is checked globally
+		notificationChannel: "#jenkins-trashbin",  // success is checked globally
+		ignoreGerritChanges: deploy
 	]
 
 	withCcache() {
@@ -37,7 +38,9 @@ try {
 				jesh("git add .")
 				jesh("git commit -m \"build ${currentBuild.projectName} ${currentBuild.displayName}\"")
 				jesh("git remote add github git@github-documentation-brainscales2_gh-pages:electronicvisions/documentation-brainscales2.git")
-				jesh("git push --set-upstream -f github master:gh-pages")
+				lock("documentation-brainscales2_GITHUB-UPLOAD") {
+					jesh("git push --set-upstream -f github master:gh-pages")
+				}
 			}
 		}
 	}
