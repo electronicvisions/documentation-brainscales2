@@ -78,7 +78,7 @@ Now continue with the steps described in {ref}`brainscales_build_system`.
 ### CLI-based IDEs
 
 ```{todo}
-Describe the visionary neovim (no emacs/etc. users anymore?) flow here :).
+Describe other visionary cli editors here.
 ```
 
 #### Emacs
@@ -121,6 +121,44 @@ For `TRAMP` to be able to find the `apptainer` executable one needs to configure
  '(:application tramp :machine "hel") 'remote-with-apptainer-dls)
 ```
 Depending on your ssh configuration you might need to change `"hel"` to match yours.
+
+#### neovim
+
+Neovim 0.7 comes with batteries and includes LSP functionality enabling
+IDE-like features without the heavy-weight plugins from the past.
+Using the plugin manager of your choice (e.g.
+[`vim-plug`](https://github.com/junegunn/vim-plug/)), then install
+[`nvim-lspconfig`](https://github.com/neovim/nvim-lspconfig) for some typical
+LSP server configurations.
+Afterwards, modify your `~/.config/nvim/init.vim` to include:
+```
+lua << EOF
+  -- "key mappings", "on_attach" function and "lsp_flags" from
+  -- https://github.com/neovim/nvim-lspconfig#suggested-configuration
+
+  require('lspconfig')['clangd'].setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
+    -- runs clangd in the "dls" app within the latest container
+    cmd = { "bash", "-c", "singularity exec --app dls /containers/stable/latest clangd" },
+  }
+
+  -- as of 2022-06029 pylsp is missing in the container...
+  --require('lspconfig')['pylsp'].setup{
+  --  on_attach = on_attach,
+  --  flags = lsp_flags,
+  -- cmd = { "bash", "-c", "singularity exec --app dls /containers/stable/latest pylsp" },
+  --}
+EOF
+```
+
+#### clangd functionality
+
+For `clangd`-base functionality, typically, a compile database (`compile_commands.json`) is needed.
+There are at least two ways to generate it:
+* add `opt.load('clang_compilation_database')` to `def options(…)` in your top-level `wscript`,, and to generate the file run `waf clangdb`;
+* prefix your waf commands with [`bear`](https://github.com/rizsotto/Bear), the initial call (typically `waf configure`) w/o any further options, subsequent `waf build` commands should use `bear -a` to append to the existing file.
+
 
 ### GUI-based IDEs
 
