@@ -147,7 +147,7 @@ Similarly, environment modules are also unsupported by `vscode`, we use `.env` f
           Hostname brainscales-r.kip.uni-heidelberg.de
           Port 11022
           IdentityFile /YOUR_HOME/.ssh/hel_vscode.id_rsa
-          RequestTTY yes
+          #RequestTTY yes # ECM (2022-06-29) it seems this is not needed anymore
   # …
   ```
 * Enable ssh-key-based login and adjust it to startup within the latest container environment.
@@ -156,6 +156,22 @@ Similarly, environment modules are also unsupported by `vscode`, we use `.env` f
   hel $ editor .ssh/authorized_keys
   #…
   command="apptainer shell --app dls /containers/stable/latest" ssh-rsa YOUR_PUBLIC_KEY_YOUR_PUBLIC_KEY
+  ```
+* Newer versions of `vscode` seem to play around with the PATH environment variable, so we need to fix that; append the following to your `.bashrc`:
+  ```
+  if [ -n "$VSCODE_IPC_HOOK_CLI" ]; then
+    if [ -n "${APPTAINER_CONTAINER}" ]; then
+      if [ -z "${APPTAINER_APPNAME}" ]; then
+        echo "APPTAINER_APPNAME not set"
+      else
+        # readd to PATH, it gets somehow changed by vscode
+        export PATH=/opt/spack_views/visionary-${APPTAINER_APPNAME}/bin:$PATH
+        echo "added visionary-${APPTAINER_APPNAME} to PATH"
+      fi
+    else
+      echo "remote vscode not running containerized!"
+    fi
+  fi
   ```
 * Use the extension (`Remote-SSH: Connect to Host…`) to connect to `hel-vscode`.
 * Open a new terminal and verify that it runs on the remote host within the dls app in the container.
@@ -168,12 +184,27 @@ Similarly, environment modules are also unsupported by `vscode`, we use `.env` f
   APPTAINER_NAME=latest
   APPTAINER_CONTAINER=/containers/stable/latest
   APPTAINER_APPNAME=dls
+  hel $ env | grep PYTHONHOME
+  PYTHONHOME=/opt/spack_views/visionary-dls
+  hel $ env | grep ^LD_LIBRARY_PATH
+  LD_LIBRARY_PATH=/opt/spack_views/visionary-dls/lib:/opt/spack_views/visionary-dls/lib64:/scif/apps/dls/lib::/.singularity.d/libs
   ```
 
-To enable Python-related functionality in `vscode` the `Python` extension needs to be installed on the remote site.
-See [here](https://code.visualstudio.com/docs/languages/python) for details (please note that some plugins can be installed per site (local vs. remote), wihle others are global).
+To enable Python-related functionality in `vscode` the `Python` extension needs to be installed on the remote site (`hel-vscode`).
+See [here](https://code.visualstudio.com/docs/languages/python) for details (please note that some plugins can be installed per site (local vs. remote), while others are global).
+Currently, after installing the Python extension, a subsequent Ctrl + Shift + p to set the path to the Python interpreter ("Python: Select Interpreter") is needed;
+use `/opt/spack_views/visionary-dls/bin/python3` as path to the interpreter.
 To verify that it works, open a `Python` file and test some of the IDE functionality (e.g. *jump to declaration*).
-It might be useful to inject software from the environment and/or workspace into your `vscode` environment..
+
+For C++-related functionality, please install the `C/C++` extension (but not the whole extension pack!) and `clangd`, each on the remote site (`hel-vscode`), but not necessarily locally.
+If you encounter errors regarding availablity of `clangd`, try to add `~/bin` to your PATH (e.g. via `.bash_profile`), then create a symlink from `/opt/spack_views/visionary-dls/bin/clangd` to `~/bin/clangd` and retry.
+Run your waf configure and build with `bear`, e.g. `srun -p compile … -- bear waf configure && srun -p compile … -- bear -a waf install --test-execnone`.
+To verify that it works, open a `C++` file and test some of the IDE functionality (e.g. hover over some type to see additional information, there should be some `clangd` action in the status bar).
+
+Depending on the developers personal preferences, we also recommend using a proper editor interface instead of insufficient emulations.
+In particular, instead of using `vscode`'s vim emulation, we recommend to directly run `neovim` using the "VSCode Neovim" extension (installed locally) together wie a locally deployed neovim.
+
+In some cases, it might be useful to inject software from the environment and/or workspace into your `vscode` environment..
 One option is to make use of [`.env`](https://code.visualstudio.com/docs/python/environments#_environment-variable-definitions-file) files (in your workspaces) to replicate `module load localdir` behavior, e.g.:
 ```
 $ cd my_workspace
