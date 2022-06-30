@@ -81,6 +81,47 @@ Now continue with the steps described in {ref}`brainscales_build_system`.
 Describe the visionary neovim (no emacs/etc. users anymore?) flow here :).
 ```
 
+#### Emacs
+
+To access remote files directly from your local Emacs instance you can use [`TRAMP`](https://www.gnu.org/software/tramp/).
+You can use a ssh config like:
+```
+$ cat ~/.ssh/config | grep -A4 'Host hel'
+Host hel
+    HostName brainscales-r.kip.uni-heidelberg.de
+    User YOUR_USERNAME
+    Port 11022
+    ForwardAgent yes
+```
+and key based authentication, for example using
+```
+$ ssh-copy-id hel
+```
+to reduce friction in using `TRAMP`. With a setup like this you can navigate to your home directory on `hel` from your local Emacs by navigating to `/ssh:hel:~/`.
+
+The [`lsp-mode`](https://emacs-lsp.github.io/lsp-mode/page/installation/) plugin adds LSP support Emacs and can transparently work over `TRAMP` aswell.
+On `hel` the containerized versions of `clangd` and `pylsp` should be used. You can configure `lsp-mode` to use these using
+```
+(lsp-register-client
+  (make-lsp-client :new-connection (lsp-tramp-connection '("singularity" "exec" "--app" "dls" "/containers/stable/latest" "clangd"))
+                  :major-modes '(c++-mode c-mode)
+                  :remote? t
+                  :server-id 'clangd-remote))
+(lsp-register-client
+  (make-lsp-client :new-connection (lsp-tramp-connection '("singularity" "exec" "--app" "dls" "/containers/stable/latest" "pylsp"))
+                  :major-modes '(python-mode)
+                  :remote? t
+                  :server-id 'pyls-remote)))
+```
+For `TRAMP` to be able to find the `singularity` executable one needs to configure `TRAMP` to use the same `PATH` environment variable as the login shell. This can be done using
+```
+(connection-local-set-profile-variables 'remote-with-singularity-dls
+                                        '((tramp-remote-path . (tramp-own-remote-path tramp-default-remote-path))))
+(connection-local-set-profiles
+ '(:application tramp :machine "hel") 'remote-with-singularity-dls)
+```
+Depending on your ssh configuration you might need to change `"hel"` to match yours.
+
 ### GUI-based IDEs
 
 #### VS Code
