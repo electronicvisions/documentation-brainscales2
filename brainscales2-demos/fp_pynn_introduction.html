@@ -1,0 +1,352 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Introduction to PyNN &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Binary operations using spiking neurons" href="fp_binary_operations.html" />
+    <link rel="prev" title="Welcome to the Advanced Physics Lab for Physicists by the Electronic Vision(s) Group" href="fp_0-welcome.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> BrainScaleS-2 Documentation
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../userdoc.html">User Documentation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Demos &amp; Examples</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="tutorial_0-welcome.html">Welcome to the BrainScaleS-2 Tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial_1-single_neuron.html">BrainScaleS-2 single neuron experiments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial_2-superspike.html">Learning with the SuperSpike rule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial_3-hagen_intro.html">Introduction to matrix multiplication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial_4-hagen_properties.html">Exploring the analog MAC operation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial_5-plasticity_rate_coding.html">BrainScaleS-2 on-chip plasticity experiment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial_6-multicompartment.html">Structured Neurons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial_7-yin_yang_itl.html">Train DNNs on BrainScaleS-2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial_8-dynamic_range.html">Exploring the dynamic range</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wolke7_networks.html">Neuronenverbindungen - Synapsen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wolke7_networks.html#synapsennetzwerke">Synapsennetzwerke</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fp_0-welcome.html">Welcome to the Advanced Physics Lab for Physicists by the Electronic Vision(s) Group</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Introduction to PyNN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fp_binary_operations.html">Binary operations using spiking neurons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fp_sudoku.html">Sudoku</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../apis.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BrainScaleS-2 Documentation</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Welcome to the BrainScaleS-2 Demos &amp; Examples!</a> &raquo;</li>
+        
+      <li>Introduction to PyNN</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/brainscales2-demos/fp_pynn_introduction.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction-to-pynn">
+<h1>Introduction to PyNN<a class="headerlink" href="#introduction-to-pynn" title="Permalink to this headline">¶</a></h1>
+<p>The neuron circuits have a lot of tunable parameters. But how do we set
+their values? For this the module PyNN can be used. It is a language
+that allows you to form groups of neurons and to connect them in
+different ways to each other. Also, the parameters of individual neurons
+can be varied and the resulting dynamic can be observed.</p>
+<p>In the following, we want to build a simple network in which a neuron is
+stimulated by a group of five neurons.</p>
+<a class="reference internal image-reference" href="../_images/pynn_simple_network.png"><img alt="../_images/pynn_simple_network.png" src="../_images/pynn_simple_network.png" style="width: 400px;" /></a>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import the module PyNN</span>
+<span class="kn">import</span> <span class="nn">pynn_brainscales.brainscales2</span> <span class="k">as</span> <span class="nn">pynn</span>
+
+<span class="c1"># set the environment</span>
+<span class="kn">from</span> <span class="nn">_static.common.helpers</span> <span class="kn">import</span> <span class="n">setup_hardware_client</span><span class="p">,</span> <span class="n">get_nightly_calibration</span>
+
+<span class="n">setup_hardware_client</span><span class="p">()</span>
+<span class="n">calib</span> <span class="o">=</span> <span class="n">get_nightly_calibration</span><span class="p">()</span>
+<span class="n">pynn</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="n">initial_config</span><span class="o">=</span><span class="n">calib</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Groups of neurons are called <a class="reference external" href="http://neuralensemble.org/docs/PyNN/reference/populations.html#populations">populations</a>.
+Such a population is
+instantiated by setting the number of neurons it should contain, the
+cell type of these neurons and the values of the cell parameters. The
+<a class="reference external" href="http://neuralensemble.org/docs/PyNN/reference/neuronmodels.html">cell type</a>
+of our artificial neurons is called <code class="docutils literal notranslate"><span class="pre">HXNeuron</span></code>. Its
+parameters are not expressed in the same units as for biological
+neurons, but in hardware units. These two systems of units are not
+directly related. Also within the hardware units there is no general
+translation to physical voltages and currents. These values
+can have different meanings for the different parameters on a chip, for
+example, a threshold voltage of 300 may be higher than a leakage voltage
+of 400. But also compared to other chips that are designed completely
+identical the actual measured values can vary slightly.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define the neuron parameters of the population</span>
+<span class="n">numb_neurons</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">neuron_parameters</span> <span class="o">=</span> <span class="p">{</span>                          <span class="c1"># range</span>
+    <span class="s2">&quot;leak_v_leak&quot;</span><span class="p">:</span> <span class="mi">400</span><span class="p">,</span>                        <span class="c1"># (300-1000)</span>
+    <span class="s2">&quot;leak_i_bias&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>                        <span class="c1"># (0-1022)</span>
+    <span class="s2">&quot;threshold_v_threshold&quot;</span><span class="p">:</span> <span class="mi">400</span><span class="p">,</span>              <span class="c1"># (0-600)</span>
+    <span class="s2">&quot;threshold_enable&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>                  <span class="c1">#</span>
+    <span class="s2">&quot;refractory_period_refractory_time&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>  <span class="c1"># (0-255)</span>
+    <span class="s2">&quot;reset_v_reset&quot;</span><span class="p">:</span> <span class="mi">300</span><span class="p">,</span>                      <span class="c1"># (300-1000)</span>
+    <span class="s2">&quot;reset_i_bias&quot;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>                      <span class="c1"># (0-1022)</span>
+    <span class="s2">&quot;membrane_capacitance_capacitance&quot;</span><span class="p">:</span> <span class="mi">63</span>     <span class="c1"># (0-63)</span>
+<span class="p">}</span>
+
+<span class="n">neuron_type</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">cells</span><span class="o">.</span><span class="n">HXNeuron</span><span class="p">(</span><span class="o">**</span><span class="n">neuron_parameters</span><span class="p">)</span>
+
+<span class="c1"># save the configured neuron in the population &#39;pop&#39;</span>
+<span class="n">pop</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="n">numb_neurons</span><span class="p">,</span> <span class="n">neuron_type</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The spikes of all neurons that have been stored in populations can be
+recorded. Furthermore, it is also possible to record the membrane
+potential of a single neuron. Consequently, for this purpose the
+population must have a size of one.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>We can only record one neuron at the time. Make sure to use
+populations of size one or use views to select a single neuron, see.
+<a class="reference external" href="http://neuralensemble.org/docs/PyNN/reference/populations.html#views-sub-populations">PyNN documentation</a>.</p>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># record spikes and membrane potential &#39;v&#39; of the neuron in the</span>
+<span class="c1"># population &#39;pop&#39;</span>
+<span class="n">pop</span><span class="o">.</span><span class="n">record</span><span class="p">([</span><span class="s2">&quot;spikes&quot;</span><span class="p">,</span> <span class="s2">&quot;v&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Different populations can be connected by so-called <a class="reference external" href="http://neuralensemble.org/docs/PyNN/reference/projections.html">projections</a>.
+For this, firstly it must be specified which is the pre-synaptic (source)
+and which the post-synaptic (receiver) population. Furthermore, the way
+in which the neurons within the populations are exactly connected to
+each other is specified, e.g. all neurons are connected or only a
+certain percentage of the neurons are connected to each other. In
+addition, the synaptic weight which describes the strength of the
+connection and the <a class="reference external" href="http://neuralensemble.org/docs/PyNN/reference/plasticitymodels.html">synapse type</a>
+are specified. This can either be
+excitatory, meaning that the membrane voltage increases in case of
+stimulation, or it is inhibitory, which causes the membrane voltage to
+decrease.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a source population that generates spikes at given times</span>
+<span class="n">spike_times</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.07</span><span class="p">,</span> <span class="mf">0.09</span><span class="p">]</span>
+<span class="n">src</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">pynn</span><span class="o">.</span><span class="n">cells</span><span class="o">.</span><span class="n">SpikeSourceArray</span><span class="p">(</span><span class="n">spike_times</span><span class="o">=</span><span class="n">spike_times</span><span class="p">))</span>
+
+<span class="c1"># define a synapse and its weight</span>
+<span class="n">synapse_weight</span> <span class="o">=</span> <span class="mi">63</span>
+<span class="n">synapse</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">synapses</span><span class="o">.</span><span class="n">StaticSynapse</span><span class="p">(</span><span class="n">weight</span><span class="o">=</span><span class="n">synapse_weight</span><span class="p">)</span>
+
+<span class="c1"># connect the pre-synaptic population &#39;src&#39; to the post-synaptic</span>
+<span class="c1"># neuron in &#39;pop&#39;</span>
+<span class="n">pynn</span><span class="o">.</span><span class="n">Projection</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">pop</span><span class="p">,</span> <span class="n">pynn</span><span class="o">.</span><span class="n">AllToAllConnector</span><span class="p">(),</span>
+                <span class="n">synapse_type</span><span class="o">=</span><span class="n">synapse</span><span class="p">,</span> <span class="n">receptor_type</span><span class="o">=</span><span class="s2">&quot;excitatory&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The created network of populations and projections can now be emulated
+for a selected time.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># the duration is given in ms,</span>
+<span class="c1"># this is in the hardware domain, not in the biological</span>
+<span class="c1"># (the hardware is faster by a factor of approx. 1000</span>
+<span class="c1"># compared to biology)</span>
+<span class="n">duration</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">pynn</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">duration</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Thereafter, the recorded behavior of the neurons can be read out.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read out the spikes of the neuron in &#39;pop&#39;</span>
+<span class="n">spiketrain</span> <span class="o">=</span> <span class="n">pop</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="s2">&quot;spikes&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">segments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">spiketrains</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The neuron spiked </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">spiketrain</span><span class="p">)</span><span class="si">}</span><span class="s2"> times.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The spike times were: </span><span class="si">{</span><span class="n">spiketrain</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># plot its membrane potential</span>
+<span class="n">mem_v</span> <span class="o">=</span> <span class="n">pop</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="s2">&quot;v&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">segments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">irregularlysampledsignals</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mem_v</span><span class="o">.</span><span class="n">times</span><span class="p">,</span> <span class="n">mem_v</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;time [ms]&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;membrane potential [LSB]&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="fp_binary_operations.html" class="btn btn-neutral float-right" title="Binary operations using spiking neurons" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="fp_0-welcome.html" class="btn btn-neutral float-left" title="Welcome to the Advanced Physics Lab for Physicists by the Electronic Vision(s) Group" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Electronic Vision(s).
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
