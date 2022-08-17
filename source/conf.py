@@ -74,6 +74,7 @@ breathe_projects = {
     'hxtorch': '../../build/hxtorch/doc/xml',
     'pyhxtorch': '../../build/pyhxtorch/doc/xml',
     'grenade': '../../build/grenade/doc/xml',
+    'calix': '../../build/calix/doc/xml',
 }
 
 #breathe_default_project = 'haldls'

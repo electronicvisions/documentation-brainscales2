@@ -6,8 +6,10 @@ def depends(ctx):
     # config for doxygen
     ctx('code-format')
 
-    # Demos/Tutorial depends on everything
+    # Demos/Tutorial depends on everything, except for calix
     ctx('much-demos-such-wow')
+
+    ctx('calix')
 
 
 def options(opt):
@@ -40,7 +42,7 @@ def build(bld):
                                                      'hxcomm',
                                                      'pynn-brainscales2',
                                                      'hxtorch', 'pyhxtorch',
-                                                     'grenade']],
+                                                     'grenade', 'calix']],
     )
 
 
