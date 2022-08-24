@@ -23,22 +23,13 @@ module load waf
 # 4) Setup your workspace and clone all dependencies (--clone-depth=1 to skip history)
 c ./waf setup --project=documentation-brainscales2
 
-# 5) As long as the container is too old, let's frickel around:
-cat <<EOF >venv.sh
-virtualenv --system-site-packages venv_container/
-source venv_container/bin/activate
-pip install myst-parser breathe
-EOF
-c bash venv.sh
-
-# 6) Build the project
+# 5) Build the project
 cat <<EOF >build.sh
-source venv_container/bin/activate
 ./waf configure
 ./waf build -j1
 EOF
 srun -p compile -c8 c bash build.sh
 
-# 7) Install the project to ./bin and ./lib
+# 6) Install the project to ./bin and ./lib
 c ./waf install
 ```
