@@ -1,12 +1,11 @@
 BrainScaleS-2 User Documentation
 ================================
 
-We use sphinx to build a comprehensive document comprising four main
+We use sphinx to build a comprehensive document comprising three main
 components:
 
-* :doc:`an introduction to the BSS-2 system <introduction>`,
+* :doc:`Demos & Examples <brainscales2-demos/index>` providing an introduction to the system and its usage,
 * :doc:`user documentation for the software APIs <userdoc_repos>`,
-* a :doc:`Demos & Examples <brainscales2-demos/index>` document,
 * and :doc:`API documentation <apis>` generated from in-code comments
 
 Our sphinx setup supports both, ReSTructured text as well as markdown.
