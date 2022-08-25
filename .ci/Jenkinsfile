@@ -32,14 +32,19 @@ try {
 
 	conditionalStage(name: "Deployment to GitHub Pages", skip: !deploy) {
 		runOnSlave(label: "frontend") {
-			dir("build/documentation-brainscales2/html") {
-				jesh("touch .nojekyll")
-				jesh("git init")
-				jesh("git add .")
-				jesh("git commit -m \"build ${currentBuild.projectName} ${currentBuild.displayName}\"")
-				jesh("git remote add github git@github-documentation-brainscales2_gh-pages:electronicvisions/documentation-brainscales2.git")
+			dir("build/") {
 				lock("documentation-brainscales2_GITHUB-UPLOAD") {
-					jesh("git push --set-upstream -f github master:gh-pages")
+					jesh("git clone -b gh-pages git@github.com:electronicvisions/documentation-brainscales2.git gh-pages")
+					jesh("rm -rf gh-pages/latest")
+					jesh("cp -a documentation-brainscales2/html/. gh-pages/latest")
+					dir("gh-pages") {
+						jesh("../../documentation-brainscales2/.ci/generate_index.sh")
+						jesh("git add index.html")
+						jesh("git add latest/")
+						jesh("git commit -m \"build ${currentBuild.projectName} ${currentBuild.displayName}\"")
+						jesh("git remote add github git@github-documentation-brainscales2_gh-pages:electronicvisions/documentation-brainscales2.git")
+						jesh("git push github")
+					}
 				}
 			}
 		}
