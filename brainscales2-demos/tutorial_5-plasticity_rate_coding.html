@@ -1,0 +1,540 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>BrainScaleS-2 on-chip plasticity experiment &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Structured Neurons" href="tutorial_6-multicompartment.html" />
+    <link rel="prev" title="Exploring the analog MAC operation" href="tutorial_4-hagen_properties.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> BrainScaleS-2 Documentation
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../userdoc.html">User Documentation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Demos &amp; Examples</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="tutorial_0-welcome.html">Welcome to the BrainScaleS-2 Tutorial</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="tutorial_1-single_neuron.html">BrainScaleS-2 single neuron experiments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial_2-superspike.html">Learning with the SuperSpike rule</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial_3-hagen_intro.html">Introduction to matrix multiplication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial_4-hagen_properties.html">Exploring the analog MAC operation</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">BrainScaleS-2 on-chip plasticity experiment</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#controlling-the-on-chip-plasticity-processor">Controlling the on-chip plasticity processor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-plasticity-kernel">The plasticity kernel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-experiment">The experiment</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial_6-multicompartment.html">Structured Neurons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial_0-welcome.html#executing-the-notebooks">Executing the Notebooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial_0-welcome.html#shared-hardware-resources">Shared Hardware Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial_0-welcome.html#final-test-hardware-execution">Final test: Hardware Execution</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial_1-single_neuron.html">BrainScaleS-2 single neuron experiments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial_2-superspike.html">Learning with the SuperSpike rule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial_3-hagen_intro.html">Introduction to matrix multiplication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial_4-hagen_properties.html">Exploring the analog MAC operation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">BrainScaleS-2 on-chip plasticity experiment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#controlling-the-on-chip-plasticity-processor">Controlling the on-chip plasticity processor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-plasticity-kernel">The plasticity kernel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-experiment">The experiment</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial_6-multicompartment.html">Structured Neurons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial_7-yin_yang_itl.html">Train DNNs on BrainScaleS-2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial_8-dynamic_range.html">Exploring the dynamic range</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wolke7_networks.html">Neuronenverbindungen - Synapsen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wolke7_networks.html#synapsennetzwerke">Synapsennetzwerke</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fp_0-welcome.html">Welcome to the Advanced Physics Lab for Physicists by the Electronic Vision(s) Group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fp_pynn_introduction.html">Introduction to PyNN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fp_binary_operations.html">Binary operations using spiking neurons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fp_sudoku.html">Sudoku</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../apis.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BrainScaleS-2 Documentation</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Welcome to the BrainScaleS-2 Demos &amp; Examples!</a> &raquo;</li>
+        
+          <li><a href="tutorial_0-welcome.html">Welcome to the BrainScaleS-2 Tutorial</a> &raquo;</li>
+        
+      <li>BrainScaleS-2 on-chip plasticity experiment</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/brainscales2-demos/tutorial_5-plasticity_rate_coding.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="brainscales-2-on-chip-plasticity-experiment">
+<h1>BrainScaleS-2 on-chip plasticity experiment<a class="headerlink" href="#brainscales-2-on-chip-plasticity-experiment" title="Permalink to this headline">¶</a></h1>
+<p>In addition to the analog neural network core, BrainScaleS-2 features two embedded
+general-purpose processors, called PPUs (Plasticity Processing Units).
+They can be used for experiment control and alterations of configuration during
+the run-time of an experiment.
+This example makes use of this feature by show-casing synaptic plasticity.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">join</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pynn_brainscales.brainscales2</span> <span class="k">as</span> <span class="nn">pynn</span>
+<span class="kn">from</span> <span class="nn">dlens_vx_v3</span> <span class="kn">import</span> <span class="n">hal</span><span class="p">,</span> <span class="n">lola</span><span class="p">,</span> <span class="n">halco</span><span class="p">,</span> <span class="n">sta</span>
+</pre></div>
+</div>
+<p>We want to show how the PPUs can be used to rate-code an image in the activity of
+neurons (our canvas will be the activity of the neurons over time).
+This is done by switching synapses on and off using a predefined data sequence.
+Each PPU has 16kiB on-chip memory. For a quadratic image to fit, it is therefore
+limited to 64x64 pixels. For simplicity, only one of the two PPUs is used.</p>
+<p>For loading and converting an image, some _static.common.helpers are required:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">read_image</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Read image from file and scale it to the weight range.</span>
+<span class="sd">    :param path: Path to image file</span>
+<span class="sd">    :return: Image data as numpy array normalised to hardware weight range</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
+    <span class="c1"># Scale to weight range [0, 63)</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">image</span> <span class="o">/</span> <span class="n">image</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">*</span> <span class="n">hal</span><span class="o">.</span><span class="n">SynapseWeightQuad</span><span class="o">.</span><span class="n">Value</span><span class="o">.</span><span class="n">max</span>
+    <span class="k">return</span> <span class="n">image</span>
+
+<span class="k">def</span> <span class="nf">image_to_memory_block</span><span class="p">(</span><span class="n">image</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">hal</span><span class="o">.</span><span class="n">PPUMemoryBlock</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert image to memory region.</span>
+
+<span class="sd">    :param image: Image data to convert.</span>
+<span class="sd">    :return: Converted image data</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">image_h</span> <span class="o">=</span> <span class="mi">64</span>
+    <span class="n">image_w</span> <span class="o">=</span> <span class="mi">64</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span> <span class="o">!=</span> <span class="p">(</span><span class="n">image_h</span><span class="p">,</span> <span class="n">image_w</span><span class="p">)):</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Image shape is required to be </span><span class="si">{}</span><span class="s2">x</span><span class="si">{}</span><span class="s2"> pixels.&quot;</span>
+                           <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">image_h</span><span class="p">,</span> <span class="n">image_w</span><span class="p">))</span>
+
+    <span class="c1"># A word in memory is four bytes</span>
+    <span class="n">bytes_in_word</span> <span class="o">=</span> <span class="mi">4</span>
+    <span class="n">bits_in_byte</span> <span class="o">=</span> <span class="mi">8</span>
+
+    <span class="c1"># create memory block</span>
+    <span class="n">image_config</span> <span class="o">=</span> <span class="n">hal</span><span class="o">.</span><span class="n">PPUMemoryBlock</span><span class="p">(</span>
+        <span class="n">halco</span><span class="o">.</span><span class="n">PPUMemoryBlockSize</span><span class="p">(</span><span class="n">image_h</span> <span class="o">*</span> <span class="n">image_w</span> <span class="o">//</span> <span class="n">bytes_in_word</span><span class="p">))</span>
+
+    <span class="c1"># construct words by placing bytes</span>
+    <span class="c1"># in addition, we flip the order of pixels to get a upwards-facing image</span>
+    <span class="c1"># when plotting the time on the x-axis</span>
+    <span class="n">words</span> <span class="o">=</span> <span class="n">image_config</span><span class="o">.</span><span class="n">words</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">image_config</span><span class="o">.</span><span class="n">size</span><span class="p">()):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">bytes_in_word</span><span class="p">):</span>
+            <span class="n">index</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="n">bytes_in_word</span> <span class="o">+</span> <span class="n">j</span>
+            <span class="n">image_value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">image</span><span class="p">[</span><span class="n">image_h</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">index</span> <span class="o">%</span> <span class="n">image_h</span><span class="p">)][</span>
+                <span class="n">index</span> <span class="o">//</span> <span class="n">image_w</span><span class="p">])</span> <span class="o">&lt;&lt;</span> <span class="p">((</span><span class="n">bytes_in_word</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">j</span><span class="p">)</span> <span class="o">*</span> <span class="n">bits_in_byte</span><span class="p">)</span>
+            <span class="n">words</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">hal</span><span class="o">.</span><span class="n">PPUMemoryWord</span><span class="p">(</span>
+                <span class="n">hal</span><span class="o">.</span><span class="n">PPUMemoryWord</span><span class="o">.</span><span class="n">Value</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">words</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">)</span> <span class="o">|</span> <span class="n">image_value</span><span class="p">))</span>
+    <span class="n">image_config</span><span class="o">.</span><span class="n">words</span> <span class="o">=</span> <span class="n">words</span>
+
+    <span class="k">return</span> <span class="n">image_config</span>
+</pre></div>
+</div>
+<div class="section" id="controlling-the-on-chip-plasticity-processor">
+<h2>Controlling the on-chip plasticity processor<a class="headerlink" href="#controlling-the-on-chip-plasticity-processor" title="Permalink to this headline">¶</a></h2>
+<p>Later, we will define the network topology using the pyNN interface.
+Loading the PPU program onto the chip and starting the PPU will be injected
+as a black-box sequence of instructions:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">load_and_start_plasticity_kernel</span><span class="p">(</span>
+        <span class="n">binary_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">ppu</span><span class="p">:</span> <span class="n">halco</span><span class="o">.</span><span class="n">PPUOnDLS</span><span class="p">,</span>
+        <span class="n">image</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">,</span>
+        <span class="n">wait_duration</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">sta</span><span class="o">.</span><span class="n">PlaybackProgramBuilder</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Load the plasticity kernel and trigger its execution.</span>
+
+<span class="sd">    :param binary_path: Path to the unstripped (*.bin) program to be loaded</span>
+<span class="sd">    :param ppu: PPU the program is started on.</span>
+<span class="sd">    :param image: Image data.</span>
+<span class="sd">    :param wait_duration: Wait duration between weight changes.</span>
+<span class="sd">    :return: PlaybackProgramBuilder with instructions for loading a</span>
+<span class="sd">             plasticity kernel and triggering its execution.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">builder</span> <span class="o">=</span> <span class="n">sta</span><span class="o">.</span><span class="n">PlaybackProgramBuilder</span><span class="p">()</span>
+
+    <span class="n">ppu_control_reg_run</span> <span class="o">=</span> <span class="n">hal</span><span class="o">.</span><span class="n">PPUControlRegister</span><span class="p">()</span>
+    <span class="n">ppu_control_reg_run</span><span class="o">.</span><span class="n">inhibit_reset</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="n">ppu_control_reg_reset</span> <span class="o">=</span> <span class="n">hal</span><span class="o">.</span><span class="n">PPUControlRegister</span><span class="p">()</span>
+    <span class="n">ppu_control_reg_reset</span><span class="o">.</span><span class="n">inhibit_reset</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="n">program_file</span> <span class="o">=</span> <span class="n">lola</span><span class="o">.</span><span class="n">PPUElfFile</span><span class="p">(</span><span class="n">binary_path</span><span class="p">)</span>
+    <span class="n">program</span> <span class="o">=</span> <span class="n">program_file</span><span class="o">.</span><span class="n">read_program</span><span class="p">()</span>
+    <span class="n">program_on_ppu</span> <span class="o">=</span> <span class="n">halco</span><span class="o">.</span><span class="n">PPUMemoryBlockOnPPU</span><span class="p">(</span>
+        <span class="n">halco</span><span class="o">.</span><span class="n">PPUMemoryWordOnPPU</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
+        <span class="n">halco</span><span class="o">.</span><span class="n">PPUMemoryWordOnPPU</span><span class="p">(</span><span class="n">program</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="n">program_on_dls</span> <span class="o">=</span> <span class="n">halco</span><span class="o">.</span><span class="n">PPUMemoryBlockOnDLS</span><span class="p">(</span><span class="n">program_on_ppu</span><span class="p">,</span> <span class="n">ppu</span><span class="p">)</span>
+
+    <span class="c1"># Ensure PPU is in reset state</span>
+    <span class="n">builder</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">ppu</span><span class="o">.</span><span class="n">toPPUControlRegisterOnDLS</span><span class="p">(),</span> <span class="n">ppu_control_reg_reset</span><span class="p">)</span>
+
+    <span class="n">symbols</span> <span class="o">=</span> <span class="n">program_file</span><span class="o">.</span><span class="n">read_symbols</span><span class="p">()</span>
+
+    <span class="c1"># Manually initialize memory where symbols will lie, issue #3477</span>
+    <span class="k">for</span> <span class="n">_name</span><span class="p">,</span> <span class="n">symbol</span> <span class="ow">in</span> <span class="n">symbols</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">hal</span><span class="o">.</span><span class="n">PPUMemoryBlock</span><span class="p">(</span><span class="n">symbol</span><span class="o">.</span><span class="n">coordinate</span><span class="o">.</span><span class="n">toPPUMemoryBlockSize</span><span class="p">())</span>
+        <span class="n">symbol_on_dls</span> <span class="o">=</span> <span class="n">halco</span><span class="o">.</span><span class="n">PPUMemoryBlockOnDLS</span><span class="p">(</span><span class="n">symbol</span><span class="o">.</span><span class="n">coordinate</span><span class="p">,</span> <span class="n">ppu</span><span class="p">)</span>
+        <span class="n">builder</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">symbol_on_dls</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+    <span class="c1"># Write image data</span>
+    <span class="n">image_symbol</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">[</span><span class="s2">&quot;image&quot;</span><span class="p">]</span>
+    <span class="n">image_config</span> <span class="o">=</span> <span class="n">image_to_memory_block</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+    <span class="n">image_symbol_on_dls</span> <span class="o">=</span> \
+        <span class="n">halco</span><span class="o">.</span><span class="n">PPUMemoryBlockOnDLS</span><span class="p">(</span><span class="n">image_symbol</span><span class="o">.</span><span class="n">coordinate</span><span class="p">,</span> <span class="n">ppu</span><span class="p">)</span>
+    <span class="n">builder</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">image_symbol_on_dls</span><span class="p">,</span> <span class="n">image_config</span><span class="p">)</span>
+
+    <span class="c1"># Write wait duration</span>
+    <span class="n">wait_duration_symbol</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">[</span><span class="s2">&quot;wait_duration&quot;</span><span class="p">]</span>
+    <span class="n">wait_duration_config</span> <span class="o">=</span> \
+        <span class="n">hal</span><span class="o">.</span><span class="n">PPUMemoryWord</span><span class="p">(</span><span class="n">hal</span><span class="o">.</span><span class="n">PPUMemoryWord</span><span class="o">.</span><span class="n">Value</span><span class="p">(</span><span class="n">wait_duration</span><span class="p">))</span>
+    <span class="n">wait_duration_symbol_on_dls</span> <span class="o">=</span> \
+        <span class="n">halco</span><span class="o">.</span><span class="n">PPUMemoryWordOnDLS</span><span class="p">(</span><span class="n">wait_duration_symbol</span><span class="o">.</span><span class="n">coordinate</span><span class="o">.</span><span class="n">toMin</span><span class="p">(),</span> <span class="n">ppu</span><span class="p">)</span>
+    <span class="n">builder</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">wait_duration_symbol_on_dls</span><span class="p">,</span> <span class="n">wait_duration_config</span><span class="p">)</span>
+
+    <span class="c1"># Write PPU program</span>
+    <span class="n">builder</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">program_on_dls</span><span class="p">,</span> <span class="n">program</span><span class="p">)</span>
+
+    <span class="c1"># Set PPU to run state, start execution</span>
+    <span class="n">builder</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">ppu</span><span class="o">.</span><span class="n">toPPUControlRegisterOnDLS</span><span class="p">(),</span> <span class="n">ppu_control_reg_run</span><span class="p">)</span>
+
+    <span class="c1"># Block until writes completed</span>
+    <span class="n">builder</span><span class="o">.</span><span class="n">block_until</span><span class="p">(</span><span class="n">halco</span><span class="o">.</span><span class="n">BarrierOnFPGA</span><span class="p">(),</span> <span class="n">hal</span><span class="o">.</span><span class="n">Barrier</span><span class="o">.</span><span class="n">omnibus</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">builder</span>
+</pre></div>
+</div>
+<p>For our experiment, we first load an image to be rate-encoded later.</p>
+<a class="reference internal image-reference" href="../_images/visions.png"><img alt="../_images/visions.png" class="align-center" src="../_images/visions.png" style="width: 10%;" /></a>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read image into 2d numpy array</span>
+<span class="n">image</span> <span class="o">=</span> <span class="n">read_image</span><span class="p">(</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;_static&quot;</span><span class="p">,</span> <span class="s2">&quot;tutorial&quot;</span><span class="p">,</span> <span class="s2">&quot;visions.png&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Furthermore, we set some environment variables for our microscheduler:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">_static.common.helpers</span> <span class="kn">import</span> <span class="n">setup_hardware_client</span>
+<span class="n">setup_hardware_client</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Next, the instructions for loading and starting the PPU program and transferring
+the original image data are generated.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">builder</span> <span class="o">=</span> <span class="n">load_and_start_plasticity_kernel</span><span class="p">(</span>
+    <span class="n">join</span><span class="p">(</span><span class="s2">&quot;_static&quot;</span><span class="p">,</span> <span class="s2">&quot;tutorial&quot;</span><span class="p">,</span> <span class="s2">&quot;plasticity_kernel.bin&quot;</span><span class="p">),</span>
+    <span class="n">halco</span><span class="o">.</span><span class="n">PPUOnDLS</span><span class="o">.</span><span class="n">top</span><span class="p">,</span>
+    <span class="n">image</span><span class="p">,</span>
+    <span class="mi">1000</span> <span class="o">*</span> <span class="mi">250</span><span class="p">)</span> <span class="c1"># 1 ms</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="the-plasticity-kernel">
+<h2>The plasticity kernel<a class="headerlink" href="#the-plasticity-kernel" title="Permalink to this headline">¶</a></h2>
+<p>We use a pre-compiled program with the following underlying source code.
+The image data is transferred into a global object <code class="docutils literal notranslate"><span class="pre">image</span></code>.
+Within the entry-point <code class="docutils literal notranslate"><span class="pre">start()</span></code>, the program writes synapse weight values
+row-wise via <code class="docutils literal notranslate"><span class="pre">set_row_via_vector(weight_row,</span> <span class="pre">row,</span> <span class="pre">dls_weight_base)</span></code>.
+After each write, a predefined constant time <code class="docutils literal notranslate"><span class="pre">wait_duration</span></code> is waited before
+the next row of the image is written.
+Over time, this leads to each row of the image being present and imprinting itself
+onto the neurons’ firing rate.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;libnux/vx/time.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;libnux/vx/vector.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;array&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;cstdint&gt;</span><span class="cp"></span>
+
+<span class="k">constexpr</span> <span class="k">static</span> <span class="kt">size_t</span> <span class="n">image_h</span> <span class="o">=</span> <span class="mi">64</span><span class="p">;</span>
+<span class="k">constexpr</span> <span class="k">static</span> <span class="kt">size_t</span> <span class="n">image_w</span> <span class="o">=</span> <span class="mi">64</span><span class="p">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Image data to be set from outside.</span>
+<span class="cm"> */</span>
+<span class="kt">uint8_t</span> <span class="k">volatile</span> <span class="n">image</span><span class="p">[</span><span class="n">image_h</span><span class="p">][</span><span class="n">image_w</span><span class="p">];</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Wait duration between weight changes [PPU cycles].</span>
+<span class="cm"> */</span>
+<span class="kt">uint32_t</span> <span class="k">volatile</span> <span class="n">wait_duration</span><span class="p">;</span>
+
+<span class="k">constexpr</span> <span class="k">static</span> <span class="kt">size_t</span> <span class="n">row</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">start</span><span class="p">()</span>
+<span class="p">{</span>
+	<span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">h</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">h</span> <span class="o">&lt;</span> <span class="n">image_h</span><span class="p">;</span> <span class="o">++</span><span class="n">h</span><span class="p">)</span> <span class="p">{</span>
+		<span class="c1">// get current time</span>
+		<span class="n">libnux</span><span class="o">::</span><span class="n">vx</span><span class="o">::</span><span class="n">time_base_t</span> <span class="k">const</span> <span class="n">before</span> <span class="o">=</span> <span class="n">libnux</span><span class="o">::</span><span class="n">vx</span><span class="o">::</span><span class="n">now</span><span class="p">();</span>
+
+		<span class="c1">// load new vertical line of image</span>
+		<span class="n">libnux</span><span class="o">::</span><span class="n">vx</span><span class="o">::</span><span class="n">vector_row_t</span> <span class="n">weight_row</span><span class="p">;</span>
+		<span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">w</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">w</span> <span class="o">&lt;</span> <span class="n">image_w</span><span class="p">;</span> <span class="o">++</span><span class="n">w</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">weight_row</span><span class="p">[</span><span class="n">w</span><span class="p">]</span> <span class="o">=</span> <span class="n">image</span><span class="p">[</span><span class="n">h</span><span class="p">][</span><span class="n">w</span><span class="p">];</span>
+		<span class="p">}</span>
+
+		<span class="c1">// alter weights in synapse memory</span>
+		<span class="n">libnux</span><span class="o">::</span><span class="n">vx</span><span class="o">::</span><span class="n">set_row_via_vector</span><span class="p">(</span><span class="n">weight_row</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">libnux</span><span class="o">::</span><span class="n">vx</span><span class="o">::</span><span class="n">dls_weight_base</span><span class="p">);</span>
+
+		<span class="c1">// wait until wait_duration elapsed</span>
+		<span class="k">while</span> <span class="p">(</span><span class="n">libnux</span><span class="o">::</span><span class="n">vx</span><span class="o">::</span><span class="n">now</span><span class="p">()</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">before</span> <span class="o">+</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">libnux</span><span class="o">::</span><span class="n">vx</span><span class="o">::</span><span class="n">time_base_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">wait_duration</span><span class="p">)))</span> <span class="p">{</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="mi">42</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>We inject the PPU start directly before the real-time execution in order to
+align starting the PPU with the experiment start.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">injections</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">InjectedConfiguration</span><span class="p">()</span>
+<span class="n">injections</span><span class="o">.</span><span class="n">pre_realtime</span> <span class="o">=</span> <span class="n">builder</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="the-experiment">
+<h2>The experiment<a class="headerlink" href="#the-experiment" title="Permalink to this headline">¶</a></h2>
+<p>For this simple binary on-off plasticity, we don’t need the full-fledged capabilities
+of the neurons and therefore configure them to bypass-mode, where every incoming spike
+elicits an output spike.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pynn</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="n">enable_neuron_bypass</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">injected_config</span><span class="o">=</span><span class="n">injections</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Our network uses a single-layer feed-forward structure.
+External Poisson stimulus is generated with a constant rate.
+We use multiple sources for decorrelation of the neurons’ spikes in order to prevent
+congestion effects due to the neuron bypass mode.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bg_props</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>  <span class="c1"># ms</span>
+    <span class="n">rate</span><span class="o">=</span><span class="mi">4000</span><span class="p">,</span>  <span class="c1"># Hz</span>
+    <span class="n">duration</span><span class="o">=</span><span class="mi">64</span>  <span class="c1"># ms</span>
+<span class="p">)</span>
+<span class="n">external_input</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">pynn</span><span class="o">.</span><span class="n">cells</span><span class="o">.</span><span class="n">SpikeSourcePoisson</span><span class="p">(</span><span class="o">**</span><span class="n">bg_props</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>The target population consists of 64 neurons, spikes are recorded.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">neurons</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">pynn</span><span class="o">.</span><span class="n">cells</span><span class="o">.</span><span class="n">HXNeuron</span><span class="p">())</span>
+<span class="n">neurons</span><span class="o">.</span><span class="n">record</span><span class="p">([</span><span class="s2">&quot;spikes&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Since the external stimulus population’s size matches the internal population’s size,
+a on-to-one connector is used as projection.
+Initially the weight is set to zero, the PPU will alter it during the experiment.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">synapse</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">standardmodels</span><span class="o">.</span><span class="n">synapses</span><span class="o">.</span><span class="n">StaticSynapse</span><span class="p">(</span><span class="n">weight</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">pynn</span><span class="o">.</span><span class="n">Projection</span><span class="p">(</span><span class="n">external_input</span><span class="p">,</span>
+                <span class="n">neurons</span><span class="p">,</span>
+                <span class="n">pynn</span><span class="o">.</span><span class="n">OneToOneConnector</span><span class="p">(),</span>
+                <span class="n">synapse_type</span><span class="o">=</span><span class="n">synapse</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We run the experiment for 64 ms, during which we expect a weight change every ms
+leading to all image columns being present as weights for this duration one after
+the other.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pynn</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="mi">64</span><span class="p">)</span> <span class="c1"># ms</span>
+</pre></div>
+</div>
+<p>Last, the recorded spike-trains are visualized.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">spikes</span> <span class="o">=</span> <span class="n">neurons</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="s2">&quot;spikes&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">segments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">spiketrains</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">spiketrain</span> <span class="ow">in</span> <span class="n">spikes</span><span class="o">.</span><span class="n">spiketrains</span><span class="p">:</span>
+    <span class="n">spiketrains</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">spiketrain</span><span class="o">.</span><span class="n">base</span><span class="p">)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">eventplot</span><span class="p">(</span><span class="n">spiketrains</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#990000&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">64</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">63</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;time [ms]&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;neuron index&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>We see a replicated version of the original image encoded in the time evolution of
+the neurons’ firing rates.</p>
+<a class="solution reference internal image-reference" href="../_images/plasticity_rate_coding.png"><img alt="../_images/plasticity_rate_coding.png" class="solution align-center" src="../_images/plasticity_rate_coding.png" style="width: 50%;" /></a>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="tutorial_6-multicompartment.html" class="btn btn-neutral float-right" title="Structured Neurons" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="tutorial_4-hagen_properties.html" class="btn btn-neutral float-left" title="Exploring the analog MAC operation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Electronic Vision(s).
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
