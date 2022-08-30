@@ -1,7 +1,8 @@
+from datetime import date
 # -- Project information -----------------------------------------------------
 
 project = 'BrainScaleS-2 Documentation'
-copyright = '2021, Electronic Vision(s)'
+copyright = f'{date.today().year}, Electronic Vision(s)'
 author = 'Electronic Vision(s)'
 
 # The full version, including alpha/beta/rc tags
