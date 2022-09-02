@@ -218,7 +218,7 @@ neurons (our canvas will be the activity of the neurons over time).
 This is done by switching synapses on and off using a predefined data sequence.
 Each PPU has 16kiB on-chip memory. For a quadratic image to fit, it is therefore
 limited to 64x64 pixels. For simplicity, only one of the two PPUs is used.</p>
-<p>For loading and converting an image, some _static.common.helpers are required:</p>
+<p>For loading and converting an image, some helpers are required:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">read_image</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Read image from file and scale it to the weight range.</span>
@@ -271,78 +271,13 @@ limited to 64x64 pixels. For simplicity, only one of the two PPUs is used.</p>
 <div class="section" id="controlling-the-on-chip-plasticity-processor">
 <h2>Controlling the on-chip plasticity processor<a class="headerlink" href="#controlling-the-on-chip-plasticity-processor" title="Permalink to this headline">¶</a></h2>
 <p>Later, we will define the network topology using the pyNN interface.
-Loading the PPU program onto the chip and starting the PPU will be injected
-as a black-box sequence of instructions:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">load_and_start_plasticity_kernel</span><span class="p">(</span>
-        <span class="n">binary_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-        <span class="n">ppu</span><span class="p">:</span> <span class="n">halco</span><span class="o">.</span><span class="n">PPUOnDLS</span><span class="p">,</span>
-        <span class="n">image</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">,</span>
-        <span class="n">wait_duration</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">sta</span><span class="o">.</span><span class="n">PlaybackProgramBuilder</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Load the plasticity kernel and trigger its execution.</span>
-
-<span class="sd">    :param binary_path: Path to the unstripped (*.bin) program to be loaded</span>
-<span class="sd">    :param ppu: PPU the program is started on.</span>
-<span class="sd">    :param image: Image data.</span>
-<span class="sd">    :param wait_duration: Wait duration between weight changes.</span>
-<span class="sd">    :return: PlaybackProgramBuilder with instructions for loading a</span>
-<span class="sd">             plasticity kernel and triggering its execution.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">builder</span> <span class="o">=</span> <span class="n">sta</span><span class="o">.</span><span class="n">PlaybackProgramBuilder</span><span class="p">()</span>
-
-    <span class="n">ppu_control_reg_run</span> <span class="o">=</span> <span class="n">hal</span><span class="o">.</span><span class="n">PPUControlRegister</span><span class="p">()</span>
-    <span class="n">ppu_control_reg_run</span><span class="o">.</span><span class="n">inhibit_reset</span> <span class="o">=</span> <span class="kc">True</span>
-
-    <span class="n">ppu_control_reg_reset</span> <span class="o">=</span> <span class="n">hal</span><span class="o">.</span><span class="n">PPUControlRegister</span><span class="p">()</span>
-    <span class="n">ppu_control_reg_reset</span><span class="o">.</span><span class="n">inhibit_reset</span> <span class="o">=</span> <span class="kc">False</span>
-
-    <span class="n">program_file</span> <span class="o">=</span> <span class="n">lola</span><span class="o">.</span><span class="n">PPUElfFile</span><span class="p">(</span><span class="n">binary_path</span><span class="p">)</span>
-    <span class="n">program</span> <span class="o">=</span> <span class="n">program_file</span><span class="o">.</span><span class="n">read_program</span><span class="p">()</span>
-    <span class="n">program_on_ppu</span> <span class="o">=</span> <span class="n">halco</span><span class="o">.</span><span class="n">PPUMemoryBlockOnPPU</span><span class="p">(</span>
-        <span class="n">halco</span><span class="o">.</span><span class="n">PPUMemoryWordOnPPU</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
-        <span class="n">halco</span><span class="o">.</span><span class="n">PPUMemoryWordOnPPU</span><span class="p">(</span><span class="n">program</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="p">)</span>
-
-    <span class="n">program_on_dls</span> <span class="o">=</span> <span class="n">halco</span><span class="o">.</span><span class="n">PPUMemoryBlockOnDLS</span><span class="p">(</span><span class="n">program_on_ppu</span><span class="p">,</span> <span class="n">ppu</span><span class="p">)</span>
-
-    <span class="c1"># Ensure PPU is in reset state</span>
-    <span class="n">builder</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">ppu</span><span class="o">.</span><span class="n">toPPUControlRegisterOnDLS</span><span class="p">(),</span> <span class="n">ppu_control_reg_reset</span><span class="p">)</span>
-
-    <span class="n">symbols</span> <span class="o">=</span> <span class="n">program_file</span><span class="o">.</span><span class="n">read_symbols</span><span class="p">()</span>
-
-    <span class="c1"># Manually initialize memory where symbols will lie, issue #3477</span>
-    <span class="k">for</span> <span class="n">_name</span><span class="p">,</span> <span class="n">symbol</span> <span class="ow">in</span> <span class="n">symbols</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-        <span class="n">value</span> <span class="o">=</span> <span class="n">hal</span><span class="o">.</span><span class="n">PPUMemoryBlock</span><span class="p">(</span><span class="n">symbol</span><span class="o">.</span><span class="n">coordinate</span><span class="o">.</span><span class="n">toPPUMemoryBlockSize</span><span class="p">())</span>
-        <span class="n">symbol_on_dls</span> <span class="o">=</span> <span class="n">halco</span><span class="o">.</span><span class="n">PPUMemoryBlockOnDLS</span><span class="p">(</span><span class="n">symbol</span><span class="o">.</span><span class="n">coordinate</span><span class="p">,</span> <span class="n">ppu</span><span class="p">)</span>
-        <span class="n">builder</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">symbol_on_dls</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
-
-    <span class="c1"># Write image data</span>
-    <span class="n">image_symbol</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">[</span><span class="s2">&quot;image&quot;</span><span class="p">]</span>
-    <span class="n">image_config</span> <span class="o">=</span> <span class="n">image_to_memory_block</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
-    <span class="n">image_symbol_on_dls</span> <span class="o">=</span> \
-        <span class="n">halco</span><span class="o">.</span><span class="n">PPUMemoryBlockOnDLS</span><span class="p">(</span><span class="n">image_symbol</span><span class="o">.</span><span class="n">coordinate</span><span class="p">,</span> <span class="n">ppu</span><span class="p">)</span>
-    <span class="n">builder</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">image_symbol_on_dls</span><span class="p">,</span> <span class="n">image_config</span><span class="p">)</span>
-
-    <span class="c1"># Write wait duration</span>
-    <span class="n">wait_duration_symbol</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">[</span><span class="s2">&quot;wait_duration&quot;</span><span class="p">]</span>
-    <span class="n">wait_duration_config</span> <span class="o">=</span> \
-        <span class="n">hal</span><span class="o">.</span><span class="n">PPUMemoryWord</span><span class="p">(</span><span class="n">hal</span><span class="o">.</span><span class="n">PPUMemoryWord</span><span class="o">.</span><span class="n">Value</span><span class="p">(</span><span class="n">wait_duration</span><span class="p">))</span>
-    <span class="n">wait_duration_symbol_on_dls</span> <span class="o">=</span> \
-        <span class="n">halco</span><span class="o">.</span><span class="n">PPUMemoryWordOnDLS</span><span class="p">(</span><span class="n">wait_duration_symbol</span><span class="o">.</span><span class="n">coordinate</span><span class="o">.</span><span class="n">toMin</span><span class="p">(),</span> <span class="n">ppu</span><span class="p">)</span>
-    <span class="n">builder</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">wait_duration_symbol_on_dls</span><span class="p">,</span> <span class="n">wait_duration_config</span><span class="p">)</span>
-
-    <span class="c1"># Write PPU program</span>
-    <span class="n">builder</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">program_on_dls</span><span class="p">,</span> <span class="n">program</span><span class="p">)</span>
-
-    <span class="c1"># Set PPU to run state, start execution</span>
-    <span class="n">builder</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">ppu</span><span class="o">.</span><span class="n">toPPUControlRegisterOnDLS</span><span class="p">(),</span> <span class="n">ppu_control_reg_run</span><span class="p">)</span>
-
-    <span class="c1"># Block until writes completed</span>
-    <span class="n">builder</span><span class="o">.</span><span class="n">block_until</span><span class="p">(</span><span class="n">halco</span><span class="o">.</span><span class="n">BarrierOnFPGA</span><span class="p">(),</span> <span class="n">hal</span><span class="o">.</span><span class="n">Barrier</span><span class="o">.</span><span class="n">omnibus</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">builder</span>
-</pre></div>
-</div>
+During the experiment, the PPUs execute an earliest-deadline-first scheduler for
+tasks to be performed. In PyNN, execution of a plasticity rule is such a task.
+A plasticity rule is injected as synapse type of a projection and upon execution is
+provided with the locations of the synapses in the projection(s) created with this
+plastic synapse type. The plastic synapse features a method yielding C++-code to be
+executed as task on the PPU given the synapse location information.
+Tasks can be executed periodically, for which a timer object is to be supplied.</p>
 <p>For our experiment, we first load an image to be rate-encoded later.</p>
 <a class="reference internal image-reference" href="../_images/visions.png"><img alt="../_images/visions.png" class="align-center" src="../_images/visions.png" style="width: 10%;" /></a>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read image into 2d numpy array</span>
@@ -354,73 +289,97 @@ as a black-box sequence of instructions:</p>
 <span class="n">setup_hardware_client</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Next, the instructions for loading and starting the PPU program and transferring
-the original image data are generated.</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">builder</span> <span class="o">=</span> <span class="n">load_and_start_plasticity_kernel</span><span class="p">(</span>
-    <span class="n">join</span><span class="p">(</span><span class="s2">&quot;_static&quot;</span><span class="p">,</span> <span class="s2">&quot;tutorial&quot;</span><span class="p">,</span> <span class="s2">&quot;plasticity_kernel.bin&quot;</span><span class="p">),</span>
-    <span class="n">halco</span><span class="o">.</span><span class="n">PPUOnDLS</span><span class="o">.</span><span class="n">top</span><span class="p">,</span>
-    <span class="n">image</span><span class="p">,</span>
-    <span class="mi">1000</span> <span class="o">*</span> <span class="mi">250</span><span class="p">)</span> <span class="c1"># 1 ms</span>
-</pre></div>
-</div>
 </div>
 <div class="section" id="the-plasticity-kernel">
 <h2>The plasticity kernel<a class="headerlink" href="#the-plasticity-kernel" title="Permalink to this headline">¶</a></h2>
-<p>We use a pre-compiled program with the following underlying source code.
+<p>We now define the plastic synapse type with the C++-code which imprints the image
+onto the spike-trains by alteration of the synaptic weights.
 The image data is transferred into a global object <code class="docutils literal notranslate"><span class="pre">image</span></code>.
-Within the entry-point <code class="docutils literal notranslate"><span class="pre">start()</span></code>, the program writes synapse weight values
-row-wise via <code class="docutils literal notranslate"><span class="pre">set_row_via_vector(weight_row,</span> <span class="pre">row,</span> <span class="pre">dls_weight_base)</span></code>.
-After each write, a predefined constant time <code class="docutils literal notranslate"><span class="pre">wait_duration</span></code> is waited before
-the next row of the image is written.
+The entry point of the plastic synapse task is called <code class="docutils literal notranslate"><span class="pre">PLASTICITY_RULE_KERNEL</span></code>
+and is supplied with synapse location information corresponding the the projection
+in PyNN. Within the task function, the program writes synapse weight values
+row-wise via <code class="docutils literal notranslate"><span class="pre">set_weights(weight_row,</span> <span class="pre">row)</span></code>.
+Since the task is scheduled periodically configured via the <code class="docutils literal notranslate"><span class="pre">Timer</span></code> object, after
+each write, the period duration is waited before the next row of the image is written.
 Over time, this leads to each row of the image being present and imprinting itself
 onto the neurons’ firing rate.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;libnux/vx/time.h&quot;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&quot;libnux/vx/vector.h&quot;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;array&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;cstdint&gt;</span><span class="cp"></span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">textwrap</span>
 
-<span class="k">constexpr</span> <span class="k">static</span> <span class="kt">size_t</span> <span class="n">image_h</span> <span class="o">=</span> <span class="mi">64</span><span class="p">;</span>
-<span class="k">constexpr</span> <span class="k">static</span> <span class="kt">size_t</span> <span class="n">image_w</span> <span class="o">=</span> <span class="mi">64</span><span class="p">;</span>
+<span class="k">class</span> <span class="nc">PlasticSynapse</span><span class="p">(</span>
+        <span class="n">pynn</span><span class="o">.</span><span class="n">PlasticityRule</span><span class="p">,</span>
+        <span class="n">pynn</span><span class="o">.</span><span class="n">standardmodels</span><span class="o">.</span><span class="n">synapses</span><span class="o">.</span><span class="n">StaticSynapse</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timer</span><span class="p">:</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Timer</span><span class="p">,</span> <span class="n">image</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="n">weight</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize plastic synapse with execution timing information,</span>
+<span class="sd">        the image pixels and initial weight.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">pynn</span><span class="o">.</span><span class="n">PlasticityRule</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timer</span><span class="p">)</span>
+        <span class="n">pynn</span><span class="o">.</span><span class="n">standardmodels</span><span class="o">.</span><span class="n">synapses</span><span class="o">.</span><span class="n">StaticSynapse</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="n">weight</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">image</span> <span class="o">=</span> <span class="n">image</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">timer</span><span class="o">.</span><span class="n">num_periods</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">image</span><span class="p">)</span>
 
-<span class="cm">/**</span>
-<span class="cm"> * Image data to be set from outside.</span>
-<span class="cm"> */</span>
-<span class="kt">uint8_t</span> <span class="k">volatile</span> <span class="n">image</span><span class="p">[</span><span class="n">image_h</span><span class="p">][</span><span class="n">image_w</span><span class="p">];</span>
+    <span class="k">def</span> <span class="nf">generate_kernel</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generate plasticity rule kernel to be compiled into PPU program.</span>
 
-<span class="cm">/**</span>
-<span class="cm"> * Wait duration between weight changes [PPU cycles].</span>
-<span class="cm"> */</span>
-<span class="kt">uint32_t</span> <span class="k">volatile</span> <span class="n">wait_duration</span><span class="p">;</span>
+<span class="sd">        :return: PPU-code of plasticity-rule kernel as string.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">        #include &quot;grenade/vx/ppu/synapse_array_view_handle.h&quot;</span>
+<span class="s2">        #include &quot;libnux/vx/dls.h&quot;</span>
 
-<span class="k">constexpr</span> <span class="k">static</span> <span class="kt">size_t</span> <span class="n">row</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="s2">        using namespace grenade::vx::ppu;</span>
+<span class="s2">        using namespace libnux::vx;</span>
 
-<span class="kt">int</span> <span class="nf">start</span><span class="p">()</span>
-<span class="p">{</span>
-	<span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">h</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">h</span> <span class="o">&lt;</span> <span class="n">image_h</span><span class="p">;</span> <span class="o">++</span><span class="n">h</span><span class="p">)</span> <span class="p">{</span>
-		<span class="c1">// get current time</span>
-		<span class="n">libnux</span><span class="o">::</span><span class="n">vx</span><span class="o">::</span><span class="n">time_base_t</span> <span class="k">const</span> <span class="n">before</span> <span class="o">=</span> <span class="n">libnux</span><span class="o">::</span><span class="n">vx</span><span class="o">::</span><span class="n">now</span><span class="p">();</span>
+<span class="s2">        /**</span>
+<span class="s2">         * PPU currently executing this code (top/bottom).</span>
+<span class="s2">         */</span>
+<span class="s2">        extern volatile PPUOnDLS ppu;</span>
 
-		<span class="c1">// load new vertical line of image</span>
-		<span class="n">libnux</span><span class="o">::</span><span class="n">vx</span><span class="o">::</span><span class="n">vector_row_t</span> <span class="n">weight_row</span><span class="p">;</span>
-		<span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">w</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">w</span> <span class="o">&lt;</span> <span class="n">image_w</span><span class="p">;</span> <span class="o">++</span><span class="n">w</span><span class="p">)</span> <span class="p">{</span>
-			<span class="n">weight_row</span><span class="p">[</span><span class="n">w</span><span class="p">]</span> <span class="o">=</span> <span class="n">image</span><span class="p">[</span><span class="n">h</span><span class="p">][</span><span class="n">w</span><span class="p">];</span>
-		<span class="p">}</span>
+<span class="s2">        /**</span>
+<span class="s2">         * Image data.</span>
+<span class="s2">         */</span>
+<span class="s2">        uint8_t const image[</span><span class="si">{image_h}</span><span class="s2">][</span><span class="si">{image_w}</span><span class="s2">] = {{</span>
+<span class="s2">            </span><span class="si">{image_pixels}</span><span class="s2"></span>
+<span class="s2">        }};</span>
 
-		<span class="c1">// alter weights in synapse memory</span>
-		<span class="n">libnux</span><span class="o">::</span><span class="n">vx</span><span class="o">::</span><span class="n">set_row_via_vector</span><span class="p">(</span><span class="n">weight_row</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">libnux</span><span class="o">::</span><span class="n">vx</span><span class="o">::</span><span class="n">dls_weight_base</span><span class="p">);</span>
+<span class="s2">        /**</span>
+<span class="s2">         * Currently to be presented row in image.</span>
+<span class="s2">         */</span>
+<span class="s2">        uint32_t current_row = 0;</span>
 
-		<span class="c1">// wait until wait_duration elapsed</span>
-		<span class="k">while</span> <span class="p">(</span><span class="n">libnux</span><span class="o">::</span><span class="n">vx</span><span class="o">::</span><span class="n">now</span><span class="p">()</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">before</span> <span class="o">+</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">libnux</span><span class="o">::</span><span class="n">vx</span><span class="o">::</span><span class="n">time_base_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">wait_duration</span><span class="p">)))</span> <span class="p">{</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-	<span class="k">return</span> <span class="mi">42</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>We inject the PPU start directly before the real-time execution in order to
-align starting the PPU with the experiment start.</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">injections</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">InjectedConfiguration</span><span class="p">()</span>
-<span class="n">injections</span><span class="o">.</span><span class="n">pre_realtime</span> <span class="o">=</span> <span class="n">builder</span>
+<span class="s2">        void PLASTICITY_RULE_KERNEL(</span>
+<span class="s2">            std::array&lt;SynapseArrayViewHandle, 1&gt;&amp; synapses,</span>
+<span class="s2">            std::array&lt;PPUOnDLS, 1&gt; synrams)</span>
+<span class="s2">        {{</span>
+<span class="s2">            // only update weights when code is executed on the correct PPU</span>
+<span class="s2">            if (synrams[0] != ppu) {{</span>
+<span class="s2">                return;</span>
+<span class="s2">            }}</span>
+<span class="s2">            for (size_t row = 0; row &lt; synapses[0].rows.size; ++row) {{</span>
+<span class="s2">                if (synapses[0].rows.test(row)) {{</span>
+<span class="s2">                    // load new vertical line of image</span>
+<span class="s2">                    vector_row_t weight_row;</span>
+<span class="s2">                    size_t w = 0;</span>
+<span class="s2">                    for (size_t column = 0;</span>
+<span class="s2">                         column &lt; synapses[0].columns.size; ++column) {{</span>
+<span class="s2">                        if (synapses[0].columns.test(column)) {{</span>
+<span class="s2">                            weight_row[column] = image[w][current_row];</span>
+<span class="s2">                            w++;</span>
+<span class="s2">                        }}</span>
+<span class="s2">                    }}</span>
+
+<span class="s2">                    // alter weights in synapse memory</span>
+<span class="s2">                    synapses[0].set_weights(weight_row, row);</span>
+<span class="s2">                }}</span>
+<span class="s2">            }}</span>
+<span class="s2">            current_row++;</span>
+<span class="s2">        }}</span>
+<span class="s2">        &quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">image_h</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">image</span><span class="p">),</span> <span class="n">image_w</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">image</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+                   <span class="n">image_pixels</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s2">&quot;{&quot;</span> <span class="o">+</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+                       <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">pixel</span><span class="p">))</span> <span class="k">for</span> <span class="n">pixel</span> <span class="ow">in</span> <span class="n">row</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;}&quot;</span>
+                            <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">image</span><span class="p">])))</span>
 </pre></div>
 </div>
 </div>
@@ -429,7 +388,7 @@ align starting the PPU with the experiment start.</p>
 <p>For this simple binary on-off plasticity, we don’t need the full-fledged capabilities
 of the neurons and therefore configure them to bypass-mode, where every incoming spike
 elicits an output spike.</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pynn</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="n">enable_neuron_bypass</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">injected_config</span><span class="o">=</span><span class="n">injections</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pynn</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="n">enable_neuron_bypass</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Our network uses a single-layer feed-forward structure.
@@ -450,9 +409,13 @@ congestion effects due to the neuron bypass mode.</p>
 </pre></div>
 </div>
 <p>Since the external stimulus population’s size matches the internal population’s size,
-a on-to-one connector is used as projection.
+a one-to-one connector is used as projection.
 Initially the weight is set to zero, the PPU will alter it during the experiment.</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">synapse</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">standardmodels</span><span class="o">.</span><span class="n">synapses</span><span class="o">.</span><span class="n">StaticSynapse</span><span class="p">(</span><span class="n">weight</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">timer</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span>
+    <span class="n">start</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="c1"># ms</span>
+    <span class="n">period</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="c1"># ms</span>
+    <span class="n">num_periods</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">image</span><span class="p">))</span>
+<span class="n">synapse</span> <span class="o">=</span> <span class="n">PlasticSynapse</span><span class="p">(</span><span class="n">timer</span><span class="o">=</span><span class="n">timer</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="n">image</span><span class="p">)</span>
 <span class="n">pynn</span><span class="o">.</span><span class="n">Projection</span><span class="p">(</span><span class="n">external_input</span><span class="p">,</span>
                 <span class="n">neurons</span><span class="p">,</span>
                 <span class="n">pynn</span><span class="o">.</span><span class="n">OneToOneConnector</span><span class="p">(),</span>
