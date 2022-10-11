@@ -468,6 +468,10 @@
                           <span class="n">the</span> <span class="n">non</span> <span class="n">realtime</span> <span class="n">configuration</span><span class="o">.</span>
 <span class="p">:</span><span class="n">param</span> <span class="n">pre_realtime</span><span class="p">:</span> <span class="n">Injection</span> <span class="n">written</span> <span class="n">prior</span> <span class="n">to</span>
                       <span class="n">the</span> <span class="n">realtime</span> <span class="n">configuration</span><span class="o">.</span>
+<span class="p">:</span><span class="n">param</span> <span class="n">inside_realtime_begin</span><span class="p">:</span> <span class="n">Injection</span> <span class="n">written</span> <span class="n">prior</span> <span class="n">to</span>
+                      <span class="n">the</span> <span class="n">realtime</span> <span class="n">events</span><span class="o">.</span>
+<span class="p">:</span><span class="n">param</span> <span class="n">inside_realtime_end</span><span class="p">:</span> <span class="n">Injection</span> <span class="n">written</span> <span class="n">after</span>
+                      <span class="n">the</span> <span class="n">realtime</span> <span class="n">events</span> <span class="ow">and</span> <span class="n">runtime</span><span class="o">.</span>
 <span class="p">:</span><span class="n">param</span> <span class="n">post_realtime</span><span class="p">:</span> <span class="n">Injection</span> <span class="n">written</span> <span class="n">after</span> <span class="n">the</span>
                        <span class="n">the</span> <span class="n">realtime</span> <span class="n">configuration</span><span class="o">.</span>
 </pre></div>
@@ -489,6 +493,10 @@
 <dd><p>User defined injected readout. </p>
 <p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">param</span> <span class="n">pre_realtime</span><span class="p">:</span> <span class="n">Injection</span> <span class="n">of</span> <span class="n">reads</span> <span class="n">after</span> <span class="n">the</span>
                        <span class="n">the</span> <span class="n">pre_realtime</span> <span class="n">configuration</span><span class="o">.</span>
+<span class="p">:</span><span class="n">param</span> <span class="n">inside_realtime_begin</span><span class="p">:</span> <span class="n">Injection</span> <span class="n">of</span> <span class="n">reads</span> <span class="n">after</span> <span class="n">the</span>
+                       <span class="n">the</span> <span class="n">inside_realtime_begin</span> <span class="n">configuration</span><span class="o">.</span>
+<span class="p">:</span><span class="n">param</span> <span class="n">inside_realtime_end</span><span class="p">:</span> <span class="n">Injection</span> <span class="n">of</span> <span class="n">reads</span> <span class="n">after</span> <span class="n">the</span>
+                       <span class="n">the</span> <span class="n">inside_realtime_end</span> <span class="n">configuration</span><span class="o">.</span>
 <span class="p">:</span><span class="n">param</span> <span class="n">post_realtime</span><span class="p">:</span> <span class="n">Injection</span> <span class="n">of</span> <span class="n">reads</span> <span class="n">after</span> <span class="n">the</span>
                        <span class="n">the</span> <span class="n">post_realtime</span> <span class="n">configuration</span><span class="o">.</span>
 </pre></div>
@@ -1281,6 +1289,16 @@
 <dd></dd></dl>
 
 <dl class="py attribute">
+<dt id="injection_inside_realtime_begin">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_state_1a9b608a385acb02c5fe3c97cd12434da8"></span><code class="sig-name descname"><span class="pre">injection_inside_realtime_begin</span></code><a class="headerlink" href="#injection_inside_realtime_begin" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="injection_inside_realtime_end">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_state_1ac433a4cfb8ba27b72e3f20ebadea570e"></span><code class="sig-name descname"><span class="pre">injection_inside_realtime_end</span></code><a class="headerlink" href="#injection_inside_realtime_end" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
 <dt id="injection_post_realtime">
 <span class="target" id="classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_state_1a1aa6497af169c3f500a086d47da1b84a"></span><code class="sig-name descname"><span class="pre">injection_post_realtime</span></code><a class="headerlink" href="#injection_post_realtime" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -1293,6 +1311,26 @@
 <dl class="py attribute">
 <dt id="injection_pre_static_config">
 <span class="target" id="classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_state_1a0803dc4dcc36f91fe0f79ed31d341d5f"></span><code class="sig-name descname"><span class="pre">injection_pre_static_config</span></code><a class="headerlink" href="#injection_pre_static_config" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="inside_realtime_begin_read">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_state_1ad747a288d324bf0d7ef45dd00b7fa8e0"></span><code class="sig-name descname"><span class="pre">inside_realtime_begin_read</span></code><a class="headerlink" href="#inside_realtime_begin_read" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="inside_realtime_begin_tickets">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_state_1a085658e9a57e40f639db5d57fe6b4af1"></span><code class="sig-name descname"><span class="pre">inside_realtime_begin_tickets</span></code><a class="headerlink" href="#inside_realtime_begin_tickets" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="inside_realtime_end_read">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_state_1a165f21fec0688923cbd3f42caa380e70"></span><code class="sig-name descname"><span class="pre">inside_realtime_end_read</span></code><a class="headerlink" href="#inside_realtime_end_read" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="inside_realtime_end_tickets">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_state_1aeb323062e09b8fcd5b63905277289479"></span><code class="sig-name descname"><span class="pre">inside_realtime_end_tickets</span></code><a class="headerlink" href="#inside_realtime_end_tickets" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -1448,6 +1486,20 @@
 <span id="_get_pre_realtime_read"></span><span class="target" id="classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_state_1a86536221a2560a1d6882ab4f584f0d56"></span><code class="sig-name descname"><span class="pre">_get_pre_realtime_read</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#get_pre_realtime_read" title="Permalink to this definition">¶</a></dt>
 <dd><p>Redeem tickets of injected readout after pre_realtime section to get information after execution. </p>
 <p>:return: Dictionary with coordinates as keys and read container as values. </p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="prepare_inside_realtime_begin_read">
+<span id="_prepare_inside_realtime_begin_read"></span><span class="target" id="classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_state_1aca51e89c18863ffc0afa463de6347427"></span><code class="sig-name descname"><span class="pre">_prepare_inside_realtime_begin_read</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">sta.PlaybackProgramBuilder</span> <span class="pre">builder</span></em><span class="sig-paren">)</span><a class="headerlink" href="#prepare_inside_realtime_begin_read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prepare injected readout after inside_realtime_begin configuration and before event insertion. </p>
+<p>This generates tickets to access the read information and ensures completion via a barrier. :param builder: Builder to append instructions to. </p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="prepare_inside_realtime_end_read">
+<span id="_prepare_inside_realtime_end_read"></span><span class="target" id="classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_state_1ae336299669fd683dddc197943ad2924b"></span><code class="sig-name descname"><span class="pre">_prepare_inside_realtime_end_read</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">sta.PlaybackProgramBuilder</span> <span class="pre">builder</span></em><span class="sig-paren">)</span><a class="headerlink" href="#prepare_inside_realtime_end_read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prepare injected readout after inside_realtime_end configuration and after realtime_end experiment section. </p>
+<p>This generates tickets to access the read information and ensures completion via a barrier. :param builder: Builder to append instructions to. </p>
 </dd></dl>
 
 <dl class="py function">
@@ -2245,32 +2297,32 @@
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_5643325f60bd592eca7816d91ce4831a"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNjU0MA.x/pynn-brainscales/brainscales2</span></code></dt>
+<span class="target" id="dir_5643325f60bd592eca7816d91ce4831a"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNjU0NA.x/pynn-brainscales/brainscales2</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_30590f78572d0bff4c96c6642e878133"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNjU0MA.x/pynn-brainscales/brainscales2/pynn_brainscales/brainscales2</span></code></dt>
+<span class="target" id="dir_30590f78572d0bff4c96c6642e878133"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNjU0NA.x/pynn-brainscales/brainscales2/pynn_brainscales/brainscales2</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_71abf4e0cb61d33ca644053d80824813"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNjU0MA.x/pynn-brainscales/brainscales2/pynn_brainscales/brainscales2/examples</span></code></dt>
+<span class="target" id="dir_71abf4e0cb61d33ca644053d80824813"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNjU0NA.x/pynn-brainscales/brainscales2/pynn_brainscales/brainscales2/examples</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_1efc13ce3fde1fd62a85b15c42b78a1d"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNjU0MA.x/pynn-brainscales</span></code></dt>
+<span class="target" id="dir_1efc13ce3fde1fd62a85b15c42b78a1d"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNjU0NA.x/pynn-brainscales</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_21dfa1d1ae032dbb0977000ba6401a40"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNjU0MA.x/pynn-brainscales/brainscales2/pynn_brainscales</span></code></dt>
+<span class="target" id="dir_21dfa1d1ae032dbb0977000ba6401a40"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNjU0NA.x/pynn-brainscales/brainscales2/pynn_brainscales</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_6861f8e6ea567950e911c16bf07d7443"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNjU0MA.x/pynn-brainscales/brainscales2/pynn_brainscales/brainscales2/standardmodels</span></code></dt>
+<span class="target" id="dir_6861f8e6ea567950e911c16bf07d7443"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNjU0NA.x/pynn-brainscales/brainscales2/pynn_brainscales/brainscales2/standardmodels</span></code></dt>
 <dd></dd></dl>
 
 </div>
