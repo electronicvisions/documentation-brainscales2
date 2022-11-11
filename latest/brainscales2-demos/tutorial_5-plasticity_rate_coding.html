@@ -229,43 +229,6 @@ limited to 64x64 pixels. For simplicity, only one of the two PPUs is used.</p>
     <span class="c1"># Scale to weight range [0, 63)</span>
     <span class="n">image</span> <span class="o">=</span> <span class="n">image</span> <span class="o">/</span> <span class="n">image</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">*</span> <span class="n">hal</span><span class="o">.</span><span class="n">SynapseWeightQuad</span><span class="o">.</span><span class="n">Value</span><span class="o">.</span><span class="n">max</span>
     <span class="k">return</span> <span class="n">image</span>
-
-<span class="k">def</span> <span class="nf">image_to_memory_block</span><span class="p">(</span><span class="n">image</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">hal</span><span class="o">.</span><span class="n">PPUMemoryBlock</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Convert image to memory region.</span>
-
-<span class="sd">    :param image: Image data to convert.</span>
-<span class="sd">    :return: Converted image data</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">image_h</span> <span class="o">=</span> <span class="mi">64</span>
-    <span class="n">image_w</span> <span class="o">=</span> <span class="mi">64</span>
-
-    <span class="k">if</span> <span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span> <span class="o">!=</span> <span class="p">(</span><span class="n">image_h</span><span class="p">,</span> <span class="n">image_w</span><span class="p">)):</span>
-        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Image shape is required to be </span><span class="si">{}</span><span class="s2">x</span><span class="si">{}</span><span class="s2"> pixels.&quot;</span>
-                           <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">image_h</span><span class="p">,</span> <span class="n">image_w</span><span class="p">))</span>
-
-    <span class="c1"># A word in memory is four bytes</span>
-    <span class="n">bytes_in_word</span> <span class="o">=</span> <span class="mi">4</span>
-    <span class="n">bits_in_byte</span> <span class="o">=</span> <span class="mi">8</span>
-
-    <span class="c1"># create memory block</span>
-    <span class="n">image_config</span> <span class="o">=</span> <span class="n">hal</span><span class="o">.</span><span class="n">PPUMemoryBlock</span><span class="p">(</span>
-        <span class="n">halco</span><span class="o">.</span><span class="n">PPUMemoryBlockSize</span><span class="p">(</span><span class="n">image_h</span> <span class="o">*</span> <span class="n">image_w</span> <span class="o">//</span> <span class="n">bytes_in_word</span><span class="p">))</span>
-
-    <span class="c1"># construct words by placing bytes</span>
-    <span class="c1"># in addition, we flip the order of pixels to get a upwards-facing image</span>
-    <span class="c1"># when plotting the time on the x-axis</span>
-    <span class="n">words</span> <span class="o">=</span> <span class="n">image_config</span><span class="o">.</span><span class="n">words</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">image_config</span><span class="o">.</span><span class="n">size</span><span class="p">()):</span>
-        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">bytes_in_word</span><span class="p">):</span>
-            <span class="n">index</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="n">bytes_in_word</span> <span class="o">+</span> <span class="n">j</span>
-            <span class="n">image_value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">image</span><span class="p">[</span><span class="n">image_h</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">index</span> <span class="o">%</span> <span class="n">image_h</span><span class="p">)][</span>
-                <span class="n">index</span> <span class="o">//</span> <span class="n">image_w</span><span class="p">])</span> <span class="o">&lt;&lt;</span> <span class="p">((</span><span class="n">bytes_in_word</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">j</span><span class="p">)</span> <span class="o">*</span> <span class="n">bits_in_byte</span><span class="p">)</span>
-            <span class="n">words</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">hal</span><span class="o">.</span><span class="n">PPUMemoryWord</span><span class="p">(</span>
-                <span class="n">hal</span><span class="o">.</span><span class="n">PPUMemoryWord</span><span class="o">.</span><span class="n">Value</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">words</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">)</span> <span class="o">|</span> <span class="n">image_value</span><span class="p">))</span>
-    <span class="n">image_config</span><span class="o">.</span><span class="n">words</span> <span class="o">=</span> <span class="n">words</span>
-
-    <span class="k">return</span> <span class="n">image_config</span>
 </pre></div>
 </div>
 <div class="section" id="controlling-the-on-chip-plasticity-processor">
