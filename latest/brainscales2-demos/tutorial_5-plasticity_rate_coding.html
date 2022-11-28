@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>BrainScaleS-2 on-chip plasticity experiment &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title>
@@ -198,7 +199,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="brainscales-2-on-chip-plasticity-experiment">
+  <section id="brainscales-2-on-chip-plasticity-experiment">
 <h1>BrainScaleS-2 on-chip plasticity experiment<a class="headerlink" href="#brainscales-2-on-chip-plasticity-experiment" title="Permalink to this headline">¶</a></h1>
 <p>In addition to the analog neural network core, BrainScaleS-2 features two embedded
 general-purpose processors, called PPUs (Plasticity Processing Units).
@@ -231,7 +232,7 @@ limited to 64x64 pixels. For simplicity, only one of the two PPUs is used.</p>
     <span class="k">return</span> <span class="n">image</span>
 </pre></div>
 </div>
-<div class="section" id="controlling-the-on-chip-plasticity-processor">
+<section id="controlling-the-on-chip-plasticity-processor">
 <h2>Controlling the on-chip plasticity processor<a class="headerlink" href="#controlling-the-on-chip-plasticity-processor" title="Permalink to this headline">¶</a></h2>
 <p>Later, we will define the network topology using the pyNN interface.
 During the experiment, the PPUs execute an earliest-deadline-first scheduler for
@@ -252,8 +253,8 @@ Tasks can be executed periodically, for which a timer object is to be supplied.<
 <span class="n">setup_hardware_client</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="the-plasticity-kernel">
+</section>
+<section id="the-plasticity-kernel">
 <h2>The plasticity kernel<a class="headerlink" href="#the-plasticity-kernel" title="Permalink to this headline">¶</a></h2>
 <p>We now define the plastic synapse type with the C++-code which imprints the image
 onto the spike-trains by alteration of the synaptic weights.
@@ -345,8 +346,8 @@ onto the neurons’ firing rate.</p>
                             <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">image</span><span class="p">])))</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="the-experiment">
+</section>
+<section id="the-experiment">
 <h2>The experiment<a class="headerlink" href="#the-experiment" title="Permalink to this headline">¶</a></h2>
 <p>For this simple binary on-off plasticity, we don’t need the full-fledged capabilities
 of the neurons and therefore configure them to bypass-mode, where every incoming spike
@@ -411,8 +412,8 @@ the other.</p>
 <p>We see a replicated version of the original image encoded in the time evolution of
 the neurons’ firing rates.</p>
 <a class="solution reference internal image-reference" href="../_images/plasticity_rate_coding.png"><img alt="../_images/plasticity_rate_coding.png" class="solution align-center" src="../_images/plasticity_rate_coding.png" style="width: 50%;" /></a>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>

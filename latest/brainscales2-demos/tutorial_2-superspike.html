@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Learning with the SuperSpike rule &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title>
@@ -214,7 +215,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="learning-with-the-superspike-rule">
+  <section id="learning-with-the-superspike-rule">
 <span id="superspike"></span><h1>Learning with the SuperSpike rule<a class="headerlink" href="#learning-with-the-superspike-rule" title="Permalink to this headline">¶</a></h1>
 <p>In the previous example, you accustomed yourself with BrainScaleS-2’s
 analog neuron circuit. Here, we will build on this knowledge and train a
@@ -229,7 +230,7 @@ our neuron.</p>
 <li><p>re-initialize the network’s weights,</p></li>
 <li><p>and implement an in-the-loop training scheme directly in Python.</p></li>
 </ul>
-<div class="section" id="training-spiking-networks-with-surrogate-gradients">
+<section id="training-spiking-networks-with-surrogate-gradients">
 <h2>Training spiking networks with surrogate gradients<a class="headerlink" href="#training-spiking-networks-with-surrogate-gradients" title="Permalink to this headline">¶</a></h2>
 <p>The discontinuity introduced by the spiking threshold presents
 challenges when it comes to training networks of spiking neurons with
@@ -291,8 +292,8 @@ on Neural Networks and Learning Systems (2020).</p></li>
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1234</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="helper-functions">
+</section>
+<section id="helper-functions">
 <h2>Helper functions<a class="headerlink" href="#helper-functions" title="Permalink to this headline">¶</a></h2>
 <p>Let’s define some helper functions for plotting.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">create_figure</span><span class="p">():</span>
@@ -318,8 +319,8 @@ on Neural Networks and Learning Systems (2020).</p></li>
     <span class="n">display</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="define-network-in-pynn">
+</section>
+<section id="define-network-in-pynn">
 <h2>Define network in PyNN<a class="headerlink" href="#define-network-in-pynn" title="Permalink to this headline">¶</a></h2>
 <p>First, we will set up some variables determining the network structure. We will
 furthermore define the binning of the stimuli and the later calculation of the
@@ -381,8 +382,8 @@ matrix to the two projections.</p>
     <span class="n">projection_io_exc</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">weight</span><span class="o">=</span><span class="n">w_exc</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="construct-poisson-input-spike-trains">
+</section>
+<section id="construct-poisson-input-spike-trains">
 <h2>Construct Poisson input spike trains<a class="headerlink" href="#construct-poisson-input-spike-trains" title="Permalink to this headline">¶</a></h2>
 <p>To generate (fixed-seed) random inputs, we calculate binned spike trains
 according to a Bernoulli process.</p>
@@ -399,15 +400,15 @@ according to a Bernoulli process.</p>
 <span class="n">pop_input</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">spike_times</span><span class="o">=</span><span class="n">input_spikes</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="generating-a-taget-spike-train">
+</section>
+<section id="generating-a-taget-spike-train">
 <h2>Generating a taget spike train<a class="headerlink" href="#generating-a-taget-spike-train" title="Permalink to this headline">¶</a></h2>
 <p>Now, we can inject the previously defined input spike trains into our target
 neuron. For this purpose, we first randomly initialize the synaptic weights.</p>
 <p>The resulting output spikes will later be used as a target spike train.
 The difficulty of the task will depend on the number and timing of target
 spikes.</p>
-<div class="section" id="exercises">
+<section id="exercises">
 <h3>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Play around with the mean and standard deviation of the weight distribution
@@ -453,9 +454,9 @@ potential for calculating the surrogate gradient.</p>
 <span class="n">dynamic_range</span> <span class="o">=</span> <span class="n">v_mem</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">-</span> <span class="n">v_zero</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="the-superspike-learning-rule">
+</section>
+</section>
+<section id="the-superspike-learning-rule">
 <h2>The SuperSpike learning rule<a class="headerlink" href="#the-superspike-learning-rule" title="Permalink to this headline">¶</a></h2>
 <p>The SuperSpike learning rule was derived to perform gradient descent on
 the van Rossum distance</p>
@@ -518,12 +519,12 @@ distance.</p>
 <span class="n">kernel_vrd</span> <span class="o">=</span> <span class="n">kernel_psp</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="training-the-network">
+</section>
+<section id="training-the-network">
 <h2>Training the network<a class="headerlink" href="#training-the-network" title="Permalink to this headline">¶</a></h2>
 <p>We can now implement above’s weight update expression in Python and use it
 to train our network to replicate the target spike train generated above.</p>
-<div class="section" id="id1">
+<section id="id1">
 <h3>Exercises<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Train the network for different target spike trains (<span class="math notranslate nohighlight">\(\hat S_i\)</span>). For that purpose,
@@ -608,9 +609,9 @@ performance?</p></li>
 </pre></div>
 </div>
 <a class="solution reference internal image-reference" href="../_images/superspike_loss.png"><img alt="../_images/superspike_loss.png" class="solution align-center" src="../_images/superspike_loss.png" style="width: 90%;" /></a>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>

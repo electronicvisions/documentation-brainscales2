@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Introduction to the BrainScaleS Coordinate Systems &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title>
@@ -154,47 +155,47 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="introduction-to-the-brainscales-coordinate-systems">
+  <section id="introduction-to-the-brainscales-coordinate-systems">
 <span id="halco"></span><h1>Introduction to the BrainScaleS Coordinate Systems<a class="headerlink" href="#introduction-to-the-brainscales-coordinate-systems" title="Permalink to this headline">¶</a></h1>
 <p>For configuration it is essential to be able to address different hardware entities uniquely.
 Therefore, the coordinate system <code class="docutils literal notranslate"><span class="pre">halco</span></code> was introduced for the BrainScaleS system.</p>
-<div class="section" id="repeated-components">
+<section id="repeated-components">
 <h2>Repeated Components<a class="headerlink" href="#repeated-components" title="Permalink to this headline">¶</a></h2>
 <p>In the BrainScaleS system there exist components which are repeated several times in the system.
 These components are numbered in the <a class="reference external" href="https://en.wikipedia.org/wiki/Row-_and_column-major_order">row-major</a>.
 As the number of each component in the system is known, the corresponding coordinates are restricted to ranges.</p>
-<div class="section" id="brainscales-1-example">
+<section id="brainscales-1-example">
 <h3>BrainScaleS-1 example<a class="headerlink" href="#brainscales-1-example" title="Permalink to this headline">¶</a></h3>
 <p>BrainScales-1 is a wafer scale system.
 The neuromorphic chips (called HICANN) are connected on the silicon wafer to form large networks.
 The coordinate <code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">halco::hicann::v2::HICANNOnWafer</span></code> refers to a single chip on a BrainScaleS-1 wafer.
 Since the wafer is composed of 384 chips, the coordinate is restricted to the range from 0 to 383.
 According to the row major ordering the chip on the top left has the number 0; the chip to the right number 1 and so on.</p>
-</div>
-<div class="section" id="brainscales-2-example">
+</section>
+<section id="brainscales-2-example">
 <h3>BrainScaleS-2 example<a class="headerlink" href="#brainscales-2-example" title="Permalink to this headline">¶</a></h3>
 <p>On BrainScaleS-2 neuron circuits are organized in a 2D-grid of 2x256 circuits.
 The coordinate connected to a single neuron circuit is the <code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">halco::hicann_dls::vx::v2::AtomicNeuronOnDLS</span></code>.
 The neuron on the top left has number 0; the one to the right of right number 1 and so on.</p>
-</div>
-</div>
-<div class="section" id="component-hierarchy">
+</section>
+</section>
+<section id="component-hierarchy">
 <h2>Component Hierarchy<a class="headerlink" href="#component-hierarchy" title="Permalink to this headline">¶</a></h2>
 <p>The “repeated circuits” described in the previous section  might themselves be part of a larger hardware component which is repeated several times.
 <code class="docutils literal notranslate"><span class="pre">halco</span></code> allows to reference to these circuits at different levels of abstraction by combining several coordinates.</p>
-<div class="section" id="id1">
+<section id="id1">
 <h3>BrainScaleS-1 example<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">halco::hicann::v2::NeuronOnHICANN</span></code> represents a neuron circuit on a single neuromorphic chip.
 In order to refer to a specific neuron circuit on the wafer the coordinate <code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">halco::hicann::v2::NeuronOnWafer</span></code> is used which is a combination of the coordinates <code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">halco::hicann::v2::NeuronOnHICANN</span></code> and <code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">halco::hicann::v2::HICANNOnWafer</span></code>.</p>
-</div>
-<div class="section" id="id2">
+</section>
+<section id="id2">
 <h3>BrainScaleS-2 example<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>The BrainScaleS-2 chip is composed of an upper and lower half (called hemispheres).
 On each hemisphere are two analog parameter storages (CapMemBlock) referenced by the coordinate <code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">halco::hicann_dls::vx::v2::CapMemBlockOnHemisphere</span></code>.
 To identify an analog parameter storage on the chip this coordinate is combined with <code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">halco::hicann_dls::vx::v2::HemisphereOnDLS</span></code> to form <code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">halco::hicann_dls::vx::v2::CapMemBlockOnDLS</span></code>.</p>
-</div>
-</div>
-<div class="section" id="coordinate-transformation">
+</section>
+</section>
+<section id="coordinate-transformation">
 <h2>Coordinate Transformation<a class="headerlink" href="#coordinate-transformation" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">halco</span></code> offers the possibility to convert between different coordinates.
 This is done by providing member functions with the name <code class="docutils literal notranslate"><span class="pre">to&lt;new_coordinate&gt;</span></code>.
@@ -211,8 +212,8 @@ Lets take the examples from above and show how the coordinate transformation wor
 <span class="k">assert</span> <span class="n">campmem_on_hemisphere</span> <span class="o">==</span> <span class="n">halco</span><span class="o">.</span><span class="n">CapMemBlockOnHemisphere</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
