@@ -229,7 +229,7 @@ You can find more detailed information about the multi-compartmental capabilitie
 <li><p>Poirazi, P., Brannon, T., Mel, B.W., 2003. Pyramidal neuron as two-layer neural network. Neuron 37, 989–999. doi:<a class="reference external" href="https://www.doi.org/10.1016/s0896-6273(03)00149-1">10.1016/s0896-6273(03)00149-1</a></p></li>
 <li><p>London, M., Häusser, M., 2005. Dendritic computation. Annu. Rev. Neurosci.  28, 503–532. doi:<a class="reference external" href="https://www.doi.org/10.1146/annurev.neuro.28.061604.135703">10.1146/annurev.neuro.28.061604.135703</a></p></li>
 <li><p>Major, G., Larkum, M.E., Schiller, J., 2013. Active properties of neocortical pyramidal neuron dendrites. Annual Review of Neuroscience 36, 1–24. doi:<a class="reference external" href="https://www.doi.org/10.1146/annurev-neuro-062111-150343">10.1146/annurev-neuro-062111-150343</a></p></li>
-<li><p>Kaiser, J., Billaudelle, S., Müller, E., Tetzlaff, C., Schemmel, J., and Schmitt, S., 2021. Emulating dendritic computing paradigms on analog neuromorphic hardware. Neuroscience. doi:<a class="reference external" href="https://www.doi.org/10.1016/j.neuroscience.2021.08.013">10.1016/j.neuroscience.2021.08.013</a></p></li>
+<li><p>Kaiser, J., Billaudelle, S., Müller, E., Tetzlaff, C., Schemmel, J., and Schmitt, S., 2022. Emulating dendritic computing paradigms on analog neuromorphic hardware. Neuroscience. doi:<a class="reference external" href="https://www.doi.org/10.1016/j.neuroscience.2021.08.013">10.1016/j.neuroscience.2021.08.013</a></p></li>
 </ol>
 </div>
 <div class="section" id="imports-and-calibration">
@@ -242,7 +242,7 @@ You can find more detailed information about the multi-compartmental capabilitie
 <p>We continue by importing several Python packages, which we need to perform our experiment.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widget</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -277,12 +277,13 @@ Each compartment in the middle of the chain has two neighbors.
 Therefore, these compartments have to establish two connections via the somatic line.
 As a consequence each is made up of two neuron circuits: the first will connect to the somatic line via the conductance and the second via the switch.</p>
 <p>In order to form the chain with <code class="docutils literal notranslate"><span class="pre">length</span></code> compartments, we create a set (population) of <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">*</span> <span class="pre">length</span></code> neuron circuits (<code class="docutils literal notranslate"><span class="pre">HXNeurons</span></code>); note that we use two neuron circuits for the first and last compartment as well even though it is not strictly needed.
-We will use the first neuron circuit to determine the properties of the compartment such as capacitance and leak potential.
-Consequently, we disable the leak (set the leak conductance to zero) for the second circuit and set its capacitance to zero.</p>
+We will use the second neuron circuit to determine the properties of the compartment such as capacitance and leak potential.
+We choose the second neuron circuit since we will later also use this circuits adjustable resistance to connect it to its neighboring compartment.
+Consequently, we disable the leak (set the leak conductance to zero) for the first circuit and set its capacitance to zero.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pop</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="n">length</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span>
                       <span class="n">pynn</span><span class="o">.</span><span class="n">cells</span><span class="o">.</span><span class="n">HXNeuron</span><span class="p">())</span>
 
-<span class="c1"># Combine two neuron circuits to one compartment; &quot;disable&quot; second</span>
+<span class="c1"># Combine two neuron circuits to one compartment; &quot;disable&quot; first</span>
 <span class="c1"># neuron circuit</span>
 <span class="n">pynn</span><span class="o">.</span><span class="n">PopulationView</span><span class="p">(</span><span class="n">pop</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">length</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
     <span class="n">multicompartment_connect_right</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
@@ -293,7 +294,7 @@ Consequently, we disable the leak (set the leak conductance to zero) for the sec
 </div>
 <p>As mentioned before, one of the circuits connects via a conductance to the somatic line and the other via the switch.
 In order to establish connections between the compartments, we have to close the somatic line for every second neuron circuit.
-This time we have to handle the first and last compartment separately as they only have one connection to the somatic line.</p>
+This time we have to ignore the first and last compartment as they only have one connection to the somatic line.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Enable direct connection to somatic line for even neuron circuits</span>
 <span class="c1"># (don&#39;t connect first neuron circuit)</span>
 <span class="n">pynn</span><span class="o">.</span><span class="n">PopulationView</span><span class="p">(</span><span class="n">pop</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">length</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
@@ -376,7 +377,7 @@ Since we use a single ADC (analog-to-digital converter) to record the membrane p
 For that purpose we create a grid of size <code class="docutils literal notranslate"><span class="pre">length</span> <span class="pre">x</span> <span class="pre">length</span></code>.
 Each cell in this grid will contain a subplot which displays the membrane response in a single compartment to a single input.
 We will change the recording site in the x-axis and the injection site on the y-axis.</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_membrane_traces</span><span class="p">(</span><span class="n">membrane_traces</span><span class="p">:</span> <span class="n">List</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_membrane_traces</span><span class="p">(</span><span class="n">membrane_traces</span><span class="p">:</span> <span class="n">List</span><span class="p">,</span> <span class="n">old_traces</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">]):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Display recorded membrane traces.</span>
 
@@ -387,23 +388,32 @@ We will change the recording site in the x-axis and the injection site on the y-
 <span class="sd">    :param membrane_traces: List of recorded membrane traces of the different</span>
 <span class="sd">        compartments.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">membrane_traces</span><span class="p">)</span>
     <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                             <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
 
-    <span class="k">for</span> <span class="n">injected</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">length</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">measured</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">length</span><span class="p">):</span>
-            <span class="n">membrane_trace</span> <span class="o">=</span> <span class="n">membrane_traces</span><span class="p">[</span><span class="n">measured</span><span class="p">]</span>
-            <span class="n">input_time</span> <span class="o">=</span> <span class="n">spike_times</span><span class="p">[</span><span class="n">injected</span><span class="p">]</span> <span class="o">*</span> <span class="n">pq</span><span class="o">.</span><span class="n">ms</span>
+    <span class="k">def</span> <span class="nf">plot_single</span><span class="p">(</span><span class="n">traces</span><span class="p">:</span> <span class="n">List</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Helper function to plot membrane traces recorded in a single experiment.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">for</span> <span class="n">injected</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">length</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">measured</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">length</span><span class="p">):</span>
+                <span class="n">membrane_trace</span> <span class="o">=</span> <span class="n">traces</span><span class="p">[</span><span class="n">measured</span><span class="p">]</span>
+                <span class="n">input_time</span> <span class="o">=</span> <span class="n">spike_times</span><span class="p">[</span><span class="n">injected</span><span class="p">]</span> <span class="o">*</span> <span class="n">pq</span><span class="o">.</span><span class="n">ms</span>
 
-            <span class="n">signal</span> <span class="o">=</span> <span class="n">membrane_trace</span><span class="o">.</span><span class="n">time_slice</span><span class="p">(</span>
-                <span class="n">t_start</span><span class="o">=</span><span class="n">input_time</span> <span class="o">-</span> <span class="mf">0.01</span> <span class="o">*</span> <span class="n">pq</span><span class="o">.</span><span class="n">ms</span><span class="p">,</span>
-                <span class="n">t_stop</span><span class="o">=</span><span class="n">input_time</span> <span class="o">+</span> <span class="mf">0.06</span> <span class="o">*</span> <span class="n">pq</span><span class="o">.</span><span class="n">ms</span><span class="p">)</span>
+                <span class="n">signal</span> <span class="o">=</span> <span class="n">membrane_trace</span><span class="o">.</span><span class="n">time_slice</span><span class="p">(</span>
+                    <span class="n">t_start</span><span class="o">=</span><span class="n">input_time</span> <span class="o">-</span> <span class="mf">0.01</span> <span class="o">*</span> <span class="n">pq</span><span class="o">.</span><span class="n">ms</span><span class="p">,</span>
+                    <span class="n">t_stop</span><span class="o">=</span><span class="n">input_time</span> <span class="o">+</span> <span class="mf">0.06</span> <span class="o">*</span> <span class="n">pq</span><span class="o">.</span><span class="n">ms</span><span class="p">)</span>
 
-            <span class="c1"># Normalize voltage and times</span>
-            <span class="n">signal</span><span class="o">.</span><span class="n">times</span> <span class="o">=</span> <span class="p">(</span><span class="n">signal</span><span class="o">.</span><span class="n">times</span> <span class="o">-</span> <span class="n">input_time</span><span class="p">)</span><span class="o">.</span><span class="n">rescale</span><span class="p">(</span><span class="n">pq</span><span class="o">.</span><span class="n">us</span><span class="p">)</span>
-            <span class="n">signal</span> <span class="o">=</span> <span class="n">signal</span> <span class="o">-</span> <span class="n">signal</span><span class="p">[:</span><span class="mi">100</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+                <span class="c1"># Normalize voltage and times</span>
+                <span class="n">signal</span><span class="o">.</span><span class="n">times</span> <span class="o">=</span> <span class="p">(</span><span class="n">signal</span><span class="o">.</span><span class="n">times</span> <span class="o">-</span> <span class="n">input_time</span><span class="p">)</span><span class="o">.</span><span class="n">rescale</span><span class="p">(</span><span class="n">pq</span><span class="o">.</span><span class="n">us</span><span class="p">)</span>
+                <span class="n">signal</span> <span class="o">=</span> <span class="n">signal</span> <span class="o">-</span> <span class="n">signal</span><span class="p">[:</span><span class="mi">100</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 
-            <span class="n">axs</span><span class="p">[</span><span class="n">injected</span><span class="p">,</span> <span class="n">measured</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">signal</span><span class="o">.</span><span class="n">times</span><span class="p">,</span> <span class="n">signal</span><span class="p">)</span>
+                <span class="n">axs</span><span class="p">[</span><span class="n">injected</span><span class="p">,</span> <span class="n">measured</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">signal</span><span class="o">.</span><span class="n">times</span><span class="p">,</span> <span class="n">signal</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="n">plot_single</span><span class="p">(</span><span class="n">membrane_traces</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">old_traces</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">plot_single</span><span class="p">(</span><span class="n">old_traces</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
 
     <span class="c1"># Hide all but one axis</span>
     <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">axs</span><span class="p">,</span> <span class="o">-</span><span class="n">length</span><span class="p">):</span>
@@ -439,12 +449,16 @@ We will change the recording site in the x-axis and the injection site on the y-
 <h2>Performing the Experiment<a class="headerlink" href="#performing-the-experiment" title="Permalink to this headline">¶</a></h2>
 <p>Finally, we can execute the experiment on the BrainScaleS-2 system.
 For that purpose we use the functions defined in the previous section.</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Slider</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">widget</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">,</span> <span class="n">continuous_update</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">old_traces</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="n">Slider</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">widget</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">,</span> <span class="n">continuous_update</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="nd">@widget</span><span class="o">.</span><span class="n">interact</span><span class="p">(</span><span class="n">weight</span><span class="o">=</span><span class="n">Slider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">63</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">31</span><span class="p">),</span>
                  <span class="n">conductance</span><span class="o">=</span><span class="n">Slider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">1022</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">500</span><span class="p">))</span>
 <span class="k">def</span> <span class="nf">run_experiment</span><span class="p">(</span><span class="n">weight</span><span class="p">,</span> <span class="n">conductance</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">old_traces</span>
     <span class="n">membrane_traces</span> <span class="o">=</span> <span class="n">record_membrane_traces</span><span class="p">(</span><span class="n">weight</span><span class="p">,</span> <span class="n">conductance</span><span class="p">)</span>
-    <span class="n">plot_membrane_traces</span><span class="p">(</span><span class="n">membrane_traces</span><span class="p">)</span>
+    <span class="n">plot_membrane_traces</span><span class="p">(</span><span class="n">membrane_traces</span><span class="p">,</span> <span class="n">old_traces</span><span class="p">)</span>
+    <span class="n">old_traces</span> <span class="o">=</span> <span class="n">membrane_traces</span>
 </pre></div>
 </div>
 <a class="solution reference internal image-reference" href="../_images/multicompartment_chain_solution.png"><img alt="../_images/multicompartment_chain_solution.png" class="solution align-center" src="../_images/multicompartment_chain_solution.png" style="width: 800px;" /></a>
