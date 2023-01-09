@@ -13,4 +13,5 @@ lola API <api_lola>
 stadls API <api_stadls>
 fisch API <api_fisch>
 hxcomm API <api_hxcomm>
+calix API <api_calix>
 ```
