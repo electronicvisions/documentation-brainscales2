@@ -3244,7 +3244,7 @@
 <span class="target" id="classcalix_1_1common_1_1madc__base_1_1_recorder"></span><code class="sig-name descname"><span class="pre">calix.common.madc_base.Recorder</span> <span class="pre">:</span> <span class="pre">public</span> <span class="pre">ABC</span></code></dt>
 <dd><p>Abstract base class for experiments/calibrations which use the MADC. </p>
 <p>During <a class="reference internal" href="#classcalix_1_1common_1_1madc__base_1_1_recorder_1a98fd1c3839d2af3d6829c1ca52f93953"><span class="std std-ref">prepare_recording()</span></a>, the MADC is enabled and the current readout section config is saved. During recording, the readout config is changed continuously to measure one neuron’s properties after another. Furthermore, a stimuli can be injected during the measurement to observe the neurons’ responses and the recording timing per neuron can be set.</p>
-<p>:ivar original_readout_config: Source selection mux config before start of the experiment. Used to restore state after the experiment has finished. :ivar original_neuron_configs: Neuron configs before start of the experiment. Used to restore state after the experiment. :ivar sampling_time: Time to record MADC samples for each neuron. The requested sampling time must be achievable with the maximum number of samples in the MADCConfig - without using continuous sampling. With default settings, this equals roughly 2.18 ms of recording time per neuron. :ivar _wait_before_stimulation: Time to wait after triggering MADC sampling before stimulation. Marked private since analyzing the trace is typically not robust against changing this number. :ivar _dead_time: Time to wait before triggering the MADC sampling after the previous sampling period ended. Within this time, the neuron connections are changed. A minimum of 1 us is recommended. :ivar wait_between_neurons: Total time to wait for samples for each neuron. Has to be larger than the sum of sampling_time, wait_before_stimulation and dead_time. :ivar madc_input_frequency: Expected input clock frequency for the MADC, supplied by the PLL. Defaults to 500 MHz, which is present after the default stadls ExperimentInit. :ivar madc_config: Static configuration of the MADC. Written during <a class="reference internal" href="#classcalix_1_1common_1_1madc__base_1_1_recorder_1a98fd1c3839d2af3d6829c1ca52f93953"><span class="std std-ref">prepare_recording()</span></a> and used to obtain the sample rate. The number of samples is calculated automatically based on the sampling_time. </p>
+<p>:ivar original_readout_config: Source selection mux config before start of the experiment. Used to restore state after the experiment has finished. :ivar original_neuron_configs: Neuron configs before start of the experiment. Used to restore state after the experiment. :ivar sampling_time: Time to record MADC samples for each neuron. The requested sampling time must be achievable with the maximum number of samples in the MADCConfig - without using continuous sampling. With default settings, this equals roughly 2.18 ms of recording time per neuron. :ivar _wait_before_stimulation: Time to wait after triggering MADC sampling before stimulation. Marked private since analyzing the trace is typically not robust against changing this number. :ivar dead_time: Time to wait before triggering the MADC sampling after the previous sampling period ended. Within this time, the neuron connections are changed. A minimum of 1 us is recommended. :ivar wait_between_neurons: Total time to wait for samples for each neuron. Has to be larger than the sum of sampling_time, wait_before_stimulation and dead_time. :ivar madc_input_frequency: Expected input clock frequency for the MADC, supplied by the PLL. Defaults to 500 MHz, which is present after the default stadls ExperimentInit. :ivar madc_config: Static configuration of the MADC. Written during <a class="reference internal" href="#classcalix_1_1common_1_1madc__base_1_1_recorder_1a98fd1c3839d2af3d6829c1ca52f93953"><span class="std std-ref">prepare_recording()</span></a> and used to obtain the sample rate. The number of samples is calculated automatically based on the sampling_time. :ivar invalid_samples_time: Timeframe in the beginning of a trace that is considered invalid. The MADC will start recording samples, but only after this time has elapsed, the sampling_time starts and samples are returned. This works around a bug, see issue 4008 for details. </p>
 <p>Subclassed by <a class="reference internal" href="#classcalix_1_1common_1_1madc__base_1_1_calibration"><span class="std std-ref">calix.common.madc_base.Calibration</span></a>, <a class="reference internal" href="#classcalix_1_1common_1_1madc__base_1_1_membrane_recorder"><span class="std std-ref">calix.common.madc_base.MembraneRecorder</span></a></p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
@@ -3255,13 +3255,13 @@
 
 <dl class="py function">
 <dt id="build_measurement_program">
-<span class="target" id="classcalix_1_1common_1_1madc__base_1_1_recorder_1abd3a34cd7831fb96108e618ab29d5c91"></span><code class="sig-name descname"><span class="pre">build_measurement_program</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">sta.PlaybackProgramBuilder</span> <span class="pre">builder</span></em><span class="sig-paren">)</span><a class="headerlink" href="#build_measurement_program" title="Permalink to this definition">¶</a></dt>
+<span class="target" id="classcalix_1_1common_1_1madc__base_1_1_recorder_1a4d42ac1c0c14d4225ec043b6419f90e3"></span><code class="sig-name descname"><span class="pre">build_measurement_program</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">sta.PlaybackProgramBuilder</span> <span class="pre">builder</span></em><span class="sig-paren">)</span><a class="headerlink" href="#build_measurement_program" title="Permalink to this definition">¶</a></dt>
 <dd><p>Builds a program to measure an arbitrary MADC trace for each neuron. </p>
-<p>One neuron after another is connected to the MADC, the stimulate function is called and samples are recorded. The timing of each neuron is recorded, tickets containing the time of stimulation are returned along with the builder.</p>
+<p>One neuron after another is connected to the MADC, the stimulate function is called and samples are recorded. The timing of each neuron is recorded, tickets containing the start and stop of the recording time are returned along with the builder.</p>
 <p>:param builder: Builder to append instructions to.</p>
 <p>:return: Tuple containing:<ul class="simple">
 <li><p>Builder with instructions appended.</p></li>
-<li><p>List of read tickets just before stimulating each neuron. </p></li>
+<li><p>List of read tickets marking start and end of the recording of each neuron. </p></li>
 </ul>
 </p>
 </dd></dl>
@@ -3320,6 +3320,16 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
 <dl class="py attribute">
+<dt id="id191">
+<span class="target" id="classcalix_1_1common_1_1madc__base_1_1_recorder_1aed1a6c4cf11253dc959e2e11918d00fa"></span><code class="sig-name descname"><span class="pre">dead_time</span></code><a class="headerlink" href="#id191" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="invalid_samples_time">
+<span class="target" id="classcalix_1_1common_1_1madc__base_1_1_recorder_1a0a507d46381ff101666ba7a444f21eab"></span><code class="sig-name descname"><span class="pre">invalid_samples_time</span></code><a class="headerlink" href="#invalid_samples_time" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
 <dt id="madc_config">
 <span class="target" id="classcalix_1_1common_1_1madc__base_1_1_recorder_1aad8bc0b01134033fcae2f58e00a7c936"></span><code class="sig-name descname"><span class="pre">madc_config</span></code><a class="headerlink" href="#madc_config" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -3340,23 +3350,18 @@
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="id191">
-<span class="target" id="classcalix_1_1common_1_1madc__base_1_1_recorder_1a23cb3effdc5ecba968285fb2a4d91967"></span><code class="sig-name descname"><span class="pre">sampling_time</span></code><a class="headerlink" href="#id191" title="Permalink to this definition">¶</a></dt>
+<dt id="id192">
+<span class="target" id="classcalix_1_1common_1_1madc__base_1_1_recorder_1a23cb3effdc5ecba968285fb2a4d91967"></span><code class="sig-name descname"><span class="pre">sampling_time</span></code><a class="headerlink" href="#id192" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="id192">
-<span class="target" id="classcalix_1_1common_1_1madc__base_1_1_recorder_1a54d32db8ccda9f526840c29428a35115"></span><code class="sig-name descname"><span class="pre">wait_between_neurons</span></code><a class="headerlink" href="#id192" title="Permalink to this definition">¶</a></dt>
+<dt id="id193">
+<span class="target" id="classcalix_1_1common_1_1madc__base_1_1_recorder_1a54d32db8ccda9f526840c29428a35115"></span><code class="sig-name descname"><span class="pre">wait_between_neurons</span></code><a class="headerlink" href="#id193" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
-<dl class="py attribute">
-<dt id="id193">
-<span class="target" id="classcalix_1_1common_1_1madc__base_1_1_recorder_1a86fe1573f0e94ef046a9e7c990271d31"></span><code class="sig-name descname"><span class="pre">_dead_time</span></code><a class="headerlink" href="#id193" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
 <dl class="py attribute">
 <dt id="id194">
 <span class="target" id="classcalix_1_1common_1_1madc__base_1_1_recorder_1af85d9708411b80afddefa2201caa6683"></span><code class="sig-name descname"><span class="pre">_wait_before_stimulation</span></code><a class="headerlink" href="#id194" title="Permalink to this definition">¶</a></dt>
@@ -5723,52 +5728,52 @@
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_c35a4213fddb628e2be6588952b4aa7a"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzM5MA.x/calix</span></code></dt>
+<span class="target" id="dir_c35a4213fddb628e2be6588952b4aa7a"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzM5MQ.x/calix</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_82a35310634ec59f1204b5a89ab180c2"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzM5MA.x/calix/src/py/calix</span></code></dt>
+<span class="target" id="dir_82a35310634ec59f1204b5a89ab180c2"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzM5MQ.x/calix/src/py/calix</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_5f8140149f6c25fac289bffcf217ba0f"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzM5MA.x/calix/src/py/calix/common</span></code></dt>
+<span class="target" id="dir_5f8140149f6c25fac289bffcf217ba0f"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzM5MQ.x/calix/src/py/calix/common</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_79dd501e695b0ff0539e6dfe8c054e50"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzM5MA.x/calix/src/py/calix/examples</span></code></dt>
+<span class="target" id="dir_79dd501e695b0ff0539e6dfe8c054e50"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzM5MQ.x/calix/src/py/calix/examples</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_1a13b09fb48f7daf03bf32d21388e4f1"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzM5MA.x/calix/src/py/calix/hagen</span></code></dt>
+<span class="target" id="dir_1a13b09fb48f7daf03bf32d21388e4f1"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzM5MQ.x/calix/src/py/calix/hagen</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_d9b46f0c81a5bc28bd701ca679fdd154"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzM5MA.x/calix/src/py/calix/multicomp</span></code></dt>
+<span class="target" id="dir_d9b46f0c81a5bc28bd701ca679fdd154"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzM5MQ.x/calix/src/py/calix/multicomp</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_8638feb6d3d74ce8c52c6a166958a78e"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzM5MA.x/calix/src/py</span></code></dt>
+<span class="target" id="dir_8638feb6d3d74ce8c52c6a166958a78e"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzM5MQ.x/calix/src/py</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_d19dcf94b302e45079f65ed711419664"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzM5MA.x/calix/src/py/calix/scripts</span></code></dt>
+<span class="target" id="dir_d19dcf94b302e45079f65ed711419664"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzM5MQ.x/calix/src/py/calix/scripts</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_99cd149c1e2c45a11fa03ec83bb2f7d6"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzM5MA.x/calix/src/py/calix/spiking</span></code></dt>
+<span class="target" id="dir_99cd149c1e2c45a11fa03ec83bb2f7d6"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzM5MQ.x/calix/src/py/calix/spiking</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_e78734f8a9c4496b3b751d186a730c09"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzM5MA.x/calix/src</span></code></dt>
+<span class="target" id="dir_e78734f8a9c4496b3b751d186a730c09"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzM5MQ.x/calix/src</span></code></dt>
 <dd></dd></dl>
 
 </section>
