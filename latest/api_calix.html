@@ -2834,13 +2834,6 @@
 <p>:raises ValueError: If target parameters are outside the allowed range for spiking neuron calibration. </p>
 </dd></dl>
 
-<dl class="py function">
-<dt id="prepare_synin">
-<span class="target" id="classcalix_1_1spiking_1_1neuron_1_1_neuron_calib_target_1a4dcccafdb9d4fbc9aa35903d5fcc7d4a"></span><code class="sig-name descname"><span class="pre">prepare_synin</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#prepare_synin" title="Permalink to this definition">¶</a></dt>
-<dd><p>Does preparations for synaptic input calibration. </p>
-<p>:return: <a class="reference internal" href="#classcalix_1_1spiking_1_1neuron_1_1_neuron_calib_target_1_1_synin_parameters"><span class="std std-ref">SyninParameters</span></a> class, containing desicions and targets for synaptic input calibration. </p>
-</dd></dl>
-
 </div>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-static-attributes">Public Static Attributes</p>
@@ -4073,11 +4066,38 @@
 </dd></dl>
 
 <dl class="py class">
-<dt id="calix.spiking.neuron.NeuronCalibTarget.SyninParameters">
-<span class="target" id="classcalix_1_1spiking_1_1neuron_1_1_neuron_calib_target_1_1_synin_parameters"></span><em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">SyninParameters</span></code><a class="headerlink" href="#calix.spiking.neuron.NeuronCalibTarget.SyninParameters" title="Permalink to this definition">¶</a></dt>
+<dt id="calix.spiking.neuron_calib_parts.SyninParameters">
+<span class="target" id="classcalix_1_1spiking_1_1neuron__calib__parts_1_1_synin_parameters"></span><em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">calix.spiking.neuron_calib_parts.</span></code><code class="sig-name descname"><span class="pre">SyninParameters</span></code><a class="headerlink" href="#calix.spiking.neuron_calib_parts.SyninParameters" title="Permalink to this definition">¶</a></dt>
 <dd><p>Collection of parameters for synaptic input calibration. </p>
-<p>Contains boolean decisions that are set automatically based on the shape of given targets:</p>
+<p>Contains decisions that are set automatically based on the shape of targets for the calibration:</p>
 <p>:ivar i_synin_gm: Target bias currents for synaptic input OTAs, with shapes modified to match the needs of the calibration routines. :ivar calibrate_synin: Decide whether synaptic input OTA strengths are calibrated. :ivar equalize_synin: Decide whether excitatory and inhibitory synaptic input strengths are equalized. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="py function">
+<dt id="calix.spiking.neuron_calib_parts.SyninParameters.__init__">
+<span class="target" id="classcalix_1_1spiking_1_1neuron__calib__parts_1_1_synin_parameters_1a01d7810b6a53ec225e3d5ad76e455be8"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">neuron.NeuronCalibTarget</span> <span class="pre">target</span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.spiking.neuron_calib_parts.SyninParameters.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>:param target: Target parameters for neuron calib. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="py attribute">
+<dt id="calix.spiking.neuron_calib_parts.SyninParameters.calibrate_synin">
+<span class="target" id="classcalix_1_1spiking_1_1neuron__calib__parts_1_1_synin_parameters_1a5d1f855f1987c1d518b81bf7a9526d39"></span><code class="sig-name descname"><span class="pre">calibrate_synin</span></code><a class="headerlink" href="#calix.spiking.neuron_calib_parts.SyninParameters.calibrate_synin" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="calix.spiking.neuron_calib_parts.SyninParameters.equalize_synin">
+<span class="target" id="classcalix_1_1spiking_1_1neuron__calib__parts_1_1_synin_parameters_1a9571b14ff866b2df33578ab630ac4147"></span><code class="sig-name descname"><span class="pre">equalize_synin</span></code><a class="headerlink" href="#calix.spiking.neuron_calib_parts.SyninParameters.equalize_synin" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="calix.spiking.neuron_calib_parts.SyninParameters.i_synin_gm">
+<span class="target" id="classcalix_1_1spiking_1_1neuron__calib__parts_1_1_synin_parameters_1a51d40f4df422cc3a373cfd996ce00dbe"></span><code class="sig-name descname"><span class="pre">i_synin_gm</span></code><a class="headerlink" href="#calix.spiking.neuron_calib_parts.SyninParameters.i_synin_gm" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
 </dd></dl>
 
 <dl class="py class">
@@ -5290,9 +5310,9 @@
 
 <dl class="py function">
 <dt id="calix.spiking.neuron_calib_parts.calibrate_synaptic_input">
-<span class="target" id="namespacecalix_1_1spiking_1_1neuron__calib__parts_1a76a6092ffeecf8e22f003514f6e8db64"></span><code class="sig-name descname"><span class="pre">calibrate_synaptic_input</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">hxcomm.ConnectionHandle</span> <span class="pre">connection</span></em>, <em class="sig-param"><span class="pre">neuron.NeuronCalibTarget.SyninParameters</span> <span class="pre">synin_parameters</span></em>, <em class="sig-param"><span class="pre">neuron._CalibrationResultInternal</span> <span class="pre">calib_result</span></em>, <em class="sig-param"><span class="pre">np.ndarray</span> <span class="pre">target_cadc_reads</span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.spiking.neuron_calib_parts.calibrate_synaptic_input" title="Permalink to this definition">¶</a></dt>
+<span class="target" id="namespacecalix_1_1spiking_1_1neuron__calib__parts_1adf98d1678bd32213e67c48d52059402c"></span><code class="sig-name descname"><span class="pre">calibrate_synaptic_input</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">hxcomm.ConnectionHandle</span> <span class="pre">connection</span></em>, <em class="sig-param"><span class="pre">neuron.NeuronCalibTarget</span> <span class="pre">target</span></em>, <em class="sig-param"><span class="pre">neuron._CalibrationResultInternal</span> <span class="pre">calib_result</span></em>, <em class="sig-param"><span class="pre">np.ndarray</span> <span class="pre">target_cadc_reads</span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.spiking.neuron_calib_parts.calibrate_synaptic_input" title="Permalink to this definition">¶</a></dt>
 <dd><p>Run calibration of (current-based) synaptic inputs. </p>
-<p>:param connection: Connection to chip to run on. :param synin_parameters: Parameters for synaptic input calibration. :param calib_result: Calibration result to store parameters in. :param target_cadc_reads: CADC samples at resting potential, with synaptic input disabled. </p>
+<p>:param connection: Connection to chip to run on. :param target: Target parameters for neuron calibration. :param calib_result: Calibration result to store parameters in. :param target_cadc_reads: CADC samples at resting potential, with synaptic input disabled. </p>
 </dd></dl>
 
 <dl class="py function">
@@ -5728,52 +5748,52 @@
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_c35a4213fddb628e2be6588952b4aa7a"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzUwNg.x/calix</span></code></dt>
+<span class="target" id="dir_c35a4213fddb628e2be6588952b4aa7a"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzUxOA.x/calix</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_82a35310634ec59f1204b5a89ab180c2"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzUwNg.x/calix/src/py/calix</span></code></dt>
+<span class="target" id="dir_82a35310634ec59f1204b5a89ab180c2"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzUxOA.x/calix/src/py/calix</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_5f8140149f6c25fac289bffcf217ba0f"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzUwNg.x/calix/src/py/calix/common</span></code></dt>
+<span class="target" id="dir_5f8140149f6c25fac289bffcf217ba0f"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzUxOA.x/calix/src/py/calix/common</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_79dd501e695b0ff0539e6dfe8c054e50"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzUwNg.x/calix/src/py/calix/examples</span></code></dt>
+<span class="target" id="dir_79dd501e695b0ff0539e6dfe8c054e50"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzUxOA.x/calix/src/py/calix/examples</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_1a13b09fb48f7daf03bf32d21388e4f1"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzUwNg.x/calix/src/py/calix/hagen</span></code></dt>
+<span class="target" id="dir_1a13b09fb48f7daf03bf32d21388e4f1"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzUxOA.x/calix/src/py/calix/hagen</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_d9b46f0c81a5bc28bd701ca679fdd154"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzUwNg.x/calix/src/py/calix/multicomp</span></code></dt>
+<span class="target" id="dir_d9b46f0c81a5bc28bd701ca679fdd154"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzUxOA.x/calix/src/py/calix/multicomp</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_8638feb6d3d74ce8c52c6a166958a78e"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzUwNg.x/calix/src/py</span></code></dt>
+<span class="target" id="dir_8638feb6d3d74ce8c52c6a166958a78e"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzUxOA.x/calix/src/py</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_d19dcf94b302e45079f65ed711419664"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzUwNg.x/calix/src/py/calix/scripts</span></code></dt>
+<span class="target" id="dir_d19dcf94b302e45079f65ed711419664"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzUxOA.x/calix/src/py/calix/scripts</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_99cd149c1e2c45a11fa03ec83bb2f7d6"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzUwNg.x/calix/src/py/calix/spiking</span></code></dt>
+<span class="target" id="dir_99cd149c1e2c45a11fa03ec83bb2f7d6"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzUxOA.x/calix/src/py/calix/spiking</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_e78734f8a9c4496b3b751d186a730c09"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzUwNg.x/calix/src</span></code></dt>
+<span class="target" id="dir_e78734f8a9c4496b3b751d186a730c09"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzUxOA.x/calix/src</span></code></dt>
 <dd></dd></dl>
 
 </section>
