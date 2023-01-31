@@ -362,7 +362,7 @@
 
 <dl class="py function">
 <dt id="apply_config">
-<span class="target" id="classcells_1_1_h_x_neuron_1a36851531f1e6fa40dd3aece732d604b5"></span><code class="sig-name descname"><span class="pre">apply_config</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">List[halco.AtomicNeuronOnDLS]</span> <span class="pre">coords</span></em><span class="sig-paren">)</span><a class="headerlink" href="#apply_config" title="Permalink to this definition">¶</a></dt>
+<span class="target" id="classcells_1_1_h_x_neuron_1af7151f5684849d39f9b4e486196d2521"></span><code class="sig-name descname"><span class="pre">apply_config</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">List[halco.LogicalNeuronOnDLS]</span> <span class="pre">logical_coords</span></em><span class="sig-paren">)</span><a class="headerlink" href="#apply_config" title="Permalink to this definition">¶</a></dt>
 <dd><p>Extract and apply config according to provided chip object. </p>
 <p>:param coords: List of coordinates to look up coco. Needs same order and dimensions as parameter_space. </p>
 </dd></dl>
@@ -376,6 +376,12 @@
 <dt id="create_hw_entity">
 <span class="target" id="classcells_1_1_h_x_neuron_1abb5404f9aca89d877ac0349ff72df15c"></span><code class="sig-name descname"><span class="pre">create_hw_entity</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">cls</span></em>, <em class="sig-param"><span class="pre">dict</span> <span class="pre">pynn_parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#create_hw_entity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Builds a Lola Neuron with the values from the dict ‘pynn_parameters’. </p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="get_default_values">
+<span class="target" id="classcells_1_1_h_x_neuron_1ab092c818efda6fa998b863cecbb81fd5"></span><code class="sig-name descname"><span class="pre">get_default_values</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#get_default_values" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the default values of a LoLa Neuron. </p>
 </dd></dl>
 
 </div>
@@ -395,26 +401,9 @@
 <p>:param population: Population to add featuring this cell’s celltype. :param builder: Network builder to add population to. :return: Descriptor of added population </p>
 </dd></dl>
 
-<dl class="py function">
-<dt id="get_default_values">
-<span class="target" id="classcells_1_1_h_x_neuron_1ad57950e78053e489ffa8af36fde88137"></span><code class="sig-name descname"><span class="pre">get_default_values</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#get_default_values" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the default values of a LoLa Neuron. </p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="get_values">
-<span class="target" id="classcells_1_1_h_x_neuron_1a5a04fb5df93e02ed0e880e79c3e4f6d5"></span><code class="sig-name descname"><span class="pre">get_values</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">lola.AtomicNeuron()</span> <span class="pre">atomic_neuron</span></em><span class="sig-paren">)</span><a class="headerlink" href="#get_values" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get values of a LoLa Neuron instance as a dict. </p>
-</dd></dl>
-
 </div>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-static-attributes">Public Static Attributes</p>
-<dl class="py attribute">
-<dt id="default_initial_values">
-<span class="target" id="classcells_1_1_h_x_neuron_1a5c42967e9f2fe256dce26e996fbcac6a"></span><code class="sig-name descname"><span class="pre">default_initial_values</span></code><a class="headerlink" href="#default_initial_values" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
 <dl class="py attribute">
 <dt id="default_parameters">
 <span class="target" id="classcells_1_1_h_x_neuron_1a47b9ce2b7a0927858c203261ea9b5e98"></span><code class="sig-name descname"><span class="pre">default_parameters</span></code><a class="headerlink" href="#default_parameters" title="Permalink to this definition">¶</a></dt>
@@ -428,6 +417,11 @@
 </div>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-functions">Private Functions</p>
+<dl class="py function">
+<dt id="create_translation">
+<span id="_create_translation"></span><span class="target" id="classcells_1_1_h_x_neuron_1a62a06a0518ee530c57f26dde14ba7ec3"></span><code class="sig-name descname"><span class="pre">_create_translation</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#create_translation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="py function">
 <dt id="generate_hw_entity_setters">
 <span id="_generate_hw_entity_setters"></span><span class="target" id="classcells_1_1_h_x_neuron_1a508e570a31fa8cec60b82429cf8a3369"></span><code class="sig-name descname"><span class="pre">_generate_hw_entity_setters</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#generate_hw_entity_setters" title="Permalink to this definition">¶</a></dt>
@@ -445,14 +439,6 @@
 <dl class="py attribute">
 <dt id="user_provided_parameters">
 <span id="_user_provided_parameters"></span><span class="target" id="classcells_1_1_h_x_neuron_1a5ba0b0896e13b9ccdb5839ce8e8d60cd"></span><code class="sig-name descname"><span class="pre">_user_provided_parameters</span></code><a class="headerlink" href="#user_provided_parameters" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</div>
-<div class="breathe-sectiondef docutils container">
-<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-static-functions">Private Static Functions</p>
-<dl class="py function">
-<dt id="create_translation">
-<span id="_create_translation"></span><span class="target" id="classcells_1_1_h_x_neuron_1a93bec64372bef9d95187c19c0f378d36"></span><code class="sig-name descname"><span class="pre">_create_translation</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#create_translation" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -574,37 +560,36 @@
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="pynn_brainscales.brainscales2.simulator.NeuronPlacement.id2atomicneuron">
-<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_neuron_placement_1a0e61a144956dbcba388e83a2f11a20af"></span><code class="sig-name descname"><span class="pre">id2atomicneuron</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self,</span> <span class="pre">Union[List[ID],</span> <span class="pre">ID]</span> <span class="pre">neuron_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.simulator.NeuronPlacement.id2atomicneuron" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get hardware coordinate from pyNN <a class="reference internal" href="#classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_i_d"><span class="std std-ref">ID</span></a>. </p>
-<p>:param neuron_id: pyNN neuron <a class="reference internal" href="#classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_i_d"><span class="std std-ref">ID</span></a> </p>
+<dt id="pynn_brainscales.brainscales2.simulator.NeuronPlacement.id2first_circuit">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_neuron_placement_1ad17da01c2b284fea7de1faa4e6c6b11c"></span><code class="sig-name descname"><span class="pre">id2first_circuit</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self,</span> <span class="pre">Union[List[ID],</span> <span class="pre">ID]</span> <span class="pre">neuron_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.simulator.NeuronPlacement.id2first_circuit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get hardware coordinate of first circuit in first compartment as plain int from pyNN <a class="reference internal" href="#classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_i_d"><span class="std std-ref">ID</span></a>. </p>
+<p>:param neuron_id: pyNN neuron <a class="reference internal" href="#classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_i_d"><span class="std std-ref">ID</span></a> :return: Enums of first circuits in first compartments. </p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="pynn_brainscales.brainscales2.simulator.NeuronPlacement.id2hwenum">
-<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_neuron_placement_1a43aa6dc63a671ce2e49e193615cbfe65"></span><code class="sig-name descname"><span class="pre">id2hwenum</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self,</span> <span class="pre">Union[List[ID],</span> <span class="pre">ID]</span> <span class="pre">neuron_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.simulator.NeuronPlacement.id2hwenum" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get hardware coordinate as plain int from pyNN <a class="reference internal" href="#classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_i_d"><span class="std std-ref">ID</span></a>. </p>
-<p>:param neuron_id: pyNN neuron <a class="reference internal" href="#classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_i_d"><span class="std std-ref">ID</span></a> </p>
+<dt id="pynn_brainscales.brainscales2.simulator.NeuronPlacement.id2logicalneuron">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_neuron_placement_1a1e4f2b4eb6957017e919e4162049fb2a"></span><code class="sig-name descname"><span class="pre">id2logicalneuron</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self,</span> <span class="pre">Union[List[ID],</span> <span class="pre">ID]</span> <span class="pre">neuron_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.simulator.NeuronPlacement.id2logicalneuron" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get hardware coordinate from pyNN <a class="reference internal" href="#classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_i_d"><span class="std std-ref">ID</span></a> :param neuron_id: pyNN neuron <a class="reference internal" href="#classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_i_d"><span class="std std-ref">ID</span></a>. </p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="pynn_brainscales.brainscales2.simulator.NeuronPlacement.register_id">
-<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_neuron_placement_1a847c6327f13804958a2ce79a1cc88231"></span><code class="sig-name descname"><span class="pre">register_id</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self,</span> <span class="pre">Union[List[ID],</span> <span class="pre">ID]</span> <span class="pre">neuron_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.simulator.NeuronPlacement.register_id" title="Permalink to this definition">¶</a></dt>
-<dd><p>Register a new <a class="reference internal" href="#classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_i_d"><span class="std std-ref">ID</span></a> to placement. </p>
-<p>:param neuron_id: pyNN neuron <a class="reference internal" href="#classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_i_d"><span class="std std-ref">ID</span></a> to be registered </p>
+<dt id="pynn_brainscales.brainscales2.simulator.NeuronPlacement.register_neuron">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_neuron_placement_1abe032ac85c3c79d880f3eba36df66e0c"></span><code class="sig-name descname"><span class="pre">register_neuron</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self,</span> <span class="pre">Union[List[ID],</span> <span class="pre">ID]</span> <span class="pre">neuron_id,</span> <span class="pre">halco.LogicalNeuronCompartments</span> <span class="pre">logical_compartments</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.simulator.NeuronPlacement.register_neuron" title="Permalink to this definition">¶</a></dt>
+<dd><p>Register new IDs to placement. </p>
+<p>:param neuron_id: pyNN neuron IDs to be registered. :param logical_compartments: LogicalNeuronCompartments which belong to the neurons which should be registered. All neurons which should be registered have to share the same morphology, i.e. have the same LogicalNeuronCompartments coordinate. </p>
 </dd></dl>
 
 </div>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
 <dl class="py attribute">
-<dt id="pynn_brainscales.brainscales2.simulator.NeuronPlacement._id_2_an">
-<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_neuron_placement_1af4fbececbaa42e1770f68d28528103e3"></span><code class="sig-name descname"><span class="pre">_id_2_an</span></code><a class="headerlink" href="#pynn_brainscales.brainscales2.simulator.NeuronPlacement._id_2_an" title="Permalink to this definition">¶</a></dt>
+<dt id="pynn_brainscales.brainscales2.simulator.NeuronPlacement._available_coords">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_neuron_placement_1ac3cca5fc9c233b56eb365cf6c479101c"></span><code class="sig-name descname"><span class="pre">_available_coords</span></code><a class="headerlink" href="#pynn_brainscales.brainscales2.simulator.NeuronPlacement._available_coords" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="pynn_brainscales.brainscales2.simulator.NeuronPlacement._permutation">
-<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_neuron_placement_1afb63208367cd872e90616fcaf98067a9"></span><code class="sig-name descname"><span class="pre">_permutation</span></code><a class="headerlink" href="#pynn_brainscales.brainscales2.simulator.NeuronPlacement._permutation" title="Permalink to this definition">¶</a></dt>
+<dt id="pynn_brainscales.brainscales2.simulator.NeuronPlacement._id_2_coord">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_neuron_placement_1aaeb6fd87b0147def0021c5a5eef302d1"></span><code class="sig-name descname"><span class="pre">_id_2_coord</span></code><a class="headerlink" href="#pynn_brainscales.brainscales2.simulator.NeuronPlacement._id_2_coord" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -2395,10 +2380,26 @@
 </dd></dl>
 
 <dl class="py function">
+<dt id="pynn_brainscales.brainscales2.helper.decompose_in_member_names">
+<span class="target" id="namespacepynn__brainscales_1_1brainscales2_1_1helper_1abd17c3cce32ccca4326744173c18b2f7"></span><code class="sig-name descname"><span class="pre">decompose_in_member_names</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">str</span> <span class="pre">composed_name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.helper.decompose_in_member_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract member and attribute of a lola.AtomicNeuron from composed name. </p>
+<p>This function can be used to retrieve the original name of the member and the attributes of the <code class="docutils literal notranslate"><span class="pre">lola.AtomicNeuron</span></code> for the keys in the dictionary returned by <code class="docutils literal notranslate"><span class="pre">get_values_of_atomic_neuron</span></code>. For example ‘multicompartment_i_bias_nmda’ is decomposed in the member ‘multicompartment’ and the attribute ‘i_bias_nmda’.</p>
+<p>:param composed_name: String which is a combination of a member of the lola.AtomicNeuron and an attribute of it. The two are combined by an underscore. :return: Tuple of the name of the member and the attribute. </p>
+</dd></dl>
+
+<dl class="py function">
 <dt id="pynn_brainscales.brainscales2.helper.get_unique_identifier">
 <span class="target" id="namespacepynn__brainscales_1_1brainscales2_1_1helper_1a66ac56b974234576ece603dd76f8a24d"></span><code class="sig-name descname"><span class="pre">get_unique_identifier</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.helper.get_unique_identifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieve the unique identifier of the current chip. </p>
 <p>Set by Slurm when allocating resources. </p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pynn_brainscales.brainscales2.helper.get_values_of_atomic_neuron">
+<span class="target" id="namespacepynn__brainscales_1_1brainscales2_1_1helper_1a5da71d7ffe09faaf853ed5d19fd44ab3"></span><code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">lola.AtomicNeuron()</span> <span class="pre">atomic_neuron</span></em>, <em class="sig-param"><span class="pre">Optional[List[str]]</span> <span class="pre">exclude=None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.helper.get_values_of_atomic_neuron" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get values of a LoLa Neuron instance as a dict. </p>
+<p>Parse the atomic neuron and save the values of all members and their attributes in a dictionary. The keys of the dictionary are the member’s name and it’s attributes name combined by an underscore.</p>
+<p>:param atomic_neuron: Atomic neuron from which to get the values. :param exclude: Members to exclude from parsing. :return: Dictionary with the values saved in the atomic neuron. </p>
 </dd></dl>
 
 <dl class="py function">
@@ -2412,6 +2413,14 @@
 <span class="target" id="namespacepynn__brainscales_1_1brainscales2_1_1helper_1ab1ecb517e38d66b8410698c1e3709b74"></span><code class="sig-name descname"><span class="pre">nightly_calib_url</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.helper.nightly_calib_url" title="Permalink to this definition">¶</a></dt>
 <dd><p>Find url for nightly calibration. </p>
 </dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-variables">Variables</p>
+<dl class="py attribute">
+<dt id="pynn_brainscales.brainscales2.helper.ATOMIC_NEURON_MEMBERS">
+<span class="target" id="namespacepynn__brainscales_1_1brainscales2_1_1helper_1aa2d704e16d139872f14456c899f1130f"></span><code class="sig-name descname"><span class="pre">ATOMIC_NEURON_MEMBERS</span></code><em class="property"> <span class="pre">=</span> <span class="pre">\</span></em><a class="headerlink" href="#pynn_brainscales.brainscales2.helper.ATOMIC_NEURON_MEMBERS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </div>
 </dd></dl>
@@ -2557,32 +2566,32 @@
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_5643325f60bd592eca7816d91ce4831a"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzQ5MQ.x/pynn-brainscales/brainscales2</span></code></dt>
+<span class="target" id="dir_5643325f60bd592eca7816d91ce4831a"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzUwMQ.x/pynn-brainscales/brainscales2</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_30590f78572d0bff4c96c6642e878133"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzQ5MQ.x/pynn-brainscales/brainscales2/pynn_brainscales/brainscales2</span></code></dt>
+<span class="target" id="dir_30590f78572d0bff4c96c6642e878133"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzUwMQ.x/pynn-brainscales/brainscales2/pynn_brainscales/brainscales2</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_71abf4e0cb61d33ca644053d80824813"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzQ5MQ.x/pynn-brainscales/brainscales2/pynn_brainscales/brainscales2/examples</span></code></dt>
+<span class="target" id="dir_71abf4e0cb61d33ca644053d80824813"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzUwMQ.x/pynn-brainscales/brainscales2/pynn_brainscales/brainscales2/examples</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_1efc13ce3fde1fd62a85b15c42b78a1d"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzQ5MQ.x/pynn-brainscales</span></code></dt>
+<span class="target" id="dir_1efc13ce3fde1fd62a85b15c42b78a1d"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzUwMQ.x/pynn-brainscales</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_21dfa1d1ae032dbb0977000ba6401a40"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzQ5MQ.x/pynn-brainscales/brainscales2/pynn_brainscales</span></code></dt>
+<span class="target" id="dir_21dfa1d1ae032dbb0977000ba6401a40"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzUwMQ.x/pynn-brainscales/brainscales2/pynn_brainscales</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_6861f8e6ea567950e911c16bf07d7443"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzQ5MQ.x/pynn-brainscales/brainscales2/pynn_brainscales/brainscales2/standardmodels</span></code></dt>
+<span class="target" id="dir_6861f8e6ea567950e911c16bf07d7443"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzUwMQ.x/pynn-brainscales/brainscales2/pynn_brainscales/brainscales2/standardmodels</span></code></dt>
 <dd></dd></dl>
 
 </section>
