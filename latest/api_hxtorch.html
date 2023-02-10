@@ -2238,6 +2238,103 @@
 </dd></dl>
 
 <dl class="py class">
+<dt>
+<span class="target" id="classyinyang_1_1_yin_yang_dataset"></span><code class="sig-name descname"><span class="pre">yinyang.YinYangDataset</span> <span class="pre">:</span> <span class="pre">public</span> <span class="pre">Dataset</span></code></dt>
+<dd><p>YinYang dataset. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="py function">
+<dt id="id100">
+<span class="target" id="classyinyang_1_1_yin_yang_dataset_1ae155c236ad4ac977691b1cd1eaa3eb7d"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">float</span> <span class="pre">r_small=0.1</span></em>, <em class="sig-param"><span class="pre">float</span> <span class="pre">r_big=0.5</span></em>, <em class="sig-param"><span class="pre">int</span> <span class="pre">size=1000</span></em>, <em class="sig-param"><span class="pre">int</span> <span class="pre">seed=42</span></em>, <em class="sig-param"><span class="pre">Optional[torch.nn.Module]</span> <span class="pre">transform=None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id100" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate the YinYang dataset. </p>
+<p>This dataset provides datapoints on a 2-dimensional plane within a yin-yang sign. Each data point is assigned to one of three classes: The eyes, the yin or the yang. :param r_small: The radius of the eyes in the yin-yang sign. :param r_big: The radius of the whole sign. :param size: The size of the dataset, i.e. number of data points within the sign. :param seed: Random seed. :param transform: An optional transformation applied to the returned samples. </p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="id101">
+<span class="target" id="classyinyang_1_1_yin_yang_dataset_1ad6239bdc5d91d5bca6d24e1de45bb6c7"></span><code class="sig-name descname"><span class="pre">__getitem__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">int</span> <span class="pre">index</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id101" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get an item from the dataset. </p>
+<p>:param index: Index of the item in the dataset. :returns: Returns a tuple (sample, target), where sample is an array with values (x, y, 1 - x, 1 - y). </p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="id102">
+<span class="target" id="classyinyang_1_1_yin_yang_dataset_1aad72aa5308ec0ec09b7dc1549be23c14"></span><code class="sig-name descname"><span class="pre">__len__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id102" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="dist_to_left_dot">
+<span class="target" id="classyinyang_1_1_yin_yang_dataset_1aaf94d20641371e68e93464d900a29d2f"></span><code class="sig-name descname"><span class="pre">dist_to_left_dot</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">int</span> <span class="pre">x</span></em>, <em class="sig-param"><span class="pre">int</span> <span class="pre">y</span></em><span class="sig-paren">)</span><a class="headerlink" href="#dist_to_left_dot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the distance to the left dot. </p>
+<p>:param x: The x-coordinate. :param y: The y-coordinate. :returns: Returns the distance to the left dot. </p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="dist_to_right_dot">
+<span class="target" id="classyinyang_1_1_yin_yang_dataset_1aaa6720d84764ff5f0149cbd8c66b531f"></span><code class="sig-name descname"><span class="pre">dist_to_right_dot</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">int</span> <span class="pre">x</span></em>, <em class="sig-param"><span class="pre">int</span> <span class="pre">y</span></em><span class="sig-paren">)</span><a class="headerlink" href="#dist_to_right_dot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the distance to the right dot. </p>
+<p>:param x: The x-coordinate. :param y: The y-coordinate. :returns: Returns the distance to the right dot. </p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="get_sample">
+<span class="target" id="classyinyang_1_1_yin_yang_dataset_1a3cc4c6d2025083e89ed1f5ce79d980b3"></span><code class="sig-name descname"><span class="pre">get_sample</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">Optional[int]</span> <span class="pre">goal=None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#get_sample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sample one data point from the yin-yang sign with goal class <code class="docutils literal notranslate"><span class="pre">goal</span></code>. </p>
+<p>If <code class="docutils literal notranslate"><span class="pre">goal</span></code> is None any sample of any class is returned. :param goal: The target class of the sample to return. If None is given, any sample regardless of its class is retuned. :returns: Returns a tuple (x coordiante, y coordinate, class), where the coordinates are on the xy-plane. </p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="which_class">
+<span class="target" id="classyinyang_1_1_yin_yang_dataset_1ae34a27bd9beb077ff68c699485284160"></span><code class="sig-name descname"><span class="pre">which_class</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">float</span> <span class="pre">x</span></em>, <em class="sig-param"><span class="pre">float</span> <span class="pre">y</span></em><span class="sig-paren">)</span><a class="headerlink" href="#which_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assign a sample on the xy-plane with coordinates (x, y) to its class. </p>
+<p>:param x: The x-coordinate. :param y: The y-coordinate. :returns: An integer indicating the samples class. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="py attribute">
+<dt id="class_names">
+<span class="target" id="classyinyang_1_1_yin_yang_dataset_1a0ebeace77f657cdf3335bbed04cba0cc"></span><code class="sig-name descname"><span class="pre">class_names</span></code><a class="headerlink" href="#class_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="r_big">
+<span class="target" id="classyinyang_1_1_yin_yang_dataset_1adb52cde899f95d3af7958e9195ec4459"></span><code class="sig-name descname"><span class="pre">r_big</span></code><a class="headerlink" href="#r_big" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="r_small">
+<span class="target" id="classyinyang_1_1_yin_yang_dataset_1abadb2131736b1389269ca69ae6e59213"></span><code class="sig-name descname"><span class="pre">r_small</span></code><a class="headerlink" href="#r_small" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="rng">
+<span class="target" id="classyinyang_1_1_yin_yang_dataset_1a7383f97d25bfb22a23c6e627009da9d5"></span><code class="sig-name descname"><span class="pre">rng</span></code><a class="headerlink" href="#rng" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="transform">
+<span class="target" id="classyinyang_1_1_yin_yang_dataset_1a6cf40e1caf3db5df3ebff19ed0ff1693"></span><code class="sig-name descname"><span class="pre">transform</span></code><a class="headerlink" href="#transform" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="py attribute">
+<dt id="cs">
+<span id="__cs"></span><span class="target" id="classyinyang_1_1_yin_yang_dataset_1a97c28e1e0b9b7444a15445c0ea2c89cc"></span><code class="sig-name descname"><span class="pre">__cs</span></code><a class="headerlink" href="#cs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="vals">
+<span id="__vals"></span><span class="target" id="classyinyang_1_1_yin_yang_dataset_1a40c429dc2a0d7ec92fc9de8a8186450c"></span><code class="sig-name descname"><span class="pre">__vals</span></code><a class="headerlink" href="#vals" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="py class">
 <dt id="hxtorch">
 <span id="_hxtorch"></span><span class="target" id="namespace__hxtorch"></span><em class="property"><span class="pre">module</span> </em><code class="sig-name descname"><span class="pre">_hxtorch</span></code><a class="headerlink" href="#hxtorch" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -2260,8 +2357,8 @@
 </dd></dl>
 
 <dl class="py class">
-<dt id="id100">
-<span class="target" id="namespacehxtorch"></span><em class="property"><span class="pre">module</span> </em><code class="sig-name descname"><span class="pre">hxtorch</span></code><a class="headerlink" href="#id100" title="Permalink to this definition">¶</a></dt>
+<dt id="id103">
+<span class="target" id="namespacehxtorch"></span><em class="property"><span class="pre">module</span> </em><code class="sig-name descname"><span class="pre">hxtorch</span></code><a class="headerlink" href="#id103" title="Permalink to this definition">¶</a></dt>
 <dd><div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-variables">Variables</p>
 <dl class="py attribute">
@@ -2607,6 +2704,12 @@
 </div>
 </dd></dl>
 
+<dl class="py class">
+<dt id="yinyang">
+<span class="target" id="namespaceyinyang"></span><em class="property"><span class="pre">module</span> </em><code class="sig-name descname"><span class="pre">yinyang</span></code><a class="headerlink" href="#yinyang" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference internal" href="#classyinyang_1_1_yin_yang_dataset"><span class="std std-ref">YinYangDataset</span></a> class from <a class="reference external" href="https://github.com/lkriener/yin_yang_data_set/blob/master/dataset.py">https://github.com/lkriener/yin_yang_data_set/blob/master/dataset.py</a> with minor changes. </p>
+</dd></dl>
+
 <dl class="file">
 <dt>
 <span class="target" id="____init_____8py"></span><em><span class="pre">file</span></em> <code class="sig-name descname"><span class="pre">__init__.py</span></code></dt>
@@ -2650,6 +2753,11 @@
 <dl class="file">
 <dt>
 <span class="target" id="nodes_8py"></span><em><span class="pre">file</span></em> <code class="sig-name descname"><span class="pre">nodes.py</span></code></dt>
+<dd></dd></dl>
+
+<dl class="file">
+<dt>
+<span class="target" id="yinyang_8py"></span><em><span class="pre">file</span></em> <code class="sig-name descname"><span class="pre">yinyang.py</span></code></dt>
 <dd></dd></dl>
 
 <dl class="file">
@@ -2724,47 +2832,52 @@
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_d9b4e441eb7de72a94610f88a1bf7473"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzY4NA.x/hxtorch/src/pyhxtorch/hxtorch/snn/backend</span></code></dt>
+<span class="target" id="dir_d9b4e441eb7de72a94610f88a1bf7473"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzY4Nw.x/hxtorch/src/pyhxtorch/hxtorch/snn/backend</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_46acf995bef9b0539f566b0751d46379"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzY4NA.x/hxtorch/src/pyhxtorch/hxtorch/examples</span></code></dt>
+<span class="target" id="dir_e0b6792b0e61b103f83d2b9ee50da0b3"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzY4Nw.x/hxtorch/src/pyhxtorch/hxtorch/snn/datasets</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_2ea2e28d65a6b79e66621feca473e480"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzY4NA.x/hxtorch/src/pyhxtorch/hxtorch/snn/functional</span></code></dt>
+<span class="target" id="dir_46acf995bef9b0539f566b0751d46379"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzY4Nw.x/hxtorch/src/pyhxtorch/hxtorch/examples</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_dee54240410fefea239c518182ede0c0"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzY4NA.x/hxtorch</span></code></dt>
+<span class="target" id="dir_2ea2e28d65a6b79e66621feca473e480"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzY4Nw.x/hxtorch/src/pyhxtorch/hxtorch/snn/functional</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_eae1eaf2a11089ac186f861968e9ed6b"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzY4NA.x/hxtorch/src/pyhxtorch/hxtorch</span></code></dt>
+<span class="target" id="dir_dee54240410fefea239c518182ede0c0"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzY4Nw.x/hxtorch</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_7f97a6b062f0ffb929c49ccf0f36e308"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzY4NA.x/hxtorch/src/pyhxtorch</span></code></dt>
+<span class="target" id="dir_eae1eaf2a11089ac186f861968e9ed6b"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzY4Nw.x/hxtorch/src/pyhxtorch/hxtorch</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_acd7760542919bfe7a6c76d974f823af"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzY4NA.x/hxtorch/src/pyhxtorch/hxtorch/snn</span></code></dt>
+<span class="target" id="dir_7f97a6b062f0ffb929c49ccf0f36e308"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzY4Nw.x/hxtorch/src/pyhxtorch</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_b48420d93e1fb380492504b0e1926598"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzY4NA.x/hxtorch/src</span></code></dt>
+<span class="target" id="dir_acd7760542919bfe7a6c76d974f823af"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzY4Nw.x/hxtorch/src/pyhxtorch/hxtorch/snn</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_c0b3a098a59f8cee3768d2f5ff987f55"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzY4NA.x/hxtorch/src/pyhxtorch/hxtorch/snn/transforms</span></code></dt>
+<span class="target" id="dir_b48420d93e1fb380492504b0e1926598"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzY4Nw.x/hxtorch/src</span></code></dt>
+<dd></dd></dl>
+
+<dl class="dir">
+<dt>
+<span class="target" id="dir_c0b3a098a59f8cee3768d2f5ff987f55"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzY4Nw.x/hxtorch/src/pyhxtorch/hxtorch/snn/transforms</span></code></dt>
 <dd></dd></dl>
 
 </section>
@@ -4357,32 +4470,32 @@
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_34c654e707c1cdce70c0be42da701c7c"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzY4NA.x/hxtorch/include/hxtorch/detail</span></code></dt>
+<span class="target" id="dir_34c654e707c1cdce70c0be42da701c7c"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzY4Nw.x/hxtorch/include/hxtorch/detail</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_8ead669b9b485b8a7152a3d12ad75858"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzY4NA.x/hxtorch/include/hxtorch/snn/detail</span></code></dt>
+<span class="target" id="dir_8ead669b9b485b8a7152a3d12ad75858"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzY4Nw.x/hxtorch/include/hxtorch/snn/detail</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_dee54240410fefea239c518182ede0c0"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzY4NA.x/hxtorch</span></code></dt>
+<span class="target" id="dir_dee54240410fefea239c518182ede0c0"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzY4Nw.x/hxtorch</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_24b4f61621f9669a40a16349463d4bf6"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzY4NA.x/hxtorch/include/hxtorch</span></code></dt>
+<span class="target" id="dir_24b4f61621f9669a40a16349463d4bf6"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzY4Nw.x/hxtorch/include/hxtorch</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_c307ff2b5a6b1db2d6893eb7f3dce880"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzY4NA.x/hxtorch/include</span></code></dt>
+<span class="target" id="dir_c307ff2b5a6b1db2d6893eb7f3dce880"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzY4Nw.x/hxtorch/include</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_91b45b9f767fe990fbd271c603b98be7"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzY4NA.x/hxtorch/include/hxtorch/snn</span></code></dt>
+<span class="target" id="dir_91b45b9f767fe990fbd271c603b98be7"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzY4Nw.x/hxtorch/include/hxtorch/snn</span></code></dt>
 <dd></dd></dl>
 
 </section>
