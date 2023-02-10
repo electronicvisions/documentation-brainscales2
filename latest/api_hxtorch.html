@@ -1989,7 +1989,7 @@
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="py function">
 <dt id="id85">
-<span class="target" id="classhxtorch_1_1snn_1_1modules_1_1_synapse_1acc2c9c79e42c5885cddef24164bcf50b"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">int</span> <span class="pre">in_features</span></em>, <em class="sig-param"><span class="pre">int</span> <span class="pre">out_features</span></em>, <em class="sig-param"><span class="pre">instance</span></em>, <em class="sig-param"><span class="pre">Union[Callable</span></em>, <em class="sig-param"><span class="pre">torch.autograd.Function]</span> <span class="pre">func=nnF.linear</span></em>, <em class="sig-param"><span class="pre">str</span> <span class="pre">device=None</span></em>, <em class="sig-param"><span class="pre">Type</span> <span class="pre">dtype=None</span></em>, <em class="sig-param"><span class="pre">Callable</span> <span class="pre">transform=weight_transforms.linear_saturating</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id85" title="Permalink to this definition">¶</a></dt>
+<span class="target" id="classhxtorch_1_1snn_1_1modules_1_1_synapse_1ab6ce875603489138d10b452d0c3dc562"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">int</span> <span class="pre">in_features</span></em>, <em class="sig-param"><span class="pre">int</span> <span class="pre">out_features</span></em>, <em class="sig-param"><span class="pre">instance</span></em>, <em class="sig-param"><span class="pre">Union[Callable</span></em>, <em class="sig-param"><span class="pre">torch.autograd.Function]</span> <span class="pre">func=F.linear</span></em>, <em class="sig-param"><span class="pre">str</span> <span class="pre">device=None</span></em>, <em class="sig-param"><span class="pre">Type</span> <span class="pre">dtype=None</span></em>, <em class="sig-param"><span class="pre">Callable</span> <span class="pre">transform=weight_transforms.linear_saturating</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id85" title="Permalink to this definition">¶</a></dt>
 <dd><p>TODO: Think about what to do with device here. </p>
 <p>:param in_features: Size of input dimension. :param out_features: Size of output dimension. :param device: Device to execute on. Only considered in mock-mode. :param dtype: Data type of weight tensor. :param instance: Instance to append layer to. :param func: Callable function implementing the module’s forward functionallity or a torch.autograd.Function implementing the module’s forward and backward operation. Required function args: [input (torch.Tensor), weight (torch.Tensor)] </p>
 </dd></dl>
@@ -2482,8 +2482,17 @@
 
 <dl class="py class">
 <dt id="hxtorch.snn.functional.linear">
-<span class="target" id="namespacehxtorch_1_1snn_1_1functional_1_1linear"></span><em class="property"><span class="pre">module</span> </em><code class="sig-name descname"><span class="pre">linear</span></code><a class="headerlink" href="#hxtorch.snn.functional.linear" title="Permalink to this definition">¶</a></dt>
+<span class="target" id="namespacehxtorch_1_1snn_1_1functional_1_1linear"></span><em class="property"><span class="pre">module</span> </em><code class="sig-prename descclassname"><span class="pre">hxtorch.snn.functional.</span></code><code class="sig-name descname"><span class="pre">linear</span></code><a class="headerlink" href="#hxtorch.snn.functional.linear" title="Permalink to this definition">¶</a></dt>
 <dd><p>Implement linear autograd function. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="py function">
+<dt id="hxtorch.snn.functional.linear.linear">
+<span class="target" id="namespacehxtorch_1_1snn_1_1functional_1_1linear_1a44e9b8eec3ff8059143f9c94f77172af"></span><code class="sig-name descname"><span class="pre">linear</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">torch.Tensor</span> <span class="pre">input</span></em>, <em class="sig-param"><span class="pre">torch.nn.parameter.Parameter</span> <span class="pre">weight</span></em>, <em class="sig-param"><span class="pre">torch.nn.parameter.Parameter</span> <span class="pre">bias=None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.snn.functional.linear.linear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wrap <code class="docutils literal notranslate"><span class="pre">linear</span></code> to allow signature inspection. </p>
+</dd></dl>
+
+</div>
 </dd></dl>
 
 <dl class="py class">
@@ -2832,52 +2841,52 @@
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_d9b4e441eb7de72a94610f88a1bf7473"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzY4Nw.x/hxtorch/src/pyhxtorch/hxtorch/snn/backend</span></code></dt>
+<span class="target" id="dir_d9b4e441eb7de72a94610f88a1bf7473"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzcxNQ.x/hxtorch/src/pyhxtorch/hxtorch/snn/backend</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_e0b6792b0e61b103f83d2b9ee50da0b3"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzY4Nw.x/hxtorch/src/pyhxtorch/hxtorch/snn/datasets</span></code></dt>
+<span class="target" id="dir_e0b6792b0e61b103f83d2b9ee50da0b3"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzcxNQ.x/hxtorch/src/pyhxtorch/hxtorch/snn/datasets</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_46acf995bef9b0539f566b0751d46379"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzY4Nw.x/hxtorch/src/pyhxtorch/hxtorch/examples</span></code></dt>
+<span class="target" id="dir_46acf995bef9b0539f566b0751d46379"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzcxNQ.x/hxtorch/src/pyhxtorch/hxtorch/examples</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_2ea2e28d65a6b79e66621feca473e480"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzY4Nw.x/hxtorch/src/pyhxtorch/hxtorch/snn/functional</span></code></dt>
+<span class="target" id="dir_2ea2e28d65a6b79e66621feca473e480"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzcxNQ.x/hxtorch/src/pyhxtorch/hxtorch/snn/functional</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_dee54240410fefea239c518182ede0c0"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzY4Nw.x/hxtorch</span></code></dt>
+<span class="target" id="dir_dee54240410fefea239c518182ede0c0"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzcxNQ.x/hxtorch</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_eae1eaf2a11089ac186f861968e9ed6b"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzY4Nw.x/hxtorch/src/pyhxtorch/hxtorch</span></code></dt>
+<span class="target" id="dir_eae1eaf2a11089ac186f861968e9ed6b"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzcxNQ.x/hxtorch/src/pyhxtorch/hxtorch</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_7f97a6b062f0ffb929c49ccf0f36e308"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzY4Nw.x/hxtorch/src/pyhxtorch</span></code></dt>
+<span class="target" id="dir_7f97a6b062f0ffb929c49ccf0f36e308"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzcxNQ.x/hxtorch/src/pyhxtorch</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_acd7760542919bfe7a6c76d974f823af"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzY4Nw.x/hxtorch/src/pyhxtorch/hxtorch/snn</span></code></dt>
+<span class="target" id="dir_acd7760542919bfe7a6c76d974f823af"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzcxNQ.x/hxtorch/src/pyhxtorch/hxtorch/snn</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_b48420d93e1fb380492504b0e1926598"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzY4Nw.x/hxtorch/src</span></code></dt>
+<span class="target" id="dir_b48420d93e1fb380492504b0e1926598"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzcxNQ.x/hxtorch/src</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_c0b3a098a59f8cee3768d2f5ff987f55"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzY4Nw.x/hxtorch/src/pyhxtorch/hxtorch/snn/transforms</span></code></dt>
+<span class="target" id="dir_c0b3a098a59f8cee3768d2f5ff987f55"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzcxNQ.x/hxtorch/src/pyhxtorch/hxtorch/snn/transforms</span></code></dt>
 <dd></dd></dl>
 
 </section>
@@ -4470,32 +4479,32 @@
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_34c654e707c1cdce70c0be42da701c7c"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzY4Nw.x/hxtorch/include/hxtorch/detail</span></code></dt>
+<span class="target" id="dir_34c654e707c1cdce70c0be42da701c7c"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzcxNQ.x/hxtorch/include/hxtorch/detail</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_8ead669b9b485b8a7152a3d12ad75858"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzY4Nw.x/hxtorch/include/hxtorch/snn/detail</span></code></dt>
+<span class="target" id="dir_8ead669b9b485b8a7152a3d12ad75858"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzcxNQ.x/hxtorch/include/hxtorch/snn/detail</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_dee54240410fefea239c518182ede0c0"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzY4Nw.x/hxtorch</span></code></dt>
+<span class="target" id="dir_dee54240410fefea239c518182ede0c0"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzcxNQ.x/hxtorch</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_24b4f61621f9669a40a16349463d4bf6"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzY4Nw.x/hxtorch/include/hxtorch</span></code></dt>
+<span class="target" id="dir_24b4f61621f9669a40a16349463d4bf6"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzcxNQ.x/hxtorch/include/hxtorch</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_c307ff2b5a6b1db2d6893eb7f3dce880"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzY4Nw.x/hxtorch/include</span></code></dt>
+<span class="target" id="dir_c307ff2b5a6b1db2d6893eb7f3dce880"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzcxNQ.x/hxtorch/include</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_91b45b9f767fe990fbd271c603b98be7"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzY4Nw.x/hxtorch/include/hxtorch/snn</span></code></dt>
+<span class="target" id="dir_91b45b9f767fe990fbd271c603b98be7"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzcxNQ.x/hxtorch/include/hxtorch/snn</span></code></dt>
 <dd></dd></dl>
 
 </section>
