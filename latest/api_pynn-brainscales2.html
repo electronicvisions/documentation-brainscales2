@@ -351,6 +351,7 @@
 <dd><p>One to one representation of subset of parameter space of a lola.AtomicNeuron. </p>
 <p>Parameter hierarchy is flattened. Defaults to “silent” neuron.</p>
 <p>:param parameters: Mapping of parameters and corresponding values, e.g. dict. Either 1-dimensional or population size dimensions. Default values are overwritten for specified parameters. </p>
+<p>Subclassed by <a class="reference internal" href="#classcells_1_1_plastic_h_x_neuron"><span class="std std-ref">cells.PlasticHXNeuron</span></a></p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="py function">
@@ -611,80 +612,67 @@
 </dd></dl>
 
 <dl class="py class">
-<dt id="pynn_brainscales.brainscales2.plasticity_rules.PlasticityRule.Observable">
-<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1plasticity__rules_1_1_plasticity_rule_1_1_observable"></span><em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">Observable</span></code><a class="headerlink" href="#pynn_brainscales.brainscales2.plasticity_rules.PlasticityRule.Observable" title="Permalink to this definition">¶</a></dt>
-<dd><p>Subclassed by <a class="reference internal" href="#classpynn__brainscales_1_1brainscales2_1_1plasticity__rules_1_1_plasticity_rule_1_1_observable_array"><span class="std std-ref">pynn_brainscales.brainscales2.plasticity_rules.PlasticityRule.ObservableArray</span></a>, <a class="reference internal" href="#classpynn__brainscales_1_1brainscales2_1_1plasticity__rules_1_1_plasticity_rule_1_1_observable_per_synapse"><span class="std std-ref">pynn_brainscales.brainscales2.plasticity_rules.PlasticityRule.ObservablePerSynapse</span></a></p>
-</dd></dl>
-
-<dl class="py class">
 <dt>
-<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1plasticity__rules_1_1_plasticity_rule_1_1_observable_array"></span><code class="sig-name descname"><span class="pre">pynn_brainscales.brainscales2.plasticity_rules.PlasticityRule.ObservableArray</span> <span class="pre">:</span> <span class="pre">public</span> <span class="pre">pynn_brainscales.brainscales2.plasticity_rules.PlasticityRule.Observable</span></code></dt>
-<dd><div class="breathe-sectiondef docutils container">
+<span class="target" id="classcells_1_1_plastic_h_x_neuron"></span><code class="sig-name descname"><span class="pre">cells.PlasticHXNeuron</span> <span class="pre">:</span> <span class="pre">public</span> <span class="pre">cells.HXNeuron</span> <span class="pre">,</span> <span class="pre">public</span> <span class="pre">plasticity_rules.PlasticityRuleHandle</span></code></dt>
+<dd><p><a class="reference internal" href="#classcells_1_1_h_x_neuron"><span class="std std-ref">HXNeuron</span></a> with plasticity rule handle. </p>
+<p>Currently this includes setting the readout source of each neuron to be available to the plasticity rule. </p>
+<div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="py function">
-<dt id="id6">
-<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1plasticity__rules_1_1_plasticity_rule_1_1_observable_array_1a1abafdf1334a89adc82d4d7f24746531"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">ElementType</span> <span class="pre">element_type</span></em>, <em class="sig-param"><span class="pre">int</span> <span class="pre">size</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id6" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</div>
-<div class="breathe-sectiondef docutils container">
-<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
-<dl class="py attribute">
-<dt id="element_type">
-<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1plasticity__rules_1_1_plasticity_rule_1_1_observable_array_1a05adbe813e4edd71d5f86bbfcd97365f"></span><code class="sig-name descname"><span class="pre">element_type</span></code><a class="headerlink" href="#element_type" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="size">
-<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1plasticity__rules_1_1_plasticity_rule_1_1_observable_array_1aeb7bc5b7ad7af1f502604e54a2ee8955"></span><code class="sig-name descname"><span class="pre">size</span></code><a class="headerlink" href="#size" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</div>
-<div class="breathe-sectiondef docutils container">
-<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-static-attributes">Public Static Attributes</p>
-<dl class="py attribute">
-<dt id="ElementType">
-<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1plasticity__rules_1_1_plasticity_rule_1_1_observable_array_1ae811ae018bc7af8eeb28a011ff3fa2ba"></span><code class="sig-name descname"><span class="pre">ElementType</span></code><em class="property"> <span class="pre">=</span> <span class="pre">grenade.PlasticityRule.TimedRecording</span> <span class="pre">\</span></em><a class="headerlink" href="#ElementType" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</div>
+<dt id="id8">
+<span class="target" id="classcells_1_1_plastic_h_x_neuron_1aa260d4f89fd3270a28edc28bf0e60522"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">bool</span> <span class="pre">plasticity_rule_enable_readout_source=False</span></em>, <em class="sig-param"><span class="pre">lola.AtomicNeuron.Readout.Source</span> <span class="pre">plasticity_rule_readout_source=lola.AtomicNeuron.Readout.Source.membrane</span></em>, <em class="sig-param"><span class="pre">Optional[plasticity_rules.PlasticityRule]</span> <span class="pre">plasticity_rule=None</span></em>, <em class="sig-param"><span class="pre">**parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id8" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">parameters</span></code> should be a mapping object, e.g. </p>
+<p>a dict </p>
 </dd></dl>
 
-<dl class="py class">
-<dt>
-<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1plasticity__rules_1_1_plasticity_rule_1_1_observable_per_synapse"></span><code class="sig-name descname"><span class="pre">pynn_brainscales.brainscales2.plasticity_rules.PlasticityRule.ObservablePerSynapse</span> <span class="pre">:</span> <span class="pre">public</span> <span class="pre">pynn_brainscales.brainscales2.plasticity_rules.PlasticityRule.Observable</span></code></dt>
-<dd><div class="breathe-sectiondef docutils container">
-<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="py function">
 <dt id="id9">
-<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1plasticity__rules_1_1_plasticity_rule_1_1_observable_per_synapse_1ab346a98b103408668084875ec7b773e3"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">ElementType</span> <span class="pre">element_type</span></em>, <em class="sig-param"><span class="pre">LayoutPerRow</span> <span class="pre">layout_per_row</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id9" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="target" id="classcells_1_1_plastic_h_x_neuron_1a8c2da10b0271dce61be92d8d6617dc38"></span><code class="sig-name descname"><span class="pre">get_default_values</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id9" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the default values of a LoLa Neuron. </p>
+</dd></dl>
 
-</div>
-<div class="breathe-sectiondef docutils container">
-<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
-<dl class="py attribute">
-<dt id="id8">
-<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1plasticity__rules_1_1_plasticity_rule_1_1_observable_per_synapse_1a6f01a2d291941b3a9222859b8fec833f"></span><code class="sig-name descname"><span class="pre">element_type</span></code><a class="headerlink" href="#id8" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="layout_per_row">
-<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1plasticity__rules_1_1_plasticity_rule_1_1_observable_per_synapse_1a6b2e9af1c6a77ae7e0078e8695398033"></span><code class="sig-name descname"><span class="pre">layout_per_row</span></code><a class="headerlink" href="#layout_per_row" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt id="to_plasticity_rule_population_handle">
+<span class="target" id="classcells_1_1_plastic_h_x_neuron_1ac80a721fbb17fd11a3a627507d87ced3"></span><code class="sig-name descname"><span class="pre">to_plasticity_rule_population_handle</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">cls</span></em>, <em class="sig-param"><span class="pre">Population</span> <span class="pre">population</span></em><span class="sig-paren">)</span><a class="headerlink" href="#to_plasticity_rule_population_handle" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-static-attributes">Public Static Attributes</p>
 <dl class="py attribute">
-<dt id="id7">
-<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1plasticity__rules_1_1_plasticity_rule_1_1_observable_per_synapse_1afa2501b71189ea2b28dd63541d1b5d05"></span><code class="sig-name descname"><span class="pre">ElementType</span></code><em class="property"> <span class="pre">=</span> <span class="pre">grenade.PlasticityRule.TimedRecording</span> <span class="pre">\</span></em><a class="headerlink" href="#id7" title="Permalink to this definition">¶</a></dt>
+<dt id="id6">
+<span class="target" id="classcells_1_1_plastic_h_x_neuron_1a0db7fe54b47fa52c62d6fd7c04d6a57b"></span><code class="sig-name descname"><span class="pre">default_parameters</span></code><a class="headerlink" href="#id6" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="LayoutPerRow">
-<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1plasticity__rules_1_1_plasticity_rule_1_1_observable_per_synapse_1a7c1664c0fe387cc2442b8bb12d761a9d"></span><code class="sig-name descname"><span class="pre">LayoutPerRow</span></code><em class="property"> <span class="pre">=</span> <span class="pre">grenade.PlasticityRule.TimedRecording</span> <span class="pre">\</span></em><a class="headerlink" href="#LayoutPerRow" title="Permalink to this definition">¶</a></dt>
+<dt id="ReadoutSource">
+<span class="target" id="classcells_1_1_plastic_h_x_neuron_1a587c663f5456507caea81d9be98f5dc7"></span><code class="sig-name descname"><span class="pre">ReadoutSource</span></code><em class="property"> <span class="pre">=</span> <span class="pre">lola.AtomicNeuron.Readout.Source</span></em><a class="headerlink" href="#ReadoutSource" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="id7">
+<span class="target" id="classcells_1_1_plastic_h_x_neuron_1a0e0ac71cf4dbf1e02fc75cc19a3e3186"></span><code class="sig-name descname"><span class="pre">translations</span></code><em class="property"> <span class="pre">=</span> <span class="pre">{**HXNeuron.translations,</span> <span class="pre">**build_translations((&quot;plasticity_rule_readout_source&quot;,&quot;plasticity_rule_readout_source&quot;),(&quot;plasticity_rule_enable_readout_source&quot;,&quot;plasticity_rule_enable_readout_source&quot;),)}</span></em><a class="headerlink" href="#id7" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt>
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1examples_1_1plasticity__rule_1_1_plasticity_rule"></span><code class="sig-name descname"><span class="pre">pynn_brainscales.brainscales2.examples.plasticity_rule.PlasticityRule</span> <span class="pre">:</span> <span class="pre">public</span> <span class="pre">pynn.PlasticityRule</span></code></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="py function">
+<dt id="id10">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1examples_1_1plasticity__rule_1_1_plasticity_rule_1a4502f5ddcd5cd3c52814c907c4946d18"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">pynn.Timer</span> <span class="pre">timer</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id10" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="generate_kernel">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1examples_1_1plasticity__rule_1_1_plasticity_rule_1a71e671f665d448ab717c0da3246b3a4a"></span><code class="sig-name descname"><span class="pre">generate_kernel</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#generate_kernel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate plasticity rule kernel to be compiled into PPU program. </p>
+<p>:return: PPU-code of plasticity-rule kernel as string. </p>
+</dd></dl>
 
 </div>
 </dd></dl>
@@ -698,7 +686,7 @@
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="py function">
 <dt id="pynn_brainscales.brainscales2.plasticity_rules.PlasticityRule.__init__">
-<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1plasticity__rules_1_1_plasticity_rule_1a90a8ffbefb418c971338241161ec5f78"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">Timer</span> <span class="pre">timer</span></em>, <em class="sig-param"><span class="pre">Optional[Dict[str</span></em>, <em class="sig-param"><span class="pre">Observable]]</span> <span class="pre">observables=None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.plasticity_rules.PlasticityRule.__init__" title="Permalink to this definition">¶</a></dt>
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1plasticity__rules_1_1_plasticity_rule_1a2ba76b3912e325d77049e57525f8b284"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">Timer</span> <span class="pre">timer</span></em>, <em class="sig-param"><span class="pre">Optional[Dict[str</span></em>, <em class="sig-param"><span class="pre">Union[ObservablePerSynapse</span></em>, <em class="sig-param"><span class="pre">ObservablePerNeuron</span></em>, <em class="sig-param"><span class="pre">ObservableArray]]]</span> <span class="pre">observables=None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.plasticity_rules.PlasticityRule.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a new plasticity rule with timing information. </p>
 <p>:param timer: <a class="reference internal" href="#classpynn__brainscales_1_1brainscales2_1_1plasticity__rules_1_1_timer"><span class="std std-ref">Timer</span></a> object. </p>
 </dd></dl>
@@ -746,7 +734,30 @@
 
 </div>
 <div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-static-attributes">Public Static Attributes</p>
+<dl class="py attribute">
+<dt id="pynn_brainscales.brainscales2.plasticity_rules.PlasticityRule.ObservableArray">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1plasticity__rules_1_1_plasticity_rule_1ac43bb46af103017cd6f949799c73fec9"></span><code class="sig-name descname"><span class="pre">ObservableArray</span></code><em class="property"> <span class="pre">=</span> <span class="pre">grenade.logical_network.PlasticityRule\</span></em><a class="headerlink" href="#pynn_brainscales.brainscales2.plasticity_rules.PlasticityRule.ObservableArray" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pynn_brainscales.brainscales2.plasticity_rules.PlasticityRule.ObservablePerNeuron">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1plasticity__rules_1_1_plasticity_rule_1a3a16fe7fb35ed1a16f52d101fa2da89f"></span><code class="sig-name descname"><span class="pre">ObservablePerNeuron</span></code><em class="property"> <span class="pre">=</span> <span class="pre">grenade.logical_network.PlasticityRule\</span></em><a class="headerlink" href="#pynn_brainscales.brainscales2.plasticity_rules.PlasticityRule.ObservablePerNeuron" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pynn_brainscales.brainscales2.plasticity_rules.PlasticityRule.ObservablePerSynapse">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1plasticity__rules_1_1_plasticity_rule_1abf85c3302e950967bf78a52d543646c3"></span><code class="sig-name descname"><span class="pre">ObservablePerSynapse</span></code><em class="property"> <span class="pre">=</span> <span class="pre">grenade.logical_network.PlasticityRule\</span></em><a class="headerlink" href="#pynn_brainscales.brainscales2.plasticity_rules.PlasticityRule.ObservablePerSynapse" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-functions">Private Functions</p>
+<dl class="py function">
+<dt id="pynn_brainscales.brainscales2.plasticity_rules.PlasticityRule._add_population">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1plasticity__rules_1_1_plasticity_rule_1addb92c0ddb8103dc559fa0d68659c3cd"></span><code class="sig-name descname"><span class="pre">_add_population</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">Population</span> <span class="pre">new_population</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.plasticity_rules.PlasticityRule._add_population" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="py function">
 <dt id="pynn_brainscales.brainscales2.plasticity_rules.PlasticityRule._add_projection">
 <span class="target" id="classpynn__brainscales_1_1brainscales2_1_1plasticity__rules_1_1_plasticity_rule_1a0f11bf6c69f0376abf2760a3e44f682f"></span><code class="sig-name descname"><span class="pre">_add_projection</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">Projection</span> <span class="pre">new_projection</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.plasticity_rules.PlasticityRule._add_projection" title="Permalink to this definition">¶</a></dt>
@@ -760,6 +771,11 @@
 <dl class="py function">
 <dt id="pynn_brainscales.brainscales2.plasticity_rules.PlasticityRule._get_timer">
 <span class="target" id="classpynn__brainscales_1_1brainscales2_1_1plasticity__rules_1_1_plasticity_rule_1ae1bf1480b26eea35d3e3442ed00bf77a"></span><code class="sig-name descname"><span class="pre">_get_timer</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.plasticity_rules.PlasticityRule._get_timer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="pynn_brainscales.brainscales2.plasticity_rules.PlasticityRule._remove_population">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1plasticity__rules_1_1_plasticity_rule_1af736971fe096f1c5fb4df6e8ca173ca8"></span><code class="sig-name descname"><span class="pre">_remove_population</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">Population</span> <span class="pre">old_population</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.plasticity_rules.PlasticityRule._remove_population" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
@@ -786,6 +802,11 @@
 <dd></dd></dl>
 
 <dl class="py attribute">
+<dt id="pynn_brainscales.brainscales2.plasticity_rules.PlasticityRule._populations">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1plasticity__rules_1_1_plasticity_rule_1a261c2cd0ba38c4b4811b9688f2df4db2"></span><code class="sig-name descname"><span class="pre">_populations</span></code><a class="headerlink" href="#pynn_brainscales.brainscales2.plasticity_rules.PlasticityRule._populations" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
 <dt id="pynn_brainscales.brainscales2.plasticity_rules.PlasticityRule._projections">
 <span class="target" id="classpynn__brainscales_1_1brainscales2_1_1plasticity__rules_1_1_plasticity_rule_1ab1d7b8b43e9a3d68f67fd66fa6150a68"></span><code class="sig-name descname"><span class="pre">_projections</span></code><a class="headerlink" href="#pynn_brainscales.brainscales2.plasticity_rules.PlasticityRule._projections" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -807,21 +828,100 @@
 </dd></dl>
 
 <dl class="py class">
-<dt>
-<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1examples_1_1plasticity__rule_1_1_plastic_synapse"></span><code class="sig-name descname"><span class="pre">pynn_brainscales.brainscales2.examples.plasticity_rule.PlasticSynapse</span> <span class="pre">:</span> <span class="pre">public</span> <span class="pre">pynn.PlasticityRule</span> <span class="pre">,</span> <span class="pre">public</span> <span class="pre">pynn.standardmodels.synapses.StaticSynapse</span></code></dt>
-<dd><div class="breathe-sectiondef docutils container">
+<dt id="pynn_brainscales.brainscales2.plasticity_rules.PlasticityRuleHandle">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1plasticity__rules_1_1_plasticity_rule_handle"></span><em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">pynn_brainscales.brainscales2.plasticity_rules.</span></code><code class="sig-name descname"><span class="pre">PlasticityRuleHandle</span></code><a class="headerlink" href="#pynn_brainscales.brainscales2.plasticity_rules.PlasticityRuleHandle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handle to (shared) plasticity rule. </p>
+<p>Inheritance is to be used for actual implementations of cell types. </p>
+<div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="py function">
-<dt id="id10">
-<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1examples_1_1plasticity__rule_1_1_plastic_synapse_1ace35c8d8329cbf9e5083ad0355c81f51"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">pynn.Timer</span> <span class="pre">timer</span></em>, <em class="sig-param"><span class="pre">float</span> <span class="pre">weight</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id10" title="Permalink to this definition">¶</a></dt>
+<dt id="pynn_brainscales.brainscales2.plasticity_rules.PlasticityRuleHandle.__init__">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1plasticity__rules_1_1_plasticity_rule_handle_1a96100c8c8f99a8239e5f99bf9f79c5b7"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">PlasticityRule</span> <span class="pre">plasticity_rule=None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.plasticity_rules.PlasticityRuleHandle.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new handle to a plasticity rule. </p>
+<p>:param plasticity_rule: <a class="reference internal" href="#classpynn__brainscales_1_1brainscales2_1_1plasticity__rules_1_1_plasticity_rule"><span class="std std-ref">PlasticityRule</span></a> instance. :param observable_options: Observable options to use in this cell type instance. </p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pynn_brainscales.brainscales2.plasticity_rules.PlasticityRuleHandle.to_plasticity_rule_population_handle">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1plasticity__rules_1_1_plasticity_rule_handle_1a0e118bb104b4e9c31c0361cbf946c66d"></span><code class="sig-name descname"><span class="pre">to_plasticity_rule_population_handle</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">cls</span></em>, <em class="sig-param"><span class="pre">Population</span> <span class="pre">population</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.plasticity_rules.PlasticityRuleHandle.to_plasticity_rule_population_handle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert observable options to population handle of plasticity rule to backend representation, when plasticity rule handle is assoiated to neuron cell type and used in a population. </p>
+<p>:param population: Population for which to convert :return: Representation in grenade </p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pynn_brainscales.brainscales2.plasticity_rules.PlasticityRuleHandle.to_plasticity_rule_projection_handle">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1plasticity__rules_1_1_plasticity_rule_handle_1a462694c7ea161f5fe56a74c57f86dba6"></span><code class="sig-name descname"><span class="pre">to_plasticity_rule_projection_handle</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">cls</span></em>, <em class="sig-param"><span class="pre">Projection</span> <span class="pre">projection</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.plasticity_rules.PlasticityRuleHandle.to_plasticity_rule_projection_handle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert observable options to projection handle of plasticity rule to backend representation, when plasticity rule handle is assoiated to synapse type and used in a projection. </p>
+<p>Currently no options are available.</p>
+<p>:param projection: Projection for which to convert :return: Representation in grenade </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="py attribute">
+<dt id="pynn_brainscales.brainscales2.plasticity_rules.PlasticityRuleHandle.changed_since_last_run">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1plasticity__rules_1_1_plasticity_rule_handle_1aba3496790a81a671fabee5fd5044902c"></span><code class="sig-name descname"><span class="pre">changed_since_last_run</span></code><a class="headerlink" href="#pynn_brainscales.brainscales2.plasticity_rules.PlasticityRuleHandle.changed_since_last_run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-properties">Properties</p>
+<dl class="py attribute">
+<dt id="pynn_brainscales.brainscales2.plasticity_rules.PlasticityRuleHandle.plasticity_rule">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1plasticity__rules_1_1_plasticity_rule_handle_1a1506ae0d41b002158265f92c0643e6a8"></span><code class="sig-name descname"><span class="pre">plasticity_rule</span></code><em class="property"> <span class="pre">=</span> <span class="pre">property(_get_plasticity_rule,</span> <span class="pre">_set_plasticity_rule)</span></em><a class="headerlink" href="#pynn_brainscales.brainscales2.plasticity_rules.PlasticityRuleHandle.plasticity_rule" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-functions">Private Functions</p>
+<dl class="py function">
+<dt id="pynn_brainscales.brainscales2.plasticity_rules.PlasticityRuleHandle._get_plasticity_rule">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1plasticity__rules_1_1_plasticity_rule_handle_1ae401111851c2916c684a5f385726d715"></span><code class="sig-name descname"><span class="pre">_get_plasticity_rule</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.plasticity_rules.PlasticityRuleHandle._get_plasticity_rule" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="generate_kernel">
-<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1examples_1_1plasticity__rule_1_1_plastic_synapse_1abf3698ca42e3547c46b00998e55e3ad6"></span><code class="sig-name descname"><span class="pre">generate_kernel</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#generate_kernel" title="Permalink to this definition">¶</a></dt>
-<dd><p>Generate plasticity rule kernel to be compiled into PPU program. </p>
-<p>:return: PPU-code of plasticity-rule kernel as string. </p>
+<dt id="pynn_brainscales.brainscales2.plasticity_rules.PlasticityRuleHandle._set_plasticity_rule">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1plasticity__rules_1_1_plasticity_rule_handle_1a94c73f4da7ae311294582f2535b6fde6"></span><code class="sig-name descname"><span class="pre">_set_plasticity_rule</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_plasticity_rule</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.plasticity_rules.PlasticityRuleHandle._set_plasticity_rule" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="py attribute">
+<dt id="pynn_brainscales.brainscales2.plasticity_rules.PlasticityRuleHandle._plasticity_rule">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1plasticity__rules_1_1_plasticity_rule_handle_1a141498fdee80edbda29a135a88db9577"></span><code class="sig-name descname"><span class="pre">_plasticity_rule</span></code><a class="headerlink" href="#pynn_brainscales.brainscales2.plasticity_rules.PlasticityRuleHandle._plasticity_rule" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-static-attributes">Private Static Attributes</p>
+<dl class="py attribute">
+<dt id="pynn_brainscales.brainscales2.plasticity_rules.PlasticityRuleHandle._simulator">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1plasticity__rules_1_1_plasticity_rule_handle_1ababa0960e2058c882797251f6c64d565"></span><code class="sig-name descname"><span class="pre">_simulator</span></code><em class="property"> <span class="pre">=</span> <span class="pre">simulator</span></em><a class="headerlink" href="#pynn_brainscales.brainscales2.plasticity_rules.PlasticityRuleHandle._simulator" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
 </dd></dl>
+
+<dl class="py class">
+<dt>
+<span class="target" id="classsynapses_1_1_plastic_synapse"></span><code class="sig-name descname"><span class="pre">synapses.PlasticSynapse</span> <span class="pre">:</span> <span class="pre">public</span> <span class="pre">synapses.StaticSynapse</span> <span class="pre">,</span> <span class="pre">public</span> <span class="pre">plasticity_rules.PlasticityRuleHandle</span></code></dt>
+<dd><p>Synaptic connection with fixed initial weight and delay and handle to plasticity rule. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="py function">
+<dt id="id12">
+<span class="target" id="classsynapses_1_1_plastic_synapse_1a68a35caa174b847641e2556be36577ac"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">int</span> <span class="pre">weight=0</span></em>, <em class="sig-param"><span class="pre">float</span> <span class="pre">delay=0</span></em>, <em class="sig-param"><span class="pre">plasticity_rules.PlasticityRule</span> <span class="pre">plasticity_rule=None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id12" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-static-attributes">Public Static Attributes</p>
+<dl class="py attribute">
+<dt id="id11">
+<span class="target" id="classsynapses_1_1_plastic_synapse_1ad9ecc33beacbfd030a04c2194cdbd5d4"></span><code class="sig-name descname"><span class="pre">translations</span></code><em class="property"> <span class="pre">=</span> <span class="pre">build_translations(('weight',</span> <span class="pre">'weight'),('delay',</span> <span class="pre">'delay'))</span></em><a class="headerlink" href="#id11" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </div>
 </dd></dl>
@@ -830,6 +930,21 @@
 <dt>
 <span class="target" id="classpynn__brainscales_1_1brainscales2_1_1populations_1_1_population"></span><code class="sig-name descname"><span class="pre">pynn_brainscales.brainscales2.populations.Population</span> <span class="pre">:</span> <span class="pre">public</span> <span class="pre">pyNN.common.Population</span></code></dt>
 <dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="py function">
+<dt id="setattr__">
+<span id="__setattr__"></span><span class="target" id="classpynn__brainscales_1_1brainscales2_1_1populations_1_1_population_1a9b14fb97833ad68158c54eac990e3ac5"></span><code class="sig-name descname"><span class="pre">__setattr__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#setattr__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="get_plasticity_data">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1populations_1_1_population_1a0be5e540b181226ac44d58bcbe00d151"></span><code class="sig-name descname"><span class="pre">get_plasticity_data</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">str</span> <span class="pre">observable</span></em><span class="sig-paren">)</span><a class="headerlink" href="#get_plasticity_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get recorded observable data for this population from plasticity rule. </p>
+<p>:raises RuntimeError: On no plasticity rule or requested observable name present :param observable: Observable name to get data for :returns: Observable data per plasticity rule execution period per neuron </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
 <dl class="py attribute">
 <dt id="all_cells">
@@ -837,16 +952,16 @@
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="id14">
-<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1populations_1_1_population_1ae5a25cbb3b8be6ef0a8204fa245306b4"></span><code class="sig-name descname"><span class="pre">changed_since_last_run</span></code><a class="headerlink" href="#id14" title="Permalink to this definition">¶</a></dt>
+<dt id="id16">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1populations_1_1_population_1ae5a25cbb3b8be6ef0a8204fa245306b4"></span><code class="sig-name descname"><span class="pre">changed_since_last_run</span></code><a class="headerlink" href="#id16" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-static-attributes">Public Static Attributes</p>
 <dl class="py attribute">
-<dt id="id13">
-<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1populations_1_1_population_1af223e100b8ad0e90d04828adeb16f3ec"></span><code class="sig-name descname"><span class="pre">changed_since_last_run</span></code><em class="property"> <span class="pre">=</span> <span class="pre">True</span></em><a class="headerlink" href="#id13" title="Permalink to this definition">¶</a></dt>
+<dt id="id15">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1populations_1_1_population_1af223e100b8ad0e90d04828adeb16f3ec"></span><code class="sig-name descname"><span class="pre">changed_since_last_run</span></code><em class="property"> <span class="pre">=</span> <span class="pre">True</span></em><a class="headerlink" href="#id15" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -891,8 +1006,8 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-static-attributes">Private Static Attributes</p>
 <dl class="py attribute">
-<dt id="id11">
-<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1populations_1_1_population_1a78cb8af3f72f8bc95e9762be2e8dbf54"></span><code class="sig-name descname"><span class="pre">__doc__</span></code><em class="property"> <span class="pre">=</span> <span class="pre">pyNN.common.Population.__doc__</span></em><a class="headerlink" href="#id11" title="Permalink to this definition">¶</a></dt>
+<dt id="id13">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1populations_1_1_population_1a78cb8af3f72f8bc95e9762be2e8dbf54"></span><code class="sig-name descname"><span class="pre">__doc__</span></code><em class="property"> <span class="pre">=</span> <span class="pre">pyNN.common.Population.__doc__</span></em><a class="headerlink" href="#id13" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -906,8 +1021,8 @@
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="id12">
-<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1populations_1_1_population_1a002aaa10ef65f308bb072a74015c8890"></span><code class="sig-name descname"><span class="pre">_simulator</span></code><em class="property"> <span class="pre">=</span> <span class="pre">simulator</span></em><a class="headerlink" href="#id12" title="Permalink to this definition">¶</a></dt>
+<dt id="id14">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1populations_1_1_population_1a002aaa10ef65f308bb072a74015c8890"></span><code class="sig-name descname"><span class="pre">_simulator</span></code><em class="property"> <span class="pre">=</span> <span class="pre">simulator</span></em><a class="headerlink" href="#id14" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -919,19 +1034,19 @@
 <dd><div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-functions">Private Functions</p>
 <dl class="py function">
-<dt id="id17">
-<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1populations_1_1_population_view_1aa47a2c2bf14c0342b85258e4aec51cee"></span><code class="sig-name descname"><span class="pre">_get_parameters</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">names</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id17" title="Permalink to this definition">¶</a></dt>
+<dt id="id19">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1populations_1_1_population_view_1aa47a2c2bf14c0342b85258e4aec51cee"></span><code class="sig-name descname"><span class="pre">_get_parameters</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">names</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id19" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a ParameterSpace containing native parameters. </p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="id18">
-<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1populations_1_1_population_view_1abe035793827d94adc16fce29ff8dac8d"></span><code class="sig-name descname"><span class="pre">_get_view</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selector</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id18" title="Permalink to this definition">¶</a></dt>
+<dt id="id20">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1populations_1_1_population_view_1abe035793827d94adc16fce29ff8dac8d"></span><code class="sig-name descname"><span class="pre">_get_view</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selector</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id20" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="id19">
-<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1populations_1_1_population_view_1a95c8d2928458ddb419eb92eb7ab0b2a7"></span><code class="sig-name descname"><span class="pre">_set_parameters</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameter_space</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id19" title="Permalink to this definition">¶</a></dt>
+<dt id="id21">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1populations_1_1_population_view_1a95c8d2928458ddb419eb92eb7ab0b2a7"></span><code class="sig-name descname"><span class="pre">_set_parameters</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameter_space</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id21" title="Permalink to this definition">¶</a></dt>
 <dd><p>parameter_space should contain native parameters </p>
 </dd></dl>
 
@@ -939,13 +1054,13 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-static-attributes">Private Static Attributes</p>
 <dl class="py attribute">
-<dt id="id15">
-<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1populations_1_1_population_view_1a22897f6f9d19ca6a13833bdba60194a1"></span><code class="sig-name descname"><span class="pre">_assembly_class</span></code><em class="property"> <span class="pre">=</span> <span class="pre">Assembly</span></em><a class="headerlink" href="#id15" title="Permalink to this definition">¶</a></dt>
+<dt id="id17">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1populations_1_1_population_view_1a22897f6f9d19ca6a13833bdba60194a1"></span><code class="sig-name descname"><span class="pre">_assembly_class</span></code><em class="property"> <span class="pre">=</span> <span class="pre">Assembly</span></em><a class="headerlink" href="#id17" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="id16">
-<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1populations_1_1_population_view_1a3cc3e9f2d8f9311847946117020dc69c"></span><code class="sig-name descname"><span class="pre">_simulator</span></code><em class="property"> <span class="pre">=</span> <span class="pre">simulator</span></em><a class="headerlink" href="#id16" title="Permalink to this definition">¶</a></dt>
+<dt id="id18">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1populations_1_1_population_view_1a3cc3e9f2d8f9311847946117020dc69c"></span><code class="sig-name descname"><span class="pre">_simulator</span></code><em class="property"> <span class="pre">=</span> <span class="pre">simulator</span></em><a class="headerlink" href="#id18" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -957,8 +1072,8 @@
 <dd><div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="py function">
-<dt id="id22">
-<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1projections_1_1_projection_1a2d67653e0aef50aa970c0d3686033544"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">presynaptic_neurons</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">postsynaptic_neurons</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connector</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">synapse_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">receptor_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">space</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Space()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id22" title="Permalink to this definition">¶</a></dt>
+<dt id="id24">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1projections_1_1_projection_1a2d67653e0aef50aa970c0d3686033544"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">presynaptic_neurons</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">postsynaptic_neurons</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connector</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">synapse_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">receptor_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">space</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Space()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id24" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a new projection, connecting the pre- and post-synaptic neurons. </p>
 <p>:param presynaptic_neurons: Population, PopulationView or Assembly object.</p>
 <p>:param postsynaptic_neurons: Population, PopulationView or Assembly object.</p>
@@ -983,8 +1098,8 @@
 </dd></dl>
 
 <dl class="py function">
-<dt id="setattr__">
-<span id="__setattr__"></span><span class="target" id="classpynn__brainscales_1_1brainscales2_1_1projections_1_1_projection_1a7eaf0577e813f7de798a3475b4c5694b"></span><code class="sig-name descname"><span class="pre">__setattr__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#setattr__" title="Permalink to this definition">¶</a></dt>
+<dt id="id25">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1projections_1_1_projection_1a7eaf0577e813f7de798a3475b4c5694b"></span><code class="sig-name descname"><span class="pre">__setattr__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id25" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
@@ -1002,8 +1117,8 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
 <dl class="py attribute">
-<dt id="id21">
-<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1projections_1_1_projection_1adda7f23fab1e5c8b696e5d81928bc6aa"></span><code class="sig-name descname"><span class="pre">changed_since_last_run</span></code><a class="headerlink" href="#id21" title="Permalink to this definition">¶</a></dt>
+<dt id="id23">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1projections_1_1_projection_1adda7f23fab1e5c8b696e5d81928bc6aa"></span><code class="sig-name descname"><span class="pre">changed_since_last_run</span></code><a class="headerlink" href="#id23" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -1015,8 +1130,8 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-static-functions">Public Static Functions</p>
 <dl class="py function">
-<dt id="id24">
-<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1projections_1_1_projection_1a0e5d120cc8218db140286e7e3cfa139c"></span><code class="sig-name descname"><span class="pre">add_to_network_graph</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">List[Population]</span> <span class="pre">populations</span></em>, <em class="sig-param"><span class="pre">Projection</span> <span class="pre">projection</span></em>, <em class="sig-param"><span class="pre">grenade.logical_network.NetworkBuilder</span> <span class="pre">builder</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id24" title="Permalink to this definition">¶</a></dt>
+<dt id="id27">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1projections_1_1_projection_1a0e5d120cc8218db140286e7e3cfa139c"></span><code class="sig-name descname"><span class="pre">add_to_network_graph</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">List[Population]</span> <span class="pre">populations</span></em>, <em class="sig-param"><span class="pre">Projection</span> <span class="pre">projection</span></em>, <em class="sig-param"><span class="pre">grenade.logical_network.NetworkBuilder</span> <span class="pre">builder</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id27" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -1034,16 +1149,16 @@
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="id23">
-<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1projections_1_1_projection_1a16cde6071a1406e37fd2dc7a685fac25"></span><code class="sig-name descname"><span class="pre">_set_initial_value_array</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id23" title="Permalink to this definition">¶</a></dt>
+<dt id="id26">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1projections_1_1_projection_1a16cde6071a1406e37fd2dc7a685fac25"></span><code class="sig-name descname"><span class="pre">_set_initial_value_array</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id26" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-static-attributes">Private Static Attributes</p>
 <dl class="py attribute">
-<dt id="id20">
-<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1projections_1_1_projection_1a27fcf6e673c3c09771150c1d24d11906"></span><code class="sig-name descname"><span class="pre">_simulator</span></code><em class="property"> <span class="pre">=</span> <span class="pre">simulator</span></em><a class="headerlink" href="#id20" title="Permalink to this definition">¶</a></dt>
+<dt id="id22">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1projections_1_1_projection_1a27fcf6e673c3c09771150c1d24d11906"></span><code class="sig-name descname"><span class="pre">_simulator</span></code><em class="property"> <span class="pre">=</span> <span class="pre">simulator</span></em><a class="headerlink" href="#id22" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -1060,8 +1175,8 @@
 <dd><div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="py function">
-<dt id="id27">
-<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1recording_1_1_recorder_1a539c6352689428b362344695c023569e"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">population</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id27" title="Permalink to this definition">¶</a></dt>
+<dt id="id30">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1recording_1_1_recorder_1a539c6352689428b362344695c023569e"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">population</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id30" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
@@ -1073,8 +1188,8 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
 <dl class="py attribute">
-<dt id="id26">
-<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1recording_1_1_recorder_1a172dcff8e8b254efca43093c8e2b98b0"></span><code class="sig-name descname"><span class="pre">changed_since_last_run</span></code><a class="headerlink" href="#id26" title="Permalink to this definition">¶</a></dt>
+<dt id="id29">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1recording_1_1_recorder_1a172dcff8e8b254efca43093c8e2b98b0"></span><code class="sig-name descname"><span class="pre">changed_since_last_run</span></code><a class="headerlink" href="#id29" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -1104,8 +1219,8 @@
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="id28">
-<span id="_record"></span><span class="target" id="classpynn__brainscales_1_1brainscales2_1_1recording_1_1_recorder_1aa2e986865584c686603089ae791c2f8e"></span><code class="sig-name descname"><span class="pre">_record</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_ids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampling_interval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id28" title="Permalink to this definition">¶</a></dt>
+<dt id="id31">
+<span id="_record"></span><span class="target" id="classpynn__brainscales_1_1brainscales2_1_1recording_1_1_recorder_1aa2e986865584c686603089ae791c2f8e"></span><code class="sig-name descname"><span class="pre">_record</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_ids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampling_interval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id31" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
@@ -1126,8 +1241,57 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-static-attributes">Private Static Attributes</p>
 <dl class="py attribute">
-<dt id="id25">
-<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1recording_1_1_recorder_1a0ac4157ab0a5c1aa8686f910ff9f270a"></span><code class="sig-name descname"><span class="pre">_simulator</span></code><em class="property"> <span class="pre">=</span> <span class="pre">simulator</span></em><a class="headerlink" href="#id25" title="Permalink to this definition">¶</a></dt>
+<dt id="id28">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1recording_1_1_recorder_1a0ac4157ab0a5c1aa8686f910ff9f270a"></span><code class="sig-name descname"><span class="pre">_simulator</span></code><em class="property"> <span class="pre">=</span> <span class="pre">simulator</span></em><a class="headerlink" href="#id28" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt>
+<span class="target" id="classsynapses_1_1_static_recording_synapse_1_1_recording_rule"></span><code class="sig-name descname"><span class="pre">synapses.StaticRecordingSynapse.RecordingRule</span> <span class="pre">:</span> <span class="pre">public</span> <span class="pre">plasticity_rules.PlasticityRule</span></code></dt>
+<dd><p>“Plasticity” rule only usable for generating recording of observables. </p>
+<p>Reference to set of observables is stored and used. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="py function">
+<dt id="id32">
+<span class="target" id="classsynapses_1_1_static_recording_synapse_1_1_recording_rule_1a82fb323e18058c63d00fd3bdf6a01064"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">plasticity_rules.Timer</span> <span class="pre">timer</span></em>, <em class="sig-param"><span class="pre">Set[str]</span> <span class="pre">observables</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="id33">
+<span class="target" id="classsynapses_1_1_static_recording_synapse_1_1_recording_rule_1a3b9297b5988898fca25c6ddb535f4fd2"></span><code class="sig-name descname"><span class="pre">add_to_network_graph</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">grenade.logical_network.NetworkBuilder</span> <span class="pre">builder</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id33" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-properties">Properties</p>
+<dl class="py attribute">
+<dt id="observables">
+<span class="target" id="classsynapses_1_1_static_recording_synapse_1_1_recording_rule_1ab5e3f4d0ecfbbf560f259ce2ea6a8038"></span><code class="sig-name descname"><span class="pre">observables</span></code><em class="property"> <span class="pre">=</span> <span class="pre">property(_get_observables,</span> <span class="pre">_set_observables)</span></em><a class="headerlink" href="#observables" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-functions">Private Functions</p>
+<dl class="py function">
+<dt id="get_observables">
+<span id="_get_observables"></span><span class="target" id="classsynapses_1_1_static_recording_synapse_1_1_recording_rule_1ae305d30e2c31ec0f3d04a97d1268b63b"></span><code class="sig-name descname"><span class="pre">_get_observables</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#get_observables" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="set_observables">
+<span id="_set_observables"></span><span class="target" id="classsynapses_1_1_static_recording_synapse_1_1_recording_rule_1a6840089aa9acfe687c6e00d5dc690b59"></span><code class="sig-name descname"><span class="pre">_set_observables</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#set_observables" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="py attribute">
+<dt id="recording_observables">
+<span id="_recording_observables"></span><span class="target" id="classsynapses_1_1_static_recording_synapse_1_1_recording_rule_1a1b5c0ab9e67a359384ef8d3a28b5e0ad"></span><code class="sig-name descname"><span class="pre">_recording_observables</span></code><a class="headerlink" href="#recording_observables" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -1140,23 +1304,23 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="py function">
-<dt id="id31">
-<span class="target" id="classcells_1_1_spike_source_array_1a1a6622faed80f3390fafa6d1de3d2f04"></span><code class="sig-name descname"><span class="pre">can_record</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">str</span> <span class="pre">variable</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id31" title="Permalink to this definition">¶</a></dt>
+<dt id="id36">
+<span class="target" id="classcells_1_1_spike_source_array_1a1a6622faed80f3390fafa6d1de3d2f04"></span><code class="sig-name descname"><span class="pre">can_record</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">str</span> <span class="pre">variable</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id36" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-static-functions">Public Static Functions</p>
 <dl class="py function">
-<dt id="id32">
-<span class="target" id="classcells_1_1_spike_source_array_1add40b6ff2804c69677d17fa2e02276c8"></span><code class="sig-name descname"><span class="pre">add_to_input_generator</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">Population</span> <span class="pre">population</span></em>, <em class="sig-param"><span class="pre">grenade.logical_network.InputGenerator</span> <span class="pre">builder</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id32" title="Permalink to this definition">¶</a></dt>
+<dt id="id37">
+<span class="target" id="classcells_1_1_spike_source_array_1add40b6ff2804c69677d17fa2e02276c8"></span><code class="sig-name descname"><span class="pre">add_to_input_generator</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">Population</span> <span class="pre">population</span></em>, <em class="sig-param"><span class="pre">grenade.logical_network.InputGenerator</span> <span class="pre">builder</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id37" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add external events to input generator. </p>
 <p>:param population: Population to add featuring this cell’s celltype. :param builder: Input builder to add external events to. </p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="id33">
-<span class="target" id="classcells_1_1_spike_source_array_1aba6645914d15e6cbc05e77478b64a8eb"></span><code class="sig-name descname"><span class="pre">add_to_network_graph</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">Population</span> <span class="pre">population</span></em>, <em class="sig-param"><span class="pre">grenade.logical_network.NetworkBuilder</span> <span class="pre">builder</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id33" title="Permalink to this definition">¶</a></dt>
+<dt id="id38">
+<span class="target" id="classcells_1_1_spike_source_array_1aba6645914d15e6cbc05e77478b64a8eb"></span><code class="sig-name descname"><span class="pre">add_to_network_graph</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">Population</span> <span class="pre">population</span></em>, <em class="sig-param"><span class="pre">grenade.logical_network.NetworkBuilder</span> <span class="pre">builder</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id38" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add population to network builder. </p>
 <p>:param population: Population to add featuring this cell’s celltype. :param builder: Network builder to add population to. :return: Descriptor of added population </p>
 </dd></dl>
@@ -1165,8 +1329,8 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-static-attributes">Public Static Attributes</p>
 <dl class="py attribute">
-<dt id="id29">
-<span class="target" id="classcells_1_1_spike_source_array_1a9e44c847d577494ce04174d5e3bd3b53"></span><code class="sig-name descname"><span class="pre">default_parameters</span></code><em class="property"> <span class="pre">=</span> <span class="pre">{'spike_times':</span> <span class="pre">ArrayParameter([])}</span></em><a class="headerlink" href="#id29" title="Permalink to this definition">¶</a></dt>
+<dt id="id34">
+<span class="target" id="classcells_1_1_spike_source_array_1a9e44c847d577494ce04174d5e3bd3b53"></span><code class="sig-name descname"><span class="pre">default_parameters</span></code><em class="property"> <span class="pre">=</span> <span class="pre">{'spike_times':</span> <span class="pre">ArrayParameter([])}</span></em><a class="headerlink" href="#id34" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -1175,8 +1339,8 @@
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="id30">
-<span class="target" id="classcells_1_1_spike_source_array_1a16ee09ae4954c3909002b091984fbf1a"></span><code class="sig-name descname"><span class="pre">translations</span></code><em class="property"> <span class="pre">=</span> <span class="pre">build_translations(('spike_times',</span> <span class="pre">'spike_times'),)</span></em><a class="headerlink" href="#id30" title="Permalink to this definition">¶</a></dt>
+<dt id="id35">
+<span class="target" id="classcells_1_1_spike_source_array_1a16ee09ae4954c3909002b091984fbf1a"></span><code class="sig-name descname"><span class="pre">translations</span></code><em class="property"> <span class="pre">=</span> <span class="pre">build_translations(('spike_times',</span> <span class="pre">'spike_times'),)</span></em><a class="headerlink" href="#id35" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -1189,13 +1353,13 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="py function">
-<dt id="id36">
-<span class="target" id="classcells_1_1_spike_source_poisson_1a233a74a089126577a3598506c15bceb5"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id36" title="Permalink to this definition">¶</a></dt>
+<dt id="id41">
+<span class="target" id="classcells_1_1_spike_source_poisson_1a233a74a089126577a3598506c15bceb5"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id41" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="id37">
-<span class="target" id="classcells_1_1_spike_source_poisson_1a12d1e32425e0387ea410ad5a7d293660"></span><code class="sig-name descname"><span class="pre">can_record</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">str</span> <span class="pre">variable</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id37" title="Permalink to this definition">¶</a></dt>
+<dt id="id42">
+<span class="target" id="classcells_1_1_spike_source_poisson_1a12d1e32425e0387ea410ad5a7d293660"></span><code class="sig-name descname"><span class="pre">can_record</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">str</span> <span class="pre">variable</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id42" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
@@ -1210,15 +1374,15 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-static-functions">Public Static Functions</p>
 <dl class="py function">
-<dt id="id38">
-<span class="target" id="classcells_1_1_spike_source_poisson_1a698741afc367cf64d465d15d810ff6df"></span><code class="sig-name descname"><span class="pre">add_to_input_generator</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">Population</span> <span class="pre">population</span></em>, <em class="sig-param"><span class="pre">grenade.logical_network.InputGenerator</span> <span class="pre">builder</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id38" title="Permalink to this definition">¶</a></dt>
+<dt id="id43">
+<span class="target" id="classcells_1_1_spike_source_poisson_1a698741afc367cf64d465d15d810ff6df"></span><code class="sig-name descname"><span class="pre">add_to_input_generator</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">Population</span> <span class="pre">population</span></em>, <em class="sig-param"><span class="pre">grenade.logical_network.InputGenerator</span> <span class="pre">builder</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id43" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add external events to input generator. </p>
 <p>:param population: Population to add featuring this cell’s celltype. :param builder: Input builder to add external events to. </p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="id39">
-<span class="target" id="classcells_1_1_spike_source_poisson_1ab645749a85683017cb3666ec9b42bd5b"></span><code class="sig-name descname"><span class="pre">add_to_network_graph</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">Population</span> <span class="pre">population</span></em>, <em class="sig-param"><span class="pre">grenade.logical_network.NetworkBuilder</span> <span class="pre">builder</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id39" title="Permalink to this definition">¶</a></dt>
+<dt id="id44">
+<span class="target" id="classcells_1_1_spike_source_poisson_1ab645749a85683017cb3666ec9b42bd5b"></span><code class="sig-name descname"><span class="pre">add_to_network_graph</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">Population</span> <span class="pre">population</span></em>, <em class="sig-param"><span class="pre">grenade.logical_network.NetworkBuilder</span> <span class="pre">builder</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id44" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add population to network builder. </p>
 <p>:param population: Population to add featuring this cell’s celltype. :param builder: Network builder to add population to. :return: Descriptor of added population </p>
 </dd></dl>
@@ -1227,13 +1391,13 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-static-attributes">Public Static Attributes</p>
 <dl class="py attribute">
-<dt id="id34">
-<span class="target" id="classcells_1_1_spike_source_poisson_1ab7a4ae8f5654fef3fe187292342c50be"></span><code class="sig-name descname"><span class="pre">recordable</span></code><em class="property"> <span class="pre">=</span> <span class="pre">[]</span></em><a class="headerlink" href="#id34" title="Permalink to this definition">¶</a></dt>
+<dt id="id39">
+<span class="target" id="classcells_1_1_spike_source_poisson_1ab7a4ae8f5654fef3fe187292342c50be"></span><code class="sig-name descname"><span class="pre">recordable</span></code><em class="property"> <span class="pre">=</span> <span class="pre">[]</span></em><a class="headerlink" href="#id39" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="id35">
-<span class="target" id="classcells_1_1_spike_source_poisson_1a25dcc7af0063162a5f345e970c0a475b"></span><code class="sig-name descname"><span class="pre">translations</span></code><em class="property"> <span class="pre">=</span> <span class="pre">build_translations(('start',</span> <span class="pre">'start'),('rate',</span> <span class="pre">'rate'),('duration',</span> <span class="pre">'duration'),)</span></em><a class="headerlink" href="#id35" title="Permalink to this definition">¶</a></dt>
+<dt id="id40">
+<span class="target" id="classcells_1_1_spike_source_poisson_1a25dcc7af0063162a5f345e970c0a475b"></span><code class="sig-name descname"><span class="pre">translations</span></code><em class="property"> <span class="pre">=</span> <span class="pre">build_translations(('start',</span> <span class="pre">'start'),('rate',</span> <span class="pre">'rate'),('duration',</span> <span class="pre">'duration'),)</span></em><a class="headerlink" href="#id40" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -1259,28 +1423,28 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="py function">
-<dt id="id43">
-<span class="target" id="classcells_1_1_spike_source_poisson_on_chip_1a8135b23c0bed9b4aa28abb73c5a73cc0"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id43" title="Permalink to this definition">¶</a></dt>
+<dt id="id48">
+<span class="target" id="classcells_1_1_spike_source_poisson_on_chip_1a8135b23c0bed9b4aa28abb73c5a73cc0"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id48" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="id44">
-<span class="target" id="classcells_1_1_spike_source_poisson_on_chip_1a2e7e01190f18f81e38a3784764ca9a76"></span><code class="sig-name descname"><span class="pre">can_record</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">str</span> <span class="pre">variable</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id44" title="Permalink to this definition">¶</a></dt>
+<dt id="id49">
+<span class="target" id="classcells_1_1_spike_source_poisson_on_chip_1a2e7e01190f18f81e38a3784764ca9a76"></span><code class="sig-name descname"><span class="pre">can_record</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">str</span> <span class="pre">variable</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id49" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-static-functions">Public Static Functions</p>
 <dl class="py function">
-<dt id="id45">
-<span class="target" id="classcells_1_1_spike_source_poisson_on_chip_1a87162852db02fbabc7d805c2c93b188e"></span><code class="sig-name descname"><span class="pre">add_to_input_generator</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">Population</span> <span class="pre">population</span></em>, <em class="sig-param"><span class="pre">grenade.logical_network.InputGenerator</span> <span class="pre">builder</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id45" title="Permalink to this definition">¶</a></dt>
+<dt id="id50">
+<span class="target" id="classcells_1_1_spike_source_poisson_on_chip_1a87162852db02fbabc7d805c2c93b188e"></span><code class="sig-name descname"><span class="pre">add_to_input_generator</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">Population</span> <span class="pre">population</span></em>, <em class="sig-param"><span class="pre">grenade.logical_network.InputGenerator</span> <span class="pre">builder</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id50" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add external events to input generator. </p>
 <p>:param population: Population to add featuring this cell’s celltype. :param builder: Input builder to add external events to. </p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="id46">
-<span class="target" id="classcells_1_1_spike_source_poisson_on_chip_1a7489f3faaa3f4f785aceb2e741c04248"></span><code class="sig-name descname"><span class="pre">add_to_network_graph</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">Population</span> <span class="pre">population</span></em>, <em class="sig-param"><span class="pre">grenade.logical_network.NetworkBuilder</span> <span class="pre">builder</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id46" title="Permalink to this definition">¶</a></dt>
+<dt id="id51">
+<span class="target" id="classcells_1_1_spike_source_poisson_on_chip_1a7489f3faaa3f4f785aceb2e741c04248"></span><code class="sig-name descname"><span class="pre">add_to_network_graph</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">Population</span> <span class="pre">population</span></em>, <em class="sig-param"><span class="pre">grenade.logical_network.NetworkBuilder</span> <span class="pre">builder</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id51" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add population to network builder. </p>
 <p>:param population: Population to add featuring this cell’s celltype. :param builder: Network builder to add population to. :return: Descriptor of added population </p>
 </dd></dl>
@@ -1294,21 +1458,21 @@
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="id40">
-<span class="target" id="classcells_1_1_spike_source_poisson_on_chip_1ad385f114959cbbdb774e37e2d53cfd30"></span><code class="sig-name descname"><span class="pre">recordable</span></code><em class="property"> <span class="pre">=</span> <span class="pre">[]</span></em><a class="headerlink" href="#id40" title="Permalink to this definition">¶</a></dt>
+<dt id="id45">
+<span class="target" id="classcells_1_1_spike_source_poisson_on_chip_1ad385f114959cbbdb774e37e2d53cfd30"></span><code class="sig-name descname"><span class="pre">recordable</span></code><em class="property"> <span class="pre">=</span> <span class="pre">[]</span></em><a class="headerlink" href="#id45" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="id41">
-<span class="target" id="classcells_1_1_spike_source_poisson_on_chip_1a4d9f556b64e3523248a42edcf2d867dd"></span><code class="sig-name descname"><span class="pre">translations</span></code><em class="property"> <span class="pre">=</span> <span class="pre">build_translations(('rate',</span> <span class="pre">'rate'),('seed',</span> <span class="pre">'seed'),)</span></em><a class="headerlink" href="#id41" title="Permalink to this definition">¶</a></dt>
+<dt id="id46">
+<span class="target" id="classcells_1_1_spike_source_poisson_on_chip_1a4d9f556b64e3523248a42edcf2d867dd"></span><code class="sig-name descname"><span class="pre">translations</span></code><em class="property"> <span class="pre">=</span> <span class="pre">build_translations(('rate',</span> <span class="pre">'rate'),('seed',</span> <span class="pre">'seed'),)</span></em><a class="headerlink" href="#id46" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-static-attributes">Private Static Attributes</p>
 <dl class="py attribute">
-<dt id="id42">
-<span class="target" id="classcells_1_1_spike_source_poisson_on_chip_1a1dd2f61a3daaa061751a66316cde3285"></span><code class="sig-name descname"><span class="pre">_simulator</span></code><em class="property"> <span class="pre">=</span> <span class="pre">simulator</span></em><a class="headerlink" href="#id42" title="Permalink to this definition">¶</a></dt>
+<dt id="id47">
+<span class="target" id="classcells_1_1_spike_source_poisson_on_chip_1a1dd2f61a3daaa061751a66316cde3285"></span><code class="sig-name descname"><span class="pre">_simulator</span></code><em class="property"> <span class="pre">=</span> <span class="pre">simulator</span></em><a class="headerlink" href="#id47" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -1321,8 +1485,8 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="py function">
-<dt id="id47">
-<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_state_1ab8f399b36d10274e3c0d21e4b61f8c0a"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id47" title="Permalink to this definition">¶</a></dt>
+<dt id="id52">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_state_1ab8f399b36d10274e3c0d21e4b61f8c0a"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id52" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
@@ -1336,8 +1500,8 @@
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="id48">
-<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_state_1abf7b278eb25184661d0fd0ceb315b112"></span><code class="sig-name descname"><span class="pre">reset</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id48" title="Permalink to this definition">¶</a></dt>
+<dt id="id53">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_state_1abf7b278eb25184661d0fd0ceb315b112"></span><code class="sig-name descname"><span class="pre">reset</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id53" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reset the state of the current network to time t = 0. </p>
 </dd></dl>
 
@@ -1507,6 +1671,11 @@
 <dd></dd></dl>
 
 <dl class="py attribute">
+<dt id="neuronal_observables">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_state_1a577b48af1916b62f1eb32353e52c617d"></span><code class="sig-name descname"><span class="pre">neuronal_observables</span></code><a class="headerlink" href="#neuronal_observables" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
 <dt id="num_processes">
 <span class="target" id="classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_state_1aa33429cdde165ab1414f165b4aefc447"></span><code class="sig-name descname"><span class="pre">num_processes</span></code><a class="headerlink" href="#num_processes" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -1612,6 +1781,13 @@
 <dd></dd></dl>
 
 <dl class="py function">
+<dt id="get_neuronal_observables">
+<span id="_get_neuronal_observables"></span><span class="target" id="classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_state_1a1c5dd2133a47807a0c34a2253033cbfd"></span><code class="sig-name descname"><span class="pre">_get_neuronal_observables</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">grenade.logical_network.NetworkGraph</span> <span class="pre">logical_network_graph</span></em>, <em class="sig-param"><span class="pre">grenade.NetworkGraph</span> <span class="pre">hardware_network_graph</span></em>, <em class="sig-param"><span class="pre">grenade.IODataMap</span> <span class="pre">outputs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#get_neuronal_observables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get neuronal observables. </p>
+<p>:param network_graph: Network graph to use for lookup of plasticity rule descriptor :param outputs: All outputs of a single execution to extract samples from :return: Dict over projections and recorded data </p>
+</dd></dl>
+
+<dl class="py function">
 <dt id="get_post_realtime_read">
 <span id="_get_post_realtime_read"></span><span class="target" id="classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_state_1a087d502581c1f47ec2ef6d685f4c25d4"></span><code class="sig-name descname"><span class="pre">_get_post_realtime_read</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#get_post_realtime_read" title="Permalink to this definition">¶</a></dt>
 <dd><p>Redeem tickets of injected readout after post_realtime section to get information after execution. </p>
@@ -1701,42 +1877,65 @@
 
 <dl class="py class">
 <dt>
-<span class="target" id="classsynapses_1_1_static_recording_synapse"></span><code class="sig-name descname"><span class="pre">synapses.StaticRecordingSynapse</span> <span class="pre">:</span> <span class="pre">public</span> <span class="pre">synapses.StaticSynapse</span> <span class="pre">,</span> <span class="pre">public</span> <span class="pre">plasticity_rules.PlasticityRule</span></code></dt>
+<span class="target" id="classsynapses_1_1_static_recording_synapse"></span><code class="sig-name descname"><span class="pre">synapses.StaticRecordingSynapse</span> <span class="pre">:</span> <span class="pre">public</span> <span class="pre">synapses.StaticSynapse</span> <span class="pre">,</span> <span class="pre">public</span> <span class="pre">plasticity_rules.PlasticityRuleHandle</span></code></dt>
 <dd><p>Synaptic connection with fixed weight and delay. </p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="py function">
-<dt id="id50">
-<span class="target" id="classsynapses_1_1_static_recording_synapse_1a6d90257313fafb4757454e517d4c6b8b"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">plasticity_rules.Timer</span> <span class="pre">timer</span></em>, <em class="sig-param"><span class="pre">float</span> <span class="pre">weight</span></em>, <em class="sig-param"><span class="pre">Set[str]</span> <span class="pre">observables</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id50" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt id="id51">
-<span class="target" id="classsynapses_1_1_static_recording_synapse_1ab80d8debad6bff6a9afec5abcbb26907"></span><code class="sig-name descname"><span class="pre">add_to_network_graph</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">grenade.logical_network.NetworkBuilder</span> <span class="pre">builder</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id51" title="Permalink to this definition">¶</a></dt>
+<dt id="id57">
+<span class="target" id="classsynapses_1_1_static_recording_synapse_1a6d90257313fafb4757454e517d4c6b8b"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">plasticity_rules.Timer</span> <span class="pre">timer</span></em>, <em class="sig-param"><span class="pre">float</span> <span class="pre">weight</span></em>, <em class="sig-param"><span class="pre">Set[str]</span> <span class="pre">observables</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id57" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
 <dl class="py attribute">
-<dt id="observables">
-<span class="target" id="classsynapses_1_1_static_recording_synapse_1a001eb0c575c4cc7bfee1bb85459f348e"></span><code class="sig-name descname"><span class="pre">observables</span></code><a class="headerlink" href="#observables" title="Permalink to this definition">¶</a></dt>
+<dt id="id56">
+<span class="target" id="classsynapses_1_1_static_recording_synapse_1a8ea4f88a46e9ab85f7aff0e9a819f766"></span><code class="sig-name descname"><span class="pre">changed_since_last_run</span></code><a class="headerlink" href="#id56" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-properties">Properties</p>
+<dl class="py attribute">
+<dt id="id54">
+<span class="target" id="classsynapses_1_1_static_recording_synapse_1a001eb0c575c4cc7bfee1bb85459f348e"></span><code class="sig-name descname"><span class="pre">observables</span></code><em class="property"> <span class="pre">=</span> <span class="pre">property(_get_observables,</span> <span class="pre">_set_observables)</span></em><a class="headerlink" href="#id54" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="plasticity_rule">
+<span class="target" id="classsynapses_1_1_static_recording_synapse_1a83a54757226070c555e6efab436b1d13"></span><code class="sig-name descname"><span class="pre">plasticity_rule</span></code><em class="property"> <span class="pre">=</span> <span class="pre">property(_get_plasticity_rule,</span> <span class="pre">_set_plasticity_rule)</span></em><a class="headerlink" href="#plasticity_rule" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-functions">Private Functions</p>
+<dl class="py function">
+<dt id="id58">
+<span class="target" id="classsynapses_1_1_static_recording_synapse_1aa8b826fe233023456bd26ab25c751452"></span><code class="sig-name descname"><span class="pre">_get_observables</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id58" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="get_plasticity_rule">
+<span id="_get_plasticity_rule"></span><span class="target" id="classsynapses_1_1_static_recording_synapse_1a4e93e70fba38a1bba9bc37106668da34"></span><code class="sig-name descname"><span class="pre">_get_plasticity_rule</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#get_plasticity_rule" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="id59">
+<span class="target" id="classsynapses_1_1_static_recording_synapse_1a69b0d19b834daca746bae85b0a0ac768"></span><code class="sig-name descname"><span class="pre">_set_observables</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">Set[str]</span> <span class="pre">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id59" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="set_plasticity_rule">
+<span id="_set_plasticity_rule"></span><span class="target" id="classsynapses_1_1_static_recording_synapse_1ab69f8674b228668721f4456bda5a121e"></span><code class="sig-name descname"><span class="pre">_set_plasticity_rule</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#set_plasticity_rule" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
 <dl class="py attribute">
-<dt id="grenade_generator">
-<span id="_grenade_generator"></span><span class="target" id="classsynapses_1_1_static_recording_synapse_1a8be0fcc0df0e153d9568d65a1ac1b470"></span><code class="sig-name descname"><span class="pre">_grenade_generator</span></code><a class="headerlink" href="#grenade_generator" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</div>
-<div class="breathe-sectiondef docutils container">
-<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-static-attributes">Private Static Attributes</p>
-<dl class="py attribute">
-<dt id="id49">
-<span class="target" id="classsynapses_1_1_static_recording_synapse_1a22089840d54eb9c190849bdb3d3d49a6"></span><code class="sig-name descname"><span class="pre">_simulator</span></code><em class="property"> <span class="pre">=</span> <span class="pre">simulator</span></em><a class="headerlink" href="#id49" title="Permalink to this definition">¶</a></dt>
+<dt id="id55">
+<span id="_observables"></span><span class="target" id="classsynapses_1_1_static_recording_synapse_1a0d0a519c4e5514f986d50a98dcd572bf"></span><code class="sig-name descname"><span class="pre">_observables</span></code><a class="headerlink" href="#id55" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -1746,7 +1945,7 @@
 <dt id="synapses.StaticSynapse">
 <span class="target" id="classsynapses_1_1_static_synapse"></span><em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">synapses.</span></code><code class="sig-name descname"><span class="pre">StaticSynapse</span></code><a class="headerlink" href="#synapses.StaticSynapse" title="Permalink to this definition">¶</a></dt>
 <dd><p>Synaptic connection with fixed weight and delay. </p>
-<p>Subclassed by <a class="reference internal" href="#classsynapses_1_1_static_recording_synapse"><span class="std std-ref">synapses.StaticRecordingSynapse</span></a></p>
+<p>Subclassed by <a class="reference internal" href="#classsynapses_1_1_plastic_synapse"><span class="std std-ref">synapses.PlasticSynapse</span></a>, <a class="reference internal" href="#classsynapses_1_1_static_recording_synapse"><span class="std std-ref">synapses.StaticRecordingSynapse</span></a></p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-static-attributes">Public Static Attributes</p>
 <dl class="py attribute">
@@ -1889,16 +2088,6 @@
 <dl class="cpp type">
 <dt id="_CPPv4N4pyNN9recordingE">
 <span id="_CPPv3N4pyNN9recordingE"></span><span id="_CPPv2N4pyNN9recordingE"></span><span id="pyNN::recording"></span><span class="target" id="namespacepy_n_n_1_1recording"></span><em class="property"><span class="pre">namespace</span> </em><code class="sig-name descname"><span class="pre">recording</span></code><a class="headerlink" href="#_CPPv4N4pyNN9recordingE" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp type">
-<dt id="_CPPv4N4pynn14standardmodelsE">
-<span id="_CPPv3N4pynn14standardmodelsE"></span><span id="_CPPv2N4pynn14standardmodelsE"></span><span id="pynn::standardmodels"></span><span class="target" id="namespacepynn_1_1standardmodels"></span><em class="property"><span class="pre">namespace</span> </em><code class="sig-name descname"><span class="pre">standardmodels</span></code><a class="headerlink" href="#_CPPv4N4pynn14standardmodelsE" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp type">
-<dt id="_CPPv4N4pynn14standardmodels8synapsesE">
-<span id="_CPPv3N4pynn14standardmodels8synapsesE"></span><span id="_CPPv2N4pynn14standardmodels8synapsesE"></span><span id="pynn::standardmodels::synapses"></span><span class="target" id="namespacepynn_1_1standardmodels_1_1synapses"></span><em class="property"><span class="pre">namespace</span> </em><code class="sig-name descname"><span class="pre">synapses</span></code><a class="headerlink" href="#_CPPv4N4pynn14standardmodels8synapsesE" title="Permalink to this definition">¶</a><br /></dt>
 <dd></dd></dl>
 
 <dl class="py class">
@@ -2559,32 +2748,32 @@
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_5643325f60bd592eca7816d91ce4831a"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzg0Ng.x/pynn-brainscales/brainscales2</span></code></dt>
+<span class="target" id="dir_5643325f60bd592eca7816d91ce4831a"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzg1MQ.x/pynn-brainscales/brainscales2</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_30590f78572d0bff4c96c6642e878133"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzg0Ng.x/pynn-brainscales/brainscales2/pynn_brainscales/brainscales2</span></code></dt>
+<span class="target" id="dir_30590f78572d0bff4c96c6642e878133"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzg1MQ.x/pynn-brainscales/brainscales2/pynn_brainscales/brainscales2</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_71abf4e0cb61d33ca644053d80824813"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzg0Ng.x/pynn-brainscales/brainscales2/pynn_brainscales/brainscales2/examples</span></code></dt>
+<span class="target" id="dir_71abf4e0cb61d33ca644053d80824813"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzg1MQ.x/pynn-brainscales/brainscales2/pynn_brainscales/brainscales2/examples</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_1efc13ce3fde1fd62a85b15c42b78a1d"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzg0Ng.x/pynn-brainscales</span></code></dt>
+<span class="target" id="dir_1efc13ce3fde1fd62a85b15c42b78a1d"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzg1MQ.x/pynn-brainscales</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_21dfa1d1ae032dbb0977000ba6401a40"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzg0Ng.x/pynn-brainscales/brainscales2/pynn_brainscales</span></code></dt>
+<span class="target" id="dir_21dfa1d1ae032dbb0977000ba6401a40"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzg1MQ.x/pynn-brainscales/brainscales2/pynn_brainscales</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_6861f8e6ea567950e911c16bf07d7443"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzg0Ng.x/pynn-brainscales/brainscales2/pynn_brainscales/brainscales2/standardmodels</span></code></dt>
+<span class="target" id="dir_6861f8e6ea567950e911c16bf07d7443"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzg1MQ.x/pynn-brainscales/brainscales2/pynn_brainscales/brainscales2/standardmodels</span></code></dt>
 <dd></dd></dl>
 
 </section>

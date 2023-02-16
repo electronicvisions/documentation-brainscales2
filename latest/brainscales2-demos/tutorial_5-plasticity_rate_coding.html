@@ -238,10 +238,10 @@ limited to 64x64 pixels. For simplicity, only one of the two PPUs is used.</p>
 <p>Later, we will define the network topology using the pyNN interface.
 During the experiment, the PPUs execute an earliest-deadline-first scheduler for
 tasks to be performed. In PyNN, execution of a plasticity rule is such a task.
-A plasticity rule is injected as synapse type of a projection and upon execution is
-provided with the locations of the synapses in the projection(s) created with this
-plastic synapse type. The plastic synapse features a method yielding C++-code to be
-executed as task on the PPU given the synapse location information.
+A plasticity rule is injected via the synapse type of a projection and upon execution
+is provided with the locations of the synapses in the projection(s) created with this
+plastic synapse type. The plasticity rule features a method yielding C++-code to be
+executed as a task on the PPU given the synapse location information.
 Tasks can be executed periodically, for which a timer object is to be supplied.</p>
 <p>For our experiment, we first load an image to be rate-encoded later.</p>
 <a class="reference internal image-reference" href="../_images/visions.png"><img alt="../_images/visions.png" class="align-center" src="../_images/visions.png" style="width: 10%;" /></a>
@@ -257,10 +257,10 @@ Tasks can be executed periodically, for which a timer object is to be supplied.<
 </section>
 <section id="the-plasticity-kernel">
 <h2>The plasticity kernel<a class="headerlink" href="#the-plasticity-kernel" title="Permalink to this headline">¶</a></h2>
-<p>We now define the plastic synapse type with the C++-code which imprints the image
+<p>We now define the plasticity rule type with the C++-code which imprints the image
 onto the spike-trains by alteration of the synaptic weights.
 The image data is transferred into a global object <code class="docutils literal notranslate"><span class="pre">image</span></code>.
-The entry point of the plastic synapse task is called <code class="docutils literal notranslate"><span class="pre">PLASTICITY_RULE_KERNEL</span></code>
+The entry point of the plastic task is called <code class="docutils literal notranslate"><span class="pre">PLASTICITY_RULE_KERNEL</span></code>
 and is supplied with synapse location information corresponding the the projection
 in PyNN. Within the task function, the program writes synapse weight values
 row-wise via <code class="docutils literal notranslate"><span class="pre">set_weights(weight_row,</span> <span class="pre">row)</span></code>.
@@ -270,17 +270,13 @@ Over time, this leads to each row of the image being present and imprinting itse
 onto the neurons’ firing rate.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">textwrap</span>
 
-<span class="k">class</span> <span class="nc">PlasticSynapse</span><span class="p">(</span>
-        <span class="n">pynn</span><span class="o">.</span><span class="n">PlasticityRule</span><span class="p">,</span>
-        <span class="n">pynn</span><span class="o">.</span><span class="n">standardmodels</span><span class="o">.</span><span class="n">synapses</span><span class="o">.</span><span class="n">StaticSynapse</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timer</span><span class="p">:</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Timer</span><span class="p">,</span> <span class="n">image</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="n">weight</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">PlasticityRule</span><span class="p">(</span><span class="n">pynn</span><span class="o">.</span><span class="n">PlasticityRule</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timer</span><span class="p">:</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Timer</span><span class="p">,</span> <span class="n">image</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Initialize plastic synapse with execution timing information,</span>
 <span class="sd">        the image pixels and initial weight.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">pynn</span><span class="o">.</span><span class="n">PlasticityRule</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timer</span><span class="p">)</span>
-        <span class="n">pynn</span><span class="o">.</span><span class="n">standardmodels</span><span class="o">.</span><span class="n">synapses</span><span class="o">.</span><span class="n">StaticSynapse</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
-            <span class="bp">self</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="n">weight</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">image</span> <span class="o">=</span> <span class="n">image</span>
         <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">timer</span><span class="o">.</span><span class="n">num_periods</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">image</span><span class="p">)</span>
 
@@ -292,6 +288,7 @@ onto the neurons’ firing rate.</p>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">        #include &quot;grenade/vx/ppu/synapse_array_view_handle.h&quot;</span>
+<span class="s2">        #include &quot;grenade/vx/ppu/neuron_view_handle.h&quot;</span>
 <span class="s2">        #include &quot;libnux/vx/dls.h&quot;</span>
 
 <span class="s2">        using namespace grenade::vx::ppu;</span>
@@ -315,7 +312,8 @@ onto the neurons’ firing rate.</p>
 <span class="s2">        uint32_t current_row = 0;</span>
 
 <span class="s2">        void PLASTICITY_RULE_KERNEL(</span>
-<span class="s2">            std::array&lt;SynapseArrayViewHandle, 1&gt;&amp; synapses)</span>
+<span class="s2">            std::array&lt;SynapseArrayViewHandle, 1&gt;&amp; synapses,</span>
+<span class="s2">            std::array&lt;NeuronViewHandle, 0&gt;&amp;)</span>
 <span class="s2">        {{</span>
 <span class="s2">            // only update weights when code is executed on the correct PPU</span>
 <span class="s2">            if (synapses[0].hemisphere != ppu) {{</span>
@@ -379,7 +377,9 @@ Initially the weight is set to zero, the PPU will alter it during the experiment
     <span class="n">start</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="c1"># ms</span>
     <span class="n">period</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="c1"># ms</span>
     <span class="n">num_periods</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">image</span><span class="p">))</span>
-<span class="n">synapse</span> <span class="o">=</span> <span class="n">PlasticSynapse</span><span class="p">(</span><span class="n">timer</span><span class="o">=</span><span class="n">timer</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="n">image</span><span class="p">)</span>
+<span class="n">plasticity_rule</span> <span class="o">=</span> <span class="n">PlasticityRule</span><span class="p">(</span><span class="n">timer</span><span class="o">=</span><span class="n">timer</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="n">image</span><span class="p">)</span>
+<span class="n">synapse</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">standardmodels</span><span class="o">.</span><span class="n">synapses</span><span class="o">.</span><span class="n">PlasticSynapse</span><span class="p">(</span>
+    <span class="n">plasticity_rule</span><span class="o">=</span><span class="n">plasticity_rule</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">pynn</span><span class="o">.</span><span class="n">Projection</span><span class="p">(</span><span class="n">external_input</span><span class="p">,</span>
                 <span class="n">neurons</span><span class="p">,</span>
                 <span class="n">pynn</span><span class="o">.</span><span class="n">OneToOneConnector</span><span class="p">(),</span>
