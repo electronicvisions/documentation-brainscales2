@@ -4665,6 +4665,27 @@
 <dd></dd></dl>
 
 <dl class="py class">
+<dt id="calix.calib_cache">
+<span class="target" id="namespacecalix_1_1calib__cache"></span><em class="property"><span class="pre">module</span> </em><code class="sig-prename descclassname"><span class="pre">calix.</span></code><code class="sig-name descname"><span class="pre">calib_cache</span></code><a class="headerlink" href="#calix.calib_cache" title="Permalink to this definition">¶</a></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="py function">
+<dt id="calix.calib_cache._calibrate">
+<span class="target" id="namespacecalix_1_1calib__cache_1ab074c5f1b1d437b8a68a897a958dcf0e"></span><code class="sig-name descname"><span class="pre">_calibrate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">connection</span></em>, <em class="sig-param"><span class="pre">base.CalibTarget</span> <span class="pre">target</span></em>, <em class="sig-param"><span class="pre">Optional[base.CalibOptions]</span> <span class="pre">options=None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.calib_cache._calibrate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="calix.calib_cache.calibrate">
+<span class="target" id="namespacecalix_1_1calib__cache_1a8312d3633624ad2959611556201c6779"></span><code class="sig-name descname"><span class="pre">calibrate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">base.CalibTarget</span> <span class="pre">target</span></em>, <em class="sig-param"><span class="pre">Optional[base.CalibOptions]</span> <span class="pre">options=None</span></em>, <em class="sig-param"><span class="pre">Optional[List[Path]]</span> <span class="pre">cache_paths=None</span></em>, <em class="sig-param"><span class="pre">Optional[bool]</span> <span class="pre">cache_read_only=False</span></em>, <em class="sig-param"><span class="pre">Optional</span> <span class="pre">connection=None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.calib_cache.calibrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calibrate chip with cache functionality. </p>
+<p>Calibration function is deduced from target and options type. If cache_paths is not empty, searches for cached calibration result with same parameters in list order. If no cache is found executes calibration and caches in fist path with write access.</p>
+<p>:param target: Target values for calibration. :param options: Options for calibration. :param cache_paths: List of possible cache locations. If list is empty, caching is skipped. If None defaults are used. Defaults are read-only shared wang cache path followed by user home cache. :param cache_read_only: Only read cache file, do not create cache file if one does not exist. :return: Calibration result </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="py class">
 <dt id="calix.common">
 <span class="target" id="namespacecalix_1_1common"></span><em class="property"><span class="pre">module</span> </em><code class="sig-name descname"><span class="pre">common</span></code><a class="headerlink" href="#calix.common" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -5616,6 +5637,11 @@
 
 <dl class="file">
 <dt>
+<span class="target" id="calib__cache_8py"></span><em><span class="pre">file</span></em> <code class="sig-name descname"><span class="pre">calib_cache.py</span></code></dt>
+<dd></dd></dl>
+
+<dl class="file">
+<dt>
 <span class="target" id="____init_____8py"></span><em><span class="pre">file</span></em> <code class="sig-name descname"><span class="pre">__init__.py</span></code></dt>
 <dd></dd></dl>
 
@@ -5771,52 +5797,52 @@
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_c35a4213fddb628e2be6588952b4aa7a"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzg1NQ.x/calix</span></code></dt>
+<span class="target" id="dir_c35a4213fddb628e2be6588952b4aa7a"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzg2MA.x/calix</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_82a35310634ec59f1204b5a89ab180c2"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzg1NQ.x/calix/src/py/calix</span></code></dt>
+<span class="target" id="dir_82a35310634ec59f1204b5a89ab180c2"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzg2MA.x/calix/src/py/calix</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_5f8140149f6c25fac289bffcf217ba0f"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzg1NQ.x/calix/src/py/calix/common</span></code></dt>
+<span class="target" id="dir_5f8140149f6c25fac289bffcf217ba0f"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzg2MA.x/calix/src/py/calix/common</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_79dd501e695b0ff0539e6dfe8c054e50"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzg1NQ.x/calix/src/py/calix/examples</span></code></dt>
+<span class="target" id="dir_79dd501e695b0ff0539e6dfe8c054e50"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzg2MA.x/calix/src/py/calix/examples</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_1a13b09fb48f7daf03bf32d21388e4f1"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzg1NQ.x/calix/src/py/calix/hagen</span></code></dt>
+<span class="target" id="dir_1a13b09fb48f7daf03bf32d21388e4f1"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzg2MA.x/calix/src/py/calix/hagen</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_d9b46f0c81a5bc28bd701ca679fdd154"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzg1NQ.x/calix/src/py/calix/multicomp</span></code></dt>
+<span class="target" id="dir_d9b46f0c81a5bc28bd701ca679fdd154"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzg2MA.x/calix/src/py/calix/multicomp</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_8638feb6d3d74ce8c52c6a166958a78e"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzg1NQ.x/calix/src/py</span></code></dt>
+<span class="target" id="dir_8638feb6d3d74ce8c52c6a166958a78e"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzg2MA.x/calix/src/py</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_d19dcf94b302e45079f65ed711419664"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzg1NQ.x/calix/src/py/calix/scripts</span></code></dt>
+<span class="target" id="dir_d19dcf94b302e45079f65ed711419664"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzg2MA.x/calix/src/py/calix/scripts</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_99cd149c1e2c45a11fa03ec83bb2f7d6"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzg1NQ.x/calix/src/py/calix/spiking</span></code></dt>
+<span class="target" id="dir_99cd149c1e2c45a11fa03ec83bb2f7d6"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzg2MA.x/calix/src/py/calix/spiking</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_e78734f8a9c4496b3b751d186a730c09"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzg1NQ.x/calix/src</span></code></dt>
+<span class="target" id="dir_e78734f8a9c4496b3b751d186a730c09"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzg2MA.x/calix/src</span></code></dt>
 <dd></dd></dl>
 
 </section>
