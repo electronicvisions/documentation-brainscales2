@@ -155,50 +155,27 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Directory where we save the experiment results</span>
+  <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">_static.common.collab_helpers</span> <span class="kn">import</span> <span class="n">check_kernel</span>
+
+<span class="c1"># Check if compatible kernel version is used</span>
+<span class="n">check_kernel</span><span class="p">()</span>
+<span class="n">kernel_env</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;LAB_KERNEL_NAME&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="s2">&quot;experimental&quot;</span> <span class="ow">in</span> <span class="n">kernel_env</span><span class="p">:</span>
+    <span class="n">software_version</span> <span class="o">=</span> <span class="s2">&quot;experimental&quot;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">software_version</span> <span class="o">=</span> <span class="s2">&quot;stable&quot;</span>
+
+<span class="c1"># Directory where we save the experiment results</span>
 <span class="n">outputDir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s2">&quot;~&quot;</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">evaluate_stable_release</span><span class="p">(</span><span class="n">kernel</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Checks if used kernel is the latest stable release</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
-    <span class="kn">import</span> <span class="nn">re</span>
-
-    <span class="n">used_kernel_date</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;EBRAINS-(\d+.\d+)&quot;</span><span class="p">,</span> <span class="n">kernel</span><span class="p">)</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">used_kernel_date</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;Unknown kernel used. Please either select &#39;</span>
-                           <span class="s1">&#39;&quot;EBRAINS_experimental_release&quot; or the latest stable release&#39;</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">used_kernel_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">used_kernel_date</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="s1">&#39;%y.%m&#39;</span><span class="p">)</span>
-
-    <span class="n">available_kernels</span> <span class="o">=</span> <span class="o">!</span>ls /opt/app-root/src/.local/share/jupyter/kernels
-    <span class="n">kernel_dates</span> <span class="o">=</span> <span class="p">[</span><span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;spack_python_kernel_release_(\d</span><span class="si">{6}</span><span class="s2">)$&quot;</span><span class="p">,</span> <span class="n">kernel</span><span class="p">)</span> <span class="k">for</span> <span class="n">kernel</span> <span class="ow">in</span> <span class="n">available_kernels</span><span class="p">]</span>
-    <span class="n">latest_kernel_date</span> <span class="o">=</span> <span class="nb">max</span><span class="p">([</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">date</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="s1">&#39;%Y%m&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">date</span> <span class="ow">in</span> <span class="n">kernel_dates</span> <span class="k">if</span> <span class="n">date</span><span class="p">])</span>
-    <span class="k">return</span> <span class="n">used_kernel_date</span> <span class="o">==</span> <span class="n">latest_kernel_date</span>
 
 <span class="k">def</span> <span class="nf">execute_on_hardware</span><span class="p">(</span><span class="n">script_name</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Sends the provided script to the local cluster, where it is scheduled and executed on</span>
 <span class="sd">    the neuromorphic chip. The result files are then loaded back into the collaboratory.</span>
-<span class="sd">    Supported kernels are the latest stable relase and the experimental release.</span>
 <span class="sd">    :param script_name: Name of the script which gets executed</span>
 <span class="sd">    :returns: Job id of executed job</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">collab_id</span> <span class="o">=</span> <span class="n">repoInfo</span><span class="o">.</span><span class="n">nameInTheUrl</span>
-
-    <span class="c1"># Evaluate used kernel</span>
-    <span class="n">kernel_env</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;LAB_KERNEL_NAME&quot;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">kernel_env</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;Unknown kernel used. Please either select &#39;</span>
-                           <span class="s1">&#39;&quot;EBRAINS_experimental_release&quot; or the latest stable release&#39;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="s2">&quot;experimental&quot;</span> <span class="ow">in</span> <span class="n">kernel_env</span><span class="p">:</span>
-        <span class="n">software_version</span> <span class="o">=</span> <span class="s2">&quot;experimental&quot;</span>
-    <span class="k">elif</span> <span class="n">evaluate_stable_release</span><span class="p">(</span><span class="n">kernel_env</span><span class="p">):</span>
-        <span class="n">software_version</span> <span class="o">=</span> <span class="s2">&quot;stable&quot;</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;Selected kernel is not the latest stable release. Please either select &#39;</span>
-                           <span class="s1">&#39;&quot;EBRAINS_experimental_release&quot; or the latest stable release&#39;</span><span class="p">)</span>
 
     <span class="n">hw_config</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;SOFTWARE_VERSION&#39;</span><span class="p">:</span> <span class="n">software_version</span><span class="p">}</span>
 
