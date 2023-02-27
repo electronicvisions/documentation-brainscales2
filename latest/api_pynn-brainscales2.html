@@ -711,6 +711,14 @@
 <p>:param network_graph: Network graph to use for lookup of MADC output vertex descriptor :param outputs: All outputs of a single execution to extract samples from :return: Recording data </p>
 </dd></dl>
 
+<dl class="py function">
+<dt id="pynn_brainscales.brainscales2.plasticity_rules.PlasticityRule.get_observable_array">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1plasticity__rules_1_1_plasticity_rule_1ab56aa558a981f47b1af674f2b51df6df"></span><code class="sig-name descname"><span class="pre">get_observable_array</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">str</span> <span class="pre">observable</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.plasticity_rules.PlasticityRule.get_observable_array" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get data for an array observable. </p>
+<p>:param observable: Name of observable. :return: Array with recorded data. The array’s entries are values for each timer entry. Each value has a <code class="docutils literal notranslate"><span class="pre">.data</span></code> attribute, containing the recorded data. This data is twice the size set when initializing the observable, since it is added for both top and bottom PPUs.</p>
+<p>:raises RuntimeError: If observable name is not known. :raises TypeError: If observable is not an ObservableArray. </p>
+</dd></dl>
+
 </div>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
@@ -1105,7 +1113,10 @@
 <dl class="py function">
 <dt id="get_data">
 <span class="target" id="classpynn__brainscales_1_1brainscales2_1_1projections_1_1_projection_1ad9fcbc3621f7e3e6fa18cc6589aff5d6"></span><code class="sig-name descname"><span class="pre">get_data</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">str</span> <span class="pre">observable</span></em><span class="sig-paren">)</span><a class="headerlink" href="#get_data" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Get data for an observable per synapse. </p>
+<p>:param observable: Name of observable. :return: Array with recorded data. The array’s entries are values for each timer entry. Each value has a <code class="docutils literal notranslate"><span class="pre">.data</span></code> attribute, containing the recorded data.</p>
+<p>:raises RuntimeError: If observable name is not known or the projection does not implement a plasticity rule. </p>
+</dd></dl>
 
 <dl class="py function">
 <dt id="placed_connections">
@@ -1521,6 +1532,11 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
 <dl class="py attribute">
+<dt id="array_observables">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_state_1a64932367631e020a77343a0800cf95c4"></span><code class="sig-name descname"><span class="pre">array_observables</span></code><a class="headerlink" href="#array_observables" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
 <dt id="background_spike_source_placement">
 <span class="target" id="classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_state_1a9c02fa5fdf02a0fe0879333a8645e352"></span><code class="sig-name descname"><span class="pre">background_spike_source_placement</span></code><a class="headerlink" href="#background_spike_source_placement" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -1779,6 +1795,13 @@
 <dt id="generate_playback_hooks">
 <span id="_generate_playback_hooks"></span><span class="target" id="classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_state_1a8c9a12aaf21636b1394dba841b1c8e21"></span><code class="sig-name descname"><span class="pre">_generate_playback_hooks</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#generate_playback_hooks" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
+
+<dl class="py function">
+<dt id="get_array_observables">
+<span id="_get_array_observables"></span><span class="target" id="classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_state_1add83ccd8b827d832a5d087474bfa3b8e"></span><code class="sig-name descname"><span class="pre">_get_array_observables</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">grenade.logical_network.NetworkGraph</span> <span class="pre">logical_network_graph</span></em>, <em class="sig-param"><span class="pre">grenade.NetworkGraph</span> <span class="pre">hardware_network_graph</span></em>, <em class="sig-param"><span class="pre">grenade.IODataMap</span> <span class="pre">outputs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#get_array_observables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get general array observables. </p>
+<p>:param network_graph: Network graph to use for lookup of plasticity rule descriptor :param outputs: All outputs of a single execution to extract samples from :return: List of dicts over plasticity rules and recorded data, one dict per plasticity rule </p>
+</dd></dl>
 
 <dl class="py function">
 <dt id="get_neuronal_observables">
@@ -2748,32 +2771,32 @@
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_5643325f60bd592eca7816d91ce4831a"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzk3OA.x/pynn-brainscales/brainscales2</span></code></dt>
+<span class="target" id="dir_5643325f60bd592eca7816d91ce4831a"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzk4Mg.x/pynn-brainscales/brainscales2</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_30590f78572d0bff4c96c6642e878133"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzk3OA.x/pynn-brainscales/brainscales2/pynn_brainscales/brainscales2</span></code></dt>
+<span class="target" id="dir_30590f78572d0bff4c96c6642e878133"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzk4Mg.x/pynn-brainscales/brainscales2/pynn_brainscales/brainscales2</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_71abf4e0cb61d33ca644053d80824813"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzk3OA.x/pynn-brainscales/brainscales2/pynn_brainscales/brainscales2/examples</span></code></dt>
+<span class="target" id="dir_71abf4e0cb61d33ca644053d80824813"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzk4Mg.x/pynn-brainscales/brainscales2/pynn_brainscales/brainscales2/examples</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_1efc13ce3fde1fd62a85b15c42b78a1d"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzk3OA.x/pynn-brainscales</span></code></dt>
+<span class="target" id="dir_1efc13ce3fde1fd62a85b15c42b78a1d"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzk4Mg.x/pynn-brainscales</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_21dfa1d1ae032dbb0977000ba6401a40"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzk3OA.x/pynn-brainscales/brainscales2/pynn_brainscales</span></code></dt>
+<span class="target" id="dir_21dfa1d1ae032dbb0977000ba6401a40"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzk4Mg.x/pynn-brainscales/brainscales2/pynn_brainscales</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_6861f8e6ea567950e911c16bf07d7443"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzk3OA.x/pynn-brainscales/brainscales2/pynn_brainscales/brainscales2/standardmodels</span></code></dt>
+<span class="target" id="dir_6861f8e6ea567950e911c16bf07d7443"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjNzk4Mg.x/pynn-brainscales/brainscales2/pynn_brainscales/brainscales2/standardmodels</span></code></dt>
 <dd></dd></dl>
 
 </section>
