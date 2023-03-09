@@ -15046,7 +15046,7 @@
 
 <dl class="page">
 <dt>
-<span class="target" id="md__jenkins_jenlib_workspaces_f9_doc_gerrit_documentation_brainscales2_dependencies__z_g9j_x2dlc53ee74435fd2919b4db127cbbaae0f33"></span><em><span class="pre">page</span></em> <code class="sig-name descname"><span class="pre">md__jenkins_jenlib_workspaces_f9_doc_gerrit_documentation_brainscales2_dependencies_ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODIyMA_x_grenade_include_grenade_vx_logical_network_README</span></code></dt>
+<span class="target" id="md__jenkins_jenlib_workspaces_f9_doc_gerrit_documentation_brainscales2_dependencies__z_g9j_x2dlc56701d12c671f46a4a07a812a11d2edc"></span><em><span class="pre">page</span></em> <code class="sig-name descname"><span class="pre">md__jenkins_jenlib_workspaces_f9_doc_gerrit_documentation_brainscales2_dependencies_ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODIyOA_x_grenade_include_grenade_vx_logical_network_README</span></code></dt>
 <dd><p>The <code class="docutils literal notranslate"><span class="pre">logical_network</span></code> namespace contains facilities to describe a <code class="docutils literal notranslate"><span class="pre">Network</span></code> of placed <code class="docutils literal notranslate"><span class="pre">Population</span></code>s of logical neurons, unplaced and unrouted <code class="docutils literal notranslate"><span class="pre">Projection</span></code>s of connections corresponding to possibly multiple hardware synapse circuits in-between compartments of neurons in these populations, <code class="docutils literal notranslate"><span class="pre">MADCRecording</span></code> on a single atomic neuron, <code class="docutils literal notranslate"><span class="pre">CADCRecording</span></code> on a collection of atomic neurons as well as <code class="docutils literal notranslate"><span class="pre">PlasticityRule</span></code>s on projections. In addition, <code class="docutils literal notranslate"><span class="pre">ExternalPopulation</span></code>s allow feeding-in external spike trains and <code class="docutils literal notranslate"><span class="pre">BackgroundSpikeSourcePopulation</span></code>s describe the on-chip background generators.</p>
 <p>The only difference to the <code class="docutils literal notranslate"><span class="pre">network</span></code> namespace therefore is the description of logical neurons and projections in-between their neurons’ compartments with possibly multiple hardware synapses per connection.</p>
 <p>Given such a <code class="docutils literal notranslate"><span class="pre">Network</span></code>, an automated routing algorithm called via <code class="docutils literal notranslate"><span class="pre">NetworkGraph</span> <span class="pre">build_network_graph(Network)</span></code> solves the correspondence between logical neurons and atomic neurons as well as abstract synapses and <code class="docutils literal notranslate"><span class="pre">network::Network</span></code> hardware synapses. It therrefore selects which atomic neurons of the compartments to connect and the distribution of hardware synapses.</p>
@@ -15056,7 +15056,7 @@
 
 <dl class="page">
 <dt>
-<span class="target" id="md__jenkins_jenlib_workspaces_f9_doc_gerrit_documentation_brainscales2_dependencies__z_g9j_x2dlc6f1e6c235390faa5981a2cd70158e755"></span><em><span class="pre">page</span></em> <code class="sig-name descname"><span class="pre">md__jenkins_jenlib_workspaces_f9_doc_gerrit_documentation_brainscales2_dependencies_ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODIyMA_x_grenade_include_grenade_vx_network_README</span></code></dt>
+<span class="target" id="md__jenkins_jenlib_workspaces_f9_doc_gerrit_documentation_brainscales2_dependencies__z_g9j_x2dlc2b8448f9a71df3edbc0a9bdff22925f1"></span><em><span class="pre">page</span></em> <code class="sig-name descname"><span class="pre">md__jenkins_jenlib_workspaces_f9_doc_gerrit_documentation_brainscales2_dependencies_ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODIyOA_x_grenade_include_grenade_vx_network_README</span></code></dt>
 <dd><p>The <code class="docutils literal notranslate"><span class="pre">network</span></code> namespace contains facilities to describe a <code class="docutils literal notranslate"><span class="pre">Network</span></code> of placed <code class="docutils literal notranslate"><span class="pre">Population</span></code>s of atomic neurons, unplaced and unrouted <code class="docutils literal notranslate"><span class="pre">Projection</span></code>s of single hardware synapses in-between these populations, <code class="docutils literal notranslate"><span class="pre">MADCRecording</span></code> on a single neuron, <code class="docutils literal notranslate"><span class="pre">CADCRecording</span></code> on a collection of neurons as well as <code class="docutils literal notranslate"><span class="pre">PlasticityRule</span></code>s on projections. In addition, <code class="docutils literal notranslate"><span class="pre">ExternalPopulation</span></code>s allow feeding-in external spike trains and <code class="docutils literal notranslate"><span class="pre">BackgroundSpikeSourcePopulation</span></code>s describe the on-chip background generators.</p>
 <p>Given such a <code class="docutils literal notranslate"><span class="pre">Network</span></code>, an automated routing algorithm called via <code class="docutils literal notranslate"><span class="pre">RoutingResult</span> <span class="pre">build_routing(Network)</span></code> solves the correspondence between abstract synapses and hardware entities as well as the configuration of the routing entities in the event paths.</p>
 <p>A <code class="docutils literal notranslate"><span class="pre">NetworkGraph</span></code> can then be constructed in a canonical way containing the network and the hardware <code class="docutils literal notranslate"><span class="pre">Graph</span></code> representation of it with incorporation of the routing result via <code class="docutils literal notranslate"><span class="pre">NetworkGraph</span> <span class="pre">build_network_graph(Network,</span> <span class="pre">RoutingResult)</span></code>. When the network changed but no new routing invocation is necessary, which can be checked via <code class="docutils literal notranslate"><span class="pre">requires_routing(Network</span> <span class="pre">old,</span> <span class="pre">Network</span> <span class="pre">new)</span></code>, the network graph can be updated via <code class="docutils literal notranslate"><span class="pre">update_network_graph(NetworkGraph&amp;</span> <span class="pre">old,</span> <span class="pre">Network</span> <span class="pre">new)</span></code>.</p>
@@ -15066,77 +15066,77 @@
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_064853da24b4a0dba4c896323600a421"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODIyMA.x/grenade/include/grenade/vx/backend</span></code></dt>
+<span class="target" id="dir_064853da24b4a0dba4c896323600a421"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODIyOA.x/grenade/include/grenade/vx/backend</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_1ac7e241185f0150318b4cc8e534b4d3"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODIyMA.x/grenade/include/grenade/vx/compute</span></code></dt>
+<span class="target" id="dir_1ac7e241185f0150318b4cc8e534b4d3"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODIyOA.x/grenade/include/grenade/vx/compute</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_bb9e262a2123f440527bc8ae9856a667"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODIyMA.x/grenade/include/grenade/vx/network/detail</span></code></dt>
+<span class="target" id="dir_bb9e262a2123f440527bc8ae9856a667"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODIyOA.x/grenade/include/grenade/vx/network/detail</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_4690d373baff6d985722dbc347eb53a7"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODIyMA.x/grenade/include/grenade/vx/ppu/detail</span></code></dt>
+<span class="target" id="dir_4690d373baff6d985722dbc347eb53a7"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODIyOA.x/grenade/include/grenade/vx/ppu/detail</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_3b57ea4f46edec3958fd1256120edb9c"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODIyMA.x/grenade/include/grenade/vx/generator</span></code></dt>
+<span class="target" id="dir_3b57ea4f46edec3958fd1256120edb9c"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODIyOA.x/grenade/include/grenade/vx/generator</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_a5863ad2b325c070247dfd1c98662392"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODIyMA.x/grenade</span></code></dt>
+<span class="target" id="dir_a5863ad2b325c070247dfd1c98662392"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODIyOA.x/grenade</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_133bbee386b6b6de7fdadc42621c0139"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODIyMA.x/grenade/include/grenade</span></code></dt>
+<span class="target" id="dir_133bbee386b6b6de7fdadc42621c0139"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODIyOA.x/grenade/include/grenade</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_d9c6754bf7c46c2099f7d49796c93d79"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODIyMA.x/grenade/include</span></code></dt>
+<span class="target" id="dir_d9c6754bf7c46c2099f7d49796c93d79"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODIyOA.x/grenade/include</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_4ce4e90ba5be28803e4dba9710de4b0f"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODIyMA.x/grenade/include/grenade/vx/logical_network</span></code></dt>
+<span class="target" id="dir_4ce4e90ba5be28803e4dba9710de4b0f"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODIyOA.x/grenade/include/grenade/vx/logical_network</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_bfa6133a02601d0a223fd7ae8e0d15dd"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODIyMA.x/grenade/include/grenade/vx/network</span></code></dt>
+<span class="target" id="dir_bfa6133a02601d0a223fd7ae8e0d15dd"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODIyOA.x/grenade/include/grenade/vx/network</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_b119547e8b7d194083236c2cea2078d0"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODIyMA.x/grenade/include/grenade/vx/vertex/plasticity_rule</span></code></dt>
+<span class="target" id="dir_b119547e8b7d194083236c2cea2078d0"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODIyOA.x/grenade/include/grenade/vx/vertex/plasticity_rule</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_3097d8b353a7d1aa60876e76a6f027c2"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODIyMA.x/grenade/include/grenade/vx/ppu</span></code></dt>
+<span class="target" id="dir_3097d8b353a7d1aa60876e76a6f027c2"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODIyOA.x/grenade/include/grenade/vx/ppu</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_e34a33e9516028af5357a81d8334b446"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODIyMA.x/grenade/include/grenade/vx/transformation</span></code></dt>
+<span class="target" id="dir_e34a33e9516028af5357a81d8334b446"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODIyOA.x/grenade/include/grenade/vx/transformation</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_80aebcad584e3ee8ecf2978ca31a32ba"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODIyMA.x/grenade/include/grenade/vx/vertex</span></code></dt>
+<span class="target" id="dir_80aebcad584e3ee8ecf2978ca31a32ba"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODIyOA.x/grenade/include/grenade/vx/vertex</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_dbba170be18c42486bff7d5646482ad5"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODIyMA.x/grenade/include/grenade/vx</span></code></dt>
+<span class="target" id="dir_dbba170be18c42486bff7d5646482ad5"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODIyOA.x/grenade/include/grenade/vx</span></code></dt>
 <dd></dd></dl>
 
 </section>
