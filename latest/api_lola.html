@@ -805,6 +805,41 @@
 <dt id="_CPPv48Bayesian">
 <span id="_CPPv38Bayesian"></span><span id="_CPPv28Bayesian"></span><span id="Bayesian"></span><span class="target" id="struct_bayesian"></span><em class="property"><span class="pre">struct</span> </em><code class="sig-name descname"><span class="pre">Bayesian</span></code><a class="headerlink" href="#_CPPv48Bayesian" title="Permalink to this definition">¶</a><br /></dt>
 <dd><em>#include &lt;neuron.h&gt;</em><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
+<dl class="cpp enum">
+<dt id="_CPPv4N8Bayesian9OperationE">
+<span id="_CPPv3N8Bayesian9OperationE"></span><span id="_CPPv2N8Bayesian9OperationE"></span><span class="target" id="struct_bayesian_1af81e5ffc8cfeef382536729aaa5d9a8c"></span><em class="property"><span class="pre">enum</span> </em><code class="sig-name descname"><span class="pre">Operation</span></code><a class="headerlink" href="#_CPPv4N8Bayesian9OperationE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Switch the logic operation executed by the bayesian module. </p>
+<p>The operation affects the spike output and, if enabled, the correlation post-pulse.</p>
+<p><code class="docutils literal notranslate"><span class="pre">local</span></code> uses only the neuron’s own refractory state. This is the default for non-connected neurons and does not require further configuration to work.</p>
+<p><code class="docutils literal notranslate"><span class="pre">AND</span></code> creates an output only if local and remote refractory states are present.</p>
+<p><code class="docutils literal notranslate"><span class="pre">XNOR</span></code> creates an output at the falling edge of an XOR gate between the local and remote refractory states.</p>
+<p><code class="docutils literal notranslate"><span class="pre">MULLER_C</span></code> executes a Muller C-element operation between the local and refractory state: The output is activated if both the local and remote neuron are refractory, but both have to be non-refractory once before the next output can be generated. </p>
+<p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt id="_CPPv4N8Bayesian9Operation5localE">
+<span id="_CPPv3N8Bayesian9Operation5localE"></span><span id="_CPPv2N8Bayesian9Operation5localE"></span><span class="target" id="struct_bayesian_1af81e5ffc8cfeef382536729aaa5d9a8caf5ddaf0ca7929578b408c909429f68f2"></span><em class="property"><span class="pre">enumerator</span> </em><code class="sig-name descname"><span class="pre">local</span></code><a class="headerlink" href="#_CPPv4N8Bayesian9Operation5localE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt id="_CPPv4N8Bayesian9Operation3ANDE">
+<span id="_CPPv3N8Bayesian9Operation3ANDE"></span><span id="_CPPv2N8Bayesian9Operation3ANDE"></span><span class="target" id="struct_bayesian_1af81e5ffc8cfeef382536729aaa5d9a8ca558ffc8f5770d8e4f95f51d822685532"></span><em class="property"><span class="pre">enumerator</span> </em><code class="sig-name descname"><span class="pre">AND</span></code><a class="headerlink" href="#_CPPv4N8Bayesian9Operation3ANDE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt id="_CPPv4N8Bayesian9Operation4XNORE">
+<span id="_CPPv3N8Bayesian9Operation4XNORE"></span><span id="_CPPv2N8Bayesian9Operation4XNORE"></span><span class="target" id="struct_bayesian_1af81e5ffc8cfeef382536729aaa5d9a8cae0bc92b7348630a0aaeb871c22a5a584"></span><em class="property"><span class="pre">enumerator</span> </em><code class="sig-name descname"><span class="pre">XNOR</span></code><a class="headerlink" href="#_CPPv4N8Bayesian9Operation4XNORE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt id="_CPPv4N8Bayesian9Operation8MULLER_CE">
+<span id="_CPPv3N8Bayesian9Operation8MULLER_CE"></span><span id="_CPPv2N8Bayesian9Operation8MULLER_CE"></span><span class="target" id="struct_bayesian_1af81e5ffc8cfeef382536729aaa5d9a8ca964211ed9fc0dca84bc9160c1bc9b9e9"></span><em class="property"><span class="pre">enumerator</span> </em><code class="sig-name descname"><span class="pre">MULLER_C</span></code><a class="headerlink" href="#_CPPv4N8Bayesian9Operation8MULLER_CE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
 <dt>
@@ -880,6 +915,18 @@
 <dt id="_CPPv4N8Bayesian12enable_slaveE">
 <span id="_CPPv3N8Bayesian12enable_slaveE"></span><span id="_CPPv2N8Bayesian12enable_slaveE"></span><span id="Bayesian::enable_slave__b"></span><span class="target" id="struct_bayesian_1a15a586bff8f802ec6cf9542674b4698e"></span><span class="pre">bool</span> <code class="sig-name descname"><span class="pre">enable_slave</span></code><a class="headerlink" href="#_CPPv4N8Bayesian12enable_slaveE" title="Permalink to this definition">¶</a><br /></dt>
 <dd></dd></dl>
+
+<dl class="cpp var">
+<dt id="_CPPv4N8Bayesian9operationE">
+<span id="_CPPv3N8Bayesian9operationE"></span><span id="_CPPv2N8Bayesian9operationE"></span><span id="Bayesian::operation__Bayesian::Operation"></span><span class="target" id="struct_bayesian_1a19376405e8d43bcc2215e37d86120af9"></span><em class="property"><span class="pre">enum</span></em> <a class="reference internal" href="#_CPPv48Bayesian" title="Bayesian"><span class="pre">Bayesian</span></a><span class="pre">::</span><a class="reference internal" href="#_CPPv4N8Bayesian9OperationE" title="Bayesian::Operation"><span class="pre">Operation</span></a> <code class="sig-name descname"><span class="pre">operation</span></code><a class="headerlink" href="#_CPPv4N8Bayesian9operationE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt id="_CPPv4N8Bayesian13to_post_pulseE">
+<span id="_CPPv3N8Bayesian13to_post_pulseE"></span><span id="_CPPv2N8Bayesian13to_post_pulseE"></span><span id="Bayesian::to_post_pulse__b"></span><span class="target" id="struct_bayesian_1a496bdf21e037b6d2f9ba5013a7a88151"></span><span class="pre">bool</span> <code class="sig-name descname"><span class="pre">to_post_pulse</span></code><a class="headerlink" href="#_CPPv4N8Bayesian13to_post_pulseE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Decide whether the bayesian output will be routed to the synapses as correlation post-pulse. </p>
+<p>If disabled, spikes in the selected master neuron will trigger post-pulses. </p>
+</dd></dl>
 
 </div>
 <div class="breathe-sectiondef docutils container">
@@ -977,6 +1024,41 @@
 <dt id="_CPPv4N4lola2vx2v312AtomicNeuron8BayesianE">
 <span id="_CPPv3N4lola2vx2v312AtomicNeuron8BayesianE"></span><span id="_CPPv2N4lola2vx2v312AtomicNeuron8BayesianE"></span><span id="lola::vx::v3::AtomicNeuron::Bayesian"></span><span class="target" id="structlola_1_1vx_1_1v3_1_1_atomic_neuron_1_1_bayesian"></span><em class="property"><span class="pre">struct</span> </em><code class="sig-prename descclassname"><a class="reference internal" href="api_grenade.html#_CPPv44lola" title="lola"><span class="pre">lola</span></a><span class="pre">::</span><a class="reference internal" href="api_grenade.html#_CPPv4N4lola2vxE" title="lola::vx"><span class="pre">vx</span></a><span class="pre">::</span><a class="reference internal" href="api_grenade.html#_CPPv4N4lola2vx2v3E" title="lola::vx::v3"><span class="pre">v3</span></a><span class="pre">::</span><a class="reference internal" href="#_CPPv4N4lola2vx2v312AtomicNeuronE" title="lola::vx::v3::AtomicNeuron"><span class="pre">AtomicNeuron</span></a><code class="sig-prename descclassname"><span class="pre">::</span></code></code><code class="sig-name descname"><span class="pre">Bayesian</span></code><a class="headerlink" href="#_CPPv4N4lola2vx2v312AtomicNeuron8BayesianE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><em>#include &lt;neuron.h&gt;</em><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
+<dl class="cpp enum">
+<dt id="_CPPv4N4lola2vx2v312AtomicNeuron8Bayesian9OperationE">
+<span id="_CPPv3N4lola2vx2v312AtomicNeuron8Bayesian9OperationE"></span><span id="_CPPv2N4lola2vx2v312AtomicNeuron8Bayesian9OperationE"></span><span class="target" id="structlola_1_1vx_1_1v3_1_1_atomic_neuron_1_1_bayesian_1a86910e0dfb19598fdfe6fe4b85402c6b"></span><em class="property"><span class="pre">enum</span> </em><code class="sig-name descname"><span class="pre">Operation</span></code><a class="headerlink" href="#_CPPv4N4lola2vx2v312AtomicNeuron8Bayesian9OperationE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Switch the logic operation executed by the bayesian module. </p>
+<p>The operation affects the spike output and, if enabled, the correlation post-pulse.</p>
+<p><code class="docutils literal notranslate"><span class="pre">local</span></code> uses only the neuron’s own refractory state. This is the default for non-connected neurons and does not require further configuration to work.</p>
+<p><code class="docutils literal notranslate"><span class="pre">AND</span></code> creates an output only if local and remote refractory states are present.</p>
+<p><code class="docutils literal notranslate"><span class="pre">XNOR</span></code> creates an output at the falling edge of an XOR gate between the local and remote refractory states.</p>
+<p><code class="docutils literal notranslate"><span class="pre">MULLER_C</span></code> executes a Muller C-element operation between the local and refractory state: The output is activated if both the local and remote neuron are refractory, but both have to be non-refractory once before the next output can be generated. </p>
+<p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt id="_CPPv4N4lola2vx2v312AtomicNeuron8Bayesian9Operation5localE">
+<span id="_CPPv3N4lola2vx2v312AtomicNeuron8Bayesian9Operation5localE"></span><span id="_CPPv2N4lola2vx2v312AtomicNeuron8Bayesian9Operation5localE"></span><span class="target" id="structlola_1_1vx_1_1v3_1_1_atomic_neuron_1_1_bayesian_1a86910e0dfb19598fdfe6fe4b85402c6baf5ddaf0ca7929578b408c909429f68f2"></span><em class="property"><span class="pre">enumerator</span> </em><code class="sig-name descname"><span class="pre">local</span></code><a class="headerlink" href="#_CPPv4N4lola2vx2v312AtomicNeuron8Bayesian9Operation5localE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt id="_CPPv4N4lola2vx2v312AtomicNeuron8Bayesian9Operation3ANDE">
+<span id="_CPPv3N4lola2vx2v312AtomicNeuron8Bayesian9Operation3ANDE"></span><span id="_CPPv2N4lola2vx2v312AtomicNeuron8Bayesian9Operation3ANDE"></span><span class="target" id="structlola_1_1vx_1_1v3_1_1_atomic_neuron_1_1_bayesian_1a86910e0dfb19598fdfe6fe4b85402c6ba558ffc8f5770d8e4f95f51d822685532"></span><em class="property"><span class="pre">enumerator</span> </em><code class="sig-name descname"><span class="pre">AND</span></code><a class="headerlink" href="#_CPPv4N4lola2vx2v312AtomicNeuron8Bayesian9Operation3ANDE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt id="_CPPv4N4lola2vx2v312AtomicNeuron8Bayesian9Operation4XNORE">
+<span id="_CPPv3N4lola2vx2v312AtomicNeuron8Bayesian9Operation4XNORE"></span><span id="_CPPv2N4lola2vx2v312AtomicNeuron8Bayesian9Operation4XNORE"></span><span class="target" id="structlola_1_1vx_1_1v3_1_1_atomic_neuron_1_1_bayesian_1a86910e0dfb19598fdfe6fe4b85402c6bae0bc92b7348630a0aaeb871c22a5a584"></span><em class="property"><span class="pre">enumerator</span> </em><code class="sig-name descname"><span class="pre">XNOR</span></code><a class="headerlink" href="#_CPPv4N4lola2vx2v312AtomicNeuron8Bayesian9Operation4XNORE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt id="_CPPv4N4lola2vx2v312AtomicNeuron8Bayesian9Operation8MULLER_CE">
+<span id="_CPPv3N4lola2vx2v312AtomicNeuron8Bayesian9Operation8MULLER_CE"></span><span id="_CPPv2N4lola2vx2v312AtomicNeuron8Bayesian9Operation8MULLER_CE"></span><span class="target" id="structlola_1_1vx_1_1v3_1_1_atomic_neuron_1_1_bayesian_1a86910e0dfb19598fdfe6fe4b85402c6ba964211ed9fc0dca84bc9160c1bc9b9e9"></span><em class="property"><span class="pre">enumerator</span> </em><code class="sig-name descname"><span class="pre">MULLER_C</span></code><a class="headerlink" href="#_CPPv4N4lola2vx2v312AtomicNeuron8Bayesian9Operation8MULLER_CE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
 <dt>
@@ -1012,31 +1094,26 @@
 <dd></dd></dl>
 
 <dl class="cpp var">
-<dt id="_CPPv4N4lola2vx2v312AtomicNeuron8Bayesian6enableE">
-<span id="_CPPv3N4lola2vx2v312AtomicNeuron8Bayesian6enableE"></span><span id="_CPPv2N4lola2vx2v312AtomicNeuron8Bayesian6enableE"></span><span id="lola::vx::v3::AtomicNeuron::Bayesian::enable__b"></span><span class="target" id="structlola_1_1vx_1_1v3_1_1_atomic_neuron_1_1_bayesian_1ae79626090c03ad42d5d644bdc5288b72"></span><span class="pre">bool</span> <code class="sig-name descname"><span class="pre">enable</span></code><a class="headerlink" href="#_CPPv4N4lola2vx2v312AtomicNeuron8Bayesian6enableE" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp var">
-<dt id="_CPPv4N4lola2vx2v312AtomicNeuron8Bayesian8enable_0E">
-<span id="_CPPv3N4lola2vx2v312AtomicNeuron8Bayesian8enable_0E"></span><span id="_CPPv2N4lola2vx2v312AtomicNeuron8Bayesian8enable_0E"></span><span id="lola::vx::v3::AtomicNeuron::Bayesian::enable_0__b"></span><span class="target" id="structlola_1_1vx_1_1v3_1_1_atomic_neuron_1_1_bayesian_1afbebf37d98bbc84910996045671ee70f"></span><span class="pre">bool</span> <code class="sig-name descname"><span class="pre">enable_0</span></code><a class="headerlink" href="#_CPPv4N4lola2vx2v312AtomicNeuron8Bayesian8enable_0E" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp var">
-<dt id="_CPPv4N4lola2vx2v312AtomicNeuron8Bayesian8enable_1E">
-<span id="_CPPv3N4lola2vx2v312AtomicNeuron8Bayesian8enable_1E"></span><span id="_CPPv2N4lola2vx2v312AtomicNeuron8Bayesian8enable_1E"></span><span id="lola::vx::v3::AtomicNeuron::Bayesian::enable_1__b"></span><span class="target" id="structlola_1_1vx_1_1v3_1_1_atomic_neuron_1_1_bayesian_1a969eb85f68f9f1fe96b0944aa5ae6951"></span><span class="pre">bool</span> <code class="sig-name descname"><span class="pre">enable_1</span></code><a class="headerlink" href="#_CPPv4N4lola2vx2v312AtomicNeuron8Bayesian8enable_1E" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp var">
 <dt id="_CPPv4N4lola2vx2v312AtomicNeuron8Bayesian13enable_masterE">
 <span id="_CPPv3N4lola2vx2v312AtomicNeuron8Bayesian13enable_masterE"></span><span id="_CPPv2N4lola2vx2v312AtomicNeuron8Bayesian13enable_masterE"></span><span id="lola::vx::v3::AtomicNeuron::Bayesian::enable_master__b"></span><span class="target" id="structlola_1_1vx_1_1v3_1_1_atomic_neuron_1_1_bayesian_1a567516cf254099c2f429e85cdb76e33f"></span><span class="pre">bool</span> <code class="sig-name descname"><span class="pre">enable_master</span></code><a class="headerlink" href="#_CPPv4N4lola2vx2v312AtomicNeuron8Bayesian13enable_masterE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Enable local spikes to be effective. </p>
-<p>If not using <a class="reference internal" href="#structlola_1_1vx_1_1v3_1_1_atomic_neuron_1_1_bayesian"><span class="std std-ref">Bayesian</span></a> extensions, this setting needs to be enabled for spikes to reach synapses and the outputs. </p>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="cpp var">
 <dt id="_CPPv4N4lola2vx2v312AtomicNeuron8Bayesian12enable_slaveE">
 <span id="_CPPv3N4lola2vx2v312AtomicNeuron8Bayesian12enable_slaveE"></span><span id="_CPPv2N4lola2vx2v312AtomicNeuron8Bayesian12enable_slaveE"></span><span id="lola::vx::v3::AtomicNeuron::Bayesian::enable_slave__b"></span><span class="target" id="structlola_1_1vx_1_1v3_1_1_atomic_neuron_1_1_bayesian_1ad9908fd6413ab1d55012162cebbe4cd6"></span><span class="pre">bool</span> <code class="sig-name descname"><span class="pre">enable_slave</span></code><a class="headerlink" href="#_CPPv4N4lola2vx2v312AtomicNeuron8Bayesian12enable_slaveE" title="Permalink to this definition">¶</a><br /></dt>
 <dd></dd></dl>
+
+<dl class="cpp var">
+<dt id="_CPPv4N4lola2vx2v312AtomicNeuron8Bayesian9operationE">
+<span id="_CPPv3N4lola2vx2v312AtomicNeuron8Bayesian9operationE"></span><span id="_CPPv2N4lola2vx2v312AtomicNeuron8Bayesian9operationE"></span><span id="lola::vx::v3::AtomicNeuron::Bayesian::operation__lola::vx::v3::AtomicNeuron::Bayesian::Operation"></span><span class="target" id="structlola_1_1vx_1_1v3_1_1_atomic_neuron_1_1_bayesian_1a9fbf796a63cf4003a23937a1d5a496fb"></span><em class="property"><span class="pre">enum</span></em> <a class="reference internal" href="api_grenade.html#_CPPv44lola" title="lola"><span class="pre">lola</span></a><span class="pre">::</span><a class="reference internal" href="api_grenade.html#_CPPv4N4lola2vxE" title="lola::vx"><span class="pre">vx</span></a><span class="pre">::</span><a class="reference internal" href="api_grenade.html#_CPPv4N4lola2vx2v3E" title="lola::vx::v3"><span class="pre">v3</span></a><span class="pre">::</span><a class="reference internal" href="#_CPPv4N4lola2vx2v312AtomicNeuronE" title="lola::vx::v3::AtomicNeuron"><span class="pre">AtomicNeuron</span></a><span class="pre">::</span><a class="reference internal" href="#_CPPv4N4lola2vx2v312AtomicNeuron8BayesianE" title="lola::vx::v3::AtomicNeuron::Bayesian"><span class="pre">Bayesian</span></a><span class="pre">::</span><a class="reference internal" href="#_CPPv4N4lola2vx2v312AtomicNeuron8Bayesian9OperationE" title="lola::vx::v3::AtomicNeuron::Bayesian::Operation"><span class="pre">Operation</span></a> <code class="sig-name descname"><span class="pre">operation</span></code><a class="headerlink" href="#_CPPv4N4lola2vx2v312AtomicNeuron8Bayesian9operationE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt id="_CPPv4N4lola2vx2v312AtomicNeuron8Bayesian13to_post_pulseE">
+<span id="_CPPv3N4lola2vx2v312AtomicNeuron8Bayesian13to_post_pulseE"></span><span id="_CPPv2N4lola2vx2v312AtomicNeuron8Bayesian13to_post_pulseE"></span><span id="lola::vx::v3::AtomicNeuron::Bayesian::to_post_pulse__b"></span><span class="target" id="structlola_1_1vx_1_1v3_1_1_atomic_neuron_1_1_bayesian_1a142898855ed6378ed9583735118760fd"></span><span class="pre">bool</span> <code class="sig-name descname"><span class="pre">to_post_pulse</span></code><a class="headerlink" href="#_CPPv4N4lola2vx2v312AtomicNeuron8Bayesian13to_post_pulseE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Decide whether the bayesian output will be routed to the synapses as correlation post-pulse. </p>
+<p>If disabled, spikes in the selected master neuron will trigger post-pulses. </p>
+</dd></dl>
 
 </div>
 <div class="breathe-sectiondef docutils container">
@@ -9476,7 +9553,7 @@
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-typedefs">Typedefs</p>
 <dl class="cpp type">
 <dt>
-<span class="target" id="namespacelola_1_1vx_1_1v2_1_1detail_1a62ea945b49515a598294b59fb0b90095"></span><code class="sig-name descname"><span class="pre">hate::type_list&lt;#</span> <span class="pre">34</span> <span class="pre">&quot;/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODUwNw.x/haldls/include/lola/vx/v2/pylola.h&quot;</span> <span class="pre">2</span> <span class="pre">&gt;</span> <span class="pre">pickle_types</span></code></dt>
+<span class="target" id="namespacelola_1_1vx_1_1v2_1_1detail_1a2db5335669f88d6d75d3c1defb3f2ec2"></span><code class="sig-name descname"><span class="pre">hate::type_list&lt;#</span> <span class="pre">34</span> <span class="pre">&quot;/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODUzOA.x/haldls/include/lola/vx/v2/pylola.h&quot;</span> <span class="pre">2</span> <span class="pre">&gt;</span> <span class="pre">pickle_types</span></code></dt>
 <dd></dd></dl>
 
 </div>
@@ -9639,7 +9716,7 @@
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-typedefs">Typedefs</p>
 <dl class="cpp type">
 <dt>
-<span class="target" id="namespacelola_1_1vx_1_1v3_1_1detail_1a274ef2cf828d21089602aff4022d717a"></span><code class="sig-name descname"><span class="pre">hate::type_list&lt;#</span> <span class="pre">34</span> <span class="pre">&quot;/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODUwNw.x/haldls/include/lola/vx/v3/pylola.h&quot;</span> <span class="pre">2</span> <span class="pre">&gt;</span> <span class="pre">pickle_types</span></code></dt>
+<span class="target" id="namespacelola_1_1vx_1_1v3_1_1detail_1a18ceeb922194834c8176afabf5b1527a"></span><code class="sig-name descname"><span class="pre">hate::type_list&lt;#</span> <span class="pre">34</span> <span class="pre">&quot;/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODUzOA.x/haldls/include/lola/vx/v3/pylola.h&quot;</span> <span class="pre">2</span> <span class="pre">&gt;</span> <span class="pre">pickle_types</span></code></dt>
 <dd></dd></dl>
 
 </div>
@@ -10661,32 +10738,32 @@
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_9b6da1fe6bbf42b8d5e47bb3a3861509"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODUwNw.x/haldls</span></code></dt>
+<span class="target" id="dir_9b6da1fe6bbf42b8d5e47bb3a3861509"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODUzOA.x/haldls</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_5f2516aff7b09292cd2c4fd2ff000a03"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODUwNw.x/haldls/include</span></code></dt>
+<span class="target" id="dir_5f2516aff7b09292cd2c4fd2ff000a03"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODUzOA.x/haldls/include</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_aa744475fb6dfe3e09e614a87725e054"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODUwNw.x/haldls/include/lola</span></code></dt>
+<span class="target" id="dir_aa744475fb6dfe3e09e614a87725e054"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODUzOA.x/haldls/include/lola</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_139dba3fb32f9c147aa086f8ec4f6572"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODUwNw.x/haldls/include/lola/vx/v2</span></code></dt>
+<span class="target" id="dir_139dba3fb32f9c147aa086f8ec4f6572"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODUzOA.x/haldls/include/lola/vx/v2</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_c0853da24bdc4c9c7b05bed1836c885f"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODUwNw.x/haldls/include/lola/vx/v3</span></code></dt>
+<span class="target" id="dir_c0853da24bdc4c9c7b05bed1836c885f"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODUzOA.x/haldls/include/lola/vx/v3</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_214c291605b2b82e6c23c76289c596b4"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODUwNw.x/haldls/include/lola/vx</span></code></dt>
+<span class="target" id="dir_214c291605b2b82e6c23c76289c596b4"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODUzOA.x/haldls/include/lola/vx</span></code></dt>
 <dd></dd></dl>
 
 </section>
