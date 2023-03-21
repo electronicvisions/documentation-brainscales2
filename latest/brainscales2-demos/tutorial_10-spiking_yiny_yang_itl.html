@@ -356,7 +356,7 @@ corresponds to one of the three classes:</p>
         <span class="bp">self</span><span class="o">.</span><span class="n">dt</span> <span class="o">=</span> <span class="n">dt</span>
 
         <span class="c1"># Instance to work on</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">instance</span> <span class="o">=</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">Instance</span><span class="p">(</span><span class="n">mock</span><span class="o">=</span><span class="n">mock</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="n">dt</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">experiment</span> <span class="o">=</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">Experiment</span><span class="p">(</span><span class="n">mock</span><span class="o">=</span><span class="n">mock</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="n">dt</span><span class="p">)</span>
 
         <span class="c1"># Repeat input</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">input_repetitions</span> <span class="o">=</span> <span class="n">input_repetitions</span>
@@ -365,7 +365,7 @@ corresponds to one of the three classes:</p>
         <span class="bp">self</span><span class="o">.</span><span class="n">linear_h</span> <span class="o">=</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">Synapse</span><span class="p">(</span>
             <span class="n">n_in</span> <span class="o">*</span> <span class="n">input_repetitions</span><span class="p">,</span>
             <span class="n">n_hidden</span><span class="p">,</span>
-            <span class="n">instance</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">instance</span><span class="p">,</span>
+            <span class="n">experiment</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">experiment</span><span class="p">,</span>
             <span class="n">transform</span><span class="o">=</span><span class="n">partial</span><span class="p">(</span>
                 <span class="n">weight_transforms</span><span class="o">.</span><span class="n">linear_saturating</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">weight_scale</span><span class="p">))</span>
 
@@ -378,7 +378,7 @@ corresponds to one of the three classes:</p>
         <span class="c1"># Hidden layer</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">lif_h</span> <span class="o">=</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">Neuron</span><span class="p">(</span>
             <span class="n">n_hidden</span><span class="p">,</span>
-            <span class="n">instance</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">instance</span><span class="p">,</span>
+            <span class="n">experiment</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">experiment</span><span class="p">,</span>
             <span class="n">func</span><span class="o">=</span><span class="n">F</span><span class="o">.</span><span class="n">cuba_lif_integration</span><span class="p">,</span>
             <span class="n">params</span><span class="o">=</span><span class="n">lif_params</span><span class="p">,</span>
             <span class="n">trace_scale</span><span class="o">=</span><span class="n">trace_scale</span><span class="p">,</span>
@@ -389,14 +389,14 @@ corresponds to one of the three classes:</p>
         <span class="bp">self</span><span class="o">.</span><span class="n">linear_o</span> <span class="o">=</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">Synapse</span><span class="p">(</span>
             <span class="n">n_hidden</span><span class="p">,</span>
             <span class="n">n_out</span><span class="p">,</span>
-            <span class="n">instance</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">instance</span><span class="p">,</span>
+            <span class="n">experiment</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">experiment</span><span class="p">,</span>
             <span class="n">transform</span><span class="o">=</span><span class="n">partial</span><span class="p">(</span>
                 <span class="n">weight_transforms</span><span class="o">.</span><span class="n">linear_saturating</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">weight_scale</span><span class="p">))</span>
 
         <span class="c1"># Readout layer</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">li_readout</span> <span class="o">=</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">ReadoutNeuron</span><span class="p">(</span>
             <span class="n">n_out</span><span class="p">,</span>
-            <span class="n">instance</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">instance</span><span class="p">,</span>
+            <span class="n">experiment</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">experiment</span><span class="p">,</span>
             <span class="n">func</span><span class="o">=</span><span class="n">F</span><span class="o">.</span><span class="n">cuba_li_integration</span><span class="p">,</span>
             <span class="n">params</span><span class="o">=</span><span class="n">li_params</span><span class="p">,</span>
             <span class="n">trace_scale</span><span class="o">=</span><span class="n">trace_scale</span><span class="p">,</span>
@@ -438,7 +438,7 @@ corresponds to one of the three classes:</p>
         <span class="bp">self</span><span class="o">.</span><span class="n">y_o</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">li_readout</span><span class="p">(</span><span class="n">c_o</span><span class="p">)</span>
 
         <span class="c1"># Execute on hardware</span>
-        <span class="n">hxtorch</span><span class="o">.</span><span class="n">snn</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instance</span><span class="p">,</span> <span class="n">spikes</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">hxtorch</span><span class="o">.</span><span class="n">snn</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">experiment</span><span class="p">,</span> <span class="n">spikes</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_o</span><span class="o">.</span><span class="n">v_cadc</span>
 </pre></div>
