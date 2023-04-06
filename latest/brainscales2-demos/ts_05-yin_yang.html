@@ -251,7 +251,7 @@ Signal Processing Magazine 36, 6 (2019),51–63.
 <span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">w</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">torch</span>
-<span class="kn">from</span> <span class="nn">_static.common.helpers</span> <span class="kn">import</span> <span class="n">setup_hardware_client</span>
+<span class="kn">from</span> <span class="nn">_static.common.helpers</span> <span class="kn">import</span> <span class="n">setup_hardware_client</span><span class="p">,</span> <span class="n">save_nightly_calibration</span>
 <span class="kn">from</span> <span class="nn">_static.tutorial.snn_yinyang_helpers</span> <span class="kn">import</span> <span class="n">plot_data</span><span class="p">,</span> <span class="n">plot_input_encoding</span><span class="p">,</span> <span class="n">plot_training</span>
 <span class="n">setup_hardware_client</span><span class="p">()</span>
 </pre></div>
@@ -794,7 +794,8 @@ function.</p>
 
 <span class="c1"># Initialize the hardware and load a suitable nightly calibration</span>
 <span class="k">if</span> <span class="ow">not</span> <span class="n">MOCK</span><span class="p">:</span>
-    <span class="n">hxtorch</span><span class="o">.</span><span class="n">init_hardware</span><span class="p">(</span><span class="n">calib_name</span><span class="o">=</span><span class="s2">&quot;spiking2&quot;</span><span class="p">)</span>
+    <span class="n">save_nightly_calibration</span><span class="p">(</span><span class="s1">&#39;spiking2_cocolist.pbin&#39;</span><span class="p">)</span>
+    <span class="n">hxtorch</span><span class="o">.</span><span class="n">init_hardware</span><span class="p">(</span><span class="n">hxtorch</span><span class="o">.</span><span class="n">CalibrationPath</span><span class="p">(</span><span class="s1">&#39;spiking2_cocolist.pbin&#39;</span><span class="p">))</span>
 
 <span class="c1"># Train and test</span>
 <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">EPOCHS</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
