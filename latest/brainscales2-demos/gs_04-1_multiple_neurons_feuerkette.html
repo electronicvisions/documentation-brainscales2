@@ -1,0 +1,423 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Experimente mit mehreren Nervenzellen Teil 1 &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Experimente mit mehreren Nervenzellen Teil 2" href="gs_04-2_multiple_neurons_sudoku.html" />
+    <link rel="prev" title="Experimente mit einer einzelnen Nervenzelle" href="gs_03_single_neuron.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> BrainScaleS-2 Documentation
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Demos &amp; Examples</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html">Welcome to the BrainScaleS-2 Tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ts_00-single_neuron.html">BrainScaleS-2 single neuron experiments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ts_01-superspike.html">Learning with the SuperSpike rule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ts_02-plasticity_rate_coding.html">BrainScaleS-2 on-chip plasticity experiment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ts_03-multicompartment.html">Structured Neurons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ts_04-mc_genetic_algorithms.html">How to use Genetic Algorithms to automatically parameterize BrainScaleS-2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ts_05-yin_yang.html">Training an SNN on BrainScaleS-2 with PyTorch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ts_06-dynamic_range.html">Exploring the dynamic range</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tp_00-introduction.html">Introduction to matrix multiplication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tp_01-properties.html">Exploring the analog MAC operation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tp_02-yin_yang.html">Train DNNs on BrainScaleS-2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nmpi_00-non_interactive_queue_runner.html">Introduction to the non-interactive queue runner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="girlsday.html">Wie verarbeitet unser Gehirn Informationen?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gs_01_neuromorphic_hardware.html">Unsere neuromorphe Hardware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gs_02_pynn_introduction.html">Wie können wir mit den künstlichen Nervenzellen kommunizieren?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gs_03_single_neuron.html">Experimente mit einer einzelnen Nervenzelle</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Experimente mit mehreren Nervenzellen Teil 1</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#umgebung-vorbereiten">Umgebung vorbereiten</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#die-feuerkette">Die Feuerkette</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gs_04-2_multiple_neurons_sudoku.html">Experimente mit mehreren Nervenzellen Teil 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gs_05_machine_learning.html">Maschinelles Lernen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gs_06_logik_operationen.html">Neuronenverbindungen - Synapsen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gs_06_logik_operationen.html#synapsennetzwerke">Synapsennetzwerke</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fortgeschrittenen_praktikum.html">Welcome to the Advanced Physics Lab for Physicists by the Electronic Vision(s) Group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fp_pynn_introduction.html">Introduction to PyNN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fp_binary_operations.html">Binary operations using spiking neurons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fp_sudoku.html">Sudoku</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../apis.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BrainScaleS-2 Documentation</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Welcome to the BrainScaleS-2 Demos &amp; Examples!</a> &raquo;</li>
+        
+      <li>Experimente mit mehreren Nervenzellen Teil 1</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/brainscales2-demos/gs_04-1_multiple_neurons_feuerkette.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <section id="experimente-mit-mehreren-nervenzellen-teil-1">
+<h1>Experimente mit mehreren Nervenzellen Teil 1<a class="headerlink" href="#experimente-mit-mehreren-nervenzellen-teil-1" title="Permalink to this headline">¶</a></h1>
+<section id="umgebung-vorbereiten">
+<h2>Umgebung vorbereiten<a class="headerlink" href="#umgebung-vorbereiten" title="Permalink to this headline">¶</a></h2>
+<p>Bevor wir mit unseren Experimenten beginnen können, müssen wir erneut unsere Umgebung vorbereiten:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">_static.common.helpers</span> <span class="kn">import</span> <span class="n">setup_hardware_client</span>
+<span class="n">setup_hardware_client</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="die-feuerkette">
+<h2>Die Feuerkette<a class="headerlink" href="#die-feuerkette" title="Permalink to this headline">¶</a></h2>
+<p>Nun wollen wir beobachten, wie sich mehrere Neuronen gemeinsam
+verhalten. Dazu gruppieren wir sie zu Populationen und verbinden diese
+zu einer Kette. Jede exzitatorische Population (rot) besitzt dabei eine
+inhibitorische Partner Population (blau). Auf diese Weise soll ein
+Signal durch eine möglichst lange Kette gereicht werden.</p>
+<a class="reference internal image-reference" href="../_images/girlsday_synfire_chain.png"><img alt="../_images/girlsday_synfire_chain.png" src="../_images/girlsday_synfire_chain.png" style="width: 400px;" /></a>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pynn_brainscales.brainscales2</span> <span class="k">as</span> <span class="nn">pynn</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">w</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
+
+<span class="kn">from</span> <span class="nn">_static.common.helpers</span> <span class="kn">import</span> <span class="n">get_nightly_calibration</span>
+
+<span class="n">Slider</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">,</span> <span class="n">continuous_update</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">&lt;style&gt;</span>
+<span class="s1">    .jupyter-widgets { min-width: 40em !important; }</span>
+<span class="s1">    .widget-label { min-width: 30ex !important; }</span>
+<span class="s1">&lt;/style&gt;&#39;&#39;&#39;</span><span class="p">))</span>
+
+<span class="nd">@w</span><span class="o">.</span><span class="n">interact</span><span class="p">(</span>
+    <span class="n">inh_exc</span><span class="o">=</span><span class="n">Slider</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Synaptisches Gewicht &quot;inh_exc&quot;&#39;</span><span class="p">),</span>
+    <span class="n">exc_exc</span><span class="o">=</span><span class="n">Slider</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Synaptisches Gewicht &quot;exc_exc&quot;&#39;</span><span class="p">),</span>
+    <span class="n">exc_inh</span><span class="o">=</span><span class="n">Slider</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Synaptisches Gewicht &quot;exc_inh&quot;&#39;</span><span class="p">),</span>
+<span class="p">)</span>
+<span class="k">def</span> <span class="nf">experiment</span><span class="p">(</span><span class="n">inh_exc</span><span class="p">,</span> <span class="n">exc_exc</span><span class="p">,</span> <span class="n">exc_inh</span><span class="p">):</span>
+    <span class="c1"># Diese Parameter sind im Prinzip auch verstellbar, haben so aber gute Werte.</span>
+    <span class="c1"># Alle Gewichte können Werte im Bereich 0-63 annehmen.</span>
+    <span class="n">weights</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;stim_exc&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
+               <span class="s2">&quot;stim_inh&quot;</span><span class="p">:</span> <span class="mi">15</span><span class="p">}</span>
+    <span class="n">numb_pops</span> <span class="o">=</span> <span class="mi">7</span>
+    <span class="n">pop_sizes</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;exc&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+                 <span class="s2">&quot;inh&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">}</span>
+    <span class="n">runtime</span> <span class="o">=</span> <span class="mf">0.1</span>
+    <span class="n">closed</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="c1"># Die Refraktärzeit muss auf einen kleinen Wert gestellt werden, um regelmäßiges</span>
+    <span class="c1"># Feuern prinzipiell zu erlauben.</span>
+    <span class="n">neuron_parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;refractory_period_refractory_time&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
+
+    <span class="c1"># Die Umgebung wird vorbereitet.</span>
+    <span class="n">calib</span> <span class="o">=</span> <span class="n">get_nightly_calibration</span><span class="p">()</span>
+    <span class="n">pynn</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="n">initial_config</span><span class="o">=</span><span class="n">calib</span><span class="p">)</span>
+
+    <span class="c1"># Die angelegten Populationen werden in einem Verzeichnis gespeichert,</span>
+    <span class="c1"># das zu Beginn leere Listen enthält.</span>
+    <span class="n">pop_collector</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;exc&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                     <span class="s2">&quot;inh&quot;</span><span class="p">:</span> <span class="p">[]}</span>
+
+    <span class="c1"># Hier werden die Populationen erstellt.</span>
+    <span class="k">for</span> <span class="n">synapse_type</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;exc&quot;</span><span class="p">,</span> <span class="s2">&quot;inh&quot;</span><span class="p">]:</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">numb_pops</span><span class="p">):</span>
+            <span class="n">pop</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="n">pop_sizes</span><span class="p">[</span><span class="n">synapse_type</span><span class="p">],</span>
+                                  <span class="n">pynn</span><span class="o">.</span><span class="n">cells</span><span class="o">.</span><span class="n">HXNeuron</span><span class="p">(</span><span class="o">**</span><span class="n">neuron_parameters</span><span class="p">))</span>
+            <span class="n">pop</span><span class="o">.</span><span class="n">record</span><span class="p">([</span><span class="s2">&quot;spikes&quot;</span><span class="p">])</span>
+            <span class="n">pop_collector</span><span class="p">[</span><span class="n">synapse_type</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pop</span><span class="p">)</span>
+
+    <span class="c1"># Zuerst wird ein Stimulus zum Zeitpunkt t=0 an die jeweils erste Population gegeben.</span>
+    <span class="n">stim_pop</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="n">pop_sizes</span><span class="p">[</span><span class="s1">&#39;exc&#39;</span><span class="p">],</span>
+                               <span class="n">pynn</span><span class="o">.</span><span class="n">cells</span><span class="o">.</span><span class="n">SpikeSourceArray</span><span class="p">(</span><span class="n">spike_times</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+
+    <span class="n">pynn</span><span class="o">.</span><span class="n">Projection</span><span class="p">(</span><span class="n">stim_pop</span><span class="p">,</span> <span class="n">pop_collector</span><span class="p">[</span><span class="s1">&#39;exc&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span>
+                    <span class="n">pynn</span><span class="o">.</span><span class="n">AllToAllConnector</span><span class="p">(),</span>
+                    <span class="n">synapse_type</span><span class="o">=</span><span class="n">pynn</span><span class="o">.</span><span class="n">synapses</span><span class="o">.</span><span class="n">StaticSynapse</span><span class="p">(</span><span class="n">weight</span><span class="o">=</span><span class="n">weights</span><span class="p">[</span><span class="s2">&quot;stim_exc&quot;</span><span class="p">]),</span>
+                    <span class="n">receptor_type</span><span class="o">=</span><span class="s1">&#39;excitatory&#39;</span><span class="p">)</span>
+    <span class="n">pynn</span><span class="o">.</span><span class="n">Projection</span><span class="p">(</span><span class="n">stim_pop</span><span class="p">,</span> <span class="n">pop_collector</span><span class="p">[</span><span class="s1">&#39;inh&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span>
+                    <span class="n">pynn</span><span class="o">.</span><span class="n">AllToAllConnector</span><span class="p">(),</span>
+                    <span class="n">synapse_type</span><span class="o">=</span><span class="n">pynn</span><span class="o">.</span><span class="n">synapses</span><span class="o">.</span><span class="n">StaticSynapse</span><span class="p">(</span><span class="n">weight</span><span class="o">=</span><span class="n">weights</span><span class="p">[</span><span class="s2">&quot;stim_inh&quot;</span><span class="p">]),</span>
+                    <span class="n">receptor_type</span><span class="o">=</span><span class="s1">&#39;excitatory&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Nun werden alle exzitatorischen Populationen in einer Kette miteinander verbunden.</span>
+    <span class="c1"># Außerdem besitzt jede exzitatorische Population eine inhibitorische Partnerpopulation.</span>
+
+    <span class="c1"># Wenn die Kette offen ist, müssen die exzitatorischen Verbindungen einmal weniger</span>
+    <span class="c1"># iteriert werden.</span>
+    <span class="n">lastiter</span> <span class="o">=</span> <span class="n">numb_pops</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">closed</span><span class="p">:</span>
+        <span class="n">lastiter</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="n">pynn</span><span class="o">.</span><span class="n">Projection</span><span class="p">(</span><span class="n">pop_collector</span><span class="p">[</span><span class="s1">&#39;inh&#39;</span><span class="p">][</span><span class="n">lastiter</span><span class="p">],</span>
+                        <span class="n">pop_collector</span><span class="p">[</span><span class="s1">&#39;exc&#39;</span><span class="p">][</span><span class="n">lastiter</span><span class="p">],</span>
+                        <span class="n">pynn</span><span class="o">.</span><span class="n">AllToAllConnector</span><span class="p">(),</span>
+                        <span class="n">synapse_type</span><span class="o">=</span><span class="n">pynn</span><span class="o">.</span><span class="n">synapses</span><span class="o">.</span><span class="n">StaticSynapse</span><span class="p">(</span><span class="n">weight</span><span class="o">=-</span><span class="n">inh_exc</span><span class="p">),</span>
+                        <span class="n">receptor_type</span><span class="o">=</span><span class="s1">&#39;inhibitory&#39;</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">pop_index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">lastiter</span><span class="p">):</span>
+        <span class="n">pynn</span><span class="o">.</span><span class="n">Projection</span><span class="p">(</span><span class="n">pop_collector</span><span class="p">[</span><span class="s1">&#39;exc&#39;</span><span class="p">][</span><span class="n">pop_index</span><span class="p">],</span>
+                        <span class="n">pop_collector</span><span class="p">[</span><span class="s1">&#39;exc&#39;</span><span class="p">][(</span><span class="n">pop_index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">numb_pops</span><span class="p">],</span>
+                        <span class="n">pynn</span><span class="o">.</span><span class="n">AllToAllConnector</span><span class="p">(),</span>
+                        <span class="n">synapse_type</span><span class="o">=</span><span class="n">pynn</span><span class="o">.</span><span class="n">synapses</span><span class="o">.</span><span class="n">StaticSynapse</span><span class="p">(</span><span class="n">weight</span><span class="o">=</span><span class="n">exc_exc</span><span class="p">),</span>
+                        <span class="n">receptor_type</span><span class="o">=</span><span class="s1">&#39;excitatory&#39;</span><span class="p">)</span>
+        <span class="n">pynn</span><span class="o">.</span><span class="n">Projection</span><span class="p">(</span><span class="n">pop_collector</span><span class="p">[</span><span class="s1">&#39;exc&#39;</span><span class="p">][</span><span class="n">pop_index</span><span class="p">],</span>
+                        <span class="n">pop_collector</span><span class="p">[</span><span class="s1">&#39;inh&#39;</span><span class="p">][(</span><span class="n">pop_index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">numb_pops</span><span class="p">],</span>
+                        <span class="n">pynn</span><span class="o">.</span><span class="n">AllToAllConnector</span><span class="p">(),</span>
+                        <span class="n">synapse_type</span><span class="o">=</span><span class="n">pynn</span><span class="o">.</span><span class="n">synapses</span><span class="o">.</span><span class="n">StaticSynapse</span><span class="p">(</span><span class="n">weight</span><span class="o">=</span><span class="n">exc_inh</span><span class="p">),</span>
+                        <span class="n">receptor_type</span><span class="o">=</span><span class="s1">&#39;excitatory&#39;</span><span class="p">)</span>
+        <span class="n">pynn</span><span class="o">.</span><span class="n">Projection</span><span class="p">(</span><span class="n">pop_collector</span><span class="p">[</span><span class="s1">&#39;inh&#39;</span><span class="p">][</span><span class="n">pop_index</span><span class="p">],</span>
+                        <span class="n">pop_collector</span><span class="p">[</span><span class="s1">&#39;exc&#39;</span><span class="p">][</span><span class="n">pop_index</span><span class="p">],</span>
+                        <span class="n">pynn</span><span class="o">.</span><span class="n">AllToAllConnector</span><span class="p">(),</span>
+                        <span class="n">synapse_type</span><span class="o">=</span><span class="n">pynn</span><span class="o">.</span><span class="n">synapses</span><span class="o">.</span><span class="n">StaticSynapse</span><span class="p">(</span><span class="n">weight</span><span class="o">=-</span><span class="n">inh_exc</span><span class="p">),</span>
+                        <span class="n">receptor_type</span><span class="o">=</span><span class="s1">&#39;inhibitory&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Jetzt wird das Netzwerk emuliert.</span>
+    <span class="n">pynn</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">runtime</span><span class="p">)</span>
+
+    <span class="c1"># Die Spikes werden ausgelesen.</span>
+    <span class="n">spike_collector</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;exc&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">numb_pops</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">),</span>
+                       <span class="s1">&#39;inh&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">numb_pops</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">)}</span>
+    <span class="k">for</span> <span class="n">syn_type</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;exc&#39;</span><span class="p">,</span> <span class="s1">&#39;inh&#39;</span><span class="p">]:</span>
+        <span class="k">for</span> <span class="n">pop_index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">numb_pops</span><span class="p">):</span>
+            <span class="n">spike_collector</span><span class="p">[</span><span class="n">syn_type</span><span class="p">][</span><span class="n">pop_index</span><span class="p">]</span> <span class="o">=</span>\
+                <span class="n">pop_collector</span><span class="p">[</span><span class="n">syn_type</span><span class="p">][</span><span class="n">pop_index</span><span class="p">]</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="s2">&quot;spikes&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">segments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">spiketrains</span>
+
+    <span class="c1"># Das Ergebnis wird visualisiert.</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">211</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">syn_type</span> <span class="ow">in</span> <span class="n">spike_collector</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">pop_index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">numb_pops</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">spike_train</span> <span class="ow">in</span> <span class="n">spike_collector</span><span class="p">[</span><span class="n">syn_type</span><span class="p">][</span><span class="n">pop_index</span><span class="p">]:</span>
+                <span class="n">neuron_id</span> <span class="o">=</span> <span class="n">spike_train</span><span class="o">.</span><span class="n">annotations</span><span class="p">[</span><span class="s1">&#39;source_id&#39;</span><span class="p">]</span>
+                <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">spike_train</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">spike_train</span><span class="p">)</span> <span class="o">*</span> <span class="n">neuron_id</span><span class="p">,</span>
+                        <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;None&quot;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">runtime</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Zeit [ms]&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="p">(</span><span class="n">pop_sizes</span><span class="p">[</span><span class="s1">&#39;exc&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">pop_sizes</span><span class="p">[</span><span class="s1">&#39;inh&#39;</span><span class="p">])</span> <span class="o">*</span> <span class="n">numb_pops</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Neuron ID&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axhspan</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">pop_sizes</span><span class="p">[</span><span class="s1">&#39;exc&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">numb_pops</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axhspan</span><span class="p">(</span><span class="n">pop_sizes</span><span class="p">[</span><span class="s1">&#39;exc&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">numb_pops</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">,</span> <span class="p">(</span><span class="n">pop_sizes</span><span class="p">[</span><span class="s1">&#39;exc&#39;</span><span class="p">]</span> <span class="o">+</span>
+        <span class="n">pop_sizes</span><span class="p">[</span><span class="s1">&#39;inh&#39;</span><span class="p">])</span> <span class="o">*</span> <span class="n">numb_pops</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+
+    <span class="n">pynn</span><span class="o">.</span><span class="n">end</span><span class="p">()</span>
+</pre></div>
+</div>
+<a class="solution reference internal image-reference" href="../_images/girlsday_feuerkette_output.png"><img alt="../_images/girlsday_feuerkette_output.png" class="solution" src="../_images/girlsday_feuerkette_output.png" style="width: 100%;" /></a>
+<p>Jeder aufgetretene Spike ist durch einen Punkt gekennzeichnet. Unten im
+roten Bereich sind die Spikes der exzitatorischen Populationen
+aufgetragen, oben im blauen Bereich die der inhibitorischen
+Populationen. Diese sind dafür da, um das Feuern der exzitatorischen
+Populationen zu begrenzen.</p>
+<ol class="loweralpha simple">
+<li><p>Möglicherweise seht ihr zu Beginn ein eher aufgefächertes Bild. Das
+entsteht, wenn die Aktivität der Neuronen nicht stark genug
+unterdrückt wird. Um dies zu erreichen, kann entweder das Gewicht der
+inhibitorischen Synapsen <code class="docutils literal notranslate"><span class="pre">&quot;inh_exc&quot;</span></code> erhöht werden.</p></li>
+<li><p>Wenn die exzitatorischen Populationen mehrfach feuern, bekommen sie
+zu viel Anregungen. Dann könnt ihr das Gewicht <code class="docutils literal notranslate"><span class="pre">&quot;exc_exc&quot;</span></code>
+niedriger machen, was das weiterzugebene Signal abschwächt.
+Allerdings darf es nicht zu klein werden, da sonst die Kette
+abbricht.</p></li>
+<li><p>Es kann auch vorkommen, dass nur die Spikes der inhibitorischen
+Populationen verschwinden. Dann muss das Gewicht <code class="docutils literal notranslate"><span class="pre">&quot;exc_inh&quot;</span></code> erhöht
+werden. Auch hier kommt es auf die Feineinstellung an: Werden die
+inhibitorischen Synapsen zu stark gewählt, unterdrücken sie das
+Signal zu sehr und die Kette bricht wieder ab.</p></li>
+</ol>
+<p>Durch ein gutes Zusammenspiel dieser drei Gewichte ist es möglich, eine
+recht saubere Treppenform im roten Bereich bei den exzitatorischen
+Neuronen zu bekommen. Was bedeutet die Anzahl der Stufen, was ihre Höhe?
+Fällt euch eine Erklärung ein, warum die inhibitorischen Spikes
+verteilter sind?</p>
+<p>Falls ihr die Anzahl der Populationen oder ihre Größen verändert, könnte
+ein Fehler auftreten. Dies ist der Fall, wenn das Limit der zur
+Ansteuerung verfügbaren Neuronen und Verbindungen erreicht ist. Dann
+müssen die Populationsgrößen einfach reduziert werden.</p>
+</section>
+</section>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="gs_04-2_multiple_neurons_sudoku.html" class="btn btn-neutral float-right" title="Experimente mit mehreren Nervenzellen Teil 2" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="gs_03_single_neuron.html" class="btn btn-neutral float-left" title="Experimente mit einer einzelnen Nervenzelle" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2023, Electronic Vision(s).
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

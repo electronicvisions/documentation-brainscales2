@@ -1,0 +1,346 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Wie verarbeitet unser Gehirn Informationen? &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Unsere neuromorphe Hardware" href="gs_01_neuromorphic_hardware.html" />
+    <link rel="prev" title="Introduction to the non-interactive queue runner" href="nmpi_00-non_interactive_queue_runner.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> BrainScaleS-2 Documentation
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Demos &amp; Examples</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html">Welcome to the BrainScaleS-2 Tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ts_00-single_neuron.html">BrainScaleS-2 single neuron experiments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ts_01-superspike.html">Learning with the SuperSpike rule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ts_02-plasticity_rate_coding.html">BrainScaleS-2 on-chip plasticity experiment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ts_03-multicompartment.html">Structured Neurons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ts_04-mc_genetic_algorithms.html">How to use Genetic Algorithms to automatically parameterize BrainScaleS-2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ts_05-yin_yang.html">Training an SNN on BrainScaleS-2 with PyTorch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ts_06-dynamic_range.html">Exploring the dynamic range</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tp_00-introduction.html">Introduction to matrix multiplication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tp_01-properties.html">Exploring the analog MAC operation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tp_02-yin_yang.html">Train DNNs on BrainScaleS-2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nmpi_00-non_interactive_queue_runner.html">Introduction to the non-interactive queue runner</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Wie verarbeitet unser Gehirn Informationen?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#das-neuron">Das Neuron</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#das-aktionspotential">Das Aktionspotential</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gs_01_neuromorphic_hardware.html">Unsere neuromorphe Hardware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gs_02_pynn_introduction.html">Wie können wir mit den künstlichen Nervenzellen kommunizieren?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gs_03_single_neuron.html">Experimente mit einer einzelnen Nervenzelle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gs_04-1_multiple_neurons_feuerkette.html">Experimente mit mehreren Nervenzellen Teil 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gs_04-2_multiple_neurons_sudoku.html">Experimente mit mehreren Nervenzellen Teil 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gs_05_machine_learning.html">Maschinelles Lernen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gs_06_logik_operationen.html">Neuronenverbindungen - Synapsen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gs_06_logik_operationen.html#synapsennetzwerke">Synapsennetzwerke</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fortgeschrittenen_praktikum.html">Welcome to the Advanced Physics Lab for Physicists by the Electronic Vision(s) Group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fp_pynn_introduction.html">Introduction to PyNN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fp_binary_operations.html">Binary operations using spiking neurons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fp_sudoku.html">Sudoku</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../apis.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BrainScaleS-2 Documentation</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Welcome to the BrainScaleS-2 Demos &amp; Examples!</a> &raquo;</li>
+        
+      <li>Wie verarbeitet unser Gehirn Informationen?</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/brainscales2-demos/girlsday.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <section id="wie-verarbeitet-unser-gehirn-informationen">
+<h1>Wie verarbeitet unser Gehirn Informationen?<a class="headerlink" href="#wie-verarbeitet-unser-gehirn-informationen" title="Permalink to this headline">¶</a></h1>
+<p>Was seht ihr auf diesem Bild?</p>
+<a class="reference internal image-reference" href="../_images/girlsday_stadtmusikanten_gastfreund.jpg"><img alt="../_images/girlsday_stadtmusikanten_gastfreund.jpg" src="../_images/girlsday_stadtmusikanten_gastfreund.jpg" style="width: 600px;" /></a>
+<p>(<a class="reference external" href="https://portal.gastfreund.net/bremen/262230">https://portal.gastfreund.net/bremen/262230</a>)</p>
+<p>Woher wisst ihr, was hier dargestellt ist, beziehungsweise woran konntet
+ihr es erkennen? Diese Frage klingt jetzt vielleicht etwas komisch, aber
+wenn man einen Computer fragt, was auf diesem Bild zu sehen ist, dann
+wird dieser damit Probleme haben. Was für Schwierigkeiten fallen euch
+ein, die dieser dabei haben könnte?</p>
+<p>Angenommen, wir bringen dem Computer bei, dass auf diesem Bild die
+Bremer Stadtmusikanten zu sehen sind. Selbst dann wird er
+Schwierigkeiten haben zu erkennen, dass die folgenden Bilder diese auch
+darstellen.</p>
+<table><tr>
+<td> <img src="_static/girlsday/girlsday_stadtmusikanten_wikipedia.jpg" width="253"/> </td>
+<td> <img src="_static/girlsday/girlsday_stadtmusikanten_tourismus.jpg" width="600"/> </td>
+</tr><table>
+<table><tr>
+    <td> <img src="_static/girlsday/girlsday_stadtmusikanten_geo.jpg" width="503"/> </td>
+    <td> <img src="_static/girlsday/girlsday_stadtmusikanten_holz.jpg" width="350"/> </td>
+</tr><table><p>(<a class="reference external" href="https://de.wikipedia.org/wiki/Datei:Die_Bremer_Stadtmusikanten.jpg">https://de.wikipedia.org/wiki/Datei:Die_Bremer_Stadtmusikanten.jpg</a>)
+(<a class="reference external" href="https://www.bremen-tourismus.de/bremen/package/detail1/DEU99999990021103028?lang=de">https://www.bremen-tourismus.de/bremen/package/detail1/DEU99999990021103028?lang=de</a>)
+(<a class="reference external" href="https://www.geo.de/geolino/buechertipps/die-bremer-stadtmusikanten_30122522-30166320.html">https://www.geo.de/geolino/buechertipps/die-bremer-stadtmusikanten_30122522-30166320.html</a>)
+(<a class="reference external" href="https://www.echtkind.de/ostheimer-holztiere-set-bremer-stadtmusikanten-4-teilig-2630.html">https://www.echtkind.de/ostheimer-holztiere-set-bremer-stadtmusikanten-4-teilig-2630.html</a>)</p>
+<p>Selbst ein Kind, das nie ein Bild der Bremer Stadmusikanten gesehen hat,
+aber das Märchen kennt, könnte für jedes Bild sagen, was dargestellt
+ist. Wie kommt es, dass Computer die schwierigsten Berechnungen im
+Bruchteil einer Sekunde ausführen können, aber bei solchen für Menschen
+einfachen Aufgaben scheitern? Dem zugrunde liegt eine grundsätzlich
+unterschiedliche Art der Informationsverarbeitung. Unser Gehirn arbeitet
+nämlich nicht mit Nullen und Einsen, wie klassische Computer es tun.
+Aber wie funktioniert die Verarbeitung von Informationen im Gehirn
+eigentlich?</p>
+<section id="das-neuron">
+<h2>Das Neuron<a class="headerlink" href="#das-neuron" title="Permalink to this headline">¶</a></h2>
+<p>Unser Gehirn besteht aus ungefähr 100 Milliarden Nervenzellen. Diese
+werden auch als Neuronen bezeichnet. Sie können mit Zehntausenden
+anderen Neuronen verbunden sein und fungieren dadurch als
+Informationssammler und Weitergeber. Ein Neuron bekommt Input von vielen
+anderen Neuronen über seine Dendriten. Dieser wird in den Zellkörper,
+den sogenannten Soma, geleitet. Wenn der dort gesammelte Input
+ausreichend stark ist und damit als informationshaltig angesehen wird,
+erzeugt die Nervenzelle selbst ein Signal, ein sogenanntes
+Aktionspotential. Dieses läuft entlang des Axons zu den Axonterminalen,
+von wo aus es dann wiederum an viele andere Neuronen weitergegeben
+werden kann.</p>
+<a class="reference internal image-reference" href="../_images/girlsday_neuron.png"><img alt="../_images/girlsday_neuron.png" src="../_images/girlsday_neuron.png" style="width: 700px;" /></a>
+<p>(<a class="reference external" href="https://de.wikipedia.org/wiki/Datei:Neuron_(deutsch)-1.svg">https://de.wikipedia.org/wiki/Datei:Neuron_(deutsch)-1.svg</a>)</p>
+<p>Die Verbindungen zwischen Neuronen werden Synapsen genannt. Diese sind
+allerdings nicht statisch, sondern ändern sich die ganze Zeit. Dabei
+können ganz neue Synapsen entstehen, andere die nicht verwendet werden
+verschwinden oder das synaptische Gewicht, also die Stärke einer
+Verbindung, kann geändert werden. Wenn zum Beispiel ein Neuron immer ein
+Aktionspotential generiert, nachdem es Input von einem anderen bekommen
+hat, dann scheint eine gewisse Kausalität zwischen diesen Ereignissen
+vorzuliegen und die jeweilige Synapse wird gestärkt. Andersherum wird
+beispielsweise die Verbindung zu einem Neuron, das nichts zum Erzeugen
+des Aktionspotential beiträgt, geschwächt oder verworfen. Das Entstehen
+von Synapsen zwischen Neuronen und das Anpassen ihrer Gewichte
+ermöglicht es dem Menschen, neue Dinge zu lernen. Durch dieses
+dynamische Netzwerk aus Billiarden von Verbindungen können wir unter
+anderem den Informationsgehalt aus Fotos extrahieren und diesen dann auf
+ähnliche Bilder anwenden.</p>
+<a class="reference internal image-reference" href="../_images/girlsday_neural_network.png"><img alt="../_images/girlsday_neural_network.png" src="../_images/girlsday_neural_network.png" style="width: 400px;" /></a>
+<p>(<a class="reference external" href="https://arbeitsblaetter.stangl-taller.at/GEHIRN/Gehirn-Neuronen.shtml">https://arbeitsblaetter.stangl-taller.at/GEHIRN/Gehirn-Neuronen.shtml</a>)</p>
+</section>
+<section id="das-aktionspotential">
+<h2>Das Aktionspotential<a class="headerlink" href="#das-aktionspotential" title="Permalink to this headline">¶</a></h2>
+<p>Wie entscheidet die Zelle nun aber, ab wann ein Eingangsignal
+informationshaltig ist und es ein Aktionspotential erzeugen soll und wie
+sieht dieses aus? Dafür gibt es verschiedene Kriterien und das gehört
+wie ein Großteil der Neurowissenschaften zum Gegenstand aktueller
+Forschung. Hier wollen wir nun ein simples Kriterium betrachten, nämlich
+das der Schwellenspannung. Im Ruhezustand ist das Zellinnere im
+Vergleich zur Umgebung aufgrund anderer Ionenkonzentrationen negativ
+geladen. Die Ruhespannung, die an der Zellmembran anliegt, beträgt in
+etwa -70mV. Bekommt das Neuron nun Input von anderen Nervenzellen,
+ändert sich dieses Potential. Für exzitatorischen (anregenden) Input
+steigt die Spannung. Es gibt aber auch inhibitorische (hemmende)
+Synapsen, die dafür sorgen, dass dies nicht passiert oder dass das
+Membranpotential sogar nach unten gezogen wird. Der entstehende Verlauf
+in der Membranspannung wird exzitatorisches bzw. inhibitorisches
+postsynaptisches Potential (EPSP/IPSP) genannt.</p>
+<a class="reference internal image-reference" href="../_images/girlsday_psps.png"><img alt="../_images/girlsday_psps.png" src="../_images/girlsday_psps.png" style="width: 350px;" /></a>
+<p>(<a class="reference external" href="http://www.chemgapedia.de/vsengine/vlu/vsc/de/ch/8/bc/vlu/neurotransmission/neuro_modul.vlu.html">http://www.chemgapedia.de/vsengine/vlu/vsc/de/ch/8/bc/vlu/neurotransmission/neuro_modul.vlu.html</a>)</p>
+<p>Damit ein Aktionspotential erzeugt wird, muss ausreichend
+exzitatorischer Input vorliegen. Was in diesem Fall ausreichend
+bedeutet, wird über eine Schwellenspannung definiert, die bei etwa -55mV
+liegt. Wird dieser Wert erreicht, so entsteht das typische
+Aktionspotential: Die Spannung steigt sehr schnell sehr stark an (bis zu
+einem Wert von +40mV), daraufhin fällt sie wieder rasch ab, ist
+kurzzeitig sogar niedrieger als im Ruhezustand und nähert sich danach
+wieder ihrem Ruhewert an. Der Bereich, in dem das Membranpotential
+niedriger als die Ruhespannung ist, wird als Hyperpolarisation
+bezeichnet und dauert die sogenannte Refraktärzeit an. Währenddessen
+kann weiterer Input kein neues Aktionspotential bewirken. Der ganze
+Prozess dauert nur wenige Millisekunden und da der Spannungsverlauf wie
+eine dünne Spitze aussieht, wird das Aktionspotential auch als Spike
+(englisch für Spitze) bezeichnet.</p>
+<a class="reference internal image-reference" href="../_images/girlsday_actionpotential.png"><img alt="../_images/girlsday_actionpotential.png" src="../_images/girlsday_actionpotential.png" style="width: 500px;" /></a>
+<p>(<a class="reference external" href="https://de.wikipedia.org/wiki/Nervenzelle#/media/Datei:Aktionspotential.svg">https://de.wikipedia.org/wiki/Nervenzelle#/media/Datei:Aktionspotential.svg</a>)</p>
+</section>
+</section>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="gs_01_neuromorphic_hardware.html" class="btn btn-neutral float-right" title="Unsere neuromorphe Hardware" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="nmpi_00-non_interactive_queue_runner.html" class="btn btn-neutral float-left" title="Introduction to the non-interactive queue runner" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2023, Electronic Vision(s).
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
