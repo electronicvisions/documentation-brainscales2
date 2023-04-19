@@ -636,7 +636,7 @@
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="py function">
 <dt id="id20">
-<span class="target" id="classhxtorch_1_1snn_1_1experiment_1_1_experiment_1a48e5c65e8dde140cdd13b820a35cd194"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">bool</span> <span class="pre">mock=False</span></em>, <em class="sig-param"><span class="pre">float</span> <span class="pre">dt=1e-6</span></em>, <em class="sig-param"><span class="pre">hw_routing_func=grenade.network.placed_logical.build_routing</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id20" title="Permalink to this definition">¶</a></dt>
+<span class="target" id="classhxtorch_1_1snn_1_1experiment_1_1_experiment_1a3d57a823193af2cb078458010124e5bf"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">bool</span> <span class="pre">mock=False</span></em>, <em class="sig-param"><span class="pre">float</span> <span class="pre">dt=1e-6</span></em>, <em class="sig-param"><span class="pre">Optional[Union[Path</span></em>, <em class="sig-param"><span class="pre">str]]</span> <span class="pre">calib_path=None</span></em>, <em class="sig-param"><span class="pre">hw_routing_func=grenade.network.placed_logical.build_routing</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id20" title="Permalink to this definition">¶</a></dt>
 <dd><p>Instanziate a new experiment, represting an experiment on hardware and/or in software. </p>
 <p>:param mock: Indicating whether module is executed on hardware (False) or simulated in software (True). </p>
 </dd></dl>
@@ -661,6 +661,13 @@
 <dd><p>Executes the experiment in mock or on hardware using the information added to the experiment for a time given by <code class="docutils literal notranslate"><span class="pre">runtime</span></code> and returns a dict of hardware data represented as PyTorch data types. </p>
 <p>:param runtime: The runtime of the experiment on hardware in ms.</p>
 <p>:returns: Returns the data map as dict, where the keys are the population descriptors and values are tuples of values returned by the correpsonding module’s <code class="docutils literal notranslate"><span class="pre">post_process</span></code> method. </p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="load_calib">
+<span class="target" id="classhxtorch_1_1snn_1_1experiment_1_1_experiment_1ad17f42ce92ca0b0a6941196fcb1cc11c"></span><code class="sig-name descname"><span class="pre">load_calib</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">Optional[Union[Path</span></em>, <em class="sig-param"><span class="pre">str]]</span> <span class="pre">calib_path=None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#load_calib" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load a calibration from path <code class="docutils literal notranslate"><span class="pre">calib_path</span></code> and apply to the experiment`s chip object. </p>
+<p>If no path is specified a nightly calib is applied. :param calib_path: The path to the calibration. It None, the nightly calib is loaded. :return: Returns the chip object for the given calibration. </p>
 </dd></dl>
 
 <dl class="py function">
@@ -718,11 +725,6 @@
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="initial_config">
-<span class="target" id="classhxtorch_1_1snn_1_1experiment_1_1_experiment_1a2a6881925ea3d7791e881b42c3eb2381"></span><code class="sig-name descname"><span class="pre">initial_config</span></code><a class="headerlink" href="#initial_config" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
 <dt id="injection_inside_realtime_begin">
 <span class="target" id="classhxtorch_1_1snn_1_1experiment_1_1_experiment_1acc078c76728949f265bd49c75b92f7ec"></span><code class="sig-name descname"><span class="pre">injection_inside_realtime_begin</span></code><a class="headerlink" href="#injection_inside_realtime_begin" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -757,10 +759,8 @@
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-functions">Private Functions</p>
 <dl class="py function">
 <dt id="configure_populations">
-<span id="_configure_populations"></span><span class="target" id="classhxtorch_1_1snn_1_1experiment_1_1_experiment_1a70796239a98e1e07a3d61a8f8ae02cf9"></span><code class="sig-name descname"><span class="pre">_configure_populations</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">lola.Chip</span> <span class="pre">config</span></em><span class="sig-paren">)</span><a class="headerlink" href="#configure_populations" title="Permalink to this definition">¶</a></dt>
+<span id="_configure_populations"></span><span class="target" id="classhxtorch_1_1snn_1_1experiment_1_1_experiment_1a01f61ab75e3fbee69423b09fe56b1354"></span><code class="sig-name descname"><span class="pre">_configure_populations</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#configure_populations" title="Permalink to this definition">¶</a></dt>
 <dd><p>Configure the population on hardware. </p>
-<p>:param config: The config object to write the population confiuration at.</p>
-<p>:return: Returns the config object with the configuration appended. </p>
 </dd></dl>
 
 <dl class="py function">
@@ -805,8 +805,8 @@
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="chip_config">
-<span id="_chip_config"></span><span class="target" id="classhxtorch_1_1snn_1_1experiment_1_1_experiment_1a726a7ab956922fe143ba5aa6943a6525"></span><code class="sig-name descname"><span class="pre">_chip_config</span></code><a class="headerlink" href="#chip_config" title="Permalink to this definition">¶</a></dt>
+<dt id="chip">
+<span id="_chip"></span><span class="target" id="classhxtorch_1_1snn_1_1experiment_1_1_experiment_1a1606e79acd9f812b0a497ff47b753de2"></span><code class="sig-name descname"><span class="pre">_chip</span></code><a class="headerlink" href="#chip" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -817,6 +817,11 @@
 <dl class="py attribute">
 <dt id="projections">
 <span id="_projections"></span><span class="target" id="classhxtorch_1_1snn_1_1experiment_1_1_experiment_1a9f7dff9311a9a28e555f0cd89b71f506"></span><code class="sig-name descname"><span class="pre">_projections</span></code><a class="headerlink" href="#projections" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="static_config_prepared">
+<span id="_static_config_prepared"></span><span class="target" id="classhxtorch_1_1snn_1_1experiment_1_1_experiment_1ac4bd47749943d6128e7b982c032238b8"></span><code class="sig-name descname"><span class="pre">_static_config_prepared</span></code><a class="headerlink" href="#static_config_prepared" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -2298,9 +2303,9 @@
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="py function">
 <dt id="id103">
-<span class="target" id="classyinyang__model_1_1_s_n_n_1a7d61c2052705ca815560b647563c3779"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">int</span> <span class="pre">n_in</span></em>, <em class="sig-param"><span class="pre">int</span> <span class="pre">n_hidden</span></em>, <em class="sig-param"><span class="pre">int</span> <span class="pre">n_out</span></em>, <em class="sig-param"><span class="pre">bool</span> <span class="pre">mock</span></em>, <em class="sig-param"><span class="pre">float</span> <span class="pre">dt=1.0e-6</span></em>, <em class="sig-param"><span class="pre">float</span> <span class="pre">tau_mem=8e-6</span></em>, <em class="sig-param"><span class="pre">float</span> <span class="pre">tau_syn=8e-6</span></em>, <em class="sig-param"><span class="pre">float</span> <span class="pre">alpha=50</span></em>, <em class="sig-param"><span class="pre">int</span> <span class="pre">trace_shift_hidden=0</span></em>, <em class="sig-param"><span class="pre">int</span> <span class="pre">trace_shift_out=0</span></em>, <em class="sig-param"><span class="pre">Optional[Tuple[float</span></em>, <em class="sig-param"><span class="pre">float]]</span> <span class="pre">weight_init_hidden=None</span></em>, <em class="sig-param"><span class="pre">Optional[Tuple[float</span></em>, <em class="sig-param"><span class="pre">float]]</span> <span class="pre">weight_init_output=None</span></em>, <em class="sig-param"><span class="pre">float</span> <span class="pre">weight_scale=1.</span></em>, <em class="sig-param"><span class="pre">float</span> <span class="pre">trace_scale=1.</span></em>, <em class="sig-param"><span class="pre">int</span> <span class="pre">input_repetitions=1</span></em>, <em class="sig-param"><span class="pre">torch.device</span> <span class="pre">device=torch.device(&quot;cpu&quot;)</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id103" title="Permalink to this definition">¶</a></dt>
+<span class="target" id="classyinyang__model_1_1_s_n_n_1ab7620ec411099deed02ba29e10ad660b"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">int</span> <span class="pre">n_in</span></em>, <em class="sig-param"><span class="pre">int</span> <span class="pre">n_hidden</span></em>, <em class="sig-param"><span class="pre">int</span> <span class="pre">n_out</span></em>, <em class="sig-param"><span class="pre">bool</span> <span class="pre">mock</span></em>, <em class="sig-param"><span class="pre">str</span> <span class="pre">calib_path</span></em>, <em class="sig-param"><span class="pre">float</span> <span class="pre">dt=1.0e-6</span></em>, <em class="sig-param"><span class="pre">float</span> <span class="pre">tau_mem=8e-6</span></em>, <em class="sig-param"><span class="pre">float</span> <span class="pre">tau_syn=8e-6</span></em>, <em class="sig-param"><span class="pre">float</span> <span class="pre">alpha=50</span></em>, <em class="sig-param"><span class="pre">int</span> <span class="pre">trace_shift_hidden=0</span></em>, <em class="sig-param"><span class="pre">int</span> <span class="pre">trace_shift_out=0</span></em>, <em class="sig-param"><span class="pre">Optional[Tuple[float</span></em>, <em class="sig-param"><span class="pre">float]]</span> <span class="pre">weight_init_hidden=None</span></em>, <em class="sig-param"><span class="pre">Optional[Tuple[float</span></em>, <em class="sig-param"><span class="pre">float]]</span> <span class="pre">weight_init_output=None</span></em>, <em class="sig-param"><span class="pre">float</span> <span class="pre">weight_scale=1.</span></em>, <em class="sig-param"><span class="pre">float</span> <span class="pre">trace_scale=1.</span></em>, <em class="sig-param"><span class="pre">int</span> <span class="pre">input_repetitions=1</span></em>, <em class="sig-param"><span class="pre">torch.device</span> <span class="pre">device=torch.device(&quot;cpu&quot;)</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id103" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize the <a class="reference internal" href="#classyinyang__model_1_1_s_n_n"><span class="std std-ref">SNN</span></a>. </p>
-<p>:param n_in: Number of input units. :param n_hidden: Number of hidden units. :param n_out: Number of output units. :param mock: Indicating whether to train in software or on hardware. :param dt: Time-binning width. :param tau_mem: Membrane time constant. :param tau_syn: Synaptic time constant. :param trace_shift_hidden: Indicates how many indices the membrane trace of hidden layer is shifted to left along time axis. :param trace_shift_out: Indicates how many indices the membrane trace of readout layer is shifted to left along time axis. :param weight_init_hidden: Hidden layer weight initialization mean and std value. :param weight_init_output: Output layer weight initialization mean and std value. :param weight_scale: The factor with which the software weights are scaled when mapped to hardware. :param input_repetitions: Number of times to repeat input channels. :param device: The used PyTorch device used for tensor operations in software. </p>
+<p>:param n_in: Number of input units. :param n_hidden: Number of hidden units. :param n_out: Number of output units. :param mock: Indicating whether to train in software or on hardware. :param calib_path: Path to hardware calibration file. :param dt: Time-binning width. :param tau_mem: Membrane time constant. :param tau_syn: Synaptic time constant. :param trace_shift_hidden: Indicates how many indices the membrane trace of hidden layer is shifted to left along time axis. :param trace_shift_out: Indicates how many indices the membrane trace of readout layer is shifted to left along time axis. :param weight_init_hidden: Hidden layer weight initialization mean and std value. :param weight_init_output: Output layer weight initialization mean and std value. :param weight_scale: The factor with which the software weights are scaled when mapped to hardware. :param input_repetitions: Number of times to repeat input channels. :param device: The used PyTorch device used for tensor operations in software. </p>
 </dd></dl>
 
 <dl class="py function">
@@ -3273,6 +3278,35 @@
 <dd></dd></dl>
 
 <dl class="py class">
+<dt id="hxtorch.snn.utils.calib_helper">
+<span class="target" id="namespacehxtorch_1_1snn_1_1utils_1_1calib__helper"></span><em class="property"><span class="pre">module</span> </em><code class="sig-prename descclassname"><span class="pre">hxtorch.snn.utils.</span></code><code class="sig-name descname"><span class="pre">calib_helper</span></code><a class="headerlink" href="#hxtorch.snn.utils.calib_helper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Helpers to handle calibrations. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="py function">
+<dt id="hxtorch.snn.utils.calib_helper.chip_from_file">
+<span class="target" id="namespacehxtorch_1_1snn_1_1utils_1_1calib__helper_1a5a51f4a4a9a9e5d058abc38462e686ec"></span><code class="sig-name descname"><span class="pre">chip_from_file</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">str</span> <span class="pre">path</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.snn.utils.calib_helper.chip_from_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract chip config from coco file dump. </p>
+<p>:param path: path to file containing coco dump. </p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="hxtorch.snn.utils.calib_helper.chip_from_portable_binary">
+<span class="target" id="namespacehxtorch_1_1snn_1_1utils_1_1calib__helper_1af022081a7665690afba85df6ed10e742"></span><code class="sig-name descname"><span class="pre">chip_from_portable_binary</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">bytes</span> <span class="pre">data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.snn.utils.calib_helper.chip_from_portable_binary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert portable binary data to chip object. </p>
+<p>:param data: Coco list in portable binary format. :return: lola chip configuration. </p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="hxtorch.snn.utils.calib_helper.nightly_calib_path">
+<span class="target" id="namespacehxtorch_1_1snn_1_1utils_1_1calib__helper_1a248a97c8d180ab5ce0ed5703737a7b29"></span><code class="sig-name descname"><span class="pre">nightly_calib_path</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">str</span> <span class="pre">name=&quot;spiking&quot;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.snn.utils.calib_helper.nightly_calib_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find path for nightly calibration. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="py class">
 <dt id="hxtorch.snn.utils.model_mapper">
 <span class="target" id="namespacehxtorch_1_1snn_1_1utils_1_1model__mapper"></span><em class="property"><span class="pre">module</span> </em><code class="sig-name descname"><span class="pre">model_mapper</span></code><a class="headerlink" href="#hxtorch.snn.utils.model_mapper" title="Permalink to this definition">¶</a></dt>
 <dd><p>Mapper mixin to map Norse models to hxtorch models. </p>
@@ -3672,72 +3706,77 @@
 
 <dl class="file">
 <dt>
+<span class="target" id="calib__helper_8py"></span><em><span class="pre">file</span></em> <code class="sig-name descname"><span class="pre">calib_helper.py</span></code></dt>
+<dd></dd></dl>
+
+<dl class="file">
+<dt>
 <span class="target" id="model__mapper_8py"></span><em><span class="pre">file</span></em> <code class="sig-name descname"><span class="pre">model_mapper.py</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_d9b4e441eb7de72a94610f88a1bf7473"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODk4OA.x/hxtorch/src/pyhxtorch/hxtorch/snn/backend</span></code></dt>
+<span class="target" id="dir_d9b4e441eb7de72a94610f88a1bf7473"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjOTAwMw.x/hxtorch/src/pyhxtorch/hxtorch/snn/backend</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_e0b6792b0e61b103f83d2b9ee50da0b3"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODk4OA.x/hxtorch/src/pyhxtorch/hxtorch/snn/datasets</span></code></dt>
+<span class="target" id="dir_e0b6792b0e61b103f83d2b9ee50da0b3"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjOTAwMw.x/hxtorch/src/pyhxtorch/hxtorch/snn/datasets</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_46acf995bef9b0539f566b0751d46379"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODk4OA.x/hxtorch/src/pyhxtorch/hxtorch/examples</span></code></dt>
+<span class="target" id="dir_46acf995bef9b0539f566b0751d46379"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjOTAwMw.x/hxtorch/src/pyhxtorch/hxtorch/examples</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_2ea2e28d65a6b79e66621feca473e480"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODk4OA.x/hxtorch/src/pyhxtorch/hxtorch/snn/functional</span></code></dt>
+<span class="target" id="dir_2ea2e28d65a6b79e66621feca473e480"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjOTAwMw.x/hxtorch/src/pyhxtorch/hxtorch/snn/functional</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_dee54240410fefea239c518182ede0c0"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODk4OA.x/hxtorch</span></code></dt>
+<span class="target" id="dir_dee54240410fefea239c518182ede0c0"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjOTAwMw.x/hxtorch</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_eae1eaf2a11089ac186f861968e9ed6b"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODk4OA.x/hxtorch/src/pyhxtorch/hxtorch</span></code></dt>
+<span class="target" id="dir_eae1eaf2a11089ac186f861968e9ed6b"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjOTAwMw.x/hxtorch/src/pyhxtorch/hxtorch</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_0607d53e013fca3538f26d65ed241b69"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODk4OA.x/hxtorch/src/pyhxtorch/hxtorch/snn/modules</span></code></dt>
+<span class="target" id="dir_0607d53e013fca3538f26d65ed241b69"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjOTAwMw.x/hxtorch/src/pyhxtorch/hxtorch/snn/modules</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_7f97a6b062f0ffb929c49ccf0f36e308"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODk4OA.x/hxtorch/src/pyhxtorch</span></code></dt>
+<span class="target" id="dir_7f97a6b062f0ffb929c49ccf0f36e308"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjOTAwMw.x/hxtorch/src/pyhxtorch</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_c26f0eeb6914d69c1054a7200e70f51e"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODk4OA.x/hxtorch/src/pyhxtorch/hxtorch/examples/snn</span></code></dt>
+<span class="target" id="dir_c26f0eeb6914d69c1054a7200e70f51e"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjOTAwMw.x/hxtorch/src/pyhxtorch/hxtorch/examples/snn</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_acd7760542919bfe7a6c76d974f823af"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODk4OA.x/hxtorch/src/pyhxtorch/hxtorch/snn</span></code></dt>
+<span class="target" id="dir_acd7760542919bfe7a6c76d974f823af"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjOTAwMw.x/hxtorch/src/pyhxtorch/hxtorch/snn</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_b48420d93e1fb380492504b0e1926598"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODk4OA.x/hxtorch/src</span></code></dt>
+<span class="target" id="dir_b48420d93e1fb380492504b0e1926598"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjOTAwMw.x/hxtorch/src</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_c0b3a098a59f8cee3768d2f5ff987f55"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODk4OA.x/hxtorch/src/pyhxtorch/hxtorch/snn/transforms</span></code></dt>
+<span class="target" id="dir_c0b3a098a59f8cee3768d2f5ff987f55"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjOTAwMw.x/hxtorch/src/pyhxtorch/hxtorch/snn/transforms</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_4cb052c151dd75c88774e78ce4900ae3"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODk4OA.x/hxtorch/src/pyhxtorch/hxtorch/snn/utils</span></code></dt>
+<span class="target" id="dir_4cb052c151dd75c88774e78ce4900ae3"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjOTAwMw.x/hxtorch/src/pyhxtorch/hxtorch/snn/utils</span></code></dt>
 <dd></dd></dl>
 
 </section>
@@ -4404,15 +4443,20 @@
 <dd></dd></dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4N7hxtorch8get_chipEv">
-<span id="_CPPv3N7hxtorch8get_chipEv"></span><span id="_CPPv2N7hxtorch8get_chipEv"></span><span id="hxtorch::get_chip"></span><span class="target" id="namespacehxtorch_1ae38e4ce56b50dc8c529981521c914ed2"></span><a class="reference internal" href="api_grenade.html#_CPPv44lola" title="lola"><span class="pre">lola</span></a><span class="pre">::</span><a class="reference internal" href="api_grenade.html#_CPPv4N4lola2vxE" title="lola::vx"><span class="pre">vx</span></a><span class="pre">::</span><a class="reference internal" href="api_grenade.html#_CPPv4N4lola2vx2v3E" title="lola::vx::v3"><span class="pre">v3</span></a><span class="pre">::</span><a class="reference internal" href="api_lola.html#_CPPv4N4lola2vx2v34ChipE" title="lola::vx::v3::Chip"><span class="pre">Chip</span></a> <code class="sig-name descname"><span class="pre">get_chip</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7hxtorch8get_chipEv" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Get copy of ChipConfig object. </p>
-</dd></dl>
-
-<dl class="cpp function">
 <dt id="_CPPv4N7hxtorch18get_mock_parameterEv">
 <span id="_CPPv3N7hxtorch18get_mock_parameterEv"></span><span id="_CPPv2N7hxtorch18get_mock_parameterEv"></span><span id="hxtorch::get_mock_parameter"></span><span class="target" id="namespacehxtorch_1a0c367daed44c60c68da7ffd0b76acee2"></span><a class="reference internal" href="#_CPPv4N7hxtorch13MockParameterE" title="hxtorch::MockParameter"><span class="pre">MockParameter</span></a> <code class="sig-name descname"><span class="pre">get_mock_parameter</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7hxtorch18get_mock_parameterEv" title="Permalink to this definition">¶</a><br /></dt>
 <dd></dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N7hxtorch21get_unique_identifierERKNSt8optionalI8HWDBPathEE">
+<span id="_CPPv3N7hxtorch21get_unique_identifierERKNSt8optionalI8HWDBPathEE"></span><span id="_CPPv2N7hxtorch21get_unique_identifierERKNSt8optionalI8HWDBPathEE"></span><span id="hxtorch::get_unique_identifier__std::optional:HWDBPath:CR"></span><span class="target" id="namespacehxtorch_1a426de735e54fe25f19a2b45acc164b34"></span><a class="reference internal" href="api_calix.html#_CPPv4St" title="std"><span class="pre">std</span></a><span class="pre">::</span><span class="pre">string</span> <code class="sig-name descname"><span class="pre">get_unique_identifier</span></code><span class="sig-paren">(</span><a class="reference internal" href="api_calix.html#_CPPv4St" title="std"><span class="pre">std</span></a><span class="pre">::</span><span class="pre">optional</span><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4N7hxtorch8HWDBPathE" title="hxtorch::HWDBPath"><span class="pre">HWDBPath</span></a><span class="pre">&gt;</span> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">hwdb_path</span></em> <span class="pre">=</span> <a class="reference internal" href="api_calix.html#_CPPv4St" title="std"><span class="pre">std</span></a><span class="pre">::</span><span class="pre">nullopt</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7hxtorch21get_unique_identifierERKNSt8optionalI8HWDBPathEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get unique identifier. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>hwdb_path</strong> – Optional path to the hwdb to use </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt id="_CPPv4N7hxtorch15inference_traceERKN5torch6TensorERKNSt6stringE">
@@ -4440,14 +4484,14 @@
 </dd></dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4N7hxtorch13init_hardwareERKNSt8optionalI8HWDBPathEENSt6stringE">
-<span id="_CPPv3N7hxtorch13init_hardwareERKNSt8optionalI8HWDBPathEENSt6stringE"></span><span id="_CPPv2N7hxtorch13init_hardwareERKNSt8optionalI8HWDBPathEENSt6stringE"></span><span id="hxtorch::init_hardware__std::optional:HWDBPath:CR.ss"></span><span class="target" id="namespacehxtorch_1a8ea3f3baa6864ba37499fcb9b6ccc00d"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">init_hardware</span></code><span class="sig-paren">(</span><a class="reference internal" href="api_calix.html#_CPPv4St" title="std"><span class="pre">std</span></a><span class="pre">::</span><span class="pre">optional</span><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4N7hxtorch8HWDBPathE" title="hxtorch::HWDBPath"><span class="pre">HWDBPath</span></a><span class="pre">&gt;</span> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">hwdb_path</span></em> <span class="pre">=</span> <a class="reference internal" href="api_calix.html#_CPPv4St" title="std"><span class="pre">std</span></a><span class="pre">::</span><span class="pre">nullopt</span>, <a class="reference internal" href="api_calix.html#_CPPv4St" title="std"><span class="pre">std</span></a><span class="pre">::</span><span class="pre">string</span> <em><span class="pre">calib_name</span></em> <span class="pre">=</span> <span class="pre">&quot;hagen&quot;</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7hxtorch13init_hardwareERKNSt8optionalI8HWDBPathEENSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dt id="_CPPv4N7hxtorch13init_hardwareERKNSt8optionalI8HWDBPathEEb">
+<span id="_CPPv3N7hxtorch13init_hardwareERKNSt8optionalI8HWDBPathEEb"></span><span id="_CPPv2N7hxtorch13init_hardwareERKNSt8optionalI8HWDBPathEEb"></span><span id="hxtorch::init_hardware__std::optional:HWDBPath:CR.b"></span><span class="target" id="namespacehxtorch_1a22e680f73a24ca0520aa1ebae3ed8f27"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">init_hardware</span></code><span class="sig-paren">(</span><a class="reference internal" href="api_calix.html#_CPPv4St" title="std"><span class="pre">std</span></a><span class="pre">::</span><span class="pre">optional</span><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4N7hxtorch8HWDBPathE" title="hxtorch::HWDBPath"><span class="pre">HWDBPath</span></a><span class="pre">&gt;</span> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">hwdb_path</span></em> <span class="pre">=</span> <a class="reference internal" href="api_calix.html#_CPPv4St" title="std"><span class="pre">std</span></a><span class="pre">::</span><span class="pre">nullopt</span>, <span class="pre">bool</span> <em><span class="pre">ann</span></em> <span class="pre">=</span> <span class="pre">false</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7hxtorch13init_hardwareERKNSt8optionalI8HWDBPathEEb" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Initialize the hardware automatically from the environment. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>calibration_version</strong> – Calibration version to load </p></li>
-<li><p><strong>hwdb_path</strong> – Optional path to the hwdb to use </p></li>
+<li><p><strong>hwdb_path</strong> – Optional path to the hwdb to use. Only effective if param <code class="docutils literal notranslate"><span class="pre">ann</span></code> is true. </p></li>
+<li><p><strong>ann</strong> – Bool indicating whether additionally a default chip object is constructed for ANNs from a calibration loaded from <code class="docutils literal notranslate"><span class="pre">hwdb_path</span></code>, or if not given, from the latest nightly calibration. </p></li>
 </ul>
 </dd>
 </dl>
@@ -4708,12 +4752,12 @@
 </dd></dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4N7hxtorch6detail13getConnectionEv">
-<span id="_CPPv3N7hxtorch6detail13getConnectionEv"></span><span id="_CPPv2N7hxtorch6detail13getConnectionEv"></span><span id="hxtorch::detail::getConnection"></span><span class="target" id="namespacehxtorch_1_1detail_1a9877d19121dbeb8c805af6b1ad1fdfef"></span><a class="reference internal" href="api_calix.html#_CPPv4St" title="std"><span class="pre">std</span></a><span class="pre">::</span><span class="pre">unique_ptr</span><span class="pre">&lt;</span><a class="reference internal" href="api_grenade.html#_CPPv47grenade" title="grenade"><span class="pre">grenade</span></a><span class="pre">::</span><a class="reference internal" href="api_grenade.html#_CPPv4N7grenade2vxE" title="grenade::vx"><span class="pre">vx</span></a><span class="pre">::</span><a class="reference internal" href="api_grenade.html#_CPPv4N7grenade2vx9executionE" title="grenade::vx::execution"><span class="pre">execution</span></a><span class="pre">::</span><a class="reference internal" href="api_grenade.html#_CPPv4N7grenade2vx9execution16JITGraphExecutorE" title="grenade::vx::execution::JITGraphExecutor"><span class="pre">JITGraphExecutor</span></a><span class="pre">&gt;</span> <span class="pre">&amp;</span><code class="sig-name descname"><span class="pre">getConnection</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7hxtorch6detail13getConnectionEv" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Get singleton connection. </p>
+<dt id="_CPPv4N7hxtorch6detail11getExecutorEv">
+<span id="_CPPv3N7hxtorch6detail11getExecutorEv"></span><span id="_CPPv2N7hxtorch6detail11getExecutorEv"></span><span id="hxtorch::detail::getExecutor"></span><span class="target" id="namespacehxtorch_1_1detail_1a5a63ab2e9f5a8867e0da1fc3c563e894"></span><a class="reference internal" href="api_calix.html#_CPPv4St" title="std"><span class="pre">std</span></a><span class="pre">::</span><span class="pre">unique_ptr</span><span class="pre">&lt;</span><a class="reference internal" href="api_grenade.html#_CPPv47grenade" title="grenade"><span class="pre">grenade</span></a><span class="pre">::</span><a class="reference internal" href="api_grenade.html#_CPPv4N7grenade2vxE" title="grenade::vx"><span class="pre">vx</span></a><span class="pre">::</span><a class="reference internal" href="api_grenade.html#_CPPv4N7grenade2vx9executionE" title="grenade::vx::execution"><span class="pre">execution</span></a><span class="pre">::</span><a class="reference internal" href="api_grenade.html#_CPPv4N7grenade2vx9execution16JITGraphExecutorE" title="grenade::vx::execution::JITGraphExecutor"><span class="pre">JITGraphExecutor</span></a><span class="pre">&gt;</span> <span class="pre">&amp;</span><code class="sig-name descname"><span class="pre">getExecutor</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7hxtorch6detail11getExecutorEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get singleton executor. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>Reference to connection </p>
+<dd class="field-odd"><p>Reference to executor </p>
 </dd>
 </dl>
 </dd></dl>
@@ -4728,17 +4772,6 @@
 <dt id="_CPPv4N7hxtorch6detail16getMockParameterEv">
 <span id="_CPPv3N7hxtorch6detail16getMockParameterEv"></span><span id="_CPPv2N7hxtorch6detail16getMockParameterEv"></span><span id="hxtorch::detail::getMockParameter"></span><span class="target" id="namespacehxtorch_1_1detail_1a065e1993bca9ee977c539c46c2d6d006"></span><a class="reference internal" href="#_CPPv4N7hxtorch13MockParameterE" title="hxtorch::MockParameter"><span class="pre">MockParameter</span></a> <span class="pre">&amp;</span><code class="sig-name descname"><span class="pre">getMockParameter</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7hxtorch6detail16getMockParameterEv" title="Permalink to this definition">¶</a><br /></dt>
 <dd></dd></dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4N7hxtorch6detail20getReinitCalibrationEv">
-<span id="_CPPv3N7hxtorch6detail20getReinitCalibrationEv"></span><span id="_CPPv2N7hxtorch6detail20getReinitCalibrationEv"></span><span id="hxtorch::detail::getReinitCalibration"></span><span class="target" id="namespacehxtorch_1_1detail_1a968b6e9cf089220de29d337e4418537d"></span><a class="reference internal" href="api_calix.html#_CPPv4St" title="std"><span class="pre">std</span></a><span class="pre">::</span><span class="pre">unique_ptr</span><span class="pre">&lt;</span><a class="reference internal" href="api_grenade.html#_CPPv46stadls" title="stadls"><span class="pre">stadls</span></a><span class="pre">::</span><a class="reference internal" href="api_grenade.html#_CPPv4N6stadls2vxE" title="stadls::vx"><span class="pre">vx</span></a><span class="pre">::</span><a class="reference internal" href="api_stadls.html#_CPPv4N6stadls2vx16ReinitStackEntryE" title="stadls::vx::ReinitStackEntry"><span class="pre">ReinitStackEntry</span></a><span class="pre">&gt;</span> <span class="pre">&amp;</span><code class="sig-name descname"><span class="pre">getReinitCalibration</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7hxtorch6detail20getReinitCalibrationEv" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Get singleton calibration reinit program. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>Reference to reinit stack entry holding calibration pbmem. </p>
-</dd>
-</dl>
-</dd></dl>
 
 <dl class="cpp function">
 <dt id="_CPPv4N7hxtorch6detail10has_tracerEv">
@@ -5000,16 +5033,6 @@
 <dd></dd></dl>
 
 <dl class="cpp type">
-<dt id="_CPPv46stadls">
-<span id="_CPPv36stadls"></span><span id="_CPPv26stadls"></span><span id="stadls"></span><span class="target" id="namespacestadls"></span><em class="property"><span class="pre">namespace</span> </em><code class="sig-name descname"><span class="pre">stadls</span></code><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp type">
-<dt id="_CPPv4N6stadls2vxE">
-<span id="_CPPv3N6stadls2vxE"></span><span id="_CPPv2N6stadls2vxE"></span><span id="stadls::vx"></span><span class="target" id="namespacestadls_1_1vx"></span><em class="property"><span class="pre">namespace</span> </em><code class="sig-name descname"><span class="pre">vx</span></code><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp type">
 <dt>
 <span class="target" id="namespacestd"></span><em class="property"><span class="pre">namespace</span> </em><code class="sig-name descname"><span class="pre">std</span></code><br /></dt>
 <dd><p>STL namespace. </p>
@@ -5063,7 +5086,7 @@
 <dl class="file">
 <dt>
 <span class="target" id="connection_8h"></span><em><span class="pre">file</span></em> <code class="sig-name descname"><span class="pre">connection.h</span></code></dt>
-<dd><em>#include “lola/vx/v3/chip.h”</em><em>#include &lt;optional&gt;</em><em>#include &lt;string&gt;</em></dd></dl>
+<dd><em>#include &lt;optional&gt;</em><em>#include &lt;string&gt;</em></dd></dl>
 
 <dl class="file">
 <dt>
@@ -5177,12 +5200,12 @@
 
 <dl class="cpp var">
 <dt>
-<span class="target" id="docstrings_8h_1abafc61628a0ef008e0cecfbcdc1cde0b"></span><code class="sig-name descname"><span class="pre">static</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">__doc_hxtorch_get_chip</span>&#160; <span class="pre">=R&quot;doc(Return</span> <span class="pre">a</span> <span class="pre">copy</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">chip</span> <span class="pre">config</span> <span class="pre">object</span> <span class="pre">created</span> <span class="pre">at</span> <span class="pre">hardware</span> <span class="pre">initialization.&#64;return</span> <span class="pre">A</span> <span class="pre">copy</span> <span class="pre">of</span> <span class="pre">ChipConfig</span> <span class="pre">object)doc&quot;</span></code></dt>
+<span class="target" id="docstrings_8h_1ab90ab87d59f0c81bbf0f3055f576c31d"></span><code class="sig-name descname"><span class="pre">static</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">__doc_hxtorch_get_mock_parameter</span>&#160; <span class="pre">=R&quot;doc(Returns</span> <span class="pre">the</span> <span class="pre">current</span> <span class="pre">mock</span> <span class="pre">parameters.)doc&quot;</span></code></dt>
 <dd></dd></dl>
 
 <dl class="cpp var">
 <dt>
-<span class="target" id="docstrings_8h_1ab90ab87d59f0c81bbf0f3055f576c31d"></span><code class="sig-name descname"><span class="pre">static</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">__doc_hxtorch_get_mock_parameter</span>&#160; <span class="pre">=R&quot;doc(Returns</span> <span class="pre">the</span> <span class="pre">current</span> <span class="pre">mock</span> <span class="pre">parameters.)doc&quot;</span></code></dt>
+<span class="target" id="docstrings_8h_1a88508aa335e2e7ca8db15a7e414a290b"></span><code class="sig-name descname"><span class="pre">static</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">__doc_hxtorch_get_unique_identifier</span>&#160; <span class="pre">=R&quot;doc(Return</span> <span class="pre">the</span> <span class="pre">unique</span> <span class="pre">identifier</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">chip</span> <span class="pre">with</span> <span class="pre">the</span> <span class="pre">initialized</span> <span class="pre">connection.&#64;param</span> <span class="pre">hwdb_path</span> <span class="pre">Optional</span> <span class="pre">path</span> <span class="pre">to</span> <span class="pre">the</span> <span class="pre">hwdb</span> <span class="pre">to</span> <span class="pre">use&#64;return</span> <span class="pre">The</span> <span class="pre">identifier</span> <span class="pre">as</span> <span class="pre">string)doc&quot;</span></code></dt>
 <dd></dd></dl>
 
 <dl class="cpp var">
@@ -5335,32 +5358,32 @@
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_34c654e707c1cdce70c0be42da701c7c"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODk4OA.x/hxtorch/include/hxtorch/detail</span></code></dt>
+<span class="target" id="dir_34c654e707c1cdce70c0be42da701c7c"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjOTAwMw.x/hxtorch/include/hxtorch/detail</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_8ead669b9b485b8a7152a3d12ad75858"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODk4OA.x/hxtorch/include/hxtorch/snn/detail</span></code></dt>
+<span class="target" id="dir_8ead669b9b485b8a7152a3d12ad75858"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjOTAwMw.x/hxtorch/include/hxtorch/snn/detail</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_dee54240410fefea239c518182ede0c0"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODk4OA.x/hxtorch</span></code></dt>
+<span class="target" id="dir_dee54240410fefea239c518182ede0c0"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjOTAwMw.x/hxtorch</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_24b4f61621f9669a40a16349463d4bf6"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODk4OA.x/hxtorch/include/hxtorch</span></code></dt>
+<span class="target" id="dir_24b4f61621f9669a40a16349463d4bf6"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjOTAwMw.x/hxtorch/include/hxtorch</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_c307ff2b5a6b1db2d6893eb7f3dce880"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODk4OA.x/hxtorch/include</span></code></dt>
+<span class="target" id="dir_c307ff2b5a6b1db2d6893eb7f3dce880"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjOTAwMw.x/hxtorch/include</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_91b45b9f767fe990fbd271c603b98be7"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjODk4OA.x/hxtorch/include/hxtorch/snn</span></code></dt>
+<span class="target" id="dir_91b45b9f767fe990fbd271c603b98be7"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjOTAwMw.x/hxtorch/include/hxtorch/snn</span></code></dt>
 <dd></dd></dl>
 
 </section>
