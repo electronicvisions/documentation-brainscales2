@@ -227,24 +227,24 @@ Signal durch eine möglichst lange Kette gereicht werden.</p>
 <span class="s1">&lt;/style&gt;&#39;&#39;&#39;</span><span class="p">))</span>
 
 <span class="nd">@w</span><span class="o">.</span><span class="n">interact</span><span class="p">(</span>
-    <span class="n">inh_exc</span><span class="o">=</span><span class="n">Slider</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Synaptisches Gewicht &quot;inh_exc&quot;&#39;</span><span class="p">),</span>
+    <span class="n">inh_exc</span><span class="o">=</span><span class="n">Slider</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Synaptisches Gewicht &quot;inh_exc&quot;&#39;</span><span class="p">),</span>
     <span class="n">exc_exc</span><span class="o">=</span><span class="n">Slider</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Synaptisches Gewicht &quot;exc_exc&quot;&#39;</span><span class="p">),</span>
-    <span class="n">exc_inh</span><span class="o">=</span><span class="n">Slider</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Synaptisches Gewicht &quot;exc_inh&quot;&#39;</span><span class="p">),</span>
+    <span class="n">exc_inh</span><span class="o">=</span><span class="n">Slider</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Synaptisches Gewicht &quot;exc_inh&quot;&#39;</span><span class="p">),</span>
 <span class="p">)</span>
 <span class="k">def</span> <span class="nf">experiment</span><span class="p">(</span><span class="n">inh_exc</span><span class="p">,</span> <span class="n">exc_exc</span><span class="p">,</span> <span class="n">exc_inh</span><span class="p">):</span>
     <span class="c1"># Diese Parameter sind im Prinzip auch verstellbar, haben so aber gute Werte.</span>
     <span class="c1"># Alle Gewichte können Werte im Bereich 0-63 annehmen.</span>
-    <span class="n">weights</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;stim_exc&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
+    <span class="n">weights</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;stim_exc&quot;</span><span class="p">:</span> <span class="mi">60</span><span class="p">,</span>
                <span class="s2">&quot;stim_inh&quot;</span><span class="p">:</span> <span class="mi">15</span><span class="p">}</span>
-    <span class="n">numb_pops</span> <span class="o">=</span> <span class="mi">7</span>
-    <span class="n">pop_sizes</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;exc&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
-                 <span class="s2">&quot;inh&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">}</span>
-    <span class="n">runtime</span> <span class="o">=</span> <span class="mf">0.1</span>
-    <span class="n">closed</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">numb_pops</span> <span class="o">=</span> <span class="mi">25</span>
+    <span class="n">pop_sizes</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;exc&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+                 <span class="s2">&quot;inh&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
+    <span class="n">runtime</span> <span class="o">=</span> <span class="mf">0.3</span>
+    <span class="n">closed</span> <span class="o">=</span> <span class="kc">True</span>
 
     <span class="c1"># Die Refraktärzeit muss auf einen kleinen Wert gestellt werden, um regelmäßiges</span>
     <span class="c1"># Feuern prinzipiell zu erlauben.</span>
-    <span class="n">neuron_parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;refractory_period_refractory_time&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
+    <span class="n">neuron_parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;refractory_period_refractory_time&quot;</span><span class="p">:</span> <span class="mi">50</span><span class="p">}</span>
 
     <span class="c1"># Die Umgebung wird vorbereitet.</span>
     <span class="n">calib</span> <span class="o">=</span> <span class="n">get_nightly_calibration</span><span class="p">()</span>
