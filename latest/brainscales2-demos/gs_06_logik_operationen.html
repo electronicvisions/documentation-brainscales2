@@ -341,14 +341,14 @@ bringen.</p>
 <span class="n">spike_time2</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="c1">#################################</span>
 
-<span class="n">neuron1</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">pynn</span><span class="o">.</span><span class="n">cells</span><span class="o">.</span><span class="n">SpikeSourceArray</span><span class="p">(</span><span class="n">spike_times</span><span class="o">=</span><span class="n">spike_time1</span><span class="p">))</span>
-<span class="n">neuron2</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">pynn</span><span class="o">.</span><span class="n">cells</span><span class="o">.</span><span class="n">SpikeSourceArray</span><span class="p">(</span><span class="n">spike_times</span><span class="o">=</span><span class="n">spike_time2</span><span class="p">))</span>
+<span class="n">neuron1</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">pynn</span><span class="o">.</span><span class="n">cells</span><span class="o">.</span><span class="n">SpikeSourceArray</span><span class="p">(</span><span class="n">spike_times</span><span class="o">=</span><span class="n">spike_time1</span><span class="p">))</span>
+<span class="n">neuron2</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">pynn</span><span class="o">.</span><span class="n">cells</span><span class="o">.</span><span class="n">SpikeSourceArray</span><span class="p">(</span><span class="n">spike_times</span><span class="o">=</span><span class="n">spike_time2</span><span class="p">))</span>
 
 <span class="c1"># Das Ausgangsneuron wird erstellt.</span>
 <span class="n">output_neuron</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">pynn</span><span class="o">.</span><span class="n">cells</span><span class="o">.</span><span class="n">HXNeuron</span><span class="p">())</span>
 
 <span class="c1"># Die Aktivität des Ausgangsneurons wird aufgezeichent.</span>
-<span class="n">output_neuron</span><span class="o">.</span><span class="n">record</span><span class="p">([</span><span class="s2">&quot;spikes&quot;</span><span class="p">,</span> <span class="s2">&quot;v&quot;</span><span class="p">])</span>  <span class="c1"># TODO: auch v?</span>
+<span class="n">output_neuron</span><span class="o">.</span><span class="n">record</span><span class="p">([</span><span class="s2">&quot;spikes&quot;</span><span class="p">,</span> <span class="s2">&quot;v&quot;</span><span class="p">])</span>
 
 <span class="c1"># Die Synapsen und ihre Gewichte werden definiert. Das Gewicht kann einen Wert zwischen 0-63 haben.</span>
 
