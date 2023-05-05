@@ -272,7 +272,7 @@ zugeordnet.</p>
 
 <span class="n">save_nightly_calibration</span><span class="p">(</span><span class="s1">&#39;hagen_cocolist.pbin&#39;</span><span class="p">)</span>
 <span class="n">hxtorch</span><span class="o">.</span><span class="n">init_hardware</span><span class="p">(</span><span class="n">hxtorch</span><span class="o">.</span><span class="n">CalibrationPath</span><span class="p">(</span><span class="s1">&#39;hagen_cocolist.pbin&#39;</span><span class="p">))</span>
-<span class="n">hxtorch</span><span class="o">.</span><span class="n">set_mock_parameter</span><span class="p">(</span><span class="n">hxtorch</span><span class="o">.</span><span class="n">measure_mock_parameter</span><span class="p">())</span>
+<span class="n">hxtorch</span><span class="o">.</span><span class="n">perceptron</span><span class="o">.</span><span class="n">set_mock_parameter</span><span class="p">(</span><span class="n">hxtorch</span><span class="o">.</span><span class="n">perceptron</span><span class="o">.</span><span class="n">measure_mock_parameter</span><span class="p">())</span>
 </pre></div>
 </div>
 <p>Im maschinellen Lernen ist das klassifizieren von Bildern ein beliebtes Beispiel, sodass eine große Sammlung von Bildern, welche Zahlen darstellen, frei verfügbar ist.
@@ -338,17 +338,17 @@ verstecken Lage mit 128 Neuronen.</p>
         <span class="bp">self</span><span class="o">.</span><span class="n">classifier</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
             <span class="c1"># Diese Lage verbindet jeden Pixel des Bildes</span>
             <span class="c1"># mit jedem versteckten Neuron:</span>
-            <span class="n">hxtorch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span>
+            <span class="n">hxtorch</span><span class="o">.</span><span class="n">perceptron</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span>
                 <span class="n">in_features</span><span class="o">=</span><span class="mi">28</span> <span class="o">*</span> <span class="mi">28</span><span class="p">,</span>  <span class="c1"># die Bilder sind 28x28 Pixel groß</span>
                 <span class="n">out_features</span><span class="o">=</span><span class="n">num_hidden</span><span class="p">,</span>
-                <span class="n">mock</span><span class="o">=</span><span class="n">mock</span><span class="p">),</span> <span class="n">hxtorch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">ConvertingReLU</span><span class="p">(</span><span class="n">shift</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">mock</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
-            <span class="n">hxtorch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span>
+                <span class="n">mock</span><span class="o">=</span><span class="n">mock</span><span class="p">),</span> <span class="n">hxtorch</span><span class="o">.</span><span class="n">perceptron</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">ConvertingReLU</span><span class="p">(</span><span class="n">shift</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">mock</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+            <span class="n">hxtorch</span><span class="o">.</span><span class="n">perceptron</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span>
                 <span class="n">in_features</span><span class="o">=</span><span class="n">num_hidden</span><span class="p">,</span>
                 <span class="n">out_features</span><span class="o">=</span><span class="n">num_hidden</span><span class="p">,</span>
-                <span class="n">mock</span><span class="o">=</span><span class="n">mock</span><span class="p">),</span> <span class="n">hxtorch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">ConvertingReLU</span><span class="p">(</span><span class="n">shift</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">mock</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+                <span class="n">mock</span><span class="o">=</span><span class="n">mock</span><span class="p">),</span> <span class="n">hxtorch</span><span class="o">.</span><span class="n">perceptron</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">ConvertingReLU</span><span class="p">(</span><span class="n">shift</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">mock</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
             <span class="c1"># Diese Lage verbindet jedes der verstecken Neuronen</span>
             <span class="c1"># mit einem der 10 möglichen Ausgänge:</span>
-            <span class="n">hxtorch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span>
+            <span class="n">hxtorch</span><span class="o">.</span><span class="n">perceptron</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span>
                 <span class="n">in_features</span><span class="o">=</span><span class="n">num_hidden</span><span class="p">,</span>
                 <span class="n">out_features</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>  <span class="c1"># es gibt 10 verschiedene Ziffern</span>
                 <span class="n">mock</span><span class="o">=</span><span class="n">mock</span><span class="p">)</span>

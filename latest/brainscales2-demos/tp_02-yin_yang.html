@@ -269,13 +269,13 @@ initialization of the hardware connection:</p>
 <span class="n">hxtorch</span><span class="o">.</span><span class="n">init_hardware</span><span class="p">(</span><span class="n">hxtorch</span><span class="o">.</span><span class="n">CalibrationPath</span><span class="p">(</span><span class="s1">&#39;hagen_cocolist.pbin&#39;</span><span class="p">))</span>
 
 <span class="c1"># measures the hardware gain and the average statistical noise on the outputs</span>
-<span class="n">hardware_parameter</span> <span class="o">=</span> <span class="n">hxtorch</span><span class="o">.</span><span class="n">measure_mock_parameter</span><span class="p">()</span>
+<span class="n">hardware_parameter</span> <span class="o">=</span> <span class="n">hxtorch</span><span class="o">.</span><span class="n">perceptron</span><span class="o">.</span><span class="n">measure_mock_parameter</span><span class="p">()</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;gain factor: </span><span class="si">{</span><span class="n">hardware_parameter</span><span class="o">.</span><span class="n">gain</span><span class="si">:</span><span class="s2">.5f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;noise std.:  </span><span class="si">{</span><span class="n">hardware_parameter</span><span class="o">.</span><span class="n">noise_std</span><span class="si">:</span><span class="s2">.5f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
 <span class="c1"># use the measured parameters for backward pass and in mock mode</span>
-<span class="n">hxtorch</span><span class="o">.</span><span class="n">set_mock_parameter</span><span class="p">(</span><span class="n">hardware_parameter</span><span class="p">)</span>
+<span class="n">hxtorch</span><span class="o">.</span><span class="n">perceptron</span><span class="o">.</span><span class="n">set_mock_parameter</span><span class="p">(</span><span class="n">hardware_parameter</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -288,7 +288,7 @@ noise, reduced resolution and restricted value ranges of the system.</p>
 <p>This so-called mock mode can be switched on and off individually for
 each hxtorch operation and for each layer via the <code class="docutils literal notranslate"><span class="pre">mock</span></code> parameter,
 e.g.</p>
-<p><code class="docutils literal notranslate"><span class="pre">hxtorch.matmul(...,</span> <span class="pre">mock=True)</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">hxtorch.perceptron.matmul(...,</span> <span class="pre">mock=True)</span></code></p>
 <p>It is especially convenient when no BrainScaleS-2 system is available
 and allows fast prototyping of DNN models.</p>
 <div class="admonition-references-for-further-reading admonition">
@@ -491,9 +491,9 @@ with PyTorch, the code below will also look familiar to you:</p>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mock</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">classifier</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
-            <span class="n">hxtorch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="n">mock</span><span class="o">=</span><span class="n">mock</span><span class="p">),</span>
-            <span class="n">hxtorch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">ConvertingReLU</span><span class="p">(</span><span class="n">shift</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
-            <span class="n">hxtorch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">avg</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">mock</span><span class="o">=</span><span class="n">mock</span><span class="p">),</span>
+            <span class="n">hxtorch</span><span class="o">.</span><span class="n">perceptron</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="n">mock</span><span class="o">=</span><span class="n">mock</span><span class="p">),</span>
+            <span class="n">hxtorch</span><span class="o">.</span><span class="n">perceptron</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">ConvertingReLU</span><span class="p">(</span><span class="n">shift</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+            <span class="n">hxtorch</span><span class="o">.</span><span class="n">perceptron</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">avg</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">mock</span><span class="o">=</span><span class="n">mock</span><span class="p">),</span>
         <span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">x</span><span class="p">):</span>

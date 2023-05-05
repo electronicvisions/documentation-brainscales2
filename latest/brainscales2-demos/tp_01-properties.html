@@ -257,7 +257,7 @@ integrates this functionality into <a class="reference external" href="https://p
 In analogy to some functions of this  machine-learning framework,
 operations with similar API are provided, e.g. <code class="docutils literal notranslate"><span class="pre">matmul</span></code> for
 multiplication of two matrices:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">hxtorch</span><span class="o">.</span><span class="n">matmul</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">hxtorch</span><span class="o">.</span><span class="n">perceptron</span><span class="o">.</span><span class="n">matmul</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
 </pre></div>
 </div>
 <pre class="solution literal-block">matmul(input: at::Tensor, other: at::Tensor, num_sends: int = 1,
@@ -281,7 +281,7 @@ load a calibration. This can be achieved using <code class="docutils literal not
 <p>This already enables us to multiply matrices using the BSS-2 accelerator:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M1</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="mi">100</span><span class="p">,),</span> <span class="mf">15.</span><span class="p">)</span>
 <span class="n">M2</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="mi">100</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="mf">21.</span><span class="p">)</span>
-<span class="n">hxtorch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">M1</span><span class="p">,</span> <span class="n">M2</span><span class="p">)</span>
+<span class="n">hxtorch</span><span class="o">.</span><span class="n">perceptron</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">M1</span><span class="p">,</span> <span class="n">M2</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="solution highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tensor</span><span class="p">([</span><span class="mf">55.</span><span class="p">,</span> <span class="mf">60.</span><span class="p">,</span> <span class="mf">59.</span><span class="p">,</span> <span class="mf">56.</span><span class="p">,</span> <span class="mf">60.</span><span class="p">,</span> <span class="mf">63.</span><span class="p">,</span> <span class="mf">57.</span><span class="p">,</span> <span class="mf">58.</span><span class="p">,</span> <span class="mf">56.</span><span class="p">,</span> <span class="mf">62.</span><span class="p">])</span>
@@ -326,7 +326,7 @@ to the synapse drivers.</p>
 <span class="p">)</span>
 <span class="k">def</span> <span class="nf">experiment</span><span class="p">(</span><span class="n">num_sends</span><span class="p">,</span> <span class="n">input_value</span><span class="p">,</span> <span class="n">weight_value</span><span class="p">,</span> <span class="n">row_number</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Updates the plot with the outputs from the hardware &quot;&quot;&quot;</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="n">hxtorch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">hxtorch</span><span class="o">.</span><span class="n">perceptron</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span>
         <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">0.</span><span class="p">]</span> <span class="o">*</span> <span class="n">row_number</span> <span class="o">+</span> <span class="p">[</span><span class="n">input_value</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float</span><span class="p">),</span>
         <span class="n">torch</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="n">row_number</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">256</span><span class="p">),</span> <span class="n">weight_value</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float</span><span class="p">),</span>
         <span class="n">num_sends</span><span class="o">=</span><span class="n">num_sends</span><span class="p">)</span>
@@ -365,7 +365,7 @@ increasing weight vector.</p>
 <span class="p">)</span>
 <span class="k">def</span> <span class="nf">experiment</span><span class="p">(</span><span class="n">num_sends</span><span class="p">,</span> <span class="n">input_value</span><span class="p">,</span> <span class="n">row_number</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Updates the plot with the outputs from the hardware &quot;&quot;&quot;</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="n">hxtorch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">hxtorch</span><span class="o">.</span><span class="n">perceptron</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span>
         <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">0.</span><span class="p">]</span> <span class="o">*</span> <span class="n">row_number</span> <span class="o">+</span> <span class="p">[</span><span class="n">input_value</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float</span><span class="p">),</span>
         <span class="n">weight</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">row_number</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span>
         <span class="n">num_sends</span><span class="o">=</span><span class="n">num_sends</span><span class="p">)</span>
@@ -384,8 +384,8 @@ observed. For smaller or larger values, the used ADC saturates; this
 happens earlier for some neurons and later for others.</p>
 <section id="possible-questions">
 <h3>Possible questions:<a class="headerlink" href="#possible-questions" title="Permalink to this headline">¶</a></h3>
-<section id="how-does-the-result-change-with-several-successive-calls-to-hxtorch-matmul">
-<h4>How does the result change with several successive calls to <code class="docutils literal notranslate"><span class="pre">hxtorch.matmul</span></code>?<a class="headerlink" href="#how-does-the-result-change-with-several-successive-calls-to-hxtorch-matmul" title="Permalink to this headline">¶</a></h4>
+<section id="how-does-the-result-change-with-several-successive-calls-to-hxtorch-perceptron-matmul">
+<h4>How does the result change with several successive calls to <code class="docutils literal notranslate"><span class="pre">hxtorch.perceptron.matmul</span></code>?<a class="headerlink" href="#how-does-the-result-change-with-several-successive-calls-to-hxtorch-perceptron-matmul" title="Permalink to this headline">¶</a></h4>
 <p>Due to its analog nature, the BrainScaleS-2 ASIC provides slightly
 different values for each call. Quantify the noise on each neuron!</p>
 </section>
