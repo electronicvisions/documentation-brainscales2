@@ -6428,9 +6428,12 @@
 
 <dl class="py function">
 <dt id="calix.spiking.refractory_period._calculate_clock_scale">
-<span class="target" id="namespacecalix_1_1spiking_1_1refractory__period_1a7a5465dfbe1852f0af682d52920f9f06"></span><code class="sig-name descname"><span class="pre">_calculate_clock_scale</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">pq.Quantity</span> <span class="pre">min_time_per_cycle</span></em>, <em class="sig-param"><span class="pre">pq.Quantity</span> <span class="pre">f_base</span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.spiking.refractory_period._calculate_clock_scale" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculate clock scale needed to have at least the given amount of time per cycle. </p>
-<p>:param min_time_per_cycle: Minimum time one cycle should take. :param f_base: Base frequency of the refractory clock. :return: Minimum clock scale for which one cycle needs at least the given time. </p>
+<span class="target" id="namespacecalix_1_1spiking_1_1refractory__period_1afcb60e769d262ee085295a40daf0873e"></span><code class="sig-name descname"><span class="pre">_calculate_clock_scale</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">pq.Quantity</span> <span class="pre">min_time_per_cycle</span></em>, <em class="sig-param"><span class="pre">pq.Quantity</span> <span class="pre">max_time_per_cycle</span></em>, <em class="sig-param"><span class="pre">pq.Quantity</span> <span class="pre">f_base</span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.spiking.refractory_period._calculate_clock_scale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate clock scale needed to have a suitable time per cycle. </p>
+<p>The clock scaler is chosen such that the minimum time per cycle is fulfilled. Then, it tries to also fulfil the maximum time per cycle. If there’s still headroom, a medium clock scaler will be preferred.</p>
+<p>:param min_time_per_cycle: Minimum time one cycle should take. :param max_time_per_cycle: Maximum time one cycle is allowed to take. :param f_base: Base frequency of the refractory clock.</p>
+<p>:return: Minimum clock scale for which one cycle needs at least the given time.</p>
+<p>:raises ValueError: If requested minimum time per clock cycle is too large for BSS-2. </p>
 </dd></dl>
 
 <dl class="py function">
@@ -6448,7 +6451,7 @@
 <p>In this function the clock scalers and counter values are chosen such that the given targets for both parameters can be fulfilled.</p>
 <p>:param tau_ref: Target refractory times. This is the total time in which the neuron does not emit new spikes and therefore includes the holdoff period. :param holdoff_time: Target length of the holdoff period. Note: Due to hardware constraint the holdoff period is always at least one clock cycle long. For a target of zero the minimal holdoff period is chosen.</p>
 <p>:return: Clock settings.</p>
-<p>:raises ValueError: If <code class="docutils literal notranslate"><span class="pre">tau_ref</span></code> and <code class="docutils literal notranslate"><span class="pre">holdoff_time</span></code> have different sizes and none of them is a scalar value. </p>
+<p>:raises ValueError: If <code class="docutils literal notranslate"><span class="pre">tau_ref</span></code> and <code class="docutils literal notranslate"><span class="pre">holdoff_time</span></code> have shapes that are incompatible with the number of neurons on chip. </p>
 </dd></dl>
 
 </div>
@@ -6822,52 +6825,52 @@
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_c35a4213fddb628e2be6588952b4aa7a"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjOTMyNg.x/calix</span></code></dt>
+<span class="target" id="dir_c35a4213fddb628e2be6588952b4aa7a"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjOTMyNw.x/calix</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_82a35310634ec59f1204b5a89ab180c2"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjOTMyNg.x/calix/src/py/calix</span></code></dt>
+<span class="target" id="dir_82a35310634ec59f1204b5a89ab180c2"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjOTMyNw.x/calix/src/py/calix</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_5f8140149f6c25fac289bffcf217ba0f"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjOTMyNg.x/calix/src/py/calix/common</span></code></dt>
+<span class="target" id="dir_5f8140149f6c25fac289bffcf217ba0f"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjOTMyNw.x/calix/src/py/calix/common</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_79dd501e695b0ff0539e6dfe8c054e50"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjOTMyNg.x/calix/src/py/calix/examples</span></code></dt>
+<span class="target" id="dir_79dd501e695b0ff0539e6dfe8c054e50"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjOTMyNw.x/calix/src/py/calix/examples</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_1a13b09fb48f7daf03bf32d21388e4f1"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjOTMyNg.x/calix/src/py/calix/hagen</span></code></dt>
+<span class="target" id="dir_1a13b09fb48f7daf03bf32d21388e4f1"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjOTMyNw.x/calix/src/py/calix/hagen</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_d9b46f0c81a5bc28bd701ca679fdd154"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjOTMyNg.x/calix/src/py/calix/multicomp</span></code></dt>
+<span class="target" id="dir_d9b46f0c81a5bc28bd701ca679fdd154"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjOTMyNw.x/calix/src/py/calix/multicomp</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_8638feb6d3d74ce8c52c6a166958a78e"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjOTMyNg.x/calix/src/py</span></code></dt>
+<span class="target" id="dir_8638feb6d3d74ce8c52c6a166958a78e"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjOTMyNw.x/calix/src/py</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_d19dcf94b302e45079f65ed711419664"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjOTMyNg.x/calix/src/py/calix/scripts</span></code></dt>
+<span class="target" id="dir_d19dcf94b302e45079f65ed711419664"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjOTMyNw.x/calix/src/py/calix/scripts</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_99cd149c1e2c45a11fa03ec83bb2f7d6"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjOTMyNg.x/calix/src/py/calix/spiking</span></code></dt>
+<span class="target" id="dir_99cd149c1e2c45a11fa03ec83bb2f7d6"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjOTMyNw.x/calix/src/py/calix/spiking</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_e78734f8a9c4496b3b751d186a730c09"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjOTMyNg.x/calix/src</span></code></dt>
+<span class="target" id="dir_e78734f8a9c4496b3b751d186a730c09"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjOTMyNw.x/calix/src</span></code></dt>
 <dd></dd></dl>
 
 </section>
