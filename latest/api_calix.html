@@ -4449,7 +4449,7 @@
 <dt>
 <span class="target" id="classcalix_1_1spiking_1_1_spiking_calib_options"></span><code class="sig-name descname"><span class="pre">calix.spiking.SpikingCalibOptions</span> <span class="pre">:</span> <span class="pre">public</span> <span class="pre">base.CalibOptions</span></code></dt>
 <dd><p>Data class containing further options for spiking calibration. </p>
-<p>:ivar cadc_options: Further options for CADC calibration. :ivar neuron_options: Further options for neuron calibration. :ivar correlation_options: Further options for correlation calibration. :ivar refine_potentials: Switch whether after the neuron calibration, the CADCs and neuron potentials are calibrated again. This mitigates CapMem crosstalk effects. By default, refinement is only performed if COBA mode is disabled. </p>
+<p>:ivar cadc_options: Further options for CADC calibration. :ivar neuron_options: Further options for neuron calibration. :ivar correlation_options: Further options for correlation calibration. :ivar stp_options: Further options for STP calibration. :ivar refine_potentials: Switch whether after the neuron calibration, the CADCs and neuron potentials are calibrated again. This mitigates CapMem crosstalk effects. By default, refinement is only performed if COBA mode is disabled. </p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-static-attributes">Public Static Attributes</p>
 <dl class="py attribute">
@@ -4470,6 +4470,11 @@
 <dl class="py attribute">
 <dt id="id272">
 <span class="target" id="classcalix_1_1spiking_1_1_spiking_calib_options_1a6a2c846bbf2ee7f54175779e26a1fc7f"></span><code class="sig-name descname"><span class="pre">NeuronCalibOptions</span></code><a class="headerlink" href="#id272" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="STPCalibOptions">
+<span class="target" id="classcalix_1_1spiking_1_1_spiking_calib_options_1ad7ebedf0715ead26f1300084f04476a8"></span><code class="sig-name descname"><span class="pre">STPCalibOptions</span></code><a class="headerlink" href="#STPCalibOptions" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -4519,8 +4524,8 @@
 <dt>
 <span class="target" id="classcalix_1_1spiking_1_1_spiking_calib_result"></span><code class="sig-name descname"><span class="pre">calix.spiking.SpikingCalibResult</span> <span class="pre">:</span> <span class="pre">public</span> <span class="pre">base.CalibResult</span></code></dt>
 <dd><p>Data class containing results of cadc and neuron calibration, all what is necessary for operation in spiking mode. </p>
-<p>Refer to the documentation of :class:<code class="docutils literal notranslate"><a class="reference internal" href="#classcalix_1_1common_1_1cadc_1_1_c_a_d_c_calib_result"><span class="std std-ref"><span class="pre">calix.common.cadc.CADCCalibResult</span></span></a></code>, :class:<code class="docutils literal notranslate"><span class="pre">calix.spiking.neuron.NeuronCalibResult</span></code> and :class:<code class="docutils literal notranslate"><a class="reference internal" href="#classcalix_1_1spiking_1_1correlation_1_1_correlation_calib_result"><span class="std std-ref"><span class="pre">calix.spiking.correlation.CorrelationCalibResult</span></span></a></code> for details about the contained result objects.</p>
-<p>:ivar cadc_result: Result form CADC calibration. :ivar neuron_result: Result form neuron calibration. :ivar correlation_result: Result from correlation calibration. </p>
+<p>Refer to the documentation of :class:<code class="docutils literal notranslate"><a class="reference internal" href="#classcalix_1_1common_1_1cadc_1_1_c_a_d_c_calib_result"><span class="std std-ref"><span class="pre">calix.common.cadc.CADCCalibResult</span></span></a></code>, :class:<code class="docutils literal notranslate"><span class="pre">calix.spiking.neuron.NeuronCalibResult</span></code>, :class:<code class="docutils literal notranslate"><a class="reference internal" href="#classcalix_1_1spiking_1_1correlation_1_1_correlation_calib_result"><span class="std std-ref"><span class="pre">calix.spiking.correlation.CorrelationCalibResult</span></span></a></code> and :class:<code class="docutils literal notranslate"><a class="reference internal" href="#classcalix_1_1spiking_1_1synapse__driver_1_1_s_t_p_calib_result"><span class="std std-ref"><span class="pre">calix.spiking.synapse_driver.STPCalibResult</span></span></a></code> for details about the contained result objects.</p>
+<p>:ivar cadc_result: Result form CADC calibration. :ivar neuron_result: Result form neuron calibration. :ivar correlation_result: Result from correlation calibration. :ivar stp_result: Result from STP calibration. </p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="py function">
@@ -4538,7 +4543,7 @@
 <dt>
 <span class="target" id="classcalix_1_1spiking_1_1_spiking_calib_target"></span><code class="sig-name descname"><span class="pre">calix.spiking.SpikingCalibTarget</span> <span class="pre">:</span> <span class="pre">public</span> <span class="pre">base.TopLevelCalibTarget</span></code></dt>
 <dd><p>Data class containing targets for spiking neuron calibration. </p>
-<p>:ivar cadc_target: Target parameters for CADC calibration. :ivar neuron_target: Target parameters for neuron calibration. :ivar correlation_target: Target parameters for calibration of correlation sensors. If None, they will not be calibrated. </p>
+<p>:ivar cadc_target: Target parameters for CADC calibration. :ivar neuron_target: Target parameters for neuron calibration. :ivar correlation_target: Target parameters for calibration of correlation sensors. If None, they will not be calibrated. :ivar stp_target: Target for STP calibration. </p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="py function">
@@ -4562,6 +4567,11 @@
 <dl class="py attribute">
 <dt id="id280">
 <span class="target" id="classcalix_1_1spiking_1_1_spiking_calib_target_1acf39f90c126bec91ea295dc22ff03fd0"></span><code class="sig-name descname"><span class="pre">NeuronCalibTarget</span></code><a class="headerlink" href="#id280" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="STPCalibTarget">
+<span class="target" id="classcalix_1_1spiking_1_1_spiking_calib_target_1ae6638f82a7c3c4b45c1fe55d96091998"></span><code class="sig-name descname"><span class="pre">STPCalibTarget</span></code><a class="headerlink" href="#STPCalibTarget" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -4615,6 +4625,75 @@
 
 <dl class="py class">
 <dt>
+<span class="target" id="classcalix_1_1spiking_1_1synapse__driver_1_1_s_t_p_calib_options"></span><code class="sig-name descname"><span class="pre">calix.spiking.synapse_driver.STPCalibOptions</span> <span class="pre">:</span> <span class="pre">public</span> <span class="pre">base.CalibOptions</span></code></dt>
+<dd><p>Set bias parameters for the STP circuitry. </p>
+<p>All parameters can be configured per quadrant.</p>
+<p>:param i_ramp: Ramp current for STP pulse width modulation, in CapMem LSB. :param v_stp: Voltage (STP state) where all drivers’ amplitudes are equalized at, in CapMem LSB. Should be chosen between v_charge and v_recover. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-static-attributes">Public Static Attributes</p>
+<dl class="py attribute">
+<dt id="i_ramp">
+<span class="target" id="classcalix_1_1spiking_1_1synapse__driver_1_1_s_t_p_calib_options_1adae04d3d8be3019fe73b84b6fe4de16c"></span><code class="sig-name descname"><span class="pre">i_ramp</span></code><em class="property"> <span class="pre">=</span> <span class="pre">600</span></em><a class="headerlink" href="#i_ramp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="v_stp">
+<span class="target" id="classcalix_1_1spiking_1_1synapse__driver_1_1_s_t_p_calib_options_1ae87057975938a0b9a85a43d2a096c2ab"></span><code class="sig-name descname"><span class="pre">v_stp</span></code><em class="property"> <span class="pre">=</span> <span class="pre">180</span></em><a class="headerlink" href="#v_stp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt>
+<span class="target" id="classcalix_1_1spiking_1_1synapse__driver_1_1_s_t_p_calib_result"></span><code class="sig-name descname"><span class="pre">calix.spiking.synapse_driver.STPCalibResult</span> <span class="pre">:</span> <span class="pre">public</span> <span class="pre">base.CalibResult</span></code></dt>
+<dd><p>Result from STP calibration. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="py function">
+<dt id="id282">
+<span class="target" id="classcalix_1_1spiking_1_1synapse__driver_1_1_s_t_p_calib_result_1af7774cdd5c387cbf87248e7eadbecdb5"></span><code class="sig-name descname"><span class="pre">apply</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">sta.PlaybackProgramBuilder</span> <span class="pre">builder</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id282" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply the result in the given builder. </p>
+<p>Note that in the synapse driver config, no outputs are generated, and STP is disabled. Only the offset is configured by this calib. So STP is ready to be used, but disabled.</p>
+<p>:param builder: Builder to append instructions to. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt>
+<span class="target" id="classcalix_1_1spiking_1_1synapse__driver_1_1_s_t_p_calib_target"></span><code class="sig-name descname"><span class="pre">calix.spiking.synapse_driver.STPCalibTarget</span> <span class="pre">:</span> <span class="pre">public</span> <span class="pre">base.CalibTarget</span></code></dt>
+<dd><p>Target for STP calibration. </p>
+<p>The STP voltages, which affect the dynamic range of the amplitudes, are set here. They are currently not calibrated, but can be set per quadrant.</p>
+<p>:param v_charge_0: STP v_charge (fully modulated state) for voltage set 0, in CapMem LSB. You can choose the two voltage sets to be, e.g., depressing and facilitating. By default, we select voltage set 0 to be facilitating and voltage set 1 to be depressing. :param v_recover_0: STP v_recover (fully recovered state) for voltage set 0, in CapMem LSB. Note that a utilization of some 0.2 happens before processing each event, so the voltage applied to the comparator never actually reaches v_recover. :param v_charge_1: STP v_charge (fully modulated state) for voltage set 1, in CapMem LSB. :param v_recover_1: STP v_recover (fully recovered state) for voltage set 1, in CapMem LSB. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-static-attributes">Public Static Attributes</p>
+<dl class="py attribute">
+<dt id="v_charge_0">
+<span class="target" id="classcalix_1_1spiking_1_1synapse__driver_1_1_s_t_p_calib_target_1a7d14b355885670df7445a9adc78a461f"></span><code class="sig-name descname"><span class="pre">v_charge_0</span></code><em class="property"> <span class="pre">=</span> <span class="pre">100</span></em><a class="headerlink" href="#v_charge_0" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="v_charge_1">
+<span class="target" id="classcalix_1_1spiking_1_1synapse__driver_1_1_s_t_p_calib_target_1ab75aa2318ce236e8cb2b8aca71d33c21"></span><code class="sig-name descname"><span class="pre">v_charge_1</span></code><em class="property"> <span class="pre">=</span> <span class="pre">330</span></em><a class="headerlink" href="#v_charge_1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="v_recover_0">
+<span class="target" id="classcalix_1_1spiking_1_1synapse__driver_1_1_s_t_p_calib_target_1a2bd83a7be2e2601efbf5e05143552aee"></span><code class="sig-name descname"><span class="pre">v_recover_0</span></code><em class="property"> <span class="pre">=</span> <span class="pre">400</span></em><a class="headerlink" href="#v_recover_0" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="v_recover_1">
+<span class="target" id="classcalix_1_1spiking_1_1synapse__driver_1_1_s_t_p_calib_target_1a5332ebcf84b44655fa0773caab9c0779"></span><code class="sig-name descname"><span class="pre">v_recover_1</span></code><em class="property"> <span class="pre">=</span> <span class="pre">50</span></em><a class="headerlink" href="#v_recover_1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt>
 <span class="target" id="classcalix_1_1spiking_1_1synapse__driver_1_1_s_t_p_multiplication"></span><code class="sig-name descname"><span class="pre">calix.spiking.synapse_driver.STPMultiplication</span> <span class="pre">:</span> <span class="pre">public</span> <span class="pre">multiplication.Multiplication</span></code></dt>
 <dd><p>Perform vector-matrix multiplications, but without hagen-mode pulse length encoding. </p>
 <p>The pulse length is instead determined by the STP voltage.</p>
@@ -4646,36 +4725,36 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="py function">
-<dt id="id284">
-<span class="target" id="classcalix_1_1spiking_1_1synapse__driver_1_1_s_t_p_offset_calib_1ac5e83a999e8a900755217129bbdf038b"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">Union[int</span></em>, <em class="sig-param"><span class="pre">np.ndarray]</span> <span class="pre">v_stp=180</span></em>, <em class="sig-param"><span class="pre">Union[int</span></em>, <em class="sig-param"><span class="pre">np.ndarray]</span> <span class="pre">i_ramp=600</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id284" title="Permalink to this definition">¶</a></dt>
+<dt id="id287">
+<span class="target" id="classcalix_1_1spiking_1_1synapse__driver_1_1_s_t_p_offset_calib_1ac5e83a999e8a900755217129bbdf038b"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">Union[int</span></em>, <em class="sig-param"><span class="pre">np.ndarray]</span> <span class="pre">v_stp=180</span></em>, <em class="sig-param"><span class="pre">Union[int</span></em>, <em class="sig-param"><span class="pre">np.ndarray]</span> <span class="pre">i_ramp=600</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id287" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="id285">
-<span class="target" id="classcalix_1_1spiking_1_1synapse__driver_1_1_s_t_p_offset_calib_1aa9dae3faff9db2dd463c974561d858cd"></span><code class="sig-name descname"><span class="pre">configure_parameters</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">base.WriteRecordingPlaybackProgramBuilder</span> <span class="pre">builder</span></em>, <em class="sig-param"><span class="pre">np.ndarray</span> <span class="pre">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id285" title="Permalink to this definition">¶</a></dt>
+<dt id="id288">
+<span class="target" id="classcalix_1_1spiking_1_1synapse__driver_1_1_s_t_p_offset_calib_1aa9dae3faff9db2dd463c974561d858cd"></span><code class="sig-name descname"><span class="pre">configure_parameters</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">base.WriteRecordingPlaybackProgramBuilder</span> <span class="pre">builder</span></em>, <em class="sig-param"><span class="pre">np.ndarray</span> <span class="pre">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id288" title="Permalink to this definition">¶</a></dt>
 <dd><p>Configure the synapse drivers to the given offsets. </p>
 <p>:param builder: Builder to append configuration to. :param parameters: Synapse driver offset settings to configure.</p>
 <p>:return: Builder with configuration instructions appended. </p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="id286">
-<span class="target" id="classcalix_1_1spiking_1_1synapse__driver_1_1_s_t_p_offset_calib_1ae7d987eb4b7f59d85762e5389117cdf9"></span><code class="sig-name descname"><span class="pre">measure_results</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">hxcomm.ConnectionHandle</span> <span class="pre">connection</span></em>, <em class="sig-param"><span class="pre">base.WriteRecordingPlaybackProgramBuilder</span> <span class="pre">builder</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id286" title="Permalink to this definition">¶</a></dt>
+<dt id="id289">
+<span class="target" id="classcalix_1_1spiking_1_1synapse__driver_1_1_s_t_p_offset_calib_1ae7d987eb4b7f59d85762e5389117cdf9"></span><code class="sig-name descname"><span class="pre">measure_results</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">hxcomm.ConnectionHandle</span> <span class="pre">connection</span></em>, <em class="sig-param"><span class="pre">base.WriteRecordingPlaybackProgramBuilder</span> <span class="pre">builder</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id289" title="Permalink to this definition">¶</a></dt>
 <dd><p>Read output amplitudes of synapse drivers. </p>
 <p>:param connection: Connection to the chip to run on. :param builder: Builder that is run before measuring.</p>
 <p>:return: Array of synapse drivers’ output amplitudes. </p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="id287">
-<span class="target" id="classcalix_1_1spiking_1_1synapse__driver_1_1_s_t_p_offset_calib_1aa0cdd17cdb398641a64fec0b27d73894"></span><code class="sig-name descname"><span class="pre">postlude</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">hxcomm.ConnectionHandle</span> <span class="pre">connection</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id287" title="Permalink to this definition">¶</a></dt>
+<dt id="id290">
+<span class="target" id="classcalix_1_1spiking_1_1synapse__driver_1_1_s_t_p_offset_calib_1aa0cdd17cdb398641a64fec0b27d73894"></span><code class="sig-name descname"><span class="pre">postlude</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">hxcomm.ConnectionHandle</span> <span class="pre">connection</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id290" title="Permalink to this definition">¶</a></dt>
 <dd><p>Log standard deviation of amplitudes after calibration. </p>
 <p>:param connection: Connection to the chip to run on. </p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="id288">
-<span class="target" id="classcalix_1_1spiking_1_1synapse__driver_1_1_s_t_p_offset_calib_1a6ee1be1745adab036f82ecfa3687b588"></span><code class="sig-name descname"><span class="pre">prelude</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">hxcomm.ConnectionHandle</span> <span class="pre">connection</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id288" title="Permalink to this definition">¶</a></dt>
+<dt id="id291">
+<span class="target" id="classcalix_1_1spiking_1_1synapse__driver_1_1_s_t_p_offset_calib_1a6ee1be1745adab036f82ecfa3687b588"></span><code class="sig-name descname"><span class="pre">prelude</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">hxcomm.ConnectionHandle</span> <span class="pre">connection</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id291" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set up STP voltages and currents. </p>
 <p>Measure target values as median of drivers of a CapMem block. </p>
 </dd></dl>
@@ -4684,23 +4763,23 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
 <dl class="py attribute">
-<dt id="i_ramp">
-<span class="target" id="classcalix_1_1spiking_1_1synapse__driver_1_1_s_t_p_offset_calib_1a3c0394e99591093fc31d6b07d2333303"></span><code class="sig-name descname"><span class="pre">i_ramp</span></code><a class="headerlink" href="#i_ramp" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="id282">
-<span class="target" id="classcalix_1_1spiking_1_1synapse__driver_1_1_s_t_p_offset_calib_1ae4bb693d98192379db5d3ec20fde6cc1"></span><code class="sig-name descname"><span class="pre">measurement</span></code><a class="headerlink" href="#id282" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
 <dt id="id283">
-<span class="target" id="classcalix_1_1spiking_1_1synapse__driver_1_1_s_t_p_offset_calib_1a1618bfe2792fa19769d1431bb7b6a28b"></span><code class="sig-name descname"><span class="pre">target</span></code><a class="headerlink" href="#id283" title="Permalink to this definition">¶</a></dt>
+<span class="target" id="classcalix_1_1spiking_1_1synapse__driver_1_1_s_t_p_offset_calib_1a3c0394e99591093fc31d6b07d2333303"></span><code class="sig-name descname"><span class="pre">i_ramp</span></code><a class="headerlink" href="#id283" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="v_stp">
-<span class="target" id="classcalix_1_1spiking_1_1synapse__driver_1_1_s_t_p_offset_calib_1ac51f87bf1da45a88ccd0bf1438b74b19"></span><code class="sig-name descname"><span class="pre">v_stp</span></code><a class="headerlink" href="#v_stp" title="Permalink to this definition">¶</a></dt>
+<dt id="id284">
+<span class="target" id="classcalix_1_1spiking_1_1synapse__driver_1_1_s_t_p_offset_calib_1ae4bb693d98192379db5d3ec20fde6cc1"></span><code class="sig-name descname"><span class="pre">measurement</span></code><a class="headerlink" href="#id284" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="id285">
+<span class="target" id="classcalix_1_1spiking_1_1synapse__driver_1_1_s_t_p_offset_calib_1a1618bfe2792fa19769d1431bb7b6a28b"></span><code class="sig-name descname"><span class="pre">target</span></code><a class="headerlink" href="#id285" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="id286">
+<span class="target" id="classcalix_1_1spiking_1_1synapse__driver_1_1_s_t_p_offset_calib_1ac51f87bf1da45a88ccd0bf1438b74b19"></span><code class="sig-name descname"><span class="pre">v_stp</span></code><a class="headerlink" href="#id286" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -4721,13 +4800,13 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="py function">
-<dt id="id293">
-<span class="target" id="classcalix_1_1hagen_1_1synapse__driver_1_1_s_t_p_ramp_calib_1a84da37e48eb4d965b95dbd2b724b854c"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id293" title="Permalink to this definition">¶</a></dt>
+<dt id="id296">
+<span class="target" id="classcalix_1_1hagen_1_1synapse__driver_1_1_s_t_p_ramp_calib_1a84da37e48eb4d965b95dbd2b724b854c"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id296" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="id294">
-<span class="target" id="classcalix_1_1hagen_1_1synapse__driver_1_1_s_t_p_ramp_calib_1ac9374f06228174df8499374b5aa9ee9c"></span><code class="sig-name descname"><span class="pre">configure_parameters</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">base.WriteRecordingPlaybackProgramBuilder</span> <span class="pre">builder</span></em>, <em class="sig-param"><span class="pre">np.ndarray</span> <span class="pre">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id294" title="Permalink to this definition">¶</a></dt>
+<dt id="id297">
+<span class="target" id="classcalix_1_1hagen_1_1synapse__driver_1_1_s_t_p_ramp_calib_1ac9374f06228174df8499374b5aa9ee9c"></span><code class="sig-name descname"><span class="pre">configure_parameters</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">base.WriteRecordingPlaybackProgramBuilder</span> <span class="pre">builder</span></em>, <em class="sig-param"><span class="pre">np.ndarray</span> <span class="pre">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id297" title="Permalink to this definition">¶</a></dt>
 <dd><p>Configure the given STP ramp currents to the CapMem quadrants. </p>
 <p>The STP calibration current is set equal to this ramp current: The ramp offset calibration works by sinking part of the ramp current within the first 2 ns of the ramp generation phase. The calibration current controls the sinked current, therefore it is sensible to scale it with the sourced (ramp) current.</p>
 <p>:param builder: Builder to append configuration to. :param parameters: STP ramp currents to set.</p>
@@ -4735,8 +4814,8 @@
 </dd></dl>
 
 <dl class="py function">
-<dt id="id295">
-<span class="target" id="classcalix_1_1hagen_1_1synapse__driver_1_1_s_t_p_ramp_calib_1a25adee6e35ae7baa31981a8f105645dd"></span><code class="sig-name descname"><span class="pre">measure_results</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">hxcomm.ConnectionHandle</span> <span class="pre">connection</span></em>, <em class="sig-param"><span class="pre">base.WriteRecordingPlaybackProgramBuilder</span> <span class="pre">builder</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id295" title="Permalink to this definition">¶</a></dt>
+<dt id="id298">
+<span class="target" id="classcalix_1_1hagen_1_1synapse__driver_1_1_s_t_p_ramp_calib_1a25adee6e35ae7baa31981a8f105645dd"></span><code class="sig-name descname"><span class="pre">measure_results</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">hxcomm.ConnectionHandle</span> <span class="pre">connection</span></em>, <em class="sig-param"><span class="pre">base.WriteRecordingPlaybackProgramBuilder</span> <span class="pre">builder</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id298" title="Permalink to this definition">¶</a></dt>
 <dd><p>Measure the amplitudes of all drivers at a low activation. </p>
 <p>This corresponds to a high DAC voltage, i.e. the end of the ramp. We return the mean amplitude per quadrant.</p>
 <p>:param connection: Connection to the chip to run on. :param builder: Builder to measure results with.</p>
@@ -4744,15 +4823,15 @@
 </dd></dl>
 
 <dl class="py function">
-<dt id="id296">
-<span class="target" id="classcalix_1_1hagen_1_1synapse__driver_1_1_s_t_p_ramp_calib_1a8a1d21112eee72e1f5231b3f36e8ebca"></span><code class="sig-name descname"><span class="pre">postlude</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">hxcomm.ConnectionHandle</span> <span class="pre">connection</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id296" title="Permalink to this definition">¶</a></dt>
+<dt id="id299">
+<span class="target" id="classcalix_1_1hagen_1_1synapse__driver_1_1_s_t_p_ramp_calib_1a8a1d21112eee72e1f5231b3f36e8ebca"></span><code class="sig-name descname"><span class="pre">postlude</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">hxcomm.ConnectionHandle</span> <span class="pre">connection</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id299" title="Permalink to this definition">¶</a></dt>
 <dd><p>Print the calibrated ramp currents. </p>
 <p>:param connection: Connection to the chip to run on. </p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="id297">
-<span class="target" id="classcalix_1_1hagen_1_1synapse__driver_1_1_s_t_p_ramp_calib_1a30647361bbad504871d6d357650cfe9d"></span><code class="sig-name descname"><span class="pre">prelude</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">hxcomm.ConnectionHandle</span> <span class="pre">connection</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id297" title="Permalink to this definition">¶</a></dt>
+<dt id="id300">
+<span class="target" id="classcalix_1_1hagen_1_1synapse__driver_1_1_s_t_p_ramp_calib_1a30647361bbad504871d6d357650cfe9d"></span><code class="sig-name descname"><span class="pre">prelude</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">hxcomm.ConnectionHandle</span> <span class="pre">connection</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id300" title="Permalink to this definition">¶</a></dt>
 <dd><p>Measure maximum amplitude per driver, using a high ramp bias current and a high activation. </p>
 <p>:param connection: Connection to the chip to run on. </p>
 </dd></dl>
@@ -4761,13 +4840,13 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
 <dl class="py attribute">
-<dt id="id289">
-<span class="target" id="classcalix_1_1hagen_1_1synapse__driver_1_1_s_t_p_ramp_calib_1ab59c78b00b193a30f147bd8444b903ba"></span><code class="sig-name descname"><span class="pre">log</span></code><a class="headerlink" href="#id289" title="Permalink to this definition">¶</a></dt>
+<dt id="id292">
+<span class="target" id="classcalix_1_1hagen_1_1synapse__driver_1_1_s_t_p_ramp_calib_1ab59c78b00b193a30f147bd8444b903ba"></span><code class="sig-name descname"><span class="pre">log</span></code><a class="headerlink" href="#id292" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="id290">
-<span class="target" id="classcalix_1_1hagen_1_1synapse__driver_1_1_s_t_p_ramp_calib_1aa616e1d0c197d29f2b9c1ba04fda5145"></span><code class="sig-name descname"><span class="pre">n_parallel_measurements</span></code><a class="headerlink" href="#id290" title="Permalink to this definition">¶</a></dt>
+<dt id="id293">
+<span class="target" id="classcalix_1_1hagen_1_1synapse__driver_1_1_s_t_p_ramp_calib_1aa616e1d0c197d29f2b9c1ba04fda5145"></span><code class="sig-name descname"><span class="pre">n_parallel_measurements</span></code><a class="headerlink" href="#id293" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -4776,13 +4855,13 @@
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="id291">
-<span class="target" id="classcalix_1_1hagen_1_1synapse__driver_1_1_s_t_p_ramp_calib_1aea17cc8338885382428d8b1968204e46"></span><code class="sig-name descname"><span class="pre">target</span></code><a class="headerlink" href="#id291" title="Permalink to this definition">¶</a></dt>
+<dt id="id294">
+<span class="target" id="classcalix_1_1hagen_1_1synapse__driver_1_1_s_t_p_ramp_calib_1aea17cc8338885382428d8b1968204e46"></span><code class="sig-name descname"><span class="pre">target</span></code><a class="headerlink" href="#id294" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="id292">
-<span class="target" id="classcalix_1_1hagen_1_1synapse__driver_1_1_s_t_p_ramp_calib_1a15f8e1d7d2d00ed568eca66f2a181cab"></span><code class="sig-name descname"><span class="pre">test_activation</span></code><a class="headerlink" href="#id292" title="Permalink to this definition">¶</a></dt>
+<dt id="id295">
+<span class="target" id="classcalix_1_1hagen_1_1synapse__driver_1_1_s_t_p_ramp_calib_1a15f8e1d7d2d00ed568eca66f2a181cab"></span><code class="sig-name descname"><span class="pre">test_activation</span></code><a class="headerlink" href="#id295" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -4807,8 +4886,8 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-static-attributes">Public Static Attributes</p>
 <dl class="py attribute">
-<dt id="id298">
-<span class="target" id="classcalix_1_1hagen_1_1synapse__driver_1_1_synapse_driver_calib_options_1ad0a86d05f830322d7b05e277715a344b"></span><code class="sig-name descname"><span class="pre">default_factory</span></code><a class="headerlink" href="#id298" title="Permalink to this definition">¶</a></dt>
+<dt id="id301">
+<span class="target" id="classcalix_1_1hagen_1_1synapse__driver_1_1_synapse_driver_calib_options_1ad0a86d05f830322d7b05e277715a344b"></span><code class="sig-name descname"><span class="pre">default_factory</span></code><a class="headerlink" href="#id301" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -4822,8 +4901,8 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="py function">
-<dt id="id299">
-<span class="target" id="classcalix_1_1hagen_1_1synapse__driver_1_1_synapse_driver_calib_result_1af819e777642e34b508303df359d4ea7a"></span><code class="sig-name descname"><span class="pre">apply</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">base.WriteRecordingPlaybackProgramBuilder</span> <span class="pre">builder</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id299" title="Permalink to this definition">¶</a></dt>
+<dt id="id302">
+<span class="target" id="classcalix_1_1hagen_1_1synapse__driver_1_1_synapse_driver_calib_result_1af819e777642e34b508303df359d4ea7a"></span><code class="sig-name descname"><span class="pre">apply</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">base.WriteRecordingPlaybackProgramBuilder</span> <span class="pre">builder</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id302" title="Permalink to this definition">¶</a></dt>
 <dd><p>Apply the calibration result in the given builder. </p>
 <p>:param builder: Builder or dumper to append instructions to. </p>
 </dd></dl>
@@ -4915,16 +4994,16 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="py function">
-<dt id="id302">
-<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_bias_calib_1a3faefc854f65615e9eb4cc514ac10ff3"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">Optional[np.ndarray]</span> <span class="pre">target_leak_read=None</span></em>, <em class="sig-param"><span class="pre">base.ParameterRange</span> <span class="pre">parameter_range=base.ParameterRange(hal.CapMemCell.Value.min</span></em>, <em class="sig-param"><span class="pre">hal.CapMemCell.Value.max)</span></em>, <em class="sig-param"><span class="pre">Optional[np.ndarray]</span> <span class="pre">target=None</span></em>, <em class="sig-param"><span class="pre">bool</span> <span class="pre">recalibrate_reference=True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id302" title="Permalink to this definition">¶</a></dt>
+<dt id="id305">
+<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_bias_calib_1a3faefc854f65615e9eb4cc514ac10ff3"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">Optional[np.ndarray]</span> <span class="pre">target_leak_read=None</span></em>, <em class="sig-param"><span class="pre">base.ParameterRange</span> <span class="pre">parameter_range=base.ParameterRange(hal.CapMemCell.Value.min</span></em>, <em class="sig-param"><span class="pre">hal.CapMemCell.Value.max)</span></em>, <em class="sig-param"><span class="pre">Optional[np.ndarray]</span> <span class="pre">target=None</span></em>, <em class="sig-param"><span class="pre">bool</span> <span class="pre">recalibrate_reference=True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id305" title="Permalink to this definition">¶</a></dt>
 <dd><p>:param target_leak_read: Target CADC read for synaptic input reference potential calibration, which is called after each change of the bias current. </p>
 <p>This parameter must be given if recalibrate_reference is True (default), but can be left None otherwise. :param parameter_range: Allowed range of synaptic input OTA bias current. :param target: Target amplitudes for events. If given, the measurement of target amplitudes in prelude is skipped. This can be useful when calibrating inhibitory and excitatory synaptic inputs to the same amplitude targets. :param recalibrate_reference: Decide whether the OTA’s reference potential is recalibrated during prelude and each time the bias current is touched.</p>
 <p>:raises ValueError: If target_leak_read is None while recalibrate_references is True. </p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="id303">
-<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_bias_calib_1a5aefd891b6f64f48f8d37c06e9886f2f"></span><code class="sig-name descname"><span class="pre">configure_parameters</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">base.WriteRecordingPlaybackProgramBuilder</span> <span class="pre">builder</span></em>, <em class="sig-param"><span class="pre">np.ndarray</span> <span class="pre">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id303" title="Permalink to this definition">¶</a></dt>
+<dt id="id306">
+<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_bias_calib_1a5aefd891b6f64f48f8d37c06e9886f2f"></span><code class="sig-name descname"><span class="pre">configure_parameters</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">base.WriteRecordingPlaybackProgramBuilder</span> <span class="pre">builder</span></em>, <em class="sig-param"><span class="pre">np.ndarray</span> <span class="pre">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id306" title="Permalink to this definition">¶</a></dt>
 <dd><p>Configure the bias current of the synaptic input OTA of all neurons to the given parameters. </p>
 <p>The target can be the excitatory or the inhibitory synaptic input circuit depending on the class properties.</p>
 <p>:param builder: Builder to append configuration instructions to. :param parameters: Synaptic input OTA bias current.</p>
@@ -4942,8 +5021,8 @@
 </dd></dl>
 
 <dl class="py function">
-<dt id="id304">
-<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_bias_calib_1ac43f08cb0562a9cd0db5a041d8639670"></span><code class="sig-name descname"><span class="pre">measure_results</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">hxcomm.ConnectionHandle</span> <span class="pre">connection</span></em>, <em class="sig-param"><span class="pre">base.WriteRecordingPlaybackProgramBuilder</span> <span class="pre">builder</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id304" title="Permalink to this definition">¶</a></dt>
+<dt id="id307">
+<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_bias_calib_1ac43f08cb0562a9cd0db5a041d8639670"></span><code class="sig-name descname"><span class="pre">measure_results</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">hxcomm.ConnectionHandle</span> <span class="pre">connection</span></em>, <em class="sig-param"><span class="pre">base.WriteRecordingPlaybackProgramBuilder</span> <span class="pre">builder</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id307" title="Permalink to this definition">¶</a></dt>
 <dd><p>Measure results of calibration. </p>
 <p>Calls the measure_amplitudes function using the default setting to recalibrate the synaptic reference potentials before measuring. This function only exists to keep the same arguments as in the base calib class.</p>
 <p>:param connection: Connection to the chip to run on. :param builder: Builder to append stimulate/read instructions, then gets executed.</p>
@@ -4951,15 +5030,15 @@
 </dd></dl>
 
 <dl class="py function">
-<dt id="id305">
-<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_bias_calib_1a22ba8ff83b36104e55a6e6e714400817"></span><code class="sig-name descname"><span class="pre">postlude</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">hxcomm.ConnectionHandle</span> <span class="pre">connection</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id305" title="Permalink to this definition">¶</a></dt>
+<dt id="id308">
+<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_bias_calib_1a22ba8ff83b36104e55a6e6e714400817"></span><code class="sig-name descname"><span class="pre">postlude</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">hxcomm.ConnectionHandle</span> <span class="pre">connection</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id308" title="Permalink to this definition">¶</a></dt>
 <dd><p>Log statistics of the event amplitudes after calibration. </p>
 <p>:param connection: Connection to the chip to run on. </p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="id306">
-<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_bias_calib_1a5293a443892c070b8a61fe84134d7bce"></span><code class="sig-name descname"><span class="pre">prelude</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">hxcomm.ConnectionHandle</span> <span class="pre">connection</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id306" title="Permalink to this definition">¶</a></dt>
+<dt id="id309">
+<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_bias_calib_1a5293a443892c070b8a61fe84134d7bce"></span><code class="sig-name descname"><span class="pre">prelude</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">hxcomm.ConnectionHandle</span> <span class="pre">connection</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id309" title="Permalink to this definition">¶</a></dt>
 <dd><p>Preconfigure synapse drivers to send excitatory/inhibitory signals to all connected synapses. </p>
 <p>Measure current amplitudes and use the median as target for calibration, which can be overwritten by providing a target to the <a class="reference internal" href="#namespacecalix_1_1common_1_1base_1a02dfd158ad7876657933b02690547c81"><span class="std std-ref">run()</span></a> method. If an amplitude higher than the reliable range is obtained, the parameter self.n_events is reduced and it is measured again.</p>
 <p>:param connection: Connection to the chip to run on.</p>
@@ -4980,8 +5059,8 @@
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="id300">
-<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_bias_calib_1abd5b519c4fb9b10a31a044e1599350a7"></span><code class="sig-name descname"><span class="pre">reliable_amplitudes</span></code><a class="headerlink" href="#id300" title="Permalink to this definition">¶</a></dt>
+<dt id="id303">
+<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_bias_calib_1abd5b519c4fb9b10a31a044e1599350a7"></span><code class="sig-name descname"><span class="pre">reliable_amplitudes</span></code><a class="headerlink" href="#id303" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -4990,41 +5069,41 @@
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="id301">
-<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_bias_calib_1abbacde74310d519a4777f098d77ea619"></span><code class="sig-name descname"><span class="pre">target</span></code><a class="headerlink" href="#id301" title="Permalink to this definition">¶</a></dt>
+<dt id="id304">
+<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_bias_calib_1abbacde74310d519a4777f098d77ea619"></span><code class="sig-name descname"><span class="pre">target</span></code><a class="headerlink" href="#id304" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-functions">Private Functions</p>
 <dl class="py function">
-<dt id="id307">
-<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_bias_calib_1afbab7c85307fec0ed3de3339bdeaaca6"></span><code class="sig-name descname"><span class="pre">_bias_current_coord</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id307" title="Permalink to this definition">¶</a></dt>
+<dt id="id310">
+<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_bias_calib_1afbab7c85307fec0ed3de3339bdeaaca6"></span><code class="sig-name descname"><span class="pre">_bias_current_coord</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id310" title="Permalink to this definition">¶</a></dt>
 <dd><p>Coordinate of the capmem bias current cells for the synaptic input OTA to calibrate. </p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="id308">
-<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_bias_calib_1ad963315c23ba9cdb91b4b8b344a99088"></span><code class="sig-name descname"><span class="pre">_expected_sign</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id308" title="Permalink to this definition">¶</a></dt>
+<dt id="id311">
+<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_bias_calib_1ad963315c23ba9cdb91b4b8b344a99088"></span><code class="sig-name descname"><span class="pre">_expected_sign</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id311" title="Permalink to this definition">¶</a></dt>
 <dd><p>Expected sign of the amplitudes. </p>
 <p>The measured amplitudes get multiplied with this sign. </p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="id309">
-<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_bias_calib_1afc38d441013fb98f16e36235fe49a823"></span><code class="sig-name descname"><span class="pre">_log_abbreviation</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id309" title="Permalink to this definition">¶</a></dt>
+<dt id="id312">
+<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_bias_calib_1afc38d441013fb98f16e36235fe49a823"></span><code class="sig-name descname"><span class="pre">_log_abbreviation</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id312" title="Permalink to this definition">¶</a></dt>
 <dd><p>Abbreviation of exc/inh synaptic input used for log messages. </p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="id310">
-<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_bias_calib_1a3c7ebd9e6f270affc8a7c4a5768ccb9a"></span><code class="sig-name descname"><span class="pre">_reference_calib_type</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id310" title="Permalink to this definition">¶</a></dt>
+<dt id="id313">
+<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_bias_calib_1a3c7ebd9e6f270affc8a7c4a5768ccb9a"></span><code class="sig-name descname"><span class="pre">_reference_calib_type</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id313" title="Permalink to this definition">¶</a></dt>
 <dd><p>Type of the sub-calibration to use for recalibrating the synaptic input reference potentials. </p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="id311">
-<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_bias_calib_1a1471ba271837bc52c651da1d690fcaa7"></span><code class="sig-name descname"><span class="pre">_row_mode</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id311" title="Permalink to this definition">¶</a></dt>
+<dt id="id314">
+<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_bias_calib_1a1471ba271837bc52c651da1d690fcaa7"></span><code class="sig-name descname"><span class="pre">_row_mode</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id314" title="Permalink to this definition">¶</a></dt>
 <dd><p>Row mode (excitatory / inhibitory) of synapses to enable. </p>
 </dd></dl>
 
@@ -5082,38 +5161,38 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="py function">
-<dt id="id313">
-<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_reference_calib_1afdc583b5d8b61a2a127c09428edae065"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">Optional[Union[int</span></em>, <em class="sig-param"><span class="pre">np.ndarray]]</span> <span class="pre">bias_currents=None</span></em>, <em class="sig-param"><span class="pre">Union[int</span></em>, <em class="sig-param"><span class="pre">np.ndarray]</span> <span class="pre">target=120</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id313" title="Permalink to this definition">¶</a></dt>
+<dt id="id316">
+<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_reference_calib_1afdc583b5d8b61a2a127c09428edae065"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">Optional[Union[int</span></em>, <em class="sig-param"><span class="pre">np.ndarray]]</span> <span class="pre">bias_currents=None</span></em>, <em class="sig-param"><span class="pre">Union[int</span></em>, <em class="sig-param"><span class="pre">np.ndarray]</span> <span class="pre">target=120</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id316" title="Permalink to this definition">¶</a></dt>
 <dd><p>:param bias_currents: Synaptic input bias currents to configure for the synaptic input to be calibrated. </p>
 <p>If None, the configuration is unchanged. :param target: Target CADC reads with synaptic input enabled. Optional, can also be supplied to the <a class="reference internal" href="#namespacecalix_1_1common_1_1base_1a02dfd158ad7876657933b02690547c81"><span class="std std-ref">run()</span></a> call. These reads need to be taken with the synaptic input disabled. </p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="id314">
-<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_reference_calib_1a0d8f122593315aaab80dd0382cab4090"></span><code class="sig-name descname"><span class="pre">configure_parameters</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">base.WriteRecordingPlaybackProgramBuilder</span> <span class="pre">builder</span></em>, <em class="sig-param"><span class="pre">np.ndarray</span> <span class="pre">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id314" title="Permalink to this definition">¶</a></dt>
+<dt id="id317">
+<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_reference_calib_1a0d8f122593315aaab80dd0382cab4090"></span><code class="sig-name descname"><span class="pre">configure_parameters</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">base.WriteRecordingPlaybackProgramBuilder</span> <span class="pre">builder</span></em>, <em class="sig-param"><span class="pre">np.ndarray</span> <span class="pre">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id317" title="Permalink to this definition">¶</a></dt>
 <dd><p>Configure the given parameters to the respective CapMem cell determined by whether the excitatory or inhibitory synaptic input is to be calibrated. </p>
 <p>:param builder: Builder to append configuration to. :param parameters: Array of reference potential settings to configure.</p>
 <p>:return: Builder with configuration instructions appended. </p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="id315">
-<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_reference_calib_1a1ec5cc3ae708553dcc87d2f5cdbe75d1"></span><code class="sig-name descname"><span class="pre">measure_results</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">hxcomm.ConnectionHandle</span> <span class="pre">connection</span></em>, <em class="sig-param"><span class="pre">base.WriteRecordingPlaybackProgramBuilder</span> <span class="pre">builder</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id315" title="Permalink to this definition">¶</a></dt>
+<dt id="id318">
+<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_reference_calib_1a1ec5cc3ae708553dcc87d2f5cdbe75d1"></span><code class="sig-name descname"><span class="pre">measure_results</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">hxcomm.ConnectionHandle</span> <span class="pre">connection</span></em>, <em class="sig-param"><span class="pre">base.WriteRecordingPlaybackProgramBuilder</span> <span class="pre">builder</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id318" title="Permalink to this definition">¶</a></dt>
 <dd><p>Measure the membrane potentials of each neuron. </p>
 <p>:param connection: Connection to chip to run measurement. :param builder: Builder to append read instructions to.</p>
 <p>:return: Array with CADC reads of neuron membrane potentials. </p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="id316">
-<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_reference_calib_1ad9a0e4e7d3895f0d102c27b415f6528f"></span><code class="sig-name descname"><span class="pre">postlude</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">hxcomm.ConnectionHandle</span> <span class="pre">connection</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id316" title="Permalink to this definition">¶</a></dt>
+<dt id="id319">
+<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_reference_calib_1ad9a0e4e7d3895f0d102c27b415f6528f"></span><code class="sig-name descname"><span class="pre">postlude</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">hxcomm.ConnectionHandle</span> <span class="pre">connection</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id319" title="Permalink to this definition">¶</a></dt>
 <dd><p>Print statistics of the resting potentials with synaptic input enabled and reference potential calibrated. </p>
 <p>:param connection: Connection to the chip to run on. </p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="id317">
-<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_reference_calib_1a91de03d8bd4f18b0da6277889e4eb50c"></span><code class="sig-name descname"><span class="pre">prelude</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">hxcomm.ConnectionHandle</span> <span class="pre">connection</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id317" title="Permalink to this definition">¶</a></dt>
+<dt id="id320">
+<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_reference_calib_1a91de03d8bd4f18b0da6277889e4eb50c"></span><code class="sig-name descname"><span class="pre">prelude</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">hxcomm.ConnectionHandle</span> <span class="pre">connection</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id320" title="Permalink to this definition">¶</a></dt>
 <dd><p>If desired, configure the synaptic input bias currents to the given values. </p>
 <p>If no bias currents were given, the configuration is unchanged.</p>
 <p>:param connection: Connection to the chip to calibrate. </p>
@@ -5128,35 +5207,35 @@
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="id312">
-<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_reference_calib_1a5e21a11663742ad15ee952b92c5f6361"></span><code class="sig-name descname"><span class="pre">target</span></code><a class="headerlink" href="#id312" title="Permalink to this definition">¶</a></dt>
+<dt id="id315">
+<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_reference_calib_1a5e21a11663742ad15ee952b92c5f6361"></span><code class="sig-name descname"><span class="pre">target</span></code><a class="headerlink" href="#id315" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-functions">Private Functions</p>
 <dl class="py function">
-<dt id="id318">
-<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_reference_calib_1a72d0d8c8b69e00c150ae3ec8ea415dab"></span><code class="sig-name descname"><span class="pre">_bias_current_keyword</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id318" title="Permalink to this definition">¶</a></dt>
+<dt id="id321">
+<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_reference_calib_1a72d0d8c8b69e00c150ae3ec8ea415dab"></span><code class="sig-name descname"><span class="pre">_bias_current_keyword</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id321" title="Permalink to this definition">¶</a></dt>
 <dd><p>String representation of the keyword required to preconfigure the synaptic inputs. </p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="id319">
-<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_reference_calib_1a85261b120f0fa8cae0ecfc58a5706b08"></span><code class="sig-name descname"><span class="pre">_capmem_parameter_coord</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id319" title="Permalink to this definition">¶</a></dt>
+<dt id="id322">
+<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_reference_calib_1a85261b120f0fa8cae0ecfc58a5706b08"></span><code class="sig-name descname"><span class="pre">_capmem_parameter_coord</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id322" title="Permalink to this definition">¶</a></dt>
 <dd><p>Coordinate of CapMem parameters for the synaptic input reference potential. </p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="id320">
-<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_reference_calib_1ac032bdfc92efb4adb38a00fbe6489412"></span><code class="sig-name descname"><span class="pre">_inverted</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id320" title="Permalink to this definition">¶</a></dt>
+<dt id="id323">
+<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_reference_calib_1ac032bdfc92efb4adb38a00fbe6489412"></span><code class="sig-name descname"><span class="pre">_inverted</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id323" title="Permalink to this definition">¶</a></dt>
 <dd><p>Inversion property of the calibration, used to configure the base class. </p>
 <p>For the excitatory input, we must not invert it, for the inhibitory input, we must invert it. </p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="id321">
-<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_reference_calib_1a6454e5d4bce988c5c9572f890f5c6407"></span><code class="sig-name descname"><span class="pre">_log_abbreviation</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id321" title="Permalink to this definition">¶</a></dt>
+<dt id="id324">
+<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_reference_calib_1a6454e5d4bce988c5c9572f890f5c6407"></span><code class="sig-name descname"><span class="pre">_log_abbreviation</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id324" title="Permalink to this definition">¶</a></dt>
 <dd><p>Abbreviation of exc/inh synaptic input used for log messages. </p>
 </dd></dl>
 
@@ -5180,21 +5259,21 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="py function">
-<dt id="id325">
-<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_reference_calib_m_a_d_c_1afb049a993b309e9bda730e2bfaba65f9"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id325" title="Permalink to this definition">¶</a></dt>
+<dt id="id328">
+<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_reference_calib_m_a_d_c_1afb049a993b309e9bda730e2bfaba65f9"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id328" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="id326">
-<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_reference_calib_m_a_d_c_1a11e32fd6ba1e0163b9a2aaaae8a97218"></span><code class="sig-name descname"><span class="pre">configure_parameters</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">base.WriteRecordingPlaybackProgramBuilder</span> <span class="pre">builder</span></em>, <em class="sig-param"><span class="pre">np.ndarray</span> <span class="pre">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id326" title="Permalink to this definition">¶</a></dt>
+<dt id="id329">
+<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_reference_calib_m_a_d_c_1a11e32fd6ba1e0163b9a2aaaae8a97218"></span><code class="sig-name descname"><span class="pre">configure_parameters</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">base.WriteRecordingPlaybackProgramBuilder</span> <span class="pre">builder</span></em>, <em class="sig-param"><span class="pre">np.ndarray</span> <span class="pre">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id329" title="Permalink to this definition">¶</a></dt>
 <dd><p>Configures the given array of synaptic input reference potentials. </p>
 <p>:param builder: Builder to append configuration instructions to. :param parameters: Array of reference potentials to set up.</p>
 <p>:return: Builder with configuration appended. </p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="id327">
-<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_reference_calib_m_a_d_c_1a2058384839de653dedd53b022c182473"></span><code class="sig-name descname"><span class="pre">evaluate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">List[np.ndarray]</span> <span class="pre">samples</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id327" title="Permalink to this definition">¶</a></dt>
+<dt id="id330">
+<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_reference_calib_m_a_d_c_1a2058384839de653dedd53b022c182473"></span><code class="sig-name descname"><span class="pre">evaluate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">List[np.ndarray]</span> <span class="pre">samples</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id330" title="Permalink to this definition">¶</a></dt>
 <dd><p>Evaluates the obtained MADC samples. </p>
 <p>To each neuron’s MADC samples, a linear function is fitted, and the slope is returned.</p>
 <p>:param samples: MADC samples obtained for each neuron.</p>
@@ -5202,38 +5281,38 @@
 </dd></dl>
 
 <dl class="py function">
-<dt id="id328">
-<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_reference_calib_m_a_d_c_1ab8d52dc89936c73eaaf86bd5de4795ef"></span><code class="sig-name descname"><span class="pre">measure_results</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">hxcomm.ConnectionHandle</span> <span class="pre">connection</span></em>, <em class="sig-param"><span class="pre">base.WriteRecordingPlaybackProgramBuilder</span> <span class="pre">builder</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id328" title="Permalink to this definition">¶</a></dt>
+<dt id="id331">
+<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_reference_calib_m_a_d_c_1ab8d52dc89936c73eaaf86bd5de4795ef"></span><code class="sig-name descname"><span class="pre">measure_results</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">hxcomm.ConnectionHandle</span> <span class="pre">connection</span></em>, <em class="sig-param"><span class="pre">base.WriteRecordingPlaybackProgramBuilder</span> <span class="pre">builder</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id331" title="Permalink to this definition">¶</a></dt>
 <dd><p>Executes multiple measurements on chip, returns the mean result. </p>
 <p>:param connection: Connection to the chip to calibrate. :param builder: Builder to append measurement program to.</p>
 <p>:return: Numpy array of mean results. </p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="id329">
-<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_reference_calib_m_a_d_c_1ad4f328172c25a2f010395b515d951b6c"></span><code class="sig-name descname"><span class="pre">neuron_config_disabled</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">neuron_coord</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id329" title="Permalink to this definition">¶</a></dt>
+<dt id="id332">
+<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_reference_calib_m_a_d_c_1ad4f328172c25a2f010395b515d951b6c"></span><code class="sig-name descname"><span class="pre">neuron_config_disabled</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">neuron_coord</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id332" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a neuron config with readout disabled. </p>
 <p>:return: Neuron config with readout disabled. </p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="id330">
-<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_reference_calib_m_a_d_c_1af1ca9d1bd96bf979f30e4554e31eabfd"></span><code class="sig-name descname"><span class="pre">neuron_config_readout</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">neuron_coord</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id330" title="Permalink to this definition">¶</a></dt>
+<dt id="id333">
+<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_reference_calib_m_a_d_c_1af1ca9d1bd96bf979f30e4554e31eabfd"></span><code class="sig-name descname"><span class="pre">neuron_config_readout</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">neuron_coord</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id333" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a neuron config with readout enabled. </p>
 <p>:return: Neuron config with readout enabled. </p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="id331">
-<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_reference_calib_m_a_d_c_1ad63ceb05fa15e08dcc2fd5b889fe4891"></span><code class="sig-name descname"><span class="pre">prelude</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">hxcomm.ConnectionHandle</span> <span class="pre">connection</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id331" title="Permalink to this definition">¶</a></dt>
+<dt id="id334">
+<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_reference_calib_m_a_d_c_1ad63ceb05fa15e08dcc2fd5b889fe4891"></span><code class="sig-name descname"><span class="pre">prelude</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">hxcomm.ConnectionHandle</span> <span class="pre">connection</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id334" title="Permalink to this definition">¶</a></dt>
 <dd><p>Prepares chip for calibration. </p>
 <p>Enables the MADC and sets the leak bias currents to zero.</p>
 <p>:param connection: Connection to the chip to calibrate. </p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="id332">
-<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_reference_calib_m_a_d_c_1a5739355d13b94733e6462e5d74c95f07"></span><code class="sig-name descname"><span class="pre">stimulate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">base.WriteRecordingPlaybackProgramBuilder</span> <span class="pre">builder</span></em>, <em class="sig-param"><span class="pre">halco.NeuronConfigOnDLS</span> <span class="pre">neuron_coord</span></em>, <em class="sig-param"><span class="pre">hal.Timer.Value</span> <span class="pre">stimulation_time</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id332" title="Permalink to this definition">¶</a></dt>
+<dt id="id335">
+<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_reference_calib_m_a_d_c_1a5739355d13b94733e6462e5d74c95f07"></span><code class="sig-name descname"><span class="pre">stimulate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">base.WriteRecordingPlaybackProgramBuilder</span> <span class="pre">builder</span></em>, <em class="sig-param"><span class="pre">halco.NeuronConfigOnDLS</span> <span class="pre">neuron_coord</span></em>, <em class="sig-param"><span class="pre">hal.Timer.Value</span> <span class="pre">stimulation_time</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id335" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reset the neuron’s membrane potential. </p>
 <p>:param builder: Builder to append resets to. :param neuron_coord: Coordinate of neuron which is currently recorded. :param stimulation_time: Timer value at beginning of stimulation.</p>
 <p>:return: Builder with reset appended. </p>
@@ -5253,32 +5332,32 @@
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="id322">
-<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_reference_calib_m_a_d_c_1af90a1abc555836e33f2f081689079c9b"></span><code class="sig-name descname"><span class="pre">sampling_time</span></code><a class="headerlink" href="#id322" title="Permalink to this definition">¶</a></dt>
+<dt id="id325">
+<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_reference_calib_m_a_d_c_1af90a1abc555836e33f2f081689079c9b"></span><code class="sig-name descname"><span class="pre">sampling_time</span></code><a class="headerlink" href="#id325" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="id323">
-<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_reference_calib_m_a_d_c_1a7bd4416dd0ced5457392c53dd3e2ea64"></span><code class="sig-name descname"><span class="pre">target</span></code><a class="headerlink" href="#id323" title="Permalink to this definition">¶</a></dt>
+<dt id="id326">
+<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_reference_calib_m_a_d_c_1a7bd4416dd0ced5457392c53dd3e2ea64"></span><code class="sig-name descname"><span class="pre">target</span></code><a class="headerlink" href="#id326" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="id324">
-<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_reference_calib_m_a_d_c_1a98ca8061fb754073cd2ed2f545afea3f"></span><code class="sig-name descname"><span class="pre">wait_between_neurons</span></code><a class="headerlink" href="#id324" title="Permalink to this definition">¶</a></dt>
+<dt id="id327">
+<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_reference_calib_m_a_d_c_1a98ca8061fb754073cd2ed2f545afea3f"></span><code class="sig-name descname"><span class="pre">wait_between_neurons</span></code><a class="headerlink" href="#id327" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-functions">Private Functions</p>
 <dl class="py function">
-<dt id="id333">
-<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_reference_calib_m_a_d_c_1a42c9868830300840417fe7db0544530f"></span><code class="sig-name descname"><span class="pre">_inverted</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id333" title="Permalink to this definition">¶</a></dt>
+<dt id="id336">
+<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_reference_calib_m_a_d_c_1a42c9868830300840417fe7db0544530f"></span><code class="sig-name descname"><span class="pre">_inverted</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id336" title="Permalink to this definition">¶</a></dt>
 <dd><p>Select whether the parameter change needs to be inverted. </p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="id334">
-<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_reference_calib_m_a_d_c_1a53c87539b57563892f461e9a829735ff"></span><code class="sig-name descname"><span class="pre">_reference_potential_coord</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id334" title="Permalink to this definition">¶</a></dt>
+<dt id="id337">
+<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_reference_calib_m_a_d_c_1a53c87539b57563892f461e9a829735ff"></span><code class="sig-name descname"><span class="pre">_reference_potential_coord</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id337" title="Permalink to this definition">¶</a></dt>
 <dd><p>Coordinate of the CapMem reference potential for the synaptic input OTA. </p>
 </dd></dl>
 
@@ -5301,23 +5380,23 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="py function">
-<dt id="id339">
-<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_time_constant_calib_1a24a78b2cb8f4ea09d7c2389118389ac4"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">pq.quantity.Quantity</span> <span class="pre">target=1.2</span> <span class="pre">*pq.us</span></em>, <em class="sig-param"><span class="pre">Optional[List[hal.NeuronConfig]]</span> <span class="pre">neuron_configs=None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id339" title="Permalink to this definition">¶</a></dt>
+<dt id="id342">
+<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_time_constant_calib_1a24a78b2cb8f4ea09d7c2389118389ac4"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">pq.quantity.Quantity</span> <span class="pre">target=1.2</span> <span class="pre">*pq.us</span></em>, <em class="sig-param"><span class="pre">Optional[List[hal.NeuronConfig]]</span> <span class="pre">neuron_configs=None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id342" title="Permalink to this definition">¶</a></dt>
 <dd><p>:param neuron_configs: List of neuron configurations. </p>
 <p>If None, the hagen-mode default neuron config is used. :param target: Target synaptic input time constant. </p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="id340">
-<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_time_constant_calib_1ab9d0ba53a0f048ce5c7236b8e18539d3"></span><code class="sig-name descname"><span class="pre">configure_parameters</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">base.WriteRecordingPlaybackProgramBuilder</span> <span class="pre">builder</span></em>, <em class="sig-param"><span class="pre">np.ndarray</span> <span class="pre">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id340" title="Permalink to this definition">¶</a></dt>
+<dt id="id343">
+<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_time_constant_calib_1ab9d0ba53a0f048ce5c7236b8e18539d3"></span><code class="sig-name descname"><span class="pre">configure_parameters</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">base.WriteRecordingPlaybackProgramBuilder</span> <span class="pre">builder</span></em>, <em class="sig-param"><span class="pre">np.ndarray</span> <span class="pre">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id343" title="Permalink to this definition">¶</a></dt>
 <dd><p>Configures the given array of synaptic input resistor bias currents. </p>
 <p>:param builder: Builder to append configuration instructions to. :param parameters: Array of bias currents to set up.</p>
 <p>:return: Builder with configuration appended. </p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="id341">
-<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_time_constant_calib_1abdd57893dd6e71aaad7bb4b940f5bffb"></span><code class="sig-name descname"><span class="pre">evaluate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">List[np.ndarray]</span> <span class="pre">samples</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id341" title="Permalink to this definition">¶</a></dt>
+<dt id="id344">
+<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_time_constant_calib_1abdd57893dd6e71aaad7bb4b940f5bffb"></span><code class="sig-name descname"><span class="pre">evaluate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">List[np.ndarray]</span> <span class="pre">samples</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id344" title="Permalink to this definition">¶</a></dt>
 <dd><p>Evaluates the obtained MADC samples. </p>
 <p>To each neuron’s MADC samples, an exponential decay is fitted, and the resulting time constant is returned.</p>
 <p>:param samples: MADC samples obtained for each neuron.</p>
@@ -5325,31 +5404,31 @@
 </dd></dl>
 
 <dl class="py function">
-<dt id="id342">
-<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_time_constant_calib_1aae5aee9706ebe1c2bf445531eb4a7072"></span><code class="sig-name descname"><span class="pre">neuron_config_disabled</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">neuron_coord</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id342" title="Permalink to this definition">¶</a></dt>
+<dt id="id345">
+<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_time_constant_calib_1aae5aee9706ebe1c2bf445531eb4a7072"></span><code class="sig-name descname"><span class="pre">neuron_config_disabled</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">neuron_coord</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id345" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a neuron config with readout disabled. </p>
 <p>The synaptic input is also disabled, since the neurons’ readout multiplexer may leak if the membrane voltage rises above 1.2 V, impacting the syn. input measurement. Hence, the transmission gates between the OTAs and the membrane are disabled. Note that on Hicann-X v1, this does not suffice to disable the synaptic input, and also the OTA bias currents need to be set to zero, which is done during the prelude.</p>
 <p>:return: Neuron config with readout disabled. </p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="id343">
-<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_time_constant_calib_1a9fd6397a9115460034b6897828e453f2"></span><code class="sig-name descname"><span class="pre">neuron_config_readout</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">neuron_coord</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id343" title="Permalink to this definition">¶</a></dt>
+<dt id="id346">
+<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_time_constant_calib_1a9fd6397a9115460034b6897828e453f2"></span><code class="sig-name descname"><span class="pre">neuron_config_readout</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">neuron_coord</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id346" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a neuron config with readout enabled. </p>
 <p>:return: Neuron config with readout enabled. </p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="id344">
-<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_time_constant_calib_1a50b58bcdd59f0d404677d6a4d0772fb4"></span><code class="sig-name descname"><span class="pre">prelude</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">hxcomm.ConnectionHandle</span> <span class="pre">connection</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id344" title="Permalink to this definition">¶</a></dt>
+<dt id="id347">
+<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_time_constant_calib_1a50b58bcdd59f0d404677d6a4d0772fb4"></span><code class="sig-name descname"><span class="pre">prelude</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">hxcomm.ConnectionHandle</span> <span class="pre">connection</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id347" title="Permalink to this definition">¶</a></dt>
 <dd><p>Prepares chip for calibration. </p>
 <p>Disables synaptic inputs. Configures synapse drivers to stimulate the necessary input.</p>
 <p>:param connection: Connection to the chip to calibrate. </p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="id345">
-<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_time_constant_calib_1ad09f07819427efdf3d6abe87f6330b65"></span><code class="sig-name descname"><span class="pre">stimulate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">base.WriteRecordingPlaybackProgramBuilder</span> <span class="pre">builder</span></em>, <em class="sig-param"><span class="pre">halco.NeuronConfigOnDLS</span> <span class="pre">neuron_coord</span></em>, <em class="sig-param"><span class="pre">hal.Timer.Value</span> <span class="pre">stimulation_time</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id345" title="Permalink to this definition">¶</a></dt>
+<dt id="id348">
+<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_time_constant_calib_1ad09f07819427efdf3d6abe87f6330b65"></span><code class="sig-name descname"><span class="pre">stimulate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">base.WriteRecordingPlaybackProgramBuilder</span> <span class="pre">builder</span></em>, <em class="sig-param"><span class="pre">halco.NeuronConfigOnDLS</span> <span class="pre">neuron_coord</span></em>, <em class="sig-param"><span class="pre">hal.Timer.Value</span> <span class="pre">stimulation_time</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id348" title="Permalink to this definition">¶</a></dt>
 <dd><p>Send some PADI events to the synaptic input in order to drop the potential. </p>
 <p>:param builder: Builder to append PADI events to. :param neuron_coord: Coordinate of neuron which is currently recorded. :param stimulation_time: Timer value at beginning of stimulation.</p>
 <p>:return: Builder with PADI events appended. </p>
@@ -5364,38 +5443,38 @@
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="id336">
-<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_time_constant_calib_1a0cc3137f4c40c106ebf2889d33cd624e"></span><code class="sig-name descname"><span class="pre">sampling_time</span></code><a class="headerlink" href="#id336" title="Permalink to this definition">¶</a></dt>
+<dt id="id339">
+<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_time_constant_calib_1a0cc3137f4c40c106ebf2889d33cd624e"></span><code class="sig-name descname"><span class="pre">sampling_time</span></code><a class="headerlink" href="#id339" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="id337">
-<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_time_constant_calib_1a51d486d2d88fd19c097d394c02e42cee"></span><code class="sig-name descname"><span class="pre">target</span></code><a class="headerlink" href="#id337" title="Permalink to this definition">¶</a></dt>
+<dt id="id340">
+<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_time_constant_calib_1a51d486d2d88fd19c097d394c02e42cee"></span><code class="sig-name descname"><span class="pre">target</span></code><a class="headerlink" href="#id340" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="id338">
-<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_time_constant_calib_1a925d191e7b3ff8f26603cc24994df66a"></span><code class="sig-name descname"><span class="pre">wait_between_neurons</span></code><a class="headerlink" href="#id338" title="Permalink to this definition">¶</a></dt>
+<dt id="id341">
+<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_time_constant_calib_1a925d191e7b3ff8f26603cc24994df66a"></span><code class="sig-name descname"><span class="pre">wait_between_neurons</span></code><a class="headerlink" href="#id341" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-functions">Private Functions</p>
 <dl class="py function">
-<dt id="id346">
-<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_time_constant_calib_1abcf7311e9e05f87b1895422ee71691a3"></span><code class="sig-name descname"><span class="pre">_bias_current_coord</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id346" title="Permalink to this definition">¶</a></dt>
+<dt id="id349">
+<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_time_constant_calib_1abcf7311e9e05f87b1895422ee71691a3"></span><code class="sig-name descname"><span class="pre">_bias_current_coord</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id349" title="Permalink to this definition">¶</a></dt>
 <dd><p>Coordinate of the CapMem bias current for the synaptic input resistor controlling the time constant. </p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="id347">
-<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_time_constant_calib_1a593039c601c81d75892aea9d221cf4c9"></span><code class="sig-name descname"><span class="pre">_readout_source</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id347" title="Permalink to this definition">¶</a></dt>
+<dt id="id350">
+<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_time_constant_calib_1a593039c601c81d75892aea9d221cf4c9"></span><code class="sig-name descname"><span class="pre">_readout_source</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id350" title="Permalink to this definition">¶</a></dt>
 <dd><p>Readout source to select in neuron readout multiplexer. </p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="id348">
-<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_time_constant_calib_1a90ca016719c3f540d8237a5fb2bfb425"></span><code class="sig-name descname"><span class="pre">_row_mode</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id348" title="Permalink to this definition">¶</a></dt>
+<dt id="id351">
+<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_time_constant_calib_1a90ca016719c3f540d8237a5fb2bfb425"></span><code class="sig-name descname"><span class="pre">_row_mode</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id351" title="Permalink to this definition">¶</a></dt>
 <dd><p>Row mode (excitatory / inhibitory) of synapses to enable. </p>
 </dd></dl>
 
@@ -5403,8 +5482,8 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
 <dl class="py attribute">
-<dt id="id335">
-<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_time_constant_calib_1ae3f24f162804fa2531e6f0e9b00357ce"></span><code class="sig-name descname"><span class="pre">_wait_before_stimulation</span></code><a class="headerlink" href="#id335" title="Permalink to this definition">¶</a></dt>
+<dt id="id338">
+<span class="target" id="classcalix_1_1hagen_1_1neuron__synin_1_1_syn_time_constant_calib_1ae3f24f162804fa2531e6f0e9b00357ce"></span><code class="sig-name descname"><span class="pre">_wait_before_stimulation</span></code><a class="headerlink" href="#id338" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -5424,36 +5503,36 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="py function">
-<dt id="id351">
-<span class="target" id="classcalix_1_1spiking_1_1neuron__threshold_1_1_threshold_calib_c_a_d_c_1a689ea5d2658dd0f51f40958c9e3f712d"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">Union[int</span></em>, <em class="sig-param"><span class="pre">np.ndarray]</span> <span class="pre">target=125</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id351" title="Permalink to this definition">¶</a></dt>
+<dt id="id354">
+<span class="target" id="classcalix_1_1spiking_1_1neuron__threshold_1_1_threshold_calib_c_a_d_c_1a689ea5d2658dd0f51f40958c9e3f712d"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">Union[int</span></em>, <em class="sig-param"><span class="pre">np.ndarray]</span> <span class="pre">target=125</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id354" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="id352">
-<span class="target" id="classcalix_1_1spiking_1_1neuron__threshold_1_1_threshold_calib_c_a_d_c_1a179a570bfc388f698ca21ee1ee65d10e"></span><code class="sig-name descname"><span class="pre">configure_parameters</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">base.WriteRecordingPlaybackProgramBuilder</span> <span class="pre">builder</span></em>, <em class="sig-param"><span class="pre">np.ndarray</span> <span class="pre">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id352" title="Permalink to this definition">¶</a></dt>
+<dt id="id355">
+<span class="target" id="classcalix_1_1spiking_1_1neuron__threshold_1_1_threshold_calib_c_a_d_c_1a179a570bfc388f698ca21ee1ee65d10e"></span><code class="sig-name descname"><span class="pre">configure_parameters</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">base.WriteRecordingPlaybackProgramBuilder</span> <span class="pre">builder</span></em>, <em class="sig-param"><span class="pre">np.ndarray</span> <span class="pre">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id355" title="Permalink to this definition">¶</a></dt>
 <dd><p>Configure the given array of threshold voltages. </p>
 <p>:param builder: Builder to append configuration instructions to. :param parameters: Array of threshold voltages to set up.</p>
 <p>:return: Builder with configuration appended. </p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="id353">
-<span class="target" id="classcalix_1_1spiking_1_1neuron__threshold_1_1_threshold_calib_c_a_d_c_1a86719942e962711dd534ac88c37fc8a6"></span><code class="sig-name descname"><span class="pre">measure_results</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">hxcomm.ConnectionHandle</span> <span class="pre">connection</span></em>, <em class="sig-param"><span class="pre">base.WriteRecordingPlaybackProgramBuilder</span> <span class="pre">builder</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id353" title="Permalink to this definition">¶</a></dt>
+<dt id="id356">
+<span class="target" id="classcalix_1_1spiking_1_1neuron__threshold_1_1_threshold_calib_c_a_d_c_1a86719942e962711dd534ac88c37fc8a6"></span><code class="sig-name descname"><span class="pre">measure_results</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">hxcomm.ConnectionHandle</span> <span class="pre">connection</span></em>, <em class="sig-param"><span class="pre">base.WriteRecordingPlaybackProgramBuilder</span> <span class="pre">builder</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id356" title="Permalink to this definition">¶</a></dt>
 <dd><p>Samples the membrane repeatedly and returns the maximum obtained value as the voltage measurement closest to the threshold. </p>
 <p>:param connection: Connection to the chip. :param builder: Builder to append measurement to.</p>
 <p>:return: Array of near-threshold CADC reads. </p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="id354">
-<span class="target" id="classcalix_1_1spiking_1_1neuron__threshold_1_1_threshold_calib_c_a_d_c_1afc9ccbf9158c2c2846c1a869de46b941"></span><code class="sig-name descname"><span class="pre">postlude</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">hxcomm.ConnectionHandle</span> <span class="pre">connection</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id354" title="Permalink to this definition">¶</a></dt>
+<dt id="id357">
+<span class="target" id="classcalix_1_1spiking_1_1neuron__threshold_1_1_threshold_calib_c_a_d_c_1afc9ccbf9158c2c2846c1a869de46b941"></span><code class="sig-name descname"><span class="pre">postlude</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">hxcomm.ConnectionHandle</span> <span class="pre">connection</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id357" title="Permalink to this definition">¶</a></dt>
 <dd><p>Disable offset current CapMem cell again and restore original neuron configs. </p>
 <p>:param connection: Connection to the chip to run on. </p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="id355">
-<span class="target" id="classcalix_1_1spiking_1_1neuron__threshold_1_1_threshold_calib_c_a_d_c_1a6a28f95b28e22b8a9234a9a4b6cea8dd"></span><code class="sig-name descname"><span class="pre">prelude</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">hxcomm.ConnectionHandle</span> <span class="pre">connection</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id355" title="Permalink to this definition">¶</a></dt>
+<dt id="id358">
+<span class="target" id="classcalix_1_1spiking_1_1neuron__threshold_1_1_threshold_calib_c_a_d_c_1a6a28f95b28e22b8a9234a9a4b6cea8dd"></span><code class="sig-name descname"><span class="pre">prelude</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">hxcomm.ConnectionHandle</span> <span class="pre">connection</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id358" title="Permalink to this definition">¶</a></dt>
 <dd><p>Prepares chip for calibration, reads original neuron config in order to restore it after calibration. </p>
 <p>Disable leak, set a low reset voltage and the offset current. Note that only the amplitude of the current is set but it is not enabled.</p>
 <p>:param connection: Connection to the chip to calibrate. </p>
@@ -5463,13 +5542,13 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
 <dl class="py attribute">
-<dt id="id349">
-<span class="target" id="classcalix_1_1spiking_1_1neuron__threshold_1_1_threshold_calib_c_a_d_c_1a0e953f86d6deb53996ba09fa1236f8ab"></span><code class="sig-name descname"><span class="pre">original_neuron_configs</span></code><a class="headerlink" href="#id349" title="Permalink to this definition">¶</a></dt>
+<dt id="id352">
+<span class="target" id="classcalix_1_1spiking_1_1neuron__threshold_1_1_threshold_calib_c_a_d_c_1a0e953f86d6deb53996ba09fa1236f8ab"></span><code class="sig-name descname"><span class="pre">original_neuron_configs</span></code><a class="headerlink" href="#id352" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="id350">
-<span class="target" id="classcalix_1_1spiking_1_1neuron__threshold_1_1_threshold_calib_c_a_d_c_1acb81b84e50a932a50934501b851b0d86"></span><code class="sig-name descname"><span class="pre">target</span></code><a class="headerlink" href="#id350" title="Permalink to this definition">¶</a></dt>
+<dt id="id353">
+<span class="target" id="classcalix_1_1spiking_1_1neuron__threshold_1_1_threshold_calib_c_a_d_c_1acb81b84e50a932a50934501b851b0d86"></span><code class="sig-name descname"><span class="pre">target</span></code><a class="headerlink" href="#id353" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -5488,21 +5567,21 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="py function">
-<dt id="id361">
-<span class="target" id="classcalix_1_1spiking_1_1neuron__threshold_1_1_threshold_calib_m_a_d_c_1ae66f9523f94e76425a52763b22dee34f"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">Union[int</span></em>, <em class="sig-param"><span class="pre">np.ndarray]</span> <span class="pre">target=125</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id361" title="Permalink to this definition">¶</a></dt>
+<dt id="id364">
+<span class="target" id="classcalix_1_1spiking_1_1neuron__threshold_1_1_threshold_calib_m_a_d_c_1ae66f9523f94e76425a52763b22dee34f"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">Union[int</span></em>, <em class="sig-param"><span class="pre">np.ndarray]</span> <span class="pre">target=125</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id364" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="id362">
-<span class="target" id="classcalix_1_1spiking_1_1neuron__threshold_1_1_threshold_calib_m_a_d_c_1a38686a2f9f732fc994aa333309516c52"></span><code class="sig-name descname"><span class="pre">configure_parameters</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">base.WriteRecordingPlaybackProgramBuilder</span> <span class="pre">builder</span></em>, <em class="sig-param"><span class="pre">np.ndarray</span> <span class="pre">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id362" title="Permalink to this definition">¶</a></dt>
+<dt id="id365">
+<span class="target" id="classcalix_1_1spiking_1_1neuron__threshold_1_1_threshold_calib_m_a_d_c_1a38686a2f9f732fc994aa333309516c52"></span><code class="sig-name descname"><span class="pre">configure_parameters</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">base.WriteRecordingPlaybackProgramBuilder</span> <span class="pre">builder</span></em>, <em class="sig-param"><span class="pre">np.ndarray</span> <span class="pre">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id365" title="Permalink to this definition">¶</a></dt>
 <dd><p>Configure the given array of threshold voltages. </p>
 <p>:param builder: Builder to append configuration instructions to. :param parameters: Array of threshold voltages to set up.</p>
 <p>:return: Builder with configuration appended. </p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="id363">
-<span class="target" id="classcalix_1_1spiking_1_1neuron__threshold_1_1_threshold_calib_m_a_d_c_1a5f9022cd0c77b0ea98c81249213b17c1"></span><code class="sig-name descname"><span class="pre">evaluate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">List[np.ndarray]</span> <span class="pre">samples</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id363" title="Permalink to this definition">¶</a></dt>
+<dt id="id366">
+<span class="target" id="classcalix_1_1spiking_1_1neuron__threshold_1_1_threshold_calib_m_a_d_c_1a5f9022cd0c77b0ea98c81249213b17c1"></span><code class="sig-name descname"><span class="pre">evaluate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">List[np.ndarray]</span> <span class="pre">samples</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id366" title="Permalink to this definition">¶</a></dt>
 <dd><p>Evaluates the obtained MADC samples. </p>
 <p>For each neuron’s MADC samples the maximum is determined which is assumed to be near the threshold voltage.</p>
 <p>:param samples: MADC samples obtained for each neuron.</p>
@@ -5510,8 +5589,8 @@
 </dd></dl>
 
 <dl class="py function">
-<dt id="id364">
-<span class="target" id="classcalix_1_1spiking_1_1neuron__threshold_1_1_threshold_calib_m_a_d_c_1a3159d97a01a19190dd778a7b273d5f1b"></span><code class="sig-name descname"><span class="pre">neuron_config_disabled</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">halco.NeuronConfigOnDLS</span> <span class="pre">neuron_coord</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id364" title="Permalink to this definition">¶</a></dt>
+<dt id="id367">
+<span class="target" id="classcalix_1_1spiking_1_1neuron__threshold_1_1_threshold_calib_m_a_d_c_1a3159d97a01a19190dd778a7b273d5f1b"></span><code class="sig-name descname"><span class="pre">neuron_config_disabled</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">halco.NeuronConfigOnDLS</span> <span class="pre">neuron_coord</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id367" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a neuron config with readout disabled. </p>
 <p>The synaptic input and the offset current are disabled as well.</p>
 <p>:param neuron_coord: Coordinate of neuron to get config for.</p>
@@ -5519,8 +5598,8 @@
 </dd></dl>
 
 <dl class="py function">
-<dt id="id365">
-<span class="target" id="classcalix_1_1spiking_1_1neuron__threshold_1_1_threshold_calib_m_a_d_c_1ac47efaa2f841d581db9d2dab7fcbcf25"></span><code class="sig-name descname"><span class="pre">neuron_config_readout</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">halco.NeuronConfigOnDLS</span> <span class="pre">neuron_coord</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id365" title="Permalink to this definition">¶</a></dt>
+<dt id="id368">
+<span class="target" id="classcalix_1_1spiking_1_1neuron__threshold_1_1_threshold_calib_m_a_d_c_1ac47efaa2f841d581db9d2dab7fcbcf25"></span><code class="sig-name descname"><span class="pre">neuron_config_readout</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">halco.NeuronConfigOnDLS</span> <span class="pre">neuron_coord</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id368" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a neuron config with readout enabled. </p>
 <p>Also, the offset current and threshold comparator are enabled for regular spiking.</p>
 <p>:param neuron_coord: Coordinate of neuron to get config for.</p>
@@ -5528,23 +5607,23 @@
 </dd></dl>
 
 <dl class="py function">
-<dt id="id366">
-<span class="target" id="classcalix_1_1spiking_1_1neuron__threshold_1_1_threshold_calib_m_a_d_c_1a23f966407a515ba7cf5357fedb254832"></span><code class="sig-name descname"><span class="pre">postlude</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">hxcomm.ConnectionHandle</span> <span class="pre">connection</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id366" title="Permalink to this definition">¶</a></dt>
+<dt id="id369">
+<span class="target" id="classcalix_1_1spiking_1_1neuron__threshold_1_1_threshold_calib_m_a_d_c_1a23f966407a515ba7cf5357fedb254832"></span><code class="sig-name descname"><span class="pre">postlude</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">hxcomm.ConnectionHandle</span> <span class="pre">connection</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id369" title="Permalink to this definition">¶</a></dt>
 <dd><p>Disable offset current CapMem cell again. </p>
 <p>:param connection: Connection to the chip to run on. </p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="id367">
-<span class="target" id="classcalix_1_1spiking_1_1neuron__threshold_1_1_threshold_calib_m_a_d_c_1ab3c4f42cdb1f4061753c62d8b2a3cc44"></span><code class="sig-name descname"><span class="pre">prelude</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">hxcomm.ConnectionHandle</span> <span class="pre">connection</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id367" title="Permalink to this definition">¶</a></dt>
+<dt id="id370">
+<span class="target" id="classcalix_1_1spiking_1_1neuron__threshold_1_1_threshold_calib_m_a_d_c_1ab3c4f42cdb1f4061753c62d8b2a3cc44"></span><code class="sig-name descname"><span class="pre">prelude</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">hxcomm.ConnectionHandle</span> <span class="pre">connection</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id370" title="Permalink to this definition">¶</a></dt>
 <dd><p>Prepares chip for calibration. </p>
 <p>Disable leak, set a low reset voltage and the offset current. Note that only the amplitude of the current is set but it is not enabled.</p>
 <p>:param connection: Connection to the chip to calibrate. </p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="id368">
-<span class="target" id="classcalix_1_1spiking_1_1neuron__threshold_1_1_threshold_calib_m_a_d_c_1ace3de55a19e38cfe094c57621ee0081b"></span><code class="sig-name descname"><span class="pre">stimulate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">base.WriteRecordingPlaybackProgramBuilder</span> <span class="pre">builder</span></em>, <em class="sig-param"><span class="pre">halco.NeuronConfigOnDLS</span> <span class="pre">neuron_coord</span></em>, <em class="sig-param"><span class="pre">hal.Timer.Value</span> <span class="pre">stimulation_time</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id368" title="Permalink to this definition">¶</a></dt>
+<dt id="id371">
+<span class="target" id="classcalix_1_1spiking_1_1neuron__threshold_1_1_threshold_calib_m_a_d_c_1ace3de55a19e38cfe094c57621ee0081b"></span><code class="sig-name descname"><span class="pre">stimulate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">base.WriteRecordingPlaybackProgramBuilder</span> <span class="pre">builder</span></em>, <em class="sig-param"><span class="pre">halco.NeuronConfigOnDLS</span> <span class="pre">neuron_coord</span></em>, <em class="sig-param"><span class="pre">hal.Timer.Value</span> <span class="pre">stimulation_time</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id371" title="Permalink to this definition">¶</a></dt>
 <dd><p>Empty function. </p>
 <p>The offset current is enabled already in the <code class="docutils literal notranslate"><span class="pre">neuron_config_readout</span></code>, therefore no stimuli are neccesary.</p>
 <p>:param builder: Builder to append neuron resets to. :param neuron_coord: Coordinate of neuron which is currently recorded. :param stimulation_time: Timer value at beginning of stimulation.</p>
@@ -5555,31 +5634,31 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
 <dl class="py attribute">
-<dt id="id356">
-<span class="target" id="classcalix_1_1spiking_1_1neuron__threshold_1_1_threshold_calib_m_a_d_c_1a2ce737e6d367c9745a8f568183897a7b"></span><code class="sig-name descname"><span class="pre">neuron_configs</span></code><a class="headerlink" href="#id356" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="id357">
-<span class="target" id="classcalix_1_1spiking_1_1neuron__threshold_1_1_threshold_calib_m_a_d_c_1a91eda20c0d1dc5e0786adb2ad0214718"></span><code class="sig-name descname"><span class="pre">sampling_time</span></code><a class="headerlink" href="#id357" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="id358">
-<span class="target" id="classcalix_1_1spiking_1_1neuron__threshold_1_1_threshold_calib_m_a_d_c_1a45d77a4cc7b98fecc03cf23baeea9b39"></span><code class="sig-name descname"><span class="pre">target</span></code><a class="headerlink" href="#id358" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
 <dt id="id359">
-<span class="target" id="classcalix_1_1spiking_1_1neuron__threshold_1_1_threshold_calib_m_a_d_c_1ad72449a84ebb45e4448a544a37448625"></span><code class="sig-name descname"><span class="pre">wait_between_neurons</span></code><a class="headerlink" href="#id359" title="Permalink to this definition">¶</a></dt>
+<span class="target" id="classcalix_1_1spiking_1_1neuron__threshold_1_1_threshold_calib_m_a_d_c_1a2ce737e6d367c9745a8f568183897a7b"></span><code class="sig-name descname"><span class="pre">neuron_configs</span></code><a class="headerlink" href="#id359" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="id360">
+<span class="target" id="classcalix_1_1spiking_1_1neuron__threshold_1_1_threshold_calib_m_a_d_c_1a91eda20c0d1dc5e0786adb2ad0214718"></span><code class="sig-name descname"><span class="pre">sampling_time</span></code><a class="headerlink" href="#id360" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="id361">
+<span class="target" id="classcalix_1_1spiking_1_1neuron__threshold_1_1_threshold_calib_m_a_d_c_1a45d77a4cc7b98fecc03cf23baeea9b39"></span><code class="sig-name descname"><span class="pre">target</span></code><a class="headerlink" href="#id361" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="id362">
+<span class="target" id="classcalix_1_1spiking_1_1neuron__threshold_1_1_threshold_calib_m_a_d_c_1ad72449a84ebb45e4448a544a37448625"></span><code class="sig-name descname"><span class="pre">wait_between_neurons</span></code><a class="headerlink" href="#id362" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
 <dl class="py attribute">
-<dt id="id360">
-<span class="target" id="classcalix_1_1spiking_1_1neuron__threshold_1_1_threshold_calib_m_a_d_c_1aae0b825f1c38c26204e56c4935852fbe"></span><code class="sig-name descname"><span class="pre">_wait_before_stimulation</span></code><a class="headerlink" href="#id360" title="Permalink to this definition">¶</a></dt>
+<dt id="id363">
+<span class="target" id="classcalix_1_1spiking_1_1neuron__threshold_1_1_threshold_calib_m_a_d_c_1aae0b825f1c38c26204e56c4935852fbe"></span><code class="sig-name descname"><span class="pre">_wait_before_stimulation</span></code><a class="headerlink" href="#id363" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -5599,31 +5678,31 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="py function">
-<dt id="id374">
-<span class="target" id="classcalix_1_1spiking_1_1correlation_1_1_time_constant_calib_1a1aa54b4109bd0111ac0e11bf02a1e2b9"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">Optional[pq.Quantity]</span> <span class="pre">target=5</span> <span class="pre">*pq.us</span></em>, <em class="sig-param"><span class="pre">*CorrelationBranches</span> <span class="pre">branches=CorrelationBranches.CAUSAL</span></em>, <em class="sig-param"><span class="pre">int</span> <span class="pre">amp_calib=0</span></em>, <em class="sig-param"><span class="pre">int</span> <span class="pre">time_calib=0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id374" title="Permalink to this definition">¶</a></dt>
+<dt id="id377">
+<span class="target" id="classcalix_1_1spiking_1_1correlation_1_1_time_constant_calib_1a1aa54b4109bd0111ac0e11bf02a1e2b9"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">Optional[pq.Quantity]</span> <span class="pre">target=5</span> <span class="pre">*pq.us</span></em>, <em class="sig-param"><span class="pre">*CorrelationBranches</span> <span class="pre">branches=CorrelationBranches.CAUSAL</span></em>, <em class="sig-param"><span class="pre">int</span> <span class="pre">amp_calib=0</span></em>, <em class="sig-param"><span class="pre">int</span> <span class="pre">time_calib=0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id377" title="Permalink to this definition">¶</a></dt>
 <dd><p>:param target: Target time constant for calibration. </p>
 <p>:param amp_calib: Amplitude calibration setting to use in all synapses during measurement. :param time_calib: Time constant calibration setting to use in all synapses during measurement. </p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="id375">
-<span class="target" id="classcalix_1_1spiking_1_1correlation_1_1_time_constant_calib_1a460c209df7807e28c775432be8cd9a6a"></span><code class="sig-name descname"><span class="pre">configure_parameters</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">base.WriteRecordingPlaybackProgramBuilder</span> <span class="pre">builder</span></em>, <em class="sig-param"><span class="pre">np.ndarray</span> <span class="pre">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id375" title="Permalink to this definition">¶</a></dt>
+<dt id="id378">
+<span class="target" id="classcalix_1_1spiking_1_1correlation_1_1_time_constant_calib_1a460c209df7807e28c775432be8cd9a6a"></span><code class="sig-name descname"><span class="pre">configure_parameters</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">base.WriteRecordingPlaybackProgramBuilder</span> <span class="pre">builder</span></em>, <em class="sig-param"><span class="pre">np.ndarray</span> <span class="pre">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id378" title="Permalink to this definition">¶</a></dt>
 <dd><p>Configure the given ramp bias currents in the given builder. </p>
 <p>:param builder: Builder to append configuration instructions to. :param parameters: Correlation ramp bias current for each quadrant.</p>
 <p>:return: Builder with configuration appended. </p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="id376">
-<span class="target" id="classcalix_1_1spiking_1_1correlation_1_1_time_constant_calib_1acfabccf58021ed74551776333d9ff58f"></span><code class="sig-name descname"><span class="pre">measure_results</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">hxcomm.ConnectionHandle</span> <span class="pre">connection</span></em>, <em class="sig-param"><span class="pre">base.WriteRecordingPlaybackProgramBuilder</span> <span class="pre">builder</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id376" title="Permalink to this definition">¶</a></dt>
+<dt id="id379">
+<span class="target" id="classcalix_1_1spiking_1_1correlation_1_1_time_constant_calib_1acfabccf58021ed74551776333d9ff58f"></span><code class="sig-name descname"><span class="pre">measure_results</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">hxcomm.ConnectionHandle</span> <span class="pre">connection</span></em>, <em class="sig-param"><span class="pre">base.WriteRecordingPlaybackProgramBuilder</span> <span class="pre">builder</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id379" title="Permalink to this definition">¶</a></dt>
 <dd><p>Estimate correlation parameters of each quadrant. </p>
 <p>:param connection: Connection to the chip to run on. :param builder: Builder to run before measurements.</p>
 <p>:return: Array of each quadrant’s time constants. </p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="id377">
-<span class="target" id="classcalix_1_1spiking_1_1correlation_1_1_time_constant_calib_1afc51de1d775151c8ce4d79a19619e8cd"></span><code class="sig-name descname"><span class="pre">prelude</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">hxcomm.ConnectionHandle</span> <span class="pre">connection</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id377" title="Permalink to this definition">¶</a></dt>
+<dt id="id380">
+<span class="target" id="classcalix_1_1spiking_1_1correlation_1_1_time_constant_calib_1afc51de1d775151c8ce4d79a19619e8cd"></span><code class="sig-name descname"><span class="pre">prelude</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">hxcomm.ConnectionHandle</span> <span class="pre">connection</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id380" title="Permalink to this definition">¶</a></dt>
 <dd><p>Preconfigure the chip for correlation measurements. </p>
 <p>:param connection: Connection to the chip to run on. </p>
 </dd></dl>
@@ -5632,28 +5711,28 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
 <dl class="py attribute">
-<dt id="id369">
-<span class="target" id="classcalix_1_1spiking_1_1correlation_1_1_time_constant_calib_1a547c9891b6f47ddade8b88f6984cc074"></span><code class="sig-name descname"><span class="pre">branches</span></code><a class="headerlink" href="#id369" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="id370">
-<span class="target" id="classcalix_1_1spiking_1_1correlation_1_1_time_constant_calib_1a3751c8f49db86872c5e42362709178b9"></span><code class="sig-name descname"><span class="pre">log</span></code><a class="headerlink" href="#id370" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="id371">
-<span class="target" id="classcalix_1_1spiking_1_1correlation_1_1_time_constant_calib_1a7b0448410fd67ce4c169b91c5139ed90"></span><code class="sig-name descname"><span class="pre">measurement</span></code><a class="headerlink" href="#id371" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
 <dt id="id372">
-<span class="target" id="classcalix_1_1spiking_1_1correlation_1_1_time_constant_calib_1a83bd8d96ae893c18f9401ad51983938d"></span><code class="sig-name descname"><span class="pre">quads</span></code><a class="headerlink" href="#id372" title="Permalink to this definition">¶</a></dt>
+<span class="target" id="classcalix_1_1spiking_1_1correlation_1_1_time_constant_calib_1a547c9891b6f47ddade8b88f6984cc074"></span><code class="sig-name descname"><span class="pre">branches</span></code><a class="headerlink" href="#id372" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt id="id373">
-<span class="target" id="classcalix_1_1spiking_1_1correlation_1_1_time_constant_calib_1aceb1cb735b363d3dcb7baf04613e91fe"></span><code class="sig-name descname"><span class="pre">target</span></code><a class="headerlink" href="#id373" title="Permalink to this definition">¶</a></dt>
+<span class="target" id="classcalix_1_1spiking_1_1correlation_1_1_time_constant_calib_1a3751c8f49db86872c5e42362709178b9"></span><code class="sig-name descname"><span class="pre">log</span></code><a class="headerlink" href="#id373" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="id374">
+<span class="target" id="classcalix_1_1spiking_1_1correlation_1_1_time_constant_calib_1a7b0448410fd67ce4c169b91c5139ed90"></span><code class="sig-name descname"><span class="pre">measurement</span></code><a class="headerlink" href="#id374" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="id375">
+<span class="target" id="classcalix_1_1spiking_1_1correlation_1_1_time_constant_calib_1a83bd8d96ae893c18f9401ad51983938d"></span><code class="sig-name descname"><span class="pre">quads</span></code><a class="headerlink" href="#id375" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="id376">
+<span class="target" id="classcalix_1_1spiking_1_1correlation_1_1_time_constant_calib_1aceb1cb735b363d3dcb7baf04613e91fe"></span><code class="sig-name descname"><span class="pre">target</span></code><a class="headerlink" href="#id376" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -5673,8 +5752,8 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="py function">
-<dt id="id378">
-<span class="target" id="classcalix_1_1common_1_1base_1_1_top_level_calib_target_1ada9c3fad5633d5091ee7db0f3fb3740d"></span><code class="sig-name descname"><span class="pre">calibrate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">hxcomm.ConnectionHandle</span> <span class="pre">connection</span></em>, <em class="sig-param"><span class="pre">Optional[CalibOptions]</span> <span class="pre">options=None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id378" title="Permalink to this definition">¶</a></dt>
+<dt id="id381">
+<span class="target" id="classcalix_1_1common_1_1base_1_1_top_level_calib_target_1ada9c3fad5633d5091ee7db0f3fb3740d"></span><code class="sig-name descname"><span class="pre">calibrate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">hxcomm.ConnectionHandle</span> <span class="pre">connection</span></em>, <em class="sig-param"><span class="pre">Optional[CalibOptions]</span> <span class="pre">options=None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id381" title="Permalink to this definition">¶</a></dt>
 <dd><p>Execute a calibration for this target. </p>
 <p>:param connection: Connection to be used :param options: Calibration options :return: Calibration result </p>
 </dd></dl>
@@ -6639,8 +6718,24 @@
 
 <dl class="py class">
 <dt id="calix.spiking.synapse_driver">
-<span class="target" id="namespacecalix_1_1spiking_1_1synapse__driver"></span><em class="property"><span class="pre">module</span> </em><code class="sig-name descname"><span class="pre">synapse_driver</span></code><a class="headerlink" href="#calix.spiking.synapse_driver" title="Permalink to this definition">¶</a></dt>
+<span class="target" id="namespacecalix_1_1spiking_1_1synapse__driver"></span><em class="property"><span class="pre">module</span> </em><code class="sig-prename descclassname"><span class="pre">calix.spiking.</span></code><code class="sig-name descname"><span class="pre">synapse_driver</span></code><a class="headerlink" href="#calix.spiking.synapse_driver" title="Permalink to this definition">¶</a></dt>
 <dd><p>Provides a calibration class for the synapse driver STP offset for the usual spiking mode. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="py function">
+<dt id="calix.spiking.synapse_driver.calibrate">
+<span class="target" id="namespacecalix_1_1spiking_1_1synapse__driver_1abf72a849cb272386e241260566aedd6c"></span><code class="sig-name descname"><span class="pre">calibrate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">hxcomm.ConnectionHandle</span> <span class="pre">connection</span></em>, <em class="sig-param"><span class="pre">*Optional[STPCalibTarget]</span> <span class="pre">target=None</span></em>, <em class="sig-param"><span class="pre">Optional[STPCalibOptions]</span> <span class="pre">options=None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.spiking.synapse_driver.calibrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calibrate all synapse drivers’ STP offsets. </p>
+<p>The STP ramp current is set as provided in the options. The other STP voltages, as given in the options, are configured after calibration.</p>
+<p>Requirements:<ul class="simple">
+<li><p>CADCs and Synapse DAC biases are calibrated.</p></li>
+</ul>
+</p>
+<p>:param connection: Connection to the chip to calibrate. :param target: Target parameters for calibration. :param options: Further options for calibration, including STP voltages.</p>
+<p>:return: STP calib result. </p>
+</dd></dl>
+
+</div>
 </dd></dl>
 
 <dl class="py class">
@@ -7062,52 +7157,52 @@
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_c35a4213fddb628e2be6588952b4aa7a"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjOTY3OQ.x/calix</span></code></dt>
+<span class="target" id="dir_c35a4213fddb628e2be6588952b4aa7a"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjOTY4Nw.x/calix</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_82a35310634ec59f1204b5a89ab180c2"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjOTY3OQ.x/calix/src/py/calix</span></code></dt>
+<span class="target" id="dir_82a35310634ec59f1204b5a89ab180c2"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjOTY4Nw.x/calix/src/py/calix</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_5f8140149f6c25fac289bffcf217ba0f"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjOTY3OQ.x/calix/src/py/calix/common</span></code></dt>
+<span class="target" id="dir_5f8140149f6c25fac289bffcf217ba0f"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjOTY4Nw.x/calix/src/py/calix/common</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_79dd501e695b0ff0539e6dfe8c054e50"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjOTY3OQ.x/calix/src/py/calix/examples</span></code></dt>
+<span class="target" id="dir_79dd501e695b0ff0539e6dfe8c054e50"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjOTY4Nw.x/calix/src/py/calix/examples</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_1a13b09fb48f7daf03bf32d21388e4f1"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjOTY3OQ.x/calix/src/py/calix/hagen</span></code></dt>
+<span class="target" id="dir_1a13b09fb48f7daf03bf32d21388e4f1"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjOTY4Nw.x/calix/src/py/calix/hagen</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_d9b46f0c81a5bc28bd701ca679fdd154"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjOTY3OQ.x/calix/src/py/calix/multicomp</span></code></dt>
+<span class="target" id="dir_d9b46f0c81a5bc28bd701ca679fdd154"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjOTY4Nw.x/calix/src/py/calix/multicomp</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_8638feb6d3d74ce8c52c6a166958a78e"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjOTY3OQ.x/calix/src/py</span></code></dt>
+<span class="target" id="dir_8638feb6d3d74ce8c52c6a166958a78e"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjOTY4Nw.x/calix/src/py</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_d19dcf94b302e45079f65ed711419664"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjOTY3OQ.x/calix/src/py/calix/scripts</span></code></dt>
+<span class="target" id="dir_d19dcf94b302e45079f65ed711419664"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjOTY4Nw.x/calix/src/py/calix/scripts</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_99cd149c1e2c45a11fa03ec83bb2f7d6"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjOTY3OQ.x/calix/src/py/calix/spiking</span></code></dt>
+<span class="target" id="dir_99cd149c1e2c45a11fa03ec83bb2f7d6"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjOTY4Nw.x/calix/src/py/calix/spiking</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_e78734f8a9c4496b3b751d186a730c09"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjOTY3OQ.x/calix/src</span></code></dt>
+<span class="target" id="dir_e78734f8a9c4496b3b751d186a730c09"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjOTY4Nw.x/calix/src</span></code></dt>
 <dd></dd></dl>
 
 </section>
