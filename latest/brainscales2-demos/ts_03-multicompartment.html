@@ -263,6 +263,8 @@ You can find more detailed information about the multi-compartmental capabilitie
 <span class="kn">import</span> <span class="nn">quantities</span> <span class="k">as</span> <span class="nn">pq</span>
 
 <span class="kn">import</span> <span class="nn">pynn_brainscales.brainscales2</span> <span class="k">as</span> <span class="nn">pynn</span>
+<span class="kn">from</span> <span class="nn">pynn_brainscales.brainscales2.morphology</span> <span class="kn">import</span> <span class="n">create_mc_neuron</span><span class="p">,</span> \
+    <span class="n">Compartment</span><span class="p">,</span> <span class="n">SharedLineConnection</span>
 </pre></div>
 </div>
 <p>A default calibration is generated for every setup every night.
@@ -284,52 +286,44 @@ We save the nightly calibration in two variables such that we can use it later w
 </section>
 <section id="constructing-a-compartment-chain">
 <h2>Constructing a Compartment Chain<a class="headerlink" href="#constructing-a-compartment-chain" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">HXNeuron</span></code> allows to set all relevant parameters of the BrainScaleS-2 neuron circuits.
-It particularly allows to control the direct connections between neuron circuits and the connections to the somatic line.</p>
 <p>We will now create a chain of compartments, which are connected via conductances.
 Each compartment in the middle of the chain has two neighbors.
 Therefore, these compartments have to establish two connections via the somatic line.
 As a consequence each is made up of two neuron circuits: the first will connect to the somatic line via the conductance and the second via the switch.</p>
-<p>In order to form the chain with <code class="docutils literal notranslate"><span class="pre">length</span></code> compartments, we create a set (population) of <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">*</span> <span class="pre">length</span></code> neuron circuits (<code class="docutils literal notranslate"><span class="pre">HXNeurons</span></code>); note that we use two neuron circuits for the first and last compartment as well even though it is not strictly needed.
-We will use the second neuron circuit to determine the properties of the compartment such as capacitance and leak potential.
-We choose the second neuron circuit since we will later also use this circuits adjustable resistance to connect it to its neighboring compartment.
-Consequently, we disable the leak (set the leak conductance to zero) for the first circuit and set its capacitance to zero.</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pop</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="n">length</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span>
-                      <span class="n">pynn</span><span class="o">.</span><span class="n">cells</span><span class="o">.</span><span class="n">HXNeuron</span><span class="p">())</span>
+<p>The PyNN interface allows us to define compartments and the connections between them.
+Once we defined all compartments and connections, we can create a new neuron type.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">length</span> <span class="o">&gt;=</span> <span class="mi">2</span>
+<span class="n">compartments</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">n_comp</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">length</span><span class="p">):</span>
+    <span class="n">positions</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span> <span class="o">*</span> <span class="n">n_comp</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">n_comp</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="c1"># use direct connection to connect to the right</span>
+    <span class="n">connect_shared_line</span> <span class="o">=</span> <span class="kc">None</span> <span class="k">if</span> <span class="n">n_comp</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="p">[</span><span class="n">positions</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+    <span class="c1"># use resistor to connect to the right</span>
+    <span class="n">connect_conductance</span> <span class="o">=</span> <span class="kc">None</span> <span class="k">if</span> <span class="n">n_comp</span> <span class="o">==</span> <span class="p">(</span><span class="n">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="k">else</span> \
+        <span class="p">[(</span><span class="n">positions</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">200</span><span class="p">)]</span>
+    <span class="n">compartments</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+        <span class="n">Compartment</span><span class="p">(</span><span class="n">positions</span><span class="o">=</span><span class="n">positions</span><span class="p">,</span>
+                    <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;comp_</span><span class="si">{</span><span class="n">n_comp</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+                    <span class="n">connect_conductance</span><span class="o">=</span><span class="n">connect_conductance</span><span class="p">,</span>
+                    <span class="n">connect_shared_line</span><span class="o">=</span><span class="n">connect_shared_line</span><span class="p">))</span>
 
-<span class="c1"># Combine two neuron circuits to one compartment; &quot;disable&quot; first</span>
-<span class="c1"># neuron circuit</span>
-<span class="n">pynn</span><span class="o">.</span><span class="n">PopulationView</span><span class="p">(</span><span class="n">pop</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">length</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
-    <span class="n">multicompartment_connect_right</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-    <span class="n">leak_i_bias</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
-    <span class="n">leak_enable_division</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-    <span class="n">membrane_capacitance_capacitance</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>As mentioned before, one of the circuits connects via a conductance to the somatic line and the other via the switch.
-In order to establish connections between the compartments, we have to close the somatic line for every second neuron circuit.
-This time we have to ignore the first and last compartment as they only have one connection to the somatic line.</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Enable direct connection to somatic line for even neuron circuits</span>
-<span class="c1"># (don&#39;t connect first neuron circuit)</span>
-<span class="n">pynn</span><span class="o">.</span><span class="n">PopulationView</span><span class="p">(</span><span class="n">pop</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">length</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
-    <span class="n">multicompartment_connect_soma</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="c1"># Connect resistor to somatic line and close connection to the right</span>
-<span class="c1"># for uneven circuits (don&#39;t connect last neuron circuit)</span>
-<span class="n">pynn</span><span class="o">.</span><span class="n">PopulationView</span><span class="p">(</span><span class="n">pop</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
-        <span class="n">multicompartment_enable_conductance</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-        <span class="n">multicompartment_i_bias_nmda</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span>
-        <span class="n">multicompartment_connect_soma_right</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Disable spiking</span>
-<span class="n">pop</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">threshold_enable</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="c1"># close shared line between neighboring compartments</span>
+<span class="n">connections</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">n_comp</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="c1"># start at second circuit in first compartment</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">n_comp</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">connections</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+        <span class="n">SharedLineConnection</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="n">start</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
 
-<span class="c1"># Every uneven neuron circuit controls the capacitance, resistance,</span>
-<span class="c1"># leak, ... of a single compartment. Save views on these circuits as</span>
-<span class="c1"># compartments</span>
-<span class="n">compartments</span> <span class="o">=</span> <span class="p">[</span><span class="n">pynn</span><span class="o">.</span><span class="n">PopulationView</span><span class="p">(</span><span class="n">pop</span><span class="p">,</span> <span class="p">[</span><span class="n">n</span><span class="p">])</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span>
-                <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">length</span><span class="p">,</span> <span class="mi">2</span><span class="p">)]</span>
+<span class="c1"># create new neuron type</span>
+<span class="n">CompartmentChain</span> <span class="o">=</span> <span class="n">create_mc_neuron</span><span class="p">(</span><span class="s1">&#39;CompartmentChain&#39;</span><span class="p">,</span>
+                                    <span class="n">compartments</span><span class="o">=</span><span class="n">compartments</span><span class="p">,</span>
+                                    <span class="n">connections</span><span class="o">=</span><span class="n">connections</span><span class="p">,</span>
+                                    <span class="n">single_active_circuit</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># disable spiking since we want to observe the attenuation of PSPs</span>
+<span class="n">pop</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">CompartmentChain</span><span class="p">(</span><span class="n">threshold_enable</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
 </pre></div>
 </div>
 </section>
@@ -340,15 +334,15 @@ This time we have to ignore the first and last compartment as they only have one
 <span class="n">spike_times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">length</span><span class="p">)</span> <span class="o">*</span> <span class="n">isi</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">isi</span>  <span class="c1"># ms (hw)</span>
 <span class="c1"># Inject stimulus in one compartment after another</span>
 <span class="n">projections</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">spike_time</span><span class="p">,</span> <span class="n">compartment</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">spike_times</span><span class="p">,</span> <span class="n">compartments</span><span class="p">):</span>
+<span class="k">for</span> <span class="n">n_comp</span><span class="p">,</span> <span class="n">spike_time</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">spike_times</span><span class="p">):</span>
     <span class="n">pop_in</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">pynn</span><span class="o">.</span><span class="n">cells</span><span class="o">.</span><span class="n">SpikeSourceArray</span><span class="p">(</span>
         <span class="n">spike_times</span><span class="o">=</span><span class="p">[</span><span class="n">spike_time</span><span class="p">]))</span>
 
     <span class="c1"># Note: the weight will be set later</span>
     <span class="n">synapse_type</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">standardmodels</span><span class="o">.</span><span class="n">synapses</span><span class="o">.</span><span class="n">StaticSynapse</span><span class="p">()</span>
     <span class="n">projections</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-        <span class="n">pynn</span><span class="o">.</span><span class="n">Projection</span><span class="p">(</span><span class="n">pop_in</span><span class="p">,</span> <span class="n">compartment</span><span class="p">,</span>
-                        <span class="n">pynn</span><span class="o">.</span><span class="n">AllToAllConnector</span><span class="p">(),</span>
+        <span class="n">pynn</span><span class="o">.</span><span class="n">Projection</span><span class="p">(</span><span class="n">pop_in</span><span class="p">,</span> <span class="n">pop</span><span class="p">,</span>
+                        <span class="n">pynn</span><span class="o">.</span><span class="n">AllToAllConnector</span><span class="p">(</span><span class="n">location_selector</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;comp_</span><span class="si">{</span><span class="n">n_comp</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">),</span>
                         <span class="n">synapse_type</span><span class="o">=</span><span class="n">synapse_type</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -366,23 +360,22 @@ Since we use a single ADC (analog-to-digital converter) to record the membrane p
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="c1"># Set parameters</span>
-    <span class="k">for</span> <span class="n">comp</span> <span class="ow">in</span> <span class="n">compartments</span><span class="p">:</span>
-        <span class="n">comp</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">multicompartment_i_bias_nmda</span><span class="o">=</span><span class="n">conductance</span><span class="p">)</span>
+    <span class="n">pop</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">multicompartment_i_bias_nmda</span><span class="o">=</span><span class="n">conductance</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">proj</span> <span class="ow">in</span> <span class="n">projections</span><span class="p">:</span>
         <span class="n">proj</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">weight</span><span class="o">=</span><span class="n">weight</span><span class="p">)</span>
 
 
     <span class="c1"># Run on hardware and record mebrane potentials</span>
     <span class="n">membrane_traces</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">comp</span> <span class="ow">in</span> <span class="n">compartments</span><span class="p">:</span>
-        <span class="n">comp</span><span class="o">.</span><span class="n">record</span><span class="p">([</span><span class="s1">&#39;v&#39;</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">n_comp</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">length</span><span class="p">):</span>
+        <span class="n">pop</span><span class="o">.</span><span class="n">record</span><span class="p">([</span><span class="s1">&#39;v&#39;</span><span class="p">],</span> <span class="n">locations</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;comp_</span><span class="si">{</span><span class="n">n_comp</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">])</span>
 
         <span class="n">pynn</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">length</span> <span class="o">*</span> <span class="n">isi</span><span class="p">)</span>
+
+        <span class="n">membrane_traces</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pop</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">segments</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">irregularlysampledsignals</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+        <span class="n">pop</span><span class="o">.</span><span class="n">record</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
         <span class="n">pynn</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
-
-        <span class="n">membrane_traces</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">comp</span><span class="o">.</span><span class="n">get_data</span><span class="p">()</span><span class="o">.</span><span class="n">segments</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">irregularlysampledsignals</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-
-        <span class="n">comp</span><span class="o">.</span><span class="n">record</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">membrane_traces</span>
 </pre></div>
