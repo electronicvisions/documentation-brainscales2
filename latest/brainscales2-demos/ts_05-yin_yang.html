@@ -119,6 +119,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#yin-yang-dataset">Yin-Yang Dataset</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#snn-model">SNN Model</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#training">Training</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#eventprop">EventProp</a></li>
 </ul>
 </li>
 </ul>
@@ -245,6 +246,9 @@ Surrogate gradi- ent learning in spiking neural networks: Bringing the
 power of gradient-based optimization to spiking neural networks. IEEE
 Signal Processing Magazine 36, 6 (2019),51–63.
 <a class="reference external" href="https://doi.org/10.1109/MSP.2019.2931595">https://doi.org/10.1109/MSP.2019.2931595</a></p>
+<p>[5] Wunderlich, T.C., Pehle, C. Event-based backpropagation can compute exact gradients
+for spiking neural networks. Scientific Reports 11, 12829 (2021).
+<a class="reference external" href="https://doi.org/10.1038/s41598-021-91786-z">doi: 10.1038/s41598-021-91786-z</a>.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -830,6 +834,386 @@ function.</p>
 <span class="n">hxtorch</span><span class="o">.</span><span class="n">release_hardware</span><span class="p">()</span>
 </pre></div>
 </div>
+</section>
+<section id="eventprop">
+<h3>EventProp<a class="headerlink" href="#eventprop" title="Permalink to this headline">¶</a></h3>
+<p>In [5] Wunderlich and Pehle derived the EventProp algorithm, which provides
+a set of equations to compute exact parameter gradients for spiking neural
+networks with LIF neurons, single-exponential-shaped synpases and a quite
+general loss function.</p>
+<p>The background section below is meant to give an overview of the equations
+in the EventProp algorthm and provide a basis to understand the
+time-discretized implementation in PyTorch autograd functions below.
+This is all based directly on [5] and for the detailed derivation of the
+algorithm, you might look into the reference.</p>
+<p>If you just want to use the functions and train the network using them, you
+might skip directly to the training part.</p>
+<section id="background">
+<h4>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h4>
+<p>The state of a neuron <span class="math notranslate nohighlight">\(n\)</span> is given by its membrane potential
+<span class="math notranslate nohighlight">\(V_{n}\)</span> and synaptic current <span class="math notranslate nohighlight">\(I_{n}\)</span>, and their dynamics are
+governed by a set of coupled differential equations</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+    &amp; \text{Free dynamics}                  &amp;&amp; \quad \text{Transition condition}              &amp;&amp; \quad \text{Jumps at transition}   \\
+    &amp;\tau_{\mathrm{m}} \dot{V} = - V + I    &amp;&amp; \quad (V)_{n} - V_{\mathrm{th}} = 0 \text{, }(\dot{V})_{n} &gt; 0    &amp;&amp; \quad (V^{+})_{n} = 0              \\
+    &amp;\tau_{\mathrm{s}} \dot{I} = - I        &amp;&amp; \quad \text{for any } n                        &amp;&amp; \quad I^{+} = I^{-} + W e_{n}
+\end{align*}\end{split}\]</div>
+<p>where the superscripts <span class="math notranslate nohighlight">\(+\)</span> and <span class="math notranslate nohighlight">\(-\)</span> denote the right- and left-hand
+limit to the post-synaptic spike time.</p>
+<p>The loss, which is to be minimized, is of the form</p>
+<div class="math notranslate nohighlight">
+\[L = l_{\mathrm{p}} (t^{\mathrm{post}}) + \int_{0}^{T} l_{V} (V, t) \mathrm{d}t,\]</div>
+<p>where <span class="math notranslate nohighlight">\(l_{\mathrm{p}}(t^{\mathrm{post}})\)</span> and <span class="math notranslate nohighlight">\(l_{V} (V, t)\)</span> are
+smooth loss functions depending on the membrane potentials <span class="math notranslate nohighlight">\(V\)</span>, time
+<span class="math notranslate nohighlight">\(t\)</span> and set of post-synaptic spike times <span class="math notranslate nohighlight">\(t^{\mathrm{post}}\)</span>.</p>
+<p>The system’s forward dynamics, defined in the table above, can be introduced
+as constraints via Lagrange multipliers <span class="math notranslate nohighlight">\(\lambda_{V}\)</span> and <span class="math notranslate nohighlight">\(\lambda_{I}\)</span>,
+referring to the equation of the respective state variable. From this, an adjoint
+system of differential equations for the lagrange multipliers can be found and
+solved in reverse time. They also undergo jumps at the spike times of neurons
+found by solving (or in our case emulating) the forward dynamics. Using he
+notation <span class="math notranslate nohighlight">\(' = - \frac{\mathrm{d}}{\mathrm{d} t}\)</span>, the adjoint equations are</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+    &amp; \text{Free dynamics} &amp;&amp; \quad \text{Transition condition} &amp;&amp; \quad \text{Jumps at transition} \\
+    &amp; \tau_{\mathrm{m}} \lambda^{\prime}_{V} = - \lambda_{V} + \frac{\partial l_{V}}{\partial V}
+    &amp;&amp; \quad t - t^{\mathrm{post}}_{k} = 0
+    &amp;&amp; \quad \left(\lambda_{V}^{-} \right)_{n(k)} = \left(\lambda_{V}^{+} \right)_{n(k)} + \frac{1}{\tau_{\mathrm{m}} (\dot{V}^{-})_{n(k)} } \bigg[ \vartheta \left(\lambda_{V}^{+} \right)_{n(k)} \\
+    &amp; \tau_{\mathrm{s}} \lambda^{\prime}_{I} = - \lambda_{I} + \lambda_{V}
+    &amp;&amp; \quad \text{for any } k
+    &amp;&amp; \quad\quad + \left( W^{\top} \left( \lambda_{V}^{+} - \lambda_{I} \right) \right) + \frac{\partial l_{\mathrm{post}}}{\partial t^{\mathrm{post}}_{k}} + l_{V}^{-} - l_{V}^{+} \bigg]
+\end{align*}\end{split}\]</div>
+<p>The gradient with respect to
+the synaptic weight <span class="math notranslate nohighlight">\(w_{ji}\)</span>, connecting pre-synaptic neuron <span class="math notranslate nohighlight">\(i\)</span>
+to post-synaptic neuron <span class="math notranslate nohighlight">\(j\)</span>, then only depends on the syaptic time
+constant <span class="math notranslate nohighlight">\(\tau_{\mathrm{s}}\)</span> and the adjoint variable <span class="math notranslate nohighlight">\(\lambda_{I}\)</span>
+at spike times:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\mathrm{d} L}{\mathrm{d}w_{ji}} = - \tau_{\mathrm{s}}
+\sum_{\text{spikes from } i} (\lambda_{I})_{j}\]</div>
+</section>
+<section id="implementation">
+<h4>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h4>
+<p>The neuron and synapse modules in <code class="docutils literal notranslate"><span class="pre">hxtorch.snn</span></code> allow users to provide
+custom functions and we use this ability to implement the EventProp
+algorithm [5] as an alternative gradient estimator to the surrogate
+gradients which are used in the part above.</p>
+<p>To ensure appropriate backpropagation of the terms in the EventProp
+equations between layers one has to provide two functions handling
+the computation and propagation of gradients, one for <code class="docutils literal notranslate"><span class="pre">Neuron</span></code> layer
+and one for the <code class="docutils literal notranslate"><span class="pre">Synapse</span></code> layer.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">NamedTuple</span><span class="p">,</span> <span class="n">Optional</span>
+
+<span class="k">class</span> <span class="nc">EventPropNeuron</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">autograd</span><span class="o">.</span><span class="n">Function</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Gradient estimation with time-discretized EventProp using explicit Euler integration.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="nb">input</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
+                <span class="n">params</span><span class="p">:</span> <span class="n">F</span><span class="o">.</span><span class="n">CUBALIFParams</span><span class="p">,</span> <span class="n">dt</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Forward function, generating spikes at positions &gt; 0.</span>
+
+<span class="sd">        :param input: Weighted input spikes in shape (2, batch, time, neurons).</span>
+<span class="sd">            The 2 at dim 0 comes from stacked output in EventPropSynapse.</span>
+<span class="sd">        :param params: CUBALIFParams object holding neuron parameters.</span>
+
+<span class="sd">        :returns: Returns the spike trains and membrane trace.</span>
+<span class="sd">            Both tensors are of shape (batch, time, neurons).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">dev</span> <span class="o">=</span> <span class="nb">input</span><span class="o">.</span><span class="n">device</span>
+        <span class="n">T</span><span class="p">,</span> <span class="n">bs</span><span class="p">,</span> <span class="n">ps</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+        <span class="n">z</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">bs</span><span class="p">,</span> <span class="n">ps</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">dev</span><span class="p">)</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">bs</span><span class="p">,</span> <span class="n">ps</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">dev</span><span class="p">)</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">bs</span><span class="p">,</span> <span class="n">ps</span><span class="p">)</span><span class="o">.</span><span class="n">fill_</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">v_leak</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">dev</span><span class="p">)</span>
+
+        <span class="n">spikes</span><span class="p">,</span> <span class="n">current</span><span class="p">,</span> <span class="n">membrane</span> <span class="o">=</span> <span class="p">[</span><span class="n">z</span><span class="p">],</span> <span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="p">[</span><span class="n">v</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">ts</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="c1"># Current</span>
+            <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">params</span><span class="o">.</span><span class="n">tau_syn_inv</span><span class="p">)</span> <span class="o">+</span> <span class="nb">input</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">ts</span><span class="p">]</span>
+
+            <span class="c1"># Membrane</span>
+            <span class="n">dv</span> <span class="o">=</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">params</span><span class="o">.</span><span class="n">tau_mem_inv</span> <span class="o">*</span> <span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">v_leak</span> <span class="o">-</span> <span class="n">v</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span>
+            <span class="n">v</span> <span class="o">=</span> <span class="n">dv</span> <span class="o">+</span> <span class="n">v</span>
+
+            <span class="c1"># Spikes</span>
+            <span class="n">z</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">gt</span><span class="p">(</span><span class="n">v</span> <span class="o">-</span> <span class="n">params</span><span class="o">.</span><span class="n">v_th</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">((</span><span class="n">v</span> <span class="o">-</span> <span class="n">params</span><span class="o">.</span><span class="n">v_th</span><span class="p">)</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+
+            <span class="c1"># Reset</span>
+            <span class="n">v</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">z</span><span class="p">)</span> <span class="o">*</span> <span class="n">v</span> <span class="o">+</span> <span class="n">z</span> <span class="o">*</span> <span class="n">params</span><span class="o">.</span><span class="n">v_reset</span>
+
+            <span class="c1"># Save data</span>
+            <span class="n">spikes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+            <span class="n">current</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="n">membrane</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+
+        <span class="n">forward_result</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">spikes</span><span class="p">),</span>
+            <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">membrane</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">ctx</span><span class="o">.</span><span class="n">current</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">current</span><span class="p">)</span>
+        <span class="n">ctx</span><span class="o">.</span><span class="n">save_for_backward</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="o">*</span><span class="n">forward_result</span><span class="p">)</span>
+        <span class="n">ctx</span><span class="o">.</span><span class="n">extra_kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;params&quot;</span><span class="p">:</span> <span class="n">params</span><span class="p">,</span> <span class="s2">&quot;dt&quot;</span><span class="p">:</span> <span class="n">dt</span><span class="p">}</span>
+
+        <span class="k">return</span> <span class="p">(</span><span class="o">*</span><span class="n">forward_result</span><span class="p">,)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">backward</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">grad_spikes</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
+                <span class="n">_</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span> <span class="o">...</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Implements &#39;EventProp&#39; for backward.</span>
+
+<span class="sd">        :param grad_spikes: Backpropagted gradient wrt output spikes.</span>
+<span class="sd">        :param _: backpropagated gradient wrt to membrane trace (currently not used).</span>
+
+<span class="sd">        :returns: Gradient given by adjoint function lambda_i of current.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># input and layer data</span>
+        <span class="n">input_current</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">saved_tensors</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">z</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">saved_tensors</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">T</span> <span class="o">=</span> <span class="n">z</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">params</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">extra_kwargs</span><span class="p">[</span><span class="s2">&quot;params&quot;</span><span class="p">]</span>
+        <span class="n">dt</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">extra_kwargs</span><span class="p">[</span><span class="s2">&quot;dt&quot;</span><span class="p">]</span>
+
+        <span class="c1"># adjoints</span>
+        <span class="n">lambda_v</span><span class="p">,</span> <span class="n">lambda_i</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">z</span><span class="p">),</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+
+        <span class="c1"># When executed on hardware, spikes and membrane voltage are injected but the synaptic</span>
+        <span class="c1"># current is not recorded. Approximate it:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">i</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">current</span>
+        <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+            <span class="n">i</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+            <span class="c1"># compute current</span>
+            <span class="k">for</span> <span class="n">ts</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="n">i</span><span class="p">[</span><span class="n">ts</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> \
+                    <span class="n">i</span><span class="p">[</span><span class="n">ts</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">params</span><span class="o">.</span><span class="n">tau_syn_inv</span><span class="p">)</span> \
+                    <span class="o">+</span> <span class="n">input_current</span><span class="p">[</span><span class="n">ts</span><span class="p">]</span>
+
+        <span class="k">for</span> <span class="n">ts</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">dv_m</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">v_leak</span> <span class="o">-</span> <span class="n">params</span><span class="o">.</span><span class="n">v_th</span> <span class="o">+</span> <span class="n">i</span><span class="p">[</span><span class="n">ts</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="n">dv_p</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">v_leak</span> <span class="o">-</span> <span class="n">params</span><span class="o">.</span><span class="n">v_reset</span> <span class="o">+</span> <span class="n">i</span><span class="p">[</span><span class="n">ts</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+
+            <span class="n">lambda_i</span><span class="p">[</span><span class="n">ts</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">lambda_i</span><span class="p">[</span><span class="n">ts</span><span class="p">]</span> <span class="o">+</span> <span class="n">dt</span> <span class="o">*</span> \
+                <span class="n">params</span><span class="o">.</span><span class="n">tau_syn_inv</span> <span class="o">*</span> <span class="p">(</span><span class="n">lambda_v</span><span class="p">[</span><span class="n">ts</span><span class="p">]</span> <span class="o">-</span> <span class="n">lambda_i</span><span class="p">[</span><span class="n">ts</span><span class="p">])</span>
+            <span class="n">lambda_v</span><span class="p">[</span><span class="n">ts</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">lambda_v</span><span class="p">[</span><span class="n">ts</span><span class="p">]</span> <span class="o">*</span> \
+                <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">params</span><span class="o">.</span><span class="n">tau_mem_inv</span><span class="p">)</span>
+
+            <span class="n">output_term</span> <span class="o">=</span> <span class="n">z</span><span class="p">[</span><span class="n">ts</span><span class="p">]</span> <span class="o">/</span> <span class="n">dv_m</span> <span class="o">*</span> <span class="n">grad_spikes</span><span class="p">[</span><span class="n">ts</span><span class="p">]</span>
+            <span class="n">output_term</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">output_term</span><span class="p">)]</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+            <span class="n">jump_term</span> <span class="o">=</span> <span class="n">z</span><span class="p">[</span><span class="n">ts</span><span class="p">]</span> <span class="o">*</span> <span class="n">dv_p</span> <span class="o">/</span> <span class="n">dv_m</span>
+            <span class="n">jump_term</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">jump_term</span><span class="p">)]</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+            <span class="n">lambda_v</span><span class="p">[</span><span class="n">ts</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">z</span><span class="p">[</span><span class="n">ts</span><span class="p">])</span> <span class="o">*</span> <span class="n">lambda_v</span><span class="p">[</span><span class="n">ts</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+                <span class="o">+</span> <span class="n">jump_term</span> <span class="o">*</span> <span class="n">lambda_v</span><span class="p">[</span><span class="n">ts</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+                <span class="o">+</span> <span class="n">output_term</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">((</span><span class="n">lambda_i</span> <span class="o">/</span> <span class="n">params</span><span class="o">.</span><span class="n">tau_syn_inv</span><span class="p">,</span>
+                            <span class="n">lambda_v</span> <span class="o">-</span> <span class="n">lambda_i</span><span class="p">)),</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+
+
+<span class="k">class</span> <span class="nc">EventPropSynapse</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">autograd</span><span class="o">.</span><span class="n">Function</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Synapse function for proper gradient transport when using EventPropNeuron.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="nb">input</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">weight</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
+                <span class="n">_</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">=</span> <span class="kc">None</span>
+                <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This should be used in combination with EventPropNeuron. Multiply input</span>
+<span class="sd">        with weight and use a stacked output in order to be able to return two</span>
+<span class="sd">        tensors (separate terms in EventProp algorithm), one for previous layer</span>
+<span class="sd">        and the other one for weights.</span>
+
+<span class="sd">        :param input: Input spikes in shape (batch, time, in_neurons).</span>
+<span class="sd">        :param weight: Weight in shape (out_neurons, in_neurons).</span>
+<span class="sd">        :param _: Bias, which is unused here.</span>
+
+<span class="sd">        :returns: Returns stacked tensor holding weighted spikes and</span>
+<span class="sd">            tensor with zeros but same shape.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">ctx</span><span class="o">.</span><span class="n">save_for_backward</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">weight</span><span class="p">)</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="nb">input</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">weight</span><span class="o">.</span><span class="n">t</span><span class="p">())</span>
+        <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">((</span><span class="n">output</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">output</span><span class="p">)))</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">backward</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">grad_output</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
+                <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span>
+                            <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Split gradient_output coming from EventPropNeuron and return</span>
+<span class="sd">        weight * (lambda_v - lambda_i) as input gradient and</span>
+<span class="sd">        - tau_s * lambda_i * input (i.e. - tau_s * lambda_i at spiketimes)</span>
+<span class="sd">        as weight gradient.</span>
+
+<span class="sd">        :param grad_output: Backpropagated gradient with shape (2, batch, time,</span>
+<span class="sd">            out_neurons). The 2 is due to stacking in forward.</span>
+
+<span class="sd">        :returns: Returns gradients w.r.t. input, weight and bias (None).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">input</span><span class="p">,</span> <span class="n">weight</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">saved_tensors</span>
+        <span class="n">grad_input</span> <span class="o">=</span> <span class="n">grad_weight</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="k">if</span> <span class="n">ctx</span><span class="o">.</span><span class="n">needs_input_grad</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+            <span class="n">grad_input</span> <span class="o">=</span> <span class="n">grad_output</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">weight</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">ctx</span><span class="o">.</span><span class="n">needs_input_grad</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="n">grad_weight</span> <span class="o">=</span> \
+                <span class="n">grad_output</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span>
+                    <span class="nb">input</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="n">grad_input</span><span class="p">,</span> <span class="n">grad_weight</span><span class="p">,</span> <span class="kc">None</span>
+
+
+<span class="k">def</span> <span class="nf">eventprop_synapse</span><span class="p">(</span><span class="nb">input</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">weight</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
+                    <span class="n">bias</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Function wrapper to apply EventPropSynapse.</span>
+
+<span class="sd">    :param input: Input spikes in shape (batch, time, in_neurons).</span>
+<span class="sd">    :param weight: Weight in shape (out_neurons, in_neurons).</span>
+<span class="sd">    :param bias: Bias (which is unused in EventPropSynapse).</span>
+
+<span class="sd">    :returns: Returns stacked tensor holding weighted spikes and</span>
+<span class="sd">        tensor with zeros but same shape.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">EventPropSynapse</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span> <span class="n">bias</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">EventPropSNN</span><span class="p">(</span><span class="n">SNN</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="c1"># use EventProp in hidden (spiking) LIF layer</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">linear_h</span><span class="o">.</span><span class="n">func</span> <span class="o">=</span> <span class="n">eventprop_synapse</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lif_h</span><span class="o">.</span><span class="n">func</span> <span class="o">=</span> <span class="n">EventPropNeuron</span>
+        <span class="c1"># trace information is not used in EventProp -&gt;  disable cadc recording</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lif_h</span><span class="o">.</span><span class="n">_enable_cadc_recording</span> <span class="o">=</span> <span class="kc">False</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N_HIDDEN</span>      <span class="o">=</span> <span class="mi">120</span>
+<span class="n">MOCK</span>          <span class="o">=</span> <span class="kc">False</span>
+<span class="n">DT</span>            <span class="o">=</span> <span class="mf">0.5e-06</span>  <span class="c1"># s</span>
+
+<span class="c1"># We need to specify the device we want to use on the host computer</span>
+<span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">():</span>
+    <span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cuda&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
+
+<span class="c1"># The SNN using EventProp functions</span>
+<span class="n">snn</span> <span class="o">=</span> <span class="n">EventPropSNN</span><span class="p">(</span>
+    <span class="n">n_in</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+    <span class="n">n_hidden</span><span class="o">=</span><span class="n">N_HIDDEN</span><span class="p">,</span>
+    <span class="n">n_out</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+    <span class="n">mock</span><span class="o">=</span><span class="n">MOCK</span><span class="p">,</span>
+    <span class="n">dt</span><span class="o">=</span><span class="n">DT</span><span class="p">,</span>
+    <span class="n">tau_mem</span><span class="o">=</span><span class="mf">6.0e-06</span><span class="p">,</span>
+    <span class="n">tau_syn</span><span class="o">=</span><span class="mf">6.0e-06</span><span class="p">,</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">50.</span><span class="p">,</span>
+    <span class="n">trace_shift_hidden</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="mf">.0e-06</span><span class="o">/</span><span class="n">DT</span><span class="p">),</span>
+    <span class="n">trace_shift_out</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="mf">.0e-06</span><span class="o">/</span><span class="n">DT</span><span class="p">),</span>
+    <span class="n">weight_init_hidden</span><span class="o">=</span><span class="p">(</span><span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">),</span>  <span class="c1"># higher mean to ensure spiking</span>
+    <span class="n">weight_init_output</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">),</span>
+    <span class="n">weight_scale</span><span class="o">=</span><span class="mf">66.39</span><span class="p">,</span>
+    <span class="n">trace_scale</span><span class="o">=</span><span class="mf">0.0147</span><span class="p">,</span>
+    <span class="n">input_repetitions</span><span class="o">=</span><span class="mi">1</span> <span class="k">if</span> <span class="n">MOCK</span> <span class="k">else</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+<span class="n">snn</span>
+</pre></div>
+</div>
+</section>
+<section id="training-with-eventprop">
+<h4>Training with EventProp<a class="headerlink" href="#training-with-eventprop" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">T_SIM</span>   <span class="o">=</span> <span class="mf">3.8e-05</span>  <span class="c1"># s</span>
+<span class="n">T_EARLY</span> <span class="o">=</span> <span class="mf">0.2e-05</span>  <span class="c1"># s</span>
+<span class="n">T_LATE</span>  <span class="o">=</span> <span class="mf">2.6e-05</span>  <span class="c1"># s</span>
+<span class="n">T_BIAS</span>  <span class="o">=</span> <span class="mf">0.2e-05</span>  <span class="c1"># s</span>
+
+<span class="c1"># This encoder translates the points into spikes on a discrete time lattice</span>
+<span class="n">encoder</span> <span class="o">=</span> <span class="n">CoordinatesToSpikes</span><span class="p">(</span>
+    <span class="n">seq_length</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">T_SIM</span> <span class="o">/</span> <span class="n">DT</span><span class="p">),</span>
+    <span class="n">t_early</span><span class="o">=</span><span class="n">T_EARLY</span><span class="p">,</span>
+    <span class="n">t_late</span><span class="o">=</span><span class="n">T_LATE</span><span class="p">,</span>
+    <span class="n">dt</span><span class="o">=</span><span class="n">DT</span><span class="p">,</span>
+    <span class="n">t_bias</span><span class="o">=</span><span class="n">T_BIAS</span><span class="p">,</span>
+    <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+<span class="n">encoder</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">encoder</span><span class="p">,</span> <span class="n">snn</span><span class="p">,</span> <span class="n">decoder</span><span class="p">,</span> <span class="n">readout_scale</span><span class="o">=</span><span class="mf">10.</span><span class="p">)</span>
+<span class="n">model</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Training params</span>
+<span class="n">LR</span>            <span class="o">=</span> <span class="mf">0.002</span>
+<span class="n">STEP_SIZE</span>     <span class="o">=</span> <span class="mi">5</span>
+<span class="n">GAMMA</span>         <span class="o">=</span> <span class="mf">0.9</span>
+<span class="n">EPOCHS</span>        <span class="o">=</span> <span class="mi">4</span> <span class="c1"># Adjust here for longer training...</span>
+<span class="n">BATCH_SIZE</span>    <span class="o">=</span> <span class="mi">50</span>
+<span class="n">TRAINSET_SIZE</span> <span class="o">=</span> <span class="mi">5000</span>
+<span class="n">TESTSET_SIZE</span>  <span class="o">=</span> <span class="mi">1000</span>
+</pre></div>
+</div>
+<div class="test html-display-none highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Training params</span>
+<span class="n">LR</span>            <span class="o">=</span> <span class="mf">0.002</span>
+<span class="n">STEP_SIZE</span>     <span class="o">=</span> <span class="mi">5</span>
+<span class="n">GAMMA</span>         <span class="o">=</span> <span class="mf">0.9</span>
+<span class="n">EPOCHS</span>        <span class="o">=</span> <span class="mi">1</span>
+<span class="n">BATCH_SIZE</span>    <span class="o">=</span> <span class="mi">50</span>
+<span class="n">TRAINSET_SIZE</span> <span class="o">=</span> <span class="mi">500</span>
+<span class="n">TESTSET_SIZE</span>  <span class="o">=</span> <span class="mi">100</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Just for plotting...</span>
+<span class="k">assert</span> <span class="n">TRAINSET_SIZE</span> <span class="o">%</span> <span class="n">BATCH_SIZE</span> <span class="o">==</span> <span class="mi">0</span>
+
+<span class="c1"># PyTorch stuff... optimizer, scheduler and loss like you normally do.</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="n">LR</span><span class="p">)</span>
+<span class="n">scheduler</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">lr_scheduler</span><span class="o">.</span><span class="n">StepLR</span><span class="p">(</span><span class="n">optimizer</span><span class="p">,</span> <span class="n">step_size</span><span class="o">=</span><span class="n">STEP_SIZE</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="n">GAMMA</span><span class="p">)</span>
+<span class="n">loss</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">CrossEntropyLoss</span><span class="p">()</span>
+
+<span class="c1"># Data loaders</span>
+<span class="n">train_loader</span><span class="p">,</span> <span class="n">test_loader</span> <span class="o">=</span> <span class="n">get_data_loaders</span><span class="p">(</span><span class="n">TRAINSET_SIZE</span><span class="p">,</span> <span class="n">TESTSET_SIZE</span><span class="p">,</span> <span class="n">BATCH_SIZE</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Functions to update plot</span>
+<span class="n">update_plot</span><span class="p">,</span> <span class="n">update_train_data</span><span class="p">,</span> <span class="n">update_test_data</span> <span class="o">=</span> <span class="n">plot_training</span><span class="p">(</span><span class="n">N_HIDDEN</span><span class="p">,</span> <span class="n">T_SIM</span><span class="p">,</span> <span class="n">DT</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">Output</span><span class="p">()</span>
+<span class="n">display</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+
+<span class="c1"># Initialize the hardware and load a suitable nightly calibration</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">MOCK</span><span class="p">:</span>
+    <span class="n">save_nightly_calibration</span><span class="p">(</span><span class="s1">&#39;spiking2_cocolist.pbin&#39;</span><span class="p">)</span>
+    <span class="n">hxtorch</span><span class="o">.</span><span class="n">init_hardware</span><span class="p">(</span><span class="n">hxtorch</span><span class="o">.</span><span class="n">CalibrationPath</span><span class="p">(</span><span class="s1">&#39;spiking2_cocolist.pbin&#39;</span><span class="p">))</span>
+
+<span class="c1"># Train and test</span>
+<span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">EPOCHS</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="c1"># Test</span>
+    <span class="n">loss_test</span><span class="p">,</span> <span class="n">acc_test</span><span class="p">,</span> <span class="n">rate_test</span> <span class="o">=</span> <span class="n">test</span><span class="p">(</span>
+        <span class="n">model</span><span class="p">,</span> <span class="n">test_loader</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">epoch</span><span class="p">,</span> <span class="n">update_test_data</span><span class="p">)</span>
+
+    <span class="c1"># Refresh plot</span>
+    <span class="n">output</span><span class="o">.</span><span class="n">clear_output</span><span class="p">(</span><span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">output</span><span class="p">:</span>
+        <span class="n">update_plot</span><span class="p">()</span>
+
+    <span class="c1"># Train epoch</span>
+    <span class="k">if</span> <span class="n">epoch</span> <span class="o">&lt;</span> <span class="n">EPOCHS</span><span class="p">:</span>
+        <span class="n">loss_train</span><span class="p">,</span> <span class="n">acc_train</span> <span class="o">=</span> <span class="n">train</span><span class="p">(</span>
+            <span class="n">model</span><span class="p">,</span> <span class="n">train_loader</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">epoch</span><span class="p">,</span> <span class="n">update_train_data</span><span class="p">)</span>
+
+    <span class="n">scheduler</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+
+<span class="c1"># Release the hardware connection</span>
+<span class="n">hxtorch</span><span class="o">.</span><span class="n">release_hardware</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
 </section>
 </section>
 </section>
