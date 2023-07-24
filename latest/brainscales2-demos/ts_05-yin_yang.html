@@ -387,7 +387,13 @@ corresponds to one of the three classes:</p>
         <span class="bp">self</span><span class="o">.</span><span class="n">dt</span> <span class="o">=</span> <span class="n">dt</span>
 
         <span class="c1"># Instance to work on</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">experiment</span> <span class="o">=</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">Experiment</span><span class="p">(</span><span class="n">mock</span><span class="o">=</span><span class="n">mock</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="n">dt</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">mock</span><span class="p">:</span>
+            <span class="n">save_nightly_calibration</span><span class="p">(</span><span class="s1">&#39;spiking2_cocolist.pbin&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">experiment</span> <span class="o">=</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">Experiment</span><span class="p">(</span><span class="n">mock</span><span class="o">=</span><span class="n">mock</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="n">dt</span><span class="p">,</span>
+                    <span class="n">calib_path</span><span class="o">=</span><span class="s1">&#39;spiking2_cocolist.pbin&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">experiment</span> <span class="o">=</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">Experiment</span><span class="p">(</span><span class="n">mock</span><span class="o">=</span><span class="n">mock</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="n">dt</span><span class="p">)</span>
 
         <span class="c1"># Repeat input</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">input_repetitions</span> <span class="o">=</span> <span class="n">input_repetitions</span>
@@ -807,10 +813,9 @@ function.</p>
 <span class="n">output</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">Output</span><span class="p">()</span>
 <span class="n">display</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
 
-<span class="c1"># Initialize the hardware and load a suitable nightly calibration</span>
+<span class="c1"># Initialize the hardware</span>
 <span class="k">if</span> <span class="ow">not</span> <span class="n">MOCK</span><span class="p">:</span>
-    <span class="n">save_nightly_calibration</span><span class="p">(</span><span class="s1">&#39;spiking2_cocolist.pbin&#39;</span><span class="p">)</span>
-    <span class="n">hxtorch</span><span class="o">.</span><span class="n">init_hardware</span><span class="p">(</span><span class="n">hxtorch</span><span class="o">.</span><span class="n">CalibrationPath</span><span class="p">(</span><span class="s1">&#39;spiking2_cocolist.pbin&#39;</span><span class="p">))</span>
+    <span class="n">hxtorch</span><span class="o">.</span><span class="n">init_hardware</span><span class="p">()</span>
 
 <span class="c1"># Train and test</span>
 <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">EPOCHS</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
@@ -1186,10 +1191,9 @@ and one for the <code class="docutils literal notranslate"><span class="pre">Syn
 <span class="n">output</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">Output</span><span class="p">()</span>
 <span class="n">display</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
 
-<span class="c1"># Initialize the hardware and load a suitable nightly calibration</span>
+<span class="c1"># Initialize the hardware</span>
 <span class="k">if</span> <span class="ow">not</span> <span class="n">MOCK</span><span class="p">:</span>
-    <span class="n">save_nightly_calibration</span><span class="p">(</span><span class="s1">&#39;spiking2_cocolist.pbin&#39;</span><span class="p">)</span>
-    <span class="n">hxtorch</span><span class="o">.</span><span class="n">init_hardware</span><span class="p">(</span><span class="n">hxtorch</span><span class="o">.</span><span class="n">CalibrationPath</span><span class="p">(</span><span class="s1">&#39;spiking2_cocolist.pbin&#39;</span><span class="p">))</span>
+    <span class="n">hxtorch</span><span class="o">.</span><span class="n">init_hardware</span><span class="p">()</span>
 
 <span class="c1"># Train and test</span>
 <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">EPOCHS</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
