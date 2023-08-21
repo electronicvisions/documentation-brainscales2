@@ -1143,7 +1143,13 @@
 
 <dl class="py class">
 <dt>
-<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1recording_1_1_m_a_d_c_recorder_setting"></span><code class="sig-name descname"><span class="pre">pynn_brainscales.brainscales2.recording.MADCRecorderSetting</span> <span class="pre">:</span> <span class="pre">public</span> <span class="pre">NamedTuple</span></code></dt>
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_m_a_d_c_recording"></span><code class="sig-name descname"><span class="pre">pynn_brainscales.brainscales2.simulator.MADCRecording</span> <span class="pre">:</span> <span class="pre">public</span> <span class="pre">NamedTuple</span></code></dt>
+<dd><p>Times and values of a MADC recording. </p>
+</dd></dl>
+
+<dl class="py class">
+<dt>
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1recording_1_1_m_a_d_c_recording_site"></span><code class="sig-name descname"><span class="pre">pynn_brainscales.brainscales2.recording.MADCRecordingSite</span> <span class="pre">:</span> <span class="pre">public</span> <span class="pre">NamedTuple</span></code></dt>
 <dd></dd></dl>
 
 <dl class="py class">
@@ -2105,7 +2111,7 @@
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-static-attributes">Public Static Attributes</p>
 <dl class="py attribute">
 <dt id="madc_variables">
-<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1recording_1_1_recorder_1a8f27add87fe2a2e82d9ef43b73deb36d"></span><code class="sig-name descname"><span class="pre">madc_variables</span></code><em class="property"> <span class="pre">=</span> <span class="pre">[&quot;v&quot;,</span> <span class="pre">&quot;exc_synin&quot;,</span> <span class="pre">&quot;inh_synin&quot;,</span> <span class="pre">&quot;adaptation&quot;]</span></em><a class="headerlink" href="#madc_variables" title="Permalink to this definition">¶</a></dt>
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1recording_1_1_recorder_1a0e58c085c9b19d07413c8f5b2658db78"></span><code class="sig-name descname"><span class="pre">madc_variables</span></code><em class="property"> <span class="pre">=</span> <span class="pre">list(_var_name_to_readout_source)</span></em><a class="headerlink" href="#madc_variables" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -2168,6 +2174,11 @@
 <dl class="py attribute">
 <dt id="id103">
 <span class="target" id="classpynn__brainscales_1_1brainscales2_1_1recording_1_1_recorder_1a0ac4157ab0a5c1aa8686f910ff9f270a"></span><code class="sig-name descname"><span class="pre">_simulator</span></code><em class="property"> <span class="pre">=</span> <span class="pre">simulator</span></em><a class="headerlink" href="#id103" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="var_name_to_readout_source">
+<span id="_var_name_to_readout_source"></span><span class="target" id="classpynn__brainscales_1_1brainscales2_1_1recording_1_1_recorder_1a7375407f5a12f97c4cb6dbe522b95c65"></span><code class="sig-name descname"><span class="pre">_var_name_to_readout_source</span></code><em class="property"> <span class="pre">=</span> <span class="pre">\</span></em><a class="headerlink" href="#var_name_to_readout_source" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -2634,13 +2645,13 @@
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="madc_recorder">
-<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_state_1a894bae16dbc0f2e3be9f1dfea7985b59"></span><code class="sig-name descname"><span class="pre">madc_recorder</span></code><a class="headerlink" href="#madc_recorder" title="Permalink to this definition">¶</a></dt>
+<dt id="madc_recording_sites">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_state_1a830f196fe62a628cb5aa8d198745af27"></span><code class="sig-name descname"><span class="pre">madc_recording_sites</span></code><a class="headerlink" href="#madc_recording_sites" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="madc_samples">
-<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_state_1aa8a6551253f0618e804f3fe387bb9d7c"></span><code class="sig-name descname"><span class="pre">madc_samples</span></code><a class="headerlink" href="#madc_samples" title="Permalink to this definition">¶</a></dt>
+<dt id="madc_recordings">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_state_1abd937098b9e50d72bc9d3f7a29cf238f"></span><code class="sig-name descname"><span class="pre">madc_recordings</span></code><a class="headerlink" href="#madc_recordings" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -2748,11 +2759,6 @@
 <span class="target" id="classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_state_1a046ce3ee95adecc218be2698c2e01f3d"></span><code class="sig-name descname"><span class="pre">t_start</span></code><a class="headerlink" href="#t_start" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py attribute">
-<dt id="times">
-<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_state_1a8b8ccf1e8cb1e00d458d0a221b4cdaf5"></span><code class="sig-name descname"><span class="pre">times</span></code><a class="headerlink" href="#times" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
 </div>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-functions">Private Functions</p>
@@ -2815,9 +2821,9 @@
 
 <dl class="py function">
 <dt id="get_v">
-<span id="_get_v"></span><span class="target" id="classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_state_1acea6bbf2e4602ea610d4c20a2528b9da"></span><code class="sig-name descname"><span class="pre">_get_v</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">grenade.network.NetworkGraph</span> <span class="pre">network_graph</span></em>, <em class="sig-param"><span class="pre">grenade.signal_flow.IODataMap</span> <span class="pre">outputs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#get_v" title="Permalink to this definition">¶</a></dt>
+<span id="_get_v"></span><span class="target" id="classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_state_1a3159acaab88854b5f6a023b6c3b4f63d"></span><code class="sig-name descname"><span class="pre">_get_v</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">grenade.network.NetworkGraph</span> <span class="pre">network_graph</span></em>, <em class="sig-param"><span class="pre">grenade.signal_flow.IODataMap</span> <span class="pre">#</span> <span class="pre">Note:Any</span> <span class="pre">should</span> <span class="pre">be</span> <span class="pre">recording.MADCRecordingSite.</span> <span class="pre">We</span> <span class="pre">do</span> <span class="pre">not</span> <span class="pre">#</span> <span class="pre">annotate</span> <span class="pre">the</span> <span class="pre">correct</span> <span class="pre">type</span> <span class="pre">due</span> <span class="pre">to</span> <span class="pre">cyclic</span> <span class="pre">imports.</span> <span class="pre">outputs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#get_v" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get MADC samples with times in ms. </p>
-<p>:param network_graph: Network graph to use for lookup of MADC output vertex descriptor :param outputs: All outputs of a single execution to extract samples from :return: Times and sample values as numpy array </p>
+<p>:param network_graph: Network graph to use for lookup of MADC output vertex descriptor :param outputs: All outputs of a single execution to extract samples from :return: Dictionary with a madc recording site as key and a <a class="reference internal" href="#classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_m_a_d_c_recording"><span class="std std-ref">MADCRecording</span></a> as value. </p>
 </dd></dl>
 
 <dl class="py function">
@@ -3909,37 +3915,37 @@
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_5643325f60bd592eca7816d91ce4831a"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTAwMDc.x/pynn-brainscales/brainscales2</span></code></dt>
+<span class="target" id="dir_5643325f60bd592eca7816d91ce4831a"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTAwMDk.x/pynn-brainscales/brainscales2</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_30590f78572d0bff4c96c6642e878133"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTAwMDc.x/pynn-brainscales/brainscales2/pynn_brainscales/brainscales2</span></code></dt>
+<span class="target" id="dir_30590f78572d0bff4c96c6642e878133"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTAwMDk.x/pynn-brainscales/brainscales2/pynn_brainscales/brainscales2</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_71abf4e0cb61d33ca644053d80824813"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTAwMDc.x/pynn-brainscales/brainscales2/pynn_brainscales/brainscales2/examples</span></code></dt>
+<span class="target" id="dir_71abf4e0cb61d33ca644053d80824813"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTAwMDk.x/pynn-brainscales/brainscales2/pynn_brainscales/brainscales2/examples</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_a72118a09e00b2e2db6f97ab1c7474b7"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTAwMDc.x/pynn-brainscales/brainscales2/pynn_brainscales/brainscales2/morphology</span></code></dt>
+<span class="target" id="dir_a72118a09e00b2e2db6f97ab1c7474b7"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTAwMDk.x/pynn-brainscales/brainscales2/pynn_brainscales/brainscales2/morphology</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_1efc13ce3fde1fd62a85b15c42b78a1d"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTAwMDc.x/pynn-brainscales</span></code></dt>
+<span class="target" id="dir_1efc13ce3fde1fd62a85b15c42b78a1d"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTAwMDk.x/pynn-brainscales</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_21dfa1d1ae032dbb0977000ba6401a40"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTAwMDc.x/pynn-brainscales/brainscales2/pynn_brainscales</span></code></dt>
+<span class="target" id="dir_21dfa1d1ae032dbb0977000ba6401a40"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTAwMDk.x/pynn-brainscales/brainscales2/pynn_brainscales</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_6861f8e6ea567950e911c16bf07d7443"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTAwMDc.x/pynn-brainscales/brainscales2/pynn_brainscales/brainscales2/standardmodels</span></code></dt>
+<span class="target" id="dir_6861f8e6ea567950e911c16bf07d7443"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTAwMDk.x/pynn-brainscales/brainscales2/pynn_brainscales/brainscales2/standardmodels</span></code></dt>
 <dd></dd></dl>
 
 </section>
