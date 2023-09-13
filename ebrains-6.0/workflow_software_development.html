@@ -1,0 +1,403 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Software Development &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/visions.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> BrainScaleS-2 Documentation
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="brainscales2-demos/index.html">Demos &amp; Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">BrainScaleS-2 Documentation</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Software Development</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/workflow_software_development.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <section id="software-development">
+<h1>Software Development<a class="headerlink" href="#software-development" title="Permalink to this headline">¶</a></h1>
+<section id="general-aspects">
+<h2>General Aspects<a class="headerlink" href="#general-aspects" title="Permalink to this headline">¶</a></h2>
+<section id="containerized-software-environment">
+<span id="id1"></span><h3>Containerized Software Environment<a class="headerlink" href="#containerized-software-environment" title="Permalink to this headline">¶</a></h3>
+<p>BrainScaleS adopted a container-based approach to software environments.
+In particular, we use <a class="reference external" href="https://sylabs.io/docs/">singularity</a>-based containers.
+In contrast to many other container ecosystems that focus on persistent services, our approach only provides a <em>wrapper</em> for the execution of commands in different environments.
+This can be easily layered with SLURM-based execution on our hardware-control cluster.
+E.g., to run a command inside a container on the cluster:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ srun -p &lt;PARTITION&gt; singularity exec &lt;CONTAINER.IMG&gt; &lt;COMMAND&gt;
+</pre></div>
+</div>
+<p>We typically make use of singularity’s <code class="docutils literal notranslate"><span class="pre">--app</span> <span class="pre">&lt;APP&gt;</span></code> option to switch between different environments within the container.
+For BrainScaleS-2 most users rely on <code class="docutils literal notranslate"><span class="pre">--app</span> <span class="pre">dls</span></code>, the CI tries to work on a slimmer software dependency tree available via <code class="docutils literal notranslate"><span class="pre">--app</span> <span class="pre">dls-core</span></code>.</p>
+</section>
+<section id="neuromorphic-resources">
+<h3>Neuromorphic Resources<a class="headerlink" href="#neuromorphic-resources" title="Permalink to this headline">¶</a></h3>
+<p>We extended SLURM to support special-purpose options describing requested neuromorphic hardware resources.
+To run, for example, an experiment on the single-chip lab setup (<em>cube</em>s) number 60, FPGA no. 3:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ srun -p cube --wafer 60 --fpga-without-aout 3 &lt;singularity call&gt; experiment.py
+</pre></div>
+</div>
+</section>
+</section>
+<section id="brainscales-build-system">
+<span id="id2"></span><h2>BrainScaleS Build System<a class="headerlink" href="#brainscales-build-system" title="Permalink to this headline">¶</a></h2>
+<p>The BrainScaleS developers adopted the <a class="reference external" href="https://waf.io/">waf</a> build system early in the development of the BrainScaleS-1 software eco-system.
+In each repository <code class="docutils literal notranslate"><span class="pre">wscript</span></code> files define the configuration, build, installation and tests steps.
+It uses the Python language.
+In contrast to the upstream code base, we extended the tool by a cross-repo dependency tracking mechanism (see <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">depends(ctx):</span></code> sections in <code class="docutils literal notranslate"><span class="pre">wscript</span></code>s).
+The typical installation flow for a toplevel <code class="docutils literal notranslate"><span class="pre">X</span></code> is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># for github-based builds append &quot;--repo-db-url=https://github.com/electronicvisions/projects&quot; to the next command
+$ waf setup --project=X
+$ waf configure
+$ waf install
+</pre></div>
+</div>
+<p>The first command queries a repository database (default URL hardcoded in our fork of waf) to find and <em>check out</em> <code class="docutils literal notranslate"><span class="pre">X</span></code>.
+The build tool now looks for <code class="docutils literal notranslate"><span class="pre">depends()</span></code> in <code class="docutils literal notranslate"><span class="pre">X/wscript</span></code> to resolve the dependencies of <code class="docutils literal notranslate"><span class="pre">X</span></code>.
+Further dependencies are found recursively.
+<code class="docutils literal notranslate"><span class="pre">waf</span> <span class="pre">configure</span></code> and <code class="docutils literal notranslate"><span class="pre">waf</span> <span class="pre">build</span></code> perform configuration checks as well as build steps similar to other build systems.
+Finally, <code class="docutils literal notranslate"><span class="pre">waf</span> <span class="pre">install</span></code> by default installs into <code class="docutils literal notranslate"><span class="pre">{bin,lib,share}/</span></code> subfolders of the toplevel workspace.</p>
+</section>
+<section id="recommendations-for-experiment-repositories">
+<h2>Recommendations for Experiment Repositories<a class="headerlink" href="#recommendations-for-experiment-repositories" title="Permalink to this headline">¶</a></h2>
+<p>Building and executing experiments on BrainScaleS is a complex task.
+Typical experiments comprise host-based control flow in C++ and Python and C++ running on the embedded processors.
+The <a class="reference external" href="https://github.com/electronicvisions/template-experiment-dls">BSS-2 Experiment Template</a> provides a template for defining and conducting experiments on the BrainScaleS-2 hardware platform.
+This includes:</p>
+<ul class="simple">
+<li><p>Host-based experiment code written</p>
+<ul>
+<li><p>in Python</p></li>
+<li><p>and C++</p></li>
+</ul>
+</li>
+<li><p>code running on BrainScaleS’ embedded processors written in C++.
+The build processes support compilation of host-code as well as the cross-compilation of embedded code.
+Automatic tests can be defined and executed via a exemplary Jenkins CI setup.
+In particular, the repository employs the same build and CI tools as the remaining BrainScaleS software environment.</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ mkdir my_experiment_workspace
+$ cd my_experiment_workspace
+$ git clone https://github.com/electronicvisions/template-experiment-dls my_experiment
+# for github-based builds append &quot;--repo-db-url=https://github.com/electronicvisions/projects&quot; to the next command
+$ waf setup --directory=my_workspace
+</pre></div>
+</div>
+<p>Now continue with the steps described in <a class="reference internal" href="#brainscales-build-system"><span class="std std-ref">BrainScaleS Build System</span></a>.</p>
+</section>
+<section id="development-environments">
+<h2>Development Environments<a class="headerlink" href="#development-environments" title="Permalink to this headline">¶</a></h2>
+<section id="cli-based-ides">
+<h3>CLI-based IDEs<a class="headerlink" href="#cli-based-ides" title="Permalink to this headline">¶</a></h3>
+<div class="admonition-todo admonition" id="id3">
+<p class="admonition-title">Todo</p>
+<p>Describe the visionary neovim (no emacs/etc. users anymore?) flow here :).</p>
+</div>
+<section id="emacs">
+<h4>Emacs<a class="headerlink" href="#emacs" title="Permalink to this headline">¶</a></h4>
+<p>To access remote files directly from your local Emacs instance you can use <a class="reference external" href="https://www.gnu.org/software/tramp/"><code class="docutils literal notranslate"><span class="pre">TRAMP</span></code></a>.
+You can use a ssh config like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cat ~/.ssh/config | grep -A4 &#39;Host hel&#39;
+Host hel
+    HostName brainscales-r.kip.uni-heidelberg.de
+    User YOUR_USERNAME
+    Port 11022
+    ForwardAgent yes
+</pre></div>
+</div>
+<p>and key based authentication, for example using</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ssh-copy-id hel
+</pre></div>
+</div>
+<p>to reduce friction in using <code class="docutils literal notranslate"><span class="pre">TRAMP</span></code>. With a setup like this you can navigate to your home directory on <code class="docutils literal notranslate"><span class="pre">hel</span></code> from your local Emacs by navigating to <code class="docutils literal notranslate"><span class="pre">/ssh:hel:~/</span></code>.</p>
+<p>The <a class="reference external" href="https://emacs-lsp.github.io/lsp-mode/page/installation/"><code class="docutils literal notranslate"><span class="pre">lsp-mode</span></code></a> plugin adds LSP support Emacs and can transparently work over <code class="docutils literal notranslate"><span class="pre">TRAMP</span></code> aswell.
+On <code class="docutils literal notranslate"><span class="pre">hel</span></code> the containerized versions of <code class="docutils literal notranslate"><span class="pre">clangd</span></code> and <code class="docutils literal notranslate"><span class="pre">pylsp</span></code> should be used. You can configure <code class="docutils literal notranslate"><span class="pre">lsp-mode</span></code> to use these using</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(lsp-register-client
+  (make-lsp-client :new-connection (lsp-tramp-connection &#39;(&quot;singularity&quot; &quot;exec&quot; &quot;--app&quot; &quot;dls&quot; &quot;/containers/stable/latest&quot; &quot;clangd&quot;))
+                  :major-modes &#39;(c++-mode c-mode)
+                  :remote? t
+                  :server-id &#39;clangd-remote))
+(lsp-register-client
+  (make-lsp-client :new-connection (lsp-tramp-connection &#39;(&quot;singularity&quot; &quot;exec&quot; &quot;--app&quot; &quot;dls&quot; &quot;/containers/stable/latest&quot; &quot;pylsp&quot;))
+                  :major-modes &#39;(python-mode)
+                  :remote? t
+                  :server-id &#39;pyls-remote)))
+</pre></div>
+</div>
+<p>For <code class="docutils literal notranslate"><span class="pre">TRAMP</span></code> to be able to find the <code class="docutils literal notranslate"><span class="pre">singularity</span></code> executable one needs to configure <code class="docutils literal notranslate"><span class="pre">TRAMP</span></code> to use the same <code class="docutils literal notranslate"><span class="pre">PATH</span></code> environment variable as the login shell. This can be done using</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">connection</span><span class="o">-</span><span class="n">local</span><span class="o">-</span><span class="nb">set</span><span class="o">-</span><span class="n">profile</span><span class="o">-</span><span class="n">variables</span> <span class="s1">&#39;remote-with-singularity-dls</span>
+                                        <span class="s1">&#39;((tramp-remote-path . (tramp-own-remote-path tramp-default-remote-path))))</span>
+<span class="p">(</span><span class="n">connection</span><span class="o">-</span><span class="n">local</span><span class="o">-</span><span class="nb">set</span><span class="o">-</span><span class="n">profiles</span>
+ <span class="s1">&#39;(:application tramp :machine &quot;hel&quot;) &#39;</span><span class="n">remote</span><span class="o">-</span><span class="k">with</span><span class="o">-</span><span class="n">singularity</span><span class="o">-</span><span class="n">dls</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Depending on your ssh configuration you might need to change <code class="docutils literal notranslate"><span class="pre">&quot;hel&quot;</span></code> to match yours.</p>
+</section>
+</section>
+<section id="gui-based-ides">
+<h3>GUI-based IDEs<a class="headerlink" href="#gui-based-ides" title="Permalink to this headline">¶</a></h3>
+<section id="vs-code">
+<h4>VS Code<a class="headerlink" href="#vs-code" title="Permalink to this headline">¶</a></h4>
+<p>The following steps will explain how to setup <code class="docutils literal notranslate"><span class="pre">vscode</span></code> in conjunction with <code class="docutils literal notranslate"><span class="pre">ssh</span></code> to enable your local IDE to interact with a remote server (cf.  <a class="reference external" href="https://en.wikipedia.org/wiki/Language_Server_Protocol">LSP</a>) running in a containerized environment.
+Due to <code class="docutils literal notranslate"><span class="pre">vscode</span></code>’s limited configurability we <em>abuse</em> <code class="docutils literal notranslate"><span class="pre">ssh/.authorized_keys</span></code> to containerize the working environment.
+Similarly, environment modules are also unsupported by <code class="docutils literal notranslate"><span class="pre">vscode</span></code>, we use <code class="docutils literal notranslate"><span class="pre">.env</span></code> files to inject the environment variables.</p>
+<ul>
+<li><p>See <a class="reference internal" href="#brainscales-build-system"><span class="std std-ref">BrainScaleS Build System</span></a> and <a class="reference internal" href="#containerized-software-environment"><span class="std std-ref">Containerized Software Environment</span></a> for information about the build process and the software environment.</p></li>
+<li><p>Install vscode (see <a class="reference external" href="https://code.visualstudio.com/docs/setup/setup-overview">here</a>), start it up and install the extension <code class="docutils literal notranslate"><span class="pre">Remote</span> <span class="pre">-</span> <span class="pre">SSH</span></code>.</p></li>
+<li><p>For <code class="docutils literal notranslate"><span class="pre">vscode</span></code> a dedicated ssh key pair is needed:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>local_machine $ ssh-keygen -t rsa
+# /YOUR_HOME/.ssh/hel_vscode.id_rsa
+# …
+</pre></div>
+</div>
+</li>
+<li><p>Then setup your ssh client to use it:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>local_machine $ editor .ssh/config
+# …
+Host hel-vscode
+        User YOUR_USERNAME
+        Hostname brainscales-r.kip.uni-heidelberg.de
+        Port 11022
+        IdentityFile /YOUR_HOME/.ssh/hel_vscode.id_rsa
+        RequestTTY yes
+# …
+</pre></div>
+</div>
+</li>
+<li><p>Enable ssh-key-based login and adjust it to startup within the latest container environment.
+Add your public key to the file and prefix it:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>hel $ editor .ssh/authorized_keys
+#…
+command=&quot;singularity shell --app dls /containers/stable/latest&quot; ssh-rsa YOUR_PUBLIC_KEY_YOUR_PUBLIC_KEY
+</pre></div>
+</div>
+</li>
+<li><p>Use the extension (<code class="docutils literal notranslate"><span class="pre">Remote-SSH:</span> <span class="pre">Connect</span> <span class="pre">to</span> <span class="pre">Host…</span></code>) to connect to <code class="docutils literal notranslate"><span class="pre">hel-vscode</span></code>.</p></li>
+<li><p>Open a new terminal and verify that it runs on the remote host within the dls app in the container.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>hel $ hostname
+helvetica.kip.uni-heidelberg.de
+hel $ pwd
+YOUR_HOME
+hel $ env | grep ^SINGULARITY
+SINGULARITY_NAME=latest
+SINGULARITY_CONTAINER=/containers/stable/latest
+SINGULARITY_APPNAME=dls
+</pre></div>
+</div>
+</li>
+</ul>
+<p>To enable Python-related functionality in <code class="docutils literal notranslate"><span class="pre">vscode</span></code> the <code class="docutils literal notranslate"><span class="pre">Python</span></code> extension needs to be installed on the remote site.
+See <a class="reference external" href="https://code.visualstudio.com/docs/languages/python">here</a> for details (please note that some plugins can be installed per site (local vs. remote), wihle others are global).
+To verify that it works, open a <code class="docutils literal notranslate"><span class="pre">Python</span></code> file and test some of the IDE functionality (e.g. <em>jump to declaration</em>).
+It might be useful to inject software from the environment and/or workspace into your <code class="docutils literal notranslate"><span class="pre">vscode</span></code> environment..
+One option is to make use of <a class="reference external" href="https://code.visualstudio.com/docs/python/environments#_environment-variable-definitions-file"><code class="docutils literal notranslate"><span class="pre">.env</span></code></a> files (in your workspaces) to replicate <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">localdir</span></code> behavior, e.g.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd my_workspace
+$ cat .env
+PATH=/wang/environment/software/container/bss2-stack-for-nice/2021-05-25_1/bin:/opt/spack/opt/spack/linux-debian10-x86_64/gcc-8.3.0/environment-modules-4.7.1-rsm6srwhgjcrplgver43tdeujurrqyyc/bin:/opt/spack_views/visionary-dls/bin:/scif/apps/dls/bin:/scif/apps/dls:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+LD_LIBRARY_PATH=/wang/environment/software/container/bss2-stack-for-nice/2021-05-25_1/lib:/opt/spack_views/visionary-dls/lib:/opt/spack_views/visionary-dls/lib64:/scif/apps/dls/lib:/opt/spack_views/visionary-dls/lib:/opt/spack_views/visionary-dls/lib64:/scif/apps/dls/lib::/.singularity.d/libs:/.singularity.d/libs
+PYTHONPATH=/wang/environment/software/container/bss2-stack-for-nice/2021-05-25_1/lib
+</pre></div>
+</div>
+<p>The contents of the variables can be acquired by using the module system in a shell:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ module load localdir
+$ env | grep -E &quot;^(|LD_LIBRARY_|PYTHON)PATH=&quot; | tee .env
+</pre></div>
+</div>
+</section>
+<section id="pycharm">
+<h4>pycharm<a class="headerlink" href="#pycharm" title="Permalink to this headline">¶</a></h4>
+<p>Add <code class="docutils literal notranslate"><span class="pre">lib/</span></code> to <code class="docutils literal notranslate"><span class="pre">PYTHONPATH</span></code> and <code class="docutils literal notranslate"><span class="pre">LD_LIBRARY_PATH</span></code>, as well as <code class="docutils literal notranslate"><span class="pre">bin/</span></code> to <code class="docutils literal notranslate"><span class="pre">PATH</span></code> (e.g. by using <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">localdir</span></code>), then start the IDE locally within the container.
+PyCharm also supports running the interpreter remotely, see <a class="reference external" href="https://www.jetbrains.com/help/pycharm/configuring-remote-interpreters-via-ssh.html">here</a>.</p>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2023, Electronic Vision(s).
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,695 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Maschinelles Lernen &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Neuronenverbindungen - Synapsen" href="gs_06_logik_operationen.html" />
+    <link rel="prev" title="Experimente mit mehreren Nervenzellen Teil 2" href="gs_04-2_multiple_neurons_sudoku.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> BrainScaleS-2 Documentation
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Demos &amp; Examples</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html">Welcome to the BrainScaleS-2 Tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ts_00-single_neuron.html">BrainScaleS-2 single neuron experiments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ts_01-superspike.html">Learning with the SuperSpike rule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ts_02-plasticity_rate_coding.html">BrainScaleS-2 on-chip plasticity experiment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ts_03-multicompartment.html">Structured Neurons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ts_04-mc_genetic_algorithms.html">How to use Genetic Algorithms to automatically parameterize BrainScaleS-2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ts_05-yin_yang.html">Training an SNN on BrainScaleS-2 with PyTorch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ts_06-dynamic_range.html">Exploring the dynamic range</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tp_00-introduction.html">Introduction to matrix multiplication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tp_01-properties.html">Exploring the analog MAC operation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tp_02-yin_yang.html">Train DNNs on BrainScaleS-2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nmpi_00-non_interactive_queue_runner.html">Introduction to the non-interactive queue runner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="girlsday.html">Wie verarbeitet unser Gehirn Informationen?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gs_01_neuromorphic_hardware.html">Unsere neuromorphe Hardware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gs_02_pynn_introduction.html">Wie können wir mit den künstlichen Nervenzellen kommunizieren?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gs_03_single_neuron.html">Experimente mit einer einzelnen Nervenzelle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gs_04-1_multiple_neurons_feuerkette.html">Experimente mit mehreren Nervenzellen Teil 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gs_04-2_multiple_neurons_sudoku.html">Experimente mit mehreren Nervenzellen Teil 2</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Maschinelles Lernen</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#was-ist-ein-neuronales-netz">Was ist ein neuronales Netz?</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#wie-viele-neuronen-und-gewichte-sind-notig">Wie viele Neuronen und Gewichte sind nötig?</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#umgebung-vorbereiten">Umgebung vorbereiten</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#beispiel-erkennung-von-handgeschriebenen-ziffern">Beispiel: Erkennung von handgeschriebenen Ziffern</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#training-des-modells">Training des Modells</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gs_06_logik_operationen.html">Neuronenverbindungen - Synapsen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gs_06_logik_operationen.html#synapsennetzwerke">Synapsennetzwerke</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fortgeschrittenen_praktikum.html">Welcome to the Advanced Physics Lab for Physicists by the Electronic Vision(s) Group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fp_pynn_introduction.html">Introduction to PyNN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fp_binary_operations.html">Binary operations using spiking neurons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fp_sudoku.html">Sudoku</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../apis.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BrainScaleS-2 Documentation</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Welcome to the BrainScaleS-2 Demos &amp; Examples!</a> &raquo;</li>
+        
+      <li>Maschinelles Lernen</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/brainscales2-demos/gs_05_machine_learning.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <section id="maschinelles-lernen">
+<h1>Maschinelles Lernen<a class="headerlink" href="#maschinelles-lernen" title="Permalink to this headline">¶</a></h1>
+<p>In diesem Teil soll es um ein einfaches Beispiel für maschinelles Lernen gehen.
+Maschinelles Lernen bedeutet, dass ohne menschliches Zutun neues Wissen aus
+bestehenden Daten erhalten und dieses verallgemeinert wird. Dadurch sollen
+Zusammenhänge und Muster erkannt werden, die auch auf unbekannte Beispieledaten
+anwendbar sind.</p>
+<p>Ein paar Beispiele, wo maschinelles Lernen sehr praktisch sein kann:</p>
+<ul class="simple">
+<li><p>Schrifterkennung</p></li>
+<li><p>Texte übersetzen</p></li>
+<li><p>Spotify / YouTube Vorschläge</p></li>
+<li><p>Aktivitätserkennung</p></li>
+<li><p>Werbung filtern</p></li>
+<li><p>Facebook Timeline</p></li>
+<li><p>…</p></li>
+</ul>
+<p>Fallen euch noch mehr ein?</p>
+<section id="was-ist-ein-neuronales-netz">
+<h2>Was ist ein neuronales Netz?<a class="headerlink" href="#was-ist-ein-neuronales-netz" title="Permalink to this headline">¶</a></h2>
+<p>Herkömmliche neuronale Netze, wie sie beim maschinellen Lernen verwendet
+werden, sind aus mehreren Lagen aus Neuronen aufgebaut (orange), welche
+unterschiedlich stark verbunden sein können. Diese Stärke dieser
+Verbindungen, die Gewichte, enthalten das “Wissen” und werden beim
+Trainieren automatisch angepasst.</p>
+<a class="reference internal image-reference" href="../_images/girlsday_perceptron.png"><img alt="../_images/girlsday_perceptron.png" class="align-center" src="../_images/girlsday_perceptron.png" style="width: 450px;" /></a>
+<section id="wie-viele-neuronen-und-gewichte-sind-notig">
+<h3>Wie viele Neuronen und Gewichte sind nötig?<a class="headerlink" href="#wie-viele-neuronen-und-gewichte-sind-notig" title="Permalink to this headline">¶</a></h3>
+<p>Die Wahl eines geeigneten Modells ist gar nicht so einfach. Ist das
+Modell zu klein, also enthält es zu wenig Neuronen und Gewichte, dann
+kann es die zu lernenden Zusammenhänge nicht richtig abbilden. Ist es
+aber zu komplex, also enthält es zu viele Neuronen, so ist dies
+ebenfalls schlecht. Es können dann zwar die meisten Beispiele, die zum
+Lernen verwendet wurden, richtig erkannt werden, bei Unbekanntem
+scheitert das Modell aber. Man sagt, dass solch ein Modell nicht genug
+verallgemeinern kann. Es hat zwar alle Beispiele auswendig gelernt, kann
+aber die zu Grunde liegenden Zusammenhänge nicht verstehen.</p>
+<a class="reference internal image-reference" href="../_images/girlsday_overfitting.png"><img alt="../_images/girlsday_overfitting.png" class="align-center" src="../_images/girlsday_overfitting.png" style="width: 800px;" /></a>
+</section>
+</section>
+<section id="umgebung-vorbereiten">
+<h2>Umgebung vorbereiten<a class="headerlink" href="#umgebung-vorbereiten" title="Permalink to this headline">¶</a></h2>
+<p>Bevor wir mit unseren Experimenten beginnen können, müssen wir erneut unsere Umgebung vorbereiten:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">_static.common.helpers</span> <span class="kn">import</span> <span class="n">setup_hardware_client</span><span class="p">,</span> <span class="n">save_nightly_calibration</span>
+<span class="n">setup_hardware_client</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="beispiel-erkennung-von-handgeschriebenen-ziffern">
+<h2>Beispiel: Erkennung von handgeschriebenen Ziffern<a class="headerlink" href="#beispiel-erkennung-von-handgeschriebenen-ziffern" title="Permalink to this headline">¶</a></h2>
+<p>Dies ist ein sehr beliebtes Beispiel für den Einsatz von maschinellem
+Lernen: In einem Briefzentrum sollen die Postleitzahlen der Briefe in
+der Sortieranlage automatisch gelesen werden, damit die Briefe in die
+richtigen Fahrzeuge verladen werden können. Um dieses Problem zu lösen,
+wurden viele verschiedene Bilder gesammelt und jeweils der richtigen Ziffer
+zugeordnet.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hier werden erstmal alle Dinge importiert, die wir später brauchen.</span>
+<span class="kn">import</span> <span class="nn">threading</span>
+<span class="kn">import</span> <span class="nn">traceback</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">from</span> <span class="nn">torchvision</span> <span class="kn">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">transforms</span>
+<span class="kn">import</span> <span class="nn">hxtorch</span>
+<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">w</span>
+<span class="kn">from</span> <span class="nn">ipycanvas</span> <span class="kn">import</span> <span class="n">Canvas</span><span class="p">,</span> <span class="n">hold_canvas</span>
+<span class="kn">from</span> <span class="nn">IPython</span> <span class="kn">import</span> <span class="n">get_ipython</span>
+<span class="kn">from</span> <span class="nn">tqdm.auto</span> <span class="kn">import</span> <span class="n">tqdm</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">save_nightly_calibration</span><span class="p">(</span><span class="s1">&#39;hagen_cocolist.pbin&#39;</span><span class="p">)</span>
+<span class="n">hxtorch</span><span class="o">.</span><span class="n">init_hardware</span><span class="p">(</span><span class="n">hxtorch</span><span class="o">.</span><span class="n">CalibrationPath</span><span class="p">(</span><span class="s1">&#39;hagen_cocolist.pbin&#39;</span><span class="p">))</span>
+<span class="n">hxtorch</span><span class="o">.</span><span class="n">perceptron</span><span class="o">.</span><span class="n">set_mock_parameter</span><span class="p">(</span><span class="n">hxtorch</span><span class="o">.</span><span class="n">perceptron</span><span class="o">.</span><span class="n">measure_mock_parameter</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>Im maschinellen Lernen ist das klassifizieren von Bildern ein beliebtes Beispiel, sodass eine große Sammlung von Bildern, welche Zahlen darstellen, frei verfügbar ist.
+Diese Sammlung laden wir im folgenden runter:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ort, an dem das Set von Bildern gespeichert werden soll:</span>
+<span class="n">data_path</span> <span class="o">=</span> <span class="s1">&#39;mnist&#39;</span>
+</pre></div>
+</div>
+<div class="test html-display-none highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># use stored MNIST data for tests</span>
+<span class="n">data_path</span> <span class="o">=</span> <span class="s1">&#39;/loh/data/mnist&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">transform</span> <span class="o">=</span> <span class="n">transforms</span><span class="o">.</span><span class="n">Compose</span><span class="p">([</span>
+    <span class="n">transforms</span><span class="o">.</span><span class="n">ToTensor</span><span class="p">(),</span>
+    <span class="n">transforms</span><span class="o">.</span><span class="n">Lambda</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">round</span><span class="p">())</span>
+<span class="p">])</span>
+<span class="n">train_transform</span> <span class="o">=</span> <span class="n">transforms</span><span class="o">.</span><span class="n">Compose</span><span class="p">([</span>
+    <span class="n">transforms</span><span class="o">.</span><span class="n">RandomResizedCrop</span><span class="p">(</span><span class="mi">28</span><span class="p">),</span>
+    <span class="n">transform</span><span class="p">,</span>
+<span class="p">])</span>
+
+<span class="c1"># Die Bilder der Ziffern werden geladen.</span>
+<span class="c1"># Mit `train_data` wird trainiert, mit `test_data` kann nachher überprüft</span>
+<span class="c1"># werden, wie gut das Netzwerk verallgemeinern kann.</span>
+<span class="n">train_data</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">MNIST</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="n">train</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">train_transform</span><span class="p">,</span>
+                            <span class="n">download</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">test_data</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">MNIST</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="n">train</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">transform</span><span class="p">,</span>
+                           <span class="n">download</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">numbers</span> <span class="o">=</span> <span class="p">{</span><span class="n">n</span><span class="p">:</span> <span class="p">[]</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)}</span>
+<span class="k">for</span> <span class="n">img</span><span class="p">,</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">test_data</span><span class="p">:</span>
+    <span class="n">numbers</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+
+<span class="n">train_loader</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span>
+    <span class="n">dataset</span><span class="o">=</span><span class="n">train_data</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">test_loader</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span>
+    <span class="n">dataset</span><span class="o">=</span><span class="n">test_data</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Nun stellen wir einige, zufällige Bilder aus dem Set dar:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">constrained_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">test_data</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">axs</span><span class="o">.</span><span class="n">flatten</span><span class="p">():</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">test_data</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Greys&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+</pre></div>
+</div>
+<a class="solution reference internal image-reference" href="../_images/girlsday_mnist_output1.png"><img alt="../_images/girlsday_mnist_output1.png" class="solution" src="../_images/girlsday_mnist_output1.png" style="width: 100%;" /></a>
+<p>Um diese Bilder jetzt auch automatisch richtig zu erkennen, wird
+zunächst eine Beschreibung eines neuronalen Netzwerks benötigt. Der
+folgende Programmcode definiert ein Netzwerk mit einer einzelnen
+verstecken Lage mit 128 Neuronen.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Model</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Ein sehr einfaches neuronales Netzwerk mit einer einzigen</span>
+<span class="sd">    Lage aus versteckten Neuronen.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mock</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mock</span> <span class="o">=</span> <span class="n">mock</span>
+        <span class="n">num_hidden</span> <span class="o">=</span> <span class="mi">256</span>  <span class="c1"># die Anzahl der versteckten Neuronen</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">classifier</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+            <span class="c1"># Diese Lage verbindet jeden Pixel des Bildes</span>
+            <span class="c1"># mit jedem versteckten Neuron:</span>
+            <span class="n">hxtorch</span><span class="o">.</span><span class="n">perceptron</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span>
+                <span class="n">in_features</span><span class="o">=</span><span class="mi">28</span> <span class="o">*</span> <span class="mi">28</span><span class="p">,</span>  <span class="c1"># die Bilder sind 28x28 Pixel groß</span>
+                <span class="n">out_features</span><span class="o">=</span><span class="n">num_hidden</span><span class="p">,</span>
+                <span class="n">mock</span><span class="o">=</span><span class="n">mock</span><span class="p">),</span> <span class="n">hxtorch</span><span class="o">.</span><span class="n">perceptron</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">ConvertingReLU</span><span class="p">(</span><span class="n">shift</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">mock</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+            <span class="n">hxtorch</span><span class="o">.</span><span class="n">perceptron</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span>
+                <span class="n">in_features</span><span class="o">=</span><span class="n">num_hidden</span><span class="p">,</span>
+                <span class="n">out_features</span><span class="o">=</span><span class="n">num_hidden</span><span class="p">,</span>
+                <span class="n">mock</span><span class="o">=</span><span class="n">mock</span><span class="p">),</span> <span class="n">hxtorch</span><span class="o">.</span><span class="n">perceptron</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">ConvertingReLU</span><span class="p">(</span><span class="n">shift</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">mock</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+            <span class="c1"># Diese Lage verbindet jedes der verstecken Neuronen</span>
+            <span class="c1"># mit einem der 10 möglichen Ausgänge:</span>
+            <span class="n">hxtorch</span><span class="o">.</span><span class="n">perceptron</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span>
+                <span class="n">in_features</span><span class="o">=</span><span class="n">num_hidden</span><span class="p">,</span>
+                <span class="n">out_features</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>  <span class="c1"># es gibt 10 verschiedene Ziffern</span>
+                <span class="n">mock</span><span class="o">=</span><span class="n">mock</span><span class="p">)</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">28</span> <span class="o">*</span> <span class="mi">28</span><span class="p">)</span> <span class="o">*</span> <span class="mf">31.</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">classifier</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">x</span>
+</pre></div>
+</div>
+<p>Dieses Modell ist aber noch “dumm”, d.h. es kann die Zahlen noch nicht
+richtig erkennen. Das können wir direkt mal ausprobieren:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ZahlenMalen</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Einfache Oberfläche, um MNIST-Bilder zu malen.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">numbers</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+                 <span class="n">scale</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">line_width</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span> <span class="n">autostop</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">down</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">erase</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">changes_pending</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">running</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">numbers</span> <span class="o">=</span> <span class="n">numbers</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scale</span> <span class="o">=</span> <span class="n">scale</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">line_width</span> <span class="o">=</span> <span class="n">line_width</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">autostop</span> <span class="o">=</span> <span class="n">autostop</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">started_at</span> <span class="o">=</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">execution_count</span>
+
+        <span class="c1"># Elemente der Oberfläche vorbereiten</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span> <span class="o">=</span> <span class="n">Canvas</span><span class="p">(</span>
+            <span class="n">width</span><span class="o">=</span><span class="n">scale</span> <span class="o">*</span> <span class="mi">28</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="n">scale</span> <span class="o">*</span> <span class="mi">28</span><span class="p">,</span>
+            <span class="n">sync_image_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">layout</span><span class="o">=</span><span class="n">w</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">border</span><span class="o">=</span><span class="s1">&#39;solid gray&#39;</span><span class="p">,</span> <span class="n">margin</span><span class="o">=</span><span class="s1">&#39;10px&#39;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">color_chooser</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">RadioButtons</span><span class="p">(</span>
+            <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Farbe ✏️&#39;</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;schwarz&#39;</span><span class="p">,</span> <span class="s1">&#39;weiß&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clear_button</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Löschen&#39;</span><span class="p">,</span> <span class="n">button_style</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">submit_button</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">Button</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">result_text</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">HTML</span><span class="p">()</span>
+        <span class="n">height</span> <span class="o">=</span> <span class="p">(</span><span class="n">scale</span> <span class="o">*</span> <span class="mi">28</span> <span class="o">+</span> <span class="mi">0</span><span class="p">)</span> <span class="o">/</span> <span class="mi">10</span>
+        <span class="n">b_layout</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">height</span><span class="si">}</span><span class="s2">px&quot;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">height</span><span class="si">}</span><span class="s2">px&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">number_buttons</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">w</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">),</span><span class="n">layout</span><span class="o">=</span><span class="n">b_layout</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+
+        <span class="c1"># Events für die Maus-/Touchsteuerung registrieren</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">on_mouse_down</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">start_draw</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">on_mouse_up</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stop_draw</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">on_mouse_out</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stop_draw</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">on_mouse_move</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">draw</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">on_touch_start</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">start_draw</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">on_touch_end</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stop_draw</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">on_touch_cancel</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stop_draw</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">on_touch_move</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">draw</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">submit_button</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">toggle_worker</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clear_button</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">clear</span><span class="p">)</span>
+        <span class="n">w</span><span class="o">.</span><span class="n">interactive</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">choose_color</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">color_chooser</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">button</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">number_buttons</span><span class="p">):</span>
+            <span class="n">button</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">partial</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">draw_number</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">start_worker</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">display</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">display</span><span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">HBox</span><span class="p">([</span><span class="n">w</span><span class="o">.</span><span class="n">VBox</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">number_buttons</span><span class="p">),</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="p">,</span>
+                        <span class="n">w</span><span class="o">.</span><span class="n">VBox</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">color_chooser</span><span class="p">,</span>
+                                <span class="n">w</span><span class="o">.</span><span class="n">HBox</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">clear_button</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">submit_button</span><span class="p">]),</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">result_text</span><span class="p">])]))</span>
+
+    <span class="k">def</span> <span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">down</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">scale</span><span class="p">)</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">line_width</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">scale</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">y</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">scale</span><span class="p">)</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">line_width</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">scale</span>
+            <span class="n">lw</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">scale</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">line_width</span>
+            <span class="n">func</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">clear_rect</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">erase</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">fill_rect</span>
+            <span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">lw</span><span class="p">,</span> <span class="n">lw</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">changes_pending</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="nf">draw_number</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="o">*</span><span class="n">_</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="mi">0</span><span class="o">&lt;=</span><span class="n">n</span> <span class="ow">and</span> <span class="n">n</span><span class="o">&lt;</span><span class="mi">10</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">put_image_data</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">numbers</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">numbers</span><span class="p">[</span><span class="n">n</span><span class="p">]))])</span>
+
+    <span class="k">def</span> <span class="nf">start_draw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">down</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">stop_draw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">down</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">def</span> <span class="nf">choose_color</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">erase</span> <span class="o">=</span> <span class="p">(</span><span class="n">color</span> <span class="o">==</span> <span class="s1">&#39;weiß&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">changes_pending</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="nf">get_image_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">s</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scale</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span> <span class="kc">None</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">scale</span><span class="p">)</span>
+            <span class="n">image_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">get_image_data</span><span class="p">()[</span><span class="n">s</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="n">image_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">create_image_data</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">width</span><span class="o">//</span><span class="bp">self</span><span class="o">.</span><span class="n">scale</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">height</span><span class="o">//</span><span class="bp">self</span><span class="o">.</span><span class="n">scale</span><span class="p">)[</span><span class="o">...</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">image_data</span> <span class="o">/</span> <span class="mi">255</span>
+
+    <span class="k">def</span> <span class="nf">put_image_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image_data</span><span class="p">):</span>
+        <span class="c1"># wiederhole die Pixel damit sie auf den Canvas passen</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">image_data</span><span class="o">.</span><span class="n">repeat_interleave</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">scale</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">repeat_interleave</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scale</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="c1"># konvertiere die Intensitaeten der Pixel in den RGB Bereich</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">)[:,</span> <span class="p">:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">],</span> <span class="mi">3</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">))</span> <span class="o">*</span> <span class="mi">255</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">put_image_data</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">changes_pending</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="nf">inference</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">mock</span><span class="p">:</span>
+                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">get_image_data</span><span class="p">(),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float</span><span class="p">)</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">results_p</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+            <span class="n">results</span> <span class="o">=</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">results_p</span><span class="o">.</span><span class="n">argsort</span><span class="p">())</span>
+            <span class="n">results_t</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;&lt;h4&gt;</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2"> &lt;small&gt;(</span><span class="si">{</span><span class="n">results_p</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2">)&lt;/small&gt;&lt;/h4&gt;&quot;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">results</span><span class="p">]</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;&lt;h3&gt;Ergebnis:&lt;/h3&gt;&quot;</span>
+            <span class="n">text</span> <span class="o">+=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">results_t</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">result_text</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">text</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">print_traceback</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">print_traceback</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Zeigt eventuelle Fehler als roten Text auf der Oberfläche</span>
+<span class="sd">        https://github.com/martinRenou/ipycanvas/issues/61</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">fill_style</span> <span class="o">=</span> <span class="s1">&#39;#ff8888&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">fill_rect</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">fill_style</span> <span class="o">=</span> <span class="s1">&#39;#000000&#39;</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">traceback</span><span class="o">.</span><span class="n">format_exc</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">si</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">fill_text</span><span class="p">(</span><span class="n">si</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="o">+</span><span class="mi">15</span><span class="o">*</span><span class="n">i</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">start_worker</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">_</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Startet einen neuen Hintergrundprozess &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">started_at</span> <span class="o">=</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">execution_count</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">running</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">submit_button</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;Stop&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">submit_button</span><span class="o">.</span><span class="n">button_style</span> <span class="o">=</span> <span class="s2">&quot;danger&quot;</span>
+
+        <span class="k">def</span> <span class="nf">work</span><span class="p">(</span><span class="n">zm</span><span class="p">:</span> <span class="n">ZahlenMalen</span><span class="p">):</span>
+            <span class="k">while</span> <span class="n">zm</span><span class="o">.</span><span class="n">running</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">zm</span><span class="o">.</span><span class="n">changes_pending</span> <span class="ow">or</span> <span class="kc">True</span><span class="p">:</span>
+                    <span class="n">zm</span><span class="o">.</span><span class="n">changes_pending</span> <span class="o">=</span> <span class="kc">False</span>
+                    <span class="n">zm</span><span class="o">.</span><span class="n">inference</span><span class="p">()</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">autostop</span> <span class="ow">and</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">execution_count</span> <span class="o">&gt;</span> <span class="n">zm</span><span class="o">.</span><span class="n">started_at</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="n">zm</span><span class="o">.</span><span class="n">stop_worker</span><span class="p">()</span>
+
+        <span class="n">thread</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">work</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="p">,))</span>
+        <span class="n">thread</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">stop_worker</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">_</span><span class="p">):</span>
+        <span class="c1"># stop and update button</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">running</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">submit_button</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;Start&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">submit_button</span><span class="o">.</span><span class="n">button_style</span> <span class="o">=</span> <span class="s2">&quot;success&quot;</span>
+
+    <span class="k">def</span> <span class="nf">toggle_worker</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">_</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">running</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">stop_worker</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">start_worker</span><span class="p">()</span>
+
+<span class="c1"># Anzeigen der Oberfläche zum Malen</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">()</span>
+<span class="n">zm1</span> <span class="o">=</span> <span class="n">ZahlenMalen</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">numbers</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">zm1</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+</pre></div>
+</div>
+<a class="solution reference internal image-reference" href="../_images/girlsday_mnist_output2.png"><img alt="../_images/girlsday_mnist_output2.png" class="solution" src="../_images/girlsday_mnist_output2.png" style="width: 100%;" /></a>
+<p>In dem weißen Bereich kann man selber malen oder mit den Knöpfen auf der
+linken Seite eine Zahl malen lassen. Unter <strong>Ergebnis</strong> sollte dann ganz
+oben die wahrscheinlich richtige Ziffer erscheinen, darunter kommen die
+Ziffern, die das Modell als etwas weniger wahrscheinlich vorschlägt. Da
+herrscht jetzt vermutlich noch ein ziemliches Durcheinander, aber es
+wurde ja auch noch nicht trainiert!</p>
+<section id="training-des-modells">
+<h3>Training des Modells<a class="headerlink" href="#training-des-modells" title="Permalink to this headline">¶</a></h3>
+<p>In diesem Teil soll nun ein Modell so trainiert werden, dass es möglichst
+gut handgeschreibene Ziffern erkennen kann. Dazu werden im Folgenden zwei
+Funktionen benötigt:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">train</span></code> zeigt dem Netzwerk nacheinander jedes
+Trainingsbeispiel und passt dabei die Gewichte, die Verbindungen zwischen
+den Neuronen, an.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">test</span></code> testet, wie gut das Netzwerk verallgemeinern
+kann. Dafür wird versucht die Testbeispiele (die nicht zum Trainieren
+verwendet wurden) zuzuordnen und das Ergebnis mit den richtigen Ziffern
+verglichen.</p></li>
+</ul>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">zm1</span><span class="o">.</span><span class="n">stop_worker</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="n">model</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">,</span>
+          <span class="n">loader</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">,</span>
+          <span class="n">optimizer</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Optimizer</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Diese Funktion trainiert das Modell.</span>
+
+<span class="sd">    :param model: Das Modell</span>
+<span class="sd">    :param loader: Die zu verwendenden Beispielbilder</span>
+<span class="sd">    :param optimizer: Der Optimierer, der zum Anpassen des Modells</span>
+<span class="sd">        verwendet werden soll</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+    <span class="n">pbar</span> <span class="o">=</span> <span class="n">tqdm</span><span class="p">(</span>
+        <span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">loader</span><span class="p">),</span> <span class="n">unit</span><span class="o">=</span><span class="s2">&quot;batch&quot;</span><span class="p">,</span> <span class="n">postfix</span><span class="o">=</span><span class="s2">&quot; &quot;</span> <span class="o">*</span> <span class="mi">11</span><span class="p">,</span> <span class="n">leave</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">data</span><span class="p">,</span> <span class="n">target</span> <span class="ow">in</span> <span class="n">loader</span><span class="p">:</span>
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">functional</span><span class="o">.</span><span class="n">cross_entropy</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span> <span class="o">/</span> <span class="mi">64</span>
+        <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>  <span class="c1"># automatisches Anpassen der Gewichte</span>
+        <span class="n">pbar</span><span class="o">.</span><span class="n">set_postfix</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">()</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">pbar</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+    <span class="n">pbar</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="n">model</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">,</span> <span class="n">loader</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Diese Funktion testet das Modell.</span>
+
+<span class="sd">    :param model: Das zu testende Modell</span>
+<span class="sd">    :param loader: Die zu verwendenden Beispielbilder</span>
+<span class="sd">    :return: Die erreichte Genauigkeit</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">n_correct</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">n_total</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">loader</span><span class="o">.</span><span class="n">dataset</span><span class="p">)</span>
+    <span class="n">pbar</span> <span class="o">=</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">loader</span><span class="p">),</span> <span class="n">unit</span><span class="o">=</span><span class="s2">&quot;batch&quot;</span><span class="p">,</span> <span class="n">leave</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">data</span><span class="p">,</span> <span class="n">target</span> <span class="ow">in</span> <span class="n">loader</span><span class="p">:</span>
+            <span class="n">output</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+            <span class="n">pred</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdim</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">n_correct</span> <span class="o">+=</span> <span class="n">pred</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="n">target</span><span class="o">.</span><span class="n">view_as</span><span class="p">(</span><span class="n">pred</span><span class="p">))</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+            <span class="n">pbar</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+    <span class="n">pbar</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">accuracy</span> <span class="o">=</span> <span class="n">n_correct</span> <span class="o">/</span> <span class="n">n_total</span>
+    <span class="k">return</span> <span class="n">accuracy</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dieses Modell soll trainiert werden</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+
+<span class="c1"># Dieser Optimierer wird für das Training benötigt</span>
+<span class="c1"># und übernimmt die Anpassung der Gewichte.</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span>  <span class="c1"># es sollen alle Gewichte trainiert werden</span>
+    <span class="n">lr</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span>  <span class="c1"># Geschwindigkeit, mit der gelernt werden soll</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Trainiert wird nun in sogenannten Epochen, das heißt es werden die
+gleichen Beispiele immer wieder gezeigt. Dabei sollte das Netzwerk
+immer besser werden.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_epochs</span> <span class="o">=</span> <span class="mi">4</span>  <span class="c1"># Die Anzahl der Trainingsepochen</span>
+<span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_epochs</span><span class="p">):</span>
+    <span class="n">train</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">train_loader</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">)</span>
+    <span class="n">accuracy</span> <span class="o">=</span> <span class="n">test</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">test_loader</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Genauigkeit: </span><span class="si">{</span><span class="n">accuracy</span><span class="o">*</span><span class="mi">100</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="solution reference internal image-reference" href="../_images/girlsday_mnist_output3.png"><img alt="../_images/girlsday_mnist_output3.png" class="solution" src="../_images/girlsday_mnist_output3.png" style="width: 100%;" /></a>
+<p>Jetzt sollte das Netzwerk die gemalten Ziffern auch erkennen können:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">zm2</span> <span class="o">=</span> <span class="n">ZahlenMalen</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">numbers</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">zm2</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+</pre></div>
+</div>
+<a class="solution reference internal image-reference" href="../_images/girlsday_mnist_output4.png"><img alt="../_images/girlsday_mnist_output4.png" class="solution" src="../_images/girlsday_mnist_output4.png" style="width: 100%;" /></a>
+<ul class="simple">
+<li><p>Ihr werdet feststellen, das manche Ziffern einfacher erkannt werden
+als andere. Woran könnte das liegen?</p></li>
+<li><p>Reicht es auch, nur eine halbe Ziffer zu malen?</p></li>
+</ul>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">zm2</span><span class="o">.</span><span class="n">stop_worker</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="gs_06_logik_operationen.html" class="btn btn-neutral float-right" title="Neuronenverbindungen - Synapsen" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="gs_04-2_multiple_neurons_sudoku.html" class="btn btn-neutral float-left" title="Experimente mit mehreren Nervenzellen Teil 2" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2023, Electronic Vision(s).
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

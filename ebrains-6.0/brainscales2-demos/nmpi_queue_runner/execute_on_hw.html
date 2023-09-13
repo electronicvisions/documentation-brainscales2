@@ -1,0 +1,244 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>&lt;no title&gt; &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/visions.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> BrainScaleS-2 Documentation
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Demos &amp; Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../apis.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">BrainScaleS-2 Documentation</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>&lt;no title&gt;</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/brainscales2-demos/nmpi_queue_runner/execute_on_hw.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">_static.common.collab_helpers</span> <span class="kn">import</span> <span class="n">check_kernel</span>
+
+<span class="c1"># Check if compatible kernel version is used</span>
+<span class="n">check_kernel</span><span class="p">()</span>
+<span class="n">kernel_env</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;LAB_KERNEL_NAME&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="s2">&quot;experimental&quot;</span> <span class="ow">in</span> <span class="n">kernel_env</span><span class="p">:</span>
+    <span class="n">software_version</span> <span class="o">=</span> <span class="s2">&quot;experimental&quot;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">software_version</span> <span class="o">=</span> <span class="s2">&quot;stable&quot;</span>
+
+<span class="c1"># Directory where we save the experiment results</span>
+<span class="n">outputDir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s2">&quot;~&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">execute_on_hardware</span><span class="p">(</span><span class="n">script_name</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Sends the provided script to the local cluster, where it is scheduled and executed on</span>
+<span class="sd">    the neuromorphic chip. The result files are then loaded back into the collaboratory.</span>
+<span class="sd">    :param script_name: Name of the script which gets executed</span>
+<span class="sd">    :returns: Job id of executed job</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">collab_id</span> <span class="o">=</span> <span class="n">repoInfo</span><span class="o">.</span><span class="n">nameInTheUrl</span>
+
+    <span class="n">hw_config</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;SOFTWARE_VERSION&#39;</span><span class="p">:</span> <span class="n">software_version</span><span class="p">}</span>
+
+    <span class="n">StartAt</span><span class="o">=</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="c1"># if connection broken, you need a new token (repeat the steps above)</span>
+    <span class="n">job</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">submit_job</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s2">&quot;~/&quot;</span><span class="o">+</span><span class="n">script_name</span><span class="p">,</span>
+                          <span class="n">platform</span><span class="o">=</span><span class="n">nmpi</span><span class="o">.</span><span class="n">BRAINSCALES2</span><span class="p">,</span>
+                          <span class="n">collab_id</span><span class="o">=</span><span class="n">collab_id</span><span class="p">,</span>
+                          <span class="n">config</span><span class="o">=</span><span class="n">hw_config</span><span class="p">,</span>
+                          <span class="n">command</span><span class="o">=</span><span class="s2">&quot;run.py&quot;</span><span class="p">,</span>
+                          <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">timeUsed</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">StartAt</span>
+    <span class="n">job_id</span> <span class="o">=</span> <span class="n">job</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">job_id</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; time used: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">timeUsed</span><span class="p">))</span>
+    <span class="n">filenames</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">download_data</span><span class="p">(</span><span class="n">job</span><span class="p">,</span> <span class="n">local_dir</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s2">&quot;~&quot;</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;All files: &quot;</span><span class="p">,</span><span class="n">filenames</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">job_id</span>
+</pre></div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2023, Electronic Vision(s).
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
