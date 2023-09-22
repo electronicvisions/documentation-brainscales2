@@ -8,7 +8,7 @@ components:
 * and :doc:`API documentation <apis>` generated from in-code comments.
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 2
    :caption: Contents
 
    Demos & Examples <brainscales2-demos/index>
