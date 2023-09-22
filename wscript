@@ -30,16 +30,14 @@ def build(bld):
     # * symlinks from source/X to the repos containing documentation
     bld(
         target = 'sphinx_documentation_brainscales2',
-        features = 'sphinx',
+        features = 'use sphinx',
         sphinx_source = 'source',
         sphinx_output_format = 'html',
         install_path = '${PREFIX}/doc/sphinx_documentation_brainscales2',
-        depends_on = ['doxygen_' + proj for proj in ['haldls', 'lola',
-                                                     'stadls', 'fisch',
-                                                     'hxcomm', 'hate',
-                                                     'pynn-brainscales2',
-                                                     'hxtorch', 'pyhxtorch',
-                                                     'grenade', 'calix']],
+        depends_on = ['doxygen_' + proj for proj in [
+            'haldls', 'lola', 'stadls', 'fisch', 'hxcomm', 'hate', 'hxtorch',
+            'grenade', 'calix']],
+        use = ['pynn_brainscales2', 'pygrenade_vx', 'hxtorch', 'calix_pylib'],
     )
 
 

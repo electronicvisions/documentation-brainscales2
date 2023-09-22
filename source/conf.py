@@ -22,12 +22,16 @@ extensions = [
     'IPython.sphinxext.ipython_console_highlighting',
     'breathe',
     'sphinx.ext.autodoc',
+    'sphinx.ext.autosummary',
 ]
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = [
+    'brainscales2-demos/README.md',
+    '_build',
+    '_templates',
 ]
 
 source_suffix = {
@@ -66,9 +70,7 @@ breathe_projects = {
     'stadls': '../../build/haldls/stadls/doc/xml',
     'fisch': '../../build/fisch/doc/xml',
     'hxcomm': '../../build/hxcomm/doc/xml',
-    'pynn-brainscales2': '../../build/pynn-brainscales2/doc/xml',
     'hxtorch': '../../build/hxtorch/doc/xml',
-    'pyhxtorch': '../../build/pyhxtorch/doc/xml',
     'grenade': '../../build/grenade/doc/xml',
     'calix': '../../build/calix/doc/xml',
     'hate': '../../build/hate/doc/xml',
@@ -76,3 +78,14 @@ breathe_projects = {
 
 # Display todos by setting to True
 todo_include_todos = True
+
+autosummary_generate = True
+autodoc_default_options = {
+    'undoc-members': True,
+}
+autosummary_imported_members = True
+autosummary_ignore_module_all = False
+
+
+# Add any paths that contain templates here, relative to this directory.
+templates_path = ['_templates']
