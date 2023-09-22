@@ -75,7 +75,5 @@ breathe_projects = {
     'calix': '../../build/calix/doc/xml',
 }
 
-#breathe_default_project = 'haldls'
-
 # Display todos by setting to True
 todo_include_todos = True
