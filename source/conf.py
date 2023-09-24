@@ -22,6 +22,7 @@ extensions = [
     'sphinxcontrib.jupyter',
     'IPython.sphinxext.ipython_console_highlighting',
     'breathe',
+    'sphinx.ext.autodoc',
 ]
 
 # List of patterns, relative to source directory, that match files and
