@@ -12,6 +12,7 @@ components:
    :caption: Contents
 
    Demos & Examples <brainscales2-demos/index>
+   pynn-brainscales/index
    API Reference <apis>
 
 
