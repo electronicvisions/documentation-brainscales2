@@ -6,10 +6,8 @@ def depends(ctx):
     # config for doxygen
     ctx('code-format')
 
-    # Demos/Tutorial depends on everything, except for calix
+    # Demos/Tutorial depends on everything
     ctx('much-demos-such-wow')
-
-    ctx('calix')
 
 
 def options(opt):
