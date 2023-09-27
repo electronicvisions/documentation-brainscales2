@@ -20,7 +20,6 @@ def configure(cfg):
     cfg.load('python')
     cfg.load('sphinx')
     cfg.check_python_module('sphinx_rtd_theme')
-    cfg.check_python_module('myst_parser')
     cfg.check_python_module('breathe')
 
 

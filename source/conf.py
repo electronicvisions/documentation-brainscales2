@@ -18,7 +18,6 @@ extensions = [
     'sphinx.ext.mathjax',
     'sphinx.ext.todo',
     'sphinx_rtd_theme',
-    'myst_parser',
     'sphinxcontrib.jupyter',
     'IPython.sphinxext.ipython_console_highlighting',
     'breathe',
@@ -29,12 +28,10 @@ extensions = [
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = [
-    'brainscales2-demos/README.md',
 ]
 
 source_suffix = {
     '.rst': 'restructuredtext',
-    '.md': 'markdown',
 }
 
 
