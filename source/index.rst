@@ -10,6 +10,7 @@ components:
 .. toctree::
    :maxdepth: 2
    :caption: Contents
+   :hidden:
 
    Demos & Examples <brainscales2-demos/index>
    pynn-brainscales/index
