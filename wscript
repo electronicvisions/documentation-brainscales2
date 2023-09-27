@@ -37,7 +37,7 @@ def build(bld):
         install_path = '${PREFIX}/doc/sphinx_documentation_brainscales2',
         depends_on = ['doxygen_' + proj for proj in ['haldls', 'lola',
                                                      'stadls', 'fisch',
-                                                     'hxcomm',
+                                                     'hxcomm', 'hate',
                                                      'pynn-brainscales2',
                                                      'hxtorch', 'pyhxtorch',
                                                      'grenade', 'calix']],

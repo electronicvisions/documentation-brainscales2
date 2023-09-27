@@ -74,6 +74,7 @@ breathe_projects = {
     'pyhxtorch': '../../build/pyhxtorch/doc/xml',
     'grenade': '../../build/grenade/doc/xml',
     'calix': '../../build/calix/doc/xml',
+    'hate': '../../build/hate/doc/xml',
 }
 
 # Display todos by setting to True
