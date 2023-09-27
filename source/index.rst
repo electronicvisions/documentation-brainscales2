@@ -13,6 +13,6 @@ components:
    :hidden:
 
    Demos & Examples <brainscales2-demos/index>
-   pynn-brainscales/index
+   software_components
    API Reference <apis>
-   Index <genindex>
+   genindex
