@@ -144,7 +144,7 @@
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../_sources/halco/introduction.md.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/halco/introduction.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -160,47 +160,47 @@
   <section id="introduction-to-the-brainscales-coordinate-systems">
 <span id="halco"></span><h1>Introduction to the BrainScaleS Coordinate Systems<a class="headerlink" href="#introduction-to-the-brainscales-coordinate-systems" title="Permalink to this headline">¶</a></h1>
 <p>For configuration it is essential to be able to address different hardware entities uniquely.
-Therefore, the coordinate system <code class="docutils literal notranslate"><span class="pre">halco</span></code> was introduced for the BrainScaleS system.</p>
+Therefore, the coordinate system <cite>halco</cite> was introduced for the BrainScaleS system.</p>
 <section id="repeated-components">
 <h2>Repeated Components<a class="headerlink" href="#repeated-components" title="Permalink to this headline">¶</a></h2>
 <p>In the BrainScaleS system there exist components which are repeated several times in the system.
-These components are numbered in the <a class="reference external" href="https://en.wikipedia.org/wiki/Row-_and_column-major_order">row-major</a>.
+These components are numbered in the [row-major](<a class="reference external" href="https://en.wikipedia.org/wiki/Row-_and_column-major_order">https://en.wikipedia.org/wiki/Row-_and_column-major_order</a>).
 As the number of each component in the system is known, the corresponding coordinates are restricted to ranges.</p>
 <section id="brainscales-1-example">
 <h3>BrainScaleS-1 example<a class="headerlink" href="#brainscales-1-example" title="Permalink to this headline">¶</a></h3>
 <p>BrainScales-1 is a wafer scale system.
 The neuromorphic chips (called HICANN) are connected on the silicon wafer to form large networks.
-The coordinate <code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">halco::hicann::v2::HICANNOnWafer</span></code> refers to a single chip on a BrainScaleS-1 wafer.
+The coordinate <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="../api_fisch.html#_CPPv45halco" title="halco"><span class="pre">halco</span></a><span class="pre">::</span><span class="pre">hicann</span><span class="pre">::</span><span class="pre">v2</span><span class="pre">::</span><span class="pre">HICANNOnWafer</span></code> refers to a single chip on a BrainScaleS-1 wafer.
 Since the wafer is composed of 384 chips, the coordinate is restricted to the range from 0 to 383.
 According to the row major ordering the chip on the top left has the number 0; the chip to the right number 1 and so on.</p>
 </section>
 <section id="brainscales-2-example">
 <h3>BrainScaleS-2 example<a class="headerlink" href="#brainscales-2-example" title="Permalink to this headline">¶</a></h3>
 <p>On BrainScaleS-2 neuron circuits are organized in a 2D-grid of 2x256 circuits.
-The coordinate connected to a single neuron circuit is the <code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">halco::hicann_dls::vx::v2::AtomicNeuronOnDLS</span></code>.
+The coordinate connected to a single neuron circuit is the <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="../api_fisch.html#_CPPv45halco" title="halco"><span class="pre">halco</span></a><span class="pre">::</span><a class="reference internal" href="../api_fisch.html#_CPPv4N5halco10hicann_dlsE" title="halco::hicann_dls"><span class="pre">hicann_dls</span></a><span class="pre">::</span><a class="reference internal" href="../api_fisch.html#_CPPv4N5halco10hicann_dls2vxE" title="halco::hicann_dls::vx"><span class="pre">vx</span></a><span class="pre">::</span><span class="pre">v2</span><span class="pre">::</span><span class="pre">AtomicNeuronOnDLS</span></code>.
 The neuron on the top left has number 0; the one to the right of right number 1 and so on.</p>
 </section>
 </section>
 <section id="component-hierarchy">
 <h2>Component Hierarchy<a class="headerlink" href="#component-hierarchy" title="Permalink to this headline">¶</a></h2>
 <p>The “repeated circuits” described in the previous section  might themselves be part of a larger hardware component which is repeated several times.
-<code class="docutils literal notranslate"><span class="pre">halco</span></code> allows to reference to these circuits at different levels of abstraction by combining several coordinates.</p>
+<cite>halco</cite> allows to reference to these circuits at different levels of abstraction by combining several coordinates.</p>
 <section id="id1">
 <h3>BrainScaleS-1 example<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-<p><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">halco::hicann::v2::NeuronOnHICANN</span></code> represents a neuron circuit on a single neuromorphic chip.
-In order to refer to a specific neuron circuit on the wafer the coordinate <code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">halco::hicann::v2::NeuronOnWafer</span></code> is used which is a combination of the coordinates <code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">halco::hicann::v2::NeuronOnHICANN</span></code> and <code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">halco::hicann::v2::HICANNOnWafer</span></code>.</p>
+<p><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="../api_fisch.html#_CPPv45halco" title="halco"><span class="pre">halco</span></a><span class="pre">::</span><span class="pre">hicann</span><span class="pre">::</span><span class="pre">v2</span><span class="pre">::</span><span class="pre">NeuronOnHICANN</span></code> represents a neuron circuit on a single neuromorphic chip.
+In order to refer to a specific neuron circuit on the wafer the coordinate <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="../api_fisch.html#_CPPv45halco" title="halco"><span class="pre">halco</span></a><span class="pre">::</span><span class="pre">hicann</span><span class="pre">::</span><span class="pre">v2</span><span class="pre">::</span><span class="pre">NeuronOnWafer</span></code> is used which is a combination of the coordinates <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="../api_fisch.html#_CPPv45halco" title="halco"><span class="pre">halco</span></a><span class="pre">::</span><span class="pre">hicann</span><span class="pre">::</span><span class="pre">v2</span><span class="pre">::</span><span class="pre">NeuronOnHICANN</span></code> and <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="../api_fisch.html#_CPPv45halco" title="halco"><span class="pre">halco</span></a><span class="pre">::</span><span class="pre">hicann</span><span class="pre">::</span><span class="pre">v2</span><span class="pre">::</span><span class="pre">HICANNOnWafer</span></code>.</p>
 </section>
 <section id="id2">
 <h3>BrainScaleS-2 example<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>The BrainScaleS-2 chip is composed of an upper and lower half (called hemispheres).
-On each hemisphere are two analog parameter storages (CapMemBlock) referenced by the coordinate <code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">halco::hicann_dls::vx::v2::CapMemBlockOnHemisphere</span></code>.
-To identify an analog parameter storage on the chip this coordinate is combined with <code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">halco::hicann_dls::vx::v2::HemisphereOnDLS</span></code> to form <code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">halco::hicann_dls::vx::v2::CapMemBlockOnDLS</span></code>.</p>
+On each hemisphere are two analog parameter storages (CapMemBlock) referenced by the coordinate <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="../api_fisch.html#_CPPv45halco" title="halco"><span class="pre">halco</span></a><span class="pre">::</span><a class="reference internal" href="../api_fisch.html#_CPPv4N5halco10hicann_dlsE" title="halco::hicann_dls"><span class="pre">hicann_dls</span></a><span class="pre">::</span><a class="reference internal" href="../api_fisch.html#_CPPv4N5halco10hicann_dls2vxE" title="halco::hicann_dls::vx"><span class="pre">vx</span></a><span class="pre">::</span><span class="pre">v2</span><span class="pre">::</span><span class="pre">CapMemBlockOnHemisphere</span></code>.
+To identify an analog parameter storage on the chip this coordinate is combined with <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="../api_fisch.html#_CPPv45halco" title="halco"><span class="pre">halco</span></a><span class="pre">::</span><a class="reference internal" href="../api_fisch.html#_CPPv4N5halco10hicann_dlsE" title="halco::hicann_dls"><span class="pre">hicann_dls</span></a><span class="pre">::</span><a class="reference internal" href="../api_fisch.html#_CPPv4N5halco10hicann_dls2vxE" title="halco::hicann_dls::vx"><span class="pre">vx</span></a><span class="pre">::</span><span class="pre">v2</span><span class="pre">::</span><span class="pre">HemisphereOnDLS</span></code> to form <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="../api_fisch.html#_CPPv45halco" title="halco"><span class="pre">halco</span></a><span class="pre">::</span><a class="reference internal" href="../api_fisch.html#_CPPv4N5halco10hicann_dlsE" title="halco::hicann_dls"><span class="pre">hicann_dls</span></a><span class="pre">::</span><a class="reference internal" href="../api_fisch.html#_CPPv4N5halco10hicann_dls2vxE" title="halco::hicann_dls::vx"><span class="pre">vx</span></a><span class="pre">::</span><span class="pre">v2</span><span class="pre">::</span><span class="pre">CapMemBlockOnDLS</span></code>.</p>
 </section>
 </section>
 <section id="coordinate-transformation">
 <h2>Coordinate Transformation<a class="headerlink" href="#coordinate-transformation" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">halco</span></code> offers the possibility to convert between different coordinates.
-This is done by providing member functions with the name <code class="docutils literal notranslate"><span class="pre">to&lt;new_coordinate&gt;</span></code>.
+<p><cite>halco</cite> offers the possibility to convert between different coordinates.
+This is done by providing member functions with the name <cite>to&lt;new_coordinate&gt;</cite>.
 Lets take the examples from above and show how the coordinate transformation works.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># BrainScaleS-1</span>
 <span class="n">enum</span> <span class="o">=</span> <span class="n">halco</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">Enum</span><span class="p">(</span><span class="mi">512</span><span class="p">)</span>  <span class="c1"># first neuron on second HICANN</span>
