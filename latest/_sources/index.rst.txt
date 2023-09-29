@@ -15,11 +15,4 @@ components:
    Demos & Examples <brainscales2-demos/index>
    pynn-brainscales/index
    API Reference <apis>
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`search`
-
+   Index <genindex>
