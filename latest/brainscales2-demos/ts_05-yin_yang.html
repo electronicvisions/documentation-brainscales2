@@ -643,8 +643,7 @@ use the encoder module <code class="docutils literal notranslate"><span class="p
     <span class="n">t_early</span><span class="o">=</span><span class="n">T_EARLY</span><span class="p">,</span>
     <span class="n">t_late</span><span class="o">=</span><span class="n">T_LATE</span><span class="p">,</span>
     <span class="n">dt</span><span class="o">=</span><span class="n">DT</span><span class="p">,</span>
-    <span class="n">t_bias</span><span class="o">=</span><span class="n">T_BIAS</span><span class="p">,</span>
-    <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+    <span class="n">t_bias</span><span class="o">=</span><span class="n">T_BIAS</span><span class="p">)</span>
 <span class="n">encoder</span>
 </pre></div>
 </div>
@@ -652,7 +651,7 @@ use the encoder module <code class="docutils literal notranslate"><span class="p
 <span class="n">spikes</span>
 </pre></div>
 </div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_input_encoding</span><span class="p">(</span><span class="n">spikes</span><span class="p">,</span> <span class="n">T_EARLY</span><span class="p">,</span> <span class="n">T_LATE</span><span class="p">,</span> <span class="n">T_BIAS</span><span class="p">,</span> <span class="n">T_SIM</span><span class="p">,</span> <span class="n">DT</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_input_encoding</span><span class="p">(</span><span class="n">spikes</span><span class="o">.</span><span class="n">cpu</span><span class="p">(),</span> <span class="n">T_EARLY</span><span class="p">,</span> <span class="n">T_LATE</span><span class="p">,</span> <span class="n">T_BIAS</span><span class="p">,</span> <span class="n">T_SIM</span><span class="p">,</span> <span class="n">DT</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>As <code class="docutils literal notranslate"><span class="pre">decoder</span></code> we use the max-over-time function, which returns the
@@ -1139,8 +1138,7 @@ and one for the <code class="docutils literal notranslate"><span class="pre">Syn
     <span class="n">t_early</span><span class="o">=</span><span class="n">T_EARLY</span><span class="p">,</span>
     <span class="n">t_late</span><span class="o">=</span><span class="n">T_LATE</span><span class="p">,</span>
     <span class="n">dt</span><span class="o">=</span><span class="n">DT</span><span class="p">,</span>
-    <span class="n">t_bias</span><span class="o">=</span><span class="n">T_BIAS</span><span class="p">,</span>
-    <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+    <span class="n">t_bias</span><span class="o">=</span><span class="n">T_BIAS</span><span class="p">)</span>
 <span class="n">encoder</span>
 </pre></div>
 </div>
