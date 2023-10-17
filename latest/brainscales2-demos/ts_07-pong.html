@@ -42,8 +42,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Exploring the dynamic range" href="ts_06-dynamic_range.html" />
-    <link rel="prev" title="Training an SNN on BrainScaleS-2 with PyTorch" href="ts_05-yin_yang.html" /> 
+    <link rel="next" title="Complex neuron dynamics with a silicon adaptive exponential integrate-and-fire neuron" href="ts_08-adex_complex_dynamics.html" />
+    <link rel="prev" title="Exploring the dynamic range" href="ts_06-dynamic_range.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -91,16 +91,14 @@
               <p class="caption"><span class="caption-text">Contents</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Demos &amp; Examples</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="tutorial.html">Welcome to the BrainScaleS-2 Tutorial</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="tutorial.html">Demos and Examples</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="ts_00-single_neuron.html">BrainScaleS-2 single neuron experiments</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ts_01-superspike.html">Learning with the SuperSpike rule</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tp_00-introduction.html">Introduction to matrix multiplication</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tp_01-properties.html">Exploring the analog MAC operation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tp_02-yin_yang.html">Train DNNs on BrainScaleS-2</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ts_02-plasticity_rate_coding.html">BrainScaleS-2 on-chip plasticity experiment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ts_03-multicompartment.html">Structured Neurons</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ts_04-mc_genetic_algorithms.html">How to use Genetic Algorithms to automatically parameterize BrainScaleS-2</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ts_05-yin_yang.html">Training an SNN on BrainScaleS-2 with PyTorch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ts_06-dynamic_range.html">Exploring the dynamic range</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Pong</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#encoding">Encoding</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#learning-rule">Learning rule</a></li>
@@ -108,47 +106,22 @@
 <li class="toctree-l4"><a class="reference internal" href="#credits">Credits</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="ts_08-adex_complex_dynamics.html">Complex neuron dynamics with a silicon adaptive exponential integrate-and-fire neuron</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ts_08-adex_complex_dynamics.html#understanding-subthreshold-adaptation">Understanding subthreshold adaptation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ts_08-adex_complex_dynamics.html#transient-spiking">Transient spiking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ts_08-adex_complex_dynamics.html#spike-frequency-adaptation">Spike-frequency adaptation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ts_08-adex_complex_dynamics.html#bursting">Bursting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tp_00-introduction.html">Introduction to matrix multiplication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tp_01-properties.html">Exploring the analog MAC operation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tp_02-yin_yang.html">Train DNNs on BrainScaleS-2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nmpi_00-non_interactive_queue_runner.html">Introduction to the non-interactive queue runner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="tutorial.html#executing-the-notebooks">Executing the Notebooks</a></li>
 <li class="toctree-l3"><a class="reference internal" href="tutorial.html#shared-hardware-resources">Shared Hardware Resources</a></li>
 <li class="toctree-l3"><a class="reference internal" href="tutorial.html#final-test-hardware-execution">Final test: Hardware Execution</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="ts_00-single_neuron.html">BrainScaleS-2 single neuron experiments</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ts_01-superspike.html">Learning with the SuperSpike rule</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ts_02-plasticity_rate_coding.html">BrainScaleS-2 on-chip plasticity experiment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ts_03-multicompartment.html">Structured Neurons</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ts_04-mc_genetic_algorithms.html">How to use Genetic Algorithms to automatically parameterize BrainScaleS-2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ts_05-yin_yang.html">Training an SNN on BrainScaleS-2 with PyTorch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ts_06-dynamic_range.html">Exploring the dynamic range</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Pong</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#encoding">Encoding</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#learning-rule">Learning rule</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#implementation">Implementation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#credits">Credits</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="ts_08-adex_complex_dynamics.html">Complex neuron dynamics with a silicon adaptive exponential integrate-and-fire neuron</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ts_08-adex_complex_dynamics.html#understanding-subthreshold-adaptation">Understanding subthreshold adaptation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ts_08-adex_complex_dynamics.html#transient-spiking">Transient spiking</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ts_08-adex_complex_dynamics.html#spike-frequency-adaptation">Spike-frequency adaptation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ts_08-adex_complex_dynamics.html#bursting">Bursting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tp_00-introduction.html">Introduction to matrix multiplication</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tp_01-properties.html">Exploring the analog MAC operation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tp_02-yin_yang.html">Train DNNs on BrainScaleS-2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="nmpi_00-non_interactive_queue_runner.html">Introduction to the non-interactive queue runner</a></li>
-<li class="toctree-l2"><a class="reference internal" href="girlsday.html">Wie verarbeitet unser Gehirn Informationen?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gs_01_neuromorphic_hardware.html">Unsere neuromorphe Hardware</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gs_02_pynn_introduction.html">Wie können wir mit den künstlichen Nervenzellen kommunizieren?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gs_03_single_neuron.html">Experimente mit einer einzelnen Nervenzelle</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gs_04-1_multiple_neurons_feuerkette.html">Experimente mit mehreren Nervenzellen Teil 1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gs_04-2_multiple_neurons_sudoku.html">Experimente mit mehreren Nervenzellen Teil 2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gs_05_machine_learning.html">Maschinelles Lernen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gs_06_logik_operationen.html">Neuronenverbindungen - Synapsen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gs_06_logik_operationen.html#synapsennetzwerke">Synapsennetzwerke</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fortgeschrittenen_praktikum.html">Welcome to the Advanced Physics Lab for Physicists by the Electronic Vision(s) Group</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fp_pynn_introduction.html">Introduction to PyNN</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fp_binary_operations.html">Binary operations using spiking neurons</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fp_sudoku.html">Sudoku</a></li>
+<li class="toctree-l2"><a class="reference internal" href="girlsday.html">Girlsday</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fortgeschrittenen_praktikum.html">Advanced Lab Course</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../software_components.html">Software Components</a></li>
@@ -1154,8 +1127,8 @@ The main author is Johannes Weis.</p>
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="ts_06-dynamic_range.html" class="btn btn-neutral float-right" title="Exploring the dynamic range" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="ts_05-yin_yang.html" class="btn btn-neutral float-left" title="Training an SNN on BrainScaleS-2 with PyTorch" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ts_08-adex_complex_dynamics.html" class="btn btn-neutral float-right" title="Complex neuron dynamics with a silicon adaptive exponential integrate-and-fire neuron" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="ts_06-dynamic_range.html" class="btn btn-neutral float-left" title="Exploring the dynamic range" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
