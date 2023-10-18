@@ -144,7 +144,7 @@
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../_sources/haldls/stadls.md.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/haldls/stadls.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -160,36 +160,32 @@
   <section id="stadls">
 <span id="id1"></span><h1>stadls<a class="headerlink" href="#stadls" title="Permalink to this headline">¶</a></h1>
 <p>This layer provides an representation for hardware runtime control.
-It makes use of <a class="reference internal" href="../fisch/introduction.html#fisch"><span class="std std-ref">fisch</span></a> and <a class="reference internal" href="../hxcomm/introduction.html#hxcomm"><span class="std std-ref">hxcomm</span></a>.</p>
+It makes use of {ref}`fisch &lt;fisch&gt;` and {ref}`hxcomm &lt;hxcomm&gt;`.</p>
 <section id="rationale-of-low-level-experiment-execution">
 <h2>Rationale of (low-level) experiment execution<a class="headerlink" href="#rationale-of-low-level-experiment-execution" title="Permalink to this headline">¶</a></h2>
 <p>The basic design goal of Playback programs is that we can asynchronously create, run and evaluate these programs.
 A Program typically represents a “atomic” part of an experiment to be executed on hardware.
 Motivation: pipelining of programs, experiment streams, etc.
 Due to the asynchronous design errors can be only detected after the program has run and the result data is available.</p>
-<p>Contents of a playback program are “instructions” that can come from 3 categories:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">read</span></code>s</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">write</span></code>s</p></li>
-<li><p><em>barriers</em></p></li>
-</ul>
+<p>Contents of a playback program are “instructions” that can come from 3 categories:
+* <a href="#id2"><span class="problematic" id="id3">`</span></a>read`s
+* <a href="#id4"><span class="problematic" id="id5">`</span></a>write`s
+* <em>barriers</em></p>
 <p>For read and write it’s clear what the FPGA performs.
 Spike events are implemented as writes.
-From the software perspective the combination of asynchronous execution and result data in <code class="docutils literal notranslate"><span class="pre">read</span></code>s is interesting.
-We implement a mechanism which is similar to <a class="reference external" href="https://en.cppreference.com/w/cpp/thread/promise">promises</a>.
+From the software perspective the combination of asynchronous execution and result data in <a href="#id6"><span class="problematic" id="id7">`</span></a>read`s is interesting.
+We implement a mechanism which is similar to [promises](<a class="reference external" href="https://en.cppreference.com/w/cpp/thread/promise">https://en.cppreference.com/w/cpp/thread/promise</a>).
 The program itself manages memory for the future result of an instruction.
 The program execution on the FPGA progresses FPGA time.</p>
-<p>On the other hand, barriers “block” any further program execution until a condition is met:</p>
-<ul class="simple">
-<li><p>either a target time has been reached (by waiting),</p></li>
-<li><p>or a timed wait interval has been completed,</p></li>
-<li><p>or a read result shows an expected value after polling,</p></li>
-<li><p>or a communication channel is idle (e.g. omnibus, jtag, …).</p></li>
-</ul>
-<p>The latter can be used to verify that something has happend, i.e. a certain value <code class="docutils literal notranslate"><span class="pre">X</span></code> has been reached at some register location.</p>
+<p>On the other hand, barriers “block” any further program execution until a condition is met:
+* either a target time has been reached (by waiting),
+* or a timed wait interval has been completed,
+* or a read result shows an expected value after polling,
+* or a communication channel is idle (e.g. omnibus, jtag, …).</p>
+<p>The latter can be used to verify that something has happend, i.e. a certain value <cite>X</cite> has been reached at some register location.</p>
 <p>For everything there are FPGA-handled timeouts that are generated during execution of the program.
 The software can evaluate the occurence of such timeout events after the program has been run.
-In addition to such events, in such <em>trace</em> programs for each <code class="docutils literal notranslate"><span class="pre">read</span></code> in the playback program, a matching result value is stored.</p>
+In addition to such events, in such <em>trace</em> programs for each <cite>read</cite> in the playback program, a matching result value is stored.</p>
 </section>
 </section>
 
