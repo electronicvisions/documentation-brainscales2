@@ -1333,11 +1333,11 @@
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="py function">
 <dt id="record">
-<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1populations_1_1_assembly_1a4c010f13b896f98350943aa5bda977d9"></span><code class="sig-name descname"><span class="pre">record</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variables</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampling_interval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">locations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#record" title="Permalink to this definition">¶</a></dt>
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1populations_1_1_assembly_1af8e55e13419acd505a28e23c8d17e091"></span><code class="sig-name descname"><span class="pre">record</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">variables</span></em>, <em class="sig-param"><span class="pre">to_file=None</span></em>, <em class="sig-param"><span class="pre">sampling_interval=None</span></em>, <em class="sig-param"><span class="pre">*locations=None</span></em>, <em class="sig-param"><span class="pre">device=&quot;madc&quot;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#record" title="Permalink to this definition">¶</a></dt>
 <dd><p>Record the specified variable or variables for all cells in the <a class="reference internal" href="#classpynn__brainscales_1_1brainscales2_1_1populations_1_1_assembly"><span class="std std-ref">Assembly</span></a>. </p>
 <p><code class="docutils literal notranslate"><span class="pre">variables</span></code> may be either a single variable name or a list of variable names. For a given celltype class, <code class="docutils literal notranslate"><span class="pre">celltype.recordable</span></code> contains a list of variables that can be recorded for that celltype.</p>
 <p>If specified, <code class="docutils literal notranslate"><span class="pre">to_file</span></code> should be either a filename or a Neo IO instance and <code class="docutils literal notranslate"><span class="pre">write_data()</span></code> will be automatically called when <code class="docutils literal notranslate"><a class="reference internal" href="#namespacepynn__brainscales_1_1brainscales2_1a42be7f0c6e8bd77b88bfc67d281482c4"><span class="std std-ref"><span class="pre">end()</span></span></a></code> is called.</p>
-<p><code class="docutils literal notranslate"><span class="pre">locations</span></code> defines where the variables should be recorded. </p>
+<p><code class="docutils literal notranslate"><span class="pre">locations</span></code> defines where the variables should be recorded. <code class="docutils literal notranslate"><span class="pre">device</span></code> defines the device to use. </p>
 </dd></dl>
 
 </div>
@@ -1385,12 +1385,12 @@
 
 <dl class="py function">
 <dt id="id54">
-<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1populations_1_1_population_1a4b621371744ac8aa2b4dec59fd609964"></span><code class="sig-name descname"><span class="pre">record</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variables</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampling_interval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">locations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id54" title="Permalink to this definition">¶</a></dt>
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1populations_1_1_population_1a3c34749b3f4ccb3714a1efa30ceb925e"></span><code class="sig-name descname"><span class="pre">record</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">variables</span></em>, <em class="sig-param"><span class="pre">to_file=None</span></em>, <em class="sig-param"><span class="pre">sampling_interval=None</span></em>, <em class="sig-param"><span class="pre">*locations=None</span></em>, <em class="sig-param"><span class="pre">device=&quot;madc&quot;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id54" title="Permalink to this definition">¶</a></dt>
 <dd><p>Record the specified variable or variables for all cells in the <a class="reference internal" href="#classpynn__brainscales_1_1brainscales2_1_1populations_1_1_population"><span class="std std-ref">Population</span></a> or view. </p>
 <p><code class="docutils literal notranslate"><span class="pre">variables</span></code> may be either a single variable name or a list of variable names. For a given celltype class, <code class="docutils literal notranslate"><span class="pre">celltype.recordable</span></code> contains a list of variables that can be recorded for that celltype.</p>
 <p>If specified, <code class="docutils literal notranslate"><span class="pre">to_file</span></code> should be either a filename or a Neo IO instance and <code class="docutils literal notranslate"><span class="pre">write_data()</span></code> will be automatically called when <code class="docutils literal notranslate"><a class="reference internal" href="#namespacepynn__brainscales_1_1brainscales2_1a42be7f0c6e8bd77b88bfc67d281482c4"><span class="std std-ref"><span class="pre">end()</span></span></a></code> is called.</p>
 <p><code class="docutils literal notranslate"><span class="pre">sampling_interval</span></code> should be a value in milliseconds, and an integer multiple of the simulation timestep.</p>
-<p><code class="docutils literal notranslate"><span class="pre">locations</span></code> defines where the variables should be recorded. </p>
+<p><code class="docutils literal notranslate"><span class="pre">locations</span></code> defines where the variables should be recorded. <code class="docutils literal notranslate"><span class="pre">device</span></code> defines the device to use. </p>
 </dd></dl>
 
 </div>
@@ -1775,11 +1775,6 @@
 
 <dl class="py class">
 <dt>
-<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1recording_1_1_m_a_d_c_recording_site"></span><code class="sig-name descname"><span class="pre">pynn_brainscales.brainscales2.recording.MADCRecordingSite</span> <span class="pre">:</span> <span class="pre">public</span> <span class="pre">NamedTuple</span></code></dt>
-<dd></dd></dl>
-
-<dl class="py class">
-<dt>
 <span class="target" id="classpynn__brainscales_1_1brainscales2_1_1recording_1_1_recorder"></span><code class="sig-name descname"><span class="pre">pynn_brainscales.brainscales2.recording.Recorder</span> <span class="pre">:</span> <span class="pre">public</span> <span class="pre">pyNN.recording.Recorder</span></code></dt>
 <dd><div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
@@ -1795,7 +1790,7 @@
 
 <dl class="py function">
 <dt id="id77">
-<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1recording_1_1_recorder_1ae9d01f57d0f060099745c2a91237d93c"></span><code class="sig-name descname"><span class="pre">record</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variables</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampling_interval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">locations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id77" title="Permalink to this definition">¶</a></dt>
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1recording_1_1_recorder_1aa3ae737f852e93556a8bb56afe6ea05d"></span><code class="sig-name descname"><span class="pre">record</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">variables</span></em>, <em class="sig-param"><span class="pre">ids</span></em>, <em class="sig-param"><span class="pre">sampling_interval=None</span></em>, <em class="sig-param"><span class="pre">*locations=None</span></em>, <em class="sig-param"><span class="pre">device=&quot;madc&quot;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id77" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -1808,23 +1803,10 @@
 
 </div>
 <div class="breathe-sectiondef docutils container">
-<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-static-attributes">Public Static Attributes</p>
-<dl class="py attribute">
-<dt id="madc_variables">
-<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1recording_1_1_recorder_1a0e58c085c9b19d07413c8f5b2658db78"></span><code class="sig-name descname"><span class="pre">madc_variables</span></code><em class="property"> <span class="pre">=</span> <span class="pre">list(_var_name_to_readout_source)</span></em><a class="headerlink" href="#madc_variables" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</div>
-<div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-functions">Private Functions</p>
 <dl class="py function">
 <dt id="clear_simulator">
 <span id="_clear_simulator"></span><span class="target" id="classpynn__brainscales_1_1brainscales2_1_1recording_1_1_recorder_1ac1b4459dfe99a74fcf732f94bf9dd85c"></span><code class="sig-name descname"><span class="pre">_clear_simulator</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#clear_simulator" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt id="configure_madc">
-<span id="_configure_madc"></span><span class="target" id="classpynn__brainscales_1_1brainscales2_1_1recording_1_1_recorder_1ab63dfaa45d8137f22bd84bbe833af3e2"></span><code class="sig-name descname"><span class="pre">_configure_madc</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">Set[str]</span> <span class="pre">variables</span></em>, <em class="sig-param"><span class="pre">Set[RecordingSite]</span> <span class="pre">recording_sites</span></em><span class="sig-paren">)</span><a class="headerlink" href="#configure_madc" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
@@ -1859,6 +1841,11 @@
 <dd></dd></dl>
 
 <dl class="py function">
+<dt id="rec_site_to_grenade_index">
+<span id="_rec_site_to_grenade_index"></span><span class="target" id="classpynn__brainscales_1_1brainscales2_1_1recording_1_1_recorder_1aebc93b05439eb55fd83909a34ec0321d"></span><code class="sig-name descname"><span class="pre">_rec_site_to_grenade_index</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">RecordingSite</span> <span class="pre">rec_site</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rec_site_to_grenade_index" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
 <dt id="id78">
 <span id="_record"></span><span class="target" id="classpynn__brainscales_1_1brainscales2_1_1recording_1_1_recorder_1aa2e986865584c686603089ae791c2f8e"></span><code class="sig-name descname"><span class="pre">_record</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_ids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampling_interval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id78" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -1870,15 +1857,20 @@
 
 </div>
 <div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-static-functions">Private Static Functions</p>
+<dl class="py function">
+<dt id="device_name_to_pad_config">
+<span id="_device_name_to_pad_config"></span><span class="target" id="classpynn__brainscales_1_1brainscales2_1_1recording_1_1_recorder_1ae7ef54037391a8da3cc9ae5b737d7cce"></span><code class="sig-name descname"><span class="pre">_device_name_to_pad_config</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">str</span> <span class="pre">device</span></em><span class="sig-paren">)</span><a class="headerlink" href="#device_name_to_pad_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract pad and buffering mode from device name. </p>
+<p>The device name is of the form ‘pad_[0|1][|_unbuffered|_buffered]’. Raise ValueError if device name does not fit format. Otherwise, extract pad as well as buffering mode from device name. :param device: Device to record. :returns: Pad, buffering enabled. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-static-attributes">Private Static Attributes</p>
 <dl class="py attribute">
 <dt id="id74">
 <span class="target" id="classpynn__brainscales_1_1brainscales2_1_1recording_1_1_recorder_1a0ac4157ab0a5c1aa8686f910ff9f270a"></span><code class="sig-name descname"><span class="pre">_simulator</span></code><em class="property"> <span class="pre">=</span> <span class="pre">simulator</span></em><a class="headerlink" href="#id74" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="var_name_to_readout_source">
-<span id="_var_name_to_readout_source"></span><span class="target" id="classpynn__brainscales_1_1brainscales2_1_1recording_1_1_recorder_1a7375407f5a12f97c4cb6dbe522b95c65"></span><code class="sig-name descname"><span class="pre">_var_name_to_readout_source</span></code><em class="property"> <span class="pre">=</span> <span class="pre">\</span></em><a class="headerlink" href="#var_name_to_readout_source" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -1886,7 +1878,123 @@
 
 <dl class="py class">
 <dt>
-<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1recording_1_1_recording_site"></span><code class="sig-name descname"><span class="pre">pynn_brainscales.brainscales2.recording.RecordingSite</span> <span class="pre">:</span> <span class="pre">public</span> <span class="pre">NamedTuple</span></code></dt>
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1recording__data_1_1_grenade_rec_id"></span><code class="sig-name descname"><span class="pre">pynn_brainscales.brainscales2.recording_data.GrenadeRecId</span> <span class="pre">:</span> <span class="pre">public</span> <span class="pre">NamedTuple</span></code></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt>
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1recording__data_1_1_m_a_d_c_data"></span><code class="sig-name descname"><span class="pre">pynn_brainscales.brainscales2.recording_data.MADCData</span> <span class="pre">:</span> <span class="pre">public</span> <span class="pre">NamedTuple</span></code></dt>
+<dd><p>Times and values of a MADC recording. </p>
+</dd></dl>
+
+<dl class="py class">
+<dt>
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1recording__data_1_1_pad_config"></span><code class="sig-name descname"><span class="pre">pynn_brainscales.brainscales2.recording_data.PadConfig</span> <span class="pre">:</span> <span class="pre">public</span> <span class="pre">NamedTuple</span></code></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt id="pynn_brainscales.brainscales2.recording_data.Recording">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1recording__data_1_1_recording"></span><em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">pynn_brainscales.brainscales2.recording_data.</span></code><code class="sig-name descname"><span class="pre">Recording</span></code><a class="headerlink" href="#pynn_brainscales.brainscales2.recording_data.Recording" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save recording information as well as recorded data. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="py function">
+<dt id="pynn_brainscales.brainscales2.recording_data.Recording.__init__">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1recording__data_1_1_recording_1a131101843337fdacab34bd45081b474a"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.recording_data.Recording.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="pynn_brainscales.brainscales2.recording_data.Recording.remove">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1recording__data_1_1_recording_1aec27a4e7f984afa1818a428f1496de39"></span><code class="sig-name descname"><span class="pre">remove</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">GrenadeRecId</span> <span class="pre">recording_site</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.recording_data.Recording.remove" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="py attribute">
+<dt id="pynn_brainscales.brainscales2.recording_data.Recording.config">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1recording__data_1_1_recording_1a913eeddb65fc20a460e02f56f2f95dd9"></span><code class="sig-name descname"><span class="pre">config</span></code><a class="headerlink" href="#pynn_brainscales.brainscales2.recording_data.Recording.config" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pynn_brainscales.brainscales2.recording_data.Recording.data">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1recording__data_1_1_recording_1a2670d6e3675d211c1f8fdbf21dfe39bc"></span><code class="sig-name descname"><span class="pre">data</span></code><a class="headerlink" href="#pynn_brainscales.brainscales2.recording_data.Recording.data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt id="pynn_brainscales.brainscales2.recording_data.RecordingConfig">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1recording__data_1_1_recording_config"></span><em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">pynn_brainscales.brainscales2.recording_data.</span></code><code class="sig-name descname"><span class="pre">RecordingConfig</span></code><a class="headerlink" href="#pynn_brainscales.brainscales2.recording_data.RecordingConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save which observables are recorded with which “device”. </p>
+<p>Currently we only support MADC recordings but in future we want to support readout via the pads and via the CADC. This class saves which observables are recorded for which recording site (recording site = neuron + compartment) and which device is used, where a device is the method of readout, i.e. MADC. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="py function">
+<dt id="pynn_brainscales.brainscales2.recording_data.RecordingConfig.__init__">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1recording__data_1_1_recording_config_1adce02146d9918f81537c135e3d13631d"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.recording_data.RecordingConfig.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="pynn_brainscales.brainscales2.recording_data.RecordingConfig.add_madc_recording">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1recording__data_1_1_recording_config_1ae48a4da7a0d29f999a8286c1fbd01e79"></span><code class="sig-name descname"><span class="pre">add_madc_recording</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">Set[str]</span> <span class="pre">variables</span></em>, <em class="sig-param"><span class="pre">Set[GrenadeRecId]</span> <span class="pre">recording_sites</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.recording_data.RecordingConfig.add_madc_recording" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="pynn_brainscales.brainscales2.recording_data.RecordingConfig.add_pad_readout">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1recording__data_1_1_recording_config_1a8129800cb034044a30a70c467f7b0252"></span><code class="sig-name descname"><span class="pre">add_pad_readout</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">Set[str]</span> <span class="pre">variables</span></em>, <em class="sig-param"><span class="pre">Set[GrenadeRecId]</span> <span class="pre">recording_sites</span></em>, <em class="sig-param"><span class="pre">int</span> <span class="pre">pad</span></em>, <em class="sig-param"><span class="pre">bool</span> <span class="pre">buffered=True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.recording_data.RecordingConfig.add_pad_readout" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="pynn_brainscales.brainscales2.recording_data.RecordingConfig.add_to_network_graph">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1recording__data_1_1_recording_config_1a50282e66a3067db13589e3e3730a89b6"></span><code class="sig-name descname"><span class="pre">add_to_network_graph</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">grenade.network.NetworkBuilder</span> <span class="pre">network_builder</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.recording_data.RecordingConfig.add_to_network_graph" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="pynn_brainscales.brainscales2.recording_data.RecordingConfig.remove">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1recording__data_1_1_recording_config_1ae920d6eb9b46ae6d5592e02478e1a6f6"></span><code class="sig-name descname"><span class="pre">remove</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">GrenadeRecId</span> <span class="pre">recording_site</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.recording_data.RecordingConfig.remove" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-static-attributes">Public Static Attributes</p>
+<dl class="py attribute">
+<dt id="pynn_brainscales.brainscales2.recording_data.RecordingConfig.analog_observable_names">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1recording__data_1_1_recording_config_1ae2d69df9581b99ffb20d92dbda9d5c0f"></span><code class="sig-name descname"><span class="pre">analog_observable_names</span></code><em class="property"> <span class="pre">=</span> <span class="pre">list(str_to_source_map)</span></em><a class="headerlink" href="#pynn_brainscales.brainscales2.recording_data.RecordingConfig.analog_observable_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pynn_brainscales.brainscales2.recording_data.RecordingConfig.str_to_source_map">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1recording__data_1_1_recording_config_1a94ea26208140dd497a8788e6128bab29"></span><code class="sig-name descname"><span class="pre">str_to_source_map</span></code><em class="property"> <span class="pre">=</span> <span class="pre">\</span></em><a class="headerlink" href="#pynn_brainscales.brainscales2.recording_data.RecordingConfig.str_to_source_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt id="pynn_brainscales.brainscales2.recording_data.RecordingData">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1recording__data_1_1_recording_data"></span><em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">pynn_brainscales.brainscales2.recording_data.</span></code><code class="sig-name descname"><span class="pre">RecordingData</span></code><a class="headerlink" href="#pynn_brainscales.brainscales2.recording_data.RecordingData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save recorded data. </p>
+<p>Currently we only support MADC recordings but in future we want to support readout via the pads and via the CADC. This class saves data which was recorded during an experiment run. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="py function">
+<dt id="pynn_brainscales.brainscales2.recording_data.RecordingData.__init__">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1recording__data_1_1_recording_data_1adfbad131375e6b7addb0c0933584d0ca"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.recording_data.RecordingData.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="pynn_brainscales.brainscales2.recording_data.RecordingData.remove">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1recording__data_1_1_recording_data_1a62d44cdee570057f98cf0a29413b6c7e"></span><code class="sig-name descname"><span class="pre">remove</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">Optional[GrenadeRecId]</span> <span class="pre">recording_site=None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.recording_data.RecordingData.remove" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt>
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1recording__data_1_1_recording_site"></span><code class="sig-name descname"><span class="pre">pynn_brainscales.brainscales2.recording_data.RecordingSite</span> <span class="pre">:</span> <span class="pre">public</span> <span class="pre">NamedTuple</span></code></dt>
 <dd></dd></dl>
 
 <dl class="py class">
@@ -2212,16 +2320,6 @@
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="madc_recording_sites">
-<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_state_1a830f196fe62a628cb5aa8d198745af27"></span><code class="sig-name descname"><span class="pre">madc_recording_sites</span></code><a class="headerlink" href="#madc_recording_sites" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="madc_recordings">
-<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_state_1abd937098b9e50d72bc9d3f7a29cf238f"></span><code class="sig-name descname"><span class="pre">madc_recordings</span></code><a class="headerlink" href="#madc_recordings" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
 <dt id="max_delay">
 <span class="target" id="classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_state_1a429bb49887054b6b55abe6db3d97b95c"></span><code class="sig-name descname"><span class="pre">max_delay</span></code><a class="headerlink" href="#max_delay" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -2302,6 +2400,11 @@
 <dd></dd></dl>
 
 <dl class="py attribute">
+<dt id="recording">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_state_1ad5c04c10474e3be5081e835523377944"></span><code class="sig-name descname"><span class="pre">recording</span></code><a class="headerlink" href="#recording" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
 <dt id="running">
 <span class="target" id="classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_state_1a4cc205f2992b9368b3ff02502031eef0"></span><code class="sig-name descname"><span class="pre">running</span></code><a class="headerlink" href="#running" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -2309,11 +2412,6 @@
 <dl class="py attribute">
 <dt id="segment_counter">
 <span class="target" id="classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_state_1a5b5a8ff475c7874b015df38e332f51b9"></span><code class="sig-name descname"><span class="pre">segment_counter</span></code><a class="headerlink" href="#segment_counter" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="spikes">
-<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_state_1abefdfcbbbcd6081d5356df526d1632fd"></span><code class="sig-name descname"><span class="pre">spikes</span></code><a class="headerlink" href="#spikes" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -3825,6 +3923,11 @@
 <dd></dd></dl>
 
 <dl class="py class">
+<dt id="pynn_brainscales.brainscales2.recording_data">
+<span class="target" id="namespacepynn__brainscales_1_1brainscales2_1_1recording__data"></span><em class="property"><span class="pre">module</span> </em><code class="sig-name descname"><span class="pre">recording_data</span></code><a class="headerlink" href="#pynn_brainscales.brainscales2.recording_data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
 <dt id="pynn_brainscales.brainscales2.simulator">
 <span class="target" id="namespacepynn__brainscales_1_1brainscales2_1_1simulator"></span><em class="property"><span class="pre">module</span> </em><code class="sig-prename descclassname"><span class="pre">pynn_brainscales.brainscales2.</span></code><code class="sig-name descname"><span class="pre">simulator</span></code><a class="headerlink" href="#pynn_brainscales.brainscales2.simulator" title="Permalink to this definition">¶</a></dt>
 <dd><div class="breathe-sectiondef docutils container">
@@ -3960,6 +4063,11 @@
 
 <dl class="file">
 <dt>
+<span class="target" id="recording__data_8py"></span><em><span class="pre">file</span></em> <code class="sig-name descname"><span class="pre">recording_data.py</span></code></dt>
+<dd></dd></dl>
+
+<dl class="file">
+<dt>
 <span class="target" id="simulator_8py"></span><em><span class="pre">file</span></em> <code class="sig-name descname"><span class="pre">simulator.py</span></code></dt>
 <dd></dd></dl>
 
@@ -4005,37 +4113,37 @@
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_5643325f60bd592eca7816d91ce4831a"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTA1NDc.x/pynn-brainscales/brainscales2</span></code></dt>
+<span class="target" id="dir_5643325f60bd592eca7816d91ce4831a"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTA1NTA.x/pynn-brainscales/brainscales2</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_30590f78572d0bff4c96c6642e878133"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTA1NDc.x/pynn-brainscales/brainscales2/pynn_brainscales/brainscales2</span></code></dt>
+<span class="target" id="dir_30590f78572d0bff4c96c6642e878133"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTA1NTA.x/pynn-brainscales/brainscales2/pynn_brainscales/brainscales2</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_71abf4e0cb61d33ca644053d80824813"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTA1NDc.x/pynn-brainscales/brainscales2/pynn_brainscales/brainscales2/examples</span></code></dt>
+<span class="target" id="dir_71abf4e0cb61d33ca644053d80824813"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTA1NTA.x/pynn-brainscales/brainscales2/pynn_brainscales/brainscales2/examples</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_a72118a09e00b2e2db6f97ab1c7474b7"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTA1NDc.x/pynn-brainscales/brainscales2/pynn_brainscales/brainscales2/morphology</span></code></dt>
+<span class="target" id="dir_a72118a09e00b2e2db6f97ab1c7474b7"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTA1NTA.x/pynn-brainscales/brainscales2/pynn_brainscales/brainscales2/morphology</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_1efc13ce3fde1fd62a85b15c42b78a1d"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTA1NDc.x/pynn-brainscales</span></code></dt>
+<span class="target" id="dir_1efc13ce3fde1fd62a85b15c42b78a1d"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTA1NTA.x/pynn-brainscales</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_21dfa1d1ae032dbb0977000ba6401a40"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTA1NDc.x/pynn-brainscales/brainscales2/pynn_brainscales</span></code></dt>
+<span class="target" id="dir_21dfa1d1ae032dbb0977000ba6401a40"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTA1NTA.x/pynn-brainscales/brainscales2/pynn_brainscales</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_6861f8e6ea567950e911c16bf07d7443"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTA1NDc.x/pynn-brainscales/brainscales2/pynn_brainscales/brainscales2/standardmodels</span></code></dt>
+<span class="target" id="dir_6861f8e6ea567950e911c16bf07d7443"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTA1NTA.x/pynn-brainscales/brainscales2/pynn_brainscales/brainscales2/standardmodels</span></code></dt>
 <dd></dd></dl>
 
 </section>
