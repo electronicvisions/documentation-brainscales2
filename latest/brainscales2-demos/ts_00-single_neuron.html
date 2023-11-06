@@ -1,72 +1,32 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>BrainScaleS-2 single neuron experiments &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+  <title>BrainScaleS-2 single neuron experiments &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Learning with the SuperSpike rule" href="ts_01-superspike.html" />
     <link rel="prev" title="Welcome to the BrainScaleS-2 Tutorial" href="tutorial.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../index.html" class="icon icon-home"> BrainScaleS-2 Documentation
-          
-
-          
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -74,18 +34,7 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption"><span class="caption-text">Contents</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Demos &amp; Examples</a><ul class="current">
@@ -128,77 +77,34 @@
 <li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">BrainScaleS-2 Documentation</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-        
           <li><a href="index.html">Welcome to the BrainScaleS-2 Demos &amp; Examples!</a> &raquo;</li>
-        
           <li><a href="tutorial.html">Welcome to the BrainScaleS-2 Tutorial</a> &raquo;</li>
-        
       <li>BrainScaleS-2 single neuron experiments</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="../_sources/brainscales2-demos/ts_00-single_neuron.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <section id="brainscales-2-single-neuron-experiments">
-<span id="id1"></span><h1>BrainScaleS-2 single neuron experiments<a class="headerlink" href="#brainscales-2-single-neuron-experiments" title="Permalink to this headline">¶</a></h1>
+             
+  <div class="section" id="brainscales-2-single-neuron-experiments">
+<span id="id1"></span><h1>BrainScaleS-2 single neuron experiments<a class="headerlink" href="#brainscales-2-single-neuron-experiments" title="Permalink to this headline"></a></h1>
 <p>In order to use the microscheduler we have to set some environment variables first:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">_static.common.helpers</span> <span class="kn">import</span> <span class="n">setup_hardware_client</span>
 <span class="n">setup_hardware_client</span><span class="p">()</span>
@@ -246,8 +152,8 @@ pyNN interface.</p>
 <p>There are 512 neuron compartments emulating the leaky integrate and fire
 model and 131,072 STP/STDP synapses in one HICANN-X chip, but we will stick
 to a single neuron for now.</p>
-<section id="a-silent-neuron">
-<h2>A silent neuron<a class="headerlink" href="#a-silent-neuron" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="a-silent-neuron">
+<h2>A silent neuron<a class="headerlink" href="#a-silent-neuron" title="Permalink to this headline"></a></h2>
 <p>As a first experiment, we will record the membrane of a single, silent
 neuron on the analog substrate. We use pyNN as an interface, which can
 be used similarly to existing simulators and other neuromorphic
@@ -297,9 +203,9 @@ biological systems.</p>
 </pre></div>
 </div>
 <a class="solution reference internal image-reference" href="../_images/single_neuron_silent.png"><img alt="../_images/single_neuron_silent.png" class="solution align-center" src="../_images/single_neuron_silent.png" style="width: 90%;" /></a>
-</section>
-<section id="leak-over-threshold">
-<h2>Leak over threshold<a class="headerlink" href="#leak-over-threshold" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="leak-over-threshold">
+<h2>Leak over threshold<a class="headerlink" href="#leak-over-threshold" title="Permalink to this headline"></a></h2>
 <p>As a second experiment, we will let the neurons on BrainScaleS-2 spike
 by setting a ‘leak-over-threshold’ configuration. The leak potential is
 set high, above the spike threshold, so that the membrane charges
@@ -363,9 +269,9 @@ The kewords you set in PyNN are generated from a hierarchical structure – sear
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pynn</span><span class="o">.</span><span class="n">cells</span><span class="o">.</span><span class="n">HXNeuron</span><span class="p">()</span><span class="o">.</span><span class="n">get_parameter_names</span><span class="p">()</span>
 </pre></div>
 </div>
-</section>
-<section id="fixed-pattern-variations">
-<h2>Fixed-pattern variations<a class="headerlink" href="#fixed-pattern-variations" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="fixed-pattern-variations">
+<h2>Fixed-pattern variations<a class="headerlink" href="#fixed-pattern-variations" title="Permalink to this headline"></a></h2>
 <p>Due to the analog nature of the BrainScaleS-2 platform, the inevitable
 mismatch of semiconductor fabrication results in inhomogeneous
 properties of the computational elements.</p>
@@ -425,9 +331,9 @@ different analog properties. The threshold is different for all
 traces; as is the membrane time constant (visible as slope) and the
 reset potentials (visible as plateaus during the refractory time).</p></li>
 </ul>
-</section>
-<section id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline"></a></h2>
 <p>The analog neurons on BrainScaleS-2 feature many hardware parameters
 that can be set to achieve different operating points and to equalize
 the behaviour of different neurons.</p>
@@ -435,9 +341,9 @@ the behaviour of different neurons.</p>
 desired operating mode. * In the next notebook, we will show spiking
 operation and learning. * Later, we will change the target parameters
 and use integrator neurons for executing multiply-accumulate operations.</p>
-</section>
-<section id="outlook-external-stimulation">
-<h2>Outlook: External stimulation<a class="headerlink" href="#outlook-external-stimulation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="outlook-external-stimulation">
+<h2>Outlook: External stimulation<a class="headerlink" href="#outlook-external-stimulation" title="Permalink to this headline"></a></h2>
 <p>We will continue the tutorial in the next notebook using external
 stimulation on the neurons. You may play around a bit already here, but
 we will revisit the following later.</p>
@@ -525,55 +431,38 @@ We save the nightly calibration in two variables such that we can use it later w
 <p>You may play around with the parameters in this experiment to achieve
 different traces. Try to stack multiple PSPs, try to make the neuron
 spike more often, be creative!</p>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="ts_01-superspike.html" class="btn btn-neutral float-right" title="Learning with the SuperSpike rule" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="tutorial.html" class="btn btn-neutral float-left" title="Welcome to the BrainScaleS-2 Tutorial" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ts_01-superspike.html" class="btn btn-neutral float-right" title="Learning with the SuperSpike rule" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2023, Electronic Vision(s).
-
-    </p>
+    <p>&#169; Copyright 2023, Electronic Vision(s).</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

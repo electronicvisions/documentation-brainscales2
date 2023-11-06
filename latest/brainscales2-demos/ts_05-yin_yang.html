@@ -1,73 +1,33 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>Training an SNN on BrainScaleS-2 with PyTorch &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+  <title>Training an SNN on BrainScaleS-2 with PyTorch &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Exploring the dynamic range" href="ts_06-dynamic_range.html" />
     <link rel="prev" title="How to use Genetic Algorithms to automatically parameterize BrainScaleS-2" href="ts_04-mc_genetic_algorithms.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../index.html" class="icon icon-home"> BrainScaleS-2 Documentation
-          
-
-          
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -75,18 +35,7 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption"><span class="caption-text">Contents</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Demos &amp; Examples</a><ul class="current">
@@ -125,77 +74,34 @@
 <li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">BrainScaleS-2 Documentation</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-        
           <li><a href="index.html">Welcome to the BrainScaleS-2 Demos &amp; Examples!</a> &raquo;</li>
-        
           <li><a href="tutorial.html">Welcome to the BrainScaleS-2 Tutorial</a> &raquo;</li>
-        
       <li>Training an SNN on BrainScaleS-2 with PyTorch</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="../_sources/brainscales2-demos/ts_05-yin_yang.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <section id="training-an-snn-on-brainscales-2-with-pytorch">
-<h1>Training an SNN on BrainScaleS-2 with PyTorch<a class="headerlink" href="#training-an-snn-on-brainscales-2-with-pytorch" title="Permalink to this headline">¶</a></h1>
+             
+  <div class="section" id="training-an-snn-on-brainscales-2-with-pytorch">
+<h1>Training an SNN on BrainScaleS-2 with PyTorch<a class="headerlink" href="#training-an-snn-on-brainscales-2-with-pytorch" title="Permalink to this headline"></a></h1>
 <p>In this tutorial we create and train a spiking neural network (SNN) on
 the neuromorphic hardware system BrainScaleS-2 (BSS-2) [1] to solve the
 Yin-Yang dataset [2] using the PyTorch-based software framwork
@@ -203,8 +109,8 @@ Yin-Yang dataset [2] using the PyTorch-based software framwork
 <p>This tutorial assumes you are familiar with the basics of
 <code class="docutils literal notranslate"><span class="pre">hxtorch.snn</span></code> and the training of SNNs with surrogate gradients.</p>
 <p>For further reading, see the references below.</p>
-<section id="references-and-further-reading">
-<h2>References and further reading<a class="headerlink" href="#references-and-further-reading" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="references-and-further-reading">
+<h2>References and further reading<a class="headerlink" href="#references-and-further-reading" title="Permalink to this headline"></a></h2>
 <p>[1] Pehle, C., Billaudelle, S., Cramer, B., Kaiser, J., Schreiber, K.,
 Stradmann, Y., Weis, J., Leibfried, A., Müller, E., and Schemmel, J. The
 BrainScaleS-2 accelerated neuromorphic system with hybrid plasticity.
@@ -242,8 +148,8 @@ for spiking neural networks. Scientific Reports 11, 12829 (2021).
 <span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
 </pre></div>
 </div>
-<section id="yin-yang-dataset">
-<h3>Yin-Yang Dataset<a class="headerlink" href="#yin-yang-dataset" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="yin-yang-dataset">
+<h3>Yin-Yang Dataset<a class="headerlink" href="#yin-yang-dataset" title="Permalink to this headline"></a></h3>
 <p>The Yin-Yang dataset is a small two-dimensional nonlinear dataset to be
 solved with limited resources where the sharp boundaries between the
 classes - despite the low input dimensionality - create a hard problem
@@ -294,9 +200,9 @@ access and visualize the dataset.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_data</span><span class="p">(</span><span class="n">example</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">targets</span><span class="p">)</span>
 </pre></div>
 </div>
-</section>
-<section id="snn-model">
-<h3>SNN Model<a class="headerlink" href="#snn-model" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="snn-model">
+<h3>SNN Model<a class="headerlink" href="#snn-model" title="Permalink to this headline"></a></h3>
 <p>We now define an SNNs which we want to train to classify the class of a
 given sample. For that we use an SNN with one hidden leaky-integrate and
 fire (LIF) layer projecting its spike events onto one leaky-integrator
@@ -635,9 +541,9 @@ layer. Those max-over-time-values are interpreted as scores.</p>
 <span class="n">model</span>
 </pre></div>
 </div>
-</section>
-<section id="training">
-<h3>Training<a class="headerlink" href="#training" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="training">
+<h3>Training<a class="headerlink" href="#training" title="Permalink to this headline"></a></h3>
 <p>We now create a training routine in a PyTorch fashion. We use the Adam
 optimizer for weight optimization and the cross-entropy as loss
 function.</p>
@@ -816,9 +722,9 @@ function.</p>
 <span class="n">hxtorch</span><span class="o">.</span><span class="n">release_hardware</span><span class="p">()</span>
 </pre></div>
 </div>
-</section>
-<section id="eventprop">
-<h3>EventProp<a class="headerlink" href="#eventprop" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="eventprop">
+<h3>EventProp<a class="headerlink" href="#eventprop" title="Permalink to this headline"></a></h3>
 <p>In [5] Wunderlich and Pehle derived the EventProp algorithm, which provides
 a set of equations to compute exact parameter gradients for spiking neural
 networks with LIF neurons, single-exponential-shaped synpases and a quite
@@ -830,8 +736,8 @@ This is all based directly on [5] and for the detailed derivation of the
 algorithm, you might look into the reference.</p>
 <p>If you just want to use the functions and train the network using them, you
 might skip directly to the training part.</p>
-<section id="background">
-<h4>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="background">
+<h4>Background<a class="headerlink" href="#background" title="Permalink to this headline"></a></h4>
 <p>The state of a neuron <span class="math notranslate nohighlight">\(n\)</span> is given by its membrane potential
 <span class="math notranslate nohighlight">\(V_{n}\)</span> and synaptic current <span class="math notranslate nohighlight">\(I_{n}\)</span>, and their dynamics are
 governed by a set of coupled differential equations</p>
@@ -874,9 +780,9 @@ at spike times:</p>
 <div class="math notranslate nohighlight">
 \[\frac{\mathrm{d} L}{\mathrm{d}w_{ji}} = - \tau_{\mathrm{s}}
 \sum_{\text{spikes from } i} (\lambda_{I})_{j}\]</div>
-</section>
-<section id="implementation">
-<h4>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="implementation">
+<h4>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline"></a></h4>
 <p>The neuron and synapse modules in <code class="docutils literal notranslate"><span class="pre">hxtorch.snn</span></code> allow users to provide
 custom functions and we use this ability to implement the EventProp
 algorithm [5] as an alternative gradient estimator to the surrogate
@@ -1093,9 +999,9 @@ and one for the <code class="docutils literal notranslate"><span class="pre">Syn
 <span class="n">snn</span>
 </pre></div>
 </div>
-</section>
-<section id="training-with-eventprop">
-<h4>Training with EventProp<a class="headerlink" href="#training-with-eventprop" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="training-with-eventprop">
+<h4>Training with EventProp<a class="headerlink" href="#training-with-eventprop" title="Permalink to this headline"></a></h4>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">T_SIM</span>   <span class="o">=</span> <span class="mf">3.8e-05</span>  <span class="c1"># s</span>
 <span class="n">T_EARLY</span> <span class="o">=</span> <span class="mf">0.2e-05</span>  <span class="c1"># s</span>
 <span class="n">T_LATE</span>  <span class="o">=</span> <span class="mf">2.6e-05</span>  <span class="c1"># s</span>
@@ -1179,57 +1085,40 @@ and one for the <code class="docutils literal notranslate"><span class="pre">Syn
 <span class="n">hxtorch</span><span class="o">.</span><span class="n">release_hardware</span><span class="p">()</span>
 </pre></div>
 </div>
-</section>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
+</div>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="ts_06-dynamic_range.html" class="btn btn-neutral float-right" title="Exploring the dynamic range" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="ts_04-mc_genetic_algorithms.html" class="btn btn-neutral float-left" title="How to use Genetic Algorithms to automatically parameterize BrainScaleS-2" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ts_06-dynamic_range.html" class="btn btn-neutral float-right" title="Exploring the dynamic range" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2023, Electronic Vision(s).
-
-    </p>
+    <p>&#169; Copyright 2023, Electronic Vision(s).</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

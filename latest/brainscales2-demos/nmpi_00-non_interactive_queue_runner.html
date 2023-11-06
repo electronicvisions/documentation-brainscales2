@@ -1,72 +1,32 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>Introduction to the non-interactive queue runner &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+  <title>Introduction to the non-interactive queue runner &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Wie verarbeitet unser Gehirn Informationen?" href="girlsday.html" />
     <link rel="prev" title="Train DNNs on BrainScaleS-2" href="tp_02-yin_yang.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../index.html" class="icon icon-home"> BrainScaleS-2 Documentation
-          
-
-          
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -74,18 +34,7 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption"><span class="caption-text">Contents</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Demos &amp; Examples</a><ul class="current">
@@ -127,77 +76,34 @@
 <li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">BrainScaleS-2 Documentation</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-        
           <li><a href="index.html">Welcome to the BrainScaleS-2 Demos &amp; Examples!</a> &raquo;</li>
-        
           <li><a href="tutorial.html">Welcome to the BrainScaleS-2 Tutorial</a> &raquo;</li>
-        
       <li>Introduction to the non-interactive queue runner</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="../_sources/brainscales2-demos/nmpi_00-non_interactive_queue_runner.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <section id="introduction-to-the-non-interactive-queue-runner">
-<h1>Introduction to the non-interactive queue runner<a class="headerlink" href="#introduction-to-the-non-interactive-queue-runner" title="Permalink to this headline">¶</a></h1>
+             
+  <div class="section" id="introduction-to-the-non-interactive-queue-runner">
+<h1>Introduction to the non-interactive queue runner<a class="headerlink" href="#introduction-to-the-non-interactive-queue-runner" title="Permalink to this headline"></a></h1>
 <p>Welcome to this tutorial of using pyNN for the BrainScaleS-2 neuromorphic accelerator with the non-interactive queue runner.
 We will guide you through all the steps necessary to interact with the system and help you explore the capabilities of the on-chip analog neurons and synapses.
 A tutorial of the interactive usage can be found in <a class="reference internal" href="ts_00-single_neuron.html#brainscales-2-single-neuron-experiments"><span class="std std-ref">BrainScaleS-2 single neuron experiments</span></a>.</p>
@@ -328,8 +234,8 @@ A tutorial of the interactive usage can be found in <a class="reference internal
     <span class="k">return</span> <span class="n">job_id</span>
 </pre></div>
 </div>
-<section id="first-experiment">
-<h2>First Experiment<a class="headerlink" href="#first-experiment" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="first-experiment">
+<h2>First Experiment<a class="headerlink" href="#first-experiment" title="Permalink to this headline"></a></h2>
 <p>Now we can start with the first experiment. Here, we will record the membrane of a single, silent
 neuron on the analog substrate.
 We save our experiment description to a python file and will send this file to a cluster in Heidelberg.
@@ -427,9 +333,9 @@ In Heidelberg the experiment is executed on the BrainScaleS-2 neuromorphic syste
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_membrane_dynamics</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">outputDir</span><span class="si">}</span><span class="s2">/job_</span><span class="si">{</span><span class="n">first_experiment_id</span><span class="si">}</span><span class="s2">/first_experiment.dat&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-</section>
-<section id="second-experiment">
-<h2>Second Experiment<a class="headerlink" href="#second-experiment" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="second-experiment">
+<h2>Second Experiment<a class="headerlink" href="#second-experiment" title="Permalink to this headline"></a></h2>
 <p>As a second experiment, we will let the neurons on BrainScaleS-2 spike by setting a ‘leak-over-threshold’ configuration.</p>
 <div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">file</span> <span class="o">~/</span><span class="n">second_experiment</span><span class="o">.</span><span class="n">py</span>
 <span class="kn">from</span> <span class="nn">neo.io</span> <span class="kn">import</span> <span class="n">PickleIO</span>
@@ -481,9 +387,9 @@ In Heidelberg the experiment is executed on the BrainScaleS-2 neuromorphic syste
 <span class="n">plot_membrane_dynamics</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">outputDir</span><span class="si">}</span><span class="s2">/job_</span><span class="si">{</span><span class="n">second_experiment_id</span><span class="si">}</span><span class="s2">/second_experiment.dat&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-</section>
-<section id="third-experiment-fixed-pattern-noise">
-<h2>Third Experiment: Fixed-pattern noise<a class="headerlink" href="#third-experiment-fixed-pattern-noise" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="third-experiment-fixed-pattern-noise">
+<h2>Third Experiment: Fixed-pattern noise<a class="headerlink" href="#third-experiment-fixed-pattern-noise" title="Permalink to this headline"></a></h2>
 <p>Due to the analog nature of the BrainScaleS-2 platform, the inevitable mismatch of semiconductor fabrication results in inhomogeneous properties of the computational elements.
 We will visualize these effects by recording the membrane potential of multiple neurons in leak-over-threshold configuration.
 You will notice different resting, reset and threshold potentials as well as varying membrane time constants.</p>
@@ -540,9 +446,9 @@ You will notice different resting, reset and threshold potentials as well as var
 Due to the time-continuous nature of the system, there is no temporal alignment between the individual traces, so the figure shows multiple independent effects:
 * Temporal misalignment: From the system’s view, the recording happens in an arbitrary time frame during the continuously evolving integration. Neurons are not synchronized to each other.
 * Circuit-level mismatch: Each individual neurons shows slightly different analog properties. The threshold is different for all traces; as is the membrane time constant (visible as slope) and the reset potentials (visible as plateaus during the refractory time).</p>
-</section>
-<section id="fourth-experiment-external-stimulation">
-<h2>Fourth Experiment: External stimulation<a class="headerlink" href="#fourth-experiment-external-stimulation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="fourth-experiment-external-stimulation">
+<h2>Fourth Experiment: External stimulation<a class="headerlink" href="#fourth-experiment-external-stimulation" title="Permalink to this headline"></a></h2>
 <p>Up to now, we have observed analog neurons without external stimulus. In
 this experiment, we will introduce the latter and examine post-synaptic
 pulses on the analog neuron’s membrane.</p>
@@ -634,55 +540,38 @@ pulses on the analog neuron’s membrane.</p>
 <span class="n">plot_membrane_dynamics</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">outputDir</span><span class="si">}</span><span class="s2">/job_</span><span class="si">{</span><span class="n">fourth_experiment_id</span><span class="si">}</span><span class="s2">/fourth_experiment.dat&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="girlsday.html" class="btn btn-neutral float-right" title="Wie verarbeitet unser Gehirn Informationen?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="tp_02-yin_yang.html" class="btn btn-neutral float-left" title="Train DNNs on BrainScaleS-2" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="girlsday.html" class="btn btn-neutral float-right" title="Wie verarbeitet unser Gehirn Informationen?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2023, Electronic Vision(s).
-
-    </p>
+    <p>&#169; Copyright 2023, Electronic Vision(s).</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

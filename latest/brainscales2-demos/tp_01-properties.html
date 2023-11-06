@@ -1,72 +1,32 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>Exploring the analog MAC operation &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+  <title>Exploring the analog MAC operation &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Train DNNs on BrainScaleS-2" href="tp_02-yin_yang.html" />
     <link rel="prev" title="Introduction to matrix multiplication" href="tp_00-introduction.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../index.html" class="icon icon-home"> BrainScaleS-2 Documentation
-          
-
-          
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -74,18 +34,7 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption"><span class="caption-text">Contents</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Demos &amp; Examples</a><ul class="current">
@@ -126,77 +75,34 @@
 <li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">BrainScaleS-2 Documentation</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-        
           <li><a href="index.html">Welcome to the BrainScaleS-2 Demos &amp; Examples!</a> &raquo;</li>
-        
           <li><a href="tutorial.html">Welcome to the BrainScaleS-2 Tutorial</a> &raquo;</li>
-        
       <li>Exploring the analog MAC operation</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="../_sources/brainscales2-demos/tp_01-properties.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <section id="exploring-the-analog-mac-operation">
-<h1>Exploring the analog MAC operation<a class="headerlink" href="#exploring-the-analog-mac-operation" title="Permalink to this headline">¶</a></h1>
+             
+  <div class="section" id="exploring-the-analog-mac-operation">
+<h1>Exploring the analog MAC operation<a class="headerlink" href="#exploring-the-analog-mac-operation" title="Permalink to this headline"></a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Currently, this code is not executable on the EBRAINS platform.</p>
@@ -228,8 +134,8 @@ is explained in more detail in the matrix multiplication introduction.</p>
 <span class="n">IntSlider</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">,</span> <span class="n">continuous_update</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
-<section id="the-hxtorch-api">
-<h2>The <code class="docutils literal notranslate"><span class="pre">hxtorch</span></code> API<a class="headerlink" href="#the-hxtorch-api" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="the-hxtorch-api">
+<h2>The <code class="docutils literal notranslate"><span class="pre">hxtorch</span></code> API<a class="headerlink" href="#the-hxtorch-api" title="Permalink to this headline"></a></h2>
 <p>The hagen mode provides an analog multiply accumulate operation (MAC)
 which is performed on the ASIC.</p>
 <p><strong>hxtorch</strong> provides a high-level API for this operation mode that
@@ -275,9 +181,9 @@ executed just-in-time on the BrainScaleS-2 hardware.</p>
 to decompose large operations and smaller parts and either multiplex them
 in time or even divide them among several BrainScaleS-2 ASICs:</p>
 <a class="reference internal image-reference" href="../_images/hxtorch_partitioning.png"><img alt="../_images/hxtorch_partitioning.png" class="align-center" src="../_images/hxtorch_partitioning.png" style="width: 80%;" /></a>
-</section>
-<section id="noise-and-fixed-pattern-deviations">
-<h2>Noise and fixed-pattern deviations<a class="headerlink" href="#noise-and-fixed-pattern-deviations" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="noise-and-fixed-pattern-deviations">
+<h2>Noise and fixed-pattern deviations<a class="headerlink" href="#noise-and-fixed-pattern-deviations" title="Permalink to this headline"></a></h2>
 <p>Despite calibration and even with the same inputs and weights, the
 outputs of the different neurons are not identical. On the one hand,
 each output has a statistical noise due to the analog nature of the
@@ -321,9 +227,9 @@ to the synapse drivers.</p>
 </div>
 <a class="solution reference internal image-reference" href="../_images/hagen_properties_fig1.png"><img alt="../_images/hagen_properties_fig1.png" class="solution align-center" src="../_images/hagen_properties_fig1.png" style="width: 90%;" /></a>
 <a class="solution reference internal image-reference" href="../_images/hagen_properties_sliders1.png"><img alt="../_images/hagen_properties_sliders1.png" class="solution" src="../_images/hagen_properties_sliders1.png" style="width: 300px;" /></a>
-</section>
-<section id="linearity-of-the-mac-operation">
-<h2>Linearity of the MAC operation<a class="headerlink" href="#linearity-of-the-mac-operation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="linearity-of-the-mac-operation">
+<h2>Linearity of the MAC operation<a class="headerlink" href="#linearity-of-the-mac-operation" title="Permalink to this headline"></a></h2>
 <p>The next plot shows the linear relationship between input, weight and
 output. For this purpose, a constant input is multiplied by a linearly
 increasing weight vector.</p>
@@ -362,22 +268,22 @@ increasing weight vector.</p>
 <p>At output values of about -80 to 80 a good linear correlation can be
 observed. For smaller or larger values, the used ADC saturates; this
 happens earlier for some neurons and later for others.</p>
-<section id="possible-questions">
-<h3>Possible questions:<a class="headerlink" href="#possible-questions" title="Permalink to this headline">¶</a></h3>
-<section id="how-does-the-result-change-with-several-successive-calls-to-hxtorch-perceptron-matmul">
-<h4>How does the result change with several successive calls to <code class="docutils literal notranslate"><span class="pre">hxtorch.perceptron.matmul</span></code>?<a class="headerlink" href="#how-does-the-result-change-with-several-successive-calls-to-hxtorch-perceptron-matmul" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="possible-questions">
+<h3>Possible questions:<a class="headerlink" href="#possible-questions" title="Permalink to this headline"></a></h3>
+<div class="section" id="how-does-the-result-change-with-several-successive-calls-to-hxtorch-perceptron-matmul">
+<h4>How does the result change with several successive calls to <code class="docutils literal notranslate"><span class="pre">hxtorch.perceptron.matmul</span></code>?<a class="headerlink" href="#how-does-the-result-change-with-several-successive-calls-to-hxtorch-perceptron-matmul" title="Permalink to this headline"></a></h4>
 <p>Due to its analog nature, the BrainScaleS-2 ASIC provides slightly
 different values for each call. Quantify the noise on each neuron!</p>
-</section>
-<section id="what-is-the-relationship-between-input-and-output-is-it-linear">
-<h4>What is the relationship between input and output? Is it linear?<a class="headerlink" href="#what-is-the-relationship-between-input-and-output-is-it-linear" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="what-is-the-relationship-between-input-and-output-is-it-linear">
+<h4>What is the relationship between input and output? Is it linear?<a class="headerlink" href="#what-is-the-relationship-between-input-and-output-is-it-linear" title="Permalink to this headline"></a></h4>
 <p>We have seen that the relationship between weight and output is quite
 linear at intermediate values. How, on the other hand, does the output
 change with changing inputs and constant weight? Is the relationship
 linear?</p>
-</section>
-<section id="negative-inputs">
-<h4>Negative inputs?<a class="headerlink" href="#negative-inputs" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="negative-inputs">
+<h4>Negative inputs?<a class="headerlink" href="#negative-inputs" title="Permalink to this headline"></a></h4>
 <p>The inputs to the multiply accumulate operation correspond to the time a
 current flows on neuron membranes, which means they must be positive
 only. How would it still be possible to allow negative inputs in a
@@ -386,57 +292,40 @@ calculation?</p>
 conventional machine learning. For this, the forward pass is computed with
 the ASIC, the backward pass on the host computer. The example for training
 DNNs shows such a usage.</p>
-</section>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
+</div>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="tp_02-yin_yang.html" class="btn btn-neutral float-right" title="Train DNNs on BrainScaleS-2" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="tp_00-introduction.html" class="btn btn-neutral float-left" title="Introduction to matrix multiplication" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="tp_02-yin_yang.html" class="btn btn-neutral float-right" title="Train DNNs on BrainScaleS-2" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2023, Electronic Vision(s).
-
-    </p>
+    <p>&#169; Copyright 2023, Electronic Vision(s).</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

@@ -1,72 +1,32 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>Calibration &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+  <title>Calibration &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="BrainScaleS-2 API Documentation" href="../apis.html" />
     <link rel="prev" title="The HXNeuron" href="hx_neuron.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../index.html" class="icon icon-home"> BrainScaleS-2 Documentation
-          
-
-          
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -74,18 +34,7 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption"><span class="caption-text">Contents</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../brainscales2-demos/index.html">Demos &amp; Examples</a></li>
@@ -106,159 +55,99 @@
 <li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">BrainScaleS-2 Documentation</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-        
           <li><a href="../software_components.html">Software Components</a> &raquo;</li>
-        
           <li><a href="index.html">PyNN for BrainScaleS-2</a> &raquo;</li>
-        
       <li>Calibration</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="../_sources/pynn-brainscales/calibration.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <section id="calibration">
-<h1>Calibration<a class="headerlink" href="#calibration" title="Permalink to this headline">¶</a></h1>
+             
+  <div class="section" id="calibration">
+<h1>Calibration<a class="headerlink" href="#calibration" title="Permalink to this headline"></a></h1>
 <p>BrainScaleS-2 uses analog circuits to emulate the behavior of neurons and synapses.
 Due to the manufacturing process these circuits are subject to variations.
 This means that every analog circuit has slightly different properties.</p>
 <p>In order to reduce the mismatch between different neurons and synapses the BrainScaleS-2 system can be calibrated.
 The <cite>calix</cite> library is capable of performing these calibration.
 In this document we describe how calibration data can be used in PyNN.</p>
-<section id="loading-a-calibration">
-<h2>Loading a Calibration<a class="headerlink" href="#loading-a-calibration" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="loading-a-calibration">
+<h2>Loading a Calibration<a class="headerlink" href="#loading-a-calibration" title="Permalink to this headline"></a></h2>
 <p>The helper function <a class="reference internal" href="../api_pynn-brainscales2.html#pynn_brainscales.brainscales2.helper.chip_from_file" title="pynn_brainscales.brainscales2.helper.chip_from_file"><code class="xref py py-func docutils literal notranslate"><span class="pre">chip_from_file()</span></code></a> converts a binary dump of a playback program to an object which represents the configuration of the BrainScaleS-2 chip.</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pynn_brainscales.brainscales2</span> <span class="k">as</span> <span class="nn">pynn</span>
 <span class="n">chip</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">helper</span><span class="o">.</span><span class="n">chip_from_file</span><span class="p">(</span><span class="n">some_file</span><span class="p">)</span>
 </pre></div>
 </div>
-<section id="applying-a-calibration">
-<h3>Applying a Calibration<a class="headerlink" href="#applying-a-calibration" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="applying-a-calibration">
+<h3>Applying a Calibration<a class="headerlink" href="#applying-a-calibration" title="Permalink to this headline"></a></h3>
 <p>The global chip configuration can be injected when we call the <a class="reference internal" href="../api_pynn-brainscales2.html#pynn_brainscales.brainscales2.setup" title="pynn_brainscales.brainscales2.setup"><code class="xref py py-func docutils literal notranslate"><span class="pre">setup()</span></code></a> function.</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">pynn</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="n">initial_config</span><span class="o">=</span><span class="n">chip</span><span class="p">)</span>
 </pre></div>
 </div>
-</section>
-<section id="nightly-calibration">
-<h3>Nightly Calibration<a class="headerlink" href="#nightly-calibration" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="nightly-calibration">
+<h3>Nightly Calibration<a class="headerlink" href="#nightly-calibration" title="Permalink to this headline"></a></h3>
 <p>Every night a default calibration is generated for each setup.
 The path to the most recent calibration for the setup in use can be fetched with:</p>
 <p>Furthermore, a convenient function is provided which allows to directly retrieve the chip configuration:</p>
-</section>
-</section>
-<section id="generating-the-calibration-from-the-pynn-network">
-<h2>Generating the Calibration from the PyNN Network<a class="headerlink" href="#generating-the-calibration-from-the-pynn-network" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="generating-the-calibration-from-the-pynn-network">
+<h2>Generating the Calibration from the PyNN Network<a class="headerlink" href="#generating-the-calibration-from-the-pynn-network" title="Permalink to this headline"></a></h2>
 <p>In addition to loading a previously created calibration into PyNN, the calibration can also be directly be created for a network defined in PyNN.
 This feature can be used by replacing the <code class="xref py py-class docutils literal notranslate"><span class="pre">HXNeuron</span></code> by one of the following cell types:</p>
 <p>Once <a class="reference internal" href="../api_pynn-brainscales2.html#run" title="run"><code class="xref py py-func docutils literal notranslate"><span class="pre">run()</span></code></a> is called, <cite>calix</cite> is used to generate a calibration in the background.
 As generating a calibration takes around five minutes, this mode is not meant for interactive exploration.</p>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="../apis.html" class="btn btn-neutral float-right" title="BrainScaleS-2 API Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="hx_neuron.html" class="btn btn-neutral float-left" title="The HXNeuron" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../apis.html" class="btn btn-neutral float-right" title="BrainScaleS-2 API Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2023, Electronic Vision(s).
-
-    </p>
+    <p>&#169; Copyright 2023, Electronic Vision(s).</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>
