@@ -228,10 +228,11 @@ connected to themselves to maintain possible activity.</p>
     <span class="k">for</span> <span class="n">row</span><span class="p">,</span> <span class="n">row_populations</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">pops_collector</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">field_populations</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">row_populations</span><span class="p">):</span>
             <span class="n">num_spikes</span> <span class="o">=</span> <span class="p">[</span>
-                <span class="nb">len</span><span class="p">(</span><span class="n">num_population</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="s2">&quot;spikes&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">segments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">spiketrains</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                <span class="nb">len</span><span class="p">(</span><span class="n">num_population</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="s2">&quot;spikes&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">segments</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">spiketrains</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
                 <span class="k">for</span> <span class="n">num_population</span> <span class="ow">in</span> <span class="n">field_populations</span>
             <span class="p">]</span>
             <span class="n">grid</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">num_spikes</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">pynn</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">grid</span>
 
 <span class="c1"># functions to display the sudoku:</span>
