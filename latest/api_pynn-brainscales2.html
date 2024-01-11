@@ -1375,12 +1375,13 @@
 
 <dl class="py function">
 <dt id="id56">
-<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1populations_1_1_population_1a3c34749b3f4ccb3714a1efa30ceb925e"></span><code class="sig-name descname"><span class="pre">record</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">variables</span></em>, <em class="sig-param"><span class="pre">to_file=None</span></em>, <em class="sig-param"><span class="pre">sampling_interval=None</span></em>, <em class="sig-param"><span class="pre">*locations=None</span></em>, <em class="sig-param"><span class="pre">device=&quot;madc&quot;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id56" title="Permalink to this definition"></a></dt>
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1populations_1_1_population_1aaa31fe32eea09cbdc11d7b7a74130c1e"></span><code class="sig-name descname"><span class="pre">record</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">Union[str</span></em>, <em class="sig-param"><span class="pre">List[str]]</span> <span class="pre">variables</span></em>, <em class="sig-param"><span class="pre">Optional[Union[str</span></em>, <em class="sig-param"><span class="pre">NixIO]]</span> <span class="pre">to_file=None</span></em>, <em class="sig-param"><span class="pre">Optional[float]</span> <span class="pre">sampling_interval=None</span></em>, <em class="sig-param"><span class="pre">*Optional[List[str]]</span> <span class="pre">locations=None</span></em>, <em class="sig-param"><span class="pre">str</span> <span class="pre">device=&quot;madc&quot;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id56" title="Permalink to this definition"></a></dt>
 <dd><p>Record the specified variable or variables for all cells in the Population or view. </p>
-<p><code class="docutils literal notranslate"><span class="pre">variables</span></code> may be either a single variable name or a list of variable names. For a given celltype class, <code class="docutils literal notranslate"><span class="pre">celltype.recordable</span></code> contains a list of variables that can be recorded for that celltype.</p>
-<p>If specified, <code class="docutils literal notranslate"><span class="pre">to_file</span></code> should be either a filename or a Neo IO instance and <code class="docutils literal notranslate"><span class="pre">write_data()</span></code> will be automatically called when <code class="docutils literal notranslate"><span class="pre">end()</span></code> is called.</p>
-<p><code class="docutils literal notranslate"><span class="pre">sampling_interval</span></code> should be a value in milliseconds, and an integer multiple of the simulation timestep.</p>
-<p><code class="docutils literal notranslate"><span class="pre">locations</span></code> defines where the variables should be recorded. <code class="docutils literal notranslate"><span class="pre">device</span></code> defines the device to use. </p>
+<p>:param variables: may be either a single variable name or a list of variable names. For a given celltype class, <code class="docutils literal notranslate"><span class="pre">celltype.recordable</span></code> contains a list of variables that can be recorded for that celltype. To reset recording of PopulationView or Population call <code class="docutils literal notranslate"><span class="pre">record</span></code> with “None” as argument.</p>
+<p>:param to_file: If specified, variables are written to file when <code class="docutils literal notranslate"><span class="pre">pynn.end()</span></code> is called. For more details see :py:function::pynn.population.write_data or pyNN-Doc <a class="reference external" href="https://neuralensemble.org/docs/PyNN/data_handling.html">https://neuralensemble.org/docs/PyNN/data_handling.html</a></p>
+<p>:param sampling_interval: Feature not yet implemented.</p>
+<p>:param locations: Defines where the variables should be recorded. Used with multi-compartment neurons where location is defined by <code class="docutils literal notranslate"><span class="pre">label</span></code>.</p>
+<p>:param device: Configures device which is used to record recordables. Default is set to “madc”. Use as device “pad_[0/1]_[unbuffered/buffered]” to connect recordables of neurons to pads. Each of the 2 pads can be connected to one neuron. For limitations see documentation. </p>
 </dd></dl>
 
 </div>
@@ -4427,37 +4428,37 @@
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_5643325f60bd592eca7816d91ce4831a"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTA5NTQ.x/pynn-brainscales/brainscales2</span></code></dt>
+<span class="target" id="dir_5643325f60bd592eca7816d91ce4831a"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTA5NTY.x/pynn-brainscales/brainscales2</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_30590f78572d0bff4c96c6642e878133"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTA5NTQ.x/pynn-brainscales/brainscales2/pynn_brainscales/brainscales2</span></code></dt>
+<span class="target" id="dir_30590f78572d0bff4c96c6642e878133"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTA5NTY.x/pynn-brainscales/brainscales2/pynn_brainscales/brainscales2</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_71abf4e0cb61d33ca644053d80824813"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTA5NTQ.x/pynn-brainscales/brainscales2/pynn_brainscales/brainscales2/examples</span></code></dt>
+<span class="target" id="dir_71abf4e0cb61d33ca644053d80824813"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTA5NTY.x/pynn-brainscales/brainscales2/pynn_brainscales/brainscales2/examples</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_a72118a09e00b2e2db6f97ab1c7474b7"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTA5NTQ.x/pynn-brainscales/brainscales2/pynn_brainscales/brainscales2/morphology</span></code></dt>
+<span class="target" id="dir_a72118a09e00b2e2db6f97ab1c7474b7"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTA5NTY.x/pynn-brainscales/brainscales2/pynn_brainscales/brainscales2/morphology</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_1efc13ce3fde1fd62a85b15c42b78a1d"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTA5NTQ.x/pynn-brainscales</span></code></dt>
+<span class="target" id="dir_1efc13ce3fde1fd62a85b15c42b78a1d"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTA5NTY.x/pynn-brainscales</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_21dfa1d1ae032dbb0977000ba6401a40"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTA5NTQ.x/pynn-brainscales/brainscales2/pynn_brainscales</span></code></dt>
+<span class="target" id="dir_21dfa1d1ae032dbb0977000ba6401a40"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTA5NTY.x/pynn-brainscales/brainscales2/pynn_brainscales</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_6861f8e6ea567950e911c16bf07d7443"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTA5NTQ.x/pynn-brainscales/brainscales2/pynn_brainscales/brainscales2/standardmodels</span></code></dt>
+<span class="target" id="dir_6861f8e6ea567950e911c16bf07d7443"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTA5NTY.x/pynn-brainscales/brainscales2/pynn_brainscales/brainscales2/standardmodels</span></code></dt>
 <dd></dd></dl>
 
 </div>
