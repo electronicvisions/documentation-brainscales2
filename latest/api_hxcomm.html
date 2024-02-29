@@ -1655,446 +1655,6 @@
 </div>
 </dd></dl>
 
-<dl class="cpp class">
-<dt id="_CPPv4I0EN6hxcomm16ExtollConnectionE">
-<span id="_CPPv3I0EN6hxcomm16ExtollConnectionE"></span><span id="_CPPv2I0EN6hxcomm16ExtollConnectionE"></span><span class="pre">template&lt;</span><span class="pre">typename</span> <code class="sig-name descname"><span class="pre">ConnectionParameter</span></code><span class="pre">&gt;</span><br /><span class="target" id="classhxcomm_1_1_extoll_connection"></span><em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><a class="reference internal" href="#_CPPv46hxcomm" title="hxcomm"><span class="pre">hxcomm</span></a><code class="sig-prename descclassname"><span class="pre">::</span></code></code><code class="sig-name descname"><span class="pre">ExtollConnection</span></code><a class="headerlink" href="#_CPPv4I0EN6hxcomm16ExtollConnectionE" title="Permalink to this definition"></a><br /></dt>
-<dd><div class="docutils container">
-<em>#include &lt;<a class="reference internal" href="#common_2extollconnection_8h"><span class="std std-ref">extollconnection.h</span></a>&gt;</em></div>
-<p>Extoll connection class. </p>
-<p>Establish and hold Extoll connection to FPGA. Provide convenience functions for sending and receiving UT messages. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Template Parameters</dt>
-<dd class="field-odd"><p><strong>ConnectionParameter</strong> – UT message parameter for connection </p>
-</dd>
-</dl>
-<div class="breathe-sectiondef docutils container">
-<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
-<dl class="cpp type">
-<dt id="_CPPv4N6hxcomm16ExtollConnection20init_parameters_typeE">
-<span id="_CPPv3N6hxcomm16ExtollConnection20init_parameters_typeE"></span><span id="_CPPv2N6hxcomm16ExtollConnection20init_parameters_typeE"></span><span class="target" id="classhxcomm_1_1_extoll_connection_1afc8d92082f8f09f6f4fd9c98bc8bb3bf"></span><em class="property"><span class="pre">using</span> </em><code class="sig-name descname"><span class="pre">init_parameters_type</span></code> <span class="pre">=</span> <em class="property"><span class="pre">typename</span></em> <a class="reference internal" href="api_calix.html#_CPPv4St" title="std"><span class="pre">std</span></a><span class="pre">::</span><span class="pre">tuple</span><span class="pre">&lt;</span><span class="pre">RMA2_Nodeid</span><span class="pre">&gt;</span><a class="headerlink" href="#_CPPv4N6hxcomm16ExtollConnection20init_parameters_typeE" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp type">
-<dt id="_CPPv4N6hxcomm16ExtollConnection13message_typesE">
-<span id="_CPPv3N6hxcomm16ExtollConnection13message_typesE"></span><span id="_CPPv2N6hxcomm16ExtollConnection13message_typesE"></span><span class="target" id="classhxcomm_1_1_extoll_connection_1a3ac26ce244b10b6ed8ec4868b390e181"></span><em class="property"><span class="pre">using</span> </em><code class="sig-name descname"><span class="pre">message_types</span></code> <span class="pre">=</span> <a class="reference internal" href="#_CPPv4I0EN6hxcomm12MessageTypesE" title="hxcomm::MessageTypes"><span class="pre">MessageTypes</span></a><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4I0EN6hxcomm16ExtollConnectionE" title="hxcomm::ExtollConnection::ConnectionParameter"><span class="pre">ConnectionParameter</span></a><span class="pre">&gt;</span><a class="headerlink" href="#_CPPv4N6hxcomm16ExtollConnection13message_typesE" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp type">
-<dt id="_CPPv4N6hxcomm16ExtollConnection20receive_message_typeE">
-<span id="_CPPv3N6hxcomm16ExtollConnection20receive_message_typeE"></span><span id="_CPPv2N6hxcomm16ExtollConnection20receive_message_typeE"></span><span class="target" id="classhxcomm_1_1_extoll_connection_1add0aed29c0567cc962a6acc9092cc6d4"></span><em class="property"><span class="pre">using</span> </em><code class="sig-name descname"><span class="pre">receive_message_type</span></code> <span class="pre">=</span> <em class="property"><span class="pre">typename</span></em> <a class="reference internal" href="#_CPPv4N6hxcomm16ExtollConnection13message_typesE" title="hxcomm::ExtollConnection::message_types"><span class="pre">message_types</span></a><span class="pre">::</span><span class="pre">receive_type</span><a class="headerlink" href="#_CPPv4N6hxcomm16ExtollConnection20receive_message_typeE" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp type">
-<dt id="_CPPv4N6hxcomm16ExtollConnection18receive_queue_typeE">
-<span id="_CPPv3N6hxcomm16ExtollConnection18receive_queue_typeE"></span><span id="_CPPv2N6hxcomm16ExtollConnection18receive_queue_typeE"></span><span id="hxcomm::ExtollConnection::receive_queue_type"></span><span class="target" id="classhxcomm_1_1_extoll_connection_1ac22987baf492ee66d01daf2fc6067e08"></span><em class="property"><span class="pre">typedef</span> </em><a class="reference internal" href="api_calix.html#_CPPv4St" title="std"><span class="pre">std</span></a><span class="pre">::</span><span class="pre">vector</span><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4N6hxcomm16ExtollConnection20receive_message_typeE" title="hxcomm::ExtollConnection::receive_message_type"><span class="pre">receive_message_type</span></a><span class="pre">&gt;</span> <code class="sig-name descname"><span class="pre">receive_queue_type</span></code><a class="headerlink" href="#_CPPv4N6hxcomm16ExtollConnection18receive_queue_typeE" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp type">
-<dt id="_CPPv4N6hxcomm16ExtollConnection22send_halt_message_typeE">
-<span id="_CPPv3N6hxcomm16ExtollConnection22send_halt_message_typeE"></span><span id="_CPPv2N6hxcomm16ExtollConnection22send_halt_message_typeE"></span><span class="target" id="classhxcomm_1_1_extoll_connection_1a63e216079b133615de356d1a7cc332be"></span><em class="property"><span class="pre">using</span> </em><code class="sig-name descname"><span class="pre">send_halt_message_type</span></code> <span class="pre">=</span> <em class="property"><span class="pre">typename</span></em> <a class="reference internal" href="#_CPPv4N6hxcomm16ExtollConnection13message_typesE" title="hxcomm::ExtollConnection::message_types"><span class="pre">message_types</span></a><span class="pre">::</span><span class="pre">send_halt_type</span><a class="headerlink" href="#_CPPv4N6hxcomm16ExtollConnection22send_halt_message_typeE" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp type">
-<dt id="_CPPv4N6hxcomm16ExtollConnection17send_message_typeE">
-<span id="_CPPv3N6hxcomm16ExtollConnection17send_message_typeE"></span><span id="_CPPv2N6hxcomm16ExtollConnection17send_message_typeE"></span><span class="target" id="classhxcomm_1_1_extoll_connection_1a7b8c424d241b851f4fa05f4448c4a430"></span><em class="property"><span class="pre">using</span> </em><code class="sig-name descname"><span class="pre">send_message_type</span></code> <span class="pre">=</span> <em class="property"><span class="pre">typename</span></em> <a class="reference internal" href="#_CPPv4N6hxcomm16ExtollConnection13message_typesE" title="hxcomm::ExtollConnection::message_types"><span class="pre">message_types</span></a><span class="pre">::</span><span class="pre">send_type</span><a class="headerlink" href="#_CPPv4N6hxcomm16ExtollConnection17send_message_typeE" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
-
-</div>
-<div class="breathe-sectiondef docutils container">
-<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
-<dl class="cpp function">
-<dt id="_CPPv4N6hxcomm16ExtollConnection16ExtollConnectionEv">
-<span id="_CPPv3N6hxcomm16ExtollConnection16ExtollConnectionEv"></span><span id="_CPPv2N6hxcomm16ExtollConnection16ExtollConnectionEv"></span><span id="hxcomm::ExtollConnection::ExtollConnection"></span><span class="target" id="classhxcomm_1_1_extoll_connection_1a5bcaec94fa5f754631359c9ceca5ac03"></span><code class="sig-name descname"><span class="pre">ExtollConnection</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6hxcomm16ExtollConnection16ExtollConnectionEv" title="Permalink to this definition"></a><br /></dt>
-<dd><p>Create connection to FPGA via Extoll. </p>
-</dd></dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4N6hxcomm16ExtollConnection16ExtollConnectionERR16ExtollConnection">
-<span id="_CPPv3N6hxcomm16ExtollConnection16ExtollConnectionERR16ExtollConnection"></span><span id="_CPPv2N6hxcomm16ExtollConnection16ExtollConnectionERR16ExtollConnection"></span><span id="hxcomm::ExtollConnection::ExtollConnection__ExtollConnectionRR"></span><span class="target" id="classhxcomm_1_1_extoll_connection_1ab560ad806a8fc116e48cdf5accc01fad"></span><code class="sig-name descname"><span class="pre">ExtollConnection</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N6hxcomm16ExtollConnection16ExtollConnectionERR16ExtollConnection" title="hxcomm::ExtollConnection::ExtollConnection"><span class="pre">ExtollConnection</span></a> <span class="pre">&amp;</span><span class="pre">&amp;</span><em><span class="pre">other</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6hxcomm16ExtollConnection16ExtollConnectionERR16ExtollConnection" title="Permalink to this definition"></a><br /></dt>
-<dd><p>Move constructor. </p>
-</dd></dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4N6hxcomm16ExtollConnection16ExtollConnectionERK16ExtollConnection">
-<span id="_CPPv3N6hxcomm16ExtollConnection16ExtollConnectionERK16ExtollConnection"></span><span id="_CPPv2N6hxcomm16ExtollConnection16ExtollConnectionERK16ExtollConnection"></span><span id="hxcomm::ExtollConnection::ExtollConnection__ExtollConnectionCR"></span><span class="target" id="classhxcomm_1_1_extoll_connection_1ab541bd45cc8698c972f6b39bfef940c7"></span><code class="sig-name descname"><span class="pre">ExtollConnection</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N6hxcomm16ExtollConnection16ExtollConnectionERK16ExtollConnection" title="hxcomm::ExtollConnection::ExtollConnection"><span class="pre">ExtollConnection</span></a> <em class="property"><span class="pre">const</span></em><span class="pre">&amp;</span><span class="sig-paren">)</span> <span class="pre">=</span> <span class="pre">delete</span><a class="headerlink" href="#_CPPv4N6hxcomm16ExtollConnection16ExtollConnectionERK16ExtollConnection" title="Permalink to this definition"></a><br /></dt>
-<dd><p>Copy constructor deleted. </p>
-</dd></dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4N6hxcomm16ExtollConnection16ExtollConnectionE11RMA2_Nodeid">
-<span id="_CPPv3N6hxcomm16ExtollConnection16ExtollConnectionE11RMA2_Nodeid"></span><span id="_CPPv2N6hxcomm16ExtollConnection16ExtollConnectionE11RMA2_Nodeid"></span><span id="hxcomm::ExtollConnection::ExtollConnection__RMA2_Nodeid"></span><span class="target" id="classhxcomm_1_1_extoll_connection_1ad264a4c24c7fd58bcfccf7dfd66b1a34"></span><code class="sig-name descname"><span class="pre">ExtollConnection</span></code><span class="sig-paren">(</span><span class="pre">RMA2_Nodeid</span> <em><span class="pre">node_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6hxcomm16ExtollConnection16ExtollConnectionE11RMA2_Nodeid" title="Permalink to this definition"></a><br /></dt>
-<dd><p>Create connection to FPGA via Extoll for given Node ID. </p>
-</dd></dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4N6hxcomm16ExtollConnectionD0Ev">
-<span id="_CPPv3N6hxcomm16ExtollConnectionD0Ev"></span><span id="_CPPv2N6hxcomm16ExtollConnectionD0Ev"></span><span id="hxcomm::ExtollConnection::~ExtollConnection"></span><span class="target" id="classhxcomm_1_1_extoll_connection_1a59c94c41af37e8b2218059de3afd3928"></span><code class="sig-name descname"><span class="pre">~ExtollConnection</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6hxcomm16ExtollConnectionD0Ev" title="Permalink to this definition"></a><br /></dt>
-<dd><p>Destruct connection to FPGA joining all receive threads. </p>
-</dd></dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4NK6hxcomm16ExtollConnection16get_bitfile_infoEv">
-<span id="_CPPv3NK6hxcomm16ExtollConnection16get_bitfile_infoEv"></span><span id="_CPPv2NK6hxcomm16ExtollConnection16get_bitfile_infoEv"></span><span id="hxcomm::ExtollConnection::get_bitfile_infoC"></span><span class="target" id="classhxcomm_1_1_extoll_connection_1a5f9e2a5a95a257a9079f65158b850d33"></span><a class="reference internal" href="api_calix.html#_CPPv4St" title="std"><span class="pre">std</span></a><span class="pre">::</span><span class="pre">string</span> <code class="sig-name descname"><span class="pre">get_bitfile_info</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK6hxcomm16ExtollConnection16get_bitfile_infoEv" title="Permalink to this definition"></a><br /></dt>
-<dd><p>Get bitfile information. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>Bitfile info </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4NK6hxcomm16ExtollConnection21get_remote_repo_stateEv">
-<span id="_CPPv3NK6hxcomm16ExtollConnection21get_remote_repo_stateEv"></span><span id="_CPPv2NK6hxcomm16ExtollConnection21get_remote_repo_stateEv"></span><span id="hxcomm::ExtollConnection::get_remote_repo_stateC"></span><span class="target" id="classhxcomm_1_1_extoll_connection_1aa9c2dc0f5d946b556f76dd2220a9aa60"></span><a class="reference internal" href="api_calix.html#_CPPv4St" title="std"><span class="pre">std</span></a><span class="pre">::</span><span class="pre">string</span> <code class="sig-name descname"><span class="pre">get_remote_repo_state</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK6hxcomm16ExtollConnection21get_remote_repo_stateEv" title="Permalink to this definition"></a><br /></dt>
-<dd><p>Get server-side remote repository state information. </p>
-<p>Only non-empty for <a class="reference internal" href="#classhxcomm_1_1_quiggeldy_connection"><span class="std std-ref">QuiggeldyConnection</span></a>. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>Repository state </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4NK6hxcomm16ExtollConnection13get_time_infoEv">
-<span id="_CPPv3NK6hxcomm16ExtollConnection13get_time_infoEv"></span><span id="_CPPv2NK6hxcomm16ExtollConnection13get_time_infoEv"></span><span id="hxcomm::ExtollConnection::get_time_infoC"></span><span class="target" id="classhxcomm_1_1_extoll_connection_1ac8de3df4dbe27baaa117db169f0e1c0b"></span><a class="reference internal" href="#_CPPv4N6hxcomm18ConnectionTimeInfoE" title="hxcomm::ConnectionTimeInfo"><span class="pre">ConnectionTimeInfo</span></a> <code class="sig-name descname"><span class="pre">get_time_info</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK6hxcomm16ExtollConnection13get_time_infoEv" title="Permalink to this definition"></a><br /></dt>
-<dd><p>Get time information. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>Time information </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4NK6hxcomm16ExtollConnection21get_unique_identifierENSt8optionalINSt6stringEEE">
-<span id="_CPPv3NK6hxcomm16ExtollConnection21get_unique_identifierENSt8optionalINSt6stringEEE"></span><span id="_CPPv2NK6hxcomm16ExtollConnection21get_unique_identifierENSt8optionalINSt6stringEEE"></span><span id="hxcomm::ExtollConnection::get_unique_identifier__std::optional:ss:C"></span><span class="target" id="classhxcomm_1_1_extoll_connection_1adc858488ae4071a87171b2954cdf0b4a"></span><a class="reference internal" href="api_calix.html#_CPPv4St" title="std"><span class="pre">std</span></a><span class="pre">::</span><span class="pre">string</span> <code class="sig-name descname"><span class="pre">get_unique_identifier</span></code><span class="sig-paren">(</span><a class="reference internal" href="api_calix.html#_CPPv4St" title="std"><span class="pre">std</span></a><span class="pre">::</span><span class="pre">optional</span><span class="pre">&lt;</span><a class="reference internal" href="api_calix.html#_CPPv4St" title="std"><span class="pre">std</span></a><span class="pre">::</span><span class="pre">string</span><span class="pre">&gt;</span> <em><span class="pre">hwdb_path</span></em> <span class="pre">=</span> <a class="reference internal" href="api_calix.html#_CPPv4St" title="std"><span class="pre">std</span></a><span class="pre">::</span><span class="pre">nullopt</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK6hxcomm16ExtollConnection21get_unique_identifierENSt8optionalINSt6stringEEE" title="Permalink to this definition"></a><br /></dt>
-<dd><p>Get unique identifier from hwdb. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>hwdb_path</strong> – Optional path to hwdb </p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Unique identifier </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4N6hxcomm16ExtollConnectionaSERR16ExtollConnection">
-<span id="_CPPv3N6hxcomm16ExtollConnectionaSERR16ExtollConnection"></span><span id="_CPPv2N6hxcomm16ExtollConnectionaSERR16ExtollConnection"></span><span id="hxcomm::ExtollConnection::assign-operator__ExtollConnectionRR"></span><span class="target" id="classhxcomm_1_1_extoll_connection_1ac2b5d5d9068acc3e48876b22782f4a22"></span><a class="reference internal" href="#_CPPv4I0EN6hxcomm16ExtollConnectionE" title="hxcomm::ExtollConnection"><span class="pre">ExtollConnection</span></a> <span class="pre">&amp;</span><code class="sig-name descname"><span class="pre">operator=</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4I0EN6hxcomm16ExtollConnectionE" title="hxcomm::ExtollConnection"><span class="pre">ExtollConnection</span></a> <span class="pre">&amp;</span><span class="pre">&amp;</span><em><span class="pre">other</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6hxcomm16ExtollConnectionaSERR16ExtollConnection" title="Permalink to this definition"></a><br /></dt>
-<dd><p>Assignment operator. </p>
-</dd></dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4N6hxcomm16ExtollConnectionaSERK16ExtollConnection">
-<span id="_CPPv3N6hxcomm16ExtollConnectionaSERK16ExtollConnection"></span><span id="_CPPv2N6hxcomm16ExtollConnectionaSERK16ExtollConnection"></span><span id="hxcomm::ExtollConnection::assign-operator__ExtollConnectionCR"></span><span class="target" id="classhxcomm_1_1_extoll_connection_1ae966873fd471bed8f9fc4c99b32856f7"></span><a class="reference internal" href="#_CPPv4I0EN6hxcomm16ExtollConnectionE" title="hxcomm::ExtollConnection"><span class="pre">ExtollConnection</span></a> <span class="pre">&amp;</span><code class="sig-name descname"><span class="pre">operator=</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4I0EN6hxcomm16ExtollConnectionE" title="hxcomm::ExtollConnection"><span class="pre">ExtollConnection</span></a> <em class="property"><span class="pre">const</span></em><span class="pre">&amp;</span><span class="sig-paren">)</span> <span class="pre">=</span> <span class="pre">delete</span><a class="headerlink" href="#_CPPv4N6hxcomm16ExtollConnectionaSERK16ExtollConnection" title="Permalink to this definition"></a><br /></dt>
-<dd><p>Assignment operator deleted. </p>
-</dd></dl>
-
-</div>
-<div class="breathe-sectiondef docutils container">
-<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-static-attributes">Public Static Attributes</p>
-<dl class="cpp var">
-<dt id="_CPPv4N6hxcomm16ExtollConnection4nameE">
-<span id="_CPPv3N6hxcomm16ExtollConnection4nameE"></span><span id="_CPPv2N6hxcomm16ExtollConnection4nameE"></span><span id="hxcomm::ExtollConnection::name__cA"></span><span class="target" id="classhxcomm_1_1_extoll_connection_1a67b5ae596f69287d501269ac4a43be81"></span><em class="property"><span class="pre">static</span></em> <em class="property"><span class="pre">constexpr</span></em> <span class="pre">char</span> <code class="sig-name descname"><span class="pre">name</span></code><span class="pre">[</span><span class="pre">]</span> <span class="pre">=</span> <span class="pre">&quot;ExtollConnection&quot;</span><a class="headerlink" href="#_CPPv4N6hxcomm16ExtollConnection4nameE" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp var">
-<dt id="_CPPv4N6hxcomm16ExtollConnection17supported_targetsE">
-<span id="_CPPv3N6hxcomm16ExtollConnection17supported_targetsE"></span><span id="_CPPv2N6hxcomm16ExtollConnection17supported_targetsE"></span><span id="hxcomm::ExtollConnection::supported_targets__std::initializer_list:hxcomm::Target:"></span><span class="target" id="classhxcomm_1_1_extoll_connection_1a77934c1b8eb416ea74541e2bf8303b2f"></span><em class="property"><span class="pre">static</span></em> <em class="property"><span class="pre">constexpr</span></em> <a class="reference internal" href="api_calix.html#_CPPv4St" title="std"><span class="pre">std</span></a><span class="pre">::</span><span class="pre">initializer_list</span><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv46hxcomm" title="hxcomm"><span class="pre">hxcomm</span></a><span class="pre">::</span><a class="reference internal" href="#_CPPv4N6hxcomm6TargetE" title="hxcomm::Target"><span class="pre">Target</span></a><span class="pre">&gt;</span> <code class="sig-name descname"><span class="pre">supported_targets</span></code> <span class="pre">=</span> <span class="pre">{</span><a class="reference internal" href="#_CPPv4N6hxcomm6TargetE" title="hxcomm::Target"><span class="pre">Target</span></a><span class="pre">::</span><a class="reference internal" href="#_CPPv4N6hxcomm6Target8hardwareE" title="hxcomm::Target::hardware"><span class="pre">hardware</span></a><span class="pre">}</span><a class="headerlink" href="#_CPPv4N6hxcomm16ExtollConnection17supported_targetsE" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
-
-</div>
-<div class="breathe-sectiondef docutils container">
-<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-types">Private Types</p>
-<dl class="cpp type">
-<dt id="_CPPv4N6hxcomm16ExtollConnection12decoder_typeE">
-<span id="_CPPv3N6hxcomm16ExtollConnection12decoder_typeE"></span><span id="_CPPv2N6hxcomm16ExtollConnection12decoder_typeE"></span><span id="hxcomm::ExtollConnection::decoder_type"></span><span class="target" id="classhxcomm_1_1_extoll_connection_1a344ff3d808bb40d3dfbecc0ee315c3c0"></span><em class="property"><span class="pre">typedef</span> </em><a class="reference internal" href="#_CPPv4I00DpEN6hxcomm7DecoderE" title="hxcomm::Decoder"><span class="pre">Decoder</span></a><span class="pre">&lt;</span><em class="property"><span class="pre">typename</span></em> <a class="reference internal" href="#_CPPv4I0EN6hxcomm16ExtollConnectionE" title="hxcomm::ExtollConnection::ConnectionParameter"><span class="pre">ConnectionParameter</span></a><span class="pre">::</span><span class="pre">Receive</span><span class="pre">,</span> <a class="reference internal" href="#_CPPv4N6hxcomm16ExtollConnection18receive_queue_typeE" title="hxcomm::ExtollConnection::receive_queue_type"><span class="pre">receive_queue_type</span></a><span class="pre">,</span> <a class="reference internal" href="#_CPPv4N6hxcomm16ExtollConnection18listener_halt_typeE" title="hxcomm::ExtollConnection::listener_halt_type"><span class="pre">listener_halt_type</span></a><span class="pre">&gt;</span> <code class="sig-name descname"><span class="pre">decoder_type</span></code><a class="headerlink" href="#_CPPv4N6hxcomm16ExtollConnection12decoder_typeE" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp type">
-<dt id="_CPPv4N6hxcomm16ExtollConnection13duration_typeE">
-<span id="_CPPv3N6hxcomm16ExtollConnection13duration_typeE"></span><span id="_CPPv2N6hxcomm16ExtollConnection13duration_typeE"></span><span id="hxcomm::ExtollConnection::duration_type"></span><span class="target" id="classhxcomm_1_1_extoll_connection_1a0560edb969c6b06e962adfd198719cf0"></span><em class="property"><span class="pre">typedef</span> </em><a class="reference internal" href="api_calix.html#_CPPv4St" title="std"><span class="pre">std</span></a><span class="pre">::</span><span class="pre">atomic</span><span class="pre">&lt;</span><a class="reference internal" href="api_calix.html#_CPPv4St" title="std"><span class="pre">std</span></a><span class="pre">::</span><span class="pre">chrono</span><span class="pre">::</span><span class="pre">nanoseconds</span><span class="pre">::</span><span class="pre">rep</span><span class="pre">&gt;</span> <code class="sig-name descname"><span class="pre">duration_type</span></code><a class="headerlink" href="#_CPPv4N6hxcomm16ExtollConnection13duration_typeE" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp type">
-<dt id="_CPPv4N6hxcomm16ExtollConnection12encoder_typeE">
-<span id="_CPPv3N6hxcomm16ExtollConnection12encoder_typeE"></span><span id="_CPPv2N6hxcomm16ExtollConnection12encoder_typeE"></span><span id="hxcomm::ExtollConnection::encoder_type"></span><span class="target" id="classhxcomm_1_1_extoll_connection_1a74fcabef58fd54eac2b1e54e9dfbb736"></span><em class="property"><span class="pre">typedef</span> </em><a class="reference internal" href="#_CPPv4I00EN6hxcomm7EncoderE" title="hxcomm::Encoder"><span class="pre">Encoder</span></a><span class="pre">&lt;</span><em class="property"><span class="pre">typename</span></em> <a class="reference internal" href="#_CPPv4I0EN6hxcomm16ExtollConnectionE" title="hxcomm::ExtollConnection::ConnectionParameter"><span class="pre">ConnectionParameter</span></a><span class="pre">::</span><span class="pre">Send</span><span class="pre">,</span> <a class="reference internal" href="#_CPPv4N6hxcomm16ExtollConnection15send_queue_typeE" title="hxcomm::ExtollConnection::send_queue_type"><span class="pre">send_queue_type</span></a><span class="pre">&gt;</span> <code class="sig-name descname"><span class="pre">encoder_type</span></code><a class="headerlink" href="#_CPPv4N6hxcomm16ExtollConnection12encoder_typeE" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp type">
-<dt id="_CPPv4N6hxcomm16ExtollConnection18listener_halt_typeE">
-<span id="_CPPv3N6hxcomm16ExtollConnection18listener_halt_typeE"></span><span id="_CPPv2N6hxcomm16ExtollConnection18listener_halt_typeE"></span><span id="hxcomm::ExtollConnection::listener_halt_type"></span><span class="target" id="classhxcomm_1_1_extoll_connection_1a4abd77eb34e78258fc6293d2e868c230"></span><em class="property"><span class="pre">typedef</span> </em><a class="reference internal" href="#_CPPv4I0EN6hxcomm12ListenerHaltE" title="hxcomm::ListenerHalt"><span class="pre">ListenerHalt</span></a><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4I_6size_t0000EN6hxcomm9UTMessageE" title="hxcomm::UTMessage"><span class="pre">UTMessage</span></a><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4I0EN6hxcomm16ExtollConnectionE" title="hxcomm::ExtollConnection::ConnectionParameter"><span class="pre">ConnectionParameter</span></a><span class="pre">::</span><span class="pre">Receive</span><span class="pre">::</span><span class="pre">HeaderAlignment</span><span class="pre">,</span> <em class="property"><span class="pre">typename</span></em> <a class="reference internal" href="#_CPPv4I0EN6hxcomm16ExtollConnectionE" title="hxcomm::ExtollConnection::ConnectionParameter"><span class="pre">ConnectionParameter</span></a><span class="pre">::</span><span class="pre">Receive</span><span class="pre">::</span><span class="pre">SubwordType</span><span class="pre">,</span> <em class="property"><span class="pre">typename</span></em> <a class="reference internal" href="#_CPPv4I0EN6hxcomm16ExtollConnectionE" title="hxcomm::ExtollConnection::ConnectionParameter"><span class="pre">ConnectionParameter</span></a><span class="pre">::</span><span class="pre">Receive</span><span class="pre">::</span><span class="pre">PhywordType</span><span class="pre">,</span> <em class="property"><span class="pre">typename</span></em> <a class="reference internal" href="#_CPPv4I0EN6hxcomm16ExtollConnectionE" title="hxcomm::ExtollConnection::ConnectionParameter"><span class="pre">ConnectionParameter</span></a><span class="pre">::</span><span class="pre">Receive</span><span class="pre">::</span><span class="pre">Dictionary</span><span class="pre">,</span> <em class="property"><span class="pre">typename</span></em> <a class="reference internal" href="#_CPPv4I0EN6hxcomm16ExtollConnectionE" title="hxcomm::ExtollConnection::ConnectionParameter"><span class="pre">ConnectionParameter</span></a><span class="pre">::</span><span class="pre">ReceiveHalt</span><span class="pre">&gt;</span><span class="pre">&gt;</span> <code class="sig-name descname"><span class="pre">listener_halt_type</span></code><a class="headerlink" href="#_CPPv4N6hxcomm16ExtollConnection18listener_halt_typeE" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp type">
-<dt id="_CPPv4N6hxcomm16ExtollConnection8RegistryE">
-<span id="_CPPv3N6hxcomm16ExtollConnection8RegistryE"></span><span id="_CPPv2N6hxcomm16ExtollConnection8RegistryE"></span><span id="hxcomm::ExtollConnection::Registry"></span><span class="target" id="classhxcomm_1_1_extoll_connection_1aa8758454f5e96e55334c0081ad71da3e"></span><em class="property"><span class="pre">typedef</span> </em><a class="reference internal" href="#_CPPv4I0EN6hxcomm18ConnectionRegistryE" title="hxcomm::ConnectionRegistry"><span class="pre">ConnectionRegistry</span></a><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4I0EN6hxcomm16ExtollConnectionE" title="hxcomm::ExtollConnection"><span class="pre">ExtollConnection</span></a><span class="pre">&gt;</span> <code class="sig-name descname"><span class="pre">Registry</span></code><a class="headerlink" href="#_CPPv4N6hxcomm16ExtollConnection8RegistryE" title="Permalink to this definition"></a><br /></dt>
-<dd><p>Registry of open ExtollConnections. </p>
-</dd></dl>
-
-<dl class="cpp type">
-<dt id="_CPPv4N6hxcomm16ExtollConnection15send_queue_typeE">
-<span id="_CPPv3N6hxcomm16ExtollConnection15send_queue_typeE"></span><span id="_CPPv2N6hxcomm16ExtollConnection15send_queue_typeE"></span><span id="hxcomm::ExtollConnection::send_queue_type"></span><span class="target" id="classhxcomm_1_1_extoll_connection_1a7dc3aebdc4821b1e6b1a0b55733a2471"></span><em class="property"><span class="pre">typedef</span> </em><span class="pre">SendQueue</span> <code class="sig-name descname"><span class="pre">send_queue_type</span></code><a class="headerlink" href="#_CPPv4N6hxcomm16ExtollConnection15send_queue_typeE" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp type">
-<dt id="_CPPv4N6hxcomm16ExtollConnection14subpacket_typeE">
-<span id="_CPPv3N6hxcomm16ExtollConnection14subpacket_typeE"></span><span id="_CPPv2N6hxcomm16ExtollConnection14subpacket_typeE"></span><span id="hxcomm::ExtollConnection::subpacket_type"></span><span class="target" id="classhxcomm_1_1_extoll_connection_1a83aeb2c6a14c1e1ed2ec3573b347b3b8"></span><em class="property"><span class="pre">typedef</span> </em><a class="reference internal" href="#_CPPv4I0EN6hxcomm16ExtollConnectionE" title="hxcomm::ExtollConnection::ConnectionParameter"><span class="pre">ConnectionParameter</span></a><span class="pre">::</span><span class="pre">Send</span><span class="pre">::</span><span class="pre">PhywordType</span> <code class="sig-name descname"><span class="pre">subpacket_type</span></code><a class="headerlink" href="#_CPPv4N6hxcomm16ExtollConnection14subpacket_typeE" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
-
-</div>
-<div class="breathe-sectiondef docutils container">
-<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-functions">Private Functions</p>
-<dl class="cpp function">
-<dt id="_CPPv4I0EN6hxcomm16ExtollConnection3addEvRK13InputIteratorRK13InputIterator">
-<span id="_CPPv3I0EN6hxcomm16ExtollConnection3addERK13InputIteratorRK13InputIterator"></span><span id="_CPPv2I0EN6hxcomm16ExtollConnection3addERK13InputIteratorRK13InputIterator"></span><span class="pre">template&lt;</span><span class="pre">typename</span> <code class="sig-name descname"><span class="pre">InputIterator</span></code><span class="pre">&gt;</span><br /><span class="target" id="classhxcomm_1_1_extoll_connection_1a1718f44b1c614ab567ebe6493c3fce48"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">add</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4I0EN6hxcomm16ExtollConnection3addEvRK13InputIteratorRK13InputIterator" title="hxcomm::ExtollConnection::add::InputIterator"><span class="pre">InputIterator</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">begin</span></em>, <a class="reference internal" href="#_CPPv4I0EN6hxcomm16ExtollConnection3addEvRK13InputIteratorRK13InputIterator" title="hxcomm::ExtollConnection::add::InputIterator"><span class="pre">InputIterator</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">end</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN6hxcomm16ExtollConnection3addEvRK13InputIteratorRK13InputIterator" title="Permalink to this definition"></a><br /></dt>
-<dd><p>Add multiple UT messages to the send queue. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Template Parameters</dt>
-<dd class="field-odd"><p><strong>InputIterator</strong> – Iterator type of sequence of messages to add </p>
-</dd>
-<dt class="field-even">Parameters</dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>begin</strong> – Iterator to beginning of sequence </p></li>
-<li><p><strong>end</strong> – Iterator to end of sequence </p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4N6hxcomm16ExtollConnection3addERK17send_message_type">
-<span id="_CPPv3N6hxcomm16ExtollConnection3addERK17send_message_type"></span><span id="_CPPv2N6hxcomm16ExtollConnection3addERK17send_message_type"></span><span id="hxcomm::ExtollConnection::add__send_message_typeCR"></span><span class="target" id="classhxcomm_1_1_extoll_connection_1a6e9bde4d0e12aedcdb87159a573e03b8"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">add</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N6hxcomm16ExtollConnection17send_message_typeE" title="hxcomm::ExtollConnection::send_message_type"><span class="pre">send_message_type</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">message</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6hxcomm16ExtollConnection3addERK17send_message_type" title="Permalink to this definition"></a><br /></dt>
-<dd><p>Add a single UT message to the send queue. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>message</strong> – Message to add </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4NK6hxcomm16ExtollConnection19check_compatibilityEv">
-<span id="_CPPv3NK6hxcomm16ExtollConnection19check_compatibilityEv"></span><span id="_CPPv2NK6hxcomm16ExtollConnection19check_compatibilityEv"></span><span id="hxcomm::ExtollConnection::check_compatibilityC"></span><span class="target" id="classhxcomm_1_1_extoll_connection_1a1d84991f4ad36f5b49d39ae443ec195d"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">check_compatibility</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK6hxcomm16ExtollConnection19check_compatibilityEv" title="Permalink to this definition"></a><br /></dt>
-<dd><p>Check for bitfile version compatibility. </p>
-</dd></dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4N6hxcomm16ExtollConnection6commitEv">
-<span id="_CPPv3N6hxcomm16ExtollConnection6commitEv"></span><span id="_CPPv2N6hxcomm16ExtollConnection6commitEv"></span><span id="hxcomm::ExtollConnection::commit"></span><span class="target" id="classhxcomm_1_1_extoll_connection_1a81764f0488684e2b52a0048bda79d832"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">commit</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6hxcomm16ExtollConnection6commitEv" title="Permalink to this definition"></a><br /></dt>
-<dd><p>Send messages in send queue. </p>
-<p>All messages in the send queue are guaranteed to be transferred. </p>
-</dd></dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4N6hxcomm16ExtollConnection9get_mutexEv">
-<span id="_CPPv3N6hxcomm16ExtollConnection9get_mutexEv"></span><span id="_CPPv2N6hxcomm16ExtollConnection9get_mutexEv"></span><span id="hxcomm::ExtollConnection::get_mutex"></span><span class="target" id="classhxcomm_1_1_extoll_connection_1a3e37fa83259fd0b0625a6e22c8e8410b"></span><a class="reference internal" href="api_calix.html#_CPPv4St" title="std"><span class="pre">std</span></a><span class="pre">::</span><span class="pre">mutex</span> <span class="pre">&amp;</span><code class="sig-name descname"><span class="pre">get_mutex</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6hxcomm16ExtollConnection9get_mutexEv" title="Permalink to this definition"></a><br /></dt>
-<dd><p>Get internal mutex to use for mutual exclusion. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>Mutable reference to mutex </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4N6hxcomm16ExtollConnection11receive_allEv">
-<span id="_CPPv3N6hxcomm16ExtollConnection11receive_allEv"></span><span id="_CPPv2N6hxcomm16ExtollConnection11receive_allEv"></span><span id="hxcomm::ExtollConnection::receive_all"></span><span class="target" id="classhxcomm_1_1_extoll_connection_1a57b2635b9cb1643b87fbd6e848a4d514"></span><a class="reference internal" href="#_CPPv4N6hxcomm16ExtollConnection18receive_queue_typeE" title="hxcomm::ExtollConnection::receive_queue_type"><span class="pre">receive_queue_type</span></a> <code class="sig-name descname"><span class="pre">receive_all</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6hxcomm16ExtollConnection11receive_allEv" title="Permalink to this definition"></a><br /></dt>
-<dd><p>Receive all UT messages currently in the receive queue. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>Received messages </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4NK6hxcomm16ExtollConnection13receive_emptyEv">
-<span id="_CPPv3NK6hxcomm16ExtollConnection13receive_emptyEv"></span><span id="_CPPv2NK6hxcomm16ExtollConnection13receive_emptyEv"></span><span id="hxcomm::ExtollConnection::receive_emptyC"></span><span class="target" id="classhxcomm_1_1_extoll_connection_1a3a642f22f963eebc48e2d96ab7998911"></span><span class="pre">bool</span> <code class="sig-name descname"><span class="pre">receive_empty</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK6hxcomm16ExtollConnection13receive_emptyEv" title="Permalink to this definition"></a><br /></dt>
-<dd><p>Get whether the connection has no UT messages available to receive. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>Boolean value </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4N6hxcomm16ExtollConnection14run_until_haltEv">
-<span id="_CPPv3N6hxcomm16ExtollConnection14run_until_haltEv"></span><span id="_CPPv2N6hxcomm16ExtollConnection14run_until_haltEv"></span><span id="hxcomm::ExtollConnection::run_until_halt"></span><span class="target" id="classhxcomm_1_1_extoll_connection_1aed2b8220bb885fc2a8e9d4c094b6c4a4"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">run_until_halt</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6hxcomm16ExtollConnection14run_until_haltEv" title="Permalink to this definition"></a><br /></dt>
-<dd><p>Start execution and wait until halt instruction is received from FPGA. </p>
-</dd></dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4N6hxcomm16ExtollConnection12work_receiveEv">
-<span id="_CPPv3N6hxcomm16ExtollConnection12work_receiveEv"></span><span id="_CPPv2N6hxcomm16ExtollConnection12work_receiveEv"></span><span id="hxcomm::ExtollConnection::work_receive"></span><span class="target" id="classhxcomm_1_1_extoll_connection_1ad1a84f2d8fdcf3f6823c0c14fc961e97"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">work_receive</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6hxcomm16ExtollConnection12work_receiveEv" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
-
-</div>
-<div class="breathe-sectiondef docutils container">
-<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
-<dl class="cpp var">
-<dt id="_CPPv4N6hxcomm16ExtollConnection17m_commit_durationE">
-<span id="_CPPv3N6hxcomm16ExtollConnection17m_commit_durationE"></span><span id="_CPPv2N6hxcomm16ExtollConnection17m_commit_durationE"></span><span id="hxcomm::ExtollConnection::m_commit_duration__duration_type"></span><span class="target" id="classhxcomm_1_1_extoll_connection_1a5a8290d2c2df8130a4c79a43a9e14990"></span><a class="reference internal" href="#_CPPv4N6hxcomm16ExtollConnection13duration_typeE" title="hxcomm::ExtollConnection::duration_type"><span class="pre">duration_type</span></a> <code class="sig-name descname"><span class="pre">m_commit_duration</span></code> <span class="pre">=</span> <span class="pre">{</span><span class="pre">}</span><a class="headerlink" href="#_CPPv4N6hxcomm16ExtollConnection17m_commit_durationE" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp var">
-<dt id="_CPPv4N6hxcomm16ExtollConnection12m_connectionE">
-<span id="_CPPv3N6hxcomm16ExtollConnection12m_connectionE"></span><span id="_CPPv2N6hxcomm16ExtollConnection12m_connectionE"></span><span id="hxcomm::ExtollConnection::m_connection__std::unique_ptr:nhtl_extoll::Endpoint:"></span><span class="target" id="classhxcomm_1_1_extoll_connection_1a0421aa65ed104e227ab04d1389e295c2"></span><a class="reference internal" href="api_calix.html#_CPPv4St" title="std"><span class="pre">std</span></a><span class="pre">::</span><span class="pre">unique_ptr</span><span class="pre">&lt;</span><span class="pre">nhtl_extoll</span><span class="pre">::</span><span class="pre">Endpoint</span><span class="pre">&gt;</span> <code class="sig-name descname"><span class="pre">m_connection</span></code><a class="headerlink" href="#_CPPv4N6hxcomm16ExtollConnection12m_connectionE" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp var">
-<dt id="_CPPv4N6hxcomm16ExtollConnection17m_decode_durationE">
-<span id="_CPPv3N6hxcomm16ExtollConnection17m_decode_durationE"></span><span id="_CPPv2N6hxcomm16ExtollConnection17m_decode_durationE"></span><span id="hxcomm::ExtollConnection::m_decode_duration__duration_type"></span><span class="target" id="classhxcomm_1_1_extoll_connection_1a4bce2bfa999710393e815f5f957f8d8b"></span><a class="reference internal" href="#_CPPv4N6hxcomm16ExtollConnection13duration_typeE" title="hxcomm::ExtollConnection::duration_type"><span class="pre">duration_type</span></a> <code class="sig-name descname"><span class="pre">m_decode_duration</span></code> <span class="pre">=</span> <span class="pre">{</span><span class="pre">}</span><a class="headerlink" href="#_CPPv4N6hxcomm16ExtollConnection17m_decode_durationE" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp var">
-<dt id="_CPPv4N6hxcomm16ExtollConnection9m_decoderE">
-<span id="_CPPv3N6hxcomm16ExtollConnection9m_decoderE"></span><span id="_CPPv2N6hxcomm16ExtollConnection9m_decoderE"></span><span id="hxcomm::ExtollConnection::m_decoder__decoder_type"></span><span class="target" id="classhxcomm_1_1_extoll_connection_1a4975cce8b6d822517b2f5ddcdf916346"></span><a class="reference internal" href="#_CPPv4N6hxcomm16ExtollConnection12decoder_typeE" title="hxcomm::ExtollConnection::decoder_type"><span class="pre">decoder_type</span></a> <code class="sig-name descname"><span class="pre">m_decoder</span></code><a class="headerlink" href="#_CPPv4N6hxcomm16ExtollConnection9m_decoderE" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp var">
-<dt id="_CPPv4N6hxcomm16ExtollConnection17m_encode_durationE">
-<span id="_CPPv3N6hxcomm16ExtollConnection17m_encode_durationE"></span><span id="_CPPv2N6hxcomm16ExtollConnection17m_encode_durationE"></span><span id="hxcomm::ExtollConnection::m_encode_duration__duration_type"></span><span class="target" id="classhxcomm_1_1_extoll_connection_1a93c9eba35d542a45c61daf553b47a9b6"></span><a class="reference internal" href="#_CPPv4N6hxcomm16ExtollConnection13duration_typeE" title="hxcomm::ExtollConnection::duration_type"><span class="pre">duration_type</span></a> <code class="sig-name descname"><span class="pre">m_encode_duration</span></code> <span class="pre">=</span> <span class="pre">{</span><span class="pre">}</span><a class="headerlink" href="#_CPPv4N6hxcomm16ExtollConnection17m_encode_durationE" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp var">
-<dt id="_CPPv4N6hxcomm16ExtollConnection9m_encoderE">
-<span id="_CPPv3N6hxcomm16ExtollConnection9m_encoderE"></span><span id="_CPPv2N6hxcomm16ExtollConnection9m_encoderE"></span><span id="hxcomm::ExtollConnection::m_encoder__encoder_type"></span><span class="target" id="classhxcomm_1_1_extoll_connection_1af53bae9ef262dcd6cb4afbb5f8e132e8"></span><a class="reference internal" href="#_CPPv4N6hxcomm16ExtollConnection12encoder_typeE" title="hxcomm::ExtollConnection::encoder_type"><span class="pre">encoder_type</span></a> <code class="sig-name descname"><span class="pre">m_encoder</span></code><a class="headerlink" href="#_CPPv4N6hxcomm16ExtollConnection9m_encoderE" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp var">
-<dt id="_CPPv4N6hxcomm16ExtollConnection20m_execution_durationE">
-<span id="_CPPv3N6hxcomm16ExtollConnection20m_execution_durationE"></span><span id="_CPPv2N6hxcomm16ExtollConnection20m_execution_durationE"></span><span id="hxcomm::ExtollConnection::m_execution_duration__duration_type"></span><span class="target" id="classhxcomm_1_1_extoll_connection_1a1ec04d62608af3ee9213b18ce0a8f2b1"></span><a class="reference internal" href="#_CPPv4N6hxcomm16ExtollConnection13duration_typeE" title="hxcomm::ExtollConnection::duration_type"><span class="pre">duration_type</span></a> <code class="sig-name descname"><span class="pre">m_execution_duration</span></code> <span class="pre">=</span> <span class="pre">{</span><span class="pre">}</span><a class="headerlink" href="#_CPPv4N6hxcomm16ExtollConnection20m_execution_durationE" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp var">
-<dt id="_CPPv4N6hxcomm16ExtollConnection15m_listener_haltE">
-<span id="_CPPv3N6hxcomm16ExtollConnection15m_listener_haltE"></span><span id="_CPPv2N6hxcomm16ExtollConnection15m_listener_haltE"></span><span id="hxcomm::ExtollConnection::m_listener_halt__listener_halt_type"></span><span class="target" id="classhxcomm_1_1_extoll_connection_1a5ec8a8b644284990ef8e5912345b65b2"></span><a class="reference internal" href="#_CPPv4N6hxcomm16ExtollConnection18listener_halt_typeE" title="hxcomm::ExtollConnection::listener_halt_type"><span class="pre">listener_halt_type</span></a> <code class="sig-name descname"><span class="pre">m_listener_halt</span></code><a class="headerlink" href="#_CPPv4N6hxcomm16ExtollConnection15m_listener_haltE" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp var">
-<dt id="_CPPv4N6hxcomm16ExtollConnection8m_loggerE">
-<span id="_CPPv3N6hxcomm16ExtollConnection8m_loggerE"></span><span id="_CPPv2N6hxcomm16ExtollConnection8m_loggerE"></span><span id="hxcomm::ExtollConnection::m_logger__log4cxx::LoggerPtr"></span><span class="target" id="classhxcomm_1_1_extoll_connection_1ae6928f13c31e0dde5bcbd9febbf8e914"></span><a class="reference internal" href="api_grenade.html#_CPPv47log4cxx" title="log4cxx"><span class="pre">log4cxx</span></a><span class="pre">::</span><a class="reference internal" href="api_grenade.html#_CPPv4N7log4cxx9LoggerPtrE" title="log4cxx::LoggerPtr"><span class="pre">LoggerPtr</span></a> <code class="sig-name descname"><span class="pre">m_logger</span></code><a class="headerlink" href="#_CPPv4N6hxcomm16ExtollConnection8m_loggerE" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp var">
-<dt id="_CPPv4N6hxcomm16ExtollConnection7m_mutexE">
-<span id="_CPPv3N6hxcomm16ExtollConnection7m_mutexE"></span><span id="_CPPv2N6hxcomm16ExtollConnection7m_mutexE"></span><span id="hxcomm::ExtollConnection::m_mutex__std::mutex"></span><span class="target" id="classhxcomm_1_1_extoll_connection_1ae96ebaf3cd78ac2fa83f04ba0bb1f013"></span><a class="reference internal" href="api_calix.html#_CPPv4St" title="std"><span class="pre">std</span></a><span class="pre">::</span><span class="pre">mutex</span> <code class="sig-name descname"><span class="pre">m_mutex</span></code><a class="headerlink" href="#_CPPv4N6hxcomm16ExtollConnection7m_mutexE" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp var">
-<dt id="_CPPv4N6hxcomm16ExtollConnection15m_receive_queueE">
-<span id="_CPPv3N6hxcomm16ExtollConnection15m_receive_queueE"></span><span id="_CPPv2N6hxcomm16ExtollConnection15m_receive_queueE"></span><span id="hxcomm::ExtollConnection::m_receive_queue__receive_queue_type"></span><span class="target" id="classhxcomm_1_1_extoll_connection_1abc80b93e8fb2be6ff79fa24bb7850ee8"></span><a class="reference internal" href="#_CPPv4N6hxcomm16ExtollConnection18receive_queue_typeE" title="hxcomm::ExtollConnection::receive_queue_type"><span class="pre">receive_queue_type</span></a> <code class="sig-name descname"><span class="pre">m_receive_queue</span></code><a class="headerlink" href="#_CPPv4N6hxcomm16ExtollConnection15m_receive_queueE" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp var">
-<dt id="_CPPv4N6hxcomm16ExtollConnection21m_receive_queue_mutexE">
-<span id="_CPPv3N6hxcomm16ExtollConnection21m_receive_queue_mutexE"></span><span id="_CPPv2N6hxcomm16ExtollConnection21m_receive_queue_mutexE"></span><span id="hxcomm::ExtollConnection::m_receive_queue_mutex__std::mutex"></span><span class="target" id="classhxcomm_1_1_extoll_connection_1aca34820169a30b43f8849e9c25267670"></span><em class="property"><span class="pre">mutable</span></em> <a class="reference internal" href="api_calix.html#_CPPv4St" title="std"><span class="pre">std</span></a><span class="pre">::</span><span class="pre">mutex</span> <code class="sig-name descname"><span class="pre">m_receive_queue_mutex</span></code><a class="headerlink" href="#_CPPv4N6hxcomm16ExtollConnection21m_receive_queue_mutexE" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp var">
-<dt id="_CPPv4N6hxcomm16ExtollConnection10m_registryE">
-<span id="_CPPv3N6hxcomm16ExtollConnection10m_registryE"></span><span id="_CPPv2N6hxcomm16ExtollConnection10m_registryE"></span><span id="hxcomm::ExtollConnection::m_registry__std::unique_ptr:Registry:"></span><span class="target" id="classhxcomm_1_1_extoll_connection_1a3d9c17f209ce54b69f049ff9376f6548"></span><a class="reference internal" href="api_calix.html#_CPPv4St" title="std"><span class="pre">std</span></a><span class="pre">::</span><span class="pre">unique_ptr</span><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4N6hxcomm16ExtollConnection8RegistryE" title="hxcomm::ExtollConnection::Registry"><span class="pre">Registry</span></a><span class="pre">&gt;</span> <code class="sig-name descname"><span class="pre">m_registry</span></code><a class="headerlink" href="#_CPPv4N6hxcomm16ExtollConnection10m_registryE" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp var">
-<dt id="_CPPv4N6hxcomm16ExtollConnection13m_run_receiveE">
-<span id="_CPPv3N6hxcomm16ExtollConnection13m_run_receiveE"></span><span id="_CPPv2N6hxcomm16ExtollConnection13m_run_receiveE"></span><span id="hxcomm::ExtollConnection::m_run_receive__std::atomic:b:"></span><span class="target" id="classhxcomm_1_1_extoll_connection_1a1f4c9116b14ecec0c0ea47aa355ede7d"></span><a class="reference internal" href="api_calix.html#_CPPv4St" title="std"><span class="pre">std</span></a><span class="pre">::</span><span class="pre">atomic</span><span class="pre">&lt;</span><span class="pre">bool</span><span class="pre">&gt;</span> <code class="sig-name descname"><span class="pre">m_run_receive</span></code><a class="headerlink" href="#_CPPv4N6hxcomm16ExtollConnection13m_run_receiveE" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp var">
-<dt id="_CPPv4N6hxcomm16ExtollConnection12m_send_queueE">
-<span id="_CPPv3N6hxcomm16ExtollConnection12m_send_queueE"></span><span id="_CPPv2N6hxcomm16ExtollConnection12m_send_queueE"></span><span id="hxcomm::ExtollConnection::m_send_queue__send_queue_type"></span><span class="target" id="classhxcomm_1_1_extoll_connection_1a2f330c4da622cf87de36247bc9079b3c"></span><a class="reference internal" href="#_CPPv4N6hxcomm16ExtollConnection15send_queue_typeE" title="hxcomm::ExtollConnection::send_queue_type"><span class="pre">send_queue_type</span></a> <code class="sig-name descname"><span class="pre">m_send_queue</span></code><a class="headerlink" href="#_CPPv4N6hxcomm16ExtollConnection12m_send_queueE" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp var">
-<dt id="_CPPv4N6hxcomm16ExtollConnection16m_worker_receiveE">
-<span id="_CPPv3N6hxcomm16ExtollConnection16m_worker_receiveE"></span><span id="_CPPv2N6hxcomm16ExtollConnection16m_worker_receiveE"></span><span id="hxcomm::ExtollConnection::m_worker_receive__std::thread"></span><span class="target" id="classhxcomm_1_1_extoll_connection_1af8ad5e328983d16013ce383e73db12bc"></span><a class="reference internal" href="api_calix.html#_CPPv4St" title="std"><span class="pre">std</span></a><span class="pre">::</span><span class="pre">thread</span> <code class="sig-name descname"><span class="pre">m_worker_receive</span></code><a class="headerlink" href="#_CPPv4N6hxcomm16ExtollConnection16m_worker_receiveE" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp var">
-<dt>
-<span class="target" id="classhxcomm_1_1_extoll_connection_1a9f527a5b9b6c6ec2c5cb5bae9db8c6ab"></span><code class="sig-name descname"><span class="pre">friend</span> <span class="pre">Stream&lt;</span> <span class="pre">ExtollConnection</span> <span class="pre">&gt;</span></code></dt>
-<dd></dd></dl>
-
-</div>
-<div class="breathe-sectiondef docutils container">
-<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-static-attributes">Private Static Attributes</p>
-<dl class="cpp var">
-<dt id="_CPPv4N6hxcomm16ExtollConnection33newest_supported_compatible_untilE">
-<span id="_CPPv3N6hxcomm16ExtollConnection33newest_supported_compatible_untilE"></span><span id="_CPPv2N6hxcomm16ExtollConnection33newest_supported_compatible_untilE"></span><span id="hxcomm::ExtollConnection::newest_supported_compatible_until__s"></span><span class="target" id="classhxcomm_1_1_extoll_connection_1aad5682fb6f8e70568d3ee48ff195f0a6"></span><em class="property"><span class="pre">static</span></em> <em class="property"><span class="pre">constexpr</span></em> <span class="pre">size_t</span> <code class="sig-name descname"><span class="pre">newest_supported_compatible_until</span></code> <span class="pre">=</span> <span class="pre">bss_hw_params</span><span class="pre">::</span><span class="pre">cube_extoll</span><span class="pre">::</span><span class="pre">bitfile_compatible_until</span><a class="headerlink" href="#_CPPv4N6hxcomm16ExtollConnection33newest_supported_compatible_untilE" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp var">
-<dt id="_CPPv4N6hxcomm16ExtollConnection24oldest_supported_versionE">
-<span id="_CPPv3N6hxcomm16ExtollConnection24oldest_supported_versionE"></span><span id="_CPPv2N6hxcomm16ExtollConnection24oldest_supported_versionE"></span><span id="hxcomm::ExtollConnection::oldest_supported_version__s"></span><span class="target" id="classhxcomm_1_1_extoll_connection_1ac0668773713db8df25f3499b342aaf86"></span><em class="property"><span class="pre">static</span></em> <em class="property"><span class="pre">constexpr</span></em> <span class="pre">size_t</span> <code class="sig-name descname"><span class="pre">oldest_supported_version</span></code> <span class="pre">=</span> <span class="pre">0</span><a class="headerlink" href="#_CPPv4N6hxcomm16ExtollConnection24oldest_supported_versionE" title="Permalink to this definition"></a><br /></dt>
-<dd><p>Numbers to compare against bitfile protocol version. </p>
-<p>There are 5 scenarios (newer covers new changes as well as outdated partners) 1: Software is newer than biftile and still compatible 2: Software is newer than biftile but incompatible 3: FPGA bitfile is newer than software and still compatible 4: FPGA bitfile is newer than software but incompatible 5: Both are head</p>
-<p>The FPGA returns two numbers<ul class="simple">
-<li><p>version: Integer automatically incrementing with each change to the bitfile</p></li>
-<li><p>compatible_until: Integer manually incrementing when bitfile introduces breaking feature</p></li>
-</ul>
-</p>
-<p>We can now cover all 5 cases by comparing these two numbers as follows<ul class="simple">
-<li><p>oldest_supported_version: manually set to last known bitfile version with breaking change</p></li>
-<li><p>newest_supported_compatible_until: identical to current head bitfile compatible_until</p></li>
-</ul>
-</p>
-<p>oldest_supported_version needs to be lesser or equal to version and newest_supported_compatible_until needs to be greater or equal to compatible_until Cases 1, 3 and 5 fulfill these conditions whereas 2 and 4 do not </p>
-</dd></dl>
-
-</div>
-</dd></dl>
-
-<dl class="cpp struct">
-<dt id="_CPPv4N6hxcomm16ExtollConnection9SendQueueE">
-<span id="_CPPv3N6hxcomm16ExtollConnection9SendQueueE"></span><span id="_CPPv2N6hxcomm16ExtollConnection9SendQueueE"></span><span id="hxcomm::ExtollConnection::SendQueue"></span><span class="target" id="structhxcomm_1_1_extoll_connection_1_1_send_queue"></span><em class="property"><span class="pre">struct</span> </em><code class="sig-prename descclassname"><a class="reference internal" href="#_CPPv46hxcomm" title="hxcomm"><span class="pre">hxcomm</span></a><span class="pre">::</span><a class="reference internal" href="#_CPPv4I0EN6hxcomm16ExtollConnectionE" title="hxcomm::ExtollConnection"><span class="pre">ExtollConnection</span></a><code class="sig-prename descclassname"><span class="pre">::</span></code></code><code class="sig-name descname"><span class="pre">SendQueue</span></code><a class="headerlink" href="#_CPPv4N6hxcomm16ExtollConnection9SendQueueE" title="Permalink to this definition"></a><br /></dt>
-<dd><div class="breathe-sectiondef docutils container">
-<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
-<dl class="cpp function">
-<dt id="_CPPv4N6hxcomm16ExtollConnection9SendQueue9SendQueueERN11nhtl_extoll8EndpointE">
-<span id="_CPPv3N6hxcomm16ExtollConnection9SendQueue9SendQueueERN11nhtl_extoll8EndpointE"></span><span id="_CPPv2N6hxcomm16ExtollConnection9SendQueue9SendQueueERN11nhtl_extoll8EndpointE"></span><span id="hxcomm::ExtollConnection::SendQueue::SendQueue__nhtl_extoll::EndpointR"></span><span class="target" id="structhxcomm_1_1_extoll_connection_1_1_send_queue_1a0fcd5595af1b77d0b3a3b4dc5f18b41e"></span><code class="sig-name descname"><span class="pre">SendQueue</span></code><span class="sig-paren">(</span><span class="pre">nhtl_extoll</span><span class="pre">::</span><span class="pre">Endpoint</span> <span class="pre">&amp;</span><em><span class="pre">connection</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6hxcomm16ExtollConnection9SendQueue9SendQueueERN11nhtl_extoll8EndpointE" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4N6hxcomm16ExtollConnection9SendQueue8cum_sizeEv">
-<span id="_CPPv3N6hxcomm16ExtollConnection9SendQueue8cum_sizeEv"></span><span id="_CPPv2N6hxcomm16ExtollConnection9SendQueue8cum_sizeEv"></span><span id="hxcomm::ExtollConnection::SendQueue::cum_size"></span><span class="target" id="structhxcomm_1_1_extoll_connection_1_1_send_queue_1afede4b983ba98204638eeb6535200f7d"></span><span class="pre">size_t</span> <code class="sig-name descname"><span class="pre">cum_size</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6hxcomm16ExtollConnection9SendQueue8cum_sizeEv" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4N6hxcomm16ExtollConnection9SendQueue5flushEv">
-<span id="_CPPv3N6hxcomm16ExtollConnection9SendQueue5flushEv"></span><span id="_CPPv2N6hxcomm16ExtollConnection9SendQueue5flushEv"></span><span id="hxcomm::ExtollConnection::SendQueue::flush"></span><span class="target" id="structhxcomm_1_1_extoll_connection_1_1_send_queue_1afb16e544145693d524d0dde21a2a1139"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">flush</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6hxcomm16ExtollConnection9SendQueue5flushEv" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4N6hxcomm16ExtollConnection9SendQueue4pushERK14subpacket_type">
-<span id="_CPPv3N6hxcomm16ExtollConnection9SendQueue4pushERK14subpacket_type"></span><span id="_CPPv2N6hxcomm16ExtollConnection9SendQueue4pushERK14subpacket_type"></span><span id="hxcomm::ExtollConnection::SendQueue::push__subpacket_typeCR"></span><span class="target" id="structhxcomm_1_1_extoll_connection_1_1_send_queue_1ad3b51f05b6cf9089a4076384e8c150bf"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">push</span></code><span class="sig-paren">(</span><span class="pre">subpacket_type</span> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">subpacket</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6hxcomm16ExtollConnection9SendQueue4pushERK14subpacket_type" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
-
-</div>
-<div class="breathe-sectiondef docutils container">
-<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
-<dl class="cpp var">
-<dt id="_CPPv4N6hxcomm16ExtollConnection9SendQueue12m_connectionE">
-<span id="_CPPv3N6hxcomm16ExtollConnection9SendQueue12m_connectionE"></span><span id="_CPPv2N6hxcomm16ExtollConnection9SendQueue12m_connectionE"></span><span id="hxcomm::ExtollConnection::SendQueue::m_connection__nhtl_extoll::EndpointR"></span><span class="target" id="structhxcomm_1_1_extoll_connection_1_1_send_queue_1aafe5dc3f1824678c669634f69cb8cc4c"></span><span class="pre">nhtl_extoll</span><span class="pre">::</span><span class="pre">Endpoint</span> <span class="pre">&amp;</span><code class="sig-name descname"><span class="pre">m_connection</span></code><a class="headerlink" href="#_CPPv4N6hxcomm16ExtollConnection9SendQueue12m_connectionE" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp var">
-<dt id="_CPPv4N6hxcomm16ExtollConnection9SendQueue13m_cum_packetsE">
-<span id="_CPPv3N6hxcomm16ExtollConnection9SendQueue13m_cum_packetsE"></span><span id="_CPPv2N6hxcomm16ExtollConnection9SendQueue13m_cum_packetsE"></span><span id="hxcomm::ExtollConnection::SendQueue::m_cum_packets__s"></span><span class="target" id="structhxcomm_1_1_extoll_connection_1_1_send_queue_1a5b23c048696a218cbef681993088db51"></span><span class="pre">size_t</span> <code class="sig-name descname"><span class="pre">m_cum_packets</span></code><a class="headerlink" href="#_CPPv4N6hxcomm16ExtollConnection9SendQueue13m_cum_packetsE" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp var">
-<dt id="_CPPv4N6hxcomm16ExtollConnection9SendQueue9m_packetsE">
-<span id="_CPPv3N6hxcomm16ExtollConnection9SendQueue9m_packetsE"></span><span id="_CPPv2N6hxcomm16ExtollConnection9SendQueue9m_packetsE"></span><span id="hxcomm::ExtollConnection::SendQueue::m_packets__s"></span><span class="target" id="structhxcomm_1_1_extoll_connection_1_1_send_queue_1a2551890244353fdea7292a73f752d603"></span><span class="pre">size_t</span> <code class="sig-name descname"><span class="pre">m_packets</span></code><a class="headerlink" href="#_CPPv4N6hxcomm16ExtollConnection9SendQueue9m_packetsE" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
-
-</div>
-</dd></dl>
-
 <dl class="cpp struct">
 <dt id="_CPPv4I00EN6hxcomm15GetMessageTypesE">
 <span id="_CPPv3I00EN6hxcomm15GetMessageTypesE"></span><span id="_CPPv2I00EN6hxcomm15GetMessageTypesE"></span><span class="pre">template&lt;</span><span class="pre">typename</span> <code class="sig-name descname"><span class="pre">C</span></code><span class="pre">,</span> <span class="pre">typename</span> <span class="pre">=</span> <span class="pre">void</span><span class="pre">&gt;</span><br /><span class="target" id="structhxcomm_1_1_get_message_types"></span><em class="property"><span class="pre">struct</span> </em><code class="sig-prename descclassname"><a class="reference internal" href="#_CPPv46hxcomm" title="hxcomm"><span class="pre">hxcomm</span></a><code class="sig-prename descclassname"><span class="pre">::</span></code></code><code class="sig-name descname"><span class="pre">GetMessageTypes</span></code><a class="headerlink" href="#_CPPv4I00EN6hxcomm15GetMessageTypesE" title="Permalink to this definition"></a><br /></dt>
@@ -7609,11 +7169,6 @@
 <dd></dd></dl>
 
 <dl class="cpp type">
-<dt id="_CPPv4N6hxcomm2vx16ExtollConnectionE">
-<span id="_CPPv3N6hxcomm2vx16ExtollConnectionE"></span><span id="_CPPv2N6hxcomm2vx16ExtollConnectionE"></span><span class="target" id="namespacehxcomm_1_1vx_1a817cc96a25fade9a3d0fb377d337ed42"></span><em class="property"><span class="pre">using</span> </em><code class="sig-name descname"><span class="pre">ExtollConnection</span></code> <span class="pre">=</span> <a class="reference internal" href="#_CPPv46hxcomm" title="hxcomm"><span class="pre">hxcomm</span></a><span class="pre">::</span><a class="reference internal" href="#_CPPv4I0EN6hxcomm16ExtollConnectionE" title="hxcomm::ExtollConnection"><span class="pre">ExtollConnection</span></a><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4N6hxcomm2vx19ConnectionParameterE" title="hxcomm::vx::ConnectionParameter"><span class="pre">ConnectionParameter</span></a><span class="pre">&gt;</span><a class="headerlink" href="#_CPPv4N6hxcomm2vx16ExtollConnectionE" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp type">
 <dt id="_CPPv4N6hxcomm2vx25quiggeldy_interface_typesE">
 <span id="_CPPv3N6hxcomm2vx25quiggeldy_interface_typesE"></span><span id="_CPPv2N6hxcomm2vx25quiggeldy_interface_typesE"></span><span class="target" id="namespacehxcomm_1_1vx_1adf5d6f10e41e2e68ab19cb6e17bf9ccc"></span><em class="property"><span class="pre">using</span> </em><code class="sig-name descname"><span class="pre">quiggeldy_interface_types</span></code> <span class="pre">=</span> <a class="reference internal" href="#_CPPv46hxcomm" title="hxcomm"><span class="pre">hxcomm</span></a><span class="pre">::</span><a class="reference internal" href="#_CPPv4I0EN6hxcomm25quiggeldy_interface_typesE" title="hxcomm::quiggeldy_interface_types"><span class="pre">quiggeldy_interface_types</span></a><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv46hxcomm" title="hxcomm"><span class="pre">hxcomm</span></a><span class="pre">::</span><a class="reference internal" href="#_CPPv4N6hxcomm2vxE" title="hxcomm::vx"><span class="pre">vx</span></a><span class="pre">::</span><a class="reference internal" href="#_CPPv4N6hxcomm2vx19ConnectionParameterE" title="hxcomm::vx::ConnectionParameter"><span class="pre">ConnectionParameter</span></a><span class="pre">&gt;</span><a class="headerlink" href="#_CPPv4N6hxcomm2vx25quiggeldy_interface_typesE" title="Permalink to this definition"></a><br /></dt>
 <dd></dd></dl>
@@ -7700,7 +7255,7 @@
 <dt id="_CPPv4N6hxcomm2vx23get_connection_from_envEv">
 <span id="_CPPv3N6hxcomm2vx23get_connection_from_envEv"></span><span id="_CPPv2N6hxcomm2vx23get_connection_from_envEv"></span><span id="hxcomm::vx::get_connection_from_env"></span><span class="target" id="namespacehxcomm_1_1vx_1af466db505cc0a6da68dea17bb3e7256d"></span><a class="reference internal" href="#_CPPv46hxcomm" title="hxcomm"><span class="pre">hxcomm</span></a><span class="pre">::</span><a class="reference internal" href="#_CPPv4N6hxcomm2vxE" title="hxcomm::vx"><span class="pre">vx</span></a><span class="pre">::</span><a class="reference internal" href="#_CPPv4N6hxcomm2vx17ConnectionVariantE" title="hxcomm::vx::ConnectionVariant"><span class="pre">ConnectionVariant</span></a> <code class="sig-name descname"><span class="pre">get_connection_from_env</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6hxcomm2vx23get_connection_from_envEv" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Automatically determine from environment what connection type to use and return the corresponding variant. </p>
-<p>Order of precedence is <a class="reference internal" href="#classhxcomm_1_1_zero_mock_connection"><span class="std std-ref">ZeroMockConnection</span></a> &gt; <a class="reference internal" href="#classhxcomm_1_1_quiggeldy_connection"><span class="std std-ref">QuiggeldyConnection</span></a> &gt; Extoll-connected hardware &gt; HostARQ-connected hardware &gt; CoSim right now if several are available.</p>
+<p>Order of precedence is <a class="reference internal" href="#classhxcomm_1_1_zero_mock_connection"><span class="std std-ref">ZeroMockConnection</span></a> &gt; <a class="reference internal" href="#classhxcomm_1_1_quiggeldy_connection"><span class="std std-ref">QuiggeldyConnection</span></a> &gt; HostARQ-connected hardware &gt; CoSim right now if several are available.</p>
 <p>On the Python-side it is wrapped via ManagedConnection.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -8571,68 +8126,6 @@
 
 <dl class="file">
 <dt>
-<span class="target" id="common_2extollconnection_8h"></span><em><span class="pre">file</span></em> <code class="sig-name descname"><span class="pre">extollconnection.h</span></code></dt>
-<dd><div class="docutils container">
-<em>#include “”</em></div>
-<div class="docutils container">
-<em>#include “”</em></div>
-<div class="docutils container">
-<em>#include “<a class="reference internal" href="#connect__to__remote__parameter__defs_8h"><span class="std std-ref">hxcomm/common/connect_to_remote_parameter_defs.h</span></a>”</em></div>
-<div class="docutils container">
-<em>#include “<a class="reference internal" href="api_hxtorch.html#connection_8h"><span class="std std-ref">hxcomm/common/connection.h</span></a>”</em></div>
-<div class="docutils container">
-<em>#include “<a class="reference internal" href="#connection__registry_8h"><span class="std std-ref">hxcomm/common/connection_registry.h</span></a>”</em></div>
-<div class="docutils container">
-<em>#include “<a class="reference internal" href="#connection__time__info_8h"><span class="std std-ref">hxcomm/common/connection_time_info.h</span></a>”</em></div>
-<div class="docutils container">
-<em>#include “<a class="reference internal" href="#decoder_8h"><span class="std std-ref">hxcomm/common/decoder.h</span></a>”</em></div>
-<div class="docutils container">
-<em>#include “<a class="reference internal" href="#encoder_8h"><span class="std std-ref">hxcomm/common/encoder.h</span></a>”</em></div>
-<div class="docutils container">
-<em>#include “<a class="reference internal" href="#listener__halt_8h"><span class="std std-ref">hxcomm/common/listener_halt.h</span></a>”</em></div>
-<div class="docutils container">
-<em>#include “<a class="reference internal" href="#stream_8h"><span class="std std-ref">hxcomm/common/stream.h</span></a>”</em></div>
-<div class="docutils container">
-<em>#include “<a class="reference internal" href="#common_2target_8h"><span class="std std-ref">hxcomm/common/target.h</span></a>”</em></div>
-<div class="docutils container">
-<em>#include “<a class="reference internal" href="#common_2utmessage_8h"><span class="std std-ref">hxcomm/common/utmessage.h</span></a>”</em></div>
-<div class="docutils container">
-<em>#include “”</em></div>
-<div class="docutils container">
-<em>#include “”</em></div>
-<div class="docutils container">
-<em>#include &lt;&gt;</em></div>
-<div class="docutils container">
-<em>#include &lt;&gt;</em></div>
-<div class="docutils container">
-<em>#include &lt;&gt;</em></div>
-<div class="docutils container">
-<em>#include &lt;&gt;</em></div>
-<div class="docutils container">
-<em>#include &lt;&gt;</em></div>
-<div class="docutils container">
-<em>#include &lt;&gt;</em></div>
-<div class="docutils container">
-<em>#include &lt;&gt;</em></div>
-<div class="docutils container">
-<em>#include &lt;&gt;</em></div>
-<div class="docutils container">
-<em>#include &lt;&gt;</em></div>
-<div class="docutils container">
-<em>#include “”</em></div>
-</dd></dl>
-
-<dl class="file">
-<dt>
-<span class="target" id="vx_2extollconnection_8h"></span><em><span class="pre">file</span></em> <code class="sig-name descname"><span class="pre">extollconnection.h</span></code></dt>
-<dd><div class="docutils container">
-<em>#include “<a class="reference internal" href="#common_2extollconnection_8h"><span class="std std-ref">hxcomm/common/extollconnection.h</span></a>”</em></div>
-<div class="docutils container">
-<em>#include “<a class="reference internal" href="#vx_2connection__parameter_8h"><span class="std std-ref">hxcomm/vx/connection_parameter.h</span></a>”</em></div>
-</dd></dl>
-
-<dl class="file">
-<dt>
 <span class="target" id="event__constants_8h"></span><em><span class="pre">file</span></em> <code class="sig-name descname"><span class="pre">event_constants.h</span></code></dt>
 <dd><div class="docutils container">
 <em>#include &lt;&gt;</em></div>
@@ -9242,32 +8735,32 @@
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_c7fc40702966360567fc2b8941baa3e9"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTExOTU.x/hxcomm/include/hxcomm/common</span></code></dt>
+<span class="target" id="dir_c7fc40702966360567fc2b8941baa3e9"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTExOTg.x/hxcomm/include/hxcomm/common</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_4db1764cd142dbf8644480a28de5dc24"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTExOTU.x/hxcomm</span></code></dt>
+<span class="target" id="dir_4db1764cd142dbf8644480a28de5dc24"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTExOTg.x/hxcomm</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_35e91205dfdc0722b1fb372f671bc314"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTExOTU.x/hxcomm/include/hxcomm</span></code></dt>
+<span class="target" id="dir_35e91205dfdc0722b1fb372f671bc314"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTExOTg.x/hxcomm/include/hxcomm</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_5252a60225fda9861fbfee91c4a3beb6"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTExOTU.x/hxcomm/include</span></code></dt>
+<span class="target" id="dir_5252a60225fda9861fbfee91c4a3beb6"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTExOTg.x/hxcomm/include</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_ae46bce06abf545658885ca5099b1123"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTExOTU.x/hxcomm/include/hxcomm/vx/instruction</span></code></dt>
+<span class="target" id="dir_ae46bce06abf545658885ca5099b1123"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTExOTg.x/hxcomm/include/hxcomm/vx/instruction</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_14730f97e25ca243a094eb5b79dc2449"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTExOTU.x/hxcomm/include/hxcomm/vx</span></code></dt>
+<span class="target" id="dir_14730f97e25ca243a094eb5b79dc2449"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTExOTg.x/hxcomm/include/hxcomm/vx</span></code></dt>
 <dd></dd></dl>
 
 </div>
