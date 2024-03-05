@@ -82,6 +82,7 @@ todo_include_todos = True
 autosummary_generate = True
 autodoc_default_options = {
     'undoc-members': True,
+    'inherited-members': False
 }
 autosummary_imported_members = True
 autosummary_ignore_module_all = False
