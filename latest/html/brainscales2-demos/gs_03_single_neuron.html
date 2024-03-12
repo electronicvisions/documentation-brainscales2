@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Experimente mit einer einzelnen Nervenzelle &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Experimente mit mehreren Nervenzellen Teil 1" href="gs_04-1_multiple_neurons_feuerkette.html" />
+    <link rel="prev" title="Wie können wir mit den künstlichen Nervenzellen kommunizieren?" href="gs_02_pynn_introduction.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> BrainScaleS-2 Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Demos &amp; Examples</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html">Demos and Examples</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="girlsday.html">Girlsday</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="gs_01_neuromorphic_hardware.html">Unsere neuromorphe Hardware</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gs_02_pynn_introduction.html">Wie können wir mit den künstlichen Nervenzellen kommunizieren?</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Experimente mit einer einzelnen Nervenzelle</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#umgebung-vorbereiten">0. Umgebung vorbereiten</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#einfluss-der-zellparameter">1. Einfluss der Zellparameter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#stimulierung-einer-nervenzelle">2. Stimulierung einer Nervenzelle</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="gs_04-1_multiple_neurons_feuerkette.html">Experimente mit mehreren Nervenzellen Teil 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gs_04-2_multiple_neurons_sudoku.html">Experimente mit mehreren Nervenzellen Teil 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gs_05_machine_learning.html">Maschinelles Lernen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gs_06_logik_operationen.html">Neuronenverbindungen - Synapsen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gs_06_logik_operationen.html#synapsennetzwerke">Synapsennetzwerke</a></li>
+<li class="toctree-l3"><a class="reference internal" href="girlsday.html#das-neuron">Das Neuron</a></li>
+<li class="toctree-l3"><a class="reference internal" href="girlsday.html#das-aktionspotential">Das Aktionspotential</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fortgeschrittenen_praktikum.html">Advanced Lab Course</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../software_components.html">Software Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../apis.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BrainScaleS-2 Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Welcome to the BrainScaleS-2 Demos &amp; Examples!</a> &raquo;</li>
+          <li><a href="girlsday.html">Wie verarbeitet unser Gehirn Informationen?</a> &raquo;</li>
+      <li>Experimente mit einer einzelnen Nervenzelle</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/brainscales2-demos/gs_03_single_neuron.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="experimente-mit-einer-einzelnen-nervenzelle">
+<h1>Experimente mit einer einzelnen Nervenzelle<a class="headerlink" href="#experimente-mit-einer-einzelnen-nervenzelle" title="Permalink to this headline"></a></h1>
+<div class="section" id="umgebung-vorbereiten">
+<h2>0. Umgebung vorbereiten<a class="headerlink" href="#umgebung-vorbereiten" title="Permalink to this headline"></a></h2>
+<p>Bevor wir mit unseren Experimenten beginnen können, müssen wir erneut unsere Umgebung vorbereiten:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">_static.common.helpers</span> <span class="kn">import</span> <span class="n">setup_hardware_client</span>
+<span class="n">setup_hardware_client</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="einfluss-der-zellparameter">
+<h2>1. Einfluss der Zellparameter<a class="headerlink" href="#einfluss-der-zellparameter" title="Permalink to this headline"></a></h2>
+<p>Zuerst wollen wir uns genauer mit der Dynamik einer einzelnen
+Nervenzelle auseinandersetzen. Dazu verändern wir ihre Zellparameter und
+schauen uns das resultierende Membranpotential an.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pynn_brainscales.brainscales2</span> <span class="k">as</span> <span class="nn">pynn</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">w</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
+<span class="kn">import</span> <span class="nn">quantities</span> <span class="k">as</span> <span class="nn">pq</span>
+
+<span class="kn">from</span> <span class="nn">_static.common.helpers</span> <span class="kn">import</span> <span class="n">get_nightly_calibration</span>
+
+<span class="n">Slider</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">,</span> <span class="n">continuous_update</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">&lt;style&gt;</span>
+<span class="s1">    .jupyter-widgets { min-width: 30em !important; }</span>
+<span class="s1">    .widget-label { min-width: 20ex !important; }</span>
+<span class="s1">&lt;/style&gt;&#39;&#39;&#39;</span><span class="p">))</span>
+
+<span class="n">neuron_parameters</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="n">leak_v_leak</span><span class="o">=</span><span class="n">Slider</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Ruhepotential&quot;</span><span class="p">),</span>
+    <span class="n">leak_i_bias</span><span class="o">=</span><span class="n">Slider</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1022</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Membran-Zeitkonstante&quot;</span><span class="p">),</span>
+    <span class="n">threshold_v_threshold</span><span class="o">=</span><span class="n">Slider</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Schwellenspannung&quot;</span><span class="p">),</span>
+    <span class="n">threshold_enable</span><span class="o">=</span><span class="n">w</span><span class="o">.</span><span class="n">fixed</span><span class="p">(</span><span class="kc">True</span><span class="p">),</span> <span class="c1">#w.Checkbox(True, description=&quot;Vergleichsaktivierung&quot;),</span>
+    <span class="n">refractory_period_refractory_time</span><span class="o">=</span><span class="n">Slider</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Refraktärzeit&quot;</span><span class="p">),</span>
+    <span class="n">reset_v_reset</span><span class="o">=</span><span class="n">Slider</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Umkehrspannung&quot;</span><span class="p">),</span>
+    <span class="n">reset_i_bias</span><span class="o">=</span><span class="n">Slider</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1022</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Umkehr-Zeitkonstante&quot;</span><span class="p">),</span>
+    <span class="n">membrane_capacitance_capacitance</span><span class="o">=</span><span class="n">Slider</span><span class="p">(</span><span class="mi">63</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Membrankapazität&quot;</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">plot_output</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">Output</span><span class="p">()</span>
+<span class="n">text_output</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">Output</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">experiment</span><span class="p">(</span><span class="o">**</span><span class="n">neuron_parameters</span><span class="p">):</span>
+    <span class="n">calib</span> <span class="o">=</span> <span class="n">get_nightly_calibration</span><span class="p">()</span>
+    <span class="n">pynn</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="n">initial_config</span><span class="o">=</span><span class="n">calib</span><span class="p">)</span>
+
+    <span class="n">pop</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">pynn</span><span class="o">.</span><span class="n">cells</span><span class="o">.</span><span class="n">HXNeuron</span><span class="p">(</span><span class="o">**</span><span class="n">neuron_parameters</span><span class="p">))</span>
+    <span class="n">pop</span><span class="o">.</span><span class="n">record</span><span class="p">([</span><span class="s2">&quot;spikes&quot;</span><span class="p">,</span> <span class="s2">&quot;v&quot;</span><span class="p">])</span>
+
+    <span class="c1"># Die Laufzeit kann auch angepasst werden.</span>
+    <span class="n">pynn</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+
+    <span class="n">spiketrain</span> <span class="o">=</span> <span class="n">pop</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="s2">&quot;spikes&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">segments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">spiketrains</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="n">mem_v</span> <span class="o">=</span> <span class="n">pop</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="s2">&quot;v&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">segments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">irregularlysampledsignals</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">text_output</span><span class="o">.</span><span class="n">clear_output</span><span class="p">()</span>
+    <span class="n">plot_output</span><span class="o">.</span><span class="n">clear_output</span><span class="p">()</span>
+    <span class="k">with</span> <span class="n">plot_output</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mem_v</span><span class="o">.</span><span class="n">times</span><span class="o">.</span><span class="n">rescale</span><span class="p">(</span><span class="n">pq</span><span class="o">.</span><span class="n">us</span><span class="p">),</span> <span class="n">mem_v</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Zeit [µs]&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Membranpotential [LSB]&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">750</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="k">with</span> <span class="n">text_output</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Das Neuron hat </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">spiketrain</span><span class="p">)</span><span class="si">}</span><span class="s2"> mal gefeuert.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">spiketrain</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">spiketimes</span> <span class="o">=</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="o">*</span><span class="mi">1000</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">spiketrain</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Die Zeitpunkte der Spikes waren [µs]:</span><span class="se">\n</span><span class="si">{</span><span class="n">spiketimes</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">pynn</span><span class="o">.</span><span class="n">end</span><span class="p">()</span>
+
+<span class="n">sliders</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">interactive</span><span class="p">(</span><span class="n">experiment</span><span class="p">,</span> <span class="o">**</span><span class="n">neuron_parameters</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">VBox</span><span class="p">([</span><span class="n">w</span><span class="o">.</span><span class="n">HBox</span><span class="p">([</span><span class="n">sliders</span><span class="p">,</span> <span class="n">plot_output</span><span class="p">]),</span> <span class="n">text_output</span><span class="p">]))</span>
+</pre></div>
+</div>
+<a class="solution reference internal image-reference" href="../_images/girlsday_single_neuron_output1.png"><img alt="../_images/girlsday_single_neuron_output1.png" class="solution" src="../_images/girlsday_single_neuron_output1.png" style="width: 100%;" /></a>
+<ol class="loweralpha simple">
+<li><p>Was ist zu sehen? Wieso ist das so? Was erwartet ihr zu sehen?
+Beachtet dabei, dass auf allen Signalen auch ein Rauschen vorliegen
+kann. Dieses kann Veränderungen im Bereich von etwa 20 Hardware
+Einheiten bewirken, ohne dass diese jedoch etwas bedeuten.</p></li>
+<li><p>Welche Spannung ist dargestellt? Überlegt euch, welche Werte das
+Membranpotential beeinflussen und überprüft eure Vermutungen.
+Dazu ist es hilfreich, sich das Aktionspotential nochmal
+anzuschauen.</p></li>
+</ol>
+<a class="reference internal image-reference" href="../_images/girlsday_actionpotential.png"><img alt="../_images/girlsday_actionpotential.png" src="../_images/girlsday_actionpotential.png" style="width: 500px;" /></a>
+<ol class="loweralpha simple" start="3">
+<li><p>Nun soll das Ruhepotential auf seinen Maximalwert gesetzt werden, der
+über der Schwellenspannung liegt. Überlegt euch vorher, was für einen
+Verlauf ihr dafür erwartet.</p></li>
+<li><p>Beobachtet in diesem Modus die Auswirkungen, welche die einzelnen
+Parameter auf die Dynamik haben.</p></li>
+</ol>
+</div>
+<div class="section" id="stimulierung-einer-nervenzelle">
+<h2>2. Stimulierung einer Nervenzelle<a class="headerlink" href="#stimulierung-einer-nervenzelle" title="Permalink to this headline"></a></h2>
+<p>Nun wird unsere Nervenzelle mit anderen Neuronen verbunden, deren
+Feuerverhalten wir einstellen können. Wir wollen beobachten, wie sich
+Spikes der Senderpopulation auf die empfangende Nervenzelle auswirken.
+Neben den Spikezeiten der Sender Population, kann die Anzahl der
+Neuronen, die sie beinhaltet variiert werden. Des Weiteren kann das
+synaptische Gewicht, also die Stärke der Verbindung, eingestellt werden.
+Eine wichtige Rolle spielt auch die Art, wie der Stimulus interpretiert
+wird, ob exzitatorisch oder inhibitorisch.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pynn_brainscales.brainscales2</span> <span class="k">as</span> <span class="nn">pynn</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">quantities</span> <span class="k">as</span> <span class="nn">pq</span>
+
+<span class="kn">from</span> <span class="nn">_static.common.helpers</span> <span class="kn">import</span> <span class="n">get_nightly_calibration</span>
+
+<span class="c1"># Nun muss das Ruhepotential wieder unter die Schwellenspannung gesetzt werden.</span>
+<span class="n">neuron_parameters</span> <span class="o">=</span> <span class="p">{</span>                          <span class="c1">#                         Bereich</span>
+    <span class="s2">&quot;leak_v_leak&quot;</span><span class="p">:</span> <span class="mi">400</span><span class="p">,</span>                        <span class="c1"># Ruhepotential          (300-1000)</span>
+    <span class="s2">&quot;leak_i_bias&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>                        <span class="c1"># Ruhestrom              (0-1022)</span>
+    <span class="s2">&quot;threshold_v_threshold&quot;</span><span class="p">:</span> <span class="mi">400</span><span class="p">,</span>              <span class="c1"># Schwellenspannung      (0-600)</span>
+    <span class="s2">&quot;threshold_enable&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>                  <span class="c1"># Vergleichsaktivierung</span>
+    <span class="s2">&quot;refractory_period_refractory_time&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>  <span class="c1"># Refraktärzeit          (0-255)</span>
+    <span class="s2">&quot;reset_v_reset&quot;</span><span class="p">:</span> <span class="mi">300</span><span class="p">,</span>                      <span class="c1"># Umkehrspannung         (300-1000)</span>
+    <span class="s2">&quot;reset_i_bias&quot;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>                      <span class="c1"># Umkehrstrom            (0-1022)</span>
+    <span class="s2">&quot;membrane_capacitance_capacitance&quot;</span><span class="p">:</span> <span class="mi">63</span>     <span class="c1"># Membrankapazität       (0-63)</span>
+    <span class="p">}</span>
+
+<span class="nd">@w</span><span class="o">.</span><span class="n">interact</span><span class="p">(</span>
+    <span class="n">src_size</span><span class="o">=</span><span class="n">Slider</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Anzahl Quellneuronen&quot;</span><span class="p">),</span>
+    <span class="n">synapse_weight</span><span class="o">=</span><span class="n">Slider</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Synaptisches Gewicht&quot;</span><span class="p">),</span>
+    <span class="n">spike_times</span><span class="o">=</span><span class="n">w</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="s2">&quot;10, 30, 50, 70, 90&quot;</span><span class="p">,</span>
+                       <span class="n">continuous_update</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                       <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Spikezeiten [µs]&quot;</span><span class="p">),</span>
+    <span class="n">receptor_type</span><span class="o">=</span><span class="n">w</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span>
+        <span class="n">options</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;excitatory&quot;</span><span class="p">,</span> <span class="s2">&quot;inhibitory&quot;</span><span class="p">],</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Synapsentyp&quot;</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="k">def</span> <span class="nf">experiment</span><span class="p">(</span><span class="n">src_size</span><span class="p">,</span> <span class="n">synapse_weight</span><span class="p">,</span> <span class="n">spike_times</span><span class="p">,</span> <span class="n">receptor_type</span><span class="p">):</span>
+    <span class="n">calib</span> <span class="o">=</span> <span class="n">get_nightly_calibration</span><span class="p">()</span>
+    <span class="n">pynn</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="n">initial_config</span><span class="o">=</span><span class="n">calib</span><span class="p">)</span>
+    <span class="c1"># Das ist das Neuron, das wir beobachten werden.</span>
+    <span class="n">pop</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">pynn</span><span class="o">.</span><span class="n">cells</span><span class="o">.</span><span class="n">HXNeuron</span><span class="p">(</span><span class="o">**</span><span class="n">neuron_parameters</span><span class="p">))</span>
+    <span class="n">pop</span><span class="o">.</span><span class="n">record</span><span class="p">([</span><span class="s2">&quot;spikes&quot;</span><span class="p">,</span> <span class="s2">&quot;v&quot;</span><span class="p">])</span>
+
+    <span class="c1"># Das ist die Sender Population, die zu vorgegebenen Spikezeiten einen Stimulus generiert.</span>
+    <span class="c1"># Die Spikezeiten und die Populationsgröße sollen verändert werden.</span>
+    <span class="n">spike_times</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="mi">1000</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">spike_times</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)]</span>
+    <span class="n">src</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="n">src_size</span><span class="p">,</span> <span class="n">pynn</span><span class="o">.</span><span class="n">cells</span><span class="o">.</span><span class="n">SpikeSourceArray</span><span class="p">(</span><span class="n">spike_times</span><span class="o">=</span><span class="n">spike_times</span><span class="p">))</span>
+
+    <span class="n">weight</span> <span class="o">=</span> <span class="n">synapse_weight</span> <span class="k">if</span> <span class="n">receptor_type</span> <span class="o">==</span> <span class="s1">&#39;excitatory&#39;</span> <span class="k">else</span> <span class="o">-</span><span class="n">synapse_weight</span>
+    <span class="n">synapse</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">synapses</span><span class="o">.</span><span class="n">StaticSynapse</span><span class="p">(</span><span class="n">weight</span><span class="o">=</span><span class="n">weight</span><span class="p">)</span>
+
+    <span class="c1"># Die Sender Population &#39;src&#39; wird mit dem Neuron in &#39;pop&#39; verbunden.</span>
+    <span class="n">pynn</span><span class="o">.</span><span class="n">Projection</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">pop</span><span class="p">,</span> <span class="n">pynn</span><span class="o">.</span><span class="n">AllToAllConnector</span><span class="p">(),</span>
+                    <span class="n">synapse_type</span><span class="o">=</span><span class="n">synapse</span><span class="p">,</span> <span class="n">receptor_type</span><span class="o">=</span><span class="n">receptor_type</span><span class="p">)</span>
+    <span class="n">pynn</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+
+    <span class="c1"># Das Ergebnis wird ausgegeben.</span>
+    <span class="n">mem_v</span> <span class="o">=</span> <span class="n">pop</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="s2">&quot;v&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">segments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">irregularlysampledsignals</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mem_v</span><span class="o">.</span><span class="n">times</span><span class="o">.</span><span class="n">rescale</span><span class="p">(</span><span class="n">pq</span><span class="o">.</span><span class="n">us</span><span class="p">),</span> <span class="n">mem_v</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Zeit [µs]&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Membranpotential [LSB]&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">750</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="n">spiketrain</span> <span class="o">=</span> <span class="n">pop</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="s2">&quot;spikes&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">segments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">spiketrains</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Das Neuron hat </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">spiketrain</span><span class="p">)</span><span class="si">}</span><span class="s2"> mal gefeuert.&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">spiketrain</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">spiketimes</span> <span class="o">=</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="o">*</span><span class="mi">1000</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">spiketrain</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Die Zeitpunkte der Spikes waren [µs]:</span><span class="se">\n</span><span class="si">{</span><span class="n">spiketimes</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">pynn</span><span class="o">.</span><span class="n">end</span><span class="p">()</span>
+</pre></div>
+</div>
+<a class="solution reference internal image-reference" href="../_images/girlsday_single_neuron_output2.png"><img alt="../_images/girlsday_single_neuron_output2.png" class="solution" src="../_images/girlsday_single_neuron_output2.png" style="width: 100%;" /></a>
+<ol class="loweralpha simple">
+<li><p>Ist zu den eingestellten Spikezeiten der Senderpopulation eine
+Reaktion im Membranpotential der beobachteten Nervenzelle zu sehen?
+Feuert es selbst auch schon?</p></li>
+<li><p>Was geschieht, wenn man in der Projektion den Synapsentyp auf
+<code class="docutils literal notranslate"><span class="pre">inhibitory</span></code> stellt?</p></li>
+<li><p>Nun wollen wir das Neuron zum Feuern bringen. Dazu wird der
+Synapsentyp wieder auf <code class="docutils literal notranslate"><span class="pre">excitatory</span></code> gestellt. Ein erster
+Ansatz um das Neuron zum Feuern zu bringen ist die Anzahl der
+Partner, von denen es Spikes erhält, zu erhöhen. Ab welcher Größe der
+Sender Population treten die ersten Spikes auf?</p></li>
+<li><p>Eine weitere Möglichkeit ist das synaptische Gewicht anzupassen.
+Stellt dazu wieder eine kleinere Populationsgröße ein und testet, ob
+ihr durch Erhöhung des synaptischen Gewichts das Neuron zum Feuern
+bringen könnt.</p></li>
+<li><p>Als letztes soll noch untersucht werden, was für Auswirkungen es hat,
+wenn man die Spikezeiten der Sender Population näher zusammen
+schiebt. Probiert hier auch unterschiedliche Abstände zwischen den
+einzelnen Spikes aus. Gegebenfalls müsst ihr hier auch nochmal die
+Neuronparameter anpassen, um einen schönen Verlauf der
+Membranspannung zu bekommen.</p></li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="gs_02_pynn_introduction.html" class="btn btn-neutral float-left" title="Wie können wir mit den künstlichen Nervenzellen kommunizieren?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="gs_04-1_multiple_neurons_feuerkette.html" class="btn btn-neutral float-right" title="Experimente mit mehreren Nervenzellen Teil 1" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Electronic Vision(s).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
