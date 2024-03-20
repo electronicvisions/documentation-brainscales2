@@ -36,7 +36,7 @@ try {
 				lock("documentation-brainscales2_GITHUB-UPLOAD") {
 					jesh("git clone -b gh-pages git@github.com:electronicvisions/documentation-brainscales2.git gh-pages")
 					jesh("rm -rf gh-pages/latest")
-					jesh("cp -a documentation-brainscales2/html/. gh-pages/latest")
+					jesh("cp -a documentation-brainscales2/html/html/. gh-pages/latest")
 					dir("gh-pages") {
 						jesh("../../documentation-brainscales2/.ci/generate_index.sh")
 						jesh("git add index.html")
