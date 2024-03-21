@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exploring the dynamic range &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Pong" href="ts_07-pong.html" />
+    <link rel="prev" title="Training an SNN on BrainScaleS-2 with PyTorch" href="ts_05-yin_yang.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> BrainScaleS-2 Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Demos &amp; Examples</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="tutorial.html">Demos and Examples</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="ts_00-single_neuron.html">BrainScaleS-2 single neuron experiments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ts_01-superspike.html">Learning with the SuperSpike rule</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ts_02-plasticity_rate_coding.html">BrainScaleS-2 on-chip plasticity experiment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ts_03-multicompartment.html">Structured Neurons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ts_04-mc_genetic_algorithms.html">How to use Genetic Algorithms to automatically parameterize BrainScaleS-2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ts_05-yin_yang.html">Training an SNN on BrainScaleS-2 with PyTorch</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Exploring the dynamic range</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#define-network-in-pynn">Define network in PyNN</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ts_07-pong.html">Pong</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ts_08-adex_complex_dynamics.html">Complex neuron dynamics with a silicon adaptive exponential integrate-and-fire neuron</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ts_08-adex_complex_dynamics.html#understanding-subthreshold-adaptation">Understanding subthreshold adaptation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ts_08-adex_complex_dynamics.html#transient-spiking">Transient spiking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ts_08-adex_complex_dynamics.html#spike-frequency-adaptation">Spike-frequency adaptation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ts_08-adex_complex_dynamics.html#bursting">Bursting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ts_09-inside_realtime_hook.html">Demonstration of inside realtime hook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ts_10-multiple_configs.html">Demonstration of multiple chip-reconfigurations during an experiment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tp_00-introduction.html">Introduction to matrix multiplication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tp_01-properties.html">Exploring the analog MAC operation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tp_02-yin_yang.html">Train DNNs on BrainScaleS-2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nmpi_00-non_interactive_queue_runner.html">Introduction to the non-interactive queue runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#executing-the-notebooks">Executing the Notebooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#shared-hardware-resources">Shared Hardware Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#final-test-hardware-execution">Final test: Hardware Execution</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="girlsday.html">Girlsday</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fortgeschrittenen_praktikum.html">Advanced Lab Course</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../software_components.html">Software Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../apis.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BrainScaleS-2 Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Welcome to the BrainScaleS-2 Demos &amp; Examples!</a> &raquo;</li>
+          <li><a href="tutorial.html">Welcome to the BrainScaleS-2 Tutorial</a> &raquo;</li>
+      <li>Exploring the dynamic range</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/brainscales2-demos/ts_06-dynamic_range.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="exploring-the-dynamic-range">
+<span id="dynamic-range"></span><h1>Exploring the dynamic range<a class="headerlink" href="#exploring-the-dynamic-range" title="Permalink to this headline"></a></h1>
+<p>In this example we’ll explore the dynamic range of synaptic stimulation.</p>
+<p>We will</p>
+<ul class="simple">
+<li><p>set up a network using PyNN</p></li>
+<li><p>incrementally add more and more synaptic stimulation</p></li>
+<li><p>quantify the effect of the synaptic stimulation on the membrane of different neurons for excitatory and inhibitory stimulation</p></li>
+</ul>
+<p>In order to use the microscheduler we have to set some environment variables first:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">_static.common.helpers</span> <span class="kn">import</span> <span class="n">setup_hardware_client</span>
+<span class="n">setup_hardware_client</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>We’ll also configure matplotlib and import some tools.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">itertools</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">suppress</span>
+<span class="k">with</span> <span class="n">suppress</span><span class="p">(</span><span class="ne">IOError</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;_static/matplotlibrc&quot;</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">pynn_brainscales.brainscales2</span> <span class="k">as</span> <span class="nn">pynn</span>
+</pre></div>
+</div>
+<p>Before we define our network, we load the default calibration.</p>
+<p>A default calibration is generated for every setup every night.
+We save the nightly calibration in two variables such that we can use it later when we define our neuronal network.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">_static.common.helpers</span> <span class="kn">import</span> <span class="n">get_nightly_calibration</span>
+<span class="n">calib</span> <span class="o">=</span> <span class="n">get_nightly_calibration</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="section" id="define-network-in-pynn">
+<h2>Define network in PyNN<a class="headerlink" href="#define-network-in-pynn" title="Permalink to this headline"></a></h2>
+<p>First, we will set up some variables determining the sweep we want to perform.
+The maximum weight of a single synapse is 63.
+Therefore we will add more projections if we exceed this maximum.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">neurons</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>
+<span class="n">max_weight</span> <span class="o">=</span> <span class="mi">63</span>
+<span class="n">max_number_of_projections</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">weights</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_number_of_projections</span> <span class="o">*</span> <span class="n">max_weight</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>
+<span class="n">receptor_types</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;inhibitory&quot;</span><span class="p">,</span> <span class="s2">&quot;excitatory&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>We will store the results in a dictionary.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We configure the logger to print some output during the run.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">log</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;dynamic_range&quot;</span><span class="p">)</span>
+<span class="n">pynn</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">set_loglevel</span><span class="p">(</span><span class="n">log</span><span class="p">,</span> <span class="n">pynn</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">LogLevel</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Next we run the network multiple times with various configurations.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dlens_vx_v3</span> <span class="kn">import</span> <span class="n">hxcomm</span>
+
+<span class="c1"># to speed things up, we keep the connection alive between experiments</span>
+<span class="k">with</span> <span class="n">hxcomm</span><span class="o">.</span><span class="n">ManagedConnection</span><span class="p">()</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+
+    <span class="k">for</span> <span class="n">neuron</span><span class="p">,</span> <span class="n">receptor_type</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="n">neurons</span><span class="p">,</span> <span class="n">receptor_types</span><span class="p">):</span>
+
+        <span class="c1"># the neuronPerm</span>
+        <span class="n">pynn</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="n">connection</span><span class="o">=</span><span class="n">connection</span><span class="p">,</span>
+                   <span class="n">neuronPermutation</span><span class="o">=</span><span class="p">[</span><span class="n">neuron</span><span class="p">],</span>
+                   <span class="n">initial_config</span><span class="o">=</span><span class="n">calib</span><span class="p">)</span>
+
+        <span class="c1"># always have only 1 neuron</span>
+        <span class="n">number_of_neurons</span> <span class="o">=</span> <span class="mi">1</span>
+
+        <span class="n">population</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="n">number_of_neurons</span><span class="p">,</span>
+                                     <span class="n">pynn</span><span class="o">.</span><span class="n">cells</span><span class="o">.</span><span class="n">HXNeuron</span><span class="p">())</span>
+
+        <span class="c1"># disable spiking</span>
+        <span class="n">population</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">threshold_enable</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+        <span class="c1"># record the membrane voltage</span>
+        <span class="n">population</span><span class="o">.</span><span class="n">record</span><span class="p">(</span><span class="s2">&quot;v&quot;</span><span class="p">)</span>
+
+
+        <span class="n">input_spiketimes</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">]</span>
+        <span class="n">stimulus</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span>
+                                   <span class="n">pynn</span><span class="o">.</span><span class="n">cells</span><span class="o">.</span><span class="n">SpikeSourceArray</span><span class="p">(</span><span class="n">spike_times</span><span class="o">=</span><span class="n">input_spiketimes</span><span class="p">))</span>
+
+        <span class="n">projections</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="c1"># Adjust weights of existing projections and add new projections if the desired weight</span>
+        <span class="c1"># exceeds the maximum weight which can currently be implemented.</span>
+        <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">weights</span><span class="p">:</span>
+
+            <span class="n">needed_projections</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">w</span> <span class="o">/</span> <span class="n">max_weight</span><span class="p">))</span>
+            <span class="n">new_projections</span> <span class="o">=</span> <span class="n">needed_projections</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">projections</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">new_projections</span><span class="p">):</span>
+                <span class="n">proj</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Projection</span><span class="p">(</span><span class="n">stimulus</span><span class="p">,</span>
+                                       <span class="n">population</span><span class="p">,</span>
+                                       <span class="n">pynn</span><span class="o">.</span><span class="n">AllToAllConnector</span><span class="p">(),</span>
+                                       <span class="n">receptor_type</span><span class="o">=</span><span class="n">receptor_type</span><span class="p">,</span>
+                                       <span class="n">synapse_type</span><span class="o">=</span><span class="n">pynn</span><span class="o">.</span><span class="n">standardmodels</span><span class="o">.</span><span class="n">synapses</span><span class="o">.</span><span class="n">StaticSynapse</span><span class="p">(</span><span class="n">weight</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+                <span class="n">projections</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">proj</span><span class="p">)</span>
+
+            <span class="n">sign</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">receptor_type</span> <span class="o">==</span> <span class="s2">&quot;excitatory&quot;</span> <span class="k">else</span> <span class="o">-</span><span class="mi">1</span>
+
+            <span class="c1"># projections with maximum weight</span>
+            <span class="k">for</span> <span class="n">proj</span> <span class="ow">in</span> <span class="n">projections</span><span class="p">[:(</span><span class="n">w</span> <span class="o">//</span> <span class="n">max_weight</span><span class="p">)]:</span>
+                <span class="n">proj</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">weight</span><span class="o">=</span><span class="n">sign</span> <span class="o">*</span> <span class="n">max_weight</span><span class="p">)</span>
+
+            <span class="c1"># projection with the remaining weight</span>
+            <span class="k">if</span> <span class="n">projections</span><span class="p">:</span>
+                <span class="n">projections</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">weight</span><span class="o">=</span><span class="n">sign</span> <span class="o">*</span> <span class="p">(</span><span class="n">w</span> <span class="o">%</span> <span class="n">max_weight</span><span class="p">))</span>
+
+            <span class="n">pynn</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># ms (hw)</span>
+            <span class="n">membrane</span> <span class="o">=</span> <span class="n">population</span><span class="o">.</span><span class="n">get_data</span><span class="p">()</span><span class="o">.</span><span class="n">segments</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">irregularlysampledsignals</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+            <span class="n">min_membrane</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">membrane</span><span class="p">[</span><span class="mi">10</span><span class="p">:]</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+            <span class="n">max_membrane</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">membrane</span><span class="p">[</span><span class="mi">10</span><span class="p">:]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+
+            <span class="n">results</span><span class="p">[</span><span class="s2">&quot;weight&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+            <span class="n">results</span><span class="p">[</span><span class="s2">&quot;receptor_type&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">receptor_type</span><span class="p">)</span>
+            <span class="n">results</span><span class="p">[</span><span class="s2">&quot;neuron&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">neuron</span><span class="p">)</span>
+            <span class="n">results</span><span class="p">[</span><span class="s2">&quot;membrane_min&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">min_membrane</span><span class="p">)</span>
+            <span class="n">results</span><span class="p">[</span><span class="s2">&quot;membrane_max&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">max_membrane</span><span class="p">)</span>
+
+            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">neuron</span><span class="si">=}</span><span class="s2"> </span><span class="si">{</span><span class="n">receptor_type</span><span class="si">=}</span><span class="s2"> </span><span class="si">{</span><span class="n">w</span><span class="si">=}</span><span class="s2"> &quot;</span>
+                     <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">min_membrane</span><span class="si">=}</span><span class="s2"> </span><span class="si">{</span><span class="n">max_membrane</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+            <span class="n">pynn</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+
+        <span class="n">pynn</span><span class="o">.</span><span class="n">end</span><span class="p">()</span>
+
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;experiment done&quot;</span><span class="p">)</span>
+
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;DataFrame created&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now, all results are stored in the Pandas DataFrame that we can analyse with the code below.
+For the excitatory stimulation we plot the mean of the maximum of the membrane trace and the variance over the neurons.
+We do the same for the inhibitory stimulation but take the minimum of the membrane trace this time.</p>
+<p>First we aggregate over the neurons and create convience columns for the analysis:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">aggregate</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">df</span>
+            <span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;receptor_type&#39;</span><span class="p">,</span> <span class="s1">&#39;weight&#39;</span><span class="p">])</span>
+            <span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s2">&quot;</span> <span class="p">:</span> <span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">method</span><span class="p">)</span> <span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">method</span>
+                               <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">([</span><span class="s2">&quot;membrane_min&quot;</span><span class="p">,</span> <span class="s2">&quot;membrane_max&quot;</span><span class="p">],</span>
+                                                    <span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;std&#39;</span><span class="p">])})</span>
+            <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+    <span class="p">)</span>
+<span class="n">df_agg</span> <span class="o">=</span> <span class="n">aggregate</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Next we define a helper function to plot the variance over the neurons as an error band:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_with_errorband</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">error</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">-</span><span class="n">error</span><span class="p">,</span> <span class="n">y</span><span class="o">+</span><span class="n">error</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now we can do the final plot:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="n">lookup</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;excitatory_color&#39;</span> <span class="p">:</span> <span class="s2">&quot;tab:blue&quot;</span><span class="p">,</span>
+          <span class="s1">&#39;inhibitory_color&#39;</span> <span class="p">:</span> <span class="s2">&quot;tab:orange&quot;</span><span class="p">,</span>
+          <span class="s1">&#39;excitatory_column&#39;</span> <span class="p">:</span> <span class="s2">&quot;membrane_max&quot;</span><span class="p">,</span>
+          <span class="s1">&#39;inhibitory_column&#39;</span> <span class="p">:</span> <span class="s2">&quot;membrane_min&quot;</span><span class="p">}</span>
+
+<span class="k">for</span> <span class="n">receptor_type</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;excitatory&#39;</span><span class="p">,</span> <span class="s1">&#39;inhibitory&#39;</span><span class="p">]:</span>
+
+    <span class="n">df_</span> <span class="o">=</span> <span class="n">df_agg</span><span class="p">[</span><span class="n">df_agg</span><span class="o">.</span><span class="n">receptor_type</span><span class="o">==</span><span class="n">receptor_type</span><span class="p">]</span>
+
+    <span class="n">color</span> <span class="o">=</span> <span class="n">lookup</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">receptor_type</span><span class="si">}</span><span class="s2">_color&quot;</span><span class="p">]</span>
+    <span class="n">column</span> <span class="o">=</span> <span class="n">lookup</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">receptor_type</span><span class="si">}</span><span class="s2">_column&quot;</span><span class="p">]</span>
+
+    <span class="n">plot_with_errorband</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+                        <span class="n">x</span><span class="o">=</span><span class="n">df_</span><span class="p">[</span><span class="s2">&quot;weight&quot;</span><span class="p">],</span>
+                        <span class="n">y</span><span class="o">=</span><span class="n">df_</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;mean_</span><span class="si">{</span><span class="n">column</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">],</span>
+                        <span class="n">error</span><span class="o">=</span><span class="n">df_</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;std_</span><span class="si">{</span><span class="n">column</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">],</span>
+                        <span class="n">label</span><span class="o">=</span><span class="n">receptor_type</span><span class="p">,</span>
+                        <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;weight&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;membrane min/max [MADC]&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+<a class="solution reference internal image-reference" href="../_images/dynamic_range_solution.png"><img alt="../_images/dynamic_range_solution.png" class="solution align-center" src="../_images/dynamic_range_solution.png" style="width: 800px;" /></a>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ts_05-yin_yang.html" class="btn btn-neutral float-left" title="Training an SNN on BrainScaleS-2 with PyTorch" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ts_07-pong.html" class="btn btn-neutral float-right" title="Pong" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Electronic Vision(s).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

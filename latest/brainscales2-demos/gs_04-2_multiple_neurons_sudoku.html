@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Experimente mit mehreren Nervenzellen Teil 2 &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Maschinelles Lernen" href="gs_05_machine_learning.html" />
+    <link rel="prev" title="Experimente mit mehreren Nervenzellen Teil 1" href="gs_04-1_multiple_neurons_feuerkette.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> BrainScaleS-2 Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Demos &amp; Examples</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html">Demos and Examples</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="girlsday.html">Girlsday</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="gs_01_neuromorphic_hardware.html">Unsere neuromorphe Hardware</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gs_02_pynn_introduction.html">Wie können wir mit den künstlichen Nervenzellen kommunizieren?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gs_03_single_neuron.html">Experimente mit einer einzelnen Nervenzelle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gs_04-1_multiple_neurons_feuerkette.html">Experimente mit mehreren Nervenzellen Teil 1</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Experimente mit mehreren Nervenzellen Teil 2</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#umgebung-vorbereiten">Umgebung vorbereiten</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sudoku">Sudoku</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bonus-wie-hangt-der-erfolg-mit-der-anzahl-der-vorgegebenen-zahlen-zusammen">Bonus: Wie hängt der Erfolg mit der Anzahl der vorgegebenen Zahlen zusammen?</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="gs_05_machine_learning.html">Maschinelles Lernen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gs_06_logik_operationen.html">Neuronenverbindungen - Synapsen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gs_06_logik_operationen.html#synapsennetzwerke">Synapsennetzwerke</a></li>
+<li class="toctree-l3"><a class="reference internal" href="girlsday.html#das-neuron">Das Neuron</a></li>
+<li class="toctree-l3"><a class="reference internal" href="girlsday.html#das-aktionspotential">Das Aktionspotential</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fortgeschrittenen_praktikum.html">Advanced Lab Course</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../software_components.html">Software Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../apis.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BrainScaleS-2 Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Welcome to the BrainScaleS-2 Demos &amp; Examples!</a> &raquo;</li>
+          <li><a href="girlsday.html">Wie verarbeitet unser Gehirn Informationen?</a> &raquo;</li>
+      <li>Experimente mit mehreren Nervenzellen Teil 2</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/brainscales2-demos/gs_04-2_multiple_neurons_sudoku.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="experimente-mit-mehreren-nervenzellen-teil-2">
+<h1>Experimente mit mehreren Nervenzellen Teil 2<a class="headerlink" href="#experimente-mit-mehreren-nervenzellen-teil-2" title="Permalink to this headline"></a></h1>
+<div class="section" id="umgebung-vorbereiten">
+<h2>Umgebung vorbereiten<a class="headerlink" href="#umgebung-vorbereiten" title="Permalink to this headline"></a></h2>
+<p>Bevor wir mit unseren Experimenten beginnen können, müssen wir erneut unsere Umgebung vorbereiten:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">_static.common.helpers</span> <span class="kn">import</span> <span class="n">setup_hardware_client</span>
+<span class="n">setup_hardware_client</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sudoku">
+<h2>Sudoku<a class="headerlink" href="#sudoku" title="Permalink to this headline"></a></h2>
+<p>Eine weitere Aufgabe, die man den künstlichen Nervenzellen beibringen
+kann, ist das Lösen eines Sudokus. Da die Anzahl der Neuronen auf dem
+Chip begrenzt ist, betrachten wir hier nur ein 4x4 Sudoku.</p>
+<a class="reference internal image-reference" href="../_images/sudoku.png"><img alt="../_images/sudoku.png" class="align-center" src="../_images/sudoku.png" style="width: 500px;" /></a>
+<p>(Quelle: <a class="reference external" href="https://www.kip.uni-heidelberg.de/Veroeffentlichungen/download.php/6118/temp/3666.pdf">https://www.kip.uni-heidelberg.de/Veroeffentlichungen/download.php/6118/temp/3666.pdf</a>)</p>
+<p>Jedes Feld besitzt vier Neuronen, welche die verschiedenen Zahlen
+repräsentieren, die darin stehen können. Wenn eine Zahl vorgegeben ist,
+verbietet sie damit nach den Sudoku Regeln bestimmte Kombinationen.
+Betrachten wie beispielsweise die graue 3. Da diese feststeht, können in
+dem selben Feld nicht mehr die Zahlen 1, 2 oder 4 stehen (orange).
+Außerdem darf in der gleichen Reihe (lila) und in der gleichen Spalte
+(grün) keine 3 mehr vorkommen. Gleiches gilt für den unteren linken
+Block (blau). Diese verbotenen Kombinationen werden durch inhibitorische
+Synapsen realisiert. Das bedeutet, wenn eine Zahl in einem Feld
+feststeht, dann feuert das zugehörige Neuron. Alle daraus resultierenden
+verbotenen Möglichkeiten werden durch die inhibitorischen Verbindungen
+so stark unterdrückt, dass die jeweiligen Neuronen nicht feuern können.
+Damit die übrigen erlaubten Neuronen zum Feuern gebracht werden,
+bekommen alle Nervenzellen leichten Input durch ein zufälliges
+Hintergrundrauschen. Außerdem sind alle Neuronen mit sich selbst
+exzitatorisch verbunden, um eine mögliche Aktivität aufrecht zu
+erhalten.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">w</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
+<span class="n">IntSlider</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">,</span> <span class="n">continuous_update</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">ipycanvas</span> <span class="kn">import</span> <span class="n">Canvas</span><span class="p">,</span> <span class="n">hold_canvas</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pynn_brainscales.brainscales2</span> <span class="k">as</span> <span class="nn">pynn</span>
+<span class="kn">from</span> <span class="nn">pynn_brainscales.brainscales2.standardmodels.synapses</span> <span class="kn">import</span> <span class="n">StaticSynapse</span>
+<span class="kn">from</span> <span class="nn">pynn_brainscales.brainscales2.standardmodels.cells</span> <span class="kn">import</span> \
+            <span class="n">SpikeSourceArray</span><span class="p">,</span> <span class="n">HXNeuron</span><span class="p">,</span><span class="n">SpikeSourcePoisson</span>
+
+<span class="kn">from</span> <span class="nn">_static.common.helpers</span> <span class="kn">import</span> <span class="n">get_nightly_calibration</span>
+
+<span class="n">runtime</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">dimension</span> <span class="o">=</span> <span class="mi">4</span>
+
+<span class="n">calib</span> <span class="o">=</span> <span class="n">get_nightly_calibration</span><span class="p">()</span>
+<span class="n">pynn</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="n">initial_config</span><span class="o">=</span><span class="n">calib</span><span class="p">)</span>
+
+<span class="c1"># Wir erstellen ein Neuron für jedes Zahl in jedem Feld. Wir brauchen also</span>
+<span class="c1"># 4 (Reihen) * 4 (Spalten) * 4 (Zahlen) = 4^3 Neuronen</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Die Neuronen werden angelegt... (1/4)&quot;</span><span class="p">)</span>
+<span class="n">pop</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="mi">4</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span> <span class="n">HXNeuron</span><span class="p">())</span>
+<span class="n">pop</span><span class="o">.</span><span class="n">record</span><span class="p">([</span><span class="s2">&quot;spikes&quot;</span><span class="p">])</span>
+
+<span class="c1"># Damit wir die Verbindungen in zwischen den Neuronen leichter definieren</span>
+<span class="c1"># können speichern wir eine &quot;Ansicht&quot; auf einzelne Neuronen in einer Liste</span>
+<span class="n">pops_collector</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">dimension</span><span class="p">):</span>
+    <span class="n">pops_row</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">field_in_row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">dimension</span><span class="p">):</span>
+        <span class="n">pops_field</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">number_in_field</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">dimension</span><span class="p">):</span>
+            <span class="n">neuron</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">PopulationView</span><span class="p">(</span>
+                <span class="n">pop</span><span class="p">,</span>
+                <span class="p">[</span><span class="n">row</span> <span class="o">*</span> <span class="n">dimension</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">field_in_row</span> <span class="o">*</span> <span class="n">dimension</span>
+                 <span class="o">+</span> <span class="n">number_in_field</span><span class="p">])</span>
+            <span class="n">pops_field</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">neuron</span><span class="p">)</span>
+        <span class="n">pops_row</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pops_field</span><span class="p">)</span>
+    <span class="n">pops_collector</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pops_row</span><span class="p">)</span>
+
+<span class="c1"># Das Hintergrundrauschen für alle Neuronen wird erzeugt.</span>
+<span class="c1"># Dabei bekommt jedes Neuronen individuellen Input, der einer gemeinsamen</span>
+<span class="c1"># Zufallsverteilung (genauer gesagt einer Poissonverteilung) folgt.</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Das Hintergrundrauschen wird erzeugt... (2/4)&quot;</span><span class="p">)</span>
+<span class="n">poisson_source</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="n">dimension</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span>
+    <span class="n">SpikeSourcePoisson</span><span class="p">(</span><span class="n">duration</span><span class="o">=</span><span class="n">runtime</span> <span class="o">-</span> <span class="mf">0.01</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="mf">5e5</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mf">0.01</span><span class="p">))</span>
+
+<span class="c1"># Diese Zufallsquellen werden nun mit den Neuronen verbunden.</span>
+<span class="c1"># Zusätzlich wird jedes Neuron mit sich selbst exzitatorisch verbunden,</span>
+<span class="c1"># um seine mögliche Aktivität zu erhalten.</span>
+<span class="n">pynn</span><span class="o">.</span><span class="n">Projection</span><span class="p">(</span><span class="n">pop</span><span class="p">,</span>
+                <span class="n">pop</span><span class="p">,</span>
+                <span class="n">pynn</span><span class="o">.</span><span class="n">OneToOneConnector</span><span class="p">(),</span>
+                <span class="n">synapse_type</span><span class="o">=</span><span class="n">StaticSynapse</span><span class="p">(</span><span class="n">weight</span><span class="o">=</span><span class="mi">20</span><span class="p">),</span>
+                <span class="n">receptor_type</span><span class="o">=</span><span class="s1">&#39;excitatory&#39;</span><span class="p">)</span>
+<span class="n">pynn</span><span class="o">.</span><span class="n">Projection</span><span class="p">(</span><span class="n">poisson_source</span><span class="p">,</span>
+                <span class="n">pop</span><span class="p">,</span>
+                <span class="n">pynn</span><span class="o">.</span><span class="n">OneToOneConnector</span><span class="p">(),</span>
+                <span class="n">synapse_type</span><span class="o">=</span><span class="n">StaticSynapse</span><span class="p">(</span><span class="n">weight</span><span class="o">=</span><span class="mi">30</span><span class="p">),</span>
+                <span class="n">receptor_type</span><span class="o">=</span><span class="s1">&#39;excitatory&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Die Regeln werden implementiert... (3/4)&quot;</span><span class="p">)</span>
+
+<span class="c1"># Die inhibitorischen Verbindungen zu den anderen Neuronen im selben Feld werden erstellt.</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  - Es darf nur eine Zahl pro Feld geben&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">number_pre</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">number_post</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">):</span>
+                <span class="n">pynn</span><span class="o">.</span><span class="n">Projection</span><span class="p">(</span>
+                    <span class="n">pops_collector</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="n">column</span><span class="p">][</span><span class="n">number_pre</span><span class="p">],</span>
+                    <span class="n">pops_collector</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="n">column</span><span class="p">][(</span><span class="n">number_pre</span><span class="o">+</span><span class="n">number_post</span><span class="p">)</span><span class="o">%</span><span class="k">4</span>],
+                    <span class="n">pynn</span><span class="o">.</span><span class="n">AllToAllConnector</span><span class="p">(),</span>
+                    <span class="n">synapse_type</span><span class="o">=</span><span class="n">StaticSynapse</span><span class="p">(</span><span class="n">weight</span><span class="o">=-</span><span class="mi">63</span><span class="p">),</span>
+                    <span class="n">receptor_type</span><span class="o">=</span><span class="s1">&#39;inhibitory&#39;</span><span class="p">)</span>
+
+<span class="c1"># Die inhibitorischen Verbindungen zu den Neuronen der selben Nummer</span>
+<span class="c1"># in der selben Reihe werden erstellt.</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  - Jede Zahl darf nur einmal pro Reihe vorkommen&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">column_post</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">):</span>
+                <span class="n">pynn</span><span class="o">.</span><span class="n">Projection</span><span class="p">(</span>
+                    <span class="n">pops_collector</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="n">column</span><span class="p">][</span><span class="n">number</span><span class="p">],</span>
+                    <span class="n">pops_collector</span><span class="p">[</span><span class="n">row</span><span class="p">][(</span><span class="n">column</span><span class="o">+</span><span class="n">column_post</span><span class="p">)</span><span class="o">%</span><span class="k">4</span>][number],
+                    <span class="n">pynn</span><span class="o">.</span><span class="n">AllToAllConnector</span><span class="p">(),</span>
+                    <span class="n">synapse_type</span><span class="o">=</span><span class="n">StaticSynapse</span><span class="p">(</span><span class="n">weight</span><span class="o">=-</span><span class="mi">63</span><span class="p">),</span>
+                    <span class="n">receptor_type</span><span class="o">=</span><span class="s1">&#39;inhibitory&#39;</span><span class="p">)</span>
+
+<span class="c1"># Die inhibitorischen Verbindungen zu den Neuronen der selben Nummer</span>
+<span class="c1"># in der selben Spalte werden erstellt.</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  - Jede Zahl darf nur einmal pro Spalte vorkommen&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">row_post</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">):</span>
+                <span class="n">pynn</span><span class="o">.</span><span class="n">Projection</span><span class="p">(</span>
+                    <span class="n">pops_collector</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="n">column</span><span class="p">][</span><span class="n">number</span><span class="p">],</span>
+                    <span class="n">pops_collector</span><span class="p">[(</span><span class="n">row</span><span class="o">+</span><span class="n">row_post</span><span class="p">)</span><span class="o">%</span><span class="k">4</span>][column][number],
+                    <span class="n">pynn</span><span class="o">.</span><span class="n">AllToAllConnector</span><span class="p">(),</span>
+                    <span class="n">synapse_type</span><span class="o">=</span><span class="n">StaticSynapse</span><span class="p">(</span><span class="n">weight</span><span class="o">=-</span><span class="mi">63</span><span class="p">),</span>
+                    <span class="n">receptor_type</span><span class="o">=</span><span class="s1">&#39;inhibitory&#39;</span><span class="p">)</span>
+
+<span class="c1"># Die inhibitorischen Verbindungen zu den Neuronen der selben Nummer</span>
+<span class="c1"># im selben Block werden erstellt.</span>
+<span class="c1"># Dabei sind tatsächlich nur die diagonalen Verbindungen notwendig,</span>
+<span class="c1"># da die anderen bereits in der selben Reihe oder Spalte sind.</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  - Jede Zahl darf nur einmal pro Block vorkommen&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">row_offset</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]:</span>
+    <span class="k">for</span> <span class="n">column_offset</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]:</span>
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+                    <span class="n">pynn</span><span class="o">.</span><span class="n">Projection</span><span class="p">(</span>
+                        <span class="n">pops_collector</span><span class="p">[</span><span class="n">row</span><span class="o">+</span><span class="n">row_offset</span><span class="p">][</span><span class="n">column</span><span class="o">+</span><span class="n">column_offset</span><span class="p">][</span><span class="n">number</span><span class="p">],</span>
+                        <span class="n">pops_collector</span><span class="p">[</span>
+                            <span class="p">(</span><span class="n">row</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="k">2</span>+row_offset][(column+1)%2+column_offset][number],
+                        <span class="n">pynn</span><span class="o">.</span><span class="n">AllToAllConnector</span><span class="p">(),</span>
+                        <span class="n">synapse_type</span><span class="o">=</span><span class="n">StaticSynapse</span><span class="p">(</span><span class="n">weight</span><span class="o">=-</span><span class="mi">63</span><span class="p">),</span>
+                        <span class="n">receptor_type</span><span class="o">=</span><span class="s1">&#39;inhibitory&#39;</span><span class="p">)</span>
+
+<span class="c1"># Der Stimulus für die vorgegebenen Zahlen wird erstellt und</span>
+<span class="c1"># mit den jeweiligen Neuronen verbunden.</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Die Tipps werden vorbereitet (4/4)&quot;</span><span class="p">)</span>
+<span class="n">stim_given_numbers</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span>
+    <span class="mi">2</span><span class="p">,</span> <span class="n">SpikeSourceArray</span><span class="p">(</span><span class="n">spike_times</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">runtime</span><span class="p">,</span> <span class="mi">500</span><span class="p">)))</span>
+<span class="n">clue_projections</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+    <span class="n">clues_row</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+        <span class="n">clues_field</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+            <span class="n">clues_field</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pynn</span><span class="o">.</span><span class="n">Projection</span><span class="p">(</span>
+                <span class="n">stim_given_numbers</span><span class="p">,</span>
+                <span class="n">pops_collector</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="n">column</span><span class="p">][</span><span class="n">number</span><span class="p">],</span>
+                <span class="n">pynn</span><span class="o">.</span><span class="n">AllToAllConnector</span><span class="p">(),</span>
+                <span class="n">synapse_type</span><span class="o">=</span><span class="n">StaticSynapse</span><span class="p">(</span><span class="n">weight</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+                <span class="n">receptor_type</span><span class="o">=</span><span class="s1">&#39;excitatory&#39;</span><span class="p">))</span>
+        <span class="n">clues_row</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">clues_field</span><span class="p">)</span>
+    <span class="n">clue_projections</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">clues_row</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Das Sudoku ist fertig erstellt!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Funktionen, um das Sudoku zu lösen:</span>
+
+<span class="k">def</span> <span class="nf">set_clues</span><span class="p">(</span><span class="n">clues</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Setzt die gegebenen Tipps in das Netzwerk &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">clues</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">clues</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span><span class="p">,</span> <span class="n">row_clues</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">clue_projections</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">field_clues</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">row_clues</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">number</span><span class="p">,</span> <span class="n">clue_projection</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">field_clues</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">connection</span> <span class="ow">in</span> <span class="n">clue_projection</span><span class="p">:</span>
+                    <span class="n">connection</span><span class="o">.</span><span class="n">weight</span> <span class="o">=</span> <span class="mf">63.</span> <span class="k">if</span> <span class="n">clues</span><span class="p">[</span><span class="n">row</span><span class="p">,</span><span class="n">col</span><span class="p">]</span> <span class="o">==</span> <span class="n">number</span> <span class="k">else</span> <span class="mf">0.</span>
+
+<span class="k">def</span> <span class="nf">hide_solution</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">num_clues</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Versteckt die Lösung und lässt nur `num_clues` Tipps übrig &quot;&quot;&quot;</span>
+    <span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argwhere</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">grid</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">grid</span> <span class="o">&lt;=</span> <span class="mi">4</span><span class="p">))</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">indices</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">num_clues</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Das Sudoku enthält weniger als die </span><span class="si">{</span><span class="n">num_clues</span><span class="si">}</span><span class="s2"> erforderlichen Zahlen :(&quot;</span><span class="p">)</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+    <span class="n">indices</span> <span class="o">=</span> <span class="n">indices</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">indices</span><span class="p">),</span> <span class="n">num_clues</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">)]</span>
+    <span class="n">clues</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
+    <span class="n">clues</span><span class="p">[(</span><span class="n">indices</span><span class="o">.</span><span class="n">T</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">indices</span><span class="o">.</span><span class="n">T</span><span class="p">[</span><span class="mi">1</span><span class="p">])]</span> <span class="o">=</span> <span class="n">grid</span><span class="p">[(</span><span class="n">indices</span><span class="o">.</span><span class="n">T</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">indices</span><span class="o">.</span><span class="n">T</span><span class="p">[</span><span class="mi">1</span><span class="p">])]</span>
+    <span class="k">return</span> <span class="n">clues</span>
+
+<span class="k">def</span> <span class="nf">get_solution</span><span class="p">(</span><span class="n">clues</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Führt das Netzwerk aus und gibt die aktuelle Lösung zurück &quot;&quot;&quot;</span>
+    <span class="n">set_clues</span><span class="p">(</span><span class="n">clues</span><span class="p">)</span>
+    <span class="c1"># Das Netzwerk wird emuliert</span>
+    <span class="n">pynn</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">runtime</span><span class="p">)</span>
+    <span class="c1"># Die Lösung wird ausgelesen</span>
+    <span class="n">spikes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pop</span><span class="o">.</span><span class="n">get_data</span><span class="p">()</span><span class="o">.</span><span class="n">segments</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">spiketrains</span><span class="p">)</span>
+    <span class="n">pynn</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+    <span class="n">spike_counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">spikes</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">train</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">spikes</span><span class="p">):</span>
+        <span class="n">spike_counts</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">train</span><span class="p">)</span>
+    <span class="c1"># Finde die höchste Feuerrate für jede Sudoku Zelle und speichere</span>
+    <span class="c1"># den Index, also die erkannte Zahl</span>
+    <span class="n">grid</span> <span class="o">=</span> <span class="n">spike_counts</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="c1"># Python zählt ab 0, Sudoku ab 1</span>
+    <span class="n">grid</span> <span class="o">=</span> <span class="n">grid</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="c1"># Formatiere das Ergebnis in das 4x4 Sudoku um</span>
+    <span class="n">grid</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">grid</span>
+
+<span class="c1"># Funktionen, um das Sudoku anzuzeigen:</span>
+
+<span class="k">def</span> <span class="nf">canvas_leer</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">canvas</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Erstellt eine leere Zeichenfläche für das Sudoku &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">canvas</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">canvas</span> <span class="o">=</span> <span class="n">Canvas</span><span class="p">(</span>
+            <span class="n">width</span><span class="o">=</span><span class="n">size</span><span class="o">*</span><span class="n">N</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="n">size</span><span class="o">*</span><span class="n">N</span><span class="p">,</span>
+            <span class="n">layout</span><span class="o">=</span><span class="n">w</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">margin</span><span class="o">=</span><span class="s1">&#39;5px&#39;</span><span class="p">))</span>
+        <span class="n">canvas</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+    <span class="n">canvas</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+    <span class="n">canvas</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">border</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;solid </span><span class="si">{</span><span class="n">size</span><span class="o">/</span><span class="mi">15</span><span class="si">}</span><span class="s1">px black&#39;</span>
+    <span class="n">canvas</span><span class="o">.</span><span class="n">font</span> <span class="o">=</span> <span class="s1">&#39;0.7px sans-serif&#39;</span>
+    <span class="n">canvas</span><span class="o">.</span><span class="n">text_align</span> <span class="o">=</span> <span class="s1">&#39;center&#39;</span><span class="p">;</span>
+    <span class="n">canvas</span><span class="o">.</span><span class="n">text_baseline</span> <span class="o">=</span> <span class="s1">&#39;middle&#39;</span>
+    <span class="k">return</span> <span class="n">canvas</span>
+
+<span class="k">def</span> <span class="nf">canvas_sudoku_leer</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">canvas</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Erstellt ein leeres Sudoku. Nur die Zahlen fehlen &quot;&quot;&quot;</span>
+    <span class="n">Ns</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="n">N</span><span class="p">))</span>
+    <span class="n">canvas</span> <span class="o">=</span> <span class="n">canvas_leer</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">canvas</span><span class="o">=</span><span class="n">canvas</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">hold_canvas</span><span class="p">(</span><span class="n">canvas</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">canvas</span><span class="o">.</span><span class="n">line_width</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">15</span> <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="n">Ns</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">1</span><span class="o">/</span><span class="mi">30</span>
+            <span class="n">canvas</span><span class="o">.</span><span class="n">stroke_line</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+            <span class="n">canvas</span><span class="o">.</span><span class="n">stroke_line</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">canvas</span>
+
+<span class="k">def</span> <span class="nf">mark_clues</span><span class="p">(</span><span class="n">canvas</span><span class="p">,</span> <span class="n">grid</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">hold_canvas</span><span class="p">(</span><span class="n">canvas</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">row</span><span class="p">,</span> <span class="n">row_fields</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">grid</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">field</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">row_fields</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">field</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">canvas</span><span class="o">.</span><span class="n">fill_style</span> <span class="o">=</span> <span class="s1">&#39;#00000022&#39;</span>
+                    <span class="n">canvas</span><span class="o">.</span><span class="n">fill_rect</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">check_solution</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Überprüft, ob die Sudoku-Regeln erfüllt werden &quot;&quot;&quot;</span>
+    <span class="n">Ns</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="n">N</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="c1"># j, k index top left hand corner of each 3x3 tile</span>
+        <span class="n">j</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">//</span> <span class="n">Ns</span><span class="p">)</span> <span class="o">*</span> <span class="n">Ns</span><span class="p">,</span> <span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="n">Ns</span><span class="p">)</span> <span class="o">*</span> <span class="n">Ns</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="p">,:]))</span> <span class="o">!=</span> <span class="n">N</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">grid</span><span class="p">[:,</span><span class="n">i</span><span class="p">]))</span> <span class="o">!=</span> <span class="n">N</span>\
+                   <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">grid</span><span class="p">[</span><span class="n">j</span><span class="p">:</span><span class="n">j</span><span class="o">+</span><span class="n">Ns</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span><span class="n">k</span><span class="o">+</span><span class="n">Ns</span><span class="p">]</span><span class="o">.</span><span class="n">ravel</span><span class="p">()))</span> <span class="o">!=</span> <span class="n">N</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">return</span> <span class="kc">True</span>
+
+<span class="k">def</span> <span class="nf">display_solution</span><span class="p">(</span><span class="n">canvas</span><span class="p">,</span> <span class="n">grid</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">hold_canvas</span><span class="p">(</span><span class="n">canvas</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">row</span><span class="p">,</span> <span class="n">row_fields</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">grid</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">field</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">row_fields</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">field</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">canvas</span><span class="o">.</span><span class="n">fill_style</span> <span class="o">=</span> <span class="s1">&#39;#000000dd&#39;</span>
+                    <span class="n">canvas</span><span class="o">.</span><span class="n">fill_text</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">field</span><span class="p">),</span> <span class="n">col</span><span class="o">+</span><span class="mf">.5</span><span class="p">,</span> <span class="n">row</span><span class="o">+</span><span class="mf">.5</span><span class="p">)</span>
+        <span class="n">canvas</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">border</span> <span class="o">=</span> <span class="n">canvas</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">border</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> \
+            <span class="o">+</span> <span class="p">(</span><span class="s1">&#39; green&#39;</span> <span class="k">if</span> <span class="n">check_solution</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span> <span class="k">else</span> <span class="s1">&#39; darkred&#39;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">display_sudoku_solver</span><span class="p">(</span><span class="n">sudoku</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Sudoku und Slider anzeigen &quot;&quot;&quot;</span>
+    <span class="n">canvas</span> <span class="o">=</span> <span class="n">canvas_sudoku_leer</span><span class="p">()</span>
+    <span class="n">num_clues_slider</span> <span class="o">=</span> <span class="n">IntSlider</span><span class="p">(</span>
+        <span class="mi">7</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argwhere</span><span class="p">(</span><span class="n">sudoku</span><span class="p">)),</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Anzahl Tipps&quot;</span><span class="p">)</span>
+    <span class="n">seed_slider</span> <span class="o">=</span> <span class="n">IntSlider</span><span class="p">(</span>
+        <span class="mi">1234</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3000</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Zufalls-Seed&quot;</span><span class="p">)</span>
+    <span class="n">run_button</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;nochmal&#39;</span><span class="p">,</span><span class="n">icon</span><span class="o">=</span><span class="s1">&#39;play&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">solve_sudoku</span><span class="p">(</span><span class="n">num_clues</span><span class="p">,</span> <span class="n">seed</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Versucht das Sudoku zu lösen und zeigt das Ergebnis an &quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="n">hold_canvas</span><span class="p">(</span><span class="n">canvas</span><span class="p">):</span>
+            <span class="n">canvas_sudoku_leer</span><span class="p">(</span><span class="n">canvas</span><span class="o">=</span><span class="n">canvas</span><span class="p">)</span>
+        <span class="n">clues</span> <span class="o">=</span> <span class="n">hide_solution</span><span class="p">(</span><span class="n">sudoku</span><span class="p">,</span> <span class="n">num_clues</span><span class="p">,</span> <span class="n">seed</span><span class="p">)</span>
+        <span class="n">mark_clues</span><span class="p">(</span><span class="n">canvas</span><span class="p">,</span> <span class="n">clues</span><span class="p">)</span>
+        <span class="n">display_solution</span><span class="p">(</span><span class="n">canvas</span><span class="p">,</span> <span class="n">get_solution</span><span class="p">(</span><span class="n">clues</span><span class="p">))</span>
+
+    <span class="n">interactive</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">interactive</span><span class="p">(</span>
+        <span class="n">solve_sudoku</span><span class="p">,</span> <span class="n">num_clues</span><span class="o">=</span><span class="n">num_clues_slider</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">seed_slider</span><span class="p">)</span>
+    <span class="n">run_button</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">interactive</span><span class="o">.</span><span class="n">update</span><span class="p">)</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">HBox</span><span class="p">([</span><span class="n">canvas</span><span class="p">,</span> <span class="n">w</span><span class="o">.</span><span class="n">VBox</span><span class="p">([</span><span class="n">num_clues_slider</span><span class="p">,</span> <span class="n">seed_slider</span><span class="p">,</span> <span class="n">run_button</span><span class="p">])]))</span>
+    <span class="n">interactive</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dieses Sudoku soll gelöst werden</span>
+<span class="n">sudoku</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="p">])</span>
+
+<span class="n">display_sudoku_solver</span><span class="p">(</span><span class="n">sudoku</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="solution reference internal image-reference" href="../_images/girlsday_sudoku_output1.png"><img alt="../_images/girlsday_sudoku_output1.png" class="solution" src="../_images/girlsday_sudoku_output1.png" style="width: 100%;" /></a>
+<p>Wir haben hier eine sehr vielseitige Sudokumaschine gebaut, die einiges
+kann:</p>
+<ul class="simple">
+<li><p>Ihr arbeitet für eine Rätselzeitschrift und braucht ganz viele
+verschiedene Sudokus? Kein Problem! Einfach den Regler für <em>Anzahl
+Tipps</em> auf <strong>0</strong> stellen, dann erfindet das Netzwerk Sudokus für euch.</p></li>
+<li><p>Ihr habt ein schwieriges Sudoku und wollt es nicht selbst
+Lösen? Kein Problem! Ihr könnt das Sudoku oben auch ändern,
+das Netzwerk löst es für euch. Für die Zahlen, die ihr nicht
+wisst, könnt ihr dabei einfach eine <strong>0</strong> schreiben.</p></li>
+</ul>
+<p>Probiert es einfach mal aus!</p>
+</div>
+<div class="section" id="bonus-wie-hangt-der-erfolg-mit-der-anzahl-der-vorgegebenen-zahlen-zusammen">
+<h2>Bonus: Wie hängt der Erfolg mit der Anzahl der vorgegebenen Zahlen zusammen?<a class="headerlink" href="#bonus-wie-hangt-der-erfolg-mit-der-anzahl-der-vorgegebenen-zahlen-zusammen" title="Permalink to this headline"></a></h2>
+<p>Hier soll untersucht werden, wie viele Tipps das Netzwerk
+typischerweise benötigt, um ein vorgegebenes Sudoku zu lösen. Dazu wird
+für eine zunehmende Anzahl an Tipps mehrere Male eine Lösung gesucht.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dieses Sudoku soll gelöst werden.</span>
+<span class="n">sudoku</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="p">])</span>
+
+<span class="c1"># Liste mit Anzahlen der Tipps</span>
+<span class="n">nums_clues</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">10</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># hier: 4 bis 10 Tipps</span>
+<span class="c1"># Anzahl Wiederholungen</span>
+<span class="n">repetitions</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="c1"># Anzeigen des Sudokus</span>
+<span class="n">canvas</span> <span class="o">=</span> <span class="n">canvas_sudoku_leer</span><span class="p">()</span>
+<span class="n">display</span><span class="p">(</span><span class="n">canvas</span><span class="p">)</span>
+<span class="n">display_solution</span><span class="p">(</span><span class="n">canvas</span><span class="p">,</span> <span class="n">sudoku</span><span class="p">)</span>
+
+<span class="c1"># Hier wird jetzt wiederholt gelöst und die Lösung mit</span>
+<span class="c1"># dem Ziel-Sudoku verglichen.</span>
+<span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">num_clues</span> <span class="ow">in</span> <span class="n">nums_clues</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Das Sudoku wird </span><span class="si">{</span><span class="n">repetitions</span><span class="si">}</span><span class="s2"> mal &quot;</span>
+          <span class="sa">f</span><span class="s2">&quot;mit </span><span class="si">{</span><span class="n">num_clues</span><span class="si">}</span><span class="s2"> vorgegebenen Zahlen gelöst&quot;</span><span class="p">)</span>
+    <span class="n">nums_correct</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  Erfolg:&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">repetitions</span><span class="p">):</span>
+        <span class="n">clues</span> <span class="o">=</span> <span class="n">hide_solution</span><span class="p">(</span><span class="n">sudoku</span><span class="p">,</span> <span class="n">num_clues</span><span class="p">)</span>
+        <span class="n">solution</span> <span class="o">=</span> <span class="n">get_solution</span><span class="p">(</span><span class="n">clues</span><span class="p">)</span>
+        <span class="n">nums_correct</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">solution</span><span class="o">==</span><span class="n">sudoku</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">nums_correct</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">16</span><span class="o">*</span><span class="mi">100</span><span class="si">:</span><span class="s2">7.2f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+    <span class="n">results</span> <span class="o">+=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">nums_correct</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">nums_correct</span><span class="p">)]</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">results</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="solution reference internal image-reference" href="../_images/girlsday_sudoku_output2.png"><img alt="../_images/girlsday_sudoku_output2.png" class="solution" src="../_images/girlsday_sudoku_output2.png" style="width: 100%;" /></a>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Die Erfolgsrate wird visualisiert.</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">nums_clues</span><span class="p">,</span> <span class="n">results</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">yerr</span><span class="o">=</span><span class="n">results</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Anzahl der zum Start vorgegebenen Zahlen&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Anzahl der korrekt gelösten Felder&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<a class="solution reference internal image-reference" href="../_images/girlsday_sudoku_output3.png"><img alt="../_images/girlsday_sudoku_output3.png" class="solution" src="../_images/girlsday_sudoku_output3.png" style="width: 100%;" /></a>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="gs_04-1_multiple_neurons_feuerkette.html" class="btn btn-neutral float-left" title="Experimente mit mehreren Nervenzellen Teil 1" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="gs_05_machine_learning.html" class="btn btn-neutral float-right" title="Maschinelles Lernen" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Electronic Vision(s).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
