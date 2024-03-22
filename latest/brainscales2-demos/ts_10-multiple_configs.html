@@ -107,7 +107,7 @@
   <div class="section" id="demonstration-of-multiple-chip-reconfigurations-during-an-experiment">
 <h1>Demonstration of multiple chip-reconfigurations during an experiment<a class="headerlink" href="#demonstration-of-multiple-chip-reconfigurations-during-an-experiment" title="Permalink to this headline"></a></h1>
 <p>This modification of the <a class="reference internal" href="ts_02-plasticity_rate_coding.html"><span class="doc">plasticity experiment</span></a> showcases the
-dynamic reconfiguration of the chip by using the new add() functionality of pynn.brainscales. This
+dynamic reconfiguration of the chip by using the new append functionality of pynn.brainscales. This
 example only changes synaptic weights during the experiment, but any arbitrary changes to the chip
 configuration can be applied this way.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">join</span>
@@ -176,20 +176,19 @@ To ensure, that our recording neurons spike when receiving input spikes, we pass
 <h2>Reconfiguration and Execution<a class="headerlink" href="#reconfiguration-and-execution" title="Permalink to this headline"></a></h2>
 <p>We want to reconfigure our projection every 10ms to represent the weights of the next row of our
 image. In order to do this, we iterate over all rows of our image and set the synapse weights
-accordingly inside the loop followed by the new <code class="docutils literal notranslate"><span class="pre">pynn.add()</span></code> call, which adds a new section with
-the current configuration and a duration of <code class="docutils literal notranslate"><span class="pre">runtime</span></code> to the experiment. In the last loop
-iteration however we don’t want to call <code class="docutils literal notranslate"><span class="pre">pynn.add()</span></code> but <code class="docutils literal notranslate"><span class="pre">pynn.run()</span></code> to trigger the real
-execution on the hardware in addition to schedule our last snippet of the program. In the performed
-hardware run, all our staged configurations are being executed one after another for the given
-runtime each.</p>
+accordingly inside the loop followed by a call of <code class="docutils literal notranslate"><span class="pre">pynn.run()</span></code> with the append command, which
+appends a new snippet with the current configuration and a duration of <code class="docutils literal notranslate"><span class="pre">runtime</span></code> to the
+experiment. After we have scheduled our complete experiment, we call <code class="docutils literal notranslate"><span class="pre">pynn.run()</span></code> with the
+execute command to trigger the execution of the experiment on hardware. In the performed hardware
+run, all our staged configurations are being executed one after another for the given runtime each.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">64</span><span class="p">):</span>
     <span class="n">projection</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">weight</span><span class="o">=</span><span class="n">image</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-    <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">63</span><span class="p">:</span>
-        <span class="c1"># add() will let this configuration run for a duration of &quot;runtime&quot; when executing</span>
-        <span class="n">pynn</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">runtime</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="c1"># run() calls add() a last time and performs hardware run</span>
-        <span class="n">pynn</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">runtime</span><span class="p">)</span>
+    <span class="c1"># Append a snippet of duration &#39;runtime&#39; with the currently described network configuration</span>
+    <span class="c1"># to the experiment</span>
+    <span class="n">pynn</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">runtime</span><span class="p">,</span> <span class="n">pynn</span><span class="o">.</span><span class="n">RunCommand</span><span class="o">.</span><span class="n">APPEND</span><span class="p">)</span>
+
+<span class="c1"># Trigger the execution of a hardware run without scheduling another snippet</span>
+<span class="n">pynn</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">pynn</span><span class="o">.</span><span class="n">RunCommand</span><span class="o">.</span><span class="n">EXECUTE</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

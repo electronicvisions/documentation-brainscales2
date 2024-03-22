@@ -2103,6 +2103,42 @@
 </dd></dl>
 
 <dl class="py class">
+<dt>
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1_run_command"></span><code class="sig-name descname"><span class="pre">pynn_brainscales.brainscales2.RunCommand</span> <span class="pre">:</span> <span class="pre">public</span> <span class="pre">Enum</span></code></dt>
+<dd><p>Command specifying the type of run to be performed in pynn.run() </p>
+<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">param</span> <span class="n">prepare</span><span class="p">:</span> <span class="n">Command</span> <span class="n">that</span> <span class="n">only</span> <span class="n">induces</span> <span class="nb">all</span> <span class="n">preparatory</span> <span class="n">steps</span> <span class="k">for</span> <span class="n">the</span>
+                    <span class="n">hardware</span> <span class="n">backend</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span> <span class="n">place</span><span class="o">&amp;</span><span class="n">route</span> <span class="n">of</span> <span class="n">network</span> <span class="n">graph</span> <span class="ow">or</span>
+                    <span class="n">execution</span> <span class="n">of</span> <span class="n">calibration</span><span class="o">.</span>
+<span class="p">:</span><span class="n">param</span> <span class="n">append</span><span class="p">:</span> <span class="n">Command</span> <span class="n">that</span> <span class="n">induces</span> <span class="n">the</span> <span class="n">scheduling</span> <span class="n">of</span> <span class="n">an</span> <span class="n">experiment</span> <span class="n">snippet</span>
+                    <span class="k">for</span> <span class="n">the</span> <span class="n">system</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">currently</span> <span class="n">defined</span> <span class="n">state</span> <span class="k">for</span> <span class="n">a</span>
+                    <span class="n">certain</span> <span class="n">runtime</span><span class="o">.</span>
+<span class="p">:</span><span class="n">param</span> <span class="n">execute</span><span class="p">:</span> <span class="n">Command</span> <span class="n">that</span> <span class="n">induces</span> <span class="n">a</span> <span class="n">hardware</span> <span class="n">run</span><span class="o">.</span> <span class="n">Executes</span> <span class="n">the</span> <span class="n">already</span>
+                    <span class="n">scheduled</span> <span class="n">experiment</span> <span class="ow">and</span> <span class="n">optionally</span> <span class="n">append</span> <span class="n">one</span> <span class="n">last</span>
+                    <span class="n">experiment</span> <span class="n">snippet</span><span class="o">.</span>
+</pre></div>
+</div>
+ </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-static-attributes">Public Static Attributes</p>
+<dl class="py attribute">
+<dt id="APPEND">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1_run_command_1ae3cd1cf3b15a05bfa93e48d367dcdd6c"></span><code class="sig-name descname"><span class="pre">APPEND</span></code><em class="property"> <span class="pre">=</span> <span class="pre">auto()</span></em><a class="headerlink" href="#APPEND" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="EXECUTE">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1_run_command_1a1ba0a55b8652ea18d799ff076e91e127"></span><code class="sig-name descname"><span class="pre">EXECUTE</span></code><em class="property"> <span class="pre">=</span> <span class="pre">auto()</span></em><a class="headerlink" href="#EXECUTE" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="PREPARE">
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1_run_command_1a6539942b57e656cc8f5e1e6157526bfd"></span><code class="sig-name descname"><span class="pre">PREPARE</span></code><em class="property"> <span class="pre">=</span> <span class="pre">auto()</span></em><a class="headerlink" href="#PREPARE" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="py class">
 <dt id="pynn_brainscales.brainscales2.simulator.BackgroundSpikeSourcePlacement">
 <span class="target" id="classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_background_spike_source_placement"></span><em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">pynn_brainscales.brainscales2.simulator.</span></code><code class="sig-name descname"><span class="pre">BackgroundSpikeSourcePlacement</span></code><a class="headerlink" href="#pynn_brainscales.brainscales2.simulator.BackgroundSpikeSourcePlacement" title="Permalink to this definition"></a></dt>
 <dd><p>Tracks assignment of pyNN IDs of SpikeSourcePoissonOnChip based populations to the corresponding hardware entity, i.e. </p>
@@ -2347,9 +2383,8 @@
 
 <dl class="py function">
 <dt id="run">
-<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_state_1a1dadaa4b4fb9b4e5bd863fa6879109a8"></span><code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">Optional[float]</span> <span class="pre">runtime</span></em><span class="sig-paren">)</span><a class="headerlink" href="#run" title="Permalink to this definition"></a></dt>
-<dd><p>Performs a hardware run for <code class="docutils literal notranslate"><span class="pre">runtime</span></code> milliseconds. </p>
-<p>If runtime is <code class="docutils literal notranslate"><span class="pre">None</span></code>, we only perform preparatory steps. </p>
+<span class="target" id="classpynn__brainscales_1_1brainscales2_1_1simulator_1_1_state_1ad61d02014d0e00b7df4830fa92f1c573"></span><code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#run" title="Permalink to this definition"></a></dt>
+<dd><p>Performs a hardware run of the currently scheduled experiment. </p>
 </dd></dl>
 
 <dl class="py function">
@@ -3591,11 +3626,6 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
 <dl class="py function">
-<dt id="pynn_brainscales.brainscales2.add">
-<span class="target" id="namespacepynn__brainscales_1_1brainscales2_1a55a1b32b8f7889daf9c819cc204a79ac"></span><code class="sig-name descname"><span class="pre">add</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.add" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
 <dt id="pynn_brainscales.brainscales2.end">
 <span class="target" id="namespacepynn__brainscales_1_1brainscales2_1a42be7f0c6e8bd77b88bfc67d281482c4"></span><code class="sig-name descname"><span class="pre">end</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.end" title="Permalink to this definition"></a></dt>
 <dd><p>Do any necessary cleaning up before exiting. </p>
@@ -3645,14 +3675,18 @@
 <dl class="py function">
 <dt id="pynn_brainscales.brainscales2.preprocess">
 <span class="target" id="namespacepynn__brainscales_1_1brainscales2_1ad024604720a0198dcc8ef49b55df298d"></span><code class="sig-name descname"><span class="pre">preprocess</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.preprocess" title="Permalink to this definition"></a></dt>
-<dd><p>Execute all steps needed for the hardware back-end. </p>
-<p>Includes place&amp;route of network graph or execution calibration. Can be called manually to obtain calibration results for e.g. CalibHXNeuron and make adjustments if needed. If not called manually is automatically called on run(). </p>
+<dd><p>Does the same as pyNN.run(pyNN.RunCommand.PREPARE). </p>
+<p>Exists only due to backwards-compatibility reasons. </p>
 </dd></dl>
 
 <dl class="py function">
 <dt id="pynn_brainscales.brainscales2.run">
-<span class="target" id="namespacepynn__brainscales_1_1brainscales2_1a0066997421fde607b22f2115c31b1124"></span><code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.run" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<span class="target" id="namespacepynn__brainscales_1_1brainscales2_1abb173006e002dd4dfd7d79dd07dafd40"></span><code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">Optional[float]</span> <span class="pre">runtime</span></em>, <em class="sig-param"><span class="pre">RunCommand</span> <span class="pre">command=RunCommand.EXECUTE</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.run" title="Permalink to this definition"></a></dt>
+<dd><p>Take different actions according to the value passed for command: </p>
+<p>For command=pyNN.RunCommand.PREPARE: Execute all steps needed for the hardware back-end. Includes place&amp;route of network graph or execution of calibration. Can be called manually to obtain calibration results for e.g. CalibHXNeuron and make adjustments if needed. If not called manually is automatically called on command=pyNN.RunCommand.APPEND.</p>
+<p>For command=pyNN.RunCommand.APPEND: Make a snapshot of the current network configuration and cache it together with the according runtime, for which the system shall evolve in this configuration. Append snippet (=certain network description valid for certain duration) to currently scheduled experiment.</p>
+<p>For command=pyNN.RunCommand.EXECUTE: Execute the experiment that was already scheduled by using command=pyNN.RunCommand.APPEND. Can also append a last snippet to the experiment right before executing the experiment, if a value is passed for runtime. </p>
+</dd></dl>
 
 <dl class="py function">
 <dt id="pynn_brainscales.brainscales2.setup">
@@ -3671,7 +3705,7 @@
 
 <dl class="py attribute">
 <dt id="pynn_brainscales.brainscales2.__all__">
-<span class="target" id="namespacepynn__brainscales_1_1brainscales2_1a4651cd80d0f8c8079006441d0771e030"></span><code class="sig-name descname"><span class="pre">__all__</span></code><em class="property"> <span class="pre">=</span> <span class="pre">[&quot;list_standard_models&quot;,</span> <span class="pre">&quot;setup&quot;,</span> <span class="pre">&quot;end&quot;,</span> <span class="pre">&quot;run&quot;,</span> <span class="pre">&quot;add&quot;,</span> <span class="pre">&quot;run_until&quot;,&quot;run_for&quot;,</span> <span class="pre">&quot;reset&quot;,</span> <span class="pre">&quot;initialize&quot;,</span> <span class="pre">&quot;get_current_time&quot;,</span> <span class="pre">&quot;create&quot;,&quot;connect&quot;,</span> <span class="pre">&quot;set&quot;,</span> <span class="pre">&quot;record&quot;,</span> <span class="pre">&quot;logger&quot;,</span> <span class="pre">&quot;preprocess&quot;]</span></em><a class="headerlink" href="#pynn_brainscales.brainscales2.__all__" title="Permalink to this definition"></a></dt>
+<span class="target" id="namespacepynn__brainscales_1_1brainscales2_1a4651cd80d0f8c8079006441d0771e030"></span><code class="sig-name descname"><span class="pre">__all__</span></code><em class="property"> <span class="pre">=</span> <span class="pre">[&quot;list_standard_models&quot;,</span> <span class="pre">&quot;setup&quot;,</span> <span class="pre">&quot;end&quot;,</span> <span class="pre">&quot;run&quot;,</span> <span class="pre">&quot;run_until&quot;,&quot;run_for&quot;,</span> <span class="pre">&quot;reset&quot;,</span> <span class="pre">&quot;initialize&quot;,</span> <span class="pre">&quot;get_current_time&quot;,</span> <span class="pre">&quot;create&quot;,&quot;connect&quot;,</span> <span class="pre">&quot;set&quot;,</span> <span class="pre">&quot;record&quot;,</span> <span class="pre">&quot;logger&quot;,</span> <span class="pre">&quot;preprocess&quot;]</span></em><a class="headerlink" href="#pynn_brainscales.brainscales2.__all__" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -4484,37 +4518,37 @@
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_5643325f60bd592eca7816d91ce4831a"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE0MDc.x/pynn-brainscales/brainscales2</span></code></dt>
+<span class="target" id="dir_5643325f60bd592eca7816d91ce4831a"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE0MTM.x/pynn-brainscales/brainscales2</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_30590f78572d0bff4c96c6642e878133"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE0MDc.x/pynn-brainscales/brainscales2/pynn_brainscales/brainscales2</span></code></dt>
+<span class="target" id="dir_30590f78572d0bff4c96c6642e878133"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE0MTM.x/pynn-brainscales/brainscales2/pynn_brainscales/brainscales2</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_71abf4e0cb61d33ca644053d80824813"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE0MDc.x/pynn-brainscales/brainscales2/pynn_brainscales/brainscales2/examples</span></code></dt>
+<span class="target" id="dir_71abf4e0cb61d33ca644053d80824813"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE0MTM.x/pynn-brainscales/brainscales2/pynn_brainscales/brainscales2/examples</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_a72118a09e00b2e2db6f97ab1c7474b7"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE0MDc.x/pynn-brainscales/brainscales2/pynn_brainscales/brainscales2/morphology</span></code></dt>
+<span class="target" id="dir_a72118a09e00b2e2db6f97ab1c7474b7"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE0MTM.x/pynn-brainscales/brainscales2/pynn_brainscales/brainscales2/morphology</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_1efc13ce3fde1fd62a85b15c42b78a1d"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE0MDc.x/pynn-brainscales</span></code></dt>
+<span class="target" id="dir_1efc13ce3fde1fd62a85b15c42b78a1d"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE0MTM.x/pynn-brainscales</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_21dfa1d1ae032dbb0977000ba6401a40"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE0MDc.x/pynn-brainscales/brainscales2/pynn_brainscales</span></code></dt>
+<span class="target" id="dir_21dfa1d1ae032dbb0977000ba6401a40"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE0MTM.x/pynn-brainscales/brainscales2/pynn_brainscales</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_6861f8e6ea567950e911c16bf07d7443"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE0MDc.x/pynn-brainscales/brainscales2/pynn_brainscales/brainscales2/standardmodels</span></code></dt>
+<span class="target" id="dir_6861f8e6ea567950e911c16bf07d7443"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE0MTM.x/pynn-brainscales/brainscales2/pynn_brainscales/brainscales2/standardmodels</span></code></dt>
 <dd></dd></dl>
 
 </div>
