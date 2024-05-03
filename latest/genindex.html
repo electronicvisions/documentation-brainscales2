@@ -362,6 +362,13 @@
       <li><a href="api_hxtorch.html#func_name">_func_name</a>
 </li>
       <li>
+    _generate_hooks()
+
+      <ul>
+        <li><a href="api_hxtorch.html#generate_hooks">built-in function</a>, <a href="api_pynn-brainscales2.html#generate_hooks">[1]</a>
+</li>
+      </ul></li>
+      <li>
     _generate_hw_entity_setters()
 
       <ul>
@@ -387,13 +394,6 @@
 
       <ul>
         <li><a href="api_hxtorch.html#generate_network_graphs">built-in function</a>
-</li>
-      </ul></li>
-      <li>
-    _generate_playback_hooks()
-
-      <ul>
-        <li><a href="api_hxtorch.html#generate_playback_hooks">built-in function</a>, <a href="api_pynn-brainscales2.html#generate_playback_hooks">[1]</a>
 </li>
       </ul></li>
       <li>
@@ -1170,6 +1170,8 @@
 </li>
         <li><a href="api_calix.html#id163">_expected_sign()</a>
 </li>
+        <li><a href="api_hxtorch.html#generate_hooks">_generate_hooks()</a>, <a href="api_pynn-brainscales2.html#generate_hooks">[1]</a>
+</li>
         <li><a href="api_pynn-brainscales2.html#generate_hw_entity_setters">_generate_hw_entity_setters()</a>
 </li>
         <li><a href="api_hxtorch.html#generate_inputs">_generate_inputs()</a>, <a href="api_pynn-brainscales2.html#generate_inputs">[1]</a>
@@ -1177,8 +1179,6 @@
         <li><a href="api_pynn-brainscales2.html#generate_network_graph">_generate_network_graph()</a>
 </li>
         <li><a href="api_hxtorch.html#generate_network_graphs">_generate_network_graphs()</a>
-</li>
-        <li><a href="api_hxtorch.html#generate_playback_hooks">_generate_playback_hooks()</a>, <a href="api_pynn-brainscales2.html#generate_playback_hooks">[1]</a>
 </li>
         <li><a href="api_pynn-brainscales2.html#get_all_signals">_get_all_signals()</a>
 </li>
@@ -6423,8 +6423,6 @@
 </li>
       <li><a href="api_grenade.html#_CPPv4N7grenade2vx9execution7backend10Connection6m_initE">grenade::vx::execution::backend::Connection::m_init (C++ member)</a>
 </li>
-      <li><a href="api_grenade.html#_CPPv4N7grenade2vx9execution7backend10Connection4nameE">grenade::vx::execution::backend::Connection::name (C++ member)</a>
-</li>
       <li><a href="api_grenade.html#_CPPv4N7grenade2vx9execution7backend10Connection7releaseEv">grenade::vx::execution::backend::Connection::release (C++ function)</a>
 </li>
       <li><a href="api_grenade.html#_CPPv4N7grenade2vx9execution7backend10Connection3runER10ConnectionRN6stadls2vx2v315PlaybackProgramE">grenade::vx::execution::backend::Connection::run (C++ function)</a>, <a href="api_grenade.html#_CPPv4N7grenade2vx9execution7backend10Connection3runER10ConnectionRRN6stadls2vx2v315PlaybackProgramE">[1]</a>
@@ -6489,7 +6487,7 @@
 </li>
       <li><a href="api_grenade.html#_CPPv4N7grenade2vx9execution6detail24ExecutionInstanceBuilder20enable_cadc_baselineE">grenade::vx::execution::detail::ExecutionInstanceBuilder::enable_cadc_baseline (C++ member)</a>
 </li>
-      <li><a href="api_grenade.html#_CPPv4N7grenade2vx9execution6detail24ExecutionInstanceBuilder24ExecutionInstanceBuilderERKN11signal_flow5GraphERKN6common19ExecutionInstanceIDERKN11signal_flow9IODataMapERKN11signal_flow9IODataMapERKNSt8optionalIN4lola2vx2v310PPUElfFile12symbols_typeEEERN11signal_flow30ExecutionInstancePlaybackHooksE">grenade::vx::execution::detail::ExecutionInstanceBuilder::ExecutionInstanceBuilder (C++ function)</a>
+      <li><a href="api_grenade.html#_CPPv4N7grenade2vx9execution6detail24ExecutionInstanceBuilder24ExecutionInstanceBuilderERKN11signal_flow5GraphERKN6common19ExecutionInstanceIDERKN11signal_flow9InputDataERKN11signal_flow4DataERKNSt8optionalIN4lola2vx2v310PPUElfFile12symbols_typeEEERN11signal_flow22ExecutionInstanceHooksE">grenade::vx::execution::detail::ExecutionInstanceBuilder::ExecutionInstanceBuilder (C++ function)</a>
 </li>
       <li><a href="api_grenade.html#_CPPv4I0ENK7grenade2vx9execution6detail24ExecutionInstanceBuilder13filter_eventsEvRNSt6vectorINSt6vectorI1TEEEERRNSt6vectorI1TEE">grenade::vx::execution::detail::ExecutionInstanceBuilder::filter_events (C++ function)</a>
 </li>
@@ -6517,6 +6515,8 @@
 </li>
       <li><a href="api_grenade.html#_CPPv4N7grenade2vx9execution6detail24ExecutionInstanceBuilder21m_has_plasticity_ruleE">grenade::vx::execution::detail::ExecutionInstanceBuilder::m_has_plasticity_rule (C++ member)</a>
 </li>
+      <li><a href="api_grenade.html#_CPPv4N7grenade2vx9execution6detail24ExecutionInstanceBuilder7m_hooksE">grenade::vx::execution::detail::ExecutionInstanceBuilder::m_hooks (C++ member)</a>
+</li>
       <li><a href="api_grenade.html#_CPPv4N7grenade2vx9execution6detail24ExecutionInstanceBuilder12m_input_listE">grenade::vx::execution::detail::ExecutionInstanceBuilder::m_input_list (C++ member)</a>
 </li>
       <li><a href="api_grenade.html#_CPPv4N7grenade2vx9execution6detail24ExecutionInstanceBuilder12m_local_dataE">grenade::vx::execution::detail::ExecutionInstanceBuilder::m_local_data (C++ member)</a>
@@ -6526,8 +6526,6 @@
       <li><a href="api_grenade.html#_CPPv4N7grenade2vx9execution6detail24ExecutionInstanceBuilder21m_madc_readout_vertexE">grenade::vx::execution::detail::ExecutionInstanceBuilder::m_madc_readout_vertex (C++ member)</a>
 </li>
       <li><a href="api_grenade.html#_CPPv4N7grenade2vx9execution6detail24ExecutionInstanceBuilder15m_neuron_resetsE">grenade::vx::execution::detail::ExecutionInstanceBuilder::m_neuron_resets (C++ member)</a>
-</li>
-      <li><a href="api_grenade.html#_CPPv4N7grenade2vx9execution6detail24ExecutionInstanceBuilder16m_playback_hooksE">grenade::vx::execution::detail::ExecutionInstanceBuilder::m_playback_hooks (C++ member)</a>
 </li>
       <li><a href="api_grenade.html#_CPPv4N7grenade2vx9execution6detail24ExecutionInstanceBuilder15m_post_verticesE">grenade::vx::execution::detail::ExecutionInstanceBuilder::m_post_vertices (C++ member)</a>
 </li>
@@ -6611,17 +6609,17 @@
 </li>
       <li><a href="api_grenade.html#_CPPv4N7grenade2vx9execution6detail21ExecutionInstanceNode18execution_instanceE">grenade::vx::execution::detail::ExecutionInstanceNode::execution_instance (C++ member)</a>
 </li>
-      <li><a href="api_grenade.html#_CPPv4N7grenade2vx9execution6detail21ExecutionInstanceNode21ExecutionInstanceNodeERNSt6vectorIN11signal_flow9IODataMapEEERKNSt6vectorINSt17reference_wrapperIKN11signal_flow9IODataMapEEEEERKNSt6vectorINSt17reference_wrapperIKN11signal_flow5GraphEEEEERKN6common19ExecutionInstanceIDERKN5halco10hicann_dls2vx2v39DLSGlobalERKNSt6vectorINSt17reference_wrapperIKN4lola2vx2v34ChipEEEEERN7backend10ConnectionER22ConnectionStateStorageRN11signal_flow30ExecutionInstancePlaybackHooksE">grenade::vx::execution::detail::ExecutionInstanceNode::ExecutionInstanceNode (C++ function)</a>
+      <li><a href="api_grenade.html#_CPPv4N7grenade2vx9execution6detail21ExecutionInstanceNode21ExecutionInstanceNodeERNSt6vectorIN11signal_flow10OutputDataEEERKNSt6vectorINSt17reference_wrapperIKN11signal_flow9InputDataEEEEERKNSt6vectorINSt17reference_wrapperIKN11signal_flow5GraphEEEEERKN6common19ExecutionInstanceIDERKN5halco10hicann_dls2vx2v39DLSGlobalERKNSt6vectorINSt17reference_wrapperIKN4lola2vx2v34ChipEEEEERN7backend10ConnectionER22ConnectionStateStorageRN11signal_flow22ExecutionInstanceHooksE">grenade::vx::execution::detail::ExecutionInstanceNode::ExecutionInstanceNode (C++ function)</a>
 </li>
       <li><a href="api_grenade.html#_CPPv4N7grenade2vx9execution6detail21ExecutionInstanceNode6graphsE">grenade::vx::execution::detail::ExecutionInstanceNode::graphs (C++ member)</a>
+</li>
+      <li><a href="api_grenade.html#_CPPv4N7grenade2vx9execution6detail21ExecutionInstanceNode5hooksE">grenade::vx::execution::detail::ExecutionInstanceNode::hooks (C++ member)</a>
 </li>
       <li><a href="api_grenade.html#_CPPv4N7grenade2vx9execution6detail21ExecutionInstanceNode15input_data_mapsE">grenade::vx::execution::detail::ExecutionInstanceNode::input_data_maps (C++ member)</a>
 </li>
       <li><a href="api_grenade.html#_CPPv4N7grenade2vx9execution6detail21ExecutionInstanceNode6loggerE">grenade::vx::execution::detail::ExecutionInstanceNode::logger (C++ member)</a>
 </li>
       <li><a href="api_grenade.html#_CPPv4N7grenade2vx9execution6detail21ExecutionInstanceNodeclEN3tbb4flow12continue_msgE">grenade::vx::execution::detail::ExecutionInstanceNode::operator() (C++ function)</a>
-</li>
-      <li><a href="api_grenade.html#_CPPv4N7grenade2vx9execution6detail21ExecutionInstanceNode14playback_hooksE">grenade::vx::execution::detail::ExecutionInstanceNode::playback_hooks (C++ member)</a>
 </li>
       <li><a href="api_grenade.html#_CPPv4N7grenade2vx9execution6detail21ExecutionInstanceNode16PlaybackProgramsE">grenade::vx::execution::detail::ExecutionInstanceNode::PlaybackPrograms (C++ struct)</a>
 </li>
@@ -6739,6 +6737,8 @@
 </li>
       <li><a href="api_grenade.html#_CPPv4NK7grenade2vx9execution16JITGraphExecutor21get_unique_identifierERKNSt8optionalINSt6stringEEE">grenade::vx::execution::JITGraphExecutor::get_unique_identifier (C++ function)</a>
 </li>
+      <li><a href="api_grenade.html#_CPPv4N7grenade2vx9execution16JITGraphExecutor5HooksE">grenade::vx::execution::JITGraphExecutor::Hooks (C++ type)</a>
+</li>
       <li><a href="api_grenade.html#_CPPv4N7grenade2vx9execution16JITGraphExecutor20init_parameters_typeE">grenade::vx::execution::JITGraphExecutor::init_parameters_type (C++ type)</a>
 </li>
       <li><a href="api_grenade.html#_CPPv4N7grenade2vx9execution16JITGraphExecutor16is_executable_onERKN11signal_flow5GraphE">grenade::vx::execution::JITGraphExecutor::is_executable_on (C++ function)</a>
@@ -6753,13 +6753,11 @@
 </li>
       <li><a href="api_grenade.html#_CPPv4N7grenade2vx9execution16JITGraphExecutor4nameE">grenade::vx::execution::JITGraphExecutor::name (C++ member)</a>
 </li>
-      <li><a href="api_grenade.html#_CPPv4N7grenade2vx9execution16JITGraphExecutor13PlaybackHooksE">grenade::vx::execution::JITGraphExecutor::PlaybackHooks (C++ type)</a>
-</li>
       <li><a href="api_grenade.html#_CPPv4N7grenade2vx9execution16JITGraphExecutor19release_connectionsEv">grenade::vx::execution::JITGraphExecutor::release_connections (C++ function)</a>
 </li>
-      <li><a href="api_grenade.html#_CPPv4N7grenade2vx9execution16JITGraphExecutor3runER16JITGraphExecutorRKNSt6vectorINSt17reference_wrapperIKN11signal_flow5GraphEEEEERKNSt6vectorINSt17reference_wrapperIKN11signal_flow9IODataMapEEEEERKNSt6vectorINSt17reference_wrapperIK11ChipConfigsEEEER13PlaybackHooks">grenade::vx::execution::JITGraphExecutor::run (C++ function)</a>
+      <li><a href="api_grenade.html#_CPPv4N7grenade2vx9execution16JITGraphExecutor3runER16JITGraphExecutorRKNSt6vectorINSt17reference_wrapperIKN11signal_flow5GraphEEEEERKNSt6vectorINSt17reference_wrapperIK11ChipConfigsEEEERKNSt6vectorINSt17reference_wrapperIKN11signal_flow9InputDataEEEEERR5Hooks">grenade::vx::execution::JITGraphExecutor::run (C++ function)</a>
 </li>
-      <li><a href="api_grenade.html#_CPPv4N7grenade2vx9execution3runER16JITGraphExecutorRKN11signal_flow5GraphERKN11signal_flow10IODataListERKN16JITGraphExecutor11ChipConfigsERN16JITGraphExecutor13PlaybackHooksEb">grenade::vx::execution::run (C++ function)</a>, <a href="api_grenade.html#_CPPv4N7grenade2vx9execution3runER16JITGraphExecutorRKN11signal_flow5GraphERKN11signal_flow10IODataListERKN16JITGraphExecutor11ChipConfigsEb">[1]</a>, <a href="api_grenade.html#_CPPv4N7grenade2vx9execution3runER16JITGraphExecutorRKN11signal_flow5GraphERKN11signal_flow9IODataMapERKN16JITGraphExecutor11ChipConfigsE">[2]</a>, <a href="api_grenade.html#_CPPv4N7grenade2vx9execution3runER16JITGraphExecutorRKN11signal_flow5GraphERKN11signal_flow9IODataMapERKN16JITGraphExecutor11ChipConfigsERN16JITGraphExecutor13PlaybackHooksE">[3]</a>, <a href="api_grenade.html#_CPPv4N7grenade2vx9execution3runER16JITGraphExecutorRKNSt6vectorINSt17reference_wrapperIKN11signal_flow5GraphEEEEERKNSt6vectorINSt17reference_wrapperIKN11signal_flow10IODataListEEEEERKNSt6vectorINSt17reference_wrapperIKN16JITGraphExecutor11ChipConfigsEEEEERN16JITGraphExecutor13PlaybackHooksEb">[4]</a>, <a href="api_grenade.html#_CPPv4N7grenade2vx9execution3runER16JITGraphExecutorRKNSt6vectorINSt17reference_wrapperIKN11signal_flow5GraphEEEEERKNSt6vectorINSt17reference_wrapperIKN11signal_flow10IODataListEEEEERKNSt6vectorINSt17reference_wrapperIKN16JITGraphExecutor11ChipConfigsEEEEEb">[5]</a>, <a href="api_grenade.html#_CPPv4N7grenade2vx9execution3runER16JITGraphExecutorRKNSt6vectorINSt17reference_wrapperIKN11signal_flow5GraphEEEEERKNSt6vectorINSt17reference_wrapperIKN11signal_flow9IODataMapEEEEERKNSt6vectorINSt17reference_wrapperIKN16JITGraphExecutor11ChipConfigsEEEEE">[6]</a>, <a href="api_grenade.html#_CPPv4N7grenade2vx9execution3runER16JITGraphExecutorRKNSt6vectorINSt17reference_wrapperIKN11signal_flow5GraphEEEEERKNSt6vectorINSt17reference_wrapperIKN11signal_flow9IODataMapEEEEERKNSt6vectorINSt17reference_wrapperIKN16JITGraphExecutor11ChipConfigsEEEEERN16JITGraphExecutor13PlaybackHooksE">[7]</a>
+      <li><a href="api_grenade.html#_CPPv4N7grenade2vx9execution3runER16JITGraphExecutorRKN11signal_flow5GraphERKN16JITGraphExecutor11ChipConfigsERKN11signal_flow9InputDataERRN16JITGraphExecutor5HooksE">grenade::vx::execution::run (C++ function)</a>, <a href="api_grenade.html#_CPPv4N7grenade2vx9execution3runER16JITGraphExecutorRKNSt6vectorINSt17reference_wrapperIKN11signal_flow5GraphEEEEERKNSt6vectorINSt17reference_wrapperIKN16JITGraphExecutor11ChipConfigsEEEEERKNSt6vectorINSt17reference_wrapperIKN11signal_flow9InputDataEEEEERRN16JITGraphExecutor5HooksE">[1]</a>
 </li>
       <li><a href="api_grenade.html#_CPPv4N7grenade2vx20from_vector_unit_rowERKN6haldls2vx2v314PPUMemoryBlockE">grenade::vx::from_vector_unit_row (C++ function)</a>
 </li>
@@ -6975,13 +6973,13 @@
 </li>
       <li><a href="api_grenade.html#_CPPv4N7grenade2vx7network24ExternalSourcePopulation4sizeE">grenade::vx::network::ExternalSourcePopulation::size (C++ member)</a>
 </li>
-      <li><a href="api_grenade.html#_CPPv4N7grenade2vx7network20extract_cadc_samplesERKN11signal_flow9IODataMapERK12NetworkGraph">grenade::vx::network::extract_cadc_samples (C++ function)</a>
+      <li><a href="api_grenade.html#_CPPv4N7grenade2vx7network20extract_cadc_samplesERKN11signal_flow10OutputDataERK12NetworkGraph">grenade::vx::network::extract_cadc_samples (C++ function)</a>
 </li>
-      <li><a href="api_grenade.html#_CPPv4N7grenade2vx7network20extract_madc_samplesERKN11signal_flow9IODataMapERK12NetworkGraph">grenade::vx::network::extract_madc_samples (C++ function)</a>
+      <li><a href="api_grenade.html#_CPPv4N7grenade2vx7network20extract_madc_samplesERKN11signal_flow10OutputDataERK12NetworkGraph">grenade::vx::network::extract_madc_samples (C++ function)</a>
 </li>
-      <li><a href="api_grenade.html#_CPPv4N7grenade2vx7network21extract_neuron_spikesERKN11signal_flow9IODataMapERK12NetworkGraph">grenade::vx::network::extract_neuron_spikes (C++ function)</a>
+      <li><a href="api_grenade.html#_CPPv4N7grenade2vx7network21extract_neuron_spikesERKN11signal_flow10OutputDataERK12NetworkGraph">grenade::vx::network::extract_neuron_spikes (C++ function)</a>
 </li>
-      <li><a href="api_grenade.html#_CPPv4N7grenade2vx7network38extract_plasticity_rule_recording_dataERKN11signal_flow9IODataMapERK12NetworkGraph23PlasticityRuleOnNetwork">grenade::vx::network::extract_plasticity_rule_recording_data (C++ function)</a>
+      <li><a href="api_grenade.html#_CPPv4N7grenade2vx7network38extract_plasticity_rule_recording_dataERKN11signal_flow10OutputDataERK12NetworkGraph23PlasticityRuleOnNetwork">grenade::vx::network::extract_plasticity_rule_recording_data (C++ function)</a>
 </li>
       <li><a href="api_grenade.html#_CPPv4N7grenade2vx7network18extract_statisticsERK12NetworkGraph">grenade::vx::network::extract_statistics (C++ function)</a>
 </li>
@@ -7653,8 +7651,6 @@
 </li>
       <li><a href="api_grenade.html#_CPPv4N7grenade2vx7network8ReceptorE">grenade::vx::network::Receptor (C++ struct)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api_grenade.html#_CPPv4NK7grenade2vx7network8Receptor4hashEv">grenade::vx::network::Receptor::hash (C++ function)</a>
 </li>
       <li><a href="api_grenade.html#_CPPv4N7grenade2vx7network8Receptor10hash_valueERK8Receptor">grenade::vx::network::Receptor::hash_value (C++ function)</a>
@@ -7669,6 +7665,8 @@
 </li>
       <li><a href="api_grenade.html#_CPPv4N7grenade2vx7network8ReceptorlsERNSt7ostreamERK8Receptor">grenade::vx::network::Receptor::operator&lt;&lt; (C++ function)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api_grenade.html#_CPPv4NK7grenade2vx7network8ReceptoreqERK8Receptor">grenade::vx::network::Receptor::operator== (C++ function)</a>
 </li>
       <li><a href="api_grenade.html#_CPPv4N7grenade2vx7network8Receptor8ReceptorE2ID4Type">grenade::vx::network::Receptor::Receptor (C++ function)</a>, <a href="api_grenade.html#_CPPv4N7grenade2vx7network8Receptor8ReceptorEv">[1]</a>
@@ -8223,7 +8221,7 @@
 </li>
       <li><a href="api_grenade.html#_CPPv4N7grenade2vx7network13RoutingResult16TimingStatistics7routingE">grenade::vx::network::RoutingResult::TimingStatistics::routing (C++ member)</a>
 </li>
-      <li><a href="api_grenade.html#_CPPv4N7grenade2vx7network3runERN6hxcomm2vx17ConnectionVariantERKN9execution16JITGraphExecutor11ChipConfigsERK12NetworkGraphRKN11signal_flow9IODataMapE">grenade::vx::network::run (C++ function)</a>, <a href="api_grenade.html#_CPPv4N7grenade2vx7network3runERN6hxcomm2vx17ConnectionVariantERKN9execution16JITGraphExecutor11ChipConfigsERK12NetworkGraphRKN11signal_flow9IODataMapERN9execution16JITGraphExecutor13PlaybackHooksE">[1]</a>, <a href="api_grenade.html#_CPPv4N7grenade2vx7network3runERN6hxcomm2vx17ConnectionVariantERKNSt6vectorINSt17reference_wrapperIKN9execution16JITGraphExecutor11ChipConfigsEEEEERKNSt6vectorINSt17reference_wrapperIK12NetworkGraphEEEERKNSt6vectorINSt17reference_wrapperIKN11signal_flow9IODataMapEEEEE">[2]</a>, <a href="api_grenade.html#_CPPv4N7grenade2vx7network3runERN6hxcomm2vx17ConnectionVariantERKNSt6vectorINSt17reference_wrapperIKN9execution16JITGraphExecutor11ChipConfigsEEEEERKNSt6vectorINSt17reference_wrapperIK12NetworkGraphEEEERKNSt6vectorINSt17reference_wrapperIKN11signal_flow9IODataMapEEEEERN9execution16JITGraphExecutor13PlaybackHooksE">[3]</a>, <a href="api_grenade.html#_CPPv4N7grenade2vx7network3runERN9execution16JITGraphExecutorERKN9execution16JITGraphExecutor11ChipConfigsERK12NetworkGraphRKN11signal_flow9IODataMapE">[4]</a>, <a href="api_grenade.html#_CPPv4N7grenade2vx7network3runERN9execution16JITGraphExecutorERKN9execution16JITGraphExecutor11ChipConfigsERK12NetworkGraphRKN11signal_flow9IODataMapERN9execution16JITGraphExecutor13PlaybackHooksE">[5]</a>, <a href="api_grenade.html#_CPPv4N7grenade2vx7network3runERN9execution16JITGraphExecutorERKNSt6vectorINSt17reference_wrapperIKN9execution16JITGraphExecutor11ChipConfigsEEEEERKNSt6vectorINSt17reference_wrapperIK12NetworkGraphEEEERKNSt6vectorINSt17reference_wrapperIKN11signal_flow9IODataMapEEEEE">[6]</a>, <a href="api_grenade.html#_CPPv4N7grenade2vx7network3runERN9execution16JITGraphExecutorERKNSt6vectorINSt17reference_wrapperIKN9execution16JITGraphExecutor11ChipConfigsEEEEERKNSt6vectorINSt17reference_wrapperIK12NetworkGraphEEEERKNSt6vectorINSt17reference_wrapperIKN11signal_flow9IODataMapEEEEERN9execution16JITGraphExecutor13PlaybackHooksE">[7]</a>, <a href="api_grenade.html#_CPPv4N7grenade2vx7network3runERN9execution7backend10ConnectionERKN9execution16JITGraphExecutor11ChipConfigsERK12NetworkGraphRKN11signal_flow9IODataMapE">[8]</a>, <a href="api_grenade.html#_CPPv4N7grenade2vx7network3runERN9execution7backend10ConnectionERKN9execution16JITGraphExecutor11ChipConfigsERK12NetworkGraphRKN11signal_flow9IODataMapERN9execution16JITGraphExecutor13PlaybackHooksE">[9]</a>, <a href="api_grenade.html#_CPPv4N7grenade2vx7network3runERN9execution7backend10ConnectionERKNSt6vectorINSt17reference_wrapperIKN9execution16JITGraphExecutor11ChipConfigsEEEEERKNSt6vectorINSt17reference_wrapperIK12NetworkGraphEEEERKNSt6vectorINSt17reference_wrapperIKN11signal_flow9IODataMapEEEEE">[10]</a>, <a href="api_grenade.html#_CPPv4N7grenade2vx7network3runERN9execution7backend10ConnectionERKNSt6vectorINSt17reference_wrapperIKN9execution16JITGraphExecutor11ChipConfigsEEEEERKNSt6vectorINSt17reference_wrapperIK12NetworkGraphEEEERKNSt6vectorINSt17reference_wrapperIKN11signal_flow9IODataMapEEEEERN9execution16JITGraphExecutor13PlaybackHooksE">[11]</a>
+      <li><a href="api_grenade.html#_CPPv4N7grenade2vx7network3runERN9execution16JITGraphExecutorERK12NetworkGraphRKN9execution16JITGraphExecutor11ChipConfigsERKN11signal_flow9InputDataERRN9execution16JITGraphExecutor5HooksE">grenade::vx::network::run (C++ function)</a>, <a href="api_grenade.html#_CPPv4N7grenade2vx7network3runERN9execution16JITGraphExecutorERKNSt6vectorINSt17reference_wrapperIK12NetworkGraphEEEERKNSt6vectorINSt17reference_wrapperIKN9execution16JITGraphExecutor11ChipConfigsEEEEERKNSt6vectorINSt17reference_wrapperIKN11signal_flow9InputDataEEEEERRN9execution16JITGraphExecutor5HooksE">[1]</a>
 </li>
       <li><a href="api_grenade.html#_CPPv4N7grenade2vx7network19UnsuccessfulRoutingE">grenade::vx::network::UnsuccessfulRouting (C++ class)</a>
 </li>
@@ -8455,6 +8453,28 @@
 </li>
       <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow14ConnectionType5UInt5E">grenade::vx::signal_flow::ConnectionType::UInt5 (C++ enumerator)</a>
 </li>
+      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow4DataE">grenade::vx::signal_flow::Data (C++ struct)</a>
+</li>
+      <li><a href="api_grenade.html#_CPPv4NK7grenade2vx11signal_flow4Data10batch_sizeEv">grenade::vx::signal_flow::Data::batch_size (C++ function)</a>
+</li>
+      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow4Data5clearEv">grenade::vx::signal_flow::Data::clear (C++ function)</a>
+</li>
+      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow4Data4DataERK4Data">grenade::vx::signal_flow::Data::Data (C++ function)</a>, <a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow4Data4DataERR4Data">[1]</a>, <a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow4Data4DataEv">[2]</a>
+</li>
+      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow4Data4dataE">grenade::vx::signal_flow::Data::data (C++ member)</a>
+</li>
+      <li><a href="api_grenade.html#_CPPv4NK7grenade2vx11signal_flow4Data5emptyEv">grenade::vx::signal_flow::Data::empty (C++ function)</a>
+</li>
+      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow4Data5EntryE">grenade::vx::signal_flow::Data::Entry (C++ type)</a>
+</li>
+      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow4Data8is_matchERK5EntryRKN11signal_flow4PortE">grenade::vx::signal_flow::Data::is_match (C++ function)</a>
+</li>
+      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow4Data5mergeER4Data">grenade::vx::signal_flow::Data::merge (C++ function)</a>, <a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow4Data5mergeERR4Data">[1]</a>
+</li>
+      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow4DataaSERK4Data">grenade::vx::signal_flow::Data::operator= (C++ function)</a>, <a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow4DataaSERR4Data">[1]</a>
+</li>
+      <li><a href="api_grenade.html#_CPPv4NK7grenade2vx11signal_flow4Data5validEv">grenade::vx::signal_flow::Data::valid (C++ function)</a>
+</li>
       <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow6detailE">grenade::vx::signal_flow::detail (C++ type)</a>
 </li>
       <li><a href="api_grenade.html#_CPPv4I0EN7grenade2vx11signal_flow6detail18CheckVertexConceptE">grenade::vx::signal_flow::detail::CheckVertexConcept (C++ struct)</a>
@@ -8517,31 +8537,31 @@
 </li>
       <li><a href="api_grenade.html#_CPPv4I0EN7grenade2vx11signal_flow6detail13VertexConcept20has_variadic_input_vE">grenade::vx::signal_flow::detail::VertexConcept::has_variadic_input_v (C++ member)</a>
 </li>
-      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow30ExecutionInstancePlaybackHooksE">grenade::vx::signal_flow::ExecutionInstancePlaybackHooks (C++ struct)</a>
+      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow22ExecutionInstanceHooksE">grenade::vx::signal_flow::ExecutionInstanceHooks (C++ struct)</a>
 </li>
-      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow30ExecutionInstancePlaybackHooks30ExecutionInstancePlaybackHooksERK30ExecutionInstancePlaybackHooks">grenade::vx::signal_flow::ExecutionInstancePlaybackHooks::ExecutionInstancePlaybackHooks (C++ function)</a>, <a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow30ExecutionInstancePlaybackHooks30ExecutionInstancePlaybackHooksERN6stadls2vx2v322PlaybackProgramBuilderERN6stadls2vx2v322PlaybackProgramBuilderERN6stadls2vx2v322PlaybackProgramBuilderERN6stadls2vx2v334AbsoluteTimePlaybackProgramBuilderERN6stadls2vx2v322PlaybackProgramBuilderERN6stadls2vx2v322PlaybackProgramBuilderERK15WritePPUSymbolsRK14ReadPPUSymbols">[1]</a>, <a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow30ExecutionInstancePlaybackHooks30ExecutionInstancePlaybackHooksERR30ExecutionInstancePlaybackHooks">[2]</a>, <a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow30ExecutionInstancePlaybackHooks30ExecutionInstancePlaybackHooksEv">[3]</a>
+      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow22ExecutionInstanceHooks22ExecutionInstanceHooksERK22ExecutionInstanceHooks">grenade::vx::signal_flow::ExecutionInstanceHooks::ExecutionInstanceHooks (C++ function)</a>, <a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow22ExecutionInstanceHooks22ExecutionInstanceHooksERN6stadls2vx2v322PlaybackProgramBuilderERN6stadls2vx2v322PlaybackProgramBuilderERN6stadls2vx2v322PlaybackProgramBuilderERN6stadls2vx2v334AbsoluteTimePlaybackProgramBuilderERN6stadls2vx2v322PlaybackProgramBuilderERN6stadls2vx2v322PlaybackProgramBuilderERK15WritePPUSymbolsRK14ReadPPUSymbols">[1]</a>, <a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow22ExecutionInstanceHooks22ExecutionInstanceHooksERR22ExecutionInstanceHooks">[2]</a>, <a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow22ExecutionInstanceHooks22ExecutionInstanceHooksEv">[3]</a>
 </li>
-      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow30ExecutionInstancePlaybackHooks15inside_realtimeE">grenade::vx::signal_flow::ExecutionInstancePlaybackHooks::inside_realtime (C++ member)</a>
+      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow22ExecutionInstanceHooks15inside_realtimeE">grenade::vx::signal_flow::ExecutionInstanceHooks::inside_realtime (C++ member)</a>
 </li>
-      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow30ExecutionInstancePlaybackHooks21inside_realtime_beginE">grenade::vx::signal_flow::ExecutionInstancePlaybackHooks::inside_realtime_begin (C++ member)</a>
+      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow22ExecutionInstanceHooks21inside_realtime_beginE">grenade::vx::signal_flow::ExecutionInstanceHooks::inside_realtime_begin (C++ member)</a>
 </li>
-      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow30ExecutionInstancePlaybackHooks19inside_realtime_endE">grenade::vx::signal_flow::ExecutionInstancePlaybackHooks::inside_realtime_end (C++ member)</a>
+      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow22ExecutionInstanceHooks19inside_realtime_endE">grenade::vx::signal_flow::ExecutionInstanceHooks::inside_realtime_end (C++ member)</a>
 </li>
-      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow30ExecutionInstancePlaybackHooksaSERK30ExecutionInstancePlaybackHooks">grenade::vx::signal_flow::ExecutionInstancePlaybackHooks::operator= (C++ function)</a>, <a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow30ExecutionInstancePlaybackHooksaSERR30ExecutionInstancePlaybackHooks">[1]</a>
+      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow22ExecutionInstanceHooksaSERK22ExecutionInstanceHooks">grenade::vx::signal_flow::ExecutionInstanceHooks::operator= (C++ function)</a>, <a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow22ExecutionInstanceHooksaSERR22ExecutionInstanceHooks">[1]</a>
 </li>
-      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow30ExecutionInstancePlaybackHooks13post_realtimeE">grenade::vx::signal_flow::ExecutionInstancePlaybackHooks::post_realtime (C++ member)</a>
+      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow22ExecutionInstanceHooks13post_realtimeE">grenade::vx::signal_flow::ExecutionInstanceHooks::post_realtime (C++ member)</a>
 </li>
-      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow30ExecutionInstancePlaybackHooks12pre_realtimeE">grenade::vx::signal_flow::ExecutionInstancePlaybackHooks::pre_realtime (C++ member)</a>
+      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow22ExecutionInstanceHooks12pre_realtimeE">grenade::vx::signal_flow::ExecutionInstanceHooks::pre_realtime (C++ member)</a>
 </li>
-      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow30ExecutionInstancePlaybackHooks17pre_static_configE">grenade::vx::signal_flow::ExecutionInstancePlaybackHooks::pre_static_config (C++ member)</a>
+      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow22ExecutionInstanceHooks17pre_static_configE">grenade::vx::signal_flow::ExecutionInstanceHooks::pre_static_config (C++ member)</a>
 </li>
-      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow30ExecutionInstancePlaybackHooks16read_ppu_symbolsE">grenade::vx::signal_flow::ExecutionInstancePlaybackHooks::read_ppu_symbols (C++ member)</a>
+      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow22ExecutionInstanceHooks16read_ppu_symbolsE">grenade::vx::signal_flow::ExecutionInstanceHooks::read_ppu_symbols (C++ member)</a>
 </li>
-      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow30ExecutionInstancePlaybackHooks14ReadPPUSymbolsE">grenade::vx::signal_flow::ExecutionInstancePlaybackHooks::ReadPPUSymbols (C++ type)</a>
+      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow22ExecutionInstanceHooks14ReadPPUSymbolsE">grenade::vx::signal_flow::ExecutionInstanceHooks::ReadPPUSymbols (C++ type)</a>
 </li>
-      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow30ExecutionInstancePlaybackHooks17write_ppu_symbolsE">grenade::vx::signal_flow::ExecutionInstancePlaybackHooks::write_ppu_symbols (C++ member)</a>
+      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow22ExecutionInstanceHooks17write_ppu_symbolsE">grenade::vx::signal_flow::ExecutionInstanceHooks::write_ppu_symbols (C++ member)</a>
 </li>
-      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow30ExecutionInstancePlaybackHooks15WritePPUSymbolsE">grenade::vx::signal_flow::ExecutionInstancePlaybackHooks::WritePPUSymbols (C++ type)</a>
+      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow22ExecutionInstanceHooks15WritePPUSymbolsE">grenade::vx::signal_flow::ExecutionInstanceHooks::WritePPUSymbols (C++ type)</a>
 </li>
       <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow17ExecutionTimeInfoE">grenade::vx::signal_flow::ExecutionTimeInfo (C++ struct)</a>
 </li>
@@ -8651,63 +8671,35 @@
 </li>
       <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow5Input16port_restrictionE">grenade::vx::signal_flow::Input::port_restriction (C++ member)</a>
 </li>
+      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow9InputDataE">grenade::vx::signal_flow::InputData (C++ struct)</a>
+</li>
+      <li><a href="api_grenade.html#_CPPv4NK7grenade2vx11signal_flow9InputData10batch_sizeEv">grenade::vx::signal_flow::InputData::batch_size (C++ function)</a>
+</li>
+      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow9InputData5clearEv">grenade::vx::signal_flow::InputData::clear (C++ function)</a>
+</li>
+      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow9InputData4dataE">grenade::vx::signal_flow::InputData::data (C++ member)</a>
+</li>
+      <li><a href="api_grenade.html#_CPPv4NK7grenade2vx11signal_flow9InputData5emptyEv">grenade::vx::signal_flow::InputData::empty (C++ function)</a>
+</li>
+      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow9InputData5EntryE">grenade::vx::signal_flow::InputData::Entry (C++ type)</a>
+</li>
+      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow9InputData9InputDataERK9InputData">grenade::vx::signal_flow::InputData::InputData (C++ function)</a>, <a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow9InputData9InputDataERR9InputData">[1]</a>, <a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow9InputData9InputDataEv">[2]</a>
+</li>
+      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow9InputData22inter_batch_entry_waitE">grenade::vx::signal_flow::InputData::inter_batch_entry_wait (C++ member)</a>
+</li>
+      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow9InputData8is_matchERK5EntryRKN11signal_flow4PortE">grenade::vx::signal_flow::InputData::is_match (C++ function)</a>
+</li>
+      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow9InputData5mergeER4Data">grenade::vx::signal_flow::InputData::merge (C++ function)</a>, <a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow9InputData5mergeER9InputData">[1]</a>, <a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow9InputData5mergeERR4Data">[2]</a>, <a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow9InputData5mergeERR9InputData">[3]</a>
+</li>
+      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow9InputDataaSERK9InputData">grenade::vx::signal_flow::InputData::operator= (C++ function)</a>, <a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow9InputDataaSERR9InputData">[1]</a>
+</li>
+      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow9InputData7runtimeE">grenade::vx::signal_flow::InputData::runtime (C++ member)</a>
+</li>
+      <li><a href="api_grenade.html#_CPPv4NK7grenade2vx11signal_flow9InputData5validEv">grenade::vx::signal_flow::InputData::valid (C++ function)</a>
+</li>
       <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow4Int8E">grenade::vx::signal_flow::Int8 (C++ struct)</a>
 </li>
       <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow4Int84Int8EK10value_type">grenade::vx::signal_flow::Int8::Int8 (C++ function)</a>
-</li>
-      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow10IODataListE">grenade::vx::signal_flow::IODataList (C++ struct)</a>
-</li>
-      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow10IODataList4dataE">grenade::vx::signal_flow::IODataList::data (C++ member)</a>
-</li>
-      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow10IODataList5EntryE">grenade::vx::signal_flow::IODataList::Entry (C++ type)</a>
-</li>
-      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow10IODataList14from_input_mapERK9IODataMapRKN11signal_flow5GraphE">grenade::vx::signal_flow::IODataList::from_input_map (C++ function)</a>
-</li>
-      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow10IODataList15from_output_mapERK9IODataMapRKN11signal_flow5GraphEb">grenade::vx::signal_flow::IODataList::from_output_map (C++ function)</a>
-</li>
-      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow10IODataList10IODataListEv">grenade::vx::signal_flow::IODataList::IODataList (C++ function)</a>
-</li>
-      <li><a href="api_grenade.html#_CPPv4NK7grenade2vx11signal_flow10IODataList12to_input_mapERKN11signal_flow5GraphE">grenade::vx::signal_flow::IODataList::to_input_map (C++ function)</a>
-</li>
-      <li><a href="api_grenade.html#_CPPv4NK7grenade2vx11signal_flow10IODataList13to_output_mapERKN11signal_flow5GraphEb">grenade::vx::signal_flow::IODataList::to_output_map (C++ function)</a>
-</li>
-      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow9IODataMapE">grenade::vx::signal_flow::IODataMap (C++ struct)</a>
-</li>
-      <li><a href="api_grenade.html#_CPPv4NK7grenade2vx11signal_flow9IODataMap10batch_sizeEv">grenade::vx::signal_flow::IODataMap::batch_size (C++ function)</a>
-</li>
-      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow9IODataMap5ChipsE">grenade::vx::signal_flow::IODataMap::Chips (C++ type)</a>
-</li>
-      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow9IODataMap5clearEv">grenade::vx::signal_flow::IODataMap::clear (C++ function)</a>
-</li>
-      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow9IODataMap4dataE">grenade::vx::signal_flow::IODataMap::data (C++ member)</a>
-</li>
-      <li><a href="api_grenade.html#_CPPv4NK7grenade2vx11signal_flow9IODataMap5emptyEv">grenade::vx::signal_flow::IODataMap::empty (C++ function)</a>
-</li>
-      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow9IODataMap5EntryE">grenade::vx::signal_flow::IODataMap::Entry (C++ type)</a>
-</li>
-      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow9IODataMap19execution_time_infoE">grenade::vx::signal_flow::IODataMap::execution_time_info (C++ member)</a>
-</li>
-      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow9IODataMap22inter_batch_entry_waitE">grenade::vx::signal_flow::IODataMap::inter_batch_entry_wait (C++ member)</a>
-</li>
-      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow9IODataMap9IODataMapERK9IODataMap">grenade::vx::signal_flow::IODataMap::IODataMap (C++ function)</a>, <a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow9IODataMap9IODataMapERR9IODataMap">[1]</a>, <a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow9IODataMap9IODataMapEv">[2]</a>
-</li>
-      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow9IODataMap8is_matchERK5EntryRKN11signal_flow4PortE">grenade::vx::signal_flow::IODataMap::is_match (C++ function)</a>
-</li>
-      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow9IODataMap5mergeER9IODataMap">grenade::vx::signal_flow::IODataMap::merge (C++ function)</a>, <a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow9IODataMap5mergeERR9IODataMap">[1]</a>
-</li>
-      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow9IODataMap5mutexE">grenade::vx::signal_flow::IODataMap::mutex (C++ member)</a>
-</li>
-      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow9IODataMapaSERK9IODataMap">grenade::vx::signal_flow::IODataMap::operator= (C++ function)</a>, <a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow9IODataMapaSERR9IODataMap">[1]</a>
-</li>
-      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow9IODataMap19pre_execution_chipsE">grenade::vx::signal_flow::IODataMap::pre_execution_chips (C++ member)</a>
-</li>
-      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow9IODataMap16read_ppu_symbolsE">grenade::vx::signal_flow::IODataMap::read_ppu_symbols (C++ member)</a>
-</li>
-      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow9IODataMap14ReadPPUSymbolsE">grenade::vx::signal_flow::IODataMap::ReadPPUSymbols (C++ type)</a>
-</li>
-      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow9IODataMap7runtimeE">grenade::vx::signal_flow::IODataMap::runtime (C++ member)</a>
-</li>
-      <li><a href="api_grenade.html#_CPPv4NK7grenade2vx11signal_flow9IODataMap5validEv">grenade::vx::signal_flow::IODataMap::valid (C++ function)</a>
 </li>
       <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow18MADCSampleFromChipE">grenade::vx::signal_flow::MADCSampleFromChip (C++ struct)</a>
 </li>
@@ -8729,7 +8721,41 @@
 </li>
       <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flowlsERNSt7ostreamERK14ConnectionType">grenade::vx::signal_flow::operator&lt;&lt; (C++ function)</a>
 </li>
-      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow11pack_spikesER9IODataMap">grenade::vx::signal_flow::pack_spikes (C++ function)</a>
+      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow10OutputDataE">grenade::vx::signal_flow::OutputData (C++ struct)</a>
+</li>
+      <li><a href="api_grenade.html#_CPPv4NK7grenade2vx11signal_flow10OutputData10batch_sizeEv">grenade::vx::signal_flow::OutputData::batch_size (C++ function)</a>
+</li>
+      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow10OutputData5ChipsE">grenade::vx::signal_flow::OutputData::Chips (C++ type)</a>
+</li>
+      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow10OutputData5clearEv">grenade::vx::signal_flow::OutputData::clear (C++ function)</a>
+</li>
+      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow10OutputData4dataE">grenade::vx::signal_flow::OutputData::data (C++ member)</a>
+</li>
+      <li><a href="api_grenade.html#_CPPv4NK7grenade2vx11signal_flow10OutputData5emptyEv">grenade::vx::signal_flow::OutputData::empty (C++ function)</a>
+</li>
+      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow10OutputData5EntryE">grenade::vx::signal_flow::OutputData::Entry (C++ type)</a>
+</li>
+      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow10OutputData19execution_time_infoE">grenade::vx::signal_flow::OutputData::execution_time_info (C++ member)</a>
+</li>
+      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow10OutputData8is_matchERK5EntryRKN11signal_flow4PortE">grenade::vx::signal_flow::OutputData::is_match (C++ function)</a>
+</li>
+      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow10OutputData5mergeER10OutputData">grenade::vx::signal_flow::OutputData::merge (C++ function)</a>, <a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow10OutputData5mergeER4Data">[1]</a>, <a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow10OutputData5mergeERR10OutputData">[2]</a>, <a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow10OutputData5mergeERR4Data">[3]</a>
+</li>
+      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow10OutputData5mutexE">grenade::vx::signal_flow::OutputData::mutex (C++ member)</a>
+</li>
+      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow10OutputDataaSERK10OutputData">grenade::vx::signal_flow::OutputData::operator= (C++ function)</a>, <a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow10OutputDataaSERR10OutputData">[1]</a>
+</li>
+      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow10OutputData10OutputDataERK10OutputData">grenade::vx::signal_flow::OutputData::OutputData (C++ function)</a>, <a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow10OutputData10OutputDataERR10OutputData">[1]</a>, <a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow10OutputData10OutputDataEv">[2]</a>
+</li>
+      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow10OutputData19pre_execution_chipsE">grenade::vx::signal_flow::OutputData::pre_execution_chips (C++ member)</a>
+</li>
+      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow10OutputData16read_ppu_symbolsE">grenade::vx::signal_flow::OutputData::read_ppu_symbols (C++ member)</a>
+</li>
+      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow10OutputData14ReadPPUSymbolsE">grenade::vx::signal_flow::OutputData::ReadPPUSymbols (C++ type)</a>
+</li>
+      <li><a href="api_grenade.html#_CPPv4NK7grenade2vx11signal_flow10OutputData5validEv">grenade::vx::signal_flow::OutputData::valid (C++ function)</a>
+</li>
+      <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow11pack_spikesER4Data">grenade::vx::signal_flow::pack_spikes (C++ function)</a>
 </li>
       <li><a href="api_grenade.html#_CPPv4N7grenade2vx11signal_flow4PortE">grenade::vx::signal_flow::Port (C++ struct)</a>
 </li>
@@ -27943,11 +27969,11 @@
 </li>
       <li><a href="api_hxtorch.html#_CPPv4N7hxtorch7spiking6detail21sparse_spike_to_denseERKNSt6vectorINSt5tupleI7int64_t7int64_t7int64_tEEEEiiff">hxtorch::spiking::detail::sparse_spike_to_dense (C++ function)</a>
 </li>
-      <li><a href="api_hxtorch.html#_CPPv4N7hxtorch7spiking12extract_cadcERKN7grenade2vx11signal_flow9IODataMapERKN7grenade2vx7network12NetworkGraphE">hxtorch::spiking::extract_cadc (C++ function)</a>
+      <li><a href="api_hxtorch.html#_CPPv4N7hxtorch7spiking12extract_cadcERKN7grenade2vx11signal_flow10OutputDataERKN7grenade2vx7network12NetworkGraphE">hxtorch::spiking::extract_cadc (C++ function)</a>
 </li>
-      <li><a href="api_hxtorch.html#_CPPv4N7hxtorch7spiking12extract_madcERKN7grenade2vx11signal_flow9IODataMapERKN7grenade2vx7network12NetworkGraphE">hxtorch::spiking::extract_madc (C++ function)</a>
+      <li><a href="api_hxtorch.html#_CPPv4N7hxtorch7spiking12extract_madcERKN7grenade2vx11signal_flow10OutputDataERKN7grenade2vx7network12NetworkGraphE">hxtorch::spiking::extract_madc (C++ function)</a>
 </li>
-      <li><a href="api_hxtorch.html#_CPPv4N7hxtorch7spiking14extract_spikesERKN7grenade2vx11signal_flow9IODataMapERKN7grenade2vx7network12NetworkGraphE">hxtorch::spiking::extract_spikes (C++ function)</a>
+      <li><a href="api_hxtorch.html#_CPPv4N7hxtorch7spiking14extract_spikesERKN7grenade2vx11signal_flow10OutputDataERKN7grenade2vx7network12NetworkGraphE">hxtorch::spiking::extract_spikes (C++ function)</a>
 </li>
       <li><a href="api_hxtorch.html#_CPPv4N7hxtorch7spiking10MADCHandleE">hxtorch::spiking::MADCHandle (C++ class)</a>
 </li>
@@ -27961,7 +27987,7 @@
 </li>
       <li><a href="api_hxtorch.html#_CPPv4N7hxtorch7spiking10MADCHandle8set_dataERR1Uii">hxtorch::spiking::MADCHandle::set_data (C++ function)</a>
 </li>
-      <li><a href="api_hxtorch.html#_CPPv4N7hxtorch7spiking3runERKN7grenade2vx9execution16JITGraphExecutor11ChipConfigsERKN7grenade2vx7network12NetworkGraphERKN7grenade2vx11signal_flow9IODataMapERN7grenade2vx9execution16JITGraphExecutor13PlaybackHooksE">hxtorch::spiking::run (C++ function)</a>
+      <li><a href="api_hxtorch.html#_CPPv4N7hxtorch7spiking3runERKN7grenade2vx9execution16JITGraphExecutor11ChipConfigsERKN7grenade2vx7network12NetworkGraphERKN7grenade2vx11signal_flow9InputDataERN7grenade2vx9execution16JITGraphExecutor5HooksE">hxtorch::spiking::run (C++ function)</a>
 </li>
       <li><a href="api_hxtorch.html#_CPPv4N7hxtorch7spiking11SpikeHandleE">hxtorch::spiking::SpikeHandle (C++ class)</a>
 </li>
