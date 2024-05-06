@@ -964,6 +964,11 @@
 <dd></dd></dl>
 
 <dl class="py attribute">
+<dt id="hw_data_extractor">
+<span id="_hw_data_extractor"></span><span class="target" id="classhxtorch_1_1spiking_1_1experiment_1_1_experiment_1a6b1cf2f4dc5f8a7ca8d0c5998d529103"></span><code class="sig-name descname"><span class="pre">_hw_data_extractor</span></code><a class="headerlink" href="#hw_data_extractor" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
 <dt id="last_run_chip_configs">
 <span id="_last_run_chip_configs"></span><span class="target" id="classhxtorch_1_1spiking_1_1experiment_1_1_experiment_1a43f9c9cb54aeea5bbd422c6381144e3e"></span><code class="sig-name descname"><span class="pre">_last_run_chip_configs</span></code><a class="headerlink" href="#last_run_chip_configs" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
@@ -1654,9 +1659,10 @@
 
 <dl class="py function">
 <dt id="post_process">
-<span class="target" id="classhxtorch_1_1spiking_1_1modules_1_1hx__module_1_1_h_x_module_1a4eece05c0896523f65e89da79014aba6"></span><code class="sig-name descname"><span class="pre">post_process</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">Optional[SpikeHandle]</span> <span class="pre">hw_spikes</span></em>, <em class="sig-param"><span class="pre">Optional[CADCHandle]</span> <span class="pre">hw_cadc</span></em>, <em class="sig-param"><span class="pre">Optional[MADCHandle]</span> <span class="pre">hw_madc</span></em>, <em class="sig-param"><span class="pre">float</span> <span class="pre">runtime</span></em><span class="sig-paren">)</span><a class="headerlink" href="#post_process" title="Permalink to this definition"></a></dt>
+<span class="target" id="classhxtorch_1_1spiking_1_1modules_1_1hx__module_1_1_h_x_module_1a6c1fecace246e76b4b2138b08ffe086d"></span><code class="sig-name descname"><span class="pre">post_process</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">HardwareObservables</span> <span class="pre">hw_data</span></em>, <em class="sig-param"><span class="pre">float</span> <span class="pre">runtime</span></em><span class="sig-paren">)</span><a class="headerlink" href="#post_process" title="Permalink to this definition"></a></dt>
 <dd><p>This methods needs to be overridden for every derived module that demands hardware observables. </p>
-<p>:param hw_spikes: The optional SpikeHandle holding raw spike data from hardware. :param hw_cadc: The optional CADCHandle holding raw CADC measurements from hardware. :param hw_madc: The optional MADCHandle holding raw MADC measurements from hardware. :param runtime: The requested runtime of the experiment on hardware in s. :param dt: The expected temporal resolution in hxtorch. :returns: Hardware data represented as torch.Tensors. Note that torch.Tensors are required here to enable gradient flow. </p>
+<p>:param hw_data: A <code class="docutils literal notranslate"><span class="pre">HardwareObservables</span></code> instance holding the population’s recorded hardware observables. :param runtime: The requested runtime of the experiment on hardware in s.</p>
+<p>:returns: Hardware data represented as torch.Tensors. Note that torch.Tensors are required here to enable gradient flow. </p>
 </dd></dl>
 
 <dl class="py function">
@@ -1892,9 +1898,10 @@
 
 <dl class="py function">
 <dt id="id91">
-<span class="target" id="classhxtorch_1_1spiking_1_1modules_1_1input__neuron_1_1_input_neuron_1a37ac84f09947ac6669a0f9a1d717bf30"></span><code class="sig-name descname"><span class="pre">post_process</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">Optional[SpikeHandle]</span> <span class="pre">hw_spikes</span></em>, <em class="sig-param"><span class="pre">Optional[CADCHandle]</span> <span class="pre">hw_cadc</span></em>, <em class="sig-param"><span class="pre">Optional[MADCHandle]</span> <span class="pre">hw_madc</span></em>, <em class="sig-param"><span class="pre">float</span> <span class="pre">runtime</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id91" title="Permalink to this definition"></a></dt>
+<span class="target" id="classhxtorch_1_1spiking_1_1modules_1_1input__neuron_1_1_input_neuron_1abf1f7584941476b5d1c3527f4f0b33e6"></span><code class="sig-name descname"><span class="pre">post_process</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">HardwareObservables</span> <span class="pre">hw_data</span></em>, <em class="sig-param"><span class="pre">float</span> <span class="pre">runtime</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id91" title="Permalink to this definition"></a></dt>
 <dd><p>This methods needs to be overridden for every derived module that demands hardware observables. </p>
-<p>:param hw_spikes: The optional SpikeHandle holding raw spike data from hardware. :param hw_cadc: The optional CADCHandle holding raw CADC measurements from hardware. :param hw_madc: The optional MADCHandle holding raw MADC measurements from hardware. :param runtime: The requested runtime of the experiment on hardware in s. :param dt: The expected temporal resolution in hxtorch. :returns: Hardware data represented as torch.Tensors. Note that torch.Tensors are required here to enable gradient flow. </p>
+<p>:param hw_data: A <code class="docutils literal notranslate"><span class="pre">HardwareObservables</span></code> instance holding the population’s recorded hardware observables. :param runtime: The requested runtime of the experiment on hardware in s.</p>
+<p>:returns: Hardware data represented as torch.Tensors. Note that torch.Tensors are required here to enable gradient flow. </p>
 </dd></dl>
 
 <dl class="py function">
@@ -1982,11 +1989,11 @@
 
 <dl class="py function">
 <dt id="id105">
-<span class="target" id="classhxtorch_1_1spiking_1_1modules_1_1neuron_1_1_neuron_1a570b51d65825ff031c044998256b4b2b"></span><code class="sig-name descname"><span class="pre">post_process</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">Optional[SpikeHandle]</span> <span class="pre">hw_spikes</span></em>, <em class="sig-param"><span class="pre">Optional[CADCHandle]</span> <span class="pre">hw_cadc</span></em>, <em class="sig-param"><span class="pre">Optional[MADCHandle]</span> <span class="pre">hw_madc</span></em>, <em class="sig-param"><span class="pre">float</span> <span class="pre">runtime</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id105" title="Permalink to this definition"></a></dt>
+<span class="target" id="classhxtorch_1_1spiking_1_1modules_1_1neuron_1_1_neuron_1aa8b5f28a15a1f7b0784b47eb4b65b48d"></span><code class="sig-name descname"><span class="pre">post_process</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">HardwareObservables</span> <span class="pre">hw_data</span></em>, <em class="sig-param"><span class="pre">float</span> <span class="pre">runtime</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id105" title="Permalink to this definition"></a></dt>
 <dd><p>User defined post process method called as soon as population-specific hardware observables are returned. </p>
 <p>This function has to convert the data types returned by grenade into PyTorch tensors. This function can be overridden by the user if non-default grenade-PyTorch data type conversion is required. Note: This function should return Tuple[Optional[torch.Tensor], …], like (cadc or madc,). This should match the ReadoutTensorHandle signature.</p>
-<p>:param hw_spikes: A SpikeHandle holding the population’s spikes recorded by grenade as a sparse tensor. This data can be ignored for this readout neuron. :param hw_cadc: The CADCHandle holding the CADC membrane readout events in a sparse tensor. :param hw_madc: The MADCHandle holding the MADC membrane readout events in a sparse tensor. :param runtime: The requested runtime of the experiment on hardware in s.</p>
-<p>:returns: Returns a tuple of optional torch.Tensors holding the hardware data (madc or cadc,) </p>
+<p>:param hw_data: A <code class="docutils literal notranslate"><span class="pre">HardwareObservables</span></code> instance holding the population’s recorded hardware observables. :param runtime: The requested runtime of the experiment on hardware in s.</p>
+<p>:return: Returns a tuple of optional torch.Tensors holding the hardware data (madc or cadc,) </p>
 </dd></dl>
 
 <dl class="py function">
@@ -2156,10 +2163,10 @@
 
 <dl class="py function">
 <dt id="id111">
-<span class="target" id="classhxtorch_1_1spiking_1_1modules_1_1readout__neuron_1_1_readout_neuron_1a3356fa3bee7bd82dad0d238b4291bbab"></span><code class="sig-name descname"><span class="pre">post_process</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">Optional[SpikeHandle]</span> <span class="pre">hw_spikes</span></em>, <em class="sig-param"><span class="pre">Optional[CADCHandle]</span> <span class="pre">hw_cadc</span></em>, <em class="sig-param"><span class="pre">Optional[MADCHandle]</span> <span class="pre">hw_madc</span></em>, <em class="sig-param"><span class="pre">float</span> <span class="pre">runtime</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id111" title="Permalink to this definition"></a></dt>
+<span class="target" id="classhxtorch_1_1spiking_1_1modules_1_1readout__neuron_1_1_readout_neuron_1ad87339e3b78615b2d6dee18ea2752931"></span><code class="sig-name descname"><span class="pre">post_process</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">HardwareObservables</span> <span class="pre">hw_data</span></em>, <em class="sig-param"><span class="pre">float</span> <span class="pre">runtime</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id111" title="Permalink to this definition"></a></dt>
 <dd><p>User defined post process method called as soon as population-specific hardware observables are returned. </p>
 <p>This function has to convert the data types returned by grenade into PyTorch tensors. This function can be overridden by the user if non-default grenade-PyTorch data type conversion is required. Note: This function should return Tuple[Optional[torch.Tensor], …], like (cadc or madc,). This should match the ReadoutTensorHandle signature.</p>
-<p>:param hw_spikes: A SpikeHandle holding the population’s spikes recorded by grenade as a sparse tensor. This data can be ignored for this readout neuron. :param hw_cadc: The CADCHandle holding the CADC membrane readout events in a sparse tensor. :param hw_madc: The MADCHandle holding the MADC membrane readout events in a sparse tensor. :param runtime: The requested runtime of the experiment on hardware in s.</p>
+<p>:param hw_data: A <code class="docutils literal notranslate"><span class="pre">HardwareObservables</span></code> instance holding the population’s recorded hardware observables. :param runtime: The requested runtime of the experiment on hardware in s.</p>
 <p>:returns: Returns a tuple of optional torch.Tensors holding the hardware data (madc or cadc,) </p>
 </dd></dl>
 
@@ -2684,14 +2691,97 @@
 </dd></dl>
 
 <dl class="py class">
+<dt id="hxtorch.spiking.observables.HardwareObservables">
+<span class="target" id="classhxtorch_1_1spiking_1_1observables_1_1_hardware_observables"></span><em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.observables.</span></code><code class="sig-name descname"><span class="pre">HardwareObservables</span></code><a class="headerlink" href="#hxtorch.spiking.observables.HardwareObservables" title="Permalink to this definition"></a></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-static-attributes">Public Static Attributes</p>
+<dl class="py attribute">
+<dt id="hxtorch.spiking.observables.HardwareObservables.cadc">
+<span class="target" id="classhxtorch_1_1spiking_1_1observables_1_1_hardware_observables_1a2c87040e641fa76a5236b8a574a4bfa0"></span><code class="sig-name descname"><span class="pre">cadc</span></code><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#hxtorch.spiking.observables.HardwareObservables.cadc" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="hxtorch.spiking.observables.HardwareObservables.madc">
+<span class="target" id="classhxtorch_1_1spiking_1_1observables_1_1_hardware_observables_1afadb10873fadd86805160589c6616264"></span><code class="sig-name descname"><span class="pre">madc</span></code><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#hxtorch.spiking.observables.HardwareObservables.madc" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="hxtorch.spiking.observables.HardwareObservables.spikes">
+<span class="target" id="classhxtorch_1_1spiking_1_1observables_1_1_hardware_observables_1aab4d5526c127baf67a24a62acb7f23fa"></span><code class="sig-name descname"><span class="pre">spikes</span></code><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#hxtorch.spiking.observables.HardwareObservables.spikes" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt id="hxtorch.spiking.observables.HardwareObservablesExtractor">
+<span class="target" id="classhxtorch_1_1spiking_1_1observables_1_1_hardware_observables_extractor"></span><em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.observables.</span></code><code class="sig-name descname"><span class="pre">HardwareObservablesExtractor</span></code><a class="headerlink" href="#hxtorch.spiking.observables.HardwareObservablesExtractor" title="Permalink to this definition"></a></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="py function">
+<dt id="hxtorch.spiking.observables.HardwareObservablesExtractor.get">
+<span class="target" id="classhxtorch_1_1spiking_1_1observables_1_1_hardware_observables_extractor_1a6fdb20f8f018b75ecb08bae17867d149"></span><code class="sig-name descname"><span class="pre">get</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">Optional[Union[grenade.network.PopulationOnNetwork</span></em>, <em class="sig-param"><span class="pre">grenade.network.ProjectionOnNetwork</span></em>, <em class="sig-param"><span class="pre">Tuple[grenade.network.ProjectionOnNetwork</span></em>, <em class="sig-param"><span class="pre">...]]]</span> <span class="pre">descriptor=None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.observables.HardwareObservablesExtractor.get" title="Permalink to this definition"></a></dt>
+<dd><p>Get the <code class="docutils literal notranslate"><span class="pre">HardwareObservables</span></code> assigned to the <code class="docutils literal notranslate"><span class="pre">HXModule</span></code> with grenade Population/Projection descriptor <code class="docutils literal notranslate"><span class="pre">descriptor</span></code>. </p>
+<p>:param descriptor: The Population/Projection grenade descriptor to get the data for</p>
+<p>:return: The hardware data assigned to the HXModule with descriptor <code class="docutils literal notranslate"><span class="pre">descriptor</span></code> </p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="hxtorch.spiking.observables.HardwareObservablesExtractor.set_data">
+<span class="target" id="classhxtorch_1_1spiking_1_1observables_1_1_hardware_observables_extractor_1a1943b8a5a9a649210433f8a7847ef443"></span><code class="sig-name descname"><span class="pre">set_data</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">grenade.network.NetworkGraph</span> <span class="pre">network_graph</span></em>, <em class="sig-param"><span class="pre">grenade.signal_flow.IODataMap</span> <span class="pre">result_map</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.observables.HardwareObservablesExtractor.set_data" title="Permalink to this definition"></a></dt>
+<dd><p>Set the data to be extracted. </p>
+<p>This method also evokes data extraction.</p>
+<p>:param network_graph: The logical grenade network graph describing the logic of th experiment. :param result_map: The result map returned by grenade holding all recorded hardware observables. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-protected-attributes">Protected Attributes</p>
+<dl class="py attribute">
+<dt id="id158">
+<span class="target" id="classhxtorch_1_1spiking_1_1observables_1_1_hardware_observables_extractor_1a6c203db744cba5dbfde9e9896231b358"></span><code class="sig-name descname"><span class="pre">_cadc_samples</span></code><a class="headerlink" href="#id158" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="id159">
+<span class="target" id="classhxtorch_1_1spiking_1_1observables_1_1_hardware_observables_extractor_1af40d80efeabd9f3ea68000d51f22d694"></span><code class="sig-name descname"><span class="pre">_madc_samples</span></code><a class="headerlink" href="#id159" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="id160">
+<span class="target" id="classhxtorch_1_1spiking_1_1observables_1_1_hardware_observables_extractor_1a6721272ec5f2dc5548b7f6e95fcb0bdb"></span><code class="sig-name descname"><span class="pre">_spikes</span></code><a class="headerlink" href="#id160" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-protected-static-attributes">Protected Static Attributes</p>
+<dl class="py attribute">
+<dt id="hxtorch.spiking.observables.HardwareObservablesExtractor._cadc_samples">
+<span class="target" id="classhxtorch_1_1spiking_1_1observables_1_1_hardware_observables_extractor_1a9fffb190c469486fe0dd6ffa71cf29e3"></span><code class="sig-name descname"><span class="pre">_cadc_samples</span></code><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#hxtorch.spiking.observables.HardwareObservablesExtractor._cadc_samples" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="hxtorch.spiking.observables.HardwareObservablesExtractor._madc_samples">
+<span class="target" id="classhxtorch_1_1spiking_1_1observables_1_1_hardware_observables_extractor_1ad12d0102cd6b6e48dbe6ebbb7d887a36"></span><code class="sig-name descname"><span class="pre">_madc_samples</span></code><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#hxtorch.spiking.observables.HardwareObservablesExtractor._madc_samples" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="hxtorch.spiking.observables.HardwareObservablesExtractor._spikes">
+<span class="target" id="classhxtorch_1_1spiking_1_1observables_1_1_hardware_observables_extractor_1a55ccf9988c214ccc57b3b621f8230507"></span><code class="sig-name descname"><span class="pre">_spikes</span></code><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#hxtorch.spiking.observables.HardwareObservablesExtractor._spikes" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="py class">
 <dt>
 <span class="target" id="classhxtorch_1_1spiking_1_1transforms_1_1decode_1_1_max_over_time"></span><code class="sig-name descname"><span class="pre">hxtorch.spiking.transforms.decode.MaxOverTime</span> <span class="pre">:</span> <span class="pre">public</span> <span class="pre">torch.nn.Module</span></code></dt>
 <dd><p>Simple max-over-time decoding. </p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="py function">
-<dt id="id158">
-<span class="target" id="classhxtorch_1_1spiking_1_1transforms_1_1decode_1_1_max_over_time_1a55a7e527fe96b2512b8be5ec559dfbb5"></span><code class="sig-name descname"><span class="pre">forward</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">torch.Tensor</span> <span class="pre">input</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id158" title="Permalink to this definition"></a></dt>
+<dt id="id161">
+<span class="target" id="classhxtorch_1_1spiking_1_1transforms_1_1decode_1_1_max_over_time_1a55a7e527fe96b2512b8be5ec559dfbb5"></span><code class="sig-name descname"><span class="pre">forward</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">torch.Tensor</span> <span class="pre">input</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id161" title="Permalink to this definition"></a></dt>
 <dd><p>Translate an <code class="docutils literal notranslate"><span class="pre">input</span></code> tensor of shape (batch_size, time_length, population_size) into a tensor of shape (batch_size, population_size), where the time dimension is discarded by picking the maximum value along the time. </p>
 <p>Hence this module performs a ‘max-over-time’ operation.</p>
 <p>:param input: The input tensor to transform. expected shape: (batch_size, time_length, population_size) :return: Returns the tensor holding the max-over-time values. </p>
@@ -2707,8 +2797,8 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="py function">
-<dt id="id159">
-<span class="target" id="classhxtorch_1_1spiking_1_1transforms_1_1decode_1_1_mean_over_time_1ad0fd3ccb4604e245ed874edca5492111"></span><code class="sig-name descname"><span class="pre">forward</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">torch.Tensor</span> <span class="pre">input</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id159" title="Permalink to this definition"></a></dt>
+<dt id="id162">
+<span class="target" id="classhxtorch_1_1spiking_1_1transforms_1_1decode_1_1_mean_over_time_1ad0fd3ccb4604e245ed874edca5492111"></span><code class="sig-name descname"><span class="pre">forward</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">torch.Tensor</span> <span class="pre">input</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id162" title="Permalink to this definition"></a></dt>
 <dd><p>Translate an <code class="docutils literal notranslate"><span class="pre">input</span></code> tensor of shape (batch_size, time_length, population_size) into a tensor of shape (batch_size, population_size), where the time dimension is discarded by computing the average value along the time. </p>
 <p>Hence this module performs a ‘mean-over-time’ operation.</p>
 <p>:param input: The input tensor to transform. expected shape: (batch_size, time_length, population_size) :return: Returns the tensor holding the mean-over-time values. </p>
@@ -2724,8 +2814,8 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="py function">
-<dt id="id160">
-<span class="target" id="classhxtorch_1_1spiking_1_1transforms_1_1decode_1_1_sum_over_time_1a8b12e6725d0195e0c7c4533e68f99653"></span><code class="sig-name descname"><span class="pre">forward</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">torch.Tensor</span> <span class="pre">input</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id160" title="Permalink to this definition"></a></dt>
+<dt id="id163">
+<span class="target" id="classhxtorch_1_1spiking_1_1transforms_1_1decode_1_1_sum_over_time_1a8b12e6725d0195e0c7c4533e68f99653"></span><code class="sig-name descname"><span class="pre">forward</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">torch.Tensor</span> <span class="pre">input</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id163" title="Permalink to this definition"></a></dt>
 <dd><p>Translate an <code class="docutils literal notranslate"><span class="pre">input</span></code> tensor of shape (batch_size, time_length, population_size) into a tensor of shape (batch_size, population_size), where the time dimension is discarded by computing the sum along the time. </p>
 <p>Hence this module performs a ‘sum-over-time’ operation.</p>
 <p>:param input: The input tensor to transform. expected shape: (batch_size, time_length, population_size) :return: Returns the tensor holding the sum-over-time values. </p>
@@ -2741,16 +2831,16 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="py function">
-<dt id="id162">
-<span class="target" id="classhxtorch_1_1spiking_1_1transforms_1_1encode_1_1_coordinates_to_spikes_1a10081c7349fb2d848b29baf8192b73d1"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">int</span> <span class="pre">seq_length</span></em>, <em class="sig-param"><span class="pre">float</span> <span class="pre">t_early</span></em>, <em class="sig-param"><span class="pre">float</span> <span class="pre">t_late</span></em>, <em class="sig-param"><span class="pre">float</span> <span class="pre">dt=1.e-6</span></em>, <em class="sig-param"><span class="pre">Optional[float]</span> <span class="pre">t_bias=None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id162" title="Permalink to this definition"></a></dt>
+<dt id="id165">
+<span class="target" id="classhxtorch_1_1spiking_1_1transforms_1_1encode_1_1_coordinates_to_spikes_1a10081c7349fb2d848b29baf8192b73d1"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">int</span> <span class="pre">seq_length</span></em>, <em class="sig-param"><span class="pre">float</span> <span class="pre">t_early</span></em>, <em class="sig-param"><span class="pre">float</span> <span class="pre">t_late</span></em>, <em class="sig-param"><span class="pre">float</span> <span class="pre">dt=1.e-6</span></em>, <em class="sig-param"><span class="pre">Optional[float]</span> <span class="pre">t_bias=None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id165" title="Permalink to this definition"></a></dt>
 <dd><p>Construct a coordinates-to-spikes converter. </p>
 <p>This converter takes coordinate values in [0, 1] and maps them to spike times in interval [t_early, t_late]. A spike is indicated by a 1 on a dense time axis of length seq_length with temporal resolution dt. Further, it adds a bias spike at time t_bias, if t_bias is not None.</p>
 <p>:param seq_length: Number of time steps in the resulting time sequence. The effective time length is given by seq_length * dt. :param t_early: The earliest time a spike will occur. :param t_late: The latest time a spike will occur. :param dt: The temporal resolution. :param t_bias: The time a bias spike occurs. </p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="id163">
-<span class="target" id="classhxtorch_1_1spiking_1_1transforms_1_1encode_1_1_coordinates_to_spikes_1a4239a0b07bac07b6d060d314eea380a6"></span><code class="sig-name descname"><span class="pre">forward</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">torch.Tensor</span> <span class="pre">coordinate_values</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id163" title="Permalink to this definition"></a></dt>
+<dt id="id166">
+<span class="target" id="classhxtorch_1_1spiking_1_1transforms_1_1encode_1_1_coordinates_to_spikes_1a4239a0b07bac07b6d060d314eea380a6"></span><code class="sig-name descname"><span class="pre">forward</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">torch.Tensor</span> <span class="pre">coordinate_values</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id166" title="Permalink to this definition"></a></dt>
 <dd><p>Convert coordinate values of to dense spike tensor of zeros and ones. </p>
 <p>:param coordinate_values: Tensor with values in [0, 1], shaped (batch_size, num_channels)</p>
 <p>:returns: Returns a dense tensor of shape (batch_size, seq_length, num_channels) </p>
@@ -2760,8 +2850,8 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-protected-attributes">Protected Attributes</p>
 <dl class="py attribute">
-<dt id="id161">
-<span id="_dt"></span><span class="target" id="classhxtorch_1_1spiking_1_1transforms_1_1encode_1_1_coordinates_to_spikes_1a5bf1e8d59e23df795f8a3d4eb122abb6"></span><code class="sig-name descname"><span class="pre">_dt</span></code><a class="headerlink" href="#id161" title="Permalink to this definition"></a></dt>
+<dt id="id164">
+<span id="_dt"></span><span class="target" id="classhxtorch_1_1spiking_1_1transforms_1_1encode_1_1_coordinates_to_spikes_1a5bf1e8d59e23df795f8a3d4eb122abb6"></span><code class="sig-name descname"><span class="pre">_dt</span></code><a class="headerlink" href="#id164" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -2794,15 +2884,15 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="py function">
-<dt id="id164">
-<span class="target" id="classhxtorch_1_1spiking_1_1transforms_1_1encode_1_1_pixels_to_spike_times_1a2f78deedde866e77ae3df5214f79bc95"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epsilon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-7</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id164" title="Permalink to this definition"></a></dt>
+<dt id="id167">
+<span class="target" id="classhxtorch_1_1spiking_1_1transforms_1_1encode_1_1_pixels_to_spike_times_1a2f78deedde866e77ae3df5214f79bc95"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epsilon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-7</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id167" title="Permalink to this definition"></a></dt>
 <dd><p>Initialize a pixel to spike time transformation. </p>
 <p>:param tau: Stretching factor of pixel to spike-time transformation. Lager values correspond to later spike times. :param threshold: The threshold under which a pixel is considered non-spiking (resp. spike at time t_max). :param t_max: Maximum spike time. :param epsilon: Safety margin to prevent zero-division. </p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="id165">
-<span class="target" id="classhxtorch_1_1spiking_1_1transforms_1_1encode_1_1_pixels_to_spike_times_1ade62a174b37d380f3bed4bcb98a22290"></span><code class="sig-name descname"><span class="pre">forward</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">torch.Tensor</span> <span class="pre">pic</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id165" title="Permalink to this definition"></a></dt>
+<dt id="id168">
+<span class="target" id="classhxtorch_1_1spiking_1_1transforms_1_1encode_1_1_pixels_to_spike_times_1ade62a174b37d380f3bed4bcb98a22290"></span><code class="sig-name descname"><span class="pre">forward</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">torch.Tensor</span> <span class="pre">pic</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id168" title="Permalink to this definition"></a></dt>
 <dd><p>Turns an image into a spike representation. </p>
 <p>Image pixels &gt;= threshold are assigned a spike time according to: <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">t_spike</span> <span class="o">=</span> \<span class="n">tau</span> <span class="o">*</span> <span class="n">log</span><span class="p">(</span><span class="n">pixel</span> <span class="o">/</span> <span class="p">(</span><span class="n">pixel</span> <span class="o">-</span> <span class="n">threshold</span><span class="p">))</span>
 </pre></div>
@@ -2845,15 +2935,15 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="py function">
-<dt id="id166">
-<span class="target" id="classhxtorch_1_1spiking_1_1transforms_1_1encode_1_1_spike_times_to_dense_1a347c90ee1a9168433f2d3041c6d951d2"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">float</span> <span class="pre">bin_width</span></em>, <em class="sig-param"><span class="pre">int</span> <span class="pre">size=100</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id166" title="Permalink to this definition"></a></dt>
+<dt id="id169">
+<span class="target" id="classhxtorch_1_1spiking_1_1transforms_1_1encode_1_1_spike_times_to_dense_1a347c90ee1a9168433f2d3041c6d951d2"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">float</span> <span class="pre">bin_width</span></em>, <em class="sig-param"><span class="pre">int</span> <span class="pre">size=100</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id169" title="Permalink to this definition"></a></dt>
 <dd><p>Initialize the conversion of spike times to a dense matrix of zeros and ones. </p>
 <p>:param bin_width: Binning interval in seconds. :param size: number of bins along time axis. </p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="id167">
-<span class="target" id="classhxtorch_1_1spiking_1_1transforms_1_1encode_1_1_spike_times_to_dense_1af61add6b4e442449c911fbc307705da5"></span><code class="sig-name descname"><span class="pre">forward</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">torch.Tensor</span> <span class="pre">spikes</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id167" title="Permalink to this definition"></a></dt>
+<dt id="id170">
+<span class="target" id="classhxtorch_1_1spiking_1_1transforms_1_1encode_1_1_spike_times_to_dense_1af61add6b4e442449c911fbc307705da5"></span><code class="sig-name descname"><span class="pre">forward</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">torch.Tensor</span> <span class="pre">spikes</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id170" title="Permalink to this definition"></a></dt>
 <dd><p>Convert spike times to dense matrix of zeros and ones. </p>
 <p>:param spikes: Spike times of shape ‘(color_channels, x0[, x1, …])’.</p>
 <p>:returns: Returns a dense matrix of shape ‘(time_bins, color_channels, x0[, x1, …])’. </p>
@@ -2877,15 +2967,15 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="py function">
-<dt id="id169">
-<span class="target" id="classhxtorch_1_1spiking_1_1transforms_1_1encode_1_1_spike_times_to_sparse_tensor_1ac9693284f53888695e487e9c01934467"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">float</span> <span class="pre">bin_width</span></em>, <em class="sig-param"><span class="pre">int</span> <span class="pre">size=100</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id169" title="Permalink to this definition"></a></dt>
+<dt id="id172">
+<span class="target" id="classhxtorch_1_1spiking_1_1transforms_1_1encode_1_1_spike_times_to_sparse_tensor_1ac9693284f53888695e487e9c01934467"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">float</span> <span class="pre">bin_width</span></em>, <em class="sig-param"><span class="pre">int</span> <span class="pre">size=100</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id172" title="Permalink to this definition"></a></dt>
 <dd><p>Initialize the conversion of spike times to a dense matrix of zeros and ones. </p>
 <p>:param bin_width: Binning interval in seconds. :param size: number of bins along time axis. </p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="id170">
-<span class="target" id="classhxtorch_1_1spiking_1_1transforms_1_1encode_1_1_spike_times_to_sparse_tensor_1aa3a6296c4efc343acae95bec37b61e7b"></span><code class="sig-name descname"><span class="pre">forward</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">torch.Tensor</span> <span class="pre">spikes</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id170" title="Permalink to this definition"></a></dt>
+<dt id="id173">
+<span class="target" id="classhxtorch_1_1spiking_1_1transforms_1_1encode_1_1_spike_times_to_sparse_tensor_1aa3a6296c4efc343acae95bec37b61e7b"></span><code class="sig-name descname"><span class="pre">forward</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">torch.Tensor</span> <span class="pre">spikes</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id173" title="Permalink to this definition"></a></dt>
 <dd><p>Convert spike times to dense matrix of zeros and ones. </p>
 <p>:param spikes: Spike times of shape ‘(color_channels, x0[, x1, …])’.</p>
 <p>:returns: Returns a dense matrix of shape ‘(time_bins, color_channels, x0[, x1, …])’. </p>
@@ -2895,8 +2985,8 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-protected-attributes">Protected Attributes</p>
 <dl class="py attribute">
-<dt id="id168">
-<span id="_size"></span><span class="target" id="classhxtorch_1_1spiking_1_1transforms_1_1encode_1_1_spike_times_to_sparse_tensor_1acfbd52844c89fca2cc7d317ac2260a31"></span><code class="sig-name descname"><span class="pre">_size</span></code><a class="headerlink" href="#id168" title="Permalink to this definition"></a></dt>
+<dt id="id171">
+<span id="_size"></span><span class="target" id="classhxtorch_1_1spiking_1_1transforms_1_1encode_1_1_spike_times_to_sparse_tensor_1acfbd52844c89fca2cc7d317ac2260a31"></span><code class="sig-name descname"><span class="pre">_size</span></code><a class="headerlink" href="#id171" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -2930,8 +3020,8 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="py function">
-<dt id="id171">
-<span class="target" id="classmnist_1_1_m_n_i_s_t_1affb56b554c959d7782aa23b0228c1edc"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id171" title="Permalink to this definition"></a></dt>
+<dt id="id174">
+<span class="target" id="classmnist_1_1_m_n_i_s_t_1affb56b554c959d7782aa23b0228c1edc"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id174" title="Permalink to this definition"></a></dt>
 <dd><p>:param root: Root directory of the dataset that contains <code class="docutils literal notranslate"><span class="pre">MNIST/processed/training.pt</span></code> and <code class="docutils literal notranslate"><span class="pre">MNIST/processed/test.pt</span></code>. </p>
 <p>:param train: If True, creates dataset from <code class="docutils literal notranslate"><span class="pre">training.pt</span></code>, otherwise from <code class="docutils literal notranslate"><span class="pre">test.pt</span></code>. </p>
 </dd></dl>
@@ -2951,14 +3041,14 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="py function">
-<dt id="id172">
-<span class="target" id="classmnist_1_1_model_1a2ee39dd311be64ead05de82c073c40f5"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">bool</span> <span class="pre">mock</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id172" title="Permalink to this definition"></a></dt>
+<dt id="id175">
+<span class="target" id="classmnist_1_1_model_1a2ee39dd311be64ead05de82c073c40f5"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">bool</span> <span class="pre">mock</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id175" title="Permalink to this definition"></a></dt>
 <dd><p>:param mock: Whether to use a software simulation instead of the ASIC. </p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="id173">
-<span class="target" id="classmnist_1_1_model_1a2a7b293cc9204b11b7cb24c3866b199f"></span><code class="sig-name descname"><span class="pre">forward</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id173" title="Permalink to this definition"></a></dt>
+<dt id="id176">
+<span class="target" id="classmnist_1_1_model_1a2a7b293cc9204b11b7cb24c3866b199f"></span><code class="sig-name descname"><span class="pre">forward</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id176" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </div>
@@ -2984,15 +3074,15 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="py function">
-<dt id="id174">
-<span class="target" id="classyinyang__model_1_1_model_1a0e2ab44ad08e0a86e64bbd831b620cc9"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">torch.nn.Module</span> <span class="pre">encoder</span></em>, <em class="sig-param"><span class="pre">torch.nn.Module</span> <span class="pre">network</span></em>, <em class="sig-param"><span class="pre">torch.nn.Module</span> <span class="pre">decoder</span></em>, <em class="sig-param"><span class="pre">float</span> <span class="pre">readout_scale=1.</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id174" title="Permalink to this definition"></a></dt>
+<dt id="id177">
+<span class="target" id="classyinyang__model_1_1_model_1a0e2ab44ad08e0a86e64bbd831b620cc9"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">torch.nn.Module</span> <span class="pre">encoder</span></em>, <em class="sig-param"><span class="pre">torch.nn.Module</span> <span class="pre">network</span></em>, <em class="sig-param"><span class="pre">torch.nn.Module</span> <span class="pre">decoder</span></em>, <em class="sig-param"><span class="pre">float</span> <span class="pre">readout_scale=1.</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id177" title="Permalink to this definition"></a></dt>
 <dd><p>Initialize the model by assigning encoder, network and decoder. </p>
 <p>:param encoder: Module to encode input data :param network: Network module containing layers and parameters / weights :param decoder: Module to decode network output </p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="id175">
-<span class="target" id="classyinyang__model_1_1_model_1a9c50ab33b077f222196a94d384586697"></span><code class="sig-name descname"><span class="pre">forward</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">torch.Tensor</span> <span class="pre">inputs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id175" title="Permalink to this definition"></a></dt>
+<dt id="id178">
+<span class="target" id="classyinyang__model_1_1_model_1a9c50ab33b077f222196a94d384586697"></span><code class="sig-name descname"><span class="pre">forward</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">torch.Tensor</span> <span class="pre">inputs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id178" title="Permalink to this definition"></a></dt>
 <dd><p>Perform forward pass through whole model, i.e. </p>
 <p>data -&gt; encoder -&gt; network -&gt; decoder -&gt; output</p>
 <p>:param inputs: tensor input data</p>
@@ -3045,15 +3135,15 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="py function">
-<dt id="id176">
-<span class="target" id="classyinyang__model_1_1_s_n_n_1ab7620ec411099deed02ba29e10ad660b"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">int</span> <span class="pre">n_in</span></em>, <em class="sig-param"><span class="pre">int</span> <span class="pre">n_hidden</span></em>, <em class="sig-param"><span class="pre">int</span> <span class="pre">n_out</span></em>, <em class="sig-param"><span class="pre">bool</span> <span class="pre">mock</span></em>, <em class="sig-param"><span class="pre">str</span> <span class="pre">calib_path</span></em>, <em class="sig-param"><span class="pre">float</span> <span class="pre">dt=1.0e-6</span></em>, <em class="sig-param"><span class="pre">float</span> <span class="pre">tau_mem=8e-6</span></em>, <em class="sig-param"><span class="pre">float</span> <span class="pre">tau_syn=8e-6</span></em>, <em class="sig-param"><span class="pre">float</span> <span class="pre">alpha=50</span></em>, <em class="sig-param"><span class="pre">int</span> <span class="pre">trace_shift_hidden=0</span></em>, <em class="sig-param"><span class="pre">int</span> <span class="pre">trace_shift_out=0</span></em>, <em class="sig-param"><span class="pre">Optional[Tuple[float</span></em>, <em class="sig-param"><span class="pre">float]]</span> <span class="pre">weight_init_hidden=None</span></em>, <em class="sig-param"><span class="pre">Optional[Tuple[float</span></em>, <em class="sig-param"><span class="pre">float]]</span> <span class="pre">weight_init_output=None</span></em>, <em class="sig-param"><span class="pre">float</span> <span class="pre">weight_scale=1.</span></em>, <em class="sig-param"><span class="pre">float</span> <span class="pre">trace_scale=1.</span></em>, <em class="sig-param"><span class="pre">int</span> <span class="pre">input_repetitions=1</span></em>, <em class="sig-param"><span class="pre">torch.device</span> <span class="pre">device=torch.device(&quot;cpu&quot;)</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id176" title="Permalink to this definition"></a></dt>
+<dt id="id179">
+<span class="target" id="classyinyang__model_1_1_s_n_n_1ab7620ec411099deed02ba29e10ad660b"></span><code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">int</span> <span class="pre">n_in</span></em>, <em class="sig-param"><span class="pre">int</span> <span class="pre">n_hidden</span></em>, <em class="sig-param"><span class="pre">int</span> <span class="pre">n_out</span></em>, <em class="sig-param"><span class="pre">bool</span> <span class="pre">mock</span></em>, <em class="sig-param"><span class="pre">str</span> <span class="pre">calib_path</span></em>, <em class="sig-param"><span class="pre">float</span> <span class="pre">dt=1.0e-6</span></em>, <em class="sig-param"><span class="pre">float</span> <span class="pre">tau_mem=8e-6</span></em>, <em class="sig-param"><span class="pre">float</span> <span class="pre">tau_syn=8e-6</span></em>, <em class="sig-param"><span class="pre">float</span> <span class="pre">alpha=50</span></em>, <em class="sig-param"><span class="pre">int</span> <span class="pre">trace_shift_hidden=0</span></em>, <em class="sig-param"><span class="pre">int</span> <span class="pre">trace_shift_out=0</span></em>, <em class="sig-param"><span class="pre">Optional[Tuple[float</span></em>, <em class="sig-param"><span class="pre">float]]</span> <span class="pre">weight_init_hidden=None</span></em>, <em class="sig-param"><span class="pre">Optional[Tuple[float</span></em>, <em class="sig-param"><span class="pre">float]]</span> <span class="pre">weight_init_output=None</span></em>, <em class="sig-param"><span class="pre">float</span> <span class="pre">weight_scale=1.</span></em>, <em class="sig-param"><span class="pre">float</span> <span class="pre">trace_scale=1.</span></em>, <em class="sig-param"><span class="pre">int</span> <span class="pre">input_repetitions=1</span></em>, <em class="sig-param"><span class="pre">torch.device</span> <span class="pre">device=torch.device(&quot;cpu&quot;)</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id179" title="Permalink to this definition"></a></dt>
 <dd><p>Initialize the SNN. </p>
 <p>:param n_in: Number of input units. :param n_hidden: Number of hidden units. :param n_out: Number of output units. :param mock: Indicating whether to train in software or on hardware. :param calib_path: Path to hardware calibration file. :param dt: Time-binning width. :param tau_mem: Membrane time constant. :param tau_syn: Synaptic time constant. :param trace_shift_hidden: Indicates how many indices the membrane trace of hidden layer is shifted to left along time axis. :param trace_shift_out: Indicates how many indices the membrane trace of readout layer is shifted to left along time axis. :param weight_init_hidden: Hidden layer weight initialization mean and std value. :param weight_init_output: Output layer weight initialization mean and std value. :param weight_scale: The factor with which the software weights are scaled when mapped to hardware. :param input_repetitions: Number of times to repeat input channels. :param device: The used PyTorch device used for tensor operations in software. </p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="id177">
-<span class="target" id="classyinyang__model_1_1_s_n_n_1a3f86a92e9c69741781e0a21312fcc912"></span><code class="sig-name descname"><span class="pre">forward</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">torch.Tensor</span> <span class="pre">spikes</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id177" title="Permalink to this definition"></a></dt>
+<dt id="id180">
+<span class="target" id="classyinyang__model_1_1_s_n_n_1a3f86a92e9c69741781e0a21312fcc912"></span><code class="sig-name descname"><span class="pre">forward</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">torch.Tensor</span> <span class="pre">spikes</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id180" title="Permalink to this definition"></a></dt>
 <dd><p>Perform a forward path. </p>
 <p>:param spikes: NeuronHandle holding spikes as input.</p>
 <p>:return: Returns the output of the network, i.e. membrane traces of the readout neurons. </p>
@@ -3582,6 +3672,12 @@
 </dd></dl>
 
 <dl class="py class">
+<dt id="hxtorch.spiking.observables">
+<span class="target" id="namespacehxtorch_1_1spiking_1_1observables"></span><em class="property"><span class="pre">module</span> </em><code class="sig-name descname"><span class="pre">observables</span></code><a class="headerlink" href="#hxtorch.spiking.observables" title="Permalink to this definition"></a></dt>
+<dd><p>Hardware observables object. </p>
+</dd></dl>
+
+<dl class="py class">
 <dt id="hxtorch.spiking.run">
 <span class="target" id="namespacehxtorch_1_1spiking_1_1run"></span><em class="property"><span class="pre">module</span> </em><code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.</span></code><code class="sig-name descname"><span class="pre">run</span></code><a class="headerlink" href="#hxtorch.spiking.run" title="Permalink to this definition"></a></dt>
 <dd><p>Run function to execute a SNN given in an experiment. </p>
@@ -4075,6 +4171,11 @@
 
 <dl class="file">
 <dt>
+<span class="target" id="observables_8py"></span><em><span class="pre">file</span></em> <code class="sig-name descname"><span class="pre">observables.py</span></code></dt>
+<dd></dd></dl>
+
+<dl class="file">
+<dt>
 <span class="target" id="run_8py"></span><em><span class="pre">file</span></em> <code class="sig-name descname"><span class="pre">run.py</span></code></dt>
 <dd></dd></dl>
 
@@ -4105,77 +4206,77 @@
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_12cd26d6ff5c9d899506818a45642380"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE3OTA.x/hxtorch/src/pyhxtorch/hxtorch/spiking/backend</span></code></dt>
+<span class="target" id="dir_12cd26d6ff5c9d899506818a45642380"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE4MDI.x/hxtorch/src/pyhxtorch/hxtorch/spiking/backend</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_6127e2c14a506d94cd301d86da31df3c"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE3OTA.x/hxtorch/src/pyhxtorch/hxtorch/spiking/datasets</span></code></dt>
+<span class="target" id="dir_6127e2c14a506d94cd301d86da31df3c"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE4MDI.x/hxtorch/src/pyhxtorch/hxtorch/spiking/datasets</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_46acf995bef9b0539f566b0751d46379"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE3OTA.x/hxtorch/src/pyhxtorch/hxtorch/examples</span></code></dt>
+<span class="target" id="dir_46acf995bef9b0539f566b0751d46379"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE4MDI.x/hxtorch/src/pyhxtorch/hxtorch/examples</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_0f1397951ee386dc0d269f012b7847e7"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE3OTA.x/hxtorch/src/pyhxtorch/hxtorch/spiking/functional</span></code></dt>
+<span class="target" id="dir_0f1397951ee386dc0d269f012b7847e7"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE4MDI.x/hxtorch/src/pyhxtorch/hxtorch/spiking/functional</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_dee54240410fefea239c518182ede0c0"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE3OTA.x/hxtorch</span></code></dt>
+<span class="target" id="dir_dee54240410fefea239c518182ede0c0"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE4MDI.x/hxtorch</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_eae1eaf2a11089ac186f861968e9ed6b"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE3OTA.x/hxtorch/src/pyhxtorch/hxtorch</span></code></dt>
+<span class="target" id="dir_eae1eaf2a11089ac186f861968e9ed6b"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE4MDI.x/hxtorch/src/pyhxtorch/hxtorch</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_f5830d5b5e03685fd530dc413d0dbf7e"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE3OTA.x/hxtorch/src/pyhxtorch/hxtorch/spiking/modules</span></code></dt>
+<span class="target" id="dir_f5830d5b5e03685fd530dc413d0dbf7e"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE4MDI.x/hxtorch/src/pyhxtorch/hxtorch/spiking/modules</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_d8a22e4dce7610c7ab44e7b0e48a6b40"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE3OTA.x/hxtorch/src/pyhxtorch/hxtorch/examples/perceptron</span></code></dt>
+<span class="target" id="dir_d8a22e4dce7610c7ab44e7b0e48a6b40"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE4MDI.x/hxtorch/src/pyhxtorch/hxtorch/examples/perceptron</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_3bf0c897ceebf26cc428e2a34f0f5501"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE3OTA.x/hxtorch/src/pyhxtorch/hxtorch/perceptron</span></code></dt>
+<span class="target" id="dir_3bf0c897ceebf26cc428e2a34f0f5501"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE4MDI.x/hxtorch/src/pyhxtorch/hxtorch/perceptron</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_7f97a6b062f0ffb929c49ccf0f36e308"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE3OTA.x/hxtorch/src/pyhxtorch</span></code></dt>
+<span class="target" id="dir_7f97a6b062f0ffb929c49ccf0f36e308"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE4MDI.x/hxtorch/src/pyhxtorch</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_e2f23cc6cb5d9dd75ab44a42e5bd01a3"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE3OTA.x/hxtorch/src/pyhxtorch/hxtorch/examples/spiking</span></code></dt>
+<span class="target" id="dir_e2f23cc6cb5d9dd75ab44a42e5bd01a3"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE4MDI.x/hxtorch/src/pyhxtorch/hxtorch/examples/spiking</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_caadc4e1a109875337a711c0fa124b5a"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE3OTA.x/hxtorch/src/pyhxtorch/hxtorch/spiking</span></code></dt>
+<span class="target" id="dir_caadc4e1a109875337a711c0fa124b5a"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE4MDI.x/hxtorch/src/pyhxtorch/hxtorch/spiking</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_b48420d93e1fb380492504b0e1926598"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE3OTA.x/hxtorch/src</span></code></dt>
+<span class="target" id="dir_b48420d93e1fb380492504b0e1926598"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE4MDI.x/hxtorch/src</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_9b531be90fbc5e40c03013052bc1f6c6"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE3OTA.x/hxtorch/src/pyhxtorch/hxtorch/spiking/transforms</span></code></dt>
+<span class="target" id="dir_9b531be90fbc5e40c03013052bc1f6c6"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE4MDI.x/hxtorch/src/pyhxtorch/hxtorch/spiking/transforms</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_32b049d3eb27ac3275a50234beb01f61"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE3OTA.x/hxtorch/src/pyhxtorch/hxtorch/spiking/utils</span></code></dt>
+<span class="target" id="dir_32b049d3eb27ac3275a50234beb01f61"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE4MDI.x/hxtorch/src/pyhxtorch/hxtorch/spiking/utils</span></code></dt>
 <dd></dd></dl>
 
 </div>
@@ -6057,47 +6158,47 @@
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_ba5f5ed00048c6d0a1c60eebcedfa0a1"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE3OTA.x/hxtorch/include/hxtorch/core</span></code></dt>
+<span class="target" id="dir_ba5f5ed00048c6d0a1c60eebcedfa0a1"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE4MDI.x/hxtorch/include/hxtorch/core</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_c78bdc568d42b047a290fb5470c4fe0d"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE3OTA.x/hxtorch/include/hxtorch/core/detail</span></code></dt>
+<span class="target" id="dir_c78bdc568d42b047a290fb5470c4fe0d"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE4MDI.x/hxtorch/include/hxtorch/core/detail</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_70b22670ba08166d55dad748946d9902"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE3OTA.x/hxtorch/include/hxtorch/perceptron/detail</span></code></dt>
+<span class="target" id="dir_70b22670ba08166d55dad748946d9902"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE4MDI.x/hxtorch/include/hxtorch/perceptron/detail</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_8e7559dc6a0c3efbb101559d952b5251"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE3OTA.x/hxtorch/include/hxtorch/spiking/detail</span></code></dt>
+<span class="target" id="dir_8e7559dc6a0c3efbb101559d952b5251"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE4MDI.x/hxtorch/include/hxtorch/spiking/detail</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_dee54240410fefea239c518182ede0c0"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE3OTA.x/hxtorch</span></code></dt>
+<span class="target" id="dir_dee54240410fefea239c518182ede0c0"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE4MDI.x/hxtorch</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_24b4f61621f9669a40a16349463d4bf6"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE3OTA.x/hxtorch/include/hxtorch</span></code></dt>
+<span class="target" id="dir_24b4f61621f9669a40a16349463d4bf6"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE4MDI.x/hxtorch/include/hxtorch</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_c307ff2b5a6b1db2d6893eb7f3dce880"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE3OTA.x/hxtorch/include</span></code></dt>
+<span class="target" id="dir_c307ff2b5a6b1db2d6893eb7f3dce880"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE4MDI.x/hxtorch/include</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_e2abc6d05b4037687549903e029a0145"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE3OTA.x/hxtorch/include/hxtorch/perceptron</span></code></dt>
+<span class="target" id="dir_e2abc6d05b4037687549903e029a0145"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE4MDI.x/hxtorch/include/hxtorch/perceptron</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_e2ace646b0d4b034e7ca1da3a40878c8"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE3OTA.x/hxtorch/include/hxtorch/spiking</span></code></dt>
+<span class="target" id="dir_e2ace646b0d4b034e7ca1da3a40878c8"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTE4MDI.x/hxtorch/include/hxtorch/spiking</span></code></dt>
 <dd></dd></dl>
 
 </div>
