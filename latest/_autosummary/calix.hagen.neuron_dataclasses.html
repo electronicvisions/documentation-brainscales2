@@ -16,7 +16,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="calix.hagen.neuron_dataclasses.dataclass" href="calix.hagen.neuron_dataclasses.dataclass.html" />
+    <link rel="next" title="calix.hagen.neuron_dataclasses.CalibResultInternal" href="calix.hagen.neuron_dataclasses.CalibResultInternal.html" />
     <link rel="prev" title="calix.hagen.neuron.NeuronCalibTarget" href="calix.hagen.neuron.NeuronCalibTarget.html" /> 
 </head>
 
@@ -50,7 +50,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../api_hxcomm.html">hxcomm API</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../api_calix.html">calix API</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="calix.html">calix</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="calix.calibrate.html">calix.calibrate</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.calib_cache.html">calix.calib_cache</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.common.html">calix.common</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.constants.html">calix.constants</a></li>
@@ -97,18 +96,6 @@
   <div class="section" id="module-calix.hagen.neuron_dataclasses">
 <span id="calix-hagen-neuron-dataclasses"></span><h1>calix.hagen.neuron_dataclasses<a class="headerlink" href="#module-calix.hagen.neuron_dataclasses" title="Permalink to this headline"></a></h1>
 <p>Dataclasses for hagen neuron calib target and result.</p>
-<p class="rubric">Functions</p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="calix.hagen.neuron_dataclasses.dataclass.html#calix.hagen.neuron_dataclasses.dataclass" title="calix.hagen.neuron_dataclasses.dataclass"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dataclass</span></code></a>([cls, init, repr, eq, order, …])</p></td>
-<td><p>Returns the same class as was passed in, with dunder methods added based on the fields defined in the class.</p></td>
-</tr>
-</tbody>
-</table>
 <p class="rubric">Classes</p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -130,6 +117,20 @@
 </tr>
 </tbody>
 </table>
+<p class="rubric">Functions</p>
+<dl class="py function">
+<dt id="calix.hagen.neuron_dataclasses.dataclass">
+<code class="sig-prename descclassname"><span class="pre">calix.hagen.neuron_dataclasses.</span></code><code class="sig-name descname"><span class="pre">dataclass</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">repr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unsafe_hash</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frozen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.hagen.neuron_dataclasses.dataclass" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the same class as was passed in, with dunder methods
+added based on the fields defined in the class.</p>
+<p>Examines PEP 526 __annotations__ to determine fields.</p>
+<p>If init is true, an __init__() method is added to the class. If
+repr is true, a __repr__() method is added. If order is true, rich
+comparison dunder methods are added. If unsafe_hash is true, a
+__hash__() method function is added. If frozen is true, fields may
+not be assigned to after instance creation.</p>
+</dd></dl>
+
 </div>
 
 
@@ -137,7 +138,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="calix.hagen.neuron.NeuronCalibTarget.html" class="btn btn-neutral float-left" title="calix.hagen.neuron.NeuronCalibTarget" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="calix.hagen.neuron_dataclasses.dataclass.html" class="btn btn-neutral float-right" title="calix.hagen.neuron_dataclasses.dataclass" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="calix.hagen.neuron_dataclasses.CalibResultInternal.html" class="btn btn-neutral float-right" title="calix.hagen.neuron_dataclasses.CalibResultInternal" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

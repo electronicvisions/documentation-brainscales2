@@ -16,8 +16,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="calix.common.cadc_helpers.cadc_read_row" href="calix.common.cadc_helpers.cadc_read_row.html" />
-    <link rel="prev" title="calix.common.cadc_evaluation.compare_results" href="calix.common.cadc_evaluation.compare_results.html" /> 
+    <link rel="next" title="calix.common.exceptions" href="calix.common.exceptions.html" />
+    <link rel="prev" title="calix.common.cadc_evaluation" href="calix.common.cadc_evaluation.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -50,7 +50,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../api_hxcomm.html">hxcomm API</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../api_calix.html">calix API</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="calix.html">calix</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="calix.calibrate.html">calix.calibrate</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.calib_cache.html">calix.calib_cache</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="calix.common.html">calix.common</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.constants.html">calix.constants</a></li>
@@ -99,40 +98,125 @@
 <p>Provides functions for reading the CADCs and configuring for
 calibration purposes.</p>
 <p class="rubric">Functions</p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="calix.common.cadc_helpers.cadc_read_row.html#calix.common.cadc_helpers.cadc_read_row" title="calix.common.cadc_helpers.cadc_read_row"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cadc_read_row</span></code></a>(builder, synram)</p></td>
-<td><p>Read one row of CADCs and return the read ticket.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="calix.common.cadc_helpers.configure_chip.html#calix.common.cadc_helpers.configure_chip" title="calix.common.cadc_helpers.configure_chip"><code class="xref py py-obj docutils literal notranslate"><span class="pre">configure_chip</span></code></a>(builder)</p></td>
-<td><p>Configures the chip from an arbitrary state to run CADC calibration.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="calix.common.cadc_helpers.configure_readout_cadc_debug.html#calix.common.cadc_helpers.configure_readout_cadc_debug" title="calix.common.cadc_helpers.configure_readout_cadc_debug"><code class="xref py py-obj docutils literal notranslate"><span class="pre">configure_readout_cadc_debug</span></code></a>(builder)</p></td>
-<td><p>Writes the readout chain configuration in a way that allows reading the capmem debug cell output voltage at the CADC debug line.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="calix.common.cadc_helpers.convert_success_masks.html#calix.common.cadc_helpers.convert_success_masks" title="calix.common.cadc_helpers.convert_success_masks"><code class="xref py py-obj docutils literal notranslate"><span class="pre">convert_success_masks</span></code></a>(quadrant_mask)</p></td>
-<td><p>Converts a mask showing the calibration success of quadrants to a mask showing the success of each channel.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="calix.common.cadc_helpers.read_cadcs.html#calix.common.cadc_helpers.read_cadcs" title="calix.common.cadc_helpers.read_cadcs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_cadcs</span></code></a>(connection[, builder])</p></td>
-<td><p>Read all CADC channels in order top causal, top acausal, bottom causal, bottom acausal.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="calix.common.cadc_helpers.reshape_cadc_quadrants.html#calix.common.cadc_helpers.reshape_cadc_quadrants" title="calix.common.cadc_helpers.reshape_cadc_quadrants"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reshape_cadc_quadrants</span></code></a>(cadc_results)</p></td>
-<td><p>Reshapes an array containing all CADC samples as obtained with the read_cadcs() function (shape: (1024,)) into a two-dimensional array that holds the CADC results per quadrant (shape: (4, 256)).</p></td>
-</tr>
-</tbody>
-</table>
+<dl class="py function">
+<dt id="calix.common.cadc_helpers.cadc_read_row">
+<code class="sig-prename descclassname"><span class="pre">calix.common.cadc_helpers.</span></code><code class="sig-name descname"><span class="pre">cadc_read_row</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">builder</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="calix.common.base.WriteRecordingPlaybackProgramBuilder.html#calix.common.base.WriteRecordingPlaybackProgramBuilder" title="calix.common.base.WriteRecordingPlaybackProgramBuilder"><span class="pre">calix.common.base.WriteRecordingPlaybackProgramBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">synram</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhalco_hicann_dls_vx_v3.SynramOnDLS</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="calix.common.base.WriteRecordingPlaybackProgramBuilder.html#calix.common.base.WriteRecordingPlaybackProgramBuilder" title="calix.common.base.WriteRecordingPlaybackProgramBuilder"><span class="pre">calix.common.base.WriteRecordingPlaybackProgramBuilder</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">pystadls_vx_v3.ContainerTicket</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#calix.common.cadc_helpers.cadc_read_row" title="Permalink to this definition"></a></dt>
+<dd><p>Read one row of CADCs and return the read ticket.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>builder</strong> – Builder to append the read instruction to.</p></li>
+<li><p><strong>synram</strong> – Synram coordinate of row to read.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Tuple containing:
+* Builder with read instruction appended
+* CADC read ticket</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="calix.common.cadc_helpers.configure_chip">
+<code class="sig-prename descclassname"><span class="pre">calix.common.cadc_helpers.</span></code><code class="sig-name descname"><span class="pre">configure_chip</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">builder</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="calix.common.base.WriteRecordingPlaybackProgramBuilder.html#calix.common.base.WriteRecordingPlaybackProgramBuilder" title="calix.common.base.WriteRecordingPlaybackProgramBuilder"><span class="pre">calix.common.base.WriteRecordingPlaybackProgramBuilder</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="calix.common.base.WriteRecordingPlaybackProgramBuilder.html#calix.common.base.WriteRecordingPlaybackProgramBuilder" title="calix.common.base.WriteRecordingPlaybackProgramBuilder"><span class="pre">calix.common.base.WriteRecordingPlaybackProgramBuilder</span></a><a class="headerlink" href="#calix.common.cadc_helpers.configure_chip" title="Permalink to this definition"></a></dt>
+<dd><p>Configures the chip from an arbitrary state to run CADC calibration.</p>
+<p>Set relevant CapMem values of the CADC, connect debug lines to the CADC and
+set all CADCChannels to default (with zero offsets).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>builder</strong> – Builder to append chip configuration commands to.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Builder with configuring commands appended.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="calix.common.cadc_helpers.configure_readout_cadc_debug">
+<code class="sig-prename descclassname"><span class="pre">calix.common.cadc_helpers.</span></code><code class="sig-name descname"><span class="pre">configure_readout_cadc_debug</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">builder</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="calix.common.base.WriteRecordingPlaybackProgramBuilder.html#calix.common.base.WriteRecordingPlaybackProgramBuilder" title="calix.common.base.WriteRecordingPlaybackProgramBuilder"><span class="pre">calix.common.base.WriteRecordingPlaybackProgramBuilder</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="calix.common.base.WriteRecordingPlaybackProgramBuilder.html#calix.common.base.WriteRecordingPlaybackProgramBuilder" title="calix.common.base.WriteRecordingPlaybackProgramBuilder"><span class="pre">calix.common.base.WriteRecordingPlaybackProgramBuilder</span></a><a class="headerlink" href="#calix.common.cadc_helpers.configure_readout_cadc_debug" title="Permalink to this definition"></a></dt>
+<dd><p>Writes the readout chain configuration in a way that allows
+reading the capmem debug cell output voltage at the
+CADC debug line.
+Enables the capmem debug output on stp_v_charge_0.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>builder</strong> – Builder to append the bit-configuration to.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Builder with configuration appended to.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="calix.common.cadc_helpers.convert_success_masks">
+<code class="sig-prename descclassname"><span class="pre">calix.common.cadc_helpers.</span></code><code class="sig-name descname"><span class="pre">convert_success_masks</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">quadrant_mask</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">numpy.ndarray</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">numpy.ndarray</span><a class="headerlink" href="#calix.common.cadc_helpers.convert_success_masks" title="Permalink to this definition"></a></dt>
+<dd><p>Converts a mask showing the calibration success of quadrants to a
+mask showing the success of each channel. If a quadrant shows False,
+all channels on that quadrants are set to False.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>quadrant_mask</strong> – Boolean array of length 4, i.e. matching the
+quadrants on chip.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Boolean array of length 1024, i.e. matching all CADC channels.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="calix.common.cadc_helpers.read_cadcs">
+<code class="sig-prename descclassname"><span class="pre">calix.common.cadc_helpers.</span></code><code class="sig-name descname"><span class="pre">read_cadcs</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhxcomm_vx.ConnectionHandle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">builder</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="calix.common.base.WriteRecordingPlaybackProgramBuilder.html#calix.common.base.WriteRecordingPlaybackProgramBuilder" title="calix.common.base.WriteRecordingPlaybackProgramBuilder"><span class="pre">calix.common.base.WriteRecordingPlaybackProgramBuilder</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">numpy.ndarray</span><a class="headerlink" href="#calix.common.cadc_helpers.read_cadcs" title="Permalink to this definition"></a></dt>
+<dd><p>Read all CADC channels in order top causal, top acausal,
+bottom causal, bottom acausal. Dump results into a numpy array.</p>
+<p>The readout of the top row is triggered before the bottom row,
+such that there is a delay of some 100 us between the measurements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>connection</strong> – Connection to a chip to read CADC channels from.</p></li>
+<li><p><strong>builder</strong> – Optional builder to be run before reading the CADCs.
+This allows reading fast after doing other operations.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Array containing integer results for each channel.
+The order is top causal, top acausal, bottom causal, bottom acausal;
+within these blocks the channels are ordered from left to right.
+The order of returned results corresponds to the enums of
+halco.CADCChannelConfigOnDLS.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="calix.common.cadc_helpers.reshape_cadc_quadrants">
+<code class="sig-prename descclassname"><span class="pre">calix.common.cadc_helpers.</span></code><code class="sig-name descname"><span class="pre">reshape_cadc_quadrants</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cadc_results</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">numpy.ndarray</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">numpy.ndarray</span><a class="headerlink" href="#calix.common.cadc_helpers.reshape_cadc_quadrants" title="Permalink to this definition"></a></dt>
+<dd><p>Reshapes an array containing all CADC samples as obtained with the
+read_cadcs() function (shape: (1024,)) into a two-dimensional array
+that holds the CADC results per quadrant (shape: (4, 256)).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cadc_results</strong> – Flat array of CADC results.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Two-dimensional array of CADC results with the first index
+being the index of the Quadrant.</p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="calix.common.cadc_evaluation.compare_results.html" class="btn btn-neutral float-left" title="calix.common.cadc_evaluation.compare_results" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="calix.common.cadc_helpers.cadc_read_row.html" class="btn btn-neutral float-right" title="calix.common.cadc_helpers.cadc_read_row" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="calix.common.cadc_evaluation.html" class="btn btn-neutral float-left" title="calix.common.cadc_evaluation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="calix.common.exceptions.html" class="btn btn-neutral float-right" title="calix.common.exceptions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

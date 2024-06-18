@@ -16,7 +16,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="calix.common.cadc_evaluation.check_calibration_success" href="calix.common.cadc_evaluation.check_calibration_success.html" />
+    <link rel="next" title="calix.common.cadc_helpers" href="calix.common.cadc_helpers.html" />
     <link rel="prev" title="calix.common.cadc.RampSlopeCalib" href="calix.common.cadc.RampSlopeCalib.html" /> 
 </head>
 
@@ -50,7 +50,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../api_hxcomm.html">hxcomm API</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../api_calix.html">calix API</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="calix.html">calix</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="calix.calibrate.html">calix.calibrate</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.calib_cache.html">calix.calib_cache</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="calix.common.html">calix.common</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.constants.html">calix.constants</a></li>
@@ -99,20 +98,40 @@
 <p>Provides functions which are helpful when evaluating the success of a
 CADC calibration.</p>
 <p class="rubric">Functions</p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="calix.common.cadc_evaluation.check_calibration_success.html#calix.common.cadc_evaluation.check_calibration_success" title="calix.common.cadc_evaluation.check_calibration_success"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_calibration_success</span></code></a>(connection, …)</p></td>
-<td><p>Compare the given uncalibrated reads to a new read that is done with the supplied builder/connection.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="calix.common.cadc_evaluation.compare_results.html#calix.common.cadc_evaluation.compare_results" title="calix.common.cadc_evaluation.compare_results"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compare_results</span></code></a>(uncalibrated_data, …)</p></td>
-<td><p>Compare results with calibrated offset and uncalibrated reads.</p></td>
-</tr>
-</tbody>
-</table>
+<dl class="py function">
+<dt id="calix.common.cadc_evaluation.check_calibration_success">
+<code class="sig-prename descclassname"><span class="pre">calix.common.cadc_evaluation.</span></code><code class="sig-name descname"><span class="pre">check_calibration_success</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhxcomm_vx.ConnectionHandle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">builder</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="calix.common.base.WriteRecordingPlaybackProgramBuilder.html#calix.common.base.WriteRecordingPlaybackProgramBuilder" title="calix.common.base.WriteRecordingPlaybackProgramBuilder"><span class="pre">calix.common.base.WriteRecordingPlaybackProgramBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">read_data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">numpy.ndarray</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#calix.common.cadc_evaluation.check_calibration_success" title="Permalink to this definition"></a></dt>
+<dd><p>Compare the given uncalibrated reads to a new read that is done
+with the supplied builder/connection. Logs a warning if the
+deviation of reads after calibration is still high.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>connection</strong> – Connection to the chip to run on.</p></li>
+<li><p><strong>builder</strong> – Builder to append read instructions to.</p></li>
+<li><p><strong>read_data</strong> – Array of reads before calibration.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="calix.common.cadc_evaluation.compare_results">
+<code class="sig-prename descclassname"><span class="pre">calix.common.cadc_evaluation.</span></code><code class="sig-name descname"><span class="pre">compare_results</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uncalibrated_data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calibrated_data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">numpy.ndarray</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#calix.common.cadc_evaluation.compare_results" title="Permalink to this definition"></a></dt>
+<dd><p>Compare results with calibrated offset and uncalibrated reads.</p>
+<p>Logs the mean and standard deviation of CADC reads before and after
+calibration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>uncalibrated_data</strong> – Array of CADC samples that will be used as data
+before calibration.</p></li>
+<li><p><strong>calibrated_data</strong> – Array of CADC samples after calibration.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 
 
@@ -120,7 +139,7 @@ CADC calibration.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="calix.common.cadc.RampSlopeCalib.html" class="btn btn-neutral float-left" title="calix.common.cadc.RampSlopeCalib" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="calix.common.cadc_evaluation.check_calibration_success.html" class="btn btn-neutral float-right" title="calix.common.cadc_evaluation.check_calibration_success" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="calix.common.cadc_helpers.html" class="btn btn-neutral float-right" title="calix.common.cadc_helpers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

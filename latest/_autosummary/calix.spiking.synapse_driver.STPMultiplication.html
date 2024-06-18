@@ -50,7 +50,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../api_hxcomm.html">hxcomm API</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../api_calix.html">calix API</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="calix.html">calix</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="calix.calibrate.html">calix.calibrate</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.calib_cache.html">calix.calib_cache</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.common.html">calix.common</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.constants.html">calix.constants</a></li>
@@ -121,32 +120,8 @@ a suitable voltage v_stp := v_recover = v_charge.</p>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#calix.spiking.synapse_driver.STPMultiplication.__init__" title="calix.spiking.synapse_driver.STPMultiplication.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([synram, num_sends, wait_period, …])</p></td>
-<td><p>Initialize self.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#calix.spiking.synapse_driver.STPMultiplication.auto_multiply" title="calix.spiking.synapse_driver.STPMultiplication.auto_multiply"><code class="xref py py-obj docutils literal notranslate"><span class="pre">auto_multiply</span></code></a>(connection, vectors, matrix, *)</p></td>
-<td><p>Multiply given vectors with the given matrix.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#calix.spiking.synapse_driver.STPMultiplication.configure_for_integration" title="calix.spiking.synapse_driver.STPMultiplication.configure_for_integration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">configure_for_integration</span></code></a>(config)</p></td>
-<td><p>Set static configuration for integration on excitatory synaptic input lines.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#calix.spiking.synapse_driver.STPMultiplication.get_synapse_matrix" title="calix.spiking.synapse_driver.STPMultiplication.get_synapse_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_synapse_matrix</span></code></a>(matrix)</p></td>
-<td><p>Return a suitable lola SynapseMatrix depending on the requested weights.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#calix.spiking.synapse_driver.STPMultiplication.multiply" title="calix.spiking.synapse_driver.STPMultiplication.multiply"><code class="xref py py-obj docutils literal notranslate"><span class="pre">multiply</span></code></a>(connection, vectors, matrix)</p></td>
-<td><p>Multiply given vectors with the given matrix, return results.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#calix.spiking.synapse_driver.STPMultiplication.preconfigure" title="calix.spiking.synapse_driver.STPMultiplication.preconfigure"><code class="xref py py-obj docutils literal notranslate"><span class="pre">preconfigure</span></code></a>(connection)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.spiking.synapse_driver.STPMultiplication.preconfigure" title="calix.spiking.synapse_driver.STPMultiplication.preconfigure"><code class="xref py py-obj docutils literal notranslate"><span class="pre">preconfigure</span></code></a>(connection)</p></td>
 <td><p>Call preconfigure from parent class, but disable hagen-mode encoding (use STP voltages instead).</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#calix.spiking.synapse_driver.STPMultiplication.preconfigure_crossbar" title="calix.spiking.synapse_driver.STPMultiplication.preconfigure_crossbar"><code class="xref py py-obj docutils literal notranslate"><span class="pre">preconfigure_crossbar</span></code></a>(builder)</p></td>
-<td><p>Configure the crossbar such that the upper bits in an event label select target hemisphere and PADI bus.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#calix.spiking.synapse_driver.STPMultiplication.preconfigure_dac" title="calix.spiking.synapse_driver.STPMultiplication.preconfigure_dac"><code class="xref py py-obj docutils literal notranslate"><span class="pre">preconfigure_dac</span></code></a>(builder)</p></td>
-<td><p>Connect the external DAC to the synapse debug lines, supplying a voltage of 1.2 V.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#calix.spiking.synapse_driver.STPMultiplication.reset_synin" title="calix.spiking.synapse_driver.STPMultiplication.reset_synin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset_synin</span></code></a>(builder)</p></td>
-<td><p>Connect synapse lines to the debug lines shortly.</p></td>
 </tr>
 </tbody>
 </table>
@@ -157,93 +132,8 @@ a suitable voltage v_stp := v_recover = v_charge.</p>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#calix.spiking.synapse_driver.STPMultiplication.synram_coord" title="calix.spiking.synapse_driver.STPMultiplication.synram_coord"><code class="xref py py-obj docutils literal notranslate"><span class="pre">synram_coord</span></code></a></p></td>
-<td><p>Get the synram to perform MAC operations on.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#calix.spiking.synapse_driver.STPMultiplication.synram_selection_bit" title="calix.spiking.synapse_driver.STPMultiplication.synram_selection_bit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">synram_selection_bit</span></code></a></p></td>
-<td><p></p></td>
-</tr>
 </tbody>
 </table>
-<dl class="py method">
-<dt id="calix.spiking.synapse_driver.STPMultiplication.auto_multiply">
-<code class="sig-name descname"><span class="pre">auto_multiply</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhxcomm_vx.ConnectionHandle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vectors</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">matrix</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_row_repeats</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">numpy.ndarray</span><a class="headerlink" href="#calix.spiking.synapse_driver.STPMultiplication.auto_multiply" title="Permalink to this definition"></a></dt>
-<dd><p>Multiply given vectors with the given matrix.</p>
-<p>Handle input shape of the matrix automatically, i.e. split
-large matrices (containing many inputs) up into multiple runs
-or repeat small matrices multiple times in order to increase
-signal. The outer dimension (i.e. number of outputs) has to fit
-on the width of the synapse array, it is not handled here.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>connection</strong> – Connection to the chip to run on.</p></li>
-<li><p><strong>vectors</strong> – Array of vectors to be multiplied. We expect
-row vectors, with the inner dimension (columns) holding the
-individual entries of each vector.</p></li>
-<li><p><strong>matrix</strong> – Weight matrix to be multiplied.</p></li>
-<li><p><strong>n_row_repeats</strong> – Number of repetitions of the weight
-matrix. In contrast to vector resends, the matrix rows
-are repeated, which also compensates fixed-pattern noise.
-Defaults to 1. Select “auto” to fill up the synapse array
-with a small matrix.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Numpy array with the result of multiplication.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="calix.spiking.synapse_driver.STPMultiplication.configure_for_integration">
-<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">configure_for_integration</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pylola_vx_v3.AtomicNeuron</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#calix.spiking.synapse_driver.STPMultiplication.configure_for_integration" title="Permalink to this definition"></a></dt>
-<dd><p>Set static configuration for integration on excitatory synaptic
-input lines.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>config</strong> – Configuration container to be altered.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="calix.spiking.synapse_driver.STPMultiplication.get_synapse_matrix">
-<code class="sig-name descname"><span class="pre">get_synapse_matrix</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">numpy.ndarray</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">pylola_vx_v3.SynapseMatrix</span><a class="headerlink" href="#calix.spiking.synapse_driver.STPMultiplication.get_synapse_matrix" title="Permalink to this definition"></a></dt>
-<dd><p>Return a suitable lola SynapseMatrix depending on the
-requested weights.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>matrix</strong> – Weight matrix as a numpy array.</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><cite>lola.SynapseMatrix</cite> with addresses and weights set.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="calix.spiking.synapse_driver.STPMultiplication.multiply">
-<code class="sig-name descname"><span class="pre">multiply</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhxcomm_vx.ConnectionHandle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vectors</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">matrix</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">numpy.ndarray</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">numpy.ndarray</span><a class="headerlink" href="#calix.spiking.synapse_driver.STPMultiplication.multiply" title="Permalink to this definition"></a></dt>
-<dd><p>Multiply given vectors with the given matrix, return results.</p>
-<p>The matrix shape has to match the synapse array exactly, there
-is no splitting or merging of matrix shapes.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>connection</strong> – Connection to the chip to run on.</p></li>
-<li><p><strong>vectors</strong> – Array of vectors to be multiplied. We expect
-row vectors, with the inner dimension (columns) holding the
-individual entries of each vector.</p></li>
-<li><p><strong>matrix</strong> – Array of weights.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Array of results of the MAC operation.</p>
-</dd>
-</dl>
-</dd></dl>
-
 <dl class="py method">
 <dt id="calix.spiking.synapse_driver.STPMultiplication.preconfigure">
 <code class="sig-name descname"><span class="pre">preconfigure</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhxcomm_vx.ConnectionHandle</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#calix.spiking.synapse_driver.STPMultiplication.preconfigure" title="Permalink to this definition"></a></dt>
@@ -255,57 +145,6 @@ hagen-mode encoding (use STP voltages instead).</p>
 </dd>
 </dl>
 </dd></dl>
-
-<dl class="py method">
-<dt id="calix.spiking.synapse_driver.STPMultiplication.preconfigure_crossbar">
-<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">preconfigure_crossbar</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">builder</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="calix.common.base.WriteRecordingPlaybackProgramBuilder.html#calix.common.base.WriteRecordingPlaybackProgramBuilder" title="calix.common.base.WriteRecordingPlaybackProgramBuilder"><span class="pre">calix.common.base.WriteRecordingPlaybackProgramBuilder</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#calix.spiking.synapse_driver.STPMultiplication.preconfigure_crossbar" title="Permalink to this definition"></a></dt>
-<dd><p>Configure the crossbar such that the upper bits in an event
-label select target hemisphere and PADI bus. Also enable
-SPL1 events in the PADI buses.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>builder</strong> – Builder to append instructions to.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="calix.spiking.synapse_driver.STPMultiplication.preconfigure_dac">
-<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">preconfigure_dac</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">builder</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="calix.common.base.WriteRecordingPlaybackProgramBuilder.html#calix.common.base.WriteRecordingPlaybackProgramBuilder" title="calix.common.base.WriteRecordingPlaybackProgramBuilder"><span class="pre">calix.common.base.WriteRecordingPlaybackProgramBuilder</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#calix.spiking.synapse_driver.STPMultiplication.preconfigure_dac" title="Permalink to this definition"></a></dt>
-<dd><p>Connect the external DAC to the synapse debug lines, supplying
-a voltage of 1.2 V.</p>
-<p>The potential will be used for resetting potentials on the
-synapse lines before integration.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>builder</strong> – Builder to append instructions to.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="calix.spiking.synapse_driver.STPMultiplication.reset_synin">
-<code class="sig-name descname"><span class="pre">reset_synin</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">builder</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="calix.common.base.WriteRecordingPlaybackProgramBuilder.html#calix.common.base.WriteRecordingPlaybackProgramBuilder" title="calix.common.base.WriteRecordingPlaybackProgramBuilder"><span class="pre">calix.common.base.WriteRecordingPlaybackProgramBuilder</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.spiking.synapse_driver.STPMultiplication.reset_synin" title="Permalink to this definition"></a></dt>
-<dd><p>Connect synapse lines to the debug lines shortly.</p>
-<p>The switches for excitatory and inhibitory synaptic currents
-are enabled.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>builder</strong> – Builder to append instructions to.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="calix.spiking.synapse_driver.STPMultiplication.synram_coord">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">synram_coord</span></code><a class="headerlink" href="#calix.spiking.synapse_driver.STPMultiplication.synram_coord" title="Permalink to this definition"></a></dt>
-<dd><p>Get the synram to perform MAC operations on.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt id="calix.spiking.synapse_driver.STPMultiplication.synram_selection_bit">
-<code class="sig-name descname"><span class="pre">synram_selection_bit</span></code><em class="property"> <span class="pre">=</span> <span class="pre">13</span></em><a class="headerlink" href="#calix.spiking.synapse_driver.STPMultiplication.synram_selection_bit" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
 
 </dd></dl>
 

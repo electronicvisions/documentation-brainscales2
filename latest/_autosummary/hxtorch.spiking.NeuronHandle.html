@@ -123,15 +123,6 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.NeuronHandle.__init__" title="hxtorch.spiking.NeuronHandle.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([spikes, v_cadc, current, v_madc])</p></td>
 <td><p>Instantiate a neuron handle able to hold spike and membrane tensors.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.NeuronHandle.clear" title="hxtorch.spiking.NeuronHandle.clear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear</span></code></a>()</p></td>
-<td><p>Set all data in handle to ‘None’.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.NeuronHandle.holds" title="hxtorch.spiking.NeuronHandle.holds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">holds</span></code></a>(name)</p></td>
-<td><p>Checks whether the tensor handle already holds a tensor with key <cite>name</cite>.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.NeuronHandle.put" title="hxtorch.spiking.NeuronHandle.put"><code class="xref py py-obj docutils literal notranslate"><span class="pre">put</span></code></a>(*tensors, **kwargs)</p></td>
-<td><p>Fill the tensor handle with actual data given by tensors or kwargs.</p></td>
-</tr>
 </tbody>
 </table>
 <p class="rubric">Attributes</p>
@@ -143,12 +134,6 @@
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.NeuronHandle.current" title="hxtorch.spiking.NeuronHandle.current"><code class="xref py py-obj docutils literal notranslate"><span class="pre">current</span></code></a></p></td>
 <td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.NeuronHandle.observable_state" title="hxtorch.spiking.NeuronHandle.observable_state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">observable_state</span></code></a></p></td>
-<td><p>Getter for observable state.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.NeuronHandle.observable_state_identifier" title="hxtorch.spiking.NeuronHandle.observable_state_identifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">observable_state_identifier</span></code></a></p></td>
-<td><p>Getter for observable state identifier.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.NeuronHandle.spikes" title="hxtorch.spiking.NeuronHandle.spikes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">spikes</span></code></a></p></td>
 <td><p></p></td>
@@ -162,75 +147,9 @@
 </tbody>
 </table>
 <dl class="py method">
-<dt id="hxtorch.spiking.NeuronHandle.clear">
-<code class="sig-name descname"><span class="pre">clear</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.NeuronHandle.clear" title="Permalink to this definition"></a></dt>
-<dd><p>Set all data in handle to ‘None’.</p>
-</dd></dl>
-
-<dl class="py method">
 <dt id="hxtorch.spiking.NeuronHandle.current">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">current</span></code><a class="headerlink" href="#hxtorch.spiking.NeuronHandle.current" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
-
-<dl class="py method">
-<dt id="hxtorch.spiking.NeuronHandle.holds">
-<code class="sig-name descname"><span class="pre">holds</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#hxtorch.spiking.NeuronHandle.holds" title="Permalink to this definition"></a></dt>
-<dd><p>Checks whether the tensor handle already holds a tensor with key
-<cite>name</cite>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>name</strong> – Key of reference to tensor.</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Returns a bool indicating whether the data present at key
-<cite>name</cite> is not None.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="hxtorch.spiking.NeuronHandle.observable_state">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">observable_state</span></code><a class="headerlink" href="#hxtorch.spiking.NeuronHandle.observable_state" title="Permalink to this definition"></a></dt>
-<dd><p>Getter for observable state.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>Returns the tensor associated with ‘_obsv_state’</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="hxtorch.spiking.NeuronHandle.observable_state_identifier">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">observable_state_identifier</span></code><a class="headerlink" href="#hxtorch.spiking.NeuronHandle.observable_state_identifier" title="Permalink to this definition"></a></dt>
-<dd><p>Getter for observable state identifier.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>Returns the identifier string associated with the observable
-state of the handle.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="hxtorch.spiking.NeuronHandle.put">
-<code class="sig-name descname"><span class="pre">put</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">tensors</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.NeuronHandle.put" title="Permalink to this definition"></a></dt>
-<dd><p>Fill the tensor handle with actual data given by tensors or kwargs. If
-tensors are given as positional arguments the tensors are assigned in
-the order given by class member ‘_carries’. Keyword arguments are
-assigned to the corresponding key. Therefore, the key has to be in
-‘_carries.’</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>tensors</strong> – Tensors which are assigned to the tensor handle. The
-given tensors are associated with the elements in ‘_carries’ in
-successive order.</p></li>
-<li><p><strong>kwargs</strong> (<em>param</em>) – Assigns the items in kwargs to the elements in
-the tensor handle associated with the corresponding kwargs keys.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
 
 <dl class="py method">
 <dt id="hxtorch.spiking.NeuronHandle.spikes">

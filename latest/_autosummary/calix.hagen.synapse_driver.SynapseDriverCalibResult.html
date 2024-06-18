@@ -50,7 +50,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../api_hxcomm.html">hxcomm API</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../api_calix.html">calix API</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="calix.html">calix</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="calix.calibrate.html">calix.calibrate</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.calib_cache.html">calix.calib_cache</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.common.html">calix.common</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.constants.html">calix.constants</a></li>
@@ -123,9 +122,6 @@ calibration, as well as a success flag for each driver.</p>
 <tr class="row-even"><td><p><a class="reference internal" href="#calix.hagen.synapse_driver.SynapseDriverCalibResult.apply" title="calix.hagen.synapse_driver.SynapseDriverCalibResult.apply"><code class="xref py py-obj docutils literal notranslate"><span class="pre">apply</span></code></a>(builder)</p></td>
 <td><p>Apply the calibration result in the given builder.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#calix.hagen.synapse_driver.SynapseDriverCalibResult.to_chip" title="calix.hagen.synapse_driver.SynapseDriverCalibResult.to_chip"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_chip</span></code></a>([initial_config, chip])</p></td>
-<td><p>Apply the calibration into a lola.chip object.</p></td>
-</tr>
 </tbody>
 </table>
 <dl class="py method">
@@ -145,11 +141,6 @@ calibration, as well as a success flag for each driver.</p>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="calix.hagen.synapse_driver.SynapseDriverCalibResult.options">
-<code class="sig-name descname"><span class="pre">options</span></code><em class="property"><span class="pre">:</span> <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">CalibOptions</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#calix.hagen.synapse_driver.SynapseDriverCalibResult.options" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
 <dt id="calix.hagen.synapse_driver.SynapseDriverCalibResult.success">
 <code class="sig-name descname"><span class="pre">success</span></code><em class="property"><span class="pre">:</span> <span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">pyhalco_hicann_dls_vx_v3.SynapseDriverOnDLS</span><span class="p"><span class="pre">,</span> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#calix.hagen.synapse_driver.SynapseDriverCalibResult.success" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
@@ -158,31 +149,6 @@ calibration, as well as a success flag for each driver.</p>
 <dt id="calix.hagen.synapse_driver.SynapseDriverCalibResult.synapse_driver_configs">
 <code class="sig-name descname"><span class="pre">synapse_driver_configs</span></code><em class="property"><span class="pre">:</span> <span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">pyhalco_hicann_dls_vx_v3.SynapseDriverOnDLS</span><span class="p"><span class="pre">,</span> </span><span class="pre">pyhaldls_vx_v3.SynapseDriverConfig</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#calix.hagen.synapse_driver.SynapseDriverCalibResult.synapse_driver_configs" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="calix.hagen.synapse_driver.SynapseDriverCalibResult.target">
-<code class="sig-name descname"><span class="pre">target</span></code><em class="property"><span class="pre">:</span> <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">CalibTarget</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#calix.hagen.synapse_driver.SynapseDriverCalibResult.target" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="calix.hagen.synapse_driver.SynapseDriverCalibResult.to_chip">
-<code class="sig-name descname"><span class="pre">to_chip</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">initial_config</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">pystadls_vx_v3.PlaybackProgramBuilderDumper</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chip</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">pylola_vx_v3.Chip</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">pylola_vx_v3.Chip</span><a class="headerlink" href="#calix.hagen.synapse_driver.SynapseDriverCalibResult.to_chip" title="Permalink to this definition"></a></dt>
-<dd><p>Apply the calibration into a lola.chip object.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>initial_config</strong> – Optional dumper filled with configuration
-instructions that have been run before creating the
-calibration.</p></li>
-<li><p><strong>chip</strong> – Chip object to merge the calibration into.
-Defaults to a default-constructed <cite>lola.Chip()</cite>.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Chip object with calibration applied.</p>
-</dd>
-</dl>
-</dd></dl>
 
 </dd></dl>
 

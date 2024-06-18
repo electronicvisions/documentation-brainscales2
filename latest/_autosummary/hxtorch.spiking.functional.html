@@ -16,7 +16,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="hxtorch.spiking.functional.batch_dropout" href="hxtorch.spiking.functional.batch_dropout.html" />
+    <link rel="next" title="hxtorch.spiking.functional.dropout" href="hxtorch.spiking.functional.dropout.html" />
     <link rel="prev" title="hxtorch.spiking.experiment.Path" href="hxtorch.spiking.experiment.Path.html" /> 
 </head>
 
@@ -90,45 +90,48 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="module-hxtorch.spiking.functional">
-<span id="hxtorch-spiking-functional"></span><h1>hxtorch.spiking.functional<a class="headerlink" href="#module-hxtorch.spiking.functional" title="Permalink to this headline"></a></h1>
-<p class="rubric">Functions</p>
+  <div class="section" id="hxtorch-spiking-functional">
+<h1>hxtorch.spiking.functional<a class="headerlink" href="#hxtorch-spiking-functional" title="Permalink to this headline"></a></h1>
+<p class="rubric">Modules</p>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.functional.batch_dropout.html#hxtorch.spiking.functional.batch_dropout" title="hxtorch.spiking.functional.batch_dropout"><code class="xref py py-obj docutils literal notranslate"><span class="pre">batch_dropout</span></code></a>(input, mask)</p></td>
-<td><p>Applies a dropout mask to a batch of inputs.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.functional.dropout.html#module-hxtorch.spiking.functional.dropout" title="hxtorch.spiking.functional.dropout"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hxtorch.spiking.functional.dropout</span></code></a></p></td>
+<td><p>Custom BatchDropout function</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.functional.cuba_iaf_integration.html#hxtorch.spiking.functional.cuba_iaf_integration" title="hxtorch.spiking.functional.cuba_iaf_integration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cuba_iaf_integration</span></code></a>(input, params[, …])</p></td>
-<td><p>Leaky-integrate and fire neuron integration for realization of simple spiking neurons with exponential synapses. Integrates according to:     v^{t+1} = dt /  au_{men} * (v_l - v^t + i^t) + v^t     i^{t+1} = i^t * (1 - dt /       au_{syn}) + x^t     z^{t+1} = 1 if v^{t+1} &gt; params.v_th     v^{t+1} = v_reset if z^{t+1} == 1 Assumes i^0, v^0 = 0., v_reset :note: One <cite>dt</cite> synaptic delay between input and output :param input: Input spikes in shape (batch, time, neurons). :param params: LIFParams object holding neuron parameters. :return: Returns the spike trains in shape and membrane trace as a tuple. Both tensors are of shape (batch, time, neurons).</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.functional.iaf.html#module-hxtorch.spiking.functional.iaf" title="hxtorch.spiking.functional.iaf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hxtorch.spiking.functional.iaf</span></code></a></p></td>
+<td><p>Integrate and fire neurons</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.functional.cuba_li_integration.html#hxtorch.spiking.functional.cuba_li_integration" title="hxtorch.spiking.functional.cuba_li_integration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cuba_li_integration</span></code></a>(input, params[, hw_data, dt])</p></td>
-<td><p>Leaky-integrate neuron integration for realization of readout neurons with exponential synapses. Integrates according to:     v^{t+1} = dt /  au_{mem} * (v_l - v^t + i^t) + v^t     i^{t+1} = i^t * (1 - dt /       au_{syn}) + x^t.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.functional.li.html#module-hxtorch.spiking.functional.li" title="hxtorch.spiking.functional.li"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hxtorch.spiking.functional.li</span></code></a></p></td>
+<td><p>Leaky-integrate neurons</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.functional.cuba_lif_integration.html#hxtorch.spiking.functional.cuba_lif_integration" title="hxtorch.spiking.functional.cuba_lif_integration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cuba_lif_integration</span></code></a>(input, params[, …])</p></td>
-<td><p>Leaky-integrate and fire neuron integration for realization of simple spiking neurons with exponential synapses. Integrates according to:     i^{t+1} = i^t * (1 - dt /       au_{syn}) + x^t     v^{t+1} = dt /  au_{men} * (v_l - v^t + i^t) + v^t     z^{t+1} = 1 if v^{t+1} &gt; params.v_th     v^{t+1} = params.v_reset if z^{t+1} == 1.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.functional.lif.html#module-hxtorch.spiking.functional.lif" title="hxtorch.spiking.functional.lif"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hxtorch.spiking.functional.lif</span></code></a></p></td>
+<td><p>Leaky-integrate and fire neurons</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.functional.cuba_refractory_iaf_integration.html#hxtorch.spiking.functional.cuba_refractory_iaf_integration" title="hxtorch.spiking.functional.cuba_refractory_iaf_integration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cuba_refractory_iaf_integration</span></code></a>(input, params)</p></td>
-<td><p>Integrate and fire neuron integration for realization of simple spiking neurons with exponential synapses and refractory period. Integrates according to:     v^{t+1} = dt /  au_{men} * i^t + v^t     i^{t+1} = i^t * (1 - dt /       au_{syn}) + x^t     z^{t+1} = 1 if v^{t+1} &gt; params.v_th     v^{t+1} = params.v_reset if z^{t+1} == 1 or ref^t &gt; 0     ref^{t+1} -= 1     ref^{t+1} = params.tau_ref if z^{t+1} == 1 Assumes i^0, v^0 = 0., v_reset :note: One <cite>dt</cite> synaptic delay between input and output :param input: Input spikes in shape (batch, time, neurons). :param params: LIFParams object holding neuron parameters. :return: Returns the spike trains in shape and membrane trace as a tuple. Both tensors are of shape (batch, time, neurons).</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.functional.input_neuron.html#hxtorch.spiking.functional.input_neuron" title="hxtorch.spiking.functional.input_neuron"><code class="xref py py-obj docutils literal notranslate"><span class="pre">input_neuron</span></code></a>(input)</p></td>
-<td><p>Identity input neuron.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.functional.linear.html#hxtorch.spiking.functional.linear" title="hxtorch.spiking.functional.linear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">linear</span></code></a>(input, weight[, bias])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.functional.linear.html#module-hxtorch.spiking.functional.linear" title="hxtorch.spiking.functional.linear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hxtorch.spiking.functional.linear</span></code></a>(input, weight)</p></td>
 <td><p>Wrap <cite>linear</cite> to allow signature inspection</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.functional.linear_sparse.html#hxtorch.spiking.functional.linear_sparse" title="hxtorch.spiking.functional.linear_sparse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">linear_sparse</span></code></a>(input, weight[, connections, bias])</p></td>
-<td><p>Wrap <cite>linear</cite> to allow signature inspection.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.functional.refractory.html#module-hxtorch.spiking.functional.refractory" title="hxtorch.spiking.functional.refractory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hxtorch.spiking.functional.refractory</span></code></a></p></td>
+<td><p>Refractory update for neurons with refractory behaviour</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.functional.threshold.html#hxtorch.spiking.functional.threshold" title="hxtorch.spiking.functional.threshold"><code class="xref py py-obj docutils literal notranslate"><span class="pre">threshold</span></code></a>(input, method, alpha)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.functional.spike_source.html#module-hxtorch.spiking.functional.spike_source" title="hxtorch.spiking.functional.spike_source"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hxtorch.spiking.functional.spike_source</span></code></a></p></td>
+<td><p>Define different input spike sources</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.functional.superspike.html#module-hxtorch.spiking.functional.superspike" title="hxtorch.spiking.functional.superspike"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hxtorch.spiking.functional.superspike</span></code></a></p></td>
+<td><p>Surrograte gradient for SuperSpike.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.functional.threshold.html#module-hxtorch.spiking.functional.threshold" title="hxtorch.spiking.functional.threshold"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hxtorch.spiking.functional.threshold</span></code></a>(input, …)</p></td>
 <td><p>Selection of the used threshold function. :param input: Input tensor to threshold function. :param method: The string indicator of the the threshold function. Currently supported: ‘super_spike’. :param alpha: Parameter controlling the slope of the surrogate     derivative in case of ‘superspike’. :return: Returns the tensor of the threshold function.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.functional.unterjubel.html#module-hxtorch.spiking.functional.unterjubel" title="hxtorch.spiking.functional.unterjubel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hxtorch.spiking.functional.unterjubel</span></code></a></p></td>
+<td><p>Autograd function to ‘unterjubel’ (german for ‘inject’) hardware observables and allow correct gradient back-propagation.</p></td>
 </tr>
 </tbody>
 </table>
-<p class="rubric">Classes</p>
+<span class="target" id="module-hxtorch.spiking.functional"></span><p class="rubric">Classes</p>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -161,45 +164,184 @@
 </tr>
 </tbody>
 </table>
-<p class="rubric">Modules</p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.functional.dropout.html#module-hxtorch.spiking.functional.dropout" title="hxtorch.spiking.functional.dropout"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hxtorch.spiking.functional.dropout</span></code></a></p></td>
-<td><p>Custom BatchDropout function</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.functional.iaf.html#module-hxtorch.spiking.functional.iaf" title="hxtorch.spiking.functional.iaf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hxtorch.spiking.functional.iaf</span></code></a></p></td>
-<td><p>Integrate and fire neurons</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.functional.li.html#module-hxtorch.spiking.functional.li" title="hxtorch.spiking.functional.li"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hxtorch.spiking.functional.li</span></code></a></p></td>
-<td><p>Leaky-integrate neurons</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.functional.lif.html#module-hxtorch.spiking.functional.lif" title="hxtorch.spiking.functional.lif"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hxtorch.spiking.functional.lif</span></code></a></p></td>
-<td><p>Leaky-integrate and fire neurons</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.functional.linear.html#hxtorch.spiking.functional.linear" title="hxtorch.spiking.functional.linear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hxtorch.spiking.functional.linear</span></code></a>(input, weight)</p></td>
-<td><p>Wrap <cite>linear</cite> to allow signature inspection</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.functional.refractory.html#module-hxtorch.spiking.functional.refractory" title="hxtorch.spiking.functional.refractory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hxtorch.spiking.functional.refractory</span></code></a></p></td>
-<td><p>Refractory update for neurons with refractory behaviour</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.functional.spike_source.html#module-hxtorch.spiking.functional.spike_source" title="hxtorch.spiking.functional.spike_source"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hxtorch.spiking.functional.spike_source</span></code></a></p></td>
-<td><p>Define different input spike sources</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.functional.superspike.html#module-hxtorch.spiking.functional.superspike" title="hxtorch.spiking.functional.superspike"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hxtorch.spiking.functional.superspike</span></code></a></p></td>
-<td><p>Surrograte gradient for SuperSpike.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.functional.threshold.html#hxtorch.spiking.functional.threshold" title="hxtorch.spiking.functional.threshold"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hxtorch.spiking.functional.threshold</span></code></a>(input, …)</p></td>
-<td><p>Selection of the used threshold function. :param input: Input tensor to threshold function. :param method: The string indicator of the the threshold function. Currently supported: ‘super_spike’. :param alpha: Parameter controlling the slope of the surrogate     derivative in case of ‘superspike’. :return: Returns the tensor of the threshold function.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.functional.unterjubel.html#module-hxtorch.spiking.functional.unterjubel" title="hxtorch.spiking.functional.unterjubel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hxtorch.spiking.functional.unterjubel</span></code></a></p></td>
-<td><p>Autograd function to ‘unterjubel’ (german for ‘inject’) hardware observables and allow correct gradient back-propagation.</p></td>
-</tr>
-</tbody>
-</table>
+<p class="rubric">Functions</p>
+<dl class="py function">
+<dt id="hxtorch.spiking.functional.batch_dropout">
+<code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.functional.</span></code><code class="sig-name descname"><span class="pre">batch_dropout</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">torch.Tensor</span><a class="headerlink" href="#hxtorch.spiking.functional.batch_dropout" title="Permalink to this definition"></a></dt>
+<dd><p>Applies a dropout mask to a batch of inputs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> – The input tensor to apply dropout to.</p></li>
+<li><p><strong>mask</strong> – The dropout mask. Entires in the mask which are <cite>False</cite> will
+disable their corresponding entry in <cite>input</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The input tensor with dropout mask applied.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="hxtorch.spiking.functional.cuba_iaf_integration">
+<code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.functional.</span></code><code class="sig-name descname"><span class="pre">cuba_iaf_integration</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">NamedTuple</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hw_data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1e-06</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">,</span> </span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#hxtorch.spiking.functional.cuba_iaf_integration" title="Permalink to this definition"></a></dt>
+<dd><p>Leaky-integrate and fire neuron integration for realization of simple
+spiking neurons with exponential synapses.
+Integrates according to:</p>
+<blockquote>
+<div><p>v^{t+1} = dt /  au_{men} * (v_l - v^t + i^t) + v^t
+i^{t+1} = i^t * (1 - dt /       au_{syn}) + x^t
+z^{t+1} = 1 if v^{t+1} &gt; params.v_th
+v^{t+1} = v_reset if z^{t+1} == 1</p>
+</div></blockquote>
+<p>Assumes i^0, v^0 = 0., v_reset
+:note: One <cite>dt</cite> synaptic delay between input and output
+:param input: Input spikes in shape (batch, time, neurons).
+:param params: LIFParams object holding neuron parameters.
+:return: Returns the spike trains in shape and membrane trace as a tuple.</p>
+<blockquote>
+<div><p>Both tensors are of shape (batch, time, neurons).</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt id="hxtorch.spiking.functional.cuba_li_integration">
+<code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.functional.</span></code><code class="sig-name descname"><span class="pre">cuba_li_integration</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="hxtorch.spiking.functional.li.CUBALIParams.html#hxtorch.spiking.functional.li.CUBALIParams" title="hxtorch.spiking.functional.li.CUBALIParams"><span class="pre">hxtorch.spiking.functional.li.CUBALIParams</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">hw_data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1e-06</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">torch.Tensor</span><a class="headerlink" href="#hxtorch.spiking.functional.cuba_li_integration" title="Permalink to this definition"></a></dt>
+<dd><p>Leaky-integrate neuron integration for realization of readout neurons
+with exponential synapses.
+Integrates according to:</p>
+<blockquote>
+<div><p>v^{t+1} = dt /  au_{mem} * (v_l - v^t + i^t) + v^t
+i^{t+1} = i^t * (1 - dt /       au_{syn}) + x^t</p>
+</div></blockquote>
+<p>Assumes i^0, v^0 = 0.
+:note: One <cite>dt</cite> synaptic delay between input and output
+:param input: Input spikes in shape (batch, time, neurons).
+:param params: LIParams object holding neuron parameters.
+:param dt: Integration step width</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Returns the membrane trace in shape (batch, time, neurons).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="hxtorch.spiking.functional.cuba_lif_integration">
+<code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.functional.</span></code><code class="sig-name descname"><span class="pre">cuba_lif_integration</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="hxtorch.spiking.functional.lif.CUBALIFParams.html#hxtorch.spiking.functional.lif.CUBALIFParams" title="hxtorch.spiking.functional.lif.CUBALIFParams"><span class="pre">hxtorch.spiking.functional.lif.CUBALIFParams</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">hw_data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1e-06</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">,</span> </span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#hxtorch.spiking.functional.cuba_lif_integration" title="Permalink to this definition"></a></dt>
+<dd><p>Leaky-integrate and fire neuron integration for realization of simple
+spiking neurons with exponential synapses.
+Integrates according to:</p>
+<blockquote>
+<div><p>i^{t+1} = i^t * (1 - dt /       au_{syn}) + x^t
+v^{t+1} = dt /  au_{men} * (v_l - v^t + i^t) + v^t
+z^{t+1} = 1 if v^{t+1} &gt; params.v_th
+v^{t+1} = params.v_reset if z^{t+1} == 1</p>
+</div></blockquote>
+<p>Assumes i^0, v^0 = 0, v_leak
+:note: One <cite>dt</cite> synaptic delay between input and output</p>
+<p>TODO: Issue 3992</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> – Input spikes in shape (batch, time, neurons).</p></li>
+<li><p><strong>params</strong> – LIFParams object holding neuron parameters.</p></li>
+<li><p><strong>dt</strong> – Step width of integration.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Returns the spike trains in shape and membrane trace as a tuple.
+Both tensors are of shape (batch, time, neurons).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="hxtorch.spiking.functional.cuba_refractory_iaf_integration">
+<code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.functional.</span></code><code class="sig-name descname"><span class="pre">cuba_refractory_iaf_integration</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">NamedTuple</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hw_data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1e-06</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">,</span> </span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#hxtorch.spiking.functional.cuba_refractory_iaf_integration" title="Permalink to this definition"></a></dt>
+<dd><p>Integrate and fire neuron integration for realization of simple
+spiking neurons with exponential synapses and refractory period.
+Integrates according to:</p>
+<blockquote>
+<div><p>v^{t+1} = dt /  au_{men} * i^t + v^t
+i^{t+1} = i^t * (1 - dt /       au_{syn}) + x^t
+z^{t+1} = 1 if v^{t+1} &gt; params.v_th
+v^{t+1} = params.v_reset if z^{t+1} == 1 or ref^t &gt; 0
+ref^{t+1} -= 1
+ref^{t+1} = params.tau_ref if z^{t+1} == 1</p>
+</div></blockquote>
+<p>Assumes i^0, v^0 = 0., v_reset
+:note: One <cite>dt</cite> synaptic delay between input and output
+:param input: Input spikes in shape (batch, time, neurons).
+:param params: LIFParams object holding neuron parameters.
+:return: Returns the spike trains in shape and membrane trace as a tuple.</p>
+<blockquote>
+<div><p>Both tensors are of shape (batch, time, neurons).</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt id="hxtorch.spiking.functional.input_neuron">
+<code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.functional.</span></code><code class="sig-name descname"><span class="pre">input_neuron</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">torch.Tensor</span><a class="headerlink" href="#hxtorch.spiking.functional.input_neuron" title="Permalink to this definition"></a></dt>
+<dd><p>Identity input neuron. This forwards only the input tensor and is only used
+for consistency in <cite>HXInputNeuron</cite> which can also takes autograd
+functions. This enables gradient flow though input layers.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>input</strong> – Input spike tensor.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Returns the input spike tensor.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="hxtorch.spiking.functional.linear">
+<code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.functional.</span></code><code class="sig-name descname"><span class="pre">linear</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.nn.parameter.Parameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bias</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.nn.parameter.Parameter</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">torch.Tensor</span><a class="headerlink" href="#hxtorch.spiking.functional.linear" title="Permalink to this definition"></a></dt>
+<dd><p>Wrap <cite>linear</cite> to allow signature inspection</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="hxtorch.spiking.functional.linear_sparse">
+<code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.functional.</span></code><code class="sig-name descname"><span class="pre">linear_sparse</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.nn.parameter.Parameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connections</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bias</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.nn.parameter.Parameter</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">torch.Tensor</span><a class="headerlink" href="#hxtorch.spiking.functional.linear_sparse" title="Permalink to this definition"></a></dt>
+<dd><p>Wrap <cite>linear</cite> to allow signature inspection. Disable inactive connections
+in weight tensor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> – The input to be multiplied with the params tensor <cite>weight</cite>.</p></li>
+<li><p><strong>weight</strong> – The weight parameter tensor. This tensor is expected to be
+dense since pytorch, see issue: 4039.</p></li>
+<li><p><strong>bias</strong> – The bias of the linear operation.</p></li>
+<li><p><strong>connections</strong> – A dense boolean connection mask indicating active
+connections. If None, the weight tensor remains untouched.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="hxtorch.spiking.functional.threshold">
+<code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.functional.</span></code><code class="sig-name descname"><span class="pre">threshold</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">torch.Tensor</span><a class="headerlink" href="#hxtorch.spiking.functional.threshold" title="Permalink to this definition"></a></dt>
+<dd><p>Selection of the used threshold function.
+:param input: Input tensor to threshold function.
+:param method: The string indicator of the the threshold function.</p>
+<blockquote>
+<div><p>Currently supported: ‘super_spike’.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>alpha</strong> – Parameter controlling the slope of the surrogate
+derivative in case of ‘superspike’.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Returns the tensor of the threshold function.</p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 
 
@@ -207,7 +349,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="hxtorch.spiking.experiment.Path.html" class="btn btn-neutral float-left" title="hxtorch.spiking.experiment.Path" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="hxtorch.spiking.functional.batch_dropout.html" class="btn btn-neutral float-right" title="hxtorch.spiking.functional.batch_dropout" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="hxtorch.spiking.functional.dropout.html" class="btn btn-neutral float-right" title="hxtorch.spiking.functional.dropout" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

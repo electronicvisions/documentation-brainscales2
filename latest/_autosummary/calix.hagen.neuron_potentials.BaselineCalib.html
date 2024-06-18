@@ -50,7 +50,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../api_hxcomm.html">hxcomm API</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../api_calix.html">calix API</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="calix.html">calix</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="calix.calibrate.html">calix.calibrate</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.calib_cache.html">calix.calib_cache</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.common.html">calix.common</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.constants.html">calix.constants</a></li>
@@ -126,12 +125,6 @@ CADCs, ideally near the middle of their dynamic range.</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="#calix.hagen.neuron_potentials.BaselineCalib.__init__" title="calix.hagen.neuron_potentials.BaselineCalib.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>()</p></td>
 <td><p>Initialize self.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#calix.hagen.neuron_potentials.BaselineCalib.configure_parameters" title="calix.hagen.neuron_potentials.BaselineCalib.configure_parameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">configure_parameters</span></code></a>(builder, parameters)</p></td>
-<td><p>Set up the given CADC channel offsets.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#calix.hagen.neuron_potentials.BaselineCalib.find_target_read" title="calix.hagen.neuron_potentials.BaselineCalib.find_target_read"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_target_read</span></code></a>(reads)</p></td>
-<td><p>Inspect a given array of CADC Samples and return the median read of all CADC channels.</p></td>
-</tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#calix.hagen.neuron_potentials.BaselineCalib.measure_results" title="calix.hagen.neuron_potentials.BaselineCalib.measure_results"><code class="xref py py-obj docutils literal notranslate"><span class="pre">measure_results</span></code></a>(connection, builder)</p></td>
 <td><p>Read all CADC channels at the neuron’s baseline voltage.</p></td>
 </tr>
@@ -141,49 +134,8 @@ CADCs, ideally near the middle of their dynamic range.</p>
 <tr class="row-even"><td><p><a class="reference internal" href="#calix.hagen.neuron_potentials.BaselineCalib.prelude" title="calix.hagen.neuron_potentials.BaselineCalib.prelude"><code class="xref py py-obj docutils literal notranslate"><span class="pre">prelude</span></code></a>(connection)</p></td>
 <td><p>Configure debug readout cell to roughly the middle of the desired dynamic CADC range.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#calix.hagen.neuron_potentials.BaselineCalib.run" title="calix.hagen.neuron_potentials.BaselineCalib.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>(connection, algorithm[, target])</p></td>
-<td><p>Use the provided algorithm to find optimal parameters.</p></td>
-</tr>
 </tbody>
 </table>
-<dl class="py method">
-<dt id="calix.hagen.neuron_potentials.BaselineCalib.configure_parameters">
-<code class="sig-name descname"><span class="pre">configure_parameters</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">builder</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="calix.common.base.WriteRecordingPlaybackProgramBuilder.html#calix.common.base.WriteRecordingPlaybackProgramBuilder" title="calix.common.base.WriteRecordingPlaybackProgramBuilder"><span class="pre">calix.common.base.WriteRecordingPlaybackProgramBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">numpy.ndarray</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="calix.common.base.WriteRecordingPlaybackProgramBuilder.html#calix.common.base.WriteRecordingPlaybackProgramBuilder" title="calix.common.base.WriteRecordingPlaybackProgramBuilder"><span class="pre">calix.common.base.WriteRecordingPlaybackProgramBuilder</span></a><a class="headerlink" href="#calix.hagen.neuron_potentials.BaselineCalib.configure_parameters" title="Permalink to this definition"></a></dt>
-<dd><p>Set up the given CADC channel offsets.
-Expects the given parameter array to be ordered like the iter_all
-of CADCChannelConfigOnDLS.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>builder</strong> – Builder to append configuration instructions to.</p></li>
-<li><p><strong>parameters</strong> – CADC channel offsets to set.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Builder with configuration instructions appended.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="calix.hagen.neuron_potentials.BaselineCalib.find_target_read">
-<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">find_target_read</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reads</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">numpy.ndarray</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">int</span><a class="headerlink" href="#calix.hagen.neuron_potentials.BaselineCalib.find_target_read" title="Permalink to this definition"></a></dt>
-<dd><p>Inspect a given array of CADC Samples and return the median
-read of all CADC channels. This will be used as target read
-when calculating the individual channel offsets.</p>
-<p>If the median of all CADC channels is far off the expected value,
-a warning is logged.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>reads</strong> – Array of CADC Samples for both synrams obtained at
-a constant common voltage.</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Calib target for individual CADC channel offsets.</p>
-</dd>
-</dl>
-</dd></dl>
-
 <dl class="py method">
 <dt id="calix.hagen.neuron_potentials.BaselineCalib.measure_results">
 <code class="sig-name descname"><span class="pre">measure_results</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhxcomm_vx.ConnectionHandle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">builder</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="calix.common.base.WriteRecordingPlaybackProgramBuilder.html#calix.common.base.WriteRecordingPlaybackProgramBuilder" title="calix.common.base.WriteRecordingPlaybackProgramBuilder"><span class="pre">calix.common.base.WriteRecordingPlaybackProgramBuilder</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">numpy.ndarray</span><a class="headerlink" href="#calix.hagen.neuron_potentials.BaselineCalib.measure_results" title="Permalink to this definition"></a></dt>
@@ -223,35 +175,6 @@ Measure the target read to aim for when calculating the offsets.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>connection</strong> – Connection to the chip to calibrate.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="calix.hagen.neuron_potentials.BaselineCalib.run">
-<code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhxcomm_vx.ConnectionHandle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">algorithm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="calix.common.base.Algorithm.html#calix.common.base.Algorithm" title="calix.common.base.Algorithm"><span class="pre">calix.common.base.Algorithm</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">numbers.Integral</span><span class="p"><span class="pre">,</span> </span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="calix.common.base.ParameterCalibResult.html#calix.common.base.ParameterCalibResult" title="calix.common.base.ParameterCalibResult"><span class="pre">calix.common.base.ParameterCalibResult</span></a><a class="headerlink" href="#calix.hagen.neuron_potentials.BaselineCalib.run" title="Permalink to this definition"></a></dt>
-<dd><p>Use the provided algorithm to find optimal parameters.</p>
-<p>Calls prelude function, calls algorithm.run(), calls postlude function.
-If self.target is not defined after the prelude function, the
-calibration target is required as a parameter to this function.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>connection</strong> – Connection to the chip to calibrate.</p></li>
-<li><p><strong>algorithm</strong> – Instance of an algorithm to be used for
-calibration. Will be hooked to the calibration during running
-and unhooked afterwards.</p></li>
-<li><p><strong>target</strong> – Target result to be aimed for. If given, this target
-is used. If None, the attribute self.target is used.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Raises</dt>
-<dd class="field-even"><p><strong>TypeError</strong> – If neither the target parameter or the attribute
-self.target are defined.</p>
-</dd>
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>ParameterCalibResult, containing the optimal
-parameters.</p>
 </dd>
 </dl>
 </dd></dl>

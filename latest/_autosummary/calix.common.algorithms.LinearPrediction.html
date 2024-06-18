@@ -50,7 +50,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../api_hxcomm.html">hxcomm API</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../api_calix.html">calix API</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="calix.html">calix</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="calix.calibrate.html">calix.calibrate</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.calib_cache.html">calix.calib_cache</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="calix.common.html">calix.common</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.constants.html">calix.constants</a></li>
@@ -134,81 +133,8 @@ for each calibration instance. Refer to
 </dl>
 </p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#calix.common.algorithms.LinearPrediction.from_data" title="calix.common.algorithms.LinearPrediction.from_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_data</span></code></a>(parameters, results, degree)</p></td>
-<td><p>Construct the polynomial prediction from data.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#calix.common.algorithms.LinearPrediction.hook_to_calibration" title="calix.common.algorithms.LinearPrediction.hook_to_calibration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hook_to_calibration</span></code></a>(calibration)</p></td>
-<td><p>Make an instance of a calibration known to the algorithm, allowing to use parameters set there.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#calix.common.algorithms.LinearPrediction.run" title="calix.common.algorithms.LinearPrediction.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>(connection, target_result)</p></td>
-<td><p>Run the algorithm, i.e. configure the probe parameters, measure results there, calculate optimal parameters based on this measurement and the model, and set these up.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#calix.common.algorithms.LinearPrediction.unhook_from_calibration" title="calix.common.algorithms.LinearPrediction.unhook_from_calibration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unhook_from_calibration</span></code></a>()</p></td>
-<td><p>Clear a calibration instance previously hooked to this algorithm.</p></td>
-</tr>
 </tbody>
 </table>
-<dl class="py method">
-<dt id="calix.common.algorithms.LinearPrediction.from_data">
-<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">from_data</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">results</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="calix.common.algorithms.PolynomialPrediction.html#calix.common.algorithms.PolynomialPrediction" title="calix.common.algorithms.PolynomialPrediction"><span class="pre">calix.common.algorithms.PolynomialPrediction</span></a><a class="headerlink" href="#calix.common.algorithms.LinearPrediction.from_data" title="Permalink to this definition"></a></dt>
-<dd><p>Construct the polynomial prediction from data.
-A polynomial of given degree is fitted to the parameters and results.
-Refer to the documentation of numpy.polynomial.polynomial.Polynomial
-for details on how the fit is performed.</p>
-<p>The median of the parameters used during characterization is used
-as probe point when determining the offset of each instance
-during prediction.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>parameters</strong> – Array of parameters where values have been recored.</p></li>
-<li><p><strong>results</strong> – Array of results obtained at parameters.</p></li>
-<li><p><strong>degree</strong> – Degree of the fitted polynomial.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="calix.common.algorithms.LinearPrediction.hook_to_calibration">
-<code class="sig-name descname"><span class="pre">hook_to_calibration</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">calibration</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="calix.common.base.Calib.html#calix.common.base.Calib" title="calix.common.base.Calib"><span class="pre">calix.common.base.Calib</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.common.algorithms.LinearPrediction.hook_to_calibration" title="Permalink to this definition"></a></dt>
-<dd><p>Make an instance of a calibration known to the algorithm, allowing
-to use parameters set there.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>calibration</strong> – Instance of calibration class that will
-be run with this algorithm.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="calix.common.algorithms.LinearPrediction.run">
-<code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhxcomm_vx.ConnectionHandle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_result</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span> </span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">numpy.ndarray</span><a class="headerlink" href="#calix.common.algorithms.LinearPrediction.run" title="Permalink to this definition"></a></dt>
-<dd><p>Run the algorithm, i.e. configure the probe parameters,
-measure results there, calculate optimal parameters based on
-this measurement and the model, and set these up.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>connection</strong> – Connection connected to the chip to run on.</p></li>
-<li><p><strong>target_result</strong> – Array or single value to be aimed for.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Array containing the parameters which are expected to yield
-results closest to the desired target results.
-All parameters are in the allowed ParameterRange.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="calix.common.algorithms.LinearPrediction.unhook_from_calibration">
-<code class="sig-name descname"><span class="pre">unhook_from_calibration</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#calix.common.algorithms.LinearPrediction.unhook_from_calibration" title="Permalink to this definition"></a></dt>
-<dd><p>Clear a calibration instance previously hooked to this algorithm.</p>
-</dd></dl>
-
 </dd></dl>
 
 </div>

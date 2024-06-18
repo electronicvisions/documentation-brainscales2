@@ -16,7 +16,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="calix.calibrate" href="calix.calibrate.html" />
+    <link rel="next" title="calix.calib_cache" href="calix.calib_cache.html" />
     <link rel="prev" title="API Reference: calix" href="../api_calix.html" /> 
 </head>
 
@@ -50,7 +50,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../api_hxcomm.html">hxcomm API</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../api_calix.html">calix API</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">calix</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="calix.calibrate.html">calix.calibrate</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.calib_cache.html">calix.calib_cache</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.common.html">calix.common</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.constants.html">calix.constants</a></li>
@@ -92,20 +91,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="module-calix">
-<span id="calix"></span><h1>calix<a class="headerlink" href="#module-calix" title="Permalink to this headline"></a></h1>
-<p class="rubric">Functions</p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="calix.calibrate.html#calix.calibrate" title="calix.calibrate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calibrate</span></code></a>(target[, options, cache_paths, …])</p></td>
-<td><p>Calibrate chip with cache functionality.</p></td>
-</tr>
-</tbody>
-</table>
+  <div class="section" id="calix">
+<h1>calix<a class="headerlink" href="#calix" title="Permalink to this headline"></a></h1>
 <p class="rubric">Modules</p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -130,6 +117,33 @@
 </tr>
 </tbody>
 </table>
+<span class="target" id="module-calix"></span><p class="rubric">Functions</p>
+<dl class="py function">
+<dt id="calix.calibrate">
+<code class="sig-prename descclassname"><span class="pre">calix.</span></code><code class="sig-name descname"><span class="pre">calibrate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="calix.common.base.TopLevelCalibTarget.html#calix.common.base.TopLevelCalibTarget" title="calix.common.base.TopLevelCalibTarget"><span class="pre">calix.common.base.TopLevelCalibTarget</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="calix.common.base.CalibOptions.html#calix.common.base.CalibOptions" title="calix.common.base.CalibOptions"><span class="pre">calix.common.base.CalibOptions</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cache_paths</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">pathlib.Path</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cache_read_only</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="calix.common.base.CalibResult.html#calix.common.base.CalibResult" title="calix.common.base.CalibResult"><span class="pre">calix.common.base.CalibResult</span></a><a class="headerlink" href="#calix.calibrate" title="Permalink to this definition"></a></dt>
+<dd><p>Calibrate chip with cache functionality. Calibration function is deduced
+from target and options type. If cache_paths is not empty, searches for
+cached calibration result with same parameters in list order. If no cache
+is found executes calibration and caches in fist path with write access.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target</strong> – Target values for calibration.</p></li>
+<li><p><strong>options</strong> – Options for calibration.</p></li>
+<li><p><strong>cache_paths</strong> – List of possible cache locations. If list is empty,
+caching is skipped. If None defaults are used. Defaults
+are read-only shared wang cache path followed by user
+home cache.</p></li>
+<li><p><strong>cache_read_only</strong> – Only read cache file, do not create cache file if
+one does not exist.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Calibration result</p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 
 
@@ -137,7 +151,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../api_calix.html" class="btn btn-neutral float-left" title="API Reference: calix" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="calix.calibrate.html" class="btn btn-neutral float-right" title="calix.calibrate" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="calix.calib_cache.html" class="btn btn-neutral float-right" title="calix.calib_cache" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

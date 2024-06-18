@@ -50,7 +50,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../api_hxcomm.html">hxcomm API</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../api_calix.html">calix API</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="calix.html">calix</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="calix.calibrate.html">calix.calibrate</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.calib_cache.html">calix.calib_cache</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="calix.common.html">calix.common</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.constants.html">calix.constants</a></li>
@@ -125,12 +124,6 @@ suitable stimulate() function.</p>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#calix.common.madc_base.MembraneRecorder.__init__" title="calix.common.madc_base.MembraneRecorder.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>()</p></td>
-<td><p>Initialize self.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#calix.common.madc_base.MembraneRecorder.build_measurement_program" title="calix.common.madc_base.MembraneRecorder.build_measurement_program"><code class="xref py py-obj docutils literal notranslate"><span class="pre">build_measurement_program</span></code></a>(builder)</p></td>
-<td><p>Builds a program to measure an arbitrary MADC trace for each neuron.</p></td>
-</tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#calix.common.madc_base.MembraneRecorder.neuron_config_disabled" title="calix.common.madc_base.MembraneRecorder.neuron_config_disabled"><code class="xref py py-obj docutils literal notranslate"><span class="pre">neuron_config_disabled</span></code></a>(neuron_coord)</p></td>
 <td><p>Return a neuron config in silent state, i.e. disconnected from the common readout lines.</p></td>
 </tr>
@@ -140,46 +133,11 @@ suitable stimulate() function.</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="#calix.common.madc_base.MembraneRecorder.plot_traces" title="calix.common.madc_base.MembraneRecorder.plot_traces"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_traces</span></code></a>(samples)</p></td>
 <td><p>Plot recorded traces, and save them as png figures.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#calix.common.madc_base.MembraneRecorder.prepare_recording" title="calix.common.madc_base.MembraneRecorder.prepare_recording"><code class="xref py py-obj docutils literal notranslate"><span class="pre">prepare_recording</span></code></a>(connection)</p></td>
-<td><p>Prepares chip for the experiment.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#calix.common.madc_base.MembraneRecorder.record_traces" title="calix.common.madc_base.MembraneRecorder.record_traces"><code class="xref py py-obj docutils literal notranslate"><span class="pre">record_traces</span></code></a>(connection, builder)</p></td>
-<td><p>Executes measurement on chip, returns samples per neuron.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#calix.common.madc_base.MembraneRecorder.restore_initial_state" title="calix.common.madc_base.MembraneRecorder.restore_initial_state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">restore_initial_state</span></code></a>(connection)</p></td>
-<td><p>Restore original readout and neuron configuration.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#calix.common.madc_base.MembraneRecorder.stimulate" title="calix.common.madc_base.MembraneRecorder.stimulate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stimulate</span></code></a>(builder, neuron_coord, …)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#calix.common.madc_base.MembraneRecorder.stimulate" title="calix.common.madc_base.MembraneRecorder.stimulate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stimulate</span></code></a>(builder, neuron_coord, …)</p></td>
 <td><p>Send no stimuli to the observed neuron.</p></td>
 </tr>
 </tbody>
 </table>
-<dl class="py method">
-<dt id="calix.common.madc_base.MembraneRecorder.build_measurement_program">
-<code class="sig-name descname"><span class="pre">build_measurement_program</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">builder</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="calix.common.base.WriteRecordingPlaybackProgramBuilder.html#calix.common.base.WriteRecordingPlaybackProgramBuilder" title="calix.common.base.WriteRecordingPlaybackProgramBuilder"><span class="pre">calix.common.base.WriteRecordingPlaybackProgramBuilder</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="calix.common.base.WriteRecordingPlaybackProgramBuilder.html#calix.common.base.WriteRecordingPlaybackProgramBuilder" title="calix.common.base.WriteRecordingPlaybackProgramBuilder"><span class="pre">calix.common.base.WriteRecordingPlaybackProgramBuilder</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">pystadls_vx_v3.ContainerTicket</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#calix.common.madc_base.MembraneRecorder.build_measurement_program" title="Permalink to this definition"></a></dt>
-<dd><p>Builds a program to measure an arbitrary MADC trace for each
-neuron.</p>
-<p>One neuron after another is connected to the MADC,
-the stimulate function is called and samples are recorded.
-The timing of each neuron is recorded, tickets containing the
-start and stop of the recording time are returned along with
-the builder.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>builder</strong> – Builder to append instructions to.</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><p>Tuple containing:
-* Builder with instructions appended.
-* List of read tickets marking start and end of the</p>
-<blockquote>
-<div><p>recording of each neuron.</p>
-</div></blockquote>
-</p>
-</dd>
-</dl>
-</dd></dl>
-
 <dl class="py method">
 <dt id="calix.common.madc_base.MembraneRecorder.neuron_config_disabled">
 <code class="sig-name descname"><span class="pre">neuron_config_disabled</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">neuron_coord</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhalco_hicann_dls_vx_v3.NeuronConfigOnDLS</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">pyhaldls_vx_v3.NeuronConfig</span><a class="headerlink" href="#calix.common.madc_base.MembraneRecorder.neuron_config_disabled" title="Permalink to this definition"></a></dt>
@@ -221,54 +179,6 @@ original samples in order to save runtime while plotting.</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>samples</strong> – List of recorded MADC samples, as returned by the
 record_traces() function.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="calix.common.madc_base.MembraneRecorder.prepare_recording">
-<code class="sig-name descname"><span class="pre">prepare_recording</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhxcomm_vx.ConnectionHandle</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.common.madc_base.MembraneRecorder.prepare_recording" title="Permalink to this definition"></a></dt>
-<dd><p>Prepares chip for the experiment.</p>
-<p>Configures the MADC and sets necessary bias currents.
-Reads and saves readout config and neuron config to
-restore original state after the experiment.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>connection</strong> – Connection to the chip.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="calix.common.madc_base.MembraneRecorder.record_traces">
-<code class="sig-name descname"><span class="pre">record_traces</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhxcomm_vx.ConnectionHandle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">builder</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="calix.common.base.WriteRecordingPlaybackProgramBuilder.html#calix.common.base.WriteRecordingPlaybackProgramBuilder" title="calix.common.base.WriteRecordingPlaybackProgramBuilder"><span class="pre">calix.common.base.WriteRecordingPlaybackProgramBuilder</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#calix.common.madc_base.MembraneRecorder.record_traces" title="Permalink to this definition"></a></dt>
-<dd><p>Executes measurement on chip, returns samples per neuron.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>connection</strong> – Connection to the chip to calibrate.</p></li>
-<li><p><strong>builder</strong> – Builder to append measurement program to.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>List of numpy arrays, containing samples for each neuron.</p>
-</dd>
-<dt class="field-odd">Raises</dt>
-<dd class="field-odd"><p><a class="reference internal" href="calix.common.exceptions.TooFewSamplesError.html#calix.common.exceptions.TooFewSamplesError" title="calix.common.exceptions.TooFewSamplesError"><strong>TooFewSamplesError</strong></a> – If the number of received MADC samples
-is significantly smaller than expected for at least one neuron.
-The evaluate function may fail in this case, thus the error
-is caught here.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="calix.common.madc_base.MembraneRecorder.restore_initial_state">
-<code class="sig-name descname"><span class="pre">restore_initial_state</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhxcomm_vx.ConnectionHandle</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.common.madc_base.MembraneRecorder.restore_initial_state" title="Permalink to this definition"></a></dt>
-<dd><p>Restore original readout and neuron configuration.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>connection</strong> – Connection to the chip to calibrate.</p>
 </dd>
 </dl>
 </dd></dl>

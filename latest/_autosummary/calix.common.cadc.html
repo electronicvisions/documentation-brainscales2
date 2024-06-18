@@ -16,7 +16,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="calix.common.cadc.calibrate" href="calix.common.cadc.calibrate.html" />
+    <link rel="next" title="calix.common.cadc.CADCCalibOptions" href="calix.common.cadc.CADCCalibOptions.html" />
     <link rel="prev" title="calix.common.boundary_check.BoundaryCheckResult" href="calix.common.boundary_check.BoundaryCheckResult.html" /> 
 </head>
 
@@ -50,7 +50,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../api_hxcomm.html">hxcomm API</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../api_calix.html">calix API</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="calix.html">calix</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="calix.calibrate.html">calix.calibrate</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.calib_cache.html">calix.calib_cache</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="calix.common.html">calix.common</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.constants.html">calix.constants</a></li>
@@ -97,24 +96,6 @@
   <div class="section" id="module-calix.common.cadc">
 <span id="calix-common-cadc"></span><h1>calix.common.cadc<a class="headerlink" href="#module-calix.common.cadc" title="Permalink to this headline"></a></h1>
 <p>Calibrates all CADC channels on Hicann-X for a given dynamic range.</p>
-<p class="rubric">Functions</p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="calix.common.cadc.calibrate.html#calix.common.cadc.calibrate" title="calix.common.cadc.calibrate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calibrate</span></code></a>(connection[, target, options])</p></td>
-<td><p>Calibrates all the CADCs (top, bottom, causal, acausal) to work in a given dynamic range (given as CapMem LSB voltage settings).</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="calix.common.cadc.dataclass.html#calix.common.cadc.dataclass" title="calix.common.cadc.dataclass"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dataclass</span></code></a>([cls, init, repr, eq, order, …])</p></td>
-<td><p>Returns the same class as was passed in, with dunder methods added based on the fields defined in the class.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="calix.common.cadc.field.html#calix.common.cadc.field" title="calix.common.cadc.field"><code class="xref py py-obj docutils literal notranslate"><span class="pre">field</span></code></a>(*[, default, default_factory, init, …])</p></td>
-<td><p>Return an object to identify dataclass fields.</p></td>
-</tr>
-</tbody>
-</table>
 <p class="rubric">Classes</p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -142,6 +123,79 @@
 </tr>
 </tbody>
 </table>
+<p class="rubric">Functions</p>
+<dl class="py function">
+<dt id="calix.common.cadc.calibrate">
+<code class="sig-prename descclassname"><span class="pre">calix.common.cadc.</span></code><code class="sig-name descname"><span class="pre">calibrate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhxcomm_vx.ConnectionHandle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="calix.common.cadc.CADCCalibTarget.html#calix.common.cadc.CADCCalibTarget" title="calix.common.cadc.CADCCalibTarget"><span class="pre">calix.common.cadc.CADCCalibTarget</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="calix.common.cadc.CADCCalibOptions.html#calix.common.cadc.CADCCalibOptions" title="calix.common.cadc.CADCCalibOptions"><span class="pre">calix.common.cadc.CADCCalibOptions</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="calix.common.cadc.CADCCalibResult.html#calix.common.cadc.CADCCalibResult" title="calix.common.cadc.CADCCalibResult"><span class="pre">calix.common.cadc.CADCCalibResult</span></a><a class="headerlink" href="#calix.common.cadc.calibrate" title="Permalink to this definition"></a></dt>
+<dd><p>Calibrates all the CADCs (top, bottom, causal, acausal) to work
+in a given dynamic range (given as CapMem LSB voltage settings).
+After calling this function, the CADC is left in a calibrated state,
+ready for usage.</p>
+<p>Part 1 sets the reset voltage of the CADC ramp depending on the
+given minimum of the dynamic range for readout.
+The reset voltage is set slightly below this desired readout,
+such that the CADC reads read_range.lower (default: 20) there
+(to avoid clipping of channels that get high offsets later).</p>
+<p>Part 2 sets the ramp current (steepness) depending on the given
+maximum of the dynamic range for readout.
+The current is set such that the ramp crosses the upper end of the
+dynamic readout range when the counter reads read_range.upper
+(default: 220). This is partly to avoid the last part of the dynamic
+range as the ramp will become less linear, and again to avoid clipping
+of channels with higher offsets.</p>
+<p>Part 3 applies a constant calibration voltage to all CADC channels,
+chosen in the middle of the dynamic range, and requires all channels
+to read the same result. The digital offsets are set to compensate
+the observed differences in reads.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>connection</strong> – Connection to a chip that this calibration will
+run on.</p></li>
+<li><p><strong>target</strong> – Target parameters for calibration, given as an
+instance of CADCCalibTarget. Refer there for the individual
+parameters.</p></li>
+<li><p><strong>options</strong> – Further options for calibration, given as an
+instance of CADCCalibOptions. Refer there for the individual
+parameters.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>CADCCalibResult, containing the settings for the CADC ramps
+of each quadrant and the digital offsets and calibration success
+of each channel.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="calix.common.cadc.dataclass">
+<code class="sig-prename descclassname"><span class="pre">calix.common.cadc.</span></code><code class="sig-name descname"><span class="pre">dataclass</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">repr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unsafe_hash</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frozen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.common.cadc.dataclass" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the same class as was passed in, with dunder methods
+added based on the fields defined in the class.</p>
+<p>Examines PEP 526 __annotations__ to determine fields.</p>
+<p>If init is true, an __init__() method is added to the class. If
+repr is true, a __repr__() method is added. If order is true, rich
+comparison dunder methods are added. If unsafe_hash is true, a
+__hash__() method function is added. If frozen is true, fields may
+not be assigned to after instance creation.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="calix.common.cadc.field">
+<code class="sig-prename descclassname"><span class="pre">calix.common.cadc.</span></code><code class="sig-name descname"><span class="pre">field</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">*</span></em>, <em class="sig-param"><span class="pre">default=&lt;dataclasses._MISSING_TYPE</span> <span class="pre">object&gt;</span></em>, <em class="sig-param"><span class="pre">default_factory=&lt;dataclasses._MISSING_TYPE</span> <span class="pre">object&gt;</span></em>, <em class="sig-param"><span class="pre">init=True</span></em>, <em class="sig-param"><span class="pre">repr=True</span></em>, <em class="sig-param"><span class="pre">hash=None</span></em>, <em class="sig-param"><span class="pre">compare=True</span></em>, <em class="sig-param"><span class="pre">metadata=None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.common.cadc.field" title="Permalink to this definition"></a></dt>
+<dd><p>Return an object to identify dataclass fields.</p>
+<p>default is the default value of the field.  default_factory is a
+0-argument function called to initialize a field’s value.  If init
+is True, the field will be a parameter to the class’s __init__()
+function.  If repr is True, the field will be included in the
+object’s repr().  If hash is True, the field will be included in
+the object’s hash().  If compare is True, the field will be used
+in comparison functions.  metadata, if specified, must be a
+mapping which is stored but not otherwise examined by dataclass.</p>
+<p>It is an error to specify both default and default_factory.</p>
+</dd></dl>
+
 </div>
 
 
@@ -149,7 +203,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="calix.common.boundary_check.BoundaryCheckResult.html" class="btn btn-neutral float-left" title="calix.common.boundary_check.BoundaryCheckResult" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="calix.common.cadc.calibrate.html" class="btn btn-neutral float-right" title="calix.common.cadc.calibrate" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="calix.common.cadc.CADCCalibOptions.html" class="btn btn-neutral float-right" title="calix.common.cadc.CADCCalibOptions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

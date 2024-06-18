@@ -16,8 +16,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="hxtorch.spiking.utils.calib_helper.chip_from_file" href="hxtorch.spiking.utils.calib_helper.chip_from_file.html" />
-    <link rel="prev" title="hxtorch.spiking.utils.MixinHXModelMapper" href="hxtorch.spiking.utils.MixinHXModelMapper.html" /> 
+    <link rel="next" title="hxtorch.spiking.utils.calib_helper.Path" href="hxtorch.spiking.utils.calib_helper.Path.html" />
+    <link rel="prev" title="hxtorch.spiking.utils" href="hxtorch.spiking.utils.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -94,24 +94,6 @@
   <div class="section" id="module-hxtorch.spiking.utils.calib_helper">
 <span id="hxtorch-spiking-utils-calib-helper"></span><h1>hxtorch.spiking.utils.calib_helper<a class="headerlink" href="#module-hxtorch.spiking.utils.calib_helper" title="Permalink to this headline"></a></h1>
 <p>Helpers to handle calibrations</p>
-<p class="rubric">Functions</p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.utils.calib_helper.chip_from_file.html#hxtorch.spiking.utils.calib_helper.chip_from_file" title="hxtorch.spiking.utils.calib_helper.chip_from_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">chip_from_file</span></code></a>(path)</p></td>
-<td><p>Extract chip config from coco file dump</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.utils.calib_helper.chip_from_portable_binary.html#hxtorch.spiking.utils.calib_helper.chip_from_portable_binary" title="hxtorch.spiking.utils.calib_helper.chip_from_portable_binary"><code class="xref py py-obj docutils literal notranslate"><span class="pre">chip_from_portable_binary</span></code></a>(data)</p></td>
-<td><p>Convert portable binary data to chip object.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.utils.calib_helper.nightly_calib_path.html#hxtorch.spiking.utils.calib_helper.nightly_calib_path" title="hxtorch.spiking.utils.calib_helper.nightly_calib_path"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nightly_calib_path</span></code></a>([name])</p></td>
-<td><p>Find path for nightly calibration.</p></td>
-</tr>
-</tbody>
-</table>
 <p class="rubric">Classes</p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -124,14 +106,46 @@
 </tr>
 </tbody>
 </table>
+<p class="rubric">Functions</p>
+<dl class="py function">
+<dt id="hxtorch.spiking.utils.calib_helper.chip_from_file">
+<code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.utils.calib_helper.</span></code><code class="sig-name descname"><span class="pre">chip_from_file</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="headerlink" href="#hxtorch.spiking.utils.calib_helper.chip_from_file" title="Permalink to this definition"></a></dt>
+<dd><p>Extract chip config from coco file dump</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>path</strong> – path to file containing coco dump.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="hxtorch.spiking.utils.calib_helper.chip_from_portable_binary">
+<code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.utils.calib_helper.</span></code><code class="sig-name descname"><span class="pre">chip_from_portable_binary</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bytes</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="headerlink" href="#hxtorch.spiking.utils.calib_helper.chip_from_portable_binary" title="Permalink to this definition"></a></dt>
+<dd><p>Convert portable binary data to chip object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> – Coco list in portable binary format.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>lola chip configuration.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="hxtorch.spiking.utils.calib_helper.nightly_calib_path">
+<code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.utils.calib_helper.</span></code><code class="sig-name descname"><span class="pre">nightly_calib_path</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'spiking'</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">pathlib.Path</span><a class="headerlink" href="#hxtorch.spiking.utils.calib_helper.nightly_calib_path" title="Permalink to this definition"></a></dt>
+<dd><p>Find path for nightly calibration.</p>
+</dd></dl>
+
 </div>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="hxtorch.spiking.utils.MixinHXModelMapper.html" class="btn btn-neutral float-left" title="hxtorch.spiking.utils.MixinHXModelMapper" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="hxtorch.spiking.utils.calib_helper.chip_from_file.html" class="btn btn-neutral float-right" title="hxtorch.spiking.utils.calib_helper.chip_from_file" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="hxtorch.spiking.utils.html" class="btn btn-neutral float-left" title="hxtorch.spiking.utils" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="hxtorch.spiking.utils.calib_helper.Path.html" class="btn btn-neutral float-right" title="hxtorch.spiking.utils.calib_helper.Path" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

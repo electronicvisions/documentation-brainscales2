@@ -50,7 +50,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../api_hxcomm.html">hxcomm API</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../api_calix.html">calix API</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="calix.html">calix</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="calix.calibrate.html">calix.calibrate</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.calib_cache.html">calix.calib_cache</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.common.html">calix.common</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.constants.html">calix.constants</a></li>
@@ -114,135 +113,8 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#calix.hagen.neuron_synin_coba.InhCOBABiasCalib.__init__" title="calix.hagen.neuron_synin_coba.InhCOBABiasCalib.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(e_coba_reference, e_coba_reversal)</p></td>
-<td><p>Initialize self.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#calix.hagen.neuron_synin_coba.InhCOBABiasCalib.configure_parameters" title="calix.hagen.neuron_synin_coba.InhCOBABiasCalib.configure_parameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">configure_parameters</span></code></a>(builder, parameters)</p></td>
-<td><p>Configure the given bias currents on the chip.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#calix.hagen.neuron_synin_coba.InhCOBABiasCalib.measure_results" title="calix.hagen.neuron_synin_coba.InhCOBABiasCalib.measure_results"><code class="xref py py-obj docutils literal notranslate"><span class="pre">measure_results</span></code></a>(connection, builder)</p></td>
-<td><p>Measure the synaptic input amplitudes close to the reversal potential.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#calix.hagen.neuron_synin_coba.InhCOBABiasCalib.postlude" title="calix.hagen.neuron_synin_coba.InhCOBABiasCalib.postlude"><code class="xref py py-obj docutils literal notranslate"><span class="pre">postlude</span></code></a>(connection)</p></td>
-<td><p>Re-calibrate the reference potentials again after the bias currents have reached their final parameters.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#calix.hagen.neuron_synin_coba.InhCOBABiasCalib.prelude" title="calix.hagen.neuron_synin_coba.InhCOBABiasCalib.prelude"><code class="xref py py-obj docutils literal notranslate"><span class="pre">prelude</span></code></a>(connection)</p></td>
-<td><p>Interpolate given potentials to set calibration targets.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#calix.hagen.neuron_synin_coba.InhCOBABiasCalib.run" title="calix.hagen.neuron_synin_coba.InhCOBABiasCalib.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>(connection, algorithm[, target])</p></td>
-<td><p>Use the provided algorithm to find optimal parameters.</p></td>
-</tr>
 </tbody>
 </table>
-<dl class="py method">
-<dt id="calix.hagen.neuron_synin_coba.InhCOBABiasCalib.configure_parameters">
-<code class="sig-name descname"><span class="pre">configure_parameters</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">builder</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="calix.common.base.WriteRecordingPlaybackProgramBuilder.html#calix.common.base.WriteRecordingPlaybackProgramBuilder" title="calix.common.base.WriteRecordingPlaybackProgramBuilder"><span class="pre">calix.common.base.WriteRecordingPlaybackProgramBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">numpy.ndarray</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="calix.common.base.WriteRecordingPlaybackProgramBuilder.html#calix.common.base.WriteRecordingPlaybackProgramBuilder" title="calix.common.base.WriteRecordingPlaybackProgramBuilder"><span class="pre">calix.common.base.WriteRecordingPlaybackProgramBuilder</span></a><a class="headerlink" href="#calix.hagen.neuron_synin_coba.InhCOBABiasCalib.configure_parameters" title="Permalink to this definition"></a></dt>
-<dd><p>Configure the given bias currents on the chip.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>builder</strong> – Builder to append instructions to.</p></li>
-<li><p><strong>parameters</strong> – Array of CapMem parameters to configure.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Builder with instructions appended.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="calix.hagen.neuron_synin_coba.InhCOBABiasCalib.measure_results">
-<code class="sig-name descname"><span class="pre">measure_results</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhxcomm_vx.ConnectionHandle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">builder</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="calix.common.base.WriteRecordingPlaybackProgramBuilder.html#calix.common.base.WriteRecordingPlaybackProgramBuilder" title="calix.common.base.WriteRecordingPlaybackProgramBuilder"><span class="pre">calix.common.base.WriteRecordingPlaybackProgramBuilder</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">numpy.ndarray</span><a class="headerlink" href="#calix.hagen.neuron_synin_coba.InhCOBABiasCalib.measure_results" title="Permalink to this definition"></a></dt>
-<dd><p>Measure the synaptic input amplitudes close to the
-reversal potential.</p>
-<p>Before measurement, the reference potential is re-calibrated.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>connection</strong> – Connection to the chip to run on.</p></li>
-<li><p><strong>builder</strong> – Builder to be run before measurement.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Array of synaptic input amplitudes when measured
-near the target reversal potential.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="calix.hagen.neuron_synin_coba.InhCOBABiasCalib.postlude">
-<code class="sig-name descname"><span class="pre">postlude</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhxcomm_vx.ConnectionHandle</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#calix.hagen.neuron_synin_coba.InhCOBABiasCalib.postlude" title="Permalink to this definition"></a></dt>
-<dd><p>Re-calibrate the reference potentials again after
-the bias currents have reached their final parameters.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>connection</strong> – Connection to the chip to run on.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="calix.hagen.neuron_synin_coba.InhCOBABiasCalib.prelude">
-<code class="sig-name descname"><span class="pre">prelude</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhxcomm_vx.ConnectionHandle</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#calix.hagen.neuron_synin_coba.InhCOBABiasCalib.prelude" title="Permalink to this definition"></a></dt>
-<dd><p>Interpolate given potentials to set calibration targets.</p>
-<p>Since several events are used to determine the strength of the
-synaptic inputs, the COBA modulation has to be taken into
-account when setting the reference potential (compare the
-documentation of COBAReferenceCalib). We set the integration
-start potential such that the desired reference potential is
-at roughly half the expected integrated amplitudes.
-The obtained leak parameters are saved in order to later
-switch between this setting and a measurement close to
-the reversal potential quickly.</p>
-<p>We calibrate leak potentials shortly below (above) the desired
-reference potentials for excitatory (inhibitory) mode. This
-ensures that the changed membrane potential by integrating
-amplitudes does not cause a modulating effect already. The desired
-reference potential is centered within the expected range of
-integrated amplitudes. The obtained leak parameters are saved
-in order to later switch between this setting and a measurement
-close to the reversal potential quickly.</p>
-<p>The currently visible (CUBA) amplitude is measured and used for
-interpolation of the target amplitude at the maximum (or minimum)
-reachable leak potentials.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>connection</strong> – Connection to the chip to run on.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="calix.hagen.neuron_synin_coba.InhCOBABiasCalib.run">
-<code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhxcomm_vx.ConnectionHandle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">algorithm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="calix.common.base.Algorithm.html#calix.common.base.Algorithm" title="calix.common.base.Algorithm"><span class="pre">calix.common.base.Algorithm</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">numbers.Integral</span><span class="p"><span class="pre">,</span> </span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="calix.common.base.ParameterCalibResult.html#calix.common.base.ParameterCalibResult" title="calix.common.base.ParameterCalibResult"><span class="pre">calix.common.base.ParameterCalibResult</span></a><a class="headerlink" href="#calix.hagen.neuron_synin_coba.InhCOBABiasCalib.run" title="Permalink to this definition"></a></dt>
-<dd><p>Use the provided algorithm to find optimal parameters.</p>
-<p>Calls prelude function, calls algorithm.run(), calls postlude function.
-If self.target is not defined after the prelude function, the
-calibration target is required as a parameter to this function.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>connection</strong> – Connection to the chip to calibrate.</p></li>
-<li><p><strong>algorithm</strong> – Instance of an algorithm to be used for
-calibration. Will be hooked to the calibration during running
-and unhooked afterwards.</p></li>
-<li><p><strong>target</strong> – Target result to be aimed for. If given, this target
-is used. If None, the attribute self.target is used.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Raises</dt>
-<dd class="field-even"><p><strong>TypeError</strong> – If neither the target parameter or the attribute
-self.target are defined.</p>
-</dd>
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>ParameterCalibResult, containing the optimal
-parameters.</p>
-</dd>
-</dl>
-</dd></dl>
-
 </dd></dl>
 
 </div>

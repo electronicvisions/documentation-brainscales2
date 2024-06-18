@@ -16,7 +16,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="calix.spiking.neuron_calib_parts.calibrate_synapse_dac_bias" href="calix.spiking.neuron_calib_parts.calibrate_synapse_dac_bias.html" />
+    <link rel="next" title="calix.spiking.neuron_calib_parts.COBAParameters" href="calix.spiking.neuron_calib_parts.COBAParameters.html" />
     <link rel="prev" title="calix.spiking.neuron.NeuronCalibTarget" href="calix.spiking.neuron.NeuronCalibTarget.html" /> 
 </head>
 
@@ -50,7 +50,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../api_hxcomm.html">hxcomm API</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../api_calix.html">calix API</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="calix.html">calix</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="calix.calibrate.html">calix.calibrate</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.calib_cache.html">calix.calib_cache</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.common.html">calix.common</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.constants.html">calix.constants</a></li>
@@ -100,45 +99,6 @@
 <p>These functions are intended to be called in a specific order, as it is
 done in the spiking neuron calibration - please use caution in case
 you call them directly.</p>
-<p class="rubric">Functions</p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="calix.spiking.neuron_calib_parts.calibrate_synapse_dac_bias.html#calix.spiking.neuron_calib_parts.calibrate_synapse_dac_bias" title="calix.spiking.neuron_calib_parts.calibrate_synapse_dac_bias"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calibrate_synapse_dac_bias</span></code></a>(connection, …)</p></td>
-<td><p>Calibrate the synapse DAC bias.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="calix.spiking.neuron_calib_parts.calibrate_synaptic_input.html#calix.spiking.neuron_calib_parts.calibrate_synaptic_input" title="calix.spiking.neuron_calib_parts.calibrate_synaptic_input"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calibrate_synaptic_input</span></code></a>(connection, target, …)</p></td>
-<td><p>Run calibration of (current-based) synaptic inputs.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="calix.spiking.neuron_calib_parts.calibrate_synin_coba.html#calix.spiking.neuron_calib_parts.calibrate_synin_coba" title="calix.spiking.neuron_calib_parts.calibrate_synin_coba"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calibrate_synin_coba</span></code></a>(connection, target, …)</p></td>
-<td><p>Calibrate synaptic input in COBA mode, i.e. calibrate the OTA that modulates the CUBA OTA’s bias.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="calix.spiking.neuron_calib_parts.calibrate_synin_references.html#calix.spiking.neuron_calib_parts.calibrate_synin_references" title="calix.spiking.neuron_calib_parts.calibrate_synin_references"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calibrate_synin_references</span></code></a>(connection, …)</p></td>
-<td><p>Calibrate synaptic input OTA reference potentials such that the given target CADC reads are reached with synaptic inputs enabled, i.e., set to the bias currents in the calib result.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="calix.spiking.neuron_calib_parts.calibrate_tau_mem.html#calix.spiking.neuron_calib_parts.calibrate_tau_mem" title="calix.spiking.neuron_calib_parts.calibrate_tau_mem"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calibrate_tau_mem</span></code></a>(connection, tau_mem, …)</p></td>
-<td><p>Calibrate membrane time constant to given target.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="calix.spiking.neuron_calib_parts.calibrate_tau_syn.html#calix.spiking.neuron_calib_parts.calibrate_tau_syn" title="calix.spiking.neuron_calib_parts.calibrate_tau_syn"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calibrate_tau_syn</span></code></a>(connection, tau_syn, …)</p></td>
-<td><p>Calibrate synaptic input time constant to given target.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="calix.spiking.neuron_calib_parts.deepcopy.html#calix.spiking.neuron_calib_parts.deepcopy" title="calix.spiking.neuron_calib_parts.deepcopy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">deepcopy</span></code></a>(x[, memo, _nil])</p></td>
-<td><p>Deep copy operation on arbitrary Python objects.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="calix.spiking.neuron_calib_parts.disable_synin_and_threshold.html#calix.spiking.neuron_calib_parts.disable_synin_and_threshold" title="calix.spiking.neuron_calib_parts.disable_synin_and_threshold"><code class="xref py py-obj docutils literal notranslate"><span class="pre">disable_synin_and_threshold</span></code></a>(connection, …)</p></td>
-<td><p>Configure neurons with synaptic input OTAs and spike threshold disabled.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="calix.spiking.neuron_calib_parts.finalize_synin_calib.html#calix.spiking.neuron_calib_parts.finalize_synin_calib" title="calix.spiking.neuron_calib_parts.finalize_synin_calib"><code class="xref py py-obj docutils literal notranslate"><span class="pre">finalize_synin_calib</span></code></a>(connection, calib_result)</p></td>
-<td><p>Un-set some of the hagen-mode specific parameters that were set in <cite>prepare_for_synin_calib</cite>.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="calix.spiking.neuron_calib_parts.prepare_for_synin_calib.html#calix.spiking.neuron_calib_parts.prepare_for_synin_calib" title="calix.spiking.neuron_calib_parts.prepare_for_synin_calib"><code class="xref py py-obj docutils literal notranslate"><span class="pre">prepare_for_synin_calib</span></code></a>(connection, options, …)</p></td>
-<td><p>Preconfigure the chip for synaptic input calibration.</p></td>
-</tr>
-</tbody>
-</table>
 <p class="rubric">Classes</p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -154,6 +114,173 @@ you call them directly.</p>
 </tr>
 </tbody>
 </table>
+<p class="rubric">Functions</p>
+<dl class="py function">
+<dt id="calix.spiking.neuron_calib_parts.calibrate_synapse_dac_bias">
+<code class="sig-prename descclassname"><span class="pre">calix.spiking.neuron_calib_parts.</span></code><code class="sig-name descname"><span class="pre">calibrate_synapse_dac_bias</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">hxcomm.ConnectionHandle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">synapse_dac_bias</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calib_result</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="calix.hagen.neuron.CalibResultInternal.html#calix.hagen.neuron.CalibResultInternal" title="calix.hagen.neuron.CalibResultInternal"><span class="pre">calix.hagen.neuron.CalibResultInternal</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.spiking.neuron_calib_parts.calibrate_synapse_dac_bias" title="Permalink to this definition"></a></dt>
+<dd><p>Calibrate the synapse DAC bias.</p>
+<p>First, configure the target parameters on each quadrant.
+Then, calibrate each quadrant’s parameters such that the minimum
+amplitude of those measured previously on the quadrants is reached.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>connection</strong> – Connection to chip to run on.</p></li>
+<li><p><strong>synapse_dac_bias</strong> – Target CapMem value for calibration.</p></li>
+<li><p><strong>calib_result</strong> – Calib result.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="calix.spiking.neuron_calib_parts.calibrate_synaptic_input">
+<code class="sig-prename descclassname"><span class="pre">calix.spiking.neuron_calib_parts.</span></code><code class="sig-name descname"><span class="pre">calibrate_synaptic_input</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">hxcomm.ConnectionHandle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">neuron.NeuronCalibTarget</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calib_result</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">neuron._CalibResultInternal</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_cadc_reads</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">np.ndarray</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.spiking.neuron_calib_parts.calibrate_synaptic_input" title="Permalink to this definition"></a></dt>
+<dd><p>Run calibration of (current-based) synaptic inputs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>connection</strong> – Connection to chip to run on.</p></li>
+<li><p><strong>target</strong> – Target parameters for neuron calibration.</p></li>
+<li><p><strong>calib_result</strong> – Calib result to store parameters in.</p></li>
+<li><p><strong>target_cadc_reads</strong> – CADC samples at resting potential, with
+synaptic input disabled.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="calix.spiking.neuron_calib_parts.calibrate_synin_coba">
+<code class="sig-prename descclassname"><span class="pre">calix.spiking.neuron_calib_parts.</span></code><code class="sig-name descname"><span class="pre">calibrate_synin_coba</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">hxcomm.ConnectionHandle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">neuron.NeuronCalibTarget</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calib_result</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">neuron.NeuronCalibResult</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.spiking.neuron_calib_parts.calibrate_synin_coba" title="Permalink to this definition"></a></dt>
+<dd><p>Calibrate synaptic input in COBA mode, i.e. calibrate the OTA
+that modulates the CUBA OTA’s bias.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>connection</strong> – Connection to the chip to run on.</p></li>
+<li><p><strong>target</strong> – Target for neuron calibration.</p></li>
+<li><p><strong>calib_result</strong> – Neuron calibration result.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="calix.spiking.neuron_calib_parts.calibrate_synin_references">
+<code class="sig-prename descclassname"><span class="pre">calix.spiking.neuron_calib_parts.</span></code><code class="sig-name descname"><span class="pre">calibrate_synin_references</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">hxcomm.ConnectionHandle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_cadc_reads</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">np.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calib_result</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">neuron._CalibResultInternal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.spiking.neuron_calib_parts.calibrate_synin_references" title="Permalink to this definition"></a></dt>
+<dd><p>Calibrate synaptic input OTA reference potentials such that
+the given target CADC reads are reached with synaptic inputs
+enabled, i.e., set to the bias currents in the calib result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>connection</strong> – Connection to chip to run on.</p></li>
+<li><p><strong>target_cadc_reads</strong> – Target CADC reads, obtained at leak
+potential with synaptic inputs disabled.</p></li>
+<li><p><strong>calib_result</strong> – Result of neuron calibration.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="calix.spiking.neuron_calib_parts.calibrate_tau_mem">
+<code class="sig-prename descclassname"><span class="pre">calix.spiking.neuron_calib_parts.</span></code><code class="sig-name descname"><span class="pre">calibrate_tau_mem</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">hxcomm.ConnectionHandle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau_mem</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pq.Quantity</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calib_result</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">neuron._CalibResultInternal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.spiking.neuron_calib_parts.calibrate_tau_mem" title="Permalink to this definition"></a></dt>
+<dd><p>Calibrate membrane time constant to given target.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>connection</strong> – Connection to chip to run on.</p></li>
+<li><p><strong>tau_mem</strong> – Target membrane time constant.</p></li>
+<li><p><strong>calib_result</strong> – Neuron calibration result.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="calix.spiking.neuron_calib_parts.calibrate_tau_syn">
+<code class="sig-prename descclassname"><span class="pre">calix.spiking.neuron_calib_parts.</span></code><code class="sig-name descname"><span class="pre">calibrate_tau_syn</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">hxcomm.ConnectionHandle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau_syn</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">np.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calib_result</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">neuron._CalibResultInternal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.spiking.neuron_calib_parts.calibrate_tau_syn" title="Permalink to this definition"></a></dt>
+<dd><p>Calibrate synaptic input time constant to given target.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>connection</strong> – Connection to chip to run on.</p></li>
+<li><p><strong>tau_syn</strong> – Target synaptic input time constant.</p></li>
+<li><p><strong>calib_result</strong> – Calib result to store parameters in.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="calix.spiking.neuron_calib_parts.deepcopy">
+<code class="sig-prename descclassname"><span class="pre">calix.spiking.neuron_calib_parts.</span></code><code class="sig-name descname"><span class="pre">deepcopy</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">memo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_nil</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.spiking.neuron_calib_parts.deepcopy" title="Permalink to this definition"></a></dt>
+<dd><p>Deep copy operation on arbitrary Python objects.</p>
+<p>See the module’s __doc__ string for more info.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="calix.spiking.neuron_calib_parts.disable_synin_and_threshold">
+<code class="sig-prename descclassname"><span class="pre">calix.spiking.neuron_calib_parts.</span></code><code class="sig-name descname"><span class="pre">disable_synin_and_threshold</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">hxcomm.ConnectionHandle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calib_result</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">neuron._CalibResultInternal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.spiking.neuron_calib_parts.disable_synin_and_threshold" title="Permalink to this definition"></a></dt>
+<dd><p>Configure neurons with synaptic input OTAs and spike threshold
+disabled.</p>
+<p>This is a benign state in which many other parameters can be
+calibrated more easily.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>connection</strong> – Connection to chip to run on.</p></li>
+<li><p><strong>calib_result</strong> – Neuron calibration result.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="calix.spiking.neuron_calib_parts.finalize_synin_calib">
+<code class="sig-prename descclassname"><span class="pre">calix.spiking.neuron_calib_parts.</span></code><code class="sig-name descname"><span class="pre">finalize_synin_calib</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">hxcomm.ConnectionHandle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calib_result</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">neuron._CalibResultInternal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.spiking.neuron_calib_parts.finalize_synin_calib" title="Permalink to this definition"></a></dt>
+<dd><p>Un-set some of the hagen-mode specific parameters that were set
+in <cite>prepare_for_synin_calib</cite>.</p>
+<p>The synaptic input time constant is re-set to the user-selected
+value, that was calibrated previously. We don’t change the membrane
+time constant here, as it will be calibrated only afterwards.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>connection</strong> – Connection to chip to run on.</p></li>
+<li><p><strong>calib_result</strong> – Calib result to store parameters in.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="calix.spiking.neuron_calib_parts.prepare_for_synin_calib">
+<code class="sig-prename descclassname"><span class="pre">calix.spiking.neuron_calib_parts.</span></code><code class="sig-name descname"><span class="pre">prepare_for_synin_calib</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">hxcomm.ConnectionHandle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">neuron.NeuronCalibOptions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calib_result</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">neuron._CalibResultInternal</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">np.ndarray</span><a class="headerlink" href="#calix.spiking.neuron_calib_parts.prepare_for_synin_calib" title="Permalink to this definition"></a></dt>
+<dd><p>Preconfigure the chip for synaptic input calibration.</p>
+<p>Select a hagen-mode-like setup, i.e. calibrate membrane time
+constant to a high value and synaptic input time constant to
+a low value.</p>
+<p>Note that there is a corresponding function <cite>finalize_synin_calib</cite>
+that undoes some of these changes, i.e. re-applies the synaptic
+input time constant to the user-selected value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>connection</strong> – Connection to chip to run on.</p></li>
+<li><p><strong>options</strong> – Further options for calibration.</p></li>
+<li><p><strong>calib_result</strong> – Calib result to store parameters in.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Array of target CADC reads at resting potential, to be
+used as reference point during synaptic input calib.</p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 
 
@@ -161,7 +288,7 @@ you call them directly.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="calix.spiking.neuron.NeuronCalibTarget.html" class="btn btn-neutral float-left" title="calix.spiking.neuron.NeuronCalibTarget" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="calix.spiking.neuron_calib_parts.calibrate_synapse_dac_bias.html" class="btn btn-neutral float-right" title="calix.spiking.neuron_calib_parts.calibrate_synapse_dac_bias" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="calix.spiking.neuron_calib_parts.COBAParameters.html" class="btn btn-neutral float-right" title="calix.spiking.neuron_calib_parts.COBAParameters" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

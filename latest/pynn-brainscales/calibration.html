@@ -91,14 +91,14 @@ The <cite>calix</cite> library is capable of performing these calibration.
 In this document we describe how calibration data can be used in PyNN.</p>
 <div class="section" id="loading-a-calibration">
 <h2>Loading a Calibration<a class="headerlink" href="#loading-a-calibration" title="Permalink to this headline"></a></h2>
-<p>The helper function <a class="reference internal" href="../_autosummary/pynn_brainscales.brainscales2.helper.chip_from_file.html#pynn_brainscales.brainscales2.helper.chip_from_file" title="pynn_brainscales.brainscales2.helper.chip_from_file"><code class="xref py py-func docutils literal notranslate"><span class="pre">chip_from_file()</span></code></a> converts a binary dump of a playback program to an object which represents the configuration of the BrainScaleS-2 chip.</p>
+<p>The helper function <a class="reference internal" href="../_autosummary/pynn_brainscales.brainscales2.helper.html#pynn_brainscales.brainscales2.helper.chip_from_file" title="pynn_brainscales.brainscales2.helper.chip_from_file"><code class="xref py py-func docutils literal notranslate"><span class="pre">chip_from_file()</span></code></a> converts a binary dump of a playback program to an object which represents the configuration of the BrainScaleS-2 chip.</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pynn_brainscales.brainscales2</span> <span class="k">as</span> <span class="nn">pynn</span>
 <span class="n">chip</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">helper</span><span class="o">.</span><span class="n">chip_from_file</span><span class="p">(</span><span class="n">some_file</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="section" id="applying-a-calibration">
 <h3>Applying a Calibration<a class="headerlink" href="#applying-a-calibration" title="Permalink to this headline"></a></h3>
-<p>The global chip configuration can be injected when we call the <a class="reference internal" href="../_autosummary/pynn_brainscales.brainscales2.setup.html#pynn_brainscales.brainscales2.setup" title="pynn_brainscales.brainscales2.setup"><code class="xref py py-func docutils literal notranslate"><span class="pre">setup()</span></code></a> function.</p>
+<p>The global chip configuration can be injected when we call the <a class="reference internal" href="../_autosummary/pynn_brainscales.brainscales2.html#pynn_brainscales.brainscales2.setup" title="pynn_brainscales.brainscales2.setup"><code class="xref py py-func docutils literal notranslate"><span class="pre">setup()</span></code></a> function.</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">pynn</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="n">initial_config</span><span class="o">=</span><span class="n">chip</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -142,7 +142,7 @@ parameters for Calix spiking calibration.</p>
 <p>Uses conductance-based synapses.</p>
 </dd></dl>
 
-<p>Once <a class="reference internal" href="../_autosummary/pynn_brainscales.brainscales2.run.html#pynn_brainscales.brainscales2.run" title="pynn_brainscales.brainscales2.run"><code class="xref py py-func docutils literal notranslate"><span class="pre">run()</span></code></a> is called, <cite>calix</cite> is used to generate a calibration in the background.
+<p>Once <a class="reference internal" href="../_autosummary/pynn_brainscales.brainscales2.html#pynn_brainscales.brainscales2.run" title="pynn_brainscales.brainscales2.run"><code class="xref py py-func docutils literal notranslate"><span class="pre">run()</span></code></a> is called, <cite>calix</cite> is used to generate a calibration in the background.
 As generating a calibration takes around five minutes, this mode is not meant for interactive exploration.</p>
 </div>
 </div>

@@ -16,8 +16,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="hxtorch.spiking.functional.refractory.refractory_update" href="hxtorch.spiking.functional.refractory.refractory_update.html" />
-    <link rel="prev" title="hxtorch.spiking.functional.lif.Unterjubel" href="hxtorch.spiking.functional.lif.Unterjubel.html" /> 
+    <link rel="next" title="hxtorch.spiking.functional.refractory.NamedTuple" href="hxtorch.spiking.functional.refractory.NamedTuple.html" />
+    <link rel="prev" title="hxtorch.spiking.functional.linear" href="hxtorch.spiking.functional.linear.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -94,18 +94,6 @@
   <div class="section" id="module-hxtorch.spiking.functional.refractory">
 <span id="hxtorch-spiking-functional-refractory"></span><h1>hxtorch.spiking.functional.refractory<a class="headerlink" href="#module-hxtorch.spiking.functional.refractory" title="Permalink to this headline"></a></h1>
 <p>Refractory update for neurons with refractory behaviour</p>
-<p class="rubric">Functions</p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.functional.refractory.refractory_update.html#hxtorch.spiking.functional.refractory.refractory_update" title="hxtorch.spiking.functional.refractory.refractory_update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">refractory_update</span></code></a>(z, v, ref_state, params[, dt])</p></td>
-<td><p>Update neuron membrane and spikes to account for refractory period. This implemention is widly adopted from: <a class="reference external" href="https://github.com/norse/norse/blob/main/norse/torch/functional/lif_refrac.py">https://github.com/norse/norse/blob/main/norse/torch/functional/lif_refrac.py</a> :param z: The spike tensor at time step t. :param v: The membrane tensor at time step t. :param ref_state: The refractory state holding the number of time steps the     neurons has to remain in the refractory period. :param params: Parameter object holding the LIF parameters. :returns: Returns a tuple (z, v, ref_state) holding the tensors of time     step t.</p></td>
-</tr>
-</tbody>
-</table>
 <p class="rubric">Classes</p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -118,14 +106,38 @@
 </tr>
 </tbody>
 </table>
+<p class="rubric">Functions</p>
+<dl class="py function">
+<dt id="hxtorch.spiking.functional.refractory.refractory_update">
+<code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.functional.refractory.</span></code><code class="sig-name descname"><span class="pre">refractory_update</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_state</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="hxtorch.spiking.functional.refractory.NamedTuple.html#hxtorch.spiking.functional.refractory.NamedTuple" title="hxtorch.spiking.functional.refractory.NamedTuple"><span class="pre">NamedTuple</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1e-06</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">,</span> </span><span class="p"><span class="pre">…</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#hxtorch.spiking.functional.refractory.refractory_update" title="Permalink to this definition"></a></dt>
+<dd><p>Update neuron membrane and spikes to account for refractory period.
+This implemention is widly adopted from:
+<a class="reference external" href="https://github.com/norse/norse/blob/main/norse/torch/functional/lif_refrac.py">https://github.com/norse/norse/blob/main/norse/torch/functional/lif_refrac.py</a>
+:param z: The spike tensor at time step t.
+:param v: The membrane tensor at time step t.
+:param ref_state: The refractory state holding the number of time steps the</p>
+<blockquote>
+<div><p>neurons has to remain in the refractory period.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>params</strong> – Parameter object holding the LIF parameters.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Returns a tuple (z, v, ref_state) holding the tensors of time
+step t.</p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="hxtorch.spiking.functional.lif.Unterjubel.html" class="btn btn-neutral float-left" title="hxtorch.spiking.functional.lif.Unterjubel" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="hxtorch.spiking.functional.refractory.refractory_update.html" class="btn btn-neutral float-right" title="hxtorch.spiking.functional.refractory.refractory_update" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="hxtorch.spiking.functional.linear.html" class="btn btn-neutral float-left" title="hxtorch.spiking.functional.linear" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="hxtorch.spiking.functional.refractory.NamedTuple.html" class="btn btn-neutral float-right" title="hxtorch.spiking.functional.refractory.NamedTuple" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

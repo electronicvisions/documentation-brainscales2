@@ -16,7 +16,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="hxtorch.spiking.transforms.weight_transforms.linear_saturating" href="hxtorch.spiking.transforms.weight_transforms.linear_saturating.html" />
+    <link rel="next" title="hxtorch.spiking.utils" href="hxtorch.spiking.utils.html" />
     <link rel="prev" title="hxtorch.spiking.transforms.encode.SpikeTimesToSparseTensor" href="hxtorch.spiking.transforms.encode.SpikeTimesToSparseTensor.html" /> 
 </head>
 
@@ -95,17 +95,34 @@
 <span id="hxtorch-spiking-transforms-weight-transforms"></span><h1>hxtorch.spiking.transforms.weight_transforms<a class="headerlink" href="#module-hxtorch.spiking.transforms.weight_transforms" title="Permalink to this headline"></a></h1>
 <p>Define convenient software &lt;-&gt; hardware weight mappings</p>
 <p class="rubric">Functions</p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.transforms.weight_transforms.linear_saturating.html#hxtorch.spiking.transforms.weight_transforms.linear_saturating" title="hxtorch.spiking.transforms.weight_transforms.linear_saturating"><code class="xref py py-obj docutils literal notranslate"><span class="pre">linear_saturating</span></code></a>(weight[, scale, …])</p></td>
-<td><p>Scale all weights according to:</p></td>
-</tr>
-</tbody>
-</table>
+<dl class="py function">
+<dt id="hxtorch.spiking.transforms.weight_transforms.linear_saturating">
+<code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.transforms.weight_transforms.</span></code><code class="sig-name descname"><span class="pre">linear_saturating</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_weight</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">-</span> <span class="pre">63.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_weight</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">63.0</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">torch.Tensor</span><a class="headerlink" href="#hxtorch.spiking.transforms.weight_transforms.linear_saturating" title="Permalink to this definition"></a></dt>
+<dd><p>Scale all weights according to:</p>
+<blockquote>
+<div><p>w &lt;- clip(scale * w, min_weight, max_weight)</p>
+</div></blockquote>
+<dl class="simple">
+<dt>TODO: Maybe make this function member of HXSynapse and allow different</dt><dd><p>weight transformations by inheritance.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>weight</strong> – The weight tensor to be transformed.</p></li>
+<li><p><strong>scale</strong> – A constant the weight tensor is scaled with.</p></li>
+<li><p><strong>min_weight</strong> – The minimum value, smaller values are clipped to after
+scaling.</p></li>
+<li><p><strong>max_weight</strong> – The maximum value, bigger values are clipped to after
+scaling.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The transformed weight tensor.</p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 
 
@@ -113,7 +130,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="hxtorch.spiking.transforms.encode.SpikeTimesToSparseTensor.html" class="btn btn-neutral float-left" title="hxtorch.spiking.transforms.encode.SpikeTimesToSparseTensor" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="hxtorch.spiking.transforms.weight_transforms.linear_saturating.html" class="btn btn-neutral float-right" title="hxtorch.spiking.transforms.weight_transforms.linear_saturating" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="hxtorch.spiking.utils.html" class="btn btn-neutral float-right" title="hxtorch.spiking.utils" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -16,8 +16,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="calix.common.madc_base.abstractmethod" href="calix.common.madc_base.abstractmethod.html" />
-    <link rel="prev" title="calix.common.helpers.wait" href="calix.common.helpers.wait.html" /> 
+    <link rel="next" title="calix.common.madc_base.ABC" href="calix.common.madc_base.ABC.html" />
+    <link rel="prev" title="calix.common.helpers" href="calix.common.helpers.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -50,7 +50,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../api_hxcomm.html">hxcomm API</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../api_calix.html">calix API</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="calix.html">calix</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="calix.calibrate.html">calix.calibrate</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.calib_cache.html">calix.calib_cache</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="calix.common.html">calix.common</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.constants.html">calix.constants</a></li>
@@ -97,18 +96,6 @@
   <div class="section" id="module-calix.common.madc_base">
 <span id="calix-common-madc-base"></span><h1>calix.common.madc_base<a class="headerlink" href="#module-calix.common.madc_base" title="Permalink to this headline"></a></h1>
 <p>Provides an abstract base class for calibrations utilizing the MADC.</p>
-<p class="rubric">Functions</p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="calix.common.madc_base.abstractmethod.html#calix.common.madc_base.abstractmethod" title="calix.common.madc_base.abstractmethod"><code class="xref py py-obj docutils literal notranslate"><span class="pre">abstractmethod</span></code></a>(funcobj)</p></td>
-<td><p>A decorator indicating abstract methods.</p></td>
-</tr>
-</tbody>
-</table>
 <p class="rubric">Classes</p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -130,14 +117,38 @@
 </tr>
 </tbody>
 </table>
+<p class="rubric">Functions</p>
+<dl class="py function">
+<dt id="calix.common.madc_base.abstractmethod">
+<code class="sig-prename descclassname"><span class="pre">calix.common.madc_base.</span></code><code class="sig-name descname"><span class="pre">abstractmethod</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">funcobj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.common.madc_base.abstractmethod" title="Permalink to this definition"></a></dt>
+<dd><p>A decorator indicating abstract methods.</p>
+<p>Requires that the metaclass is ABCMeta or derived from it.  A
+class that has a metaclass derived from ABCMeta cannot be
+instantiated unless all of its abstract methods are overridden.
+The abstract methods can be called using any of the normal
+‘super’ call mechanisms.  abstractmethod() may be used to declare
+abstract methods for properties and descriptors.</p>
+<p>Usage:</p>
+<blockquote>
+<div><dl>
+<dt>class C(metaclass=ABCMeta):</dt><dd><p>&#64;abstractmethod
+def my_abstract_method(self, …):</p>
+<blockquote>
+<div><p>…</p>
+</div></blockquote>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
 </div>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="calix.common.helpers.wait.html" class="btn btn-neutral float-left" title="calix.common.helpers.wait" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="calix.common.madc_base.abstractmethod.html" class="btn btn-neutral float-right" title="calix.common.madc_base.abstractmethod" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="calix.common.helpers.html" class="btn btn-neutral float-left" title="calix.common.helpers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="calix.common.madc_base.ABC.html" class="btn btn-neutral float-right" title="calix.common.madc_base.ABC" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
