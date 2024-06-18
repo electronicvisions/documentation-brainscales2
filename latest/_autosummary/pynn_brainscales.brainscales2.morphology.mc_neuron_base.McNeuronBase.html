@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pynn_brainscales.brainscales2.morphology.mc_neuron_base.Population" href="pynn_brainscales.brainscales2.morphology.mc_neuron_base.Population.html" />
+    <link rel="prev" title="pynn_brainscales.brainscales2.morphology.mc_neuron_base.McCircuitParameters" href="pynn_brainscales.brainscales2.morphology.mc_neuron_base.McCircuitParameters.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> BrainScaleS-2 Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../brainscales2-demos/index.html">Demos &amp; Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software_components.html">Software Components</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../apis.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../api_pynn-brainscales2.html">PyNN API</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="pynn_brainscales.brainscales2.html">pynn_brainscales.brainscales2</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.connectors.html">pynn_brainscales.brainscales2.connectors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.examples.html">pynn_brainscales.brainscales2.examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.helper.html">pynn_brainscales.brainscales2.helper</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="pynn_brainscales.brainscales2.morphology.html">pynn_brainscales.brainscales2.morphology</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.plasticity_rules.html">pynn_brainscales.brainscales2.plasticity_rules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.populations.html">pynn_brainscales.brainscales2.populations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.projections.html">pynn_brainscales.brainscales2.projections</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.recording.html">pynn_brainscales.brainscales2.recording</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.recording_data.html">pynn_brainscales.brainscales2.recording_data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.simulator.html">pynn_brainscales.brainscales2.simulator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.standardmodels.html">pynn_brainscales.brainscales2.standardmodels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.AllToAllConnector.html">pynn_brainscales.brainscales2.AllToAllConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.ArrayConnector.html">pynn_brainscales.brainscales2.ArrayConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.Assembly.html">pynn_brainscales.brainscales2.Assembly</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.CSAConnector.html">pynn_brainscales.brainscales2.CSAConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.CloneConnector.html">pynn_brainscales.brainscales2.CloneConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.DisplacementDependentProbabilityConnector.html">pynn_brainscales.brainscales2.DisplacementDependentProbabilityConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.DistanceDependentProbabilityConnector.html">pynn_brainscales.brainscales2.DistanceDependentProbabilityConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.Enum.html">pynn_brainscales.brainscales2.Enum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.FixedNumberPostConnector.html">pynn_brainscales.brainscales2.FixedNumberPostConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.FixedNumberPreConnector.html">pynn_brainscales.brainscales2.FixedNumberPreConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.FixedProbabilityConnector.html">pynn_brainscales.brainscales2.FixedProbabilityConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.FixedTotalNumberConnector.html">pynn_brainscales.brainscales2.FixedTotalNumberConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.FromFileConnector.html">pynn_brainscales.brainscales2.FromFileConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.FromListConnector.html">pynn_brainscales.brainscales2.FromListConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.IndexBasedProbabilityConnector.html">pynn_brainscales.brainscales2.IndexBasedProbabilityConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.InjectedConfiguration.html">pynn_brainscales.brainscales2.InjectedConfiguration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.InjectedReadout.html">pynn_brainscales.brainscales2.InjectedReadout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.OneToOneConnector.html">pynn_brainscales.brainscales2.OneToOneConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.PlasticityRule.html">pynn_brainscales.brainscales2.PlasticityRule</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.Population.html">pynn_brainscales.brainscales2.Population</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.PopulationView.html">pynn_brainscales.brainscales2.PopulationView</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.Projection.html">pynn_brainscales.brainscales2.Projection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.RunCommand.html">pynn_brainscales.brainscales2.RunCommand</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.SmallWorldConnector.html">pynn_brainscales.brainscales2.SmallWorldConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.SpikingCalibOptions.html">pynn_brainscales.brainscales2.SpikingCalibOptions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.SpikingCalibTarget.html">pynn_brainscales.brainscales2.SpikingCalibTarget</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.Timer.html">pynn_brainscales.brainscales2.Timer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.auto.html">pynn_brainscales.brainscales2.auto</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api_hxtorch.html">hxtorch API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_grenade.html">grenade API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_haldls.html">haldls API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_lola.html">lola API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_stadls.html">stadls API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_fisch.html">fisch API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_hxcomm.html">hxcomm API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_calix.html">calix API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_hate.html">hate API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BrainScaleS-2 Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../apis.html">BrainScaleS-2 API Documentation</a> &raquo;</li>
+          <li><a href="../api_pynn-brainscales2.html">API Reference: PyNN.brainscales2</a> &raquo;</li>
+          <li><a href="pynn_brainscales.brainscales2.html">pynn_brainscales.brainscales2</a> &raquo;</li>
+          <li><a href="pynn_brainscales.brainscales2.morphology.html">pynn_brainscales.brainscales2.morphology</a> &raquo;</li>
+          <li><a href="pynn_brainscales.brainscales2.morphology.mc_neuron_base.html">pynn_brainscales.brainscales2.morphology.mc_neuron_base</a> &raquo;</li>
+      <li>pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_autosummary/pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="pynn-brainscales-brainscales2-morphology-mc-neuron-base-mcneuronbase">
+<h1>pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase<a class="headerlink" href="#pynn-brainscales-brainscales2-morphology-mc-neuron-base-mcneuronbase" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt id="pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">pynn_brainscales.brainscales2.morphology.mc_neuron_base.</span></code><code class="sig-name descname"><span class="pre">McNeuronBase</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="pynn_brainscales.brainscales2.standardmodels.cells_base.StandardCellType.html#pynn_brainscales.brainscales2.standardmodels.cells_base.StandardCellType" title="pynn_brainscales.brainscales2.standardmodels.cells_base.StandardCellType"><code class="xref py py-class docutils literal notranslate"><span class="pre">pynn_brainscales.brainscales2.standardmodels.cells_base.StandardCellType</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<p>Base class for multi-compartmental neuron models.</p>
+<p>Contains the core functionality for multi-compartment neurons.
+It flattens the hierarchy of a <cite>lola.AtomicNeuron</cite>, for example
+<cite>lola.AtomicNeuron.multicompartment.i_bias_nmda</cite> is expressed as the
+parameter <cite>multicompartment_i_bias_nmda</cite>.
+Parameters related to the event routing, configuration of morphology and
+readout are not exposed since they are determined by other settings in
+PyNN.</p>
+<dl class="simple">
+<dt>A subclass is expected to set the following member variables:</dt><dd><ul class="simple">
+<li><p>compartments: Dictionary of Compartment Ids and Compartments.</p></li>
+<li><dl class="simple">
+<dt>logical_neuron: Configuration of the neuron in form of a logical</dt><dd><p>neuron.</p>
+</dd>
+</dl>
+</li>
+<li><p>logical_compartments: Shape of the morphology.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.__init__">
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.__init__" title="pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(**parameters)</p></td>
+<td><p>Initialize self.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.add_to_chip" title="pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.add_to_chip"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_to_chip</span></code></a>(cell_ids, config)</p></td>
+<td><p>Add configuration of each neuron in the parameter space to the give chip object.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.add_to_input_generator" title="pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.add_to_input_generator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_to_input_generator</span></code></a>(population, builder, …)</p></td>
+<td><p>Add external events to input generator.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.add_to_network_graph" title="pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.add_to_network_graph"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_to_network_graph</span></code></a>(population, builder)</p></td>
+<td><p>Add population to network builder.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.apply_config" title="pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.apply_config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">apply_config</span></code></a>(coords)</p></td>
+<td><p>Apply configuration  initial configuration  saved in the simulator state to the parameter space.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.get_compartment_ids" title="pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.get_compartment_ids"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_compartment_ids</span></code></a>(labels)</p></td>
+<td><p>Get compartment Ids of compartments with the specified labels.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.get_default_values" title="pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.get_default_values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_default_values</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.get_label" title="pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.get_label"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_label</span></code></a>(compartment_id)</p></td>
+<td><p>Retrieve label of a single compartment.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.get_labels" title="pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.get_labels"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_labels</span></code></a>()</p></td>
+<td><p>Retrieve list of all used labels.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.get_logical_neuron" title="pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.get_logical_neuron"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_logical_neuron</span></code></a>(cell_in_pop)</p></td>
+<td><p>Extract parameters from parameter space and apply it to a logical</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.compartments" title="pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.compartments"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compartments</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.conductance_based" title="pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.conductance_based"><code class="xref py py-obj docutils literal notranslate"><span class="pre">conductance_based</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.injectable" title="pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.injectable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">injectable</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.logical_compartments" title="pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.logical_compartments"><code class="xref py py-obj docutils literal notranslate"><span class="pre">logical_compartments</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.logical_neuron" title="pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.logical_neuron"><code class="xref py py-obj docutils literal notranslate"><span class="pre">logical_neuron</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.receptor_types" title="pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.receptor_types"><code class="xref py py-obj docutils literal notranslate"><span class="pre">receptor_types</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.recordable" title="pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.recordable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">recordable</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.single_active_circuit" title="pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.single_active_circuit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">single_active_circuit</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.translations" title="pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.translations"><code class="xref py py-obj docutils literal notranslate"><span class="pre">translations</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.units" title="pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.units"><code class="xref py py-obj docutils literal notranslate"><span class="pre">units</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.add_to_chip">
+<code class="sig-name descname"><span class="pre">add_to_chip</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cell_ids</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pylola_vx_v3.Chip</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.add_to_chip" title="Permalink to this definition"></a></dt>
+<dd><p>Add configuration of each neuron in the parameter space to the give
+chip object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cell_ids</strong> – Cell IDs for each neuron in the parameter space of
+this celltype object.</p></li>
+<li><p><strong>chip</strong> – Lola chip object which is altered.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.add_to_input_generator">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">add_to_input_generator</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">population</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyNN.common.populations.Population</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">builder</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network.InputGenerator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">snippet_begin_time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">snippet_end_time</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.add_to_input_generator" title="Permalink to this definition"></a></dt>
+<dd><p>Add external events to input generator.
+:param population: Population to add featuring this cell’s celltype.
+:param builder: Input builder to add external events to.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.add_to_network_graph">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">add_to_network_graph</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">population</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyNN.common.populations.Population</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">builder</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network.NetworkBuilder</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">_pygrenade_vx_network.PopulationOnNetwork</span><a class="headerlink" href="#pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.add_to_network_graph" title="Permalink to this definition"></a></dt>
+<dd><p>Add population to network builder.
+:param population: Population to add featuring this cell’s celltype.
+:param builder: Network builder to add population to.
+:return: Descriptor of added population</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.apply_config">
+<code class="sig-name descname"><span class="pre">apply_config</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coords</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">pyhalco_hicann_dls_vx_v3.LogicalNeuronOnDLS</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.apply_config" title="Permalink to this definition"></a></dt>
+<dd><p>Apply configuration  initial configuration  saved in the simulator
+state to the parameter space.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>coords</strong> – List of coordinates for which to look up the initial
+configuration. Needs same order and dimensions as parameter_space.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.compartments">
+<code class="sig-name descname"><span class="pre">compartments</span></code><em class="property"><span class="pre">:</span> <span class="pre">Dict</span></em><em class="property"> <span class="pre">=</span> <span class="pre">{}</span></em><a class="headerlink" href="#pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.compartments" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.conductance_based">
+<code class="sig-name descname"><span class="pre">conductance_based</span></code><em class="property"><span class="pre">:</span> <span class="pre">Final</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">False</span></em><a class="headerlink" href="#pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.conductance_based" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.get_compartment_ids">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">get_compartment_ids</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">pyhalco_hicann_dls_vx_v3.CompartmentOnLogicalNeuron</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.get_compartment_ids" title="Permalink to this definition"></a></dt>
+<dd><p>Get compartment Ids of compartments with the specified labels.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>labels</strong> – Labels for which to extract the compartment IDs.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>IDs of compartments for which the given labels match.
+Note that a single label can match one or more compartment IDS.</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If no compartment can be matched to one of the
+given labels.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.get_default_values">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">get_default_values</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="headerlink" href="#pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.get_default_values" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.get_label">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">get_label</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">compartment_id</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhalco_hicann_dls_vx_v3.CompartmentOnLogicalNeuron</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="headerlink" href="#pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.get_label" title="Permalink to this definition"></a></dt>
+<dd><p>Retrieve label of a single compartment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>compartment_id</strong> – ID of compartment for which to retrieve the
+label.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Label of selected compartment.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.get_labels">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">get_labels</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.get_labels" title="Permalink to this definition"></a></dt>
+<dd><p>Retrieve list of all used labels.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>List of all used labels.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.get_logical_neuron">
+<code class="sig-name descname"><span class="pre">get_logical_neuron</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cell_in_pop</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">pylola_vx_v3.LogicalNeuron</span><a class="headerlink" href="#pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.get_logical_neuron" title="Permalink to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Extract parameters from parameter space and apply it to a logical</dt><dd><p>neuron.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cell_in_pop</strong> – Index of neuron in population for which to return
+the configuration as a logical neuron.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Configuration of a single neuron in form of a logical neuron.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.injectable">
+<code class="sig-name descname"><span class="pre">injectable</span></code><em class="property"><span class="pre">:</span> <span class="pre">Final</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">True</span></em><a class="headerlink" href="#pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.injectable" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.logical_compartments">
+<code class="sig-name descname"><span class="pre">logical_compartments</span></code><em class="property"><span class="pre">:</span> <span class="pre">pyhalco_hicann_dls_vx_v3.LogicalNeuronCompartments</span></em><em class="property"> <span class="pre">=</span> <span class="pre">LogicalNeuronCompartments(</span> <span class="pre">)</span></em><a class="headerlink" href="#pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.logical_compartments" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.logical_neuron">
+<code class="sig-name descname"><span class="pre">logical_neuron</span></code><em class="property"><span class="pre">:</span> <span class="pre">pylola_vx_v3.LogicalNeuron</span></em><a class="headerlink" href="#pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.logical_neuron" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.receptor_types">
+<code class="sig-name descname"><span class="pre">receptor_types</span></code><em class="property"><span class="pre">:</span> <span class="pre">Final</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">['excitatory',</span> <span class="pre">'inhibitory']</span></em><a class="headerlink" href="#pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.receptor_types" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.recordable">
+<code class="sig-name descname"><span class="pre">recordable</span></code><em class="property"><span class="pre">:</span> <span class="pre">Final</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">['spikes',</span> <span class="pre">'v',</span> <span class="pre">'exc_synin',</span> <span class="pre">'inh_synin',</span> <span class="pre">'adaptation']</span></em><a class="headerlink" href="#pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.recordable" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.single_active_circuit">
+<code class="sig-name descname"><span class="pre">single_active_circuit</span></code><em class="property"> <span class="pre">=</span> <span class="pre">True</span></em><a class="headerlink" href="#pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.single_active_circuit" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.translations">
+<code class="sig-name descname"><span class="pre">translations</span></code><em class="property"> <span class="pre">=</span> <span class="pre">{'adaptation_enable':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'adaptation_enable',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'adaptation_enable',</span> <span class="pre">'translated_name':</span> <span class="pre">'adaptation_enable'},</span> <span class="pre">'adaptation_enable_pulse':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'adaptation_enable_pulse',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'adaptation_enable_pulse',</span> <span class="pre">'translated_name':</span> <span class="pre">'adaptation_enable_pulse'},</span> <span class="pre">'adaptation_i_bias_a':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'adaptation_i_bias_a',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'adaptation_i_bias_a',</span> <span class="pre">'translated_name':</span> <span class="pre">'adaptation_i_bias_a'},</span> <span class="pre">'adaptation_i_bias_b':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'adaptation_i_bias_b',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'adaptation_i_bias_b',</span> <span class="pre">'translated_name':</span> <span class="pre">'adaptation_i_bias_b'},</span> <span class="pre">'adaptation_i_bias_tau':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'adaptation_i_bias_tau',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'adaptation_i_bias_tau',</span> <span class="pre">'translated_name':</span> <span class="pre">'adaptation_i_bias_tau'},</span> <span class="pre">'adaptation_invert_a':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'adaptation_invert_a',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'adaptation_invert_a',</span> <span class="pre">'translated_name':</span> <span class="pre">'adaptation_invert_a'},</span> <span class="pre">'adaptation_invert_b':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'adaptation_invert_b',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'adaptation_invert_b',</span> <span class="pre">'translated_name':</span> <span class="pre">'adaptation_invert_b'},</span> <span class="pre">'adaptation_v_leak':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'adaptation_v_leak',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'adaptation_v_leak',</span> <span class="pre">'translated_name':</span> <span class="pre">'adaptation_v_leak'},</span> <span class="pre">'adaptation_v_ref':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'adaptation_v_ref',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'adaptation_v_ref',</span> <span class="pre">'translated_name':</span> <span class="pre">'adaptation_v_ref'},</span> <span class="pre">'bayesian_connect_fire_from_right':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'bayesian_connect_fire_from_right',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'bayesian_connect_fire_from_right',</span> <span class="pre">'translated_name':</span> <span class="pre">'bayesian_connect_fire_from_right'},</span> <span class="pre">'bayesian_connect_fire_to_right':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'bayesian_connect_fire_to_right',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'bayesian_connect_fire_to_right',</span> <span class="pre">'translated_name':</span> <span class="pre">'bayesian_connect_fire_to_right'},</span> <span class="pre">'bayesian_connect_fire_vertical':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'bayesian_connect_fire_vertical',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'bayesian_connect_fire_vertical',</span> <span class="pre">'translated_name':</span> <span class="pre">'bayesian_connect_fire_vertical'},</span> <span class="pre">'bayesian_enable_master':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'bayesian_enable_master',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'bayesian_enable_master',</span> <span class="pre">'translated_name':</span> <span class="pre">'bayesian_enable_master'},</span> <span class="pre">'bayesian_enable_slave':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'bayesian_enable_slave',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'bayesian_enable_slave',</span> <span class="pre">'translated_name':</span> <span class="pre">'bayesian_enable_slave'},</span> <span class="pre">'bayesian_operation':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'bayesian_operation',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'bayesian_operation',</span> <span class="pre">'translated_name':</span> <span class="pre">'bayesian_operation'},</span> <span class="pre">'bayesian_to_post_pulse':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'bayesian_to_post_pulse',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'bayesian_to_post_pulse',</span> <span class="pre">'translated_name':</span> <span class="pre">'bayesian_to_post_pulse'},</span> <span class="pre">'constant_current_enable':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'constant_current_enable',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'constant_current_enable',</span> <span class="pre">'translated_name':</span> <span class="pre">'constant_current_enable'},</span> <span class="pre">'constant_current_i_offset':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'constant_current_i_offset',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'constant_current_i_offset',</span> <span class="pre">'translated_name':</span> <span class="pre">'constant_current_i_offset'},</span> <span class="pre">'constant_current_type':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'constant_current_type',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'constant_current_type',</span> <span class="pre">'translated_name':</span> <span class="pre">'constant_current_type'},</span> <span class="pre">'event_routing_address':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'event_routing_address',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'event_routing_address',</span> <span class="pre">'translated_name':</span> <span class="pre">'event_routing_address'},</span> <span class="pre">'event_routing_enable_bypass_excitatory':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'event_routing_enable_bypass_excitatory',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'event_routing_enable_bypass_excitatory',</span> <span class="pre">'translated_name':</span> <span class="pre">'event_routing_enable_bypass_excitatory'},</span> <span class="pre">'event_routing_enable_bypass_inhibitory':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'event_routing_enable_bypass_inhibitory',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'event_routing_enable_bypass_inhibitory',</span> <span class="pre">'translated_name':</span> <span class="pre">'event_routing_enable_bypass_inhibitory'},</span> <span class="pre">'event_routing_enable_post_overwrite':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'event_routing_enable_post_overwrite',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'event_routing_enable_post_overwrite',</span> <span class="pre">'translated_name':</span> <span class="pre">'event_routing_enable_post_overwrite'},</span> <span class="pre">'excitatory_input_enable':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'excitatory_input_enable',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'excitatory_input_enable',</span> <span class="pre">'translated_name':</span> <span class="pre">'excitatory_input_enable'},</span> <span class="pre">'excitatory_input_enable_coba_mode':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'excitatory_input_enable_coba_mode',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'excitatory_input_enable_coba_mode',</span> <span class="pre">'translated_name':</span> <span class="pre">'excitatory_input_enable_coba_mode'},</span> <span class="pre">'excitatory_input_enable_high_resistance':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'excitatory_input_enable_high_resistance',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'excitatory_input_enable_high_resistance',</span> <span class="pre">'translated_name':</span> <span class="pre">'excitatory_input_enable_high_resistance'},</span> <span class="pre">'excitatory_input_enable_small_capacitance':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'excitatory_input_enable_small_capacitance',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'excitatory_input_enable_small_capacitance',</span> <span class="pre">'translated_name':</span> <span class="pre">'excitatory_input_enable_small_capacitance'},</span> <span class="pre">'excitatory_input_i_bias_coba':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'excitatory_input_i_bias_coba',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'excitatory_input_i_bias_coba',</span> <span class="pre">'translated_name':</span> <span class="pre">'excitatory_input_i_bias_coba'},</span> <span class="pre">'excitatory_input_i_bias_gm':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'excitatory_input_i_bias_gm',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'excitatory_input_i_bias_gm',</span> <span class="pre">'translated_name':</span> <span class="pre">'excitatory_input_i_bias_gm'},</span> <span class="pre">'excitatory_input_i_bias_tau':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'excitatory_input_i_bias_tau',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'excitatory_input_i_bias_tau',</span> <span class="pre">'translated_name':</span> <span class="pre">'excitatory_input_i_bias_tau'},</span> <span class="pre">'excitatory_input_i_shift_reference':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'excitatory_input_i_shift_reference',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'excitatory_input_i_shift_reference',</span> <span class="pre">'translated_name':</span> <span class="pre">'excitatory_input_i_shift_reference'},</span> <span class="pre">'excitatory_input_v_rev_coba':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'excitatory_input_v_rev_coba',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'excitatory_input_v_rev_coba',</span> <span class="pre">'translated_name':</span> <span class="pre">'excitatory_input_v_rev_coba'},</span> <span class="pre">'exponential_enable':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'exponential_enable',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'exponential_enable',</span> <span class="pre">'translated_name':</span> <span class="pre">'exponential_enable'},</span> <span class="pre">'exponential_i_bias':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'exponential_i_bias',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'exponential_i_bias',</span> <span class="pre">'translated_name':</span> <span class="pre">'exponential_i_bias'},</span> <span class="pre">'exponential_v_exp':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'exponential_v_exp',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'exponential_v_exp',</span> <span class="pre">'translated_name':</span> <span class="pre">'exponential_v_exp'},</span> <span class="pre">'inhibitory_input_enable':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'inhibitory_input_enable',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'inhibitory_input_enable',</span> <span class="pre">'translated_name':</span> <span class="pre">'inhibitory_input_enable'},</span> <span class="pre">'inhibitory_input_enable_coba_mode':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'inhibitory_input_enable_coba_mode',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'inhibitory_input_enable_coba_mode',</span> <span class="pre">'translated_name':</span> <span class="pre">'inhibitory_input_enable_coba_mode'},</span> <span class="pre">'inhibitory_input_enable_high_resistance':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'inhibitory_input_enable_high_resistance',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'inhibitory_input_enable_high_resistance',</span> <span class="pre">'translated_name':</span> <span class="pre">'inhibitory_input_enable_high_resistance'},</span> <span class="pre">'inhibitory_input_enable_small_capacitance':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'inhibitory_input_enable_small_capacitance',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'inhibitory_input_enable_small_capacitance',</span> <span class="pre">'translated_name':</span> <span class="pre">'inhibitory_input_enable_small_capacitance'},</span> <span class="pre">'inhibitory_input_i_bias_coba':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'inhibitory_input_i_bias_coba',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'inhibitory_input_i_bias_coba',</span> <span class="pre">'translated_name':</span> <span class="pre">'inhibitory_input_i_bias_coba'},</span> <span class="pre">'inhibitory_input_i_bias_gm':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'inhibitory_input_i_bias_gm',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'inhibitory_input_i_bias_gm',</span> <span class="pre">'translated_name':</span> <span class="pre">'inhibitory_input_i_bias_gm'},</span> <span class="pre">'inhibitory_input_i_bias_tau':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'inhibitory_input_i_bias_tau',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'inhibitory_input_i_bias_tau',</span> <span class="pre">'translated_name':</span> <span class="pre">'inhibitory_input_i_bias_tau'},</span> <span class="pre">'inhibitory_input_i_shift_reference':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'inhibitory_input_i_shift_reference',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'inhibitory_input_i_shift_reference',</span> <span class="pre">'translated_name':</span> <span class="pre">'inhibitory_input_i_shift_reference'},</span> <span class="pre">'inhibitory_input_v_rev_coba':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'inhibitory_input_v_rev_coba',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'inhibitory_input_v_rev_coba',</span> <span class="pre">'translated_name':</span> <span class="pre">'inhibitory_input_v_rev_coba'},</span> <span class="pre">'leak_enable_degeneration':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'leak_enable_degeneration',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'leak_enable_degeneration',</span> <span class="pre">'translated_name':</span> <span class="pre">'leak_enable_degeneration'},</span> <span class="pre">'leak_enable_division':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'leak_enable_division',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'leak_enable_division',</span> <span class="pre">'translated_name':</span> <span class="pre">'leak_enable_division'},</span> <span class="pre">'leak_enable_multiplication':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'leak_enable_multiplication',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'leak_enable_multiplication',</span> <span class="pre">'translated_name':</span> <span class="pre">'leak_enable_multiplication'},</span> <span class="pre">'leak_i_bias':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'leak_i_bias',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'leak_i_bias',</span> <span class="pre">'translated_name':</span> <span class="pre">'leak_i_bias'},</span> <span class="pre">'leak_v_leak':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'leak_v_leak',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'leak_v_leak',</span> <span class="pre">'translated_name':</span> <span class="pre">'leak_v_leak'},</span> <span class="pre">'membrane_capacitance_capacitance':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'membrane_capacitance_capacitance',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'membrane_capacitance_capacitance',</span> <span class="pre">'translated_name':</span> <span class="pre">'membrane_capacitance_capacitance'},</span> <span class="pre">'multicompartment_enable_conductance_division':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'multicompartment_enable_conductance_division',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'multicompartment_enable_conductance_division',</span> <span class="pre">'translated_name':</span> <span class="pre">'multicompartment_enable_conductance_division'},</span> <span class="pre">'multicompartment_enable_conductance_multiplication':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'multicompartment_enable_conductance_multiplication',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'multicompartment_enable_conductance_multiplication',</span> <span class="pre">'translated_name':</span> <span class="pre">'multicompartment_enable_conductance_multiplication'},</span> <span class="pre">'multicompartment_i_bias_nmda':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'multicompartment_i_bias_nmda',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'multicompartment_i_bias_nmda',</span> <span class="pre">'translated_name':</span> <span class="pre">'multicompartment_i_bias_nmda'},</span> <span class="pre">'readout_enable_unbuffered_access':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'readout_enable_unbuffered_access',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'readout_enable_unbuffered_access',</span> <span class="pre">'translated_name':</span> <span class="pre">'readout_enable_unbuffered_access'},</span> <span class="pre">'refractory_period_enable_pause':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'refractory_period_enable_pause',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'refractory_period_enable_pause',</span> <span class="pre">'translated_name':</span> <span class="pre">'refractory_period_enable_pause'},</span> <span class="pre">'refractory_period_input_clock':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'refractory_period_input_clock',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'refractory_period_input_clock',</span> <span class="pre">'translated_name':</span> <span class="pre">'refractory_period_input_clock'},</span> <span class="pre">'refractory_period_refractory_time':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'refractory_period_refractory_time',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'refractory_period_refractory_time',</span> <span class="pre">'translated_name':</span> <span class="pre">'refractory_period_refractory_time'},</span> <span class="pre">'refractory_period_reset_holdoff':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'refractory_period_reset_holdoff',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'refractory_period_reset_holdoff',</span> <span class="pre">'translated_name':</span> <span class="pre">'refractory_period_reset_holdoff'},</span> <span class="pre">'reset_enable_degeneration':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'reset_enable_degeneration',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'reset_enable_degeneration',</span> <span class="pre">'translated_name':</span> <span class="pre">'reset_enable_degeneration'},</span> <span class="pre">'reset_enable_division':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'reset_enable_division',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'reset_enable_division',</span> <span class="pre">'translated_name':</span> <span class="pre">'reset_enable_division'},</span> <span class="pre">'reset_enable_multiplication':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'reset_enable_multiplication',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'reset_enable_multiplication',</span> <span class="pre">'translated_name':</span> <span class="pre">'reset_enable_multiplication'},</span> <span class="pre">'reset_i_bias':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'reset_i_bias',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'reset_i_bias',</span> <span class="pre">'translated_name':</span> <span class="pre">'reset_i_bias'},</span> <span class="pre">'reset_v_reset':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'reset_v_reset',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'reset_v_reset',</span> <span class="pre">'translated_name':</span> <span class="pre">'reset_v_reset'},</span> <span class="pre">'threshold_enable':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'threshold_enable',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'threshold_enable',</span> <span class="pre">'translated_name':</span> <span class="pre">'threshold_enable'},</span> <span class="pre">'threshold_v_threshold':</span> <span class="pre">{'forward_transform':</span> <span class="pre">'threshold_v_threshold',</span> <span class="pre">'reverse_transform':</span> <span class="pre">'threshold_v_threshold',</span> <span class="pre">'translated_name':</span> <span class="pre">'threshold_v_threshold'}}</span></em><a class="headerlink" href="#pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.translations" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.units">
+<code class="sig-name descname"><span class="pre">units</span></code><em class="property"><span class="pre">:</span> <span class="pre">Final</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{'adaptation':</span> <span class="pre">'dimensionless',</span> <span class="pre">'exc_synin':</span> <span class="pre">'dimensionless',</span> <span class="pre">'inh_synin':</span> <span class="pre">'dimensionless',</span> <span class="pre">'v':</span> <span class="pre">'dimensionless'}</span></em><a class="headerlink" href="#pynn_brainscales.brainscales2.morphology.mc_neuron_base.McNeuronBase.units" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="pynn_brainscales.brainscales2.morphology.mc_neuron_base.McCircuitParameters.html" class="btn btn-neutral float-left" title="pynn_brainscales.brainscales2.morphology.mc_neuron_base.McCircuitParameters" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pynn_brainscales.brainscales2.morphology.mc_neuron_base.Population.html" class="btn btn-neutral float-right" title="pynn_brainscales.brainscales2.morphology.mc_neuron_base.Population" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Electronic Vision(s).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

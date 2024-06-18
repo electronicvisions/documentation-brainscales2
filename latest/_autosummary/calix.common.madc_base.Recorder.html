@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>calix.common.madc_base.Recorder &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="calix.common.synapse" href="calix.common.synapse.html" />
+    <link rel="prev" title="calix.common.madc_base.MembraneRecorder" href="calix.common.madc_base.MembraneRecorder.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> BrainScaleS-2 Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../brainscales2-demos/index.html">Demos &amp; Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software_components.html">Software Components</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../apis.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api_pynn-brainscales2.html">PyNN API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_hxtorch.html">hxtorch API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_grenade.html">grenade API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_haldls.html">haldls API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_lola.html">lola API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_stadls.html">stadls API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_fisch.html">fisch API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_hxcomm.html">hxcomm API</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../api_calix.html">calix API</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="calix.html">calix</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="calix.calib_cache.html">calix.calib_cache</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="calix.common.html">calix.common</a></li>
+<li class="toctree-l4"><a class="reference internal" href="calix.constants.html">calix.constants</a></li>
+<li class="toctree-l4"><a class="reference internal" href="calix.hagen.html">calix.hagen</a></li>
+<li class="toctree-l4"><a class="reference internal" href="calix.spiking.html">calix.spiking</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api_hate.html">hate API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BrainScaleS-2 Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../apis.html">BrainScaleS-2 API Documentation</a> &raquo;</li>
+          <li><a href="../api_calix.html">API Reference: calix</a> &raquo;</li>
+          <li><a href="calix.html">calix</a> &raquo;</li>
+          <li><a href="calix.common.html">calix.common</a> &raquo;</li>
+          <li><a href="calix.common.madc_base.html">calix.common.madc_base</a> &raquo;</li>
+      <li>calix.common.madc_base.Recorder</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_autosummary/calix.common.madc_base.Recorder.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="calix-common-madc-base-recorder">
+<h1>calix.common.madc_base.Recorder<a class="headerlink" href="#calix-common-madc-base-recorder" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt id="calix.common.madc_base.Recorder">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">calix.common.madc_base.</span></code><code class="sig-name descname"><span class="pre">Recorder</span></code><a class="headerlink" href="#calix.common.madc_base.Recorder" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<p>Abstract base class for experiments/calibrations which use the MADC.</p>
+<p>During prepare_recording(), the MADC is enabled and the current
+readout section config is saved. During recording, the readout
+config is changed continuously to measure one neuron’s properties
+after another.
+Furthermore, a stimuli can be injected during the measurement
+to observe the neurons’ responses and the recording timing per
+neuron can be set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>original_readout_config</strong> – Source selection mux config
+before start of the experiment. Used to restore state after
+the experiment has finished.</p></li>
+<li><p><strong>original_neuron_configs</strong> – Neuron configs before start of
+the experiment. Used to restore state after the experiment.</p></li>
+<li><p><strong>sampling_time</strong> – Time to record MADC samples for each
+neuron. The requested sampling time must be achievable with
+the maximum number of samples in the MADCConfig - without
+using continuous sampling. With default settings, this equals
+roughly 2.18 ms of recording time per neuron.</p></li>
+<li><p><strong>_wait_before_stimulation</strong> – Time to wait after triggering
+MADC sampling before stimulation. Marked private since analyzing
+the trace is typically not robust against changing this number.</p></li>
+<li><p><strong>dead_time</strong> – Time to wait before triggering the MADC
+sampling after the previous sampling period ended. Within
+this time, the neuron connections are changed. A minimum of 1 us
+is recommended.</p></li>
+<li><p><strong>wait_between_neurons</strong> – Total time to wait for samples
+for each neuron. Has to be larger than the sum of sampling_time,
+wait_before_stimulation and dead_time.</p></li>
+<li><p><strong>madc_input_frequency</strong> – Expected input clock frequency for the
+MADC, supplied by the PLL. Defaults to 500 MHz, which is present
+after the default stadls ExperimentInit.</p></li>
+<li><p><strong>madc_config</strong> – Static configuration of the MADC. Written during
+prepare_recording() and used to obtain the sample rate. The number
+of samples is calculated automatically based on the sampling_time.</p></li>
+<li><p><strong>invalid_samples_time</strong> – Timeframe in the beginning of a
+trace that is considered invalid. The MADC will start recording
+samples, but only after this time has elapsed, the sampling_time
+starts and samples are returned. This works around a bug, see
+issue 4008 for details.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="calix.common.madc_base.Recorder.__init__">
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#calix.common.madc_base.Recorder.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.common.madc_base.Recorder.__init__" title="calix.common.madc_base.Recorder.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>()</p></td>
+<td><p>Initialize self.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#calix.common.madc_base.Recorder.build_measurement_program" title="calix.common.madc_base.Recorder.build_measurement_program"><code class="xref py py-obj docutils literal notranslate"><span class="pre">build_measurement_program</span></code></a>(builder)</p></td>
+<td><p>Builds a program to measure an arbitrary MADC trace for each neuron.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.common.madc_base.Recorder.neuron_config_disabled" title="calix.common.madc_base.Recorder.neuron_config_disabled"><code class="xref py py-obj docutils literal notranslate"><span class="pre">neuron_config_disabled</span></code></a>(neuron_coord)</p></td>
+<td><p>Return a neuron config in silent state, i.e. disconnected from the common readout lines.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#calix.common.madc_base.Recorder.neuron_config_readout" title="calix.common.madc_base.Recorder.neuron_config_readout"><code class="xref py py-obj docutils literal notranslate"><span class="pre">neuron_config_readout</span></code></a>(neuron_coord)</p></td>
+<td><p>Return a neuron config with readout active and connected to the readout lines.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.common.madc_base.Recorder.prepare_recording" title="calix.common.madc_base.Recorder.prepare_recording"><code class="xref py py-obj docutils literal notranslate"><span class="pre">prepare_recording</span></code></a>(connection)</p></td>
+<td><p>Prepares chip for the experiment.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#calix.common.madc_base.Recorder.record_traces" title="calix.common.madc_base.Recorder.record_traces"><code class="xref py py-obj docutils literal notranslate"><span class="pre">record_traces</span></code></a>(connection, builder)</p></td>
+<td><p>Executes measurement on chip, returns samples per neuron.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.common.madc_base.Recorder.restore_initial_state" title="calix.common.madc_base.Recorder.restore_initial_state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">restore_initial_state</span></code></a>(connection)</p></td>
+<td><p>Restore original readout and neuron configuration.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#calix.common.madc_base.Recorder.stimulate" title="calix.common.madc_base.Recorder.stimulate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stimulate</span></code></a>(builder, neuron_coord, …)</p></td>
+<td><p>Execute some commands after triggering MADC sampling.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="calix.common.madc_base.Recorder.build_measurement_program">
+<code class="sig-name descname"><span class="pre">build_measurement_program</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">builder</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="calix.common.base.WriteRecordingPlaybackProgramBuilder.html#calix.common.base.WriteRecordingPlaybackProgramBuilder" title="calix.common.base.WriteRecordingPlaybackProgramBuilder"><span class="pre">calix.common.base.WriteRecordingPlaybackProgramBuilder</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="calix.common.base.WriteRecordingPlaybackProgramBuilder.html#calix.common.base.WriteRecordingPlaybackProgramBuilder" title="calix.common.base.WriteRecordingPlaybackProgramBuilder"><span class="pre">calix.common.base.WriteRecordingPlaybackProgramBuilder</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">pystadls_vx_v3.ContainerTicket</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#calix.common.madc_base.Recorder.build_measurement_program" title="Permalink to this definition"></a></dt>
+<dd><p>Builds a program to measure an arbitrary MADC trace for each
+neuron.</p>
+<p>One neuron after another is connected to the MADC,
+the stimulate function is called and samples are recorded.
+The timing of each neuron is recorded, tickets containing the
+start and stop of the recording time are returned along with
+the builder.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>builder</strong> – Builder to append instructions to.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><p>Tuple containing:
+* Builder with instructions appended.
+* List of read tickets marking start and end of the</p>
+<blockquote>
+<div><p>recording of each neuron.</p>
+</div></blockquote>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calix.common.madc_base.Recorder.neuron_config_disabled">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">neuron_config_disabled</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">neuron_coord</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhalco_hicann_dls_vx_v3.NeuronConfigOnDLS</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">pyhaldls_vx_v3.NeuronConfig</span><a class="headerlink" href="#calix.common.madc_base.Recorder.neuron_config_disabled" title="Permalink to this definition"></a></dt>
+<dd><p>Return a neuron config in silent state, i.e. disconnected
+from the common readout lines.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>neuron_coord</strong> – Coordinate of neuron to get config for.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Neuron config with readout disabled.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calix.common.madc_base.Recorder.neuron_config_readout">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">neuron_config_readout</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">neuron_coord</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhalco_hicann_dls_vx_v3.NeuronConfigOnDLS</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">pyhaldls_vx_v3.NeuronConfig</span><a class="headerlink" href="#calix.common.madc_base.Recorder.neuron_config_readout" title="Permalink to this definition"></a></dt>
+<dd><p>Return a neuron config with readout active and connected
+to the readout lines.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>neuron_coord</strong> – Coordinate of neuron to get config for.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Neuron config with readout enabled.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calix.common.madc_base.Recorder.prepare_recording">
+<code class="sig-name descname"><span class="pre">prepare_recording</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhxcomm_vx.ConnectionHandle</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.common.madc_base.Recorder.prepare_recording" title="Permalink to this definition"></a></dt>
+<dd><p>Prepares chip for the experiment.</p>
+<p>Configures the MADC and sets necessary bias currents.
+Reads and saves readout config and neuron config to
+restore original state after the experiment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>connection</strong> – Connection to the chip.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calix.common.madc_base.Recorder.record_traces">
+<code class="sig-name descname"><span class="pre">record_traces</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhxcomm_vx.ConnectionHandle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">builder</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="calix.common.base.WriteRecordingPlaybackProgramBuilder.html#calix.common.base.WriteRecordingPlaybackProgramBuilder" title="calix.common.base.WriteRecordingPlaybackProgramBuilder"><span class="pre">calix.common.base.WriteRecordingPlaybackProgramBuilder</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#calix.common.madc_base.Recorder.record_traces" title="Permalink to this definition"></a></dt>
+<dd><p>Executes measurement on chip, returns samples per neuron.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>connection</strong> – Connection to the chip to calibrate.</p></li>
+<li><p><strong>builder</strong> – Builder to append measurement program to.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>List of numpy arrays, containing samples for each neuron.</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><a class="reference internal" href="calix.common.exceptions.TooFewSamplesError.html#calix.common.exceptions.TooFewSamplesError" title="calix.common.exceptions.TooFewSamplesError"><strong>TooFewSamplesError</strong></a> – If the number of received MADC samples
+is significantly smaller than expected for at least one neuron.
+The evaluate function may fail in this case, thus the error
+is caught here.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calix.common.madc_base.Recorder.restore_initial_state">
+<code class="sig-name descname"><span class="pre">restore_initial_state</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhxcomm_vx.ConnectionHandle</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.common.madc_base.Recorder.restore_initial_state" title="Permalink to this definition"></a></dt>
+<dd><p>Restore original readout and neuron configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>connection</strong> – Connection to the chip to calibrate.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calix.common.madc_base.Recorder.stimulate">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">stimulate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">builder</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="calix.common.base.WriteRecordingPlaybackProgramBuilder.html#calix.common.base.WriteRecordingPlaybackProgramBuilder" title="calix.common.base.WriteRecordingPlaybackProgramBuilder"><span class="pre">calix.common.base.WriteRecordingPlaybackProgramBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">neuron_coord</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhalco_hicann_dls_vx_v3.NeuronConfigOnDLS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stimulation_time</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhaldls_vx_v3.Timer.Value</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="calix.common.base.WriteRecordingPlaybackProgramBuilder.html#calix.common.base.WriteRecordingPlaybackProgramBuilder" title="calix.common.base.WriteRecordingPlaybackProgramBuilder"><span class="pre">calix.common.base.WriteRecordingPlaybackProgramBuilder</span></a><a class="headerlink" href="#calix.common.madc_base.Recorder.stimulate" title="Permalink to this definition"></a></dt>
+<dd><p>Execute some commands after triggering MADC sampling.</p>
+<p>E.g., synaptic inputs could be sent to observe their shape.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>builder</strong> – Builder to append stimulation instructions to.</p></li>
+<li><p><strong>neuron_coord</strong> – Coordinate of neuron which is currently recorded.</p></li>
+<li><p><strong>stimulation_time</strong> – Timer value at beginning of stimulation.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Builder with stimulation instructions appended.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="calix.common.madc_base.MembraneRecorder.html" class="btn btn-neutral float-left" title="calix.common.madc_base.MembraneRecorder" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="calix.common.synapse.html" class="btn btn-neutral float-right" title="calix.common.synapse" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Electronic Vision(s).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

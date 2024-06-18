@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>hxtorch.spiking.backend.module_manager.ModuleManager &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="hxtorch.spiking.backend.ModuleManager" href="hxtorch.spiking.backend.ModuleManager.html" />
+    <link rel="prev" title="hxtorch.spiking.backend.module_manager.BaseModuleManager" href="hxtorch.spiking.backend.module_manager.BaseModuleManager.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> BrainScaleS-2 Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../brainscales2-demos/index.html">Demos &amp; Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software_components.html">Software Components</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../apis.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api_pynn-brainscales2.html">PyNN API</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../api_hxtorch.html">hxtorch API</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../api_hxtorch.html#hxtorch-from-python">hxtorch from Python</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="hxtorch.html">hxtorch</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api_hxtorch.html#hxtorch-from-c">hxtorch from C++</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api_grenade.html">grenade API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_haldls.html">haldls API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_lola.html">lola API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_stadls.html">stadls API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_fisch.html">fisch API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_hxcomm.html">hxcomm API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_calix.html">calix API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_hate.html">hate API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BrainScaleS-2 Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../apis.html">BrainScaleS-2 API Documentation</a> &raquo;</li>
+          <li><a href="../api_hxtorch.html">API Reference: hxtorch</a> &raquo;</li>
+          <li><a href="hxtorch.html">hxtorch</a> &raquo;</li>
+          <li><a href="hxtorch.spiking.html">hxtorch.spiking</a> &raquo;</li>
+          <li><a href="hxtorch.spiking.backend.html">hxtorch.spiking.backend</a> &raquo;</li>
+          <li><a href="hxtorch.spiking.backend.module_manager.html">hxtorch.spiking.backend.module_manager</a> &raquo;</li>
+      <li>hxtorch.spiking.backend.module_manager.ModuleManager</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_autosummary/hxtorch.spiking.backend.module_manager.ModuleManager.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="hxtorch-spiking-backend-module-manager-modulemanager">
+<h1>hxtorch.spiking.backend.module_manager.ModuleManager<a class="headerlink" href="#hxtorch-spiking-backend-module-manager-modulemanager" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt id="hxtorch.spiking.backend.module_manager.ModuleManager">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.backend.module_manager.</span></code><code class="sig-name descname"><span class="pre">ModuleManager</span></code><a class="headerlink" href="#hxtorch.spiking.backend.module_manager.ModuleManager" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="hxtorch.spiking.backend.module_manager.BaseModuleManager.html#hxtorch.spiking.backend.module_manager.BaseModuleManager" title="hxtorch.spiking.backend.module_manager.BaseModuleManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">hxtorch.spiking.backend.module_manager.BaseModuleManager</span></code></a></p>
+<p>Object representing all nodes in a graph-like data structure</p>
+<dl class="py method">
+<dt id="hxtorch.spiking.backend.module_manager.ModuleManager.__init__">
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.backend.module_manager.ModuleManager.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Initialize a <cite>Modules</cite> object. This object holds a list of <cite>nodes</cite>.</p>
+</dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.backend.module_manager.ModuleManager.__init__" title="hxtorch.spiking.backend.module_manager.ModuleManager.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>()</p></td>
+<td><p>Initialize a <cite>Modules</cite> object.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.backend.module_manager.ModuleManager.add_node" title="hxtorch.spiking.backend.module_manager.ModuleManager.add_node"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_node</span></code></a>(module, sources, target)</p></td>
+<td><p>Adds a new module to the manager.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.backend.module_manager.ModuleManager.add_wrapper" title="hxtorch.spiking.backend.module_manager.ModuleManager.add_wrapper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_wrapper</span></code></a>(wrapper)</p></td>
+<td><p>Adds a new wrapper to the manager.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.backend.module_manager.ModuleManager.changed_since_last_run" title="hxtorch.spiking.backend.module_manager.ModuleManager.changed_since_last_run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">changed_since_last_run</span></code></a>()</p></td>
+<td><p>Check if any module is marked dirty.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.backend.module_manager.ModuleManager.clear" title="hxtorch.spiking.backend.module_manager.ModuleManager.clear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear</span></code></a>()</p></td>
+<td><p>Override clear to also clear open sources and open targets.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.backend.module_manager.ModuleManager.done" title="hxtorch.spiking.backend.module_manager.ModuleManager.done"><code class="xref py py-obj docutils literal notranslate"><span class="pre">done</span></code></a>()</p></td>
+<td><p>Create a list of elements of form (module, sources, targets), which can be looped in the correct order. :param instance: The instance to work on. :return: Returns the ordered modules in the form (module, sources,     targets).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.backend.module_manager.ModuleManager.find_edges" title="hxtorch.spiking.backend.module_manager.ModuleManager.find_edges"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_edges</span></code></a>(handle)</p></td>
+<td><p>Find all edges with data associated with <cite>handle</cite>. :param handle: The edge data to match against. :return: Returns a list of all edges in the graph which hold the same     data <cite>handle</cite>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.backend.module_manager.ModuleManager.get_id_by_module" title="hxtorch.spiking.backend.module_manager.ModuleManager.get_id_by_module"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_id_by_module</span></code></a>(module)</p></td>
+<td><p>Finds the ID of the node which corresponds to module <cite>module</cite>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.backend.module_manager.ModuleManager.get_id_by_wrapper" title="hxtorch.spiking.backend.module_manager.ModuleManager.get_id_by_wrapper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_id_by_wrapper</span></code></a>(wrapper)</p></td>
+<td><p>Finds the ID of the wrapper which corresponds to wrapper <cite>wrapper</cite>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.backend.module_manager.ModuleManager.get_module_by_id" title="hxtorch.spiking.backend.module_manager.ModuleManager.get_module_by_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_module_by_id</span></code></a>(node_id)</p></td>
+<td><p>Finds the module of the node with ID <cite>node_id</cite> and returns it.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.backend.module_manager.ModuleManager.get_node_id" title="hxtorch.spiking.backend.module_manager.ModuleManager.get_node_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_node_id</span></code></a>()</p></td>
+<td><p>Get the ID of the next node to add.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.backend.module_manager.ModuleManager.get_wrapper_by_id" title="hxtorch.spiking.backend.module_manager.ModuleManager.get_wrapper_by_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_wrapper_by_id</span></code></a>(wrapper_id)</p></td>
+<td><p>Finds the wrapper of the node with ID <cite>wrapper_id</cite> and returns it.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.backend.module_manager.ModuleManager.get_wrapper_id" title="hxtorch.spiking.backend.module_manager.ModuleManager.get_wrapper_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_wrapper_id</span></code></a>()</p></td>
+<td><p>Get the ID of the next wrapper to add.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.backend.module_manager.ModuleManager.has_module" title="hxtorch.spiking.backend.module_manager.ModuleManager.has_module"><code class="xref py py-obj docutils literal notranslate"><span class="pre">has_module</span></code></a>(module)</p></td>
+<td><p>Checks whether the module <cite>module</cite> is already registered within the graph.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.backend.module_manager.ModuleManager.input_data" title="hxtorch.spiking.backend.module_manager.ModuleManager.input_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">input_data</span></code></a>()</p></td>
+<td><p>Finds all edge data associated to edges with a source node in _open_sources, those nodes are roots.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.backend.module_manager.ModuleManager.pre_process" title="hxtorch.spiking.backend.module_manager.ModuleManager.pre_process"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pre_process</span></code></a>(instance)</p></td>
+<td><p>Handle all preprocessing needed prior to hardware execution.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.backend.module_manager.ModuleManager.reset_changed_since_last_run" title="hxtorch.spiking.backend.module_manager.ModuleManager.reset_changed_since_last_run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset_changed_since_last_run</span></code></a>()</p></td>
+<td><p>Restes all registered modules changed_since_last_run flags.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.backend.module_manager.ModuleManager.source_populations" title="hxtorch.spiking.backend.module_manager.ModuleManager.source_populations"><code class="xref py py-obj docutils literal notranslate"><span class="pre">source_populations</span></code></a>(module)</p></td>
+<td><p>Find the source populations of module <cite>module</cite>, i.e. modules which are of type self._population_types.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.backend.module_manager.ModuleManager.target_populations" title="hxtorch.spiking.backend.module_manager.ModuleManager.target_populations"><code class="xref py py-obj docutils literal notranslate"><span class="pre">target_populations</span></code></a>(module)</p></td>
+<td><p>Find the target populations of module <cite>module</cite>, i.e. modules which are of type self._population_types.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="hxtorch.spiking.backend.module_manager.ModuleManager.add_node">
+<code class="sig-name descname"><span class="pre">add_node</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="hxtorch.spiking.modules.hx_module.HXBaseExperimentModule.html#hxtorch.spiking.modules.hx_module.HXBaseExperimentModule" title="hxtorch.spiking.modules.hx_module.HXBaseExperimentModule"><span class="pre">hxtorch.spiking.modules.hx_module.HXBaseExperimentModule</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sources</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.backend.module_manager.ModuleManager.add_node" title="Permalink to this definition"></a></dt>
+<dd><p>Adds a new module to the manager. This method adds a node to the
+internal graph to represent the module. It assigned edges to this node
+holding the data in <cite>sources</cite>, resp. <cite>target</cite>.
+:param module: Module to represented in to the graph.
+:param sources: The sources to the node representing <cite>module</cite>.
+:param targets: The targets of the node representing <cite>module</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="hxtorch.spiking.backend.module_manager.ModuleManager.add_wrapper">
+<code class="sig-name descname"><span class="pre">add_wrapper</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wrapper</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="hxtorch.spiking.modules.hx_module_wrapper.HXModuleWrapper.html#hxtorch.spiking.modules.hx_module_wrapper.HXModuleWrapper" title="hxtorch.spiking.modules.hx_module_wrapper.HXModuleWrapper"><span class="pre">hxtorch.spiking.modules.hx_module_wrapper.HXModuleWrapper</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.backend.module_manager.ModuleManager.add_wrapper" title="Permalink to this definition"></a></dt>
+<dd><p>Adds a new wrapper to the manager. This must be called after all
+modules wrapped by this wrapper are represented in the graph.
+internal graph to represent the module. It assigned edges to this node
+holding the data in <cite>sources</cite>, resp. <cite>target</cite>.
+:param module: Module to represented in to the graph.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="hxtorch.spiking.backend.module_manager.ModuleManager.changed_since_last_run">
+<code class="sig-name descname"><span class="pre">changed_since_last_run</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#hxtorch.spiking.backend.module_manager.ModuleManager.changed_since_last_run" title="Permalink to this definition"></a></dt>
+<dd><p>Check if any module is marked dirty.
+:return: Returns true if at least one module has been marked dirty.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="hxtorch.spiking.backend.module_manager.ModuleManager.clear">
+<code class="sig-name descname"><span class="pre">clear</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.backend.module_manager.ModuleManager.clear" title="Permalink to this definition"></a></dt>
+<dd><p>Override clear to also clear open sources and open targets. This method
+resets the Manager without removing implicitly created input modules
+such that they can be reused.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="hxtorch.spiking.backend.module_manager.ModuleManager.done">
+<code class="sig-name descname"><span class="pre">done</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.backend.module_manager.ModuleManager.done" title="Permalink to this definition"></a></dt>
+<dd><p>Create a list of elements of form (module, sources, targets), which can
+be looped in the correct order.
+:param instance: The instance to work on.
+:return: Returns the ordered modules in the form (module, sources,</p>
+<blockquote>
+<div><p>targets).</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt id="hxtorch.spiking.backend.module_manager.ModuleManager.find_edges">
+<code class="sig-name descname"><span class="pre">find_edges</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">handle</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#hxtorch.spiking.backend.module_manager.ModuleManager.find_edges" title="Permalink to this definition"></a></dt>
+<dd><p>Find all edges with data associated with <cite>handle</cite>.
+:param handle: The edge data to match against.
+:return: Returns a list of all edges in the graph which hold the same</p>
+<blockquote>
+<div><p>data <cite>handle</cite>.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt id="hxtorch.spiking.backend.module_manager.ModuleManager.get_id_by_module">
+<code class="sig-name descname"><span class="pre">get_id_by_module</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="hxtorch.spiking.modules.hx_module.HXBaseExperimentModule.html#hxtorch.spiking.modules.hx_module.HXBaseExperimentModule" title="hxtorch.spiking.modules.hx_module.HXBaseExperimentModule"><span class="pre">hxtorch.spiking.modules.hx_module.HXBaseExperimentModule</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#hxtorch.spiking.backend.module_manager.ModuleManager.get_id_by_module" title="Permalink to this definition"></a></dt>
+<dd><p>Finds the ID of the node which corresponds to module <cite>module</cite>. If no ID
+is found, <cite>None</cite> is returned.
+:param module: The module to find the node ID for.
+:returns: Returns the node ID or <cite>None</cite> if no ID is found.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="hxtorch.spiking.backend.module_manager.ModuleManager.get_id_by_wrapper">
+<code class="sig-name descname"><span class="pre">get_id_by_wrapper</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wrapper</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="hxtorch.spiking.modules.hx_module_wrapper.HXModuleWrapper.html#hxtorch.spiking.modules.hx_module_wrapper.HXModuleWrapper" title="hxtorch.spiking.modules.hx_module_wrapper.HXModuleWrapper"><span class="pre">hxtorch.spiking.modules.hx_module_wrapper.HXModuleWrapper</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#hxtorch.spiking.backend.module_manager.ModuleManager.get_id_by_wrapper" title="Permalink to this definition"></a></dt>
+<dd><p>Finds the ID of the wrapper which corresponds to wrapper <cite>wrapper</cite>. If
+no ID is found, <cite>None</cite> is returned.
+:param wrapper: The wrapper module to find the node ID for.
+:returns: Returns the node ID or <cite>None</cite> if no ID is found.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="hxtorch.spiking.backend.module_manager.ModuleManager.get_module_by_id">
+<code class="sig-name descname"><span class="pre">get_module_by_id</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node_id</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.backend.module_manager.ModuleManager.get_module_by_id" title="Permalink to this definition"></a></dt>
+<dd><p>Finds the module of the node with ID <cite>node_id</cite> and returns it. If
+multiple modules assigned to this ID are found, only the first one is
+returned. However, this should never be the case and if so, it is a
+bug.
+:param node_id: The ID of the node to find the module for.
+:returns: Returns the corresponding module.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="hxtorch.spiking.backend.module_manager.ModuleManager.get_node_id">
+<code class="sig-name descname"><span class="pre">get_node_id</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">int</span><a class="headerlink" href="#hxtorch.spiking.backend.module_manager.ModuleManager.get_node_id" title="Permalink to this definition"></a></dt>
+<dd><p>Get the ID of the next node to add.
+:returns: Returns the next usable ID of a node to add.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="hxtorch.spiking.backend.module_manager.ModuleManager.get_wrapper_by_id">
+<code class="sig-name descname"><span class="pre">get_wrapper_by_id</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wrapper_id</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.backend.module_manager.ModuleManager.get_wrapper_by_id" title="Permalink to this definition"></a></dt>
+<dd><p>Finds the wrapper of the node with ID <cite>wrapper_id</cite> and returns it. If
+multiple wrapper assigned to this ID are found, only the first one is
+returned. However, this should never be the case and if so, it is a
+bug.
+:param wrapper_id: The ID of the node to find the module for.
+:returns: Returns the corresponding wrapper.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="hxtorch.spiking.backend.module_manager.ModuleManager.get_wrapper_id">
+<code class="sig-name descname"><span class="pre">get_wrapper_id</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">int</span><a class="headerlink" href="#hxtorch.spiking.backend.module_manager.ModuleManager.get_wrapper_id" title="Permalink to this definition"></a></dt>
+<dd><p>Get the ID of the next wrapper to add.
+:returns: Returns the next usable ID of a wrapper to add.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="hxtorch.spiking.backend.module_manager.ModuleManager.has_module">
+<code class="sig-name descname"><span class="pre">has_module</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="hxtorch.spiking.modules.hx_module.HXBaseExperimentModule.html#hxtorch.spiking.modules.hx_module.HXBaseExperimentModule" title="hxtorch.spiking.modules.hx_module.HXBaseExperimentModule"><span class="pre">hxtorch.spiking.modules.hx_module.HXBaseExperimentModule</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#hxtorch.spiking.backend.module_manager.ModuleManager.has_module" title="Permalink to this definition"></a></dt>
+<dd><p>Checks whether the module <cite>module</cite> is already registered within the
+graph.
+:param module: The module to check its existence for.
+:return: Returns a bool indicating whether the module exists or not.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="hxtorch.spiking.backend.module_manager.ModuleManager.input_data">
+<code class="sig-name descname"><span class="pre">input_data</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#hxtorch.spiking.backend.module_manager.ModuleManager.input_data" title="Permalink to this definition"></a></dt>
+<dd><p>Finds all edge data associated to edges with a source node in
+_open_sources, those nodes are roots.
+:return: Returns a list of all input data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="hxtorch.spiking.backend.module_manager.ModuleManager.pre_process">
+<code class="sig-name descname"><span class="pre">pre_process</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.backend.module_manager.ModuleManager.pre_process" title="Permalink to this definition"></a></dt>
+<dd><p>Handle all preprocessing needed prior to hardware execution.
+This includes input module injection as well as setting the dropout
+masks.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="hxtorch.spiking.backend.module_manager.ModuleManager.reset_changed_since_last_run">
+<code class="sig-name descname"><span class="pre">reset_changed_since_last_run</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.backend.module_manager.ModuleManager.reset_changed_since_last_run" title="Permalink to this definition"></a></dt>
+<dd><p>Restes all registered modules changed_since_last_run flags.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="hxtorch.spiking.backend.module_manager.ModuleManager.source_populations">
+<code class="sig-name descname"><span class="pre">source_populations</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="hxtorch.spiking.modules.hx_module.HXBaseExperimentModule.html#hxtorch.spiking.modules.hx_module.HXBaseExperimentModule" title="hxtorch.spiking.modules.hx_module.HXBaseExperimentModule"><span class="pre">hxtorch.spiking.modules.hx_module.HXBaseExperimentModule</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.backend.module_manager.ModuleManager.source_populations" title="Permalink to this definition"></a></dt>
+<dd><p>Find the source populations of module <cite>module</cite>, i.e. modules which are
+of type self._population_types.
+:param module: The module to find the source population.
+:return: Returns a list of source populations of module.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="hxtorch.spiking.backend.module_manager.ModuleManager.target_populations">
+<code class="sig-name descname"><span class="pre">target_populations</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="hxtorch.spiking.modules.hx_module.HXBaseExperimentModule.html#hxtorch.spiking.modules.hx_module.HXBaseExperimentModule" title="hxtorch.spiking.modules.hx_module.HXBaseExperimentModule"><span class="pre">hxtorch.spiking.modules.hx_module.HXBaseExperimentModule</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.backend.module_manager.ModuleManager.target_populations" title="Permalink to this definition"></a></dt>
+<dd><p>Find the target populations of module <cite>module</cite>, i.e. modules which are
+of type self._population_types.
+:param module: The module to find the target populations for.
+:return: Returns a list of target populations of module.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="hxtorch.spiking.backend.module_manager.BaseModuleManager.html" class="btn btn-neutral float-left" title="hxtorch.spiking.backend.module_manager.BaseModuleManager" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="hxtorch.spiking.backend.ModuleManager.html" class="btn btn-neutral float-right" title="hxtorch.spiking.backend.ModuleManager" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Electronic Vision(s).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

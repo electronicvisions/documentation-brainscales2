@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>calix.spiking.neuron_threshold.ThresholdCalibMADC &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="calix.spiking.refractory_period" href="calix.spiking.refractory_period.html" />
+    <link rel="prev" title="calix.spiking.neuron_threshold.ThresholdCalibCADC" href="calix.spiking.neuron_threshold.ThresholdCalibCADC.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> BrainScaleS-2 Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../brainscales2-demos/index.html">Demos &amp; Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software_components.html">Software Components</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../apis.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api_pynn-brainscales2.html">PyNN API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_hxtorch.html">hxtorch API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_grenade.html">grenade API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_haldls.html">haldls API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_lola.html">lola API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_stadls.html">stadls API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_fisch.html">fisch API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_hxcomm.html">hxcomm API</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../api_calix.html">calix API</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="calix.html">calix</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="calix.calib_cache.html">calix.calib_cache</a></li>
+<li class="toctree-l4"><a class="reference internal" href="calix.common.html">calix.common</a></li>
+<li class="toctree-l4"><a class="reference internal" href="calix.constants.html">calix.constants</a></li>
+<li class="toctree-l4"><a class="reference internal" href="calix.hagen.html">calix.hagen</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="calix.spiking.html">calix.spiking</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api_hate.html">hate API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BrainScaleS-2 Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../apis.html">BrainScaleS-2 API Documentation</a> &raquo;</li>
+          <li><a href="../api_calix.html">API Reference: calix</a> &raquo;</li>
+          <li><a href="calix.html">calix</a> &raquo;</li>
+          <li><a href="calix.spiking.html">calix.spiking</a> &raquo;</li>
+          <li><a href="calix.spiking.neuron_threshold.html">calix.spiking.neuron_threshold</a> &raquo;</li>
+      <li>calix.spiking.neuron_threshold.ThresholdCalibMADC</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_autosummary/calix.spiking.neuron_threshold.ThresholdCalibMADC.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="calix-spiking-neuron-threshold-thresholdcalibmadc">
+<h1>calix.spiking.neuron_threshold.ThresholdCalibMADC<a class="headerlink" href="#calix-spiking-neuron-threshold-thresholdcalibmadc" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt id="calix.spiking.neuron_threshold.ThresholdCalibMADC">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">calix.spiking.neuron_threshold.</span></code><code class="sig-name descname"><span class="pre">ThresholdCalibMADC</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">125</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.spiking.neuron_threshold.ThresholdCalibMADC" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="calix.common.madc_base.Calib.html#calix.common.madc_base.Calib" title="calix.common.madc_base.Calib"><code class="xref py py-class docutils literal notranslate"><span class="pre">calix.common.madc_base.Calib</span></code></a></p>
+<p>Calibrate the neurons’ spike threshold potential using the MADC.</p>
+<p>A constant current is injected onto the membrane, with the leak
+disabled and the reset potential set low. This means we observe
+regular spikes. The maximum recorded voltage at the MADC is just
+below the threshold potential, we use it as threshold measurement.</p>
+<p>Requirements:
+- None -</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><p><strong>neuron_configs</strong> – List of neuron configs that will be used as
+basis for the <cite>neuron_config_disabled</cite> and <cite>neuron_config_readout</cite>
+functions.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="calix.spiking.neuron_threshold.ThresholdCalibMADC.__init__">
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">125</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.spiking.neuron_threshold.ThresholdCalibMADC.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.spiking.neuron_threshold.ThresholdCalibMADC.__init__" title="calix.spiking.neuron_threshold.ThresholdCalibMADC.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([target])</p></td>
+<td><p>Initialize self.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#calix.spiking.neuron_threshold.ThresholdCalibMADC.configure_parameters" title="calix.spiking.neuron_threshold.ThresholdCalibMADC.configure_parameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">configure_parameters</span></code></a>(builder, parameters)</p></td>
+<td><p>Configure the given array of threshold voltages.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.spiking.neuron_threshold.ThresholdCalibMADC.evaluate" title="calix.spiking.neuron_threshold.ThresholdCalibMADC.evaluate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">evaluate</span></code></a>(samples)</p></td>
+<td><p>Evaluates the obtained MADC samples.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#calix.spiking.neuron_threshold.ThresholdCalibMADC.neuron_config_disabled" title="calix.spiking.neuron_threshold.ThresholdCalibMADC.neuron_config_disabled"><code class="xref py py-obj docutils literal notranslate"><span class="pre">neuron_config_disabled</span></code></a>(neuron_coord)</p></td>
+<td><p>Return a neuron config with readout disabled.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.spiking.neuron_threshold.ThresholdCalibMADC.neuron_config_readout" title="calix.spiking.neuron_threshold.ThresholdCalibMADC.neuron_config_readout"><code class="xref py py-obj docutils literal notranslate"><span class="pre">neuron_config_readout</span></code></a>(neuron_coord)</p></td>
+<td><p>Return a neuron config with readout enabled.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#calix.spiking.neuron_threshold.ThresholdCalibMADC.postlude" title="calix.spiking.neuron_threshold.ThresholdCalibMADC.postlude"><code class="xref py py-obj docutils literal notranslate"><span class="pre">postlude</span></code></a>(connection)</p></td>
+<td><p>Disable offset current CapMem cell again.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.spiking.neuron_threshold.ThresholdCalibMADC.prelude" title="calix.spiking.neuron_threshold.ThresholdCalibMADC.prelude"><code class="xref py py-obj docutils literal notranslate"><span class="pre">prelude</span></code></a>(connection)</p></td>
+<td><p>Prepares chip for calibration.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#calix.spiking.neuron_threshold.ThresholdCalibMADC.stimulate" title="calix.spiking.neuron_threshold.ThresholdCalibMADC.stimulate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stimulate</span></code></a>(builder, neuron_coord, …)</p></td>
+<td><p>Empty function.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="calix.spiking.neuron_threshold.ThresholdCalibMADC.configure_parameters">
+<code class="sig-name descname"><span class="pre">configure_parameters</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">builder</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="calix.common.base.WriteRecordingPlaybackProgramBuilder.html#calix.common.base.WriteRecordingPlaybackProgramBuilder" title="calix.common.base.WriteRecordingPlaybackProgramBuilder"><span class="pre">calix.common.base.WriteRecordingPlaybackProgramBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">numpy.ndarray</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="calix.common.base.WriteRecordingPlaybackProgramBuilder.html#calix.common.base.WriteRecordingPlaybackProgramBuilder" title="calix.common.base.WriteRecordingPlaybackProgramBuilder"><span class="pre">calix.common.base.WriteRecordingPlaybackProgramBuilder</span></a><a class="headerlink" href="#calix.spiking.neuron_threshold.ThresholdCalibMADC.configure_parameters" title="Permalink to this definition"></a></dt>
+<dd><p>Configure the given array of threshold voltages.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>builder</strong> – Builder to append configuration instructions to.</p></li>
+<li><p><strong>parameters</strong> – Array of threshold voltages to set up.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Builder with configuration appended.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calix.spiking.neuron_threshold.ThresholdCalibMADC.evaluate">
+<code class="sig-name descname"><span class="pre">evaluate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">samples</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">numpy.ndarray</span><a class="headerlink" href="#calix.spiking.neuron_threshold.ThresholdCalibMADC.evaluate" title="Permalink to this definition"></a></dt>
+<dd><p>Evaluates the obtained MADC samples.</p>
+<p>For each neuron’s MADC samples the maximum is determined which is
+assumed to be near the threshold voltage.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>samples</strong> – MADC samples obtained for each neuron.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Numpy array of measured threshold voltages.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calix.spiking.neuron_threshold.ThresholdCalibMADC.neuron_config_disabled">
+<code class="sig-name descname"><span class="pre">neuron_config_disabled</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">neuron_coord</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhalco_hicann_dls_vx_v3.NeuronConfigOnDLS</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">pyhaldls_vx_v3.NeuronConfig</span><a class="headerlink" href="#calix.spiking.neuron_threshold.ThresholdCalibMADC.neuron_config_disabled" title="Permalink to this definition"></a></dt>
+<dd><p>Return a neuron config with readout disabled.</p>
+<p>The synaptic input and the offset current are disabled as well.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>neuron_coord</strong> – Coordinate of neuron to get config for.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Neuron config with readout disabled.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calix.spiking.neuron_threshold.ThresholdCalibMADC.neuron_config_readout">
+<code class="sig-name descname"><span class="pre">neuron_config_readout</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">neuron_coord</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhalco_hicann_dls_vx_v3.NeuronConfigOnDLS</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">pyhaldls_vx_v3.NeuronConfig</span><a class="headerlink" href="#calix.spiking.neuron_threshold.ThresholdCalibMADC.neuron_config_readout" title="Permalink to this definition"></a></dt>
+<dd><p>Return a neuron config with readout enabled.
+Also, the offset current and threshold comparator are enabled
+for regular spiking.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>neuron_coord</strong> – Coordinate of neuron to get config for.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Neuron config with readout enabled.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calix.spiking.neuron_threshold.ThresholdCalibMADC.postlude">
+<code class="sig-name descname"><span class="pre">postlude</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhxcomm_vx.ConnectionHandle</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.spiking.neuron_threshold.ThresholdCalibMADC.postlude" title="Permalink to this definition"></a></dt>
+<dd><p>Disable offset current CapMem cell again.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>connection</strong> – Connection to the chip to run on.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calix.spiking.neuron_threshold.ThresholdCalibMADC.prelude">
+<code class="sig-name descname"><span class="pre">prelude</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhxcomm_vx.ConnectionHandle</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.spiking.neuron_threshold.ThresholdCalibMADC.prelude" title="Permalink to this definition"></a></dt>
+<dd><p>Prepares chip for calibration.</p>
+<p>Disable leak, set a low reset voltage and the offset current. Note
+that only the amplitude of the current is set but it is not enabled.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>connection</strong> – Connection to the chip to calibrate.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calix.spiking.neuron_threshold.ThresholdCalibMADC.stimulate">
+<code class="sig-name descname"><span class="pre">stimulate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">builder</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="calix.common.base.WriteRecordingPlaybackProgramBuilder.html#calix.common.base.WriteRecordingPlaybackProgramBuilder" title="calix.common.base.WriteRecordingPlaybackProgramBuilder"><span class="pre">calix.common.base.WriteRecordingPlaybackProgramBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">neuron_coord</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhalco_hicann_dls_vx_v3.NeuronConfigOnDLS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stimulation_time</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhaldls_vx_v3.Timer.Value</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="calix.common.base.WriteRecordingPlaybackProgramBuilder.html#calix.common.base.WriteRecordingPlaybackProgramBuilder" title="calix.common.base.WriteRecordingPlaybackProgramBuilder"><span class="pre">calix.common.base.WriteRecordingPlaybackProgramBuilder</span></a><a class="headerlink" href="#calix.spiking.neuron_threshold.ThresholdCalibMADC.stimulate" title="Permalink to this definition"></a></dt>
+<dd><p>Empty function. The offset current is enabled already in the
+<cite>neuron_config_readout</cite>, therefore no stimuli are neccesary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>builder</strong> – Builder to append neuron resets to.</p></li>
+<li><p><strong>neuron_coord</strong> – Coordinate of neuron which is currently recorded.</p></li>
+<li><p><strong>stimulation_time</strong> – Timer value at beginning of stimulation.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Builder with neuron resets appended.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="calix.spiking.neuron_threshold.ThresholdCalibCADC.html" class="btn btn-neutral float-left" title="calix.spiking.neuron_threshold.ThresholdCalibCADC" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="calix.spiking.refractory_period.html" class="btn btn-neutral float-right" title="calix.spiking.refractory_period" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Electronic Vision(s).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

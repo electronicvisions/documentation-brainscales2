@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pynn_brainscales.brainscales2.simulator.Projection &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pynn_brainscales.brainscales2.simulator.Recording" href="pynn_brainscales.brainscales2.simulator.Recording.html" />
+    <link rel="prev" title="pynn_brainscales.brainscales2.simulator.Population" href="pynn_brainscales.brainscales2.simulator.Population.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> BrainScaleS-2 Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../brainscales2-demos/index.html">Demos &amp; Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software_components.html">Software Components</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../apis.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../api_pynn-brainscales2.html">PyNN API</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="pynn_brainscales.brainscales2.html">pynn_brainscales.brainscales2</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.connectors.html">pynn_brainscales.brainscales2.connectors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.examples.html">pynn_brainscales.brainscales2.examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.helper.html">pynn_brainscales.brainscales2.helper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.morphology.html">pynn_brainscales.brainscales2.morphology</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.plasticity_rules.html">pynn_brainscales.brainscales2.plasticity_rules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.populations.html">pynn_brainscales.brainscales2.populations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.projections.html">pynn_brainscales.brainscales2.projections</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.recording.html">pynn_brainscales.brainscales2.recording</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.recording_data.html">pynn_brainscales.brainscales2.recording_data</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="pynn_brainscales.brainscales2.simulator.html">pynn_brainscales.brainscales2.simulator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.standardmodels.html">pynn_brainscales.brainscales2.standardmodels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.AllToAllConnector.html">pynn_brainscales.brainscales2.AllToAllConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.ArrayConnector.html">pynn_brainscales.brainscales2.ArrayConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.Assembly.html">pynn_brainscales.brainscales2.Assembly</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.CSAConnector.html">pynn_brainscales.brainscales2.CSAConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.CloneConnector.html">pynn_brainscales.brainscales2.CloneConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.DisplacementDependentProbabilityConnector.html">pynn_brainscales.brainscales2.DisplacementDependentProbabilityConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.DistanceDependentProbabilityConnector.html">pynn_brainscales.brainscales2.DistanceDependentProbabilityConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.Enum.html">pynn_brainscales.brainscales2.Enum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.FixedNumberPostConnector.html">pynn_brainscales.brainscales2.FixedNumberPostConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.FixedNumberPreConnector.html">pynn_brainscales.brainscales2.FixedNumberPreConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.FixedProbabilityConnector.html">pynn_brainscales.brainscales2.FixedProbabilityConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.FixedTotalNumberConnector.html">pynn_brainscales.brainscales2.FixedTotalNumberConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.FromFileConnector.html">pynn_brainscales.brainscales2.FromFileConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.FromListConnector.html">pynn_brainscales.brainscales2.FromListConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.IndexBasedProbabilityConnector.html">pynn_brainscales.brainscales2.IndexBasedProbabilityConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.InjectedConfiguration.html">pynn_brainscales.brainscales2.InjectedConfiguration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.InjectedReadout.html">pynn_brainscales.brainscales2.InjectedReadout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.OneToOneConnector.html">pynn_brainscales.brainscales2.OneToOneConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.PlasticityRule.html">pynn_brainscales.brainscales2.PlasticityRule</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.Population.html">pynn_brainscales.brainscales2.Population</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.PopulationView.html">pynn_brainscales.brainscales2.PopulationView</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.Projection.html">pynn_brainscales.brainscales2.Projection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.RunCommand.html">pynn_brainscales.brainscales2.RunCommand</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.SmallWorldConnector.html">pynn_brainscales.brainscales2.SmallWorldConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.SpikingCalibOptions.html">pynn_brainscales.brainscales2.SpikingCalibOptions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.SpikingCalibTarget.html">pynn_brainscales.brainscales2.SpikingCalibTarget</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.Timer.html">pynn_brainscales.brainscales2.Timer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.auto.html">pynn_brainscales.brainscales2.auto</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api_hxtorch.html">hxtorch API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_grenade.html">grenade API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_haldls.html">haldls API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_lola.html">lola API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_stadls.html">stadls API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_fisch.html">fisch API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_hxcomm.html">hxcomm API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_calix.html">calix API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_hate.html">hate API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BrainScaleS-2 Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../apis.html">BrainScaleS-2 API Documentation</a> &raquo;</li>
+          <li><a href="../api_pynn-brainscales2.html">API Reference: PyNN.brainscales2</a> &raquo;</li>
+          <li><a href="pynn_brainscales.brainscales2.html">pynn_brainscales.brainscales2</a> &raquo;</li>
+          <li><a href="pynn_brainscales.brainscales2.simulator.html">pynn_brainscales.brainscales2.simulator</a> &raquo;</li>
+      <li>pynn_brainscales.brainscales2.simulator.Projection</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_autosummary/pynn_brainscales.brainscales2.simulator.Projection.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="pynn-brainscales-brainscales2-simulator-projection">
+<h1>pynn_brainscales.brainscales2.simulator.Projection<a class="headerlink" href="#pynn-brainscales-brainscales2-simulator-projection" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt id="pynn_brainscales.brainscales2.simulator.Projection">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">pynn_brainscales.brainscales2.simulator.</span></code><code class="sig-name descname"><span class="pre">Projection</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">presynaptic_neurons</span></em>, <em class="sig-param"><span class="pre">postsynaptic_neurons</span></em>, <em class="sig-param"><span class="pre">connector</span></em>, <em class="sig-param"><span class="pre">synapse_type=None</span></em>, <em class="sig-param"><span class="pre">source=None</span></em>, <em class="sig-param"><span class="pre">receptor_type=None</span></em>, <em class="sig-param"><span class="pre">space=&lt;pyNN.space.Space</span> <span class="pre">object&gt;</span></em>, <em class="sig-param"><span class="pre">label=None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.simulator.Projection" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A container for all the connections of a given type (same synapse type and
+plasticity mechanisms) between two populations, together with methods to
+set the parameters of those connections, including the parameters of
+plasticity mechanisms.</p>
+<dl class="simple">
+<dt>Arguments:</dt><dd><dl class="simple">
+<dt><cite>presynaptic_neurons</cite> and <cite>postsynaptic_neurons</cite>:</dt><dd><p>Population, PopulationView or Assembly objects.</p>
+</dd>
+<dt><cite>source</cite>:</dt><dd><p>string specifying which attribute of the presynaptic cell signals
+action potentials. This is only needed for multicompartmental cells
+with branching axons or dendrodendritic synapses. All standard cells
+have a single source, and this is the default.</p>
+</dd>
+<dt><cite>receptor_type</cite>:</dt><dd><p>string specifying which synaptic receptor_type type on the postsynaptic cell to connect
+to. For standard cells, this can be ‘excitatory’ or ‘inhibitory’.
+For non-standard cells, it could be ‘NMDA’, etc. If receptor_type is not
+given, the default values of ‘excitatory’ is used.</p>
+</dd>
+<dt><cite>connector</cite>:</dt><dd><p>a Connector object, encapsulating the algorithm to use for
+connecting the neurons.</p>
+</dd>
+<dt><cite>synapse_type</cite>:</dt><dd><p>a SynapseType object specifying which synaptic connection
+mechanisms to use.</p>
+</dd>
+<dt><cite>space</cite>:</dt><dd><p>TO DOCUMENT</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.simulator.Projection.__init__">
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">presynaptic_neurons</span></em>, <em class="sig-param"><span class="pre">postsynaptic_neurons</span></em>, <em class="sig-param"><span class="pre">connector</span></em>, <em class="sig-param"><span class="pre">synapse_type=None</span></em>, <em class="sig-param"><span class="pre">source=None</span></em>, <em class="sig-param"><span class="pre">receptor_type=None</span></em>, <em class="sig-param"><span class="pre">space=&lt;pyNN.space.Space</span> <span class="pre">object&gt;</span></em>, <em class="sig-param"><span class="pre">label=None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.simulator.Projection.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Create a new projection, connecting the pre- and post-synaptic neurons.</p>
+</dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.simulator.Projection.__init__" title="pynn_brainscales.brainscales2.simulator.Projection.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(presynaptic_neurons, …[, …])</p></td>
+<td><p>Create a new projection, connecting the pre- and post-synaptic neurons.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.simulator.Projection.annotate" title="pynn_brainscales.brainscales2.simulator.Projection.annotate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">annotate</span></code></a>(**annotations)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.simulator.Projection.describe" title="pynn_brainscales.brainscales2.simulator.Projection.describe"><code class="xref py py-obj docutils literal notranslate"><span class="pre">describe</span></code></a>([template, engine])</p></td>
+<td><p>Returns a human-readable description of the projection.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.simulator.Projection.get" title="pynn_brainscales.brainscales2.simulator.Projection.get"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get</span></code></a>(attribute_names, format[, gather, …])</p></td>
+<td><p>Get the values of a given attribute (weight or delay) for all connections in this Projection.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.simulator.Projection.getDelays" title="pynn_brainscales.brainscales2.simulator.Projection.getDelays"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getDelays</span></code></a>(**kwargs)</p></td>
+<td><p><em>Deprecated</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.simulator.Projection.getSynapseDynamics" title="pynn_brainscales.brainscales2.simulator.Projection.getSynapseDynamics"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getSynapseDynamics</span></code></a>(**kwargs)</p></td>
+<td><p><em>Deprecated</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.simulator.Projection.getWeights" title="pynn_brainscales.brainscales2.simulator.Projection.getWeights"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getWeights</span></code></a>(**kwargs)</p></td>
+<td><p><em>Deprecated</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.simulator.Projection.initialize" title="pynn_brainscales.brainscales2.simulator.Projection.initialize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">initialize</span></code></a>(**initial_values)</p></td>
+<td><p>Set initial values of state variables of synaptic plasticity models.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.simulator.Projection.printDelays" title="pynn_brainscales.brainscales2.simulator.Projection.printDelays"><code class="xref py py-obj docutils literal notranslate"><span class="pre">printDelays</span></code></a>(**kwargs)</p></td>
+<td><p><em>Deprecated</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.simulator.Projection.printWeights" title="pynn_brainscales.brainscales2.simulator.Projection.printWeights"><code class="xref py py-obj docutils literal notranslate"><span class="pre">printWeights</span></code></a>(**kwargs)</p></td>
+<td><p><em>Deprecated</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.simulator.Projection.randomizeDelays" title="pynn_brainscales.brainscales2.simulator.Projection.randomizeDelays"><code class="xref py py-obj docutils literal notranslate"><span class="pre">randomizeDelays</span></code></a>(**kwargs)</p></td>
+<td><p><em>Deprecated</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.simulator.Projection.randomizeSynapseDynamics" title="pynn_brainscales.brainscales2.simulator.Projection.randomizeSynapseDynamics"><code class="xref py py-obj docutils literal notranslate"><span class="pre">randomizeSynapseDynamics</span></code></a>(**kwargs)</p></td>
+<td><p><em>Deprecated</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.simulator.Projection.randomizeWeights" title="pynn_brainscales.brainscales2.simulator.Projection.randomizeWeights"><code class="xref py py-obj docutils literal notranslate"><span class="pre">randomizeWeights</span></code></a>(**kwargs)</p></td>
+<td><p><em>Deprecated</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.simulator.Projection.save" title="pynn_brainscales.brainscales2.simulator.Projection.save"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save</span></code></a>(attribute_names, file[, format, …])</p></td>
+<td><p>Print synaptic attributes (weights, delays, etc.) to file.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.simulator.Projection.saveConnections" title="pynn_brainscales.brainscales2.simulator.Projection.saveConnections"><code class="xref py py-obj docutils literal notranslate"><span class="pre">saveConnections</span></code></a>(**kwargs)</p></td>
+<td><p><em>Deprecated</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.simulator.Projection.set" title="pynn_brainscales.brainscales2.simulator.Projection.set"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set</span></code></a>(**attributes)</p></td>
+<td><p>Set connection attributes for all connections on the local MPI node.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.simulator.Projection.setDelays" title="pynn_brainscales.brainscales2.simulator.Projection.setDelays"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setDelays</span></code></a>(**kwargs)</p></td>
+<td><p><em>Deprecated</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.simulator.Projection.setSynapseDynamics" title="pynn_brainscales.brainscales2.simulator.Projection.setSynapseDynamics"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setSynapseDynamics</span></code></a>(**kwargs)</p></td>
+<td><p><em>Deprecated</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.simulator.Projection.setWeights" title="pynn_brainscales.brainscales2.simulator.Projection.setWeights"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setWeights</span></code></a>(**kwargs)</p></td>
+<td><p><em>Deprecated</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.simulator.Projection.size" title="pynn_brainscales.brainscales2.simulator.Projection.size"><code class="xref py py-obj docutils literal notranslate"><span class="pre">size</span></code></a>([gather])</p></td>
+<td><p>Return the total number of connections.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.simulator.Projection.weightHistogram" title="pynn_brainscales.brainscales2.simulator.Projection.weightHistogram"><code class="xref py py-obj docutils literal notranslate"><span class="pre">weightHistogram</span></code></a>(**kwargs)</p></td>
+<td><p><em>Deprecated</em>.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.simulator.Projection.MULTI_SYNAPSE_OPERATIONS" title="pynn_brainscales.brainscales2.simulator.Projection.MULTI_SYNAPSE_OPERATIONS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MULTI_SYNAPSE_OPERATIONS</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.simulator.Projection.shape" title="pynn_brainscales.brainscales2.simulator.Projection.shape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">shape</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py attribute">
+<dt id="pynn_brainscales.brainscales2.simulator.Projection.MULTI_SYNAPSE_OPERATIONS">
+<code class="sig-name descname"><span class="pre">MULTI_SYNAPSE_OPERATIONS</span></code><em class="property"> <span class="pre">=</span> <span class="pre">{'first':</span> <span class="pre">&lt;function</span> <span class="pre">Projection.&lt;lambda&gt;&gt;,</span> <span class="pre">'last':</span> <span class="pre">&lt;function</span> <span class="pre">Projection.&lt;lambda&gt;&gt;,</span> <span class="pre">'max':</span> <span class="pre">&lt;built-in</span> <span class="pre">function</span> <span class="pre">max&gt;,</span> <span class="pre">'min':</span> <span class="pre">&lt;built-in</span> <span class="pre">function</span> <span class="pre">min&gt;,</span> <span class="pre">'sum':</span> <span class="pre">&lt;built-in</span> <span class="pre">function</span> <span class="pre">iadd&gt;}</span></em><a class="headerlink" href="#pynn_brainscales.brainscales2.simulator.Projection.MULTI_SYNAPSE_OPERATIONS" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.simulator.Projection.annotate">
+<code class="sig-name descname"><span class="pre">annotate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">annotations</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.simulator.Projection.annotate" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.simulator.Projection.describe">
+<code class="sig-name descname"><span class="pre">describe</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">template</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'projection_default.txt'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'default'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.simulator.Projection.describe" title="Permalink to this definition"></a></dt>
+<dd><p>Returns a human-readable description of the projection.</p>
+<p>The output may be customized by specifying a different template
+togther with an associated template engine (see <code class="docutils literal notranslate"><span class="pre">pyNN.descriptions</span></code>).</p>
+<p>If template is None, then a dictionary containing the template context
+will be returned.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.simulator.Projection.get">
+<code class="sig-name descname"><span class="pre">get</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attribute_names</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gather</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">with_address</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multiple_synapses</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sum'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.simulator.Projection.get" title="Permalink to this definition"></a></dt>
+<dd><p>Get the values of a given attribute (weight or delay) for all
+connections in this Projection.</p>
+<dl class="simple">
+<dt><cite>attribute_names</cite>:</dt><dd><p>name of the attributes whose values are wanted, or a list of such
+names.</p>
+</dd>
+<dt><cite>format</cite>:</dt><dd><p>“list” or “array”.</p>
+</dd>
+<dt><cite>gather</cite>:</dt><dd><p>If True, node 0 gets connection information from all MPI nodes,
+other nodes get information only from connections that exist in this node.
+If ‘all’, all nodes will receive connection information from all other nodes.
+If False, all nodes get only information about local connections.</p>
+</dd>
+</dl>
+<p>With list format, returns a list of tuples. By default, each tuple
+contains the indices of the pre- and post-synaptic cell followed by
+the attribute values in the order given in <cite>attribute_names</cite>.
+Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">prj</span><span class="o">.</span><span class="n">get</span><span class="p">([</span><span class="s2">&quot;weight&quot;</span><span class="p">,</span> <span class="s2">&quot;delay&quot;</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;list&quot;</span><span class="p">)[:</span><span class="mi">5</span><span class="p">]</span>
+<span class="go">[(0.0, 0.0, 0.3401892507507171, 0.1),</span>
+<span class="go"> (0.0, 1.0, 0.7990713166233654, 0.30000000000000004),</span>
+<span class="go"> (0.0, 2.0, 0.6180841812877726, 0.5),</span>
+<span class="go"> (0.0, 3.0, 0.6758149775627305, 0.7000000000000001),</span>
+<span class="go"> (0.0, 4.0, 0.7166906726862953, 0.9)]</span>
+</pre></div>
+</div>
+<p>If <cite>with_address</cite> is set to False, then the tuples will contain only the
+attribute values, not the cell indices.</p>
+<p>With array format, returns a tuple of 2D NumPy arrays, one for each
+name in <cite>attribute_names</cite>. The array element X_ij contains the
+attribute value for the connection from the ith neuron in the pre-
+synaptic Population to the jth neuron in the post-synaptic Population,
+if a single such connection exists. If there are no such connections,
+X_ij will be NaN. Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">weights</span><span class="p">,</span> <span class="n">delays</span> <span class="o">=</span> <span class="n">prj</span><span class="o">.</span><span class="n">get</span><span class="p">([</span><span class="s2">&quot;weight&quot;</span><span class="p">,</span> <span class="s2">&quot;delay&quot;</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;array&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">weights</span>
+<span class="go">array([[ 0.66210438,         nan,  0.10744555,  0.54557088],</span>
+<span class="go">       [ 0.3676134 ,         nan,  0.41463193,         nan],</span>
+<span class="go">       [ 0.57434871,  0.4329354 ,  0.58482943,  0.42863916]])</span>
+</pre></div>
+</div>
+<p>If there are multiple such connections, the action to take is
+controlled by the <cite>multiple_synapses</cite> argument, which must be one of
+{‘last’, ‘first’, ‘sum’, ‘min’, ‘max’}.</p>
+<p>Values will be expressed in the standard PyNN units (i.e. millivolts,
+nanoamps, milliseconds, microsiemens, nanofarads, event per second).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.simulator.Projection.getDelays">
+<code class="sig-name descname"><span class="pre">getDelays</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.simulator.Projection.getDelays" title="Permalink to this definition"></a></dt>
+<dd><p><em>Deprecated</em>. Use <code class="docutils literal notranslate"><span class="pre">get('delay',</span> <span class="pre">format,</span> <span class="pre">gather)</span></code> instead.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.simulator.Projection.getSynapseDynamics">
+<code class="sig-name descname"><span class="pre">getSynapseDynamics</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.simulator.Projection.getSynapseDynamics" title="Permalink to this definition"></a></dt>
+<dd><p><em>Deprecated</em>. Use <code class="docutils literal notranslate"><span class="pre">get(parameter_name,</span> <span class="pre">format,</span> <span class="pre">gather)</span></code> instead.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.simulator.Projection.getWeights">
+<code class="sig-name descname"><span class="pre">getWeights</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.simulator.Projection.getWeights" title="Permalink to this definition"></a></dt>
+<dd><p><em>Deprecated</em>. Use <code class="docutils literal notranslate"><span class="pre">get('weight',</span> <span class="pre">format,</span> <span class="pre">gather)</span></code> instead.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.simulator.Projection.initialize">
+<code class="sig-name descname"><span class="pre">initialize</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">initial_values</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.simulator.Projection.initialize" title="Permalink to this definition"></a></dt>
+<dd><p>Set initial values of state variables of synaptic plasticity models.</p>
+<dl class="simple">
+<dt>Values passed to initialize() may be:</dt><dd><ol class="arabic simple">
+<li><p>single numeric values (all neurons set to the same value)</p></li>
+<li><p>RandomDistribution objects</p></li>
+<li><p>a 2D array with the same dimensions as the connectivity matrix
+(as returned by <cite>get(format=’array’)</cite></p></li>
+<li><p>a mapping function, which accepts a single float argument (the
+distance between pre- and post-synaptic cells) and returns a single value.</p></li>
+</ol>
+</dd>
+</dl>
+<p>Values should be expressed in the standard PyNN units (i.e. millivolts,
+nanoamps, milliseconds, microsiemens, nanofarads, event per second).</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">prj</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">u</span><span class="o">=-</span><span class="mf">70.0</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.simulator.Projection.printDelays">
+<code class="sig-name descname"><span class="pre">printDelays</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.simulator.Projection.printDelays" title="Permalink to this definition"></a></dt>
+<dd><p><em>Deprecated</em>. Use <code class="docutils literal notranslate"><span class="pre">save('delay',</span> <span class="pre">file,</span> <span class="pre">format,</span> <span class="pre">gather)</span></code> instead.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.simulator.Projection.printWeights">
+<code class="sig-name descname"><span class="pre">printWeights</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.simulator.Projection.printWeights" title="Permalink to this definition"></a></dt>
+<dd><p><em>Deprecated</em>. Use <code class="docutils literal notranslate"><span class="pre">save('weight',</span> <span class="pre">file,</span> <span class="pre">format,</span> <span class="pre">gather)</span></code> instead.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.simulator.Projection.randomizeDelays">
+<code class="sig-name descname"><span class="pre">randomizeDelays</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.simulator.Projection.randomizeDelays" title="Permalink to this definition"></a></dt>
+<dd><p><em>Deprecated</em>. Use <code class="docutils literal notranslate"><span class="pre">set(delay=rand_distr)</span></code> instead.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.simulator.Projection.randomizeSynapseDynamics">
+<code class="sig-name descname"><span class="pre">randomizeSynapseDynamics</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.simulator.Projection.randomizeSynapseDynamics" title="Permalink to this definition"></a></dt>
+<dd><p><em>Deprecated</em>. Use <code class="docutils literal notranslate"><span class="pre">set(name=rand_distr)</span></code> instead.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.simulator.Projection.randomizeWeights">
+<code class="sig-name descname"><span class="pre">randomizeWeights</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.simulator.Projection.randomizeWeights" title="Permalink to this definition"></a></dt>
+<dd><p><em>Deprecated</em>. Use <code class="docutils literal notranslate"><span class="pre">set(weight=rand_distr)</span></code> instead.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.simulator.Projection.save">
+<code class="sig-name descname"><span class="pre">save</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attribute_names</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'list'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gather</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">with_address</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.simulator.Projection.save" title="Permalink to this definition"></a></dt>
+<dd><p>Print synaptic attributes (weights, delays, etc.) to file. In the array
+format, zeros are printed for non-existent connections.</p>
+<p>Values will be expressed in the standard PyNN units (i.e. millivolts,
+nanoamps, milliseconds, microsiemens, nanofarads, event per second).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.simulator.Projection.saveConnections">
+<code class="sig-name descname"><span class="pre">saveConnections</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.simulator.Projection.saveConnections" title="Permalink to this definition"></a></dt>
+<dd><p><em>Deprecated</em>. Use <code class="docutils literal notranslate"><span class="pre">save('all',</span> <span class="pre">file,</span> <span class="pre">format='list',</span> <span class="pre">gather=gather)</span></code> instead.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.simulator.Projection.set">
+<code class="sig-name descname"><span class="pre">set</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">attributes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.simulator.Projection.set" title="Permalink to this definition"></a></dt>
+<dd><p>Set connection attributes for all connections on the local MPI node.</p>
+<p>Attribute names may be ‘weight’, ‘delay’, or the name of any parameter
+of a synapse dynamics model (e.g. ‘U’ for TsodyksMarkramSynapse).</p>
+<dl class="simple">
+<dt>Each attribute value may be:</dt><dd><ol class="arabic simple">
+<li><p>a single number</p></li>
+<li><p>a RandomDistribution object</p></li>
+<li><p>a 2D array with the same dimensions as the connectivity matrix
+(as returned by <cite>get(format=’array’)</cite></p></li>
+<li><p>a mapping function, which accepts a single float argument (the
+distance between pre- and post-synaptic cells) and returns a single value.</p></li>
+</ol>
+</dd>
+</dl>
+<p>Weights should be in nA for current-based and µS for conductance-based
+synapses. Delays should be in milliseconds.</p>
+<p>Note that where a projection contains multiple connections between a given pair
+of neurons, all these connections will be set to the same value.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.simulator.Projection.setDelays">
+<code class="sig-name descname"><span class="pre">setDelays</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.simulator.Projection.setDelays" title="Permalink to this definition"></a></dt>
+<dd><p><em>Deprecated</em>. Use <code class="docutils literal notranslate"><span class="pre">set(delay=d)</span></code> instead.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.simulator.Projection.setSynapseDynamics">
+<code class="sig-name descname"><span class="pre">setSynapseDynamics</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.simulator.Projection.setSynapseDynamics" title="Permalink to this definition"></a></dt>
+<dd><p><em>Deprecated</em>. Use <code class="docutils literal notranslate"><span class="pre">set(parameter_name=value)</span></code> instead.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.simulator.Projection.setWeights">
+<code class="sig-name descname"><span class="pre">setWeights</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.simulator.Projection.setWeights" title="Permalink to this definition"></a></dt>
+<dd><p><em>Deprecated</em>. Use <code class="docutils literal notranslate"><span class="pre">set(weight=w)</span></code> instead.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.simulator.Projection.shape">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">shape</span></code><a class="headerlink" href="#pynn_brainscales.brainscales2.simulator.Projection.shape" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.simulator.Projection.size">
+<code class="sig-name descname"><span class="pre">size</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gather</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.simulator.Projection.size" title="Permalink to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Return the total number of connections.</dt><dd><ul class="simple">
+<li><p>only local connections, if gather is False,</p></li>
+<li><p>all connections, if gather is True (default)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.simulator.Projection.weightHistogram">
+<code class="sig-name descname"><span class="pre">weightHistogram</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.simulator.Projection.weightHistogram" title="Permalink to this definition"></a></dt>
+<dd><p><em>Deprecated</em>. Use <code class="docutils literal notranslate"><span class="pre">np.histogram()</span></code> instead.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="pynn_brainscales.brainscales2.simulator.Population.html" class="btn btn-neutral float-left" title="pynn_brainscales.brainscales2.simulator.Population" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pynn_brainscales.brainscales2.simulator.Recording.html" class="btn btn-neutral float-right" title="pynn_brainscales.brainscales2.simulator.Recording" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Electronic Vision(s).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

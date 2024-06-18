@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>calix.spiking.synapse_driver.STPMultiplication &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="calix.spiking.synapse_driver.STPOffsetCalib" href="calix.spiking.synapse_driver.STPOffsetCalib.html" />
+    <link rel="prev" title="calix.spiking.synapse_driver.STPCalibTarget" href="calix.spiking.synapse_driver.STPCalibTarget.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> BrainScaleS-2 Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../brainscales2-demos/index.html">Demos &amp; Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software_components.html">Software Components</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../apis.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api_pynn-brainscales2.html">PyNN API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_hxtorch.html">hxtorch API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_grenade.html">grenade API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_haldls.html">haldls API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_lola.html">lola API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_stadls.html">stadls API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_fisch.html">fisch API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_hxcomm.html">hxcomm API</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../api_calix.html">calix API</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="calix.html">calix</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="calix.calib_cache.html">calix.calib_cache</a></li>
+<li class="toctree-l4"><a class="reference internal" href="calix.common.html">calix.common</a></li>
+<li class="toctree-l4"><a class="reference internal" href="calix.constants.html">calix.constants</a></li>
+<li class="toctree-l4"><a class="reference internal" href="calix.hagen.html">calix.hagen</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="calix.spiking.html">calix.spiking</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api_hate.html">hate API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BrainScaleS-2 Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../apis.html">BrainScaleS-2 API Documentation</a> &raquo;</li>
+          <li><a href="../api_calix.html">API Reference: calix</a> &raquo;</li>
+          <li><a href="calix.html">calix</a> &raquo;</li>
+          <li><a href="calix.spiking.html">calix.spiking</a> &raquo;</li>
+          <li><a href="calix.spiking.synapse_driver.html">calix.spiking.synapse_driver</a> &raquo;</li>
+      <li>calix.spiking.synapse_driver.STPMultiplication</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_autosummary/calix.spiking.synapse_driver.STPMultiplication.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="calix-spiking-synapse-driver-stpmultiplication">
+<h1>calix.spiking.synapse_driver.STPMultiplication<a class="headerlink" href="#calix-spiking-synapse-driver-stpmultiplication" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt id="calix.spiking.synapse_driver.STPMultiplication">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">calix.spiking.synapse_driver.</span></code><code class="sig-name descname"><span class="pre">STPMultiplication</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">synram</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhalco_hicann_dls_vx_v3.SynramOnDLS</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">SynramOnDLS(0)</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_sends</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_period</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">signed_mode</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.spiking.synapse_driver.STPMultiplication" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="calix.hagen.multiplication.Multiplication.html#calix.hagen.multiplication.Multiplication" title="calix.hagen.multiplication.Multiplication"><code class="xref py py-class docutils literal notranslate"><span class="pre">calix.hagen.multiplication.Multiplication</span></code></a></p>
+<p>Perform vector-matrix multiplications, but without hagen-mode
+pulse length encoding. The pulse length is instead determined
+by the STP voltage.</p>
+<p>Note that we set a static voltage for both v_recover and v_charge
+and this way leave no dynamic range for modulation of amplitudes
+depending on their timing. We only set a medium amplitude with
+a suitable voltage v_stp := v_recover = v_charge.</p>
+<dl class="py method">
+<dt id="calix.spiking.synapse_driver.STPMultiplication.__init__">
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">synram</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhalco_hicann_dls_vx_v3.SynramOnDLS</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">SynramOnDLS(0)</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_sends</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_period</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">signed_mode</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.spiking.synapse_driver.STPMultiplication.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.spiking.synapse_driver.STPMultiplication.preconfigure" title="calix.spiking.synapse_driver.STPMultiplication.preconfigure"><code class="xref py py-obj docutils literal notranslate"><span class="pre">preconfigure</span></code></a>(connection)</p></td>
+<td><p>Call preconfigure from parent class, but disable hagen-mode encoding (use STP voltages instead).</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="calix.spiking.synapse_driver.STPMultiplication.preconfigure">
+<code class="sig-name descname"><span class="pre">preconfigure</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhxcomm_vx.ConnectionHandle</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#calix.spiking.synapse_driver.STPMultiplication.preconfigure" title="Permalink to this definition"></a></dt>
+<dd><p>Call preconfigure from parent class, but disable
+hagen-mode encoding (use STP voltages instead).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>connection</strong> – Connection to the chip to run on.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="calix.spiking.synapse_driver.STPCalibTarget.html" class="btn btn-neutral float-left" title="calix.spiking.synapse_driver.STPCalibTarget" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="calix.spiking.synapse_driver.STPOffsetCalib.html" class="btn btn-neutral float-right" title="calix.spiking.synapse_driver.STPOffsetCalib" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Electronic Vision(s).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

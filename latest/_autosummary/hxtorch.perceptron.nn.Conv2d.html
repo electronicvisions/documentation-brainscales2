@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>hxtorch.perceptron.nn.Conv2d &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="hxtorch.perceptron.nn.ConvNd" href="hxtorch.perceptron.nn.ConvNd.html" />
+    <link rel="prev" title="hxtorch.perceptron.nn.Conv1d" href="hxtorch.perceptron.nn.Conv1d.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> BrainScaleS-2 Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../brainscales2-demos/index.html">Demos &amp; Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software_components.html">Software Components</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../apis.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api_pynn-brainscales2.html">PyNN API</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../api_hxtorch.html">hxtorch API</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../api_hxtorch.html#hxtorch-from-python">hxtorch from Python</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="hxtorch.html">hxtorch</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api_hxtorch.html#hxtorch-from-c">hxtorch from C++</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api_grenade.html">grenade API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_haldls.html">haldls API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_lola.html">lola API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_stadls.html">stadls API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_fisch.html">fisch API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_hxcomm.html">hxcomm API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_calix.html">calix API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_hate.html">hate API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BrainScaleS-2 Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../apis.html">BrainScaleS-2 API Documentation</a> &raquo;</li>
+          <li><a href="../api_hxtorch.html">API Reference: hxtorch</a> &raquo;</li>
+          <li><a href="hxtorch.html">hxtorch</a> &raquo;</li>
+          <li><a href="hxtorch.perceptron.html">hxtorch.perceptron</a> &raquo;</li>
+          <li><a href="hxtorch.perceptron.nn.html">hxtorch.perceptron.nn</a> &raquo;</li>
+      <li>hxtorch.perceptron.nn.Conv2d</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_autosummary/hxtorch.perceptron.nn.Conv2d.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="hxtorch-perceptron-nn-conv2d">
+<h1>hxtorch.perceptron.nn.Conv2d<a class="headerlink" href="#hxtorch-perceptron-nn-conv2d" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt id="hxtorch.perceptron.nn.Conv2d">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">hxtorch.perceptron.nn.</span></code><code class="sig-name descname"><span class="pre">Conv2d</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">in_channels:</span> <span class="pre">numbers.Integral,</span> <span class="pre">out_channels:</span> <span class="pre">numbers.Integral,</span> <span class="pre">kernel_size:</span> <span class="pre">Union[numbers.Integral,</span> <span class="pre">Tuple[numbers.Integral,</span> <span class="pre">numbers.Integral]],</span> <span class="pre">stride:</span> <span class="pre">numbers.Integral</span> <span class="pre">=</span> <span class="pre">1,</span> <span class="pre">padding:</span> <span class="pre">Union[numbers.Integral,</span> <span class="pre">Tuple[numbers.Integral,</span> <span class="pre">numbers.Integral]]</span> <span class="pre">=</span> <span class="pre">0,</span> <span class="pre">dilation:</span> <span class="pre">numbers.Integral</span> <span class="pre">=</span> <span class="pre">1,</span> <span class="pre">groups:</span> <span class="pre">numbers.Integral</span> <span class="pre">=</span> <span class="pre">1,</span> <span class="pre">bias:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True,</span> <span class="pre">padding_mode:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'zeros',</span> <span class="pre">num_sends:</span> <span class="pre">Optional[numbers.Integral]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">wait_between_events:</span> <span class="pre">numbers.Integral</span> <span class="pre">=</span> <span class="pre">5,</span> <span class="pre">mock:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False,</span> <span class="pre">*,</span> <span class="pre">input_transform:</span> <span class="pre">Optional[Callable[[torch.Tensor],</span> <span class="pre">torch.Tensor]]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">weight_transform:</span> <span class="pre">Optional[Callable[[torch.Tensor],</span> <span class="pre">torch.Tensor]]</span> <span class="pre">=</span> <span class="pre">&lt;function</span> <span class="pre">clamp_weight_&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.perceptron.nn.Conv2d" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="hxtorch.perceptron.nn.ConvNd.html#hxtorch.perceptron.nn.ConvNd" title="hxtorch.perceptron.nn.ConvNd"><code class="xref py py-class docutils literal notranslate"><span class="pre">hxtorch.perceptron.nn.ConvNd</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">torch.nn.modules.conv.Conv2d</span></code></p>
+<p>Applies a 2D convolution over an input image composed of several input
+planes.</p>
+<dl class="py method">
+<dt id="hxtorch.perceptron.nn.Conv2d.__init__">
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">in_channels:</span> <span class="pre">numbers.Integral,</span> <span class="pre">out_channels:</span> <span class="pre">numbers.Integral,</span> <span class="pre">kernel_size:</span> <span class="pre">Union[numbers.Integral,</span> <span class="pre">Tuple[numbers.Integral,</span> <span class="pre">numbers.Integral]],</span> <span class="pre">stride:</span> <span class="pre">numbers.Integral</span> <span class="pre">=</span> <span class="pre">1,</span> <span class="pre">padding:</span> <span class="pre">Union[numbers.Integral,</span> <span class="pre">Tuple[numbers.Integral,</span> <span class="pre">numbers.Integral]]</span> <span class="pre">=</span> <span class="pre">0,</span> <span class="pre">dilation:</span> <span class="pre">numbers.Integral</span> <span class="pre">=</span> <span class="pre">1,</span> <span class="pre">groups:</span> <span class="pre">numbers.Integral</span> <span class="pre">=</span> <span class="pre">1,</span> <span class="pre">bias:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True,</span> <span class="pre">padding_mode:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'zeros',</span> <span class="pre">num_sends:</span> <span class="pre">Optional[numbers.Integral]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">wait_between_events:</span> <span class="pre">numbers.Integral</span> <span class="pre">=</span> <span class="pre">5,</span> <span class="pre">mock:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False,</span> <span class="pre">*,</span> <span class="pre">input_transform:</span> <span class="pre">Optional[Callable[[torch.Tensor],</span> <span class="pre">torch.Tensor]]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">weight_transform:</span> <span class="pre">Optional[Callable[[torch.Tensor],</span> <span class="pre">torch.Tensor]]</span> <span class="pre">=</span> <span class="pre">&lt;function</span> <span class="pre">clamp_weight_&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.perceptron.nn.Conv2d.__init__" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>in_channels</strong> – Number of channels in the input</p></li>
+<li><p><strong>out_channels</strong> – Number of channels produced by the convolution</p></li>
+<li><p><strong>kernel_size</strong> – Size of the convolving kernel</p></li>
+<li><p><strong>stride</strong> – Stride of the convolution</p></li>
+<li><p><strong>padding</strong> – Zero-padding added to both sides of the input</p></li>
+<li><p><strong>padding_mode</strong> – ‘zeros’, ‘reflect’, ‘replicate’ or ‘circular’</p></li>
+<li><p><strong>dilation</strong> – Spacing between kernel elements</p></li>
+<li><p><strong>groups</strong> – Number of blocked connections from input channels to
+output channels</p></li>
+<li><p><strong>bias</strong> – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, adds a learnable bias to the output</p></li>
+<li><p><strong>num_sends</strong> – Number of sends of the input. Values greater than 1
+result in higher output to the neurons and increases the s/n ratio.
+For <code class="docutils literal notranslate"><span class="pre">None</span></code> this is automatically adjusted during initialization.</p></li>
+<li><p><strong>mock</strong> – Enable mock mode.</p></li>
+<li><p><strong>wait_between_events</strong> – Wait time between two successive vector
+inputs, in FPGA clock cycles.
+Shorter wait time can lead to saturation of the synaptic input.</p></li>
+<li><p><strong>input_transform</strong> – Function that receives the input and returns
+a tensor to be used as input to the chip.</p></li>
+<li><p><strong>weight_transform</strong> – Function that receives the weight and returns
+a tensor to be used as weight matrix on the chip.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.perceptron.nn.Conv2d.__init__" title="hxtorch.perceptron.nn.Conv2d.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(in_channels, out_channels, kernel_size)</p></td>
+<td><p><dl class="field-list simple">
+<dt class="field-odd">param in_channels</dt>
+<dd class="field-odd"><p>Number of channels in the input</p>
+</dd>
+</dl>
+</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+</tbody>
+</table>
+<dl class="py attribute">
+<dt id="hxtorch.perceptron.nn.Conv2d.bias">
+<code class="sig-name descname"><span class="pre">bias</span></code><em class="property"><span class="pre">:</span> <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#hxtorch.perceptron.nn.Conv2d.bias" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="hxtorch.perceptron.nn.Conv2d.dilation">
+<code class="sig-name descname"><span class="pre">dilation</span></code><em class="property"><span class="pre">:</span> <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="p"><span class="pre">…</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#hxtorch.perceptron.nn.Conv2d.dilation" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="hxtorch.perceptron.nn.Conv2d.groups">
+<code class="sig-name descname"><span class="pre">groups</span></code><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#hxtorch.perceptron.nn.Conv2d.groups" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="hxtorch.perceptron.nn.Conv2d.in_channels">
+<code class="sig-name descname"><span class="pre">in_channels</span></code><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#hxtorch.perceptron.nn.Conv2d.in_channels" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="hxtorch.perceptron.nn.Conv2d.kernel_size">
+<code class="sig-name descname"><span class="pre">kernel_size</span></code><em class="property"><span class="pre">:</span> <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="p"><span class="pre">…</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#hxtorch.perceptron.nn.Conv2d.kernel_size" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="hxtorch.perceptron.nn.Conv2d.out_channels">
+<code class="sig-name descname"><span class="pre">out_channels</span></code><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#hxtorch.perceptron.nn.Conv2d.out_channels" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="hxtorch.perceptron.nn.Conv2d.output_padding">
+<code class="sig-name descname"><span class="pre">output_padding</span></code><em class="property"><span class="pre">:</span> <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="p"><span class="pre">…</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#hxtorch.perceptron.nn.Conv2d.output_padding" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="hxtorch.perceptron.nn.Conv2d.padding">
+<code class="sig-name descname"><span class="pre">padding</span></code><em class="property"><span class="pre">:</span> <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="p"><span class="pre">…</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#hxtorch.perceptron.nn.Conv2d.padding" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="hxtorch.perceptron.nn.Conv2d.padding_mode">
+<code class="sig-name descname"><span class="pre">padding_mode</span></code><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#hxtorch.perceptron.nn.Conv2d.padding_mode" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="hxtorch.perceptron.nn.Conv2d.stride">
+<code class="sig-name descname"><span class="pre">stride</span></code><em class="property"><span class="pre">:</span> <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="p"><span class="pre">…</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#hxtorch.perceptron.nn.Conv2d.stride" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="hxtorch.perceptron.nn.Conv2d.transposed">
+<code class="sig-name descname"><span class="pre">transposed</span></code><em class="property"><span class="pre">:</span> <span class="pre">bool</span></em><a class="headerlink" href="#hxtorch.perceptron.nn.Conv2d.transposed" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="hxtorch.perceptron.nn.Conv2d.weight">
+<code class="sig-name descname"><span class="pre">weight</span></code><em class="property"><span class="pre">:</span> <span class="pre">torch.Tensor</span></em><a class="headerlink" href="#hxtorch.perceptron.nn.Conv2d.weight" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="hxtorch.perceptron.nn.Conv1d.html" class="btn btn-neutral float-left" title="hxtorch.perceptron.nn.Conv1d" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="hxtorch.perceptron.nn.ConvNd.html" class="btn btn-neutral float-right" title="hxtorch.perceptron.nn.ConvNd" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Electronic Vision(s).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

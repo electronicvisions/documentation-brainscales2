@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>calix.common.algorithms.BinarySearch &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="calix.common.algorithms.LinearPrediction" href="calix.common.algorithms.LinearPrediction.html" />
+    <link rel="prev" title="calix.common.algorithms" href="calix.common.algorithms.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> BrainScaleS-2 Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../brainscales2-demos/index.html">Demos &amp; Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software_components.html">Software Components</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../apis.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api_pynn-brainscales2.html">PyNN API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_hxtorch.html">hxtorch API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_grenade.html">grenade API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_haldls.html">haldls API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_lola.html">lola API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_stadls.html">stadls API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_fisch.html">fisch API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_hxcomm.html">hxcomm API</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../api_calix.html">calix API</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="calix.html">calix</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="calix.calib_cache.html">calix.calib_cache</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="calix.common.html">calix.common</a></li>
+<li class="toctree-l4"><a class="reference internal" href="calix.constants.html">calix.constants</a></li>
+<li class="toctree-l4"><a class="reference internal" href="calix.hagen.html">calix.hagen</a></li>
+<li class="toctree-l4"><a class="reference internal" href="calix.spiking.html">calix.spiking</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api_hate.html">hate API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BrainScaleS-2 Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../apis.html">BrainScaleS-2 API Documentation</a> &raquo;</li>
+          <li><a href="../api_calix.html">API Reference: calix</a> &raquo;</li>
+          <li><a href="calix.html">calix</a> &raquo;</li>
+          <li><a href="calix.common.html">calix.common</a> &raquo;</li>
+          <li><a href="calix.common.algorithms.html">calix.common.algorithms</a> &raquo;</li>
+      <li>calix.common.algorithms.BinarySearch</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_autosummary/calix.common.algorithms.BinarySearch.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="calix-common-algorithms-binarysearch">
+<h1>calix.common.algorithms.BinarySearch<a class="headerlink" href="#calix-common-algorithms-binarysearch" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt id="calix.common.algorithms.BinarySearch">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">calix.common.algorithms.</span></code><code class="sig-name descname"><span class="pre">BinarySearch</span></code><a class="headerlink" href="#calix.common.algorithms.BinarySearch" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="calix.common.base.Algorithm.html#calix.common.base.Algorithm" title="calix.common.base.Algorithm"><code class="xref py py-class docutils literal notranslate"><span class="pre">calix.common.base.Algorithm</span></code></a></p>
+<p>Perform a binary search within the parameter range of a calibration.</p>
+<p>Using the class requires basic settings, which come from an
+instance of a Calib class. Therefore it is required to hook
+the algorithm to a calibration before calling run().
+Calling run(connection, target_result) then performs the calibration.
+The algorithm starts with the usual binary search algorithms and adds
+two additional steps in the end. This aims to explore the value above
+as well as below the last tested value of the normal binary search
+algorithm. The best-suited parameter tested during the last few steps
+is returned.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference internal" href="calix.common.algorithms.NoisyBinarySearch.html#calix.common.algorithms.NoisyBinarySearch.calibration" title="calix.common.algorithms.NoisyBinarySearch.calibration"><strong>calibration</strong></a> – Class derived from base class Calib implementing
+functions for configuring parameters and measuring results as well as
+yielding important parameters for the algorithm to run.</p></li>
+<li><p><a class="reference internal" href="calix.common.algorithms.NoisyBinarySearch.html#calix.common.algorithms.NoisyBinarySearch.n_steps" title="calix.common.algorithms.NoisyBinarySearch.n_steps"><strong>n_steps</strong></a> – Number of steps to use during calibration.</p></li>
+<li><p><a class="reference internal" href="calix.common.algorithms.NoisyBinarySearch.html#calix.common.algorithms.NoisyBinarySearch.step_increments" title="calix.common.algorithms.NoisyBinarySearch.step_increments"><strong>step_increments</strong></a> – Amount to change parameter with each step.</p></li>
+<li><p><a class="reference internal" href="calix.common.algorithms.NoisyBinarySearch.html#calix.common.algorithms.NoisyBinarySearch.initial_parameters" title="calix.common.algorithms.NoisyBinarySearch.initial_parameters"><strong>initial_parameters</strong></a> – Parameters to start calibration with.</p></li>
+<li><p><a class="reference internal" href="#calix.common.algorithms.BinarySearch.n_steps_best" title="calix.common.algorithms.BinarySearch.n_steps_best"><strong>n_steps_best</strong></a> – Number of steps (counted from last)
+to take into account when finding the best parameters in the end.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="calix.common.algorithms.BinarySearch.__init__">
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#calix.common.algorithms.BinarySearch.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.common.algorithms.BinarySearch.__init__" title="calix.common.algorithms.BinarySearch.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>()</p></td>
+<td><p>Initialize self.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#calix.common.algorithms.BinarySearch.hook_to_calibration" title="calix.common.algorithms.BinarySearch.hook_to_calibration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hook_to_calibration</span></code></a>(calibration)</p></td>
+<td><p>Make an instance of a calibration known to the algorithm, allowing to use parameters set there.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.common.algorithms.BinarySearch.run" title="calix.common.algorithms.BinarySearch.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>(connection, target_result)</p></td>
+<td><p>Perform a binary search within given parameter range.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.common.algorithms.BinarySearch.n_steps_best" title="calix.common.algorithms.BinarySearch.n_steps_best"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_steps_best</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="calix.common.algorithms.BinarySearch.hook_to_calibration">
+<code class="sig-name descname"><span class="pre">hook_to_calibration</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">calibration</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="calix.common.base.Calib.html#calix.common.base.Calib" title="calix.common.base.Calib"><span class="pre">calix.common.base.Calib</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.common.algorithms.BinarySearch.hook_to_calibration" title="Permalink to this definition"></a></dt>
+<dd><p>Make an instance of a calibration known to the algorithm, allowing
+to use parameters set there.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>calibration</strong> – Instance of calibration class that will
+be run with this algorithm.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="calix.common.algorithms.BinarySearch.n_steps_best">
+<code class="sig-name descname"><span class="pre">n_steps_best</span></code><em class="property"><span class="pre">:</span> <span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">3</span></em><a class="headerlink" href="#calix.common.algorithms.BinarySearch.n_steps_best" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="calix.common.algorithms.BinarySearch.run">
+<code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhxcomm_vx.ConnectionHandle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_result</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">,</span> </span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">numpy.ndarray</span><a class="headerlink" href="#calix.common.algorithms.BinarySearch.run" title="Permalink to this definition"></a></dt>
+<dd><p>Perform a binary search within given parameter range.
+In the end, the parameter is moved by 1 additionally.
+This way, the result of the binary search and the two neighboring
+settings are tested and the best-suitable parameter is returned.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>connection</strong> – Connection that will be used when setting up
+parameters and measuring results.</p></li>
+<li><p><strong>target_result</strong> – Target for the calibration. The parameters will
+be set up such that the results match the target as close as
+possible. The target can be either a single value that will be used
+for all instances of parameters or an array containing a specific
+target for each instance. When using an array, its length has to
+match n_instances.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Best suited parameters to reach given targets.</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ValueError</strong> – if the measure_parameters() function of the
+provided calibration class returns an array with bad length.</p></li>
+<li><p><strong>ValueError</strong> – if the number of steps to take into account
+when finding the best parameters in the end is smaller than 3.
+A value of 3 is required for the additional step to make sense.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="calix.common.algorithms.html" class="btn btn-neutral float-left" title="calix.common.algorithms" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="calix.common.algorithms.LinearPrediction.html" class="btn btn-neutral float-right" title="calix.common.algorithms.LinearPrediction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Electronic Vision(s).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

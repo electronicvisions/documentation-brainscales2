@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>calix.hagen.neuron_synin_coba.COBABiasCalib &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="calix.hagen.neuron_synin_coba.COBAReferenceCalib" href="calix.hagen.neuron_synin_coba.COBAReferenceCalib.html" />
+    <link rel="prev" title="calix.hagen.neuron_synin_coba" href="calix.hagen.neuron_synin_coba.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> BrainScaleS-2 Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../brainscales2-demos/index.html">Demos &amp; Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software_components.html">Software Components</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../apis.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api_pynn-brainscales2.html">PyNN API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_hxtorch.html">hxtorch API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_grenade.html">grenade API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_haldls.html">haldls API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_lola.html">lola API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_stadls.html">stadls API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_fisch.html">fisch API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_hxcomm.html">hxcomm API</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../api_calix.html">calix API</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="calix.html">calix</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="calix.calib_cache.html">calix.calib_cache</a></li>
+<li class="toctree-l4"><a class="reference internal" href="calix.common.html">calix.common</a></li>
+<li class="toctree-l4"><a class="reference internal" href="calix.constants.html">calix.constants</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="calix.hagen.html">calix.hagen</a></li>
+<li class="toctree-l4"><a class="reference internal" href="calix.spiking.html">calix.spiking</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api_hate.html">hate API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BrainScaleS-2 Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../apis.html">BrainScaleS-2 API Documentation</a> &raquo;</li>
+          <li><a href="../api_calix.html">API Reference: calix</a> &raquo;</li>
+          <li><a href="calix.html">calix</a> &raquo;</li>
+          <li><a href="calix.hagen.html">calix.hagen</a> &raquo;</li>
+          <li><a href="calix.hagen.neuron_synin_coba.html">calix.hagen.neuron_synin_coba</a> &raquo;</li>
+      <li>calix.hagen.neuron_synin_coba.COBABiasCalib</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_autosummary/calix.hagen.neuron_synin_coba.COBABiasCalib.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="calix-hagen-neuron-synin-coba-cobabiascalib">
+<h1>calix.hagen.neuron_synin_coba.COBABiasCalib<a class="headerlink" href="#calix-hagen-neuron-synin-coba-cobabiascalib" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt id="calix.hagen.neuron_synin_coba.COBABiasCalib">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">calix.hagen.neuron_synin_coba.</span></code><code class="sig-name descname"><span class="pre">COBABiasCalib</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">e_coba_reference</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">e_coba_reversal</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.hagen.neuron_synin_coba.COBABiasCalib" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="calix.common.base.Calib.html#calix.common.base.Calib" title="calix.common.base.Calib"><code class="xref py py-class docutils literal notranslate"><span class="pre">calix.common.base.Calib</span></code></a></p>
+<p>Calibration for the COBA synaptic input modulation strength.</p>
+<p>To perform this calibration, we first calibrate the leak potential
+at the target reference potential and measure the CUBA amplitudes.
+We then calibrate the COBA bias current such that the amplitudes
+reach zero at the given reversal potential, and remain unchanged
+at the given reference potential.</p>
+<p>To determine the size of the amplitudes at the reversal potential,
+we need a second voltage where we measure the amplitudes of the
+synaptic input. We then estimate the amplitude at the reversal
+potential by a linear extrapolation. This second voltage is
+normally chosen in between the reference voltage and the reversal
+potential, close to the latter. In case the distance between
+reference and this second voltage is too small, or the measurement
+would fall outside the reliable CADC range, it is chosen differently,
+compare the doc-string of <cite>too_little_separation_mask</cite>.</p>
+<p>During the calibration, the COBA OTA’s reference potential is
+re-calibrated each time its bias current was changed. A member
+coba_reference_calib is used to handle this sub-calibration.</p>
+<p>Requirements:
+* CADCs are calibrated and neuron membranes are connected to the CADCs.
+* Synaptic inputs are enabled and calibrated (in CUBA mode)</p>
+<blockquote>
+<div><p>to the paramters desired at e_coba_reference.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference internal" href="calix.spiking.neuron.NeuronCalibTarget.html#calix.spiking.neuron.NeuronCalibTarget.e_coba_reference" title="calix.spiking.neuron.NeuronCalibTarget.e_coba_reference"><strong>e_coba_reference</strong></a> – Reference potential for COBA mode, where
+there is no modulation, i.e. the original CUBA amplitude is
+present. Given in CADC units. May be different than the neurons’
+desired leak potential, but must be reachable via the leak term,
+and allow for some headroom in the reliable CADC range in order
+to measure synaptic input amplitudes.</p></li>
+<li><p><a class="reference internal" href="calix.spiking.neuron.NeuronCalibTarget.html#calix.spiking.neuron.NeuronCalibTarget.e_coba_reversal" title="calix.spiking.neuron.NeuronCalibTarget.e_coba_reversal"><strong>e_coba_reversal</strong></a> – Desired COBA reversal potential, i.e. the
+potential where the amplitude has decreased to 0. Given in CADC
+units. May exceed the valid range of leak or CADC.</p></li>
+<li><p><strong>leak_parameters_reference</strong> – Calibrated parameters for achieving
+a leak potential at the target e_coba_reference.</p></li>
+<li><p><strong>cuba_bias_calib</strong> – Instance of the calibration for CUBA synaptic
+input bias current. Used for measuring synaptic input amplitudes.</p></li>
+<li><p><strong>coba_reference_calib</strong> – Instance of the calibration for the COBA
+reference potential. Used to re-calibrate the reference each time
+when touching the bias current.</p></li>
+<li><p><strong>too_little_separation_mask</strong> – Mask containing instances where
+the measurement that is normally taken near the reversal
+potential is taken on the other side of the reference
+potential due to insufficient space in the leak potential range.</p></li>
+<li><p><strong>max_leak_target</strong> – Maximum value of feasible leak potential where
+synaptic input amplitudes can be measured, i.e. limited by the
+CADC’s dynamic range. Used as the start point for interpolation
+of e_coba_reversal.</p></li>
+<li><p><strong>min_leak_target</strong> – Minimum value of feasible leak potential where
+synaptic input amplitudes can be measured, i.e. limited by the
+CADC’s dynamic range. Used as the start point for interpolation
+of e_coba_reversal.</p></li>
+<li><p><strong>leak_target_reversal</strong> – Target for resting potential close to
+the reversal potential. If there is not enough separation to
+the reference potential, this target may be at the other side
+of the reference potential: cf. too_little_separation_mask.</p></li>
+<li><p><strong>reliable_amplitudes</strong> – Target amplitude for CADC-based measurement
+of syn. input amplitude at COBA reference potential. Also affects
+the measurement point for the reversal potential as we ensure
+enough separation.</p></li>
+<li><p><strong>allowed_deviation</strong> – Maximum deviation from resting potential
+near reversal potential from the intended target. If the
+deviation is exceeded, the COBA bias current is reduced.</p></li>
+<li><p><strong>log</strong> – Logger used for output.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="calix.hagen.neuron_synin_coba.COBABiasCalib.__init__">
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">e_coba_reference</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">e_coba_reversal</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.hagen.neuron_synin_coba.COBABiasCalib.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.hagen.neuron_synin_coba.COBABiasCalib.__init__" title="calix.hagen.neuron_synin_coba.COBABiasCalib.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(e_coba_reference, e_coba_reversal)</p></td>
+<td><p>Initialize self.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#calix.hagen.neuron_synin_coba.COBABiasCalib.configure_parameters" title="calix.hagen.neuron_synin_coba.COBABiasCalib.configure_parameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">configure_parameters</span></code></a>(builder, parameters)</p></td>
+<td><p>Configure the given bias currents on the chip.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.hagen.neuron_synin_coba.COBABiasCalib.measure_results" title="calix.hagen.neuron_synin_coba.COBABiasCalib.measure_results"><code class="xref py py-obj docutils literal notranslate"><span class="pre">measure_results</span></code></a>(connection, builder)</p></td>
+<td><p>Measure the synaptic input amplitudes close to the reversal potential.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#calix.hagen.neuron_synin_coba.COBABiasCalib.postlude" title="calix.hagen.neuron_synin_coba.COBABiasCalib.postlude"><code class="xref py py-obj docutils literal notranslate"><span class="pre">postlude</span></code></a>(connection)</p></td>
+<td><p>Re-calibrate the reference potentials again after the bias currents have reached their final parameters.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.hagen.neuron_synin_coba.COBABiasCalib.prelude" title="calix.hagen.neuron_synin_coba.COBABiasCalib.prelude"><code class="xref py py-obj docutils literal notranslate"><span class="pre">prelude</span></code></a>(connection)</p></td>
+<td><p>Interpolate given potentials to set calibration targets.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="calix.hagen.neuron_synin_coba.COBABiasCalib.configure_parameters">
+<code class="sig-name descname"><span class="pre">configure_parameters</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">builder</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="calix.common.base.WriteRecordingPlaybackProgramBuilder.html#calix.common.base.WriteRecordingPlaybackProgramBuilder" title="calix.common.base.WriteRecordingPlaybackProgramBuilder"><span class="pre">calix.common.base.WriteRecordingPlaybackProgramBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">numpy.ndarray</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="calix.common.base.WriteRecordingPlaybackProgramBuilder.html#calix.common.base.WriteRecordingPlaybackProgramBuilder" title="calix.common.base.WriteRecordingPlaybackProgramBuilder"><span class="pre">calix.common.base.WriteRecordingPlaybackProgramBuilder</span></a><a class="headerlink" href="#calix.hagen.neuron_synin_coba.COBABiasCalib.configure_parameters" title="Permalink to this definition"></a></dt>
+<dd><p>Configure the given bias currents on the chip.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>builder</strong> – Builder to append instructions to.</p></li>
+<li><p><strong>parameters</strong> – Array of CapMem parameters to configure.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Builder with instructions appended.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calix.hagen.neuron_synin_coba.COBABiasCalib.measure_results">
+<code class="sig-name descname"><span class="pre">measure_results</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhxcomm_vx.ConnectionHandle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">builder</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="calix.common.base.WriteRecordingPlaybackProgramBuilder.html#calix.common.base.WriteRecordingPlaybackProgramBuilder" title="calix.common.base.WriteRecordingPlaybackProgramBuilder"><span class="pre">calix.common.base.WriteRecordingPlaybackProgramBuilder</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">numpy.ndarray</span><a class="headerlink" href="#calix.hagen.neuron_synin_coba.COBABiasCalib.measure_results" title="Permalink to this definition"></a></dt>
+<dd><p>Measure the synaptic input amplitudes close to the
+reversal potential.</p>
+<p>Before measurement, the reference potential is re-calibrated.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>connection</strong> – Connection to the chip to run on.</p></li>
+<li><p><strong>builder</strong> – Builder to be run before measurement.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Array of synaptic input amplitudes when measured
+near the target reversal potential.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calix.hagen.neuron_synin_coba.COBABiasCalib.postlude">
+<code class="sig-name descname"><span class="pre">postlude</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhxcomm_vx.ConnectionHandle</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#calix.hagen.neuron_synin_coba.COBABiasCalib.postlude" title="Permalink to this definition"></a></dt>
+<dd><p>Re-calibrate the reference potentials again after
+the bias currents have reached their final parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>connection</strong> – Connection to the chip to run on.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calix.hagen.neuron_synin_coba.COBABiasCalib.prelude">
+<code class="sig-name descname"><span class="pre">prelude</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhxcomm_vx.ConnectionHandle</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#calix.hagen.neuron_synin_coba.COBABiasCalib.prelude" title="Permalink to this definition"></a></dt>
+<dd><p>Interpolate given potentials to set calibration targets.</p>
+<p>Since several events are used to determine the strength of the
+synaptic inputs, the COBA modulation has to be taken into
+account when setting the reference potential (compare the
+documentation of COBAReferenceCalib). We set the integration
+start potential such that the desired reference potential is
+at roughly half the expected integrated amplitudes.
+The obtained leak parameters are saved in order to later
+switch between this setting and a measurement close to
+the reversal potential quickly.</p>
+<p>We calibrate leak potentials shortly below (above) the desired
+reference potentials for excitatory (inhibitory) mode. This
+ensures that the changed membrane potential by integrating
+amplitudes does not cause a modulating effect already. The desired
+reference potential is centered within the expected range of
+integrated amplitudes. The obtained leak parameters are saved
+in order to later switch between this setting and a measurement
+close to the reversal potential quickly.</p>
+<p>The currently visible (CUBA) amplitude is measured and used for
+interpolation of the target amplitude at the maximum (or minimum)
+reachable leak potentials.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>connection</strong> – Connection to the chip to run on.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="calix.hagen.neuron_synin_coba.html" class="btn btn-neutral float-left" title="calix.hagen.neuron_synin_coba" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="calix.hagen.neuron_synin_coba.COBAReferenceCalib.html" class="btn btn-neutral float-right" title="calix.hagen.neuron_synin_coba.COBAReferenceCalib" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Electronic Vision(s).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

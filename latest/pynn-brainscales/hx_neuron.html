@@ -84,13 +84,29 @@
   <div class="section" id="the-hxneuron">
 <h1>The HXNeuron<a class="headerlink" href="#the-hxneuron" title="Permalink to this headline"></a></h1>
 <p>BrainScaleS-2 emulates the dynamics of the adaptive exponential integrate-and-fire neuron model.
-In order to configure neurons on BrainScaleS-2 the custom neuron model <code class="xref py py-class docutils literal notranslate"><span class="pre">HXNeuron</span></code> is introduced.</p>
+In order to configure neurons on BrainScaleS-2 the custom neuron model <a class="reference internal" href="../_autosummary/pynn_brainscales.brainscales2.standardmodels.cells.HXNeuron.html#pynn_brainscales.brainscales2.standardmodels.cells.HXNeuron" title="pynn_brainscales.brainscales2.standardmodels.cells.HXNeuron"><code class="xref py py-class docutils literal notranslate"><span class="pre">HXNeuron</span></code></a> is introduced.</p>
+<dl class="py class">
+<dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">pynn_brainscales.brainscales2.standardmodels.cells.</span></code><code class="sig-name descname"><span class="pre">HXNeuron</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>One to one representation of subset of parameter space of a
+lola.AtomicNeuron. Parameter hierarchy is flattened. Defaults to “silent”
+neuron.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>parameters</strong> – Mapping of parameters and corresponding values, e.g.
+dict. Either 1-dimensional or population size
+dimensions. Default values are overwritten for specified
+parameters.</p>
+</dd>
+</dl>
+</dd></dl>
+
 <div class="section" id="parameters">
 <h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this headline"></a></h2>
 <p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">HXNeuron</span></code> allows access to a subset of the <code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">lola::vx::v2::AtomicNeuron</span></code>.
 Parameters which are related to routing of spike events or the recording of voltages are not exposed as their configuration is handeled by internal logic.
 All relevant analog as well as digital values of the underlying neuron circuit are exposed and can be configured.
-As descriped in the doc string of <code class="xref py py-class docutils literal notranslate"><span class="pre">HXNeuron</span></code> the parameter hierarchy of the <code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">lola::vx::v2::AtomicNeuron</span></code> is flattened.
+As descriped in the doc string of <a class="reference internal" href="../_autosummary/pynn_brainscales.brainscales2.standardmodels.cells.HXNeuron.html#pynn_brainscales.brainscales2.standardmodels.cells.HXNeuron" title="pynn_brainscales.brainscales2.standardmodels.cells.HXNeuron"><code class="xref py py-class docutils literal notranslate"><span class="pre">HXNeuron</span></code></a> the parameter hierarchy of the <code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">lola::vx::v2::AtomicNeuron</span></code> is flattened.
 For example accessing the leak conductance in python works as follows:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">lola_neuron</span> <span class="o">=</span> <span class="n">lola</span><span class="o">.</span><span class="n">AtomicNeuronOnDLS</span><span class="p">()</span>
 <span class="n">lola_neuron</span><span class="o">.</span><span class="n">leak</span><span class="o">.</span><span class="n">v_leak</span> <span class="o">=</span> <span class="mi">200</span>
@@ -98,11 +114,11 @@ For example accessing the leak conductance in python works as follows:</p>
 <span class="n">neuron</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">HXNeuron</span><span class="p">(</span><span class="n">leak_v_leak</span><span class="o">=</span><span class="mi">200</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>A detailed example of how to configure a <code class="xref py py-class docutils literal notranslate"><span class="pre">HXNeuron</span></code> is given in the demo “<span class="xref std std-doc">/brainscales2-demos/ts_00-single_neuron.rst</span>”.</p>
+<p>A detailed example of how to configure a <a class="reference internal" href="../_autosummary/pynn_brainscales.brainscales2.standardmodels.cells.HXNeuron.html#pynn_brainscales.brainscales2.standardmodels.cells.HXNeuron" title="pynn_brainscales.brainscales2.standardmodels.cells.HXNeuron"><code class="xref py py-class docutils literal notranslate"><span class="pre">HXNeuron</span></code></a> is given in the demo “<span class="xref std std-doc">/brainscales2-demos/ts_00-single_neuron.rst</span>”.</p>
 </div>
 <div class="section" id="observables">
 <h2>Observables<a class="headerlink" href="#observables" title="Permalink to this headline"></a></h2>
-<p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">HXNeuron</span></code> allows to record spikes as well as different state variables.</p>
+<p>The <a class="reference internal" href="../_autosummary/pynn_brainscales.brainscales2.standardmodels.cells.HXNeuron.html#pynn_brainscales.brainscales2.standardmodels.cells.HXNeuron" title="pynn_brainscales.brainscales2.standardmodels.cells.HXNeuron"><code class="xref py py-class docutils literal notranslate"><span class="pre">HXNeuron</span></code></a> allows to record spikes as well as different state variables.</p>
 <div class="section" id="spikes">
 <h3>Spikes<a class="headerlink" href="#spikes" title="Permalink to this headline"></a></h3>
 <p>Spikes can be recorded in parallel for all neurons. The syntax for recording spikes works as follows:</p>
@@ -118,6 +134,11 @@ The PyNN interface of  BrainScaleS-2 allows to record two state variables of two
 On harware, even neuron circuits are connected to one readout line and odd neurons to another readout line.
 As a result, one even and one odd neuron can be recorded at the same time (but not two even or two odd neurons).
 The following state variables are available for recording:</p>
+<dl class="py attribute">
+<dt>
+<code class="sig-prename descclassname"><span class="pre">HXNeuron.</span></code><code class="sig-name descname"><span class="pre">recordable</span></code><em class="property"><span class="pre">:</span> <span class="pre">Final</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">['spikes',</span> <span class="pre">'v',</span> <span class="pre">'exc_synin',</span> <span class="pre">'inh_synin',</span> <span class="pre">'adaptation']</span></em></dt>
+<dd></dd></dl>
+
 <p>For example the membrane voltage and spikes can be recorded in the standard PyNN way:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">population</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">pynn</span><span class="o">.</span><span class="n">cells</span><span class="o">.</span><span class="n">HXNeuron</span><span class="p">())</span>
 <span class="n">population</span><span class="o">.</span><span class="n">record</span><span class="p">([</span><span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="s1">&#39;spikes&#39;</span><span class="p">])</span>

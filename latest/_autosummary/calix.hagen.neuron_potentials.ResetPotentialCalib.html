@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>calix.hagen.neuron_potentials.ResetPotentialCalib &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="calix.hagen.neuron_synin" href="calix.hagen.neuron_synin.html" />
+    <link rel="prev" title="calix.hagen.neuron_potentials.LeakPotentialCalib" href="calix.hagen.neuron_potentials.LeakPotentialCalib.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> BrainScaleS-2 Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../brainscales2-demos/index.html">Demos &amp; Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software_components.html">Software Components</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../apis.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api_pynn-brainscales2.html">PyNN API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_hxtorch.html">hxtorch API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_grenade.html">grenade API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_haldls.html">haldls API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_lola.html">lola API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_stadls.html">stadls API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_fisch.html">fisch API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_hxcomm.html">hxcomm API</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../api_calix.html">calix API</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="calix.html">calix</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="calix.calib_cache.html">calix.calib_cache</a></li>
+<li class="toctree-l4"><a class="reference internal" href="calix.common.html">calix.common</a></li>
+<li class="toctree-l4"><a class="reference internal" href="calix.constants.html">calix.constants</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="calix.hagen.html">calix.hagen</a></li>
+<li class="toctree-l4"><a class="reference internal" href="calix.spiking.html">calix.spiking</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api_hate.html">hate API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BrainScaleS-2 Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../apis.html">BrainScaleS-2 API Documentation</a> &raquo;</li>
+          <li><a href="../api_calix.html">API Reference: calix</a> &raquo;</li>
+          <li><a href="calix.html">calix</a> &raquo;</li>
+          <li><a href="calix.hagen.html">calix.hagen</a> &raquo;</li>
+          <li><a href="calix.hagen.neuron_potentials.html">calix.hagen.neuron_potentials</a> &raquo;</li>
+      <li>calix.hagen.neuron_potentials.ResetPotentialCalib</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_autosummary/calix.hagen.neuron_potentials.ResetPotentialCalib.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="calix-hagen-neuron-potentials-resetpotentialcalib">
+<h1>calix.hagen.neuron_potentials.ResetPotentialCalib<a class="headerlink" href="#calix-hagen-neuron-potentials-resetpotentialcalib" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt id="calix.hagen.neuron_potentials.ResetPotentialCalib">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">calix.hagen.neuron_potentials.</span></code><code class="sig-name descname"><span class="pre">ResetPotentialCalib</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">highnoise</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.hagen.neuron_potentials.ResetPotentialCalib" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="calix.common.base.Calib.html#calix.common.base.Calib" title="calix.common.base.Calib"><code class="xref py py-class docutils literal notranslate"><span class="pre">calix.common.base.Calib</span></code></a></p>
+<p>Calibrate the neurons’ reset target voltage such that it matches
+the leak potential.</p>
+<p>The refractory time is extended in order to measure the membrane
+potentials while the neuron is at reset potential. The CapMem
+settings which yield CADC reads which match the potential without reset
+are searched.</p>
+<p>Requirements:
+* Neuron membrane readout is connected to the CADCs (causal and acausal).
+* Reset bias current is set not too low, such that a resting potential</p>
+<blockquote>
+<div><p>is reached during the refractory period. Note that this calibration
+has to be re-run after the reset bias current was changed, due to
+the OTA’s characteristics.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>Target CADC read at reset potential is given, or membrane potential
+is not floating (i.e. the leak bias current is not too low). You
+may use the highnoise flag to indicate multiple measurements of the
+resting potential shall be taken in order to find the target
+reset potential.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>highnoise</strong> – Decides whether to expect high noise on the
+membrane potential to be present. Setting this to True results
+in multiple reads of the resting potential when finding the
+calibration target value.</p></li>
+<li><p><strong>backend_configs</strong> – List containing neuron backend configs
+as read in the prelude of the calibration. Used to restore
+the original config in the postlude.</p></li>
+<li><p><strong>common_backend_configs</strong> – List containing common neuron
+backend configs as read during the prelude. Used to restore
+the original config in the postlude.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="calix.hagen.neuron_potentials.ResetPotentialCalib.__init__">
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">highnoise</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.hagen.neuron_potentials.ResetPotentialCalib.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Initialize the ResetPotentialCalib class.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>target</strong> – Target CADC reads during reset. If not given,
+they are measured during prelude. If given, the highnoise
+option has no effect.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.hagen.neuron_potentials.ResetPotentialCalib.__init__" title="calix.hagen.neuron_potentials.ResetPotentialCalib.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([target, highnoise])</p></td>
+<td><p>Initialize the ResetPotentialCalib class.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#calix.hagen.neuron_potentials.ResetPotentialCalib.configure_parameters" title="calix.hagen.neuron_potentials.ResetPotentialCalib.configure_parameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">configure_parameters</span></code></a>(builder, parameters)</p></td>
+<td><p>Configure the reset potentials of all neurons to the values given in the parameter array.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.hagen.neuron_potentials.ResetPotentialCalib.measure_results" title="calix.hagen.neuron_potentials.ResetPotentialCalib.measure_results"><code class="xref py py-obj docutils literal notranslate"><span class="pre">measure_results</span></code></a>(connection, builder)</p></td>
+<td><p>Test the configured settings.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#calix.hagen.neuron_potentials.ResetPotentialCalib.postlude" title="calix.hagen.neuron_potentials.ResetPotentialCalib.postlude"><code class="xref py py-obj docutils literal notranslate"><span class="pre">postlude</span></code></a>(connection)</p></td>
+<td><p>Log statistics of the results.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.hagen.neuron_potentials.ResetPotentialCalib.prelude" title="calix.hagen.neuron_potentials.ResetPotentialCalib.prelude"><code class="xref py py-obj docutils literal notranslate"><span class="pre">prelude</span></code></a>(connection)</p></td>
+<td><p>Measure a calibration target (the leak reads) if not provided.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="calix.hagen.neuron_potentials.ResetPotentialCalib.configure_parameters">
+<code class="sig-name descname"><span class="pre">configure_parameters</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">builder</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="calix.common.base.WriteRecordingPlaybackProgramBuilder.html#calix.common.base.WriteRecordingPlaybackProgramBuilder" title="calix.common.base.WriteRecordingPlaybackProgramBuilder"><span class="pre">calix.common.base.WriteRecordingPlaybackProgramBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">numpy.ndarray</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="calix.common.base.WriteRecordingPlaybackProgramBuilder.html#calix.common.base.WriteRecordingPlaybackProgramBuilder" title="calix.common.base.WriteRecordingPlaybackProgramBuilder"><span class="pre">calix.common.base.WriteRecordingPlaybackProgramBuilder</span></a><a class="headerlink" href="#calix.hagen.neuron_potentials.ResetPotentialCalib.configure_parameters" title="Permalink to this definition"></a></dt>
+<dd><p>Configure the reset potentials of all neurons to the
+values given in the parameter array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>builder</strong> – Builder to append configuration to.</p></li>
+<li><p><strong>parameters</strong> – CapMem values of the reset potential.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Builder with configuration appended.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calix.hagen.neuron_potentials.ResetPotentialCalib.measure_results">
+<code class="sig-name descname"><span class="pre">measure_results</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhxcomm_vx.ConnectionHandle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">builder</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="calix.common.base.WriteRecordingPlaybackProgramBuilder.html#calix.common.base.WriteRecordingPlaybackProgramBuilder" title="calix.common.base.WriteRecordingPlaybackProgramBuilder"><span class="pre">calix.common.base.WriteRecordingPlaybackProgramBuilder</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">numpy.ndarray</span><a class="headerlink" href="#calix.hagen.neuron_potentials.ResetPotentialCalib.measure_results" title="Permalink to this definition"></a></dt>
+<dd><p>Test the configured settings. The neurons are artificially reset and
+their membrane potentials are read using the CADCs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>connection</strong> – Connection to a chip to run on.</p></li>
+<li><p><strong>builder</strong> – Builder to append read instructions.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Membrane potentials of neurons during reset.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calix.hagen.neuron_potentials.ResetPotentialCalib.postlude">
+<code class="sig-name descname"><span class="pre">postlude</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhxcomm_vx.ConnectionHandle</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#calix.hagen.neuron_potentials.ResetPotentialCalib.postlude" title="Permalink to this definition"></a></dt>
+<dd><p>Log statistics of the results.</p>
+<p>Restore original configuration of the neuron backends.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>connection</strong> – Connection to the chip to run on.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calix.hagen.neuron_potentials.ResetPotentialCalib.prelude">
+<code class="sig-name descname"><span class="pre">prelude</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhxcomm_vx.ConnectionHandle</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#calix.hagen.neuron_potentials.ResetPotentialCalib.prelude" title="Permalink to this definition"></a></dt>
+<dd><p>Measure a calibration target (the leak reads) if not provided.</p>
+<p>Select the slower clock in the digital neuron backend and
+set the refractory counter values in each neuron to keep the
+neuron refractory long enough so that the CADCs can
+read the potentials.
+The original neuron backend config is stored to be restored.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>connection</strong> – Connection to the chip to run on.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="calix.hagen.neuron_potentials.LeakPotentialCalib.html" class="btn btn-neutral float-left" title="calix.hagen.neuron_potentials.LeakPotentialCalib" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="calix.hagen.neuron_synin.html" class="btn btn-neutral float-right" title="calix.hagen.neuron_synin" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Electronic Vision(s).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

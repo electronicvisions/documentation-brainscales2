@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pynn_brainscales.brainscales2.standardmodels.cells.Quantity &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pynn_brainscales.brainscales2.standardmodels.cells.SpikeSourceArray" href="pynn_brainscales.brainscales2.standardmodels.cells.SpikeSourceArray.html" />
+    <link rel="prev" title="pynn_brainscales.brainscales2.standardmodels.cells.Population" href="pynn_brainscales.brainscales2.standardmodels.cells.Population.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> BrainScaleS-2 Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../brainscales2-demos/index.html">Demos &amp; Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software_components.html">Software Components</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../apis.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../api_pynn-brainscales2.html">PyNN API</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="pynn_brainscales.brainscales2.html">pynn_brainscales.brainscales2</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.connectors.html">pynn_brainscales.brainscales2.connectors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.examples.html">pynn_brainscales.brainscales2.examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.helper.html">pynn_brainscales.brainscales2.helper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.morphology.html">pynn_brainscales.brainscales2.morphology</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.plasticity_rules.html">pynn_brainscales.brainscales2.plasticity_rules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.populations.html">pynn_brainscales.brainscales2.populations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.projections.html">pynn_brainscales.brainscales2.projections</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.recording.html">pynn_brainscales.brainscales2.recording</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.recording_data.html">pynn_brainscales.brainscales2.recording_data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.simulator.html">pynn_brainscales.brainscales2.simulator</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="pynn_brainscales.brainscales2.standardmodels.html">pynn_brainscales.brainscales2.standardmodels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.AllToAllConnector.html">pynn_brainscales.brainscales2.AllToAllConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.ArrayConnector.html">pynn_brainscales.brainscales2.ArrayConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.Assembly.html">pynn_brainscales.brainscales2.Assembly</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.CSAConnector.html">pynn_brainscales.brainscales2.CSAConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.CloneConnector.html">pynn_brainscales.brainscales2.CloneConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.DisplacementDependentProbabilityConnector.html">pynn_brainscales.brainscales2.DisplacementDependentProbabilityConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.DistanceDependentProbabilityConnector.html">pynn_brainscales.brainscales2.DistanceDependentProbabilityConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.Enum.html">pynn_brainscales.brainscales2.Enum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.FixedNumberPostConnector.html">pynn_brainscales.brainscales2.FixedNumberPostConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.FixedNumberPreConnector.html">pynn_brainscales.brainscales2.FixedNumberPreConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.FixedProbabilityConnector.html">pynn_brainscales.brainscales2.FixedProbabilityConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.FixedTotalNumberConnector.html">pynn_brainscales.brainscales2.FixedTotalNumberConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.FromFileConnector.html">pynn_brainscales.brainscales2.FromFileConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.FromListConnector.html">pynn_brainscales.brainscales2.FromListConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.IndexBasedProbabilityConnector.html">pynn_brainscales.brainscales2.IndexBasedProbabilityConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.InjectedConfiguration.html">pynn_brainscales.brainscales2.InjectedConfiguration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.InjectedReadout.html">pynn_brainscales.brainscales2.InjectedReadout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.OneToOneConnector.html">pynn_brainscales.brainscales2.OneToOneConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.PlasticityRule.html">pynn_brainscales.brainscales2.PlasticityRule</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.Population.html">pynn_brainscales.brainscales2.Population</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.PopulationView.html">pynn_brainscales.brainscales2.PopulationView</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.Projection.html">pynn_brainscales.brainscales2.Projection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.RunCommand.html">pynn_brainscales.brainscales2.RunCommand</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.SmallWorldConnector.html">pynn_brainscales.brainscales2.SmallWorldConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.SpikingCalibOptions.html">pynn_brainscales.brainscales2.SpikingCalibOptions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.SpikingCalibTarget.html">pynn_brainscales.brainscales2.SpikingCalibTarget</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.Timer.html">pynn_brainscales.brainscales2.Timer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.auto.html">pynn_brainscales.brainscales2.auto</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api_hxtorch.html">hxtorch API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_grenade.html">grenade API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_haldls.html">haldls API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_lola.html">lola API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_stadls.html">stadls API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_fisch.html">fisch API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_hxcomm.html">hxcomm API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_calix.html">calix API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_hate.html">hate API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BrainScaleS-2 Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../apis.html">BrainScaleS-2 API Documentation</a> &raquo;</li>
+          <li><a href="../api_pynn-brainscales2.html">API Reference: PyNN.brainscales2</a> &raquo;</li>
+          <li><a href="pynn_brainscales.brainscales2.html">pynn_brainscales.brainscales2</a> &raquo;</li>
+          <li><a href="pynn_brainscales.brainscales2.standardmodels.html">pynn_brainscales.brainscales2.standardmodels</a> &raquo;</li>
+          <li><a href="pynn_brainscales.brainscales2.standardmodels.cells.html">pynn_brainscales.brainscales2.standardmodels.cells</a> &raquo;</li>
+      <li>pynn_brainscales.brainscales2.standardmodels.cells.Quantity</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_autosummary/pynn_brainscales.brainscales2.standardmodels.cells.Quantity.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="pynn-brainscales-brainscales2-standardmodels-cells-quantity">
+<h1>pynn_brainscales.brainscales2.standardmodels.cells.Quantity<a class="headerlink" href="#pynn-brainscales-brainscales2-standardmodels-cells-quantity" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt id="pynn_brainscales.brainscales2.standardmodels.cells.Quantity">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">pynn_brainscales.brainscales2.standardmodels.cells.</span></code><code class="sig-name descname"><span class="pre">Quantity</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">copy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></p>
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.__init__">
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.argmax" title="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.argmax"><code class="xref py py-obj docutils literal notranslate"><span class="pre">argmax</span></code></a>([axis, out, keepdims])</p></td>
+<td><p>Return indices of the maximum values along the given axis.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.argmin" title="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.argmin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">argmin</span></code></a>([axis, out, keepdims])</p></td>
+<td><p>Return indices of the minimum values along the given axis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.argsort" title="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.argsort"><code class="xref py py-obj docutils literal notranslate"><span class="pre">argsort</span></code></a>([axis, kind, order])</p></td>
+<td><p>Returns the indices that would sort this array.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.astype" title="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.astype"><code class="xref py py-obj docutils literal notranslate"><span class="pre">astype</span></code></a>(dtype[, order, casting, subok, copy])</p></td>
+<td><p>Copy of the array, cast to a specified type.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.clip" title="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.clip"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clip</span></code></a>([min, max, out])</p></td>
+<td><p>Return an array whose values are limited to <code class="docutils literal notranslate"><span class="pre">[min,</span> <span class="pre">max]</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.cumprod" title="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.cumprod"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cumprod</span></code></a>([axis, dtype, out])</p></td>
+<td><p>Return the cumulative product of the elements along the given axis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.cumsum" title="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.cumsum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cumsum</span></code></a>([axis, dtype, out])</p></td>
+<td><p>Return the cumulative sum of the elements along the given axis.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.fill" title="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.fill"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fill</span></code></a>(value)</p></td>
+<td><p>Fill the array with a scalar value.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.max" title="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.max"><code class="xref py py-obj docutils literal notranslate"><span class="pre">max</span></code></a>([axis, out, keepdims, initial, where])</p></td>
+<td><p>Return the maximum along a given axis.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.mean" title="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.mean"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mean</span></code></a>([axis, dtype, out, keepdims, where])</p></td>
+<td><p>Returns the average of the array elements along given axis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.min" title="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.min"><code class="xref py py-obj docutils literal notranslate"><span class="pre">min</span></code></a>([axis, out, keepdims, initial, where])</p></td>
+<td><p>Return the minimum along a given axis.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.nanargmax" title="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.nanargmax"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nanargmax</span></code></a>([axis, out])</p></td>
+<td><p>Return the indices of the maximum values in the specified axis ignoring NaNs.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.nanargmin" title="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.nanargmin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nanargmin</span></code></a>([axis, out])</p></td>
+<td><p>Return the indices of the minimum values in the specified axis ignoring NaNs.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.nanmax" title="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.nanmax"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nanmax</span></code></a>([axis, out])</p></td>
+<td><p>Return the maximum of an array or maximum along an axis, ignoring any NaNs.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.nanmean" title="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.nanmean"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nanmean</span></code></a>([axis, dtype, out])</p></td>
+<td><p>Compute the arithmetic mean along the specified axis, ignoring NaNs.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.nanmin" title="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.nanmin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nanmin</span></code></a>([axis, out])</p></td>
+<td><p>Return minimum of an array or minimum along an axis, ignoring any NaNs.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.nanstd" title="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.nanstd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nanstd</span></code></a>([axis, dtype, out, ddof])</p></td>
+<td><p>Compute the standard deviation along the specified axis, while ignoring NaNs.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.nansum" title="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.nansum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nansum</span></code></a>([axis, dtype, out])</p></td>
+<td><p>Return the sum of array elements over a given axis treating Not a Numbers (NaNs) as zero.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.nonzero" title="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.nonzero"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nonzero</span></code></a>()</p></td>
+<td><p>Return the indices of the elements that are non-zero.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.prod" title="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.prod"><code class="xref py py-obj docutils literal notranslate"><span class="pre">prod</span></code></a>([axis, dtype, out, keepdims, initial, …])</p></td>
+<td><p>Return the product of the array elements over the given axis</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.ptp" title="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.ptp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ptp</span></code></a>([axis, out, keepdims])</p></td>
+<td><p>Peak to peak (maximum - minimum) value along a given axis.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.put" title="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.put"><code class="xref py py-obj docutils literal notranslate"><span class="pre">put</span></code></a>(indices, values[, mode])</p></td>
+<td><p>Set <code class="docutils literal notranslate"><span class="pre">a.flat[n]</span> <span class="pre">=</span> <span class="pre">values[n]</span></code> for all <cite>n</cite> in indices.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.rescale" title="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.rescale"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rescale</span></code></a>([units])</p></td>
+<td><p>Return a copy of the quantity converted to the specified units.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.rescale_preferred" title="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.rescale_preferred"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rescale_preferred</span></code></a>()</p></td>
+<td><p>Return a copy of the quantity converted to the preferred units and scale.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.round" title="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.round"><code class="xref py py-obj docutils literal notranslate"><span class="pre">round</span></code></a>([decimals, out])</p></td>
+<td><p>Return <cite>a</cite> with each element rounded to the given number of decimals.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.searchsorted" title="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.searchsorted"><code class="xref py py-obj docutils literal notranslate"><span class="pre">searchsorted</span></code></a>(v[, side, sorter])</p></td>
+<td><p>Find indices where elements of v should be inserted in a to maintain order.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.squeeze" title="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.squeeze"><code class="xref py py-obj docutils literal notranslate"><span class="pre">squeeze</span></code></a>([axis])</p></td>
+<td><p>Remove axes of length one from <cite>a</cite>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.std" title="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.std"><code class="xref py py-obj docutils literal notranslate"><span class="pre">std</span></code></a>([axis, dtype, out, ddof, keepdims, where])</p></td>
+<td><p>Returns the standard deviation of the array elements along given axis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.sum" title="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.sum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sum</span></code></a>([axis, dtype, out, keepdims, initial, where])</p></td>
+<td><p>Return the sum of the array elements over the given axis.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.tolist" title="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.tolist"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tolist</span></code></a>()</p></td>
+<td><p>Return the array as an <code class="docutils literal notranslate"><span class="pre">a.ndim</span></code>-levels deep nested list of Python scalars.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.trace" title="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.trace"><code class="xref py py-obj docutils literal notranslate"><span class="pre">trace</span></code></a>([offset, axis1, axis2, dtype, out])</p></td>
+<td><p>Return the sum along diagonals of the array.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.var" title="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.var"><code class="xref py py-obj docutils literal notranslate"><span class="pre">var</span></code></a>([axis, dtype, out, ddof, keepdims, where])</p></td>
+<td><p>Returns the variance of the array elements, along given axis.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.dimensionality" title="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.dimensionality"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dimensionality</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.imag" title="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.imag"><code class="xref py py-obj docutils literal notranslate"><span class="pre">imag</span></code></a></p></td>
+<td><p>The imaginary part of the array.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.magnitude" title="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.magnitude"><code class="xref py py-obj docutils literal notranslate"><span class="pre">magnitude</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.real" title="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.real"><code class="xref py py-obj docutils literal notranslate"><span class="pre">real</span></code></a></p></td>
+<td><p>The real part of the array.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.simplified" title="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.simplified"><code class="xref py py-obj docutils literal notranslate"><span class="pre">simplified</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.units" title="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.units"><code class="xref py py-obj docutils literal notranslate"><span class="pre">units</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.argmax">
+<code class="sig-name descname"><span class="pre">argmax</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keepdims</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.argmax" title="Permalink to this definition"></a></dt>
+<dd><p>Return indices of the maximum values along the given axis.</p>
+<p>Refer to <cite>numpy.argmax</cite> for full documentation.</p>
+<p>numpy.argmax : equivalent function</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.argmin">
+<code class="sig-name descname"><span class="pre">argmin</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keepdims</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.argmin" title="Permalink to this definition"></a></dt>
+<dd><p>Return indices of the minimum values along the given axis.</p>
+<p>Refer to <cite>numpy.argmin</cite> for detailed documentation.</p>
+<p>numpy.argmin : equivalent function</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.argsort">
+<code class="sig-name descname"><span class="pre">argsort</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kind</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.argsort" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the indices that would sort this array.</p>
+<p>Refer to <cite>numpy.argsort</cite> for full documentation.</p>
+<p>numpy.argsort : equivalent function</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.astype">
+<code class="sig-name descname"><span class="pre">astype</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dtype</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'K'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">casting</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'unsafe'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subok</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">copy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.astype" title="Permalink to this definition"></a></dt>
+<dd><p>Copy of the array, cast to a specified type.</p>
+<dl>
+<dt>dtype<span class="classifier">str or dtype</span></dt><dd><p>Typecode or data-type to which the array is cast.</p>
+</dd>
+<dt>order<span class="classifier">{‘C’, ‘F’, ‘A’, ‘K’}, optional</span></dt><dd><p>Controls the memory layout order of the result.
+‘C’ means C order, ‘F’ means Fortran order, ‘A’
+means ‘F’ order if all the arrays are Fortran contiguous,
+‘C’ order otherwise, and ‘K’ means as close to the
+order the array elements appear in memory as possible.
+Default is ‘K’.</p>
+</dd>
+<dt>casting<span class="classifier">{‘no’, ‘equiv’, ‘safe’, ‘same_kind’, ‘unsafe’}, optional</span></dt><dd><p>Controls what kind of data casting may occur. Defaults to ‘unsafe’
+for backwards compatibility.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>‘no’ means the data types should not be cast at all.</p></li>
+<li><p>‘equiv’ means only byte-order changes are allowed.</p></li>
+<li><p>‘safe’ means only casts which can preserve values are allowed.</p></li>
+<li><p>‘same_kind’ means only safe casts or casts within a kind,
+like float64 to float32, are allowed.</p></li>
+<li><p>‘unsafe’ means any data conversions may be done.</p></li>
+</ul>
+</div></blockquote>
+</dd>
+<dt>subok<span class="classifier">bool, optional</span></dt><dd><p>If True, then sub-classes will be passed-through (default), otherwise
+the returned array will be forced to be a base-class array.</p>
+</dd>
+<dt>copy<span class="classifier">bool, optional</span></dt><dd><p>By default, astype always returns a newly allocated array. If this
+is set to false, and the <cite>dtype</cite>, <cite>order</cite>, and <cite>subok</cite>
+requirements are satisfied, the input array is returned instead
+of a copy.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>arr_t<span class="classifier">ndarray</span></dt><dd><p>Unless <cite>copy</cite> is False and the other conditions for returning the input
+array are satisfied (see description for <cite>copy</cite> input parameter), <cite>arr_t</cite>
+is a new array of the same shape as the input array, with dtype, order
+given by <cite>dtype</cite>, <cite>order</cite>.</p>
+</dd>
+</dl>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 1.17.0: </span>Casting between a simple data type and a structured one is possible only
+for “unsafe” casting.  Casting to multiple fields is allowed, but
+casting from multiple fields is not.</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 1.9.0: </span>Casting from numeric to string types in ‘safe’ casting mode requires
+that the string dtype length is long enough to store the max
+integer/float value converted.</p>
+</div>
+<dl class="simple">
+<dt>ComplexWarning</dt><dd><p>When casting from complex to float or int. To avoid this,
+one should use <code class="docutils literal notranslate"><span class="pre">a.real.astype(t)</span></code>.</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
+<span class="go">array([1. ,  2. ,  2.5])</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="go">array([1, 2, 2])</span>
+</pre></div>
+</div>
+<p>Scalars are returned as scalar Quantity arrays.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.clip">
+<code class="sig-name descname"><span class="pre">clip</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.clip" title="Permalink to this definition"></a></dt>
+<dd><p>Return an array whose values are limited to <code class="docutils literal notranslate"><span class="pre">[min,</span> <span class="pre">max]</span></code>.
+One of max or min must be given.</p>
+<p>Refer to <cite>numpy.clip</cite> for full documentation.</p>
+<p>numpy.clip : equivalent function</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.cumprod">
+<code class="sig-name descname"><span class="pre">cumprod</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.cumprod" title="Permalink to this definition"></a></dt>
+<dd><p>Return the cumulative product of the elements along the given axis.</p>
+<p>Refer to <cite>numpy.cumprod</cite> for full documentation.</p>
+<p>numpy.cumprod : equivalent function</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.cumsum">
+<code class="sig-name descname"><span class="pre">cumsum</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.cumsum" title="Permalink to this definition"></a></dt>
+<dd><p>Return the cumulative sum of the elements along the given axis.</p>
+<p>Refer to <cite>numpy.cumsum</cite> for full documentation.</p>
+<p>numpy.cumsum : equivalent function</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.dimensionality">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">dimensionality</span></code><a class="headerlink" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.dimensionality" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.fill">
+<code class="sig-name descname"><span class="pre">fill</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.fill" title="Permalink to this definition"></a></dt>
+<dd><p>Fill the array with a scalar value.</p>
+<dl class="simple">
+<dt>value<span class="classifier">scalar</span></dt><dd><p>All elements of <cite>a</cite> will be assigned this value.</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
+<span class="go">array([0, 0])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
+<span class="go">array([1.,  1.])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.imag">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">imag</span></code><a class="headerlink" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.imag" title="Permalink to this definition"></a></dt>
+<dd><p>The imaginary part of the array.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">([</span><span class="mi">1</span><span class="o">+</span><span class="mi">0</span><span class="n">j</span><span class="p">,</span> <span class="mi">0</span><span class="o">+</span><span class="mi">1</span><span class="n">j</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">imag</span>
+<span class="go">array([ 0.        ,  0.70710678])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">imag</span><span class="o">.</span><span class="n">dtype</span>
+<span class="go">dtype(&#39;float64&#39;)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.magnitude">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">magnitude</span></code><a class="headerlink" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.magnitude" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.max">
+<code class="sig-name descname"><span class="pre">max</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">axis=None</span></em>, <em class="sig-param"><span class="pre">out=None</span></em>, <em class="sig-param"><span class="pre">keepdims=False</span></em>, <em class="sig-param"><span class="pre">initial=&lt;no</span> <span class="pre">value&gt;</span></em>, <em class="sig-param"><span class="pre">where=True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.max" title="Permalink to this definition"></a></dt>
+<dd><p>Return the maximum along a given axis.</p>
+<p>Refer to <cite>numpy.amax</cite> for full documentation.</p>
+<p>numpy.amax : equivalent function</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.mean">
+<code class="sig-name descname"><span class="pre">mean</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keepdims</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">where</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.mean" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the average of the array elements along given axis.</p>
+<p>Refer to <cite>numpy.mean</cite> for full documentation.</p>
+<p>numpy.mean : equivalent function</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.min">
+<code class="sig-name descname"><span class="pre">min</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">axis=None</span></em>, <em class="sig-param"><span class="pre">out=None</span></em>, <em class="sig-param"><span class="pre">keepdims=False</span></em>, <em class="sig-param"><span class="pre">initial=&lt;no</span> <span class="pre">value&gt;</span></em>, <em class="sig-param"><span class="pre">where=True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.min" title="Permalink to this definition"></a></dt>
+<dd><p>Return the minimum along a given axis.</p>
+<p>Refer to <cite>numpy.amin</cite> for full documentation.</p>
+<p>numpy.amin : equivalent function</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.nanargmax">
+<code class="sig-name descname"><span class="pre">nanargmax</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.nanargmax" title="Permalink to this definition"></a></dt>
+<dd><p>Return the indices of the maximum values in the specified axis ignoring
+NaNs. For all-NaN slices <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> is raised. Warning: the
+results cannot be trusted if a slice contains only NaNs and -Infs.</p>
+<dl>
+<dt>a<span class="classifier">array_like</span></dt><dd><p>Input data.</p>
+</dd>
+<dt>axis<span class="classifier">int, optional</span></dt><dd><p>Axis along which to operate.  By default flattened input is used.</p>
+</dd>
+<dt>out<span class="classifier">array, optional</span></dt><dd><p>If provided, the result will be inserted into this array. It should
+be of the appropriate shape and dtype.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 1.22.0.</span></p>
+</div>
+</dd>
+<dt>keepdims<span class="classifier">bool, optional</span></dt><dd><p>If this is set to True, the axes which are reduced are left
+in the result as dimensions with size one. With this option,
+the result will broadcast correctly against the array.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 1.22.0.</span></p>
+</div>
+</dd>
+</dl>
+<dl class="simple">
+<dt>index_array<span class="classifier">ndarray</span></dt><dd><p>An array of indices or a single index value.</p>
+</dd>
+</dl>
+<p>argmax, nanargmin</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="go">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">nanargmax</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">nanargmax</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="go">array([1, 0])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">nanargmax</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">array([1, 1])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.nanargmin">
+<code class="sig-name descname"><span class="pre">nanargmin</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.nanargmin" title="Permalink to this definition"></a></dt>
+<dd><p>Return the indices of the minimum values in the specified axis ignoring
+NaNs. For all-NaN slices <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> is raised. Warning: the results
+cannot be trusted if a slice contains only NaNs and Infs.</p>
+<dl>
+<dt>a<span class="classifier">array_like</span></dt><dd><p>Input data.</p>
+</dd>
+<dt>axis<span class="classifier">int, optional</span></dt><dd><p>Axis along which to operate.  By default flattened input is used.</p>
+</dd>
+<dt>out<span class="classifier">array, optional</span></dt><dd><p>If provided, the result will be inserted into this array. It should
+be of the appropriate shape and dtype.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 1.22.0.</span></p>
+</div>
+</dd>
+<dt>keepdims<span class="classifier">bool, optional</span></dt><dd><p>If this is set to True, the axes which are reduced are left
+in the result as dimensions with size one. With this option,
+the result will broadcast correctly against the array.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 1.22.0.</span></p>
+</div>
+</dd>
+</dl>
+<dl class="simple">
+<dt>index_array<span class="classifier">ndarray</span></dt><dd><p>An array of indices or a single index value.</p>
+</dd>
+</dl>
+<p>argmin, nanargmax</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="go">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">nanargmin</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">nanargmin</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="go">array([1, 1])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">nanargmin</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">array([1, 0])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.nanmax">
+<code class="sig-name descname"><span class="pre">nanmax</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.nanmax" title="Permalink to this definition"></a></dt>
+<dd><p>Return the maximum of an array or maximum along an axis, ignoring any
+NaNs.  When all-NaN slices are encountered a <code class="docutils literal notranslate"><span class="pre">RuntimeWarning</span></code> is
+raised and NaN is returned for that slice.</p>
+<dl>
+<dt>a<span class="classifier">array_like</span></dt><dd><p>Array containing numbers whose maximum is desired. If <cite>a</cite> is not an
+array, a conversion is attempted.</p>
+</dd>
+<dt>axis<span class="classifier">{int, tuple of int, None}, optional</span></dt><dd><p>Axis or axes along which the maximum is computed. The default is to compute
+the maximum of the flattened array.</p>
+</dd>
+<dt>out<span class="classifier">ndarray, optional</span></dt><dd><p>Alternate output array in which to place the result.  The default
+is <code class="docutils literal notranslate"><span class="pre">None</span></code>; if provided, it must have the same shape as the
+expected output, but the type will be cast if necessary. See
+<span class="xref std std-ref">ufuncs-output-type</span> for more details.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 1.8.0.</span></p>
+</div>
+</dd>
+<dt>keepdims<span class="classifier">bool, optional</span></dt><dd><p>If this is set to True, the axes which are reduced are left
+in the result as dimensions with size one. With this option,
+the result will broadcast correctly against the original <cite>a</cite>.</p>
+<p>If the value is anything but the default, then
+<cite>keepdims</cite> will be passed through to the <cite>max</cite> method
+of sub-classes of <cite>ndarray</cite>.  If the sub-classes methods
+does not implement <cite>keepdims</cite> any exceptions will be raised.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 1.8.0.</span></p>
+</div>
+</dd>
+<dt>initial<span class="classifier">scalar, optional</span></dt><dd><p>The minimum value of an output element. Must be present to allow
+computation on empty slice. See <cite>~numpy.ufunc.reduce</cite> for details.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 1.22.0.</span></p>
+</div>
+</dd>
+<dt>where<span class="classifier">array_like of bool, optional</span></dt><dd><p>Elements to compare for the maximum. See <cite>~numpy.ufunc.reduce</cite>
+for details.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 1.22.0.</span></p>
+</div>
+</dd>
+</dl>
+<dl class="simple">
+<dt>nanmax<span class="classifier">ndarray</span></dt><dd><p>An array with the same shape as <cite>a</cite>, with the specified axis removed.
+If <cite>a</cite> is a 0-d array, or if axis is None, an ndarray scalar is
+returned.  The same dtype as <cite>a</cite> is returned.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>nanmin :</dt><dd><p>The minimum value of an array along a given axis, ignoring any NaNs.</p>
+</dd>
+<dt>amax :</dt><dd><p>The maximum value of an array along a given axis, propagating any NaNs.</p>
+</dd>
+<dt>fmax :</dt><dd><p>Element-wise maximum of two arrays, ignoring any NaNs.</p>
+</dd>
+<dt>maximum :</dt><dd><p>Element-wise maximum of two arrays, propagating any NaNs.</p>
+</dd>
+<dt>isnan :</dt><dd><p>Shows which elements are Not a Number (NaN).</p>
+</dd>
+<dt>isfinite:</dt><dd><p>Shows which elements are neither NaN nor infinity.</p>
+</dd>
+</dl>
+<p>amin, fmin, minimum</p>
+<p>NumPy uses the IEEE Standard for Binary Floating-Point for Arithmetic
+(IEEE 754). This means that Not a Number is not equivalent to infinity.
+Positive infinity is treated as a very large number and negative
+infinity is treated as a very small (i.e. negative) number.</p>
+<p>If the input has a integer type the function is equivalent to np.max.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">nanmax</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="go">3.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">nanmax</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="go">array([3.,  2.])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">nanmax</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">array([2.,  3.])</span>
+</pre></div>
+</div>
+<p>When positive infinity and negative infinity are present:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">nanmax</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">NINF</span><span class="p">])</span>
+<span class="go">2.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">nanmax</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">])</span>
+<span class="go">inf</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.nanmean">
+<code class="sig-name descname"><span class="pre">nanmean</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.nanmean" title="Permalink to this definition"></a></dt>
+<dd><p>Compute the arithmetic mean along the specified axis, ignoring NaNs.</p>
+<p>Returns the average of the array elements.  The average is taken over
+the flattened array by default, otherwise over the specified axis.
+<cite>float64</cite> intermediate and return values are used for integer inputs.</p>
+<p>For all-NaN slices, NaN is returned and a <cite>RuntimeWarning</cite> is raised.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 1.8.0.</span></p>
+</div>
+<dl>
+<dt>a<span class="classifier">array_like</span></dt><dd><p>Array containing numbers whose mean is desired. If <cite>a</cite> is not an
+array, a conversion is attempted.</p>
+</dd>
+<dt>axis<span class="classifier">{int, tuple of int, None}, optional</span></dt><dd><p>Axis or axes along which the means are computed. The default is to compute
+the mean of the flattened array.</p>
+</dd>
+<dt>dtype<span class="classifier">data-type, optional</span></dt><dd><p>Type to use in computing the mean.  For integer inputs, the default
+is <cite>float64</cite>; for inexact inputs, it is the same as the input
+dtype.</p>
+</dd>
+<dt>out<span class="classifier">ndarray, optional</span></dt><dd><p>Alternate output array in which to place the result.  The default
+is <code class="docutils literal notranslate"><span class="pre">None</span></code>; if provided, it must have the same shape as the
+expected output, but the type will be cast if necessary. See
+<span class="xref std std-ref">ufuncs-output-type</span> for more details.</p>
+</dd>
+<dt>keepdims<span class="classifier">bool, optional</span></dt><dd><p>If this is set to True, the axes which are reduced are left
+in the result as dimensions with size one. With this option,
+the result will broadcast correctly against the original <cite>a</cite>.</p>
+<p>If the value is anything but the default, then
+<cite>keepdims</cite> will be passed through to the <cite>mean</cite> or <cite>sum</cite> methods
+of sub-classes of <cite>ndarray</cite>.  If the sub-classes methods
+does not implement <cite>keepdims</cite> any exceptions will be raised.</p>
+</dd>
+<dt>where<span class="classifier">array_like of bool, optional</span></dt><dd><p>Elements to include in the mean. See <cite>~numpy.ufunc.reduce</cite> for details.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 1.22.0.</span></p>
+</div>
+</dd>
+</dl>
+<dl class="simple">
+<dt>m<span class="classifier">ndarray, see dtype parameter above</span></dt><dd><p>If <cite>out=None</cite>, returns a new array containing the mean values,
+otherwise a reference to the output array is returned. Nan is
+returned for slices that contain only NaNs.</p>
+</dd>
+</dl>
+<p>average : Weighted average
+mean : Arithmetic mean taken while not ignoring NaNs
+var, nanvar</p>
+<p>The arithmetic mean is the sum of the non-NaN elements along the axis
+divided by the number of non-NaN elements.</p>
+<p>Note that for floating-point input, the mean is computed using the same
+precision the input has.  Depending on the input data, this can cause
+the results to be inaccurate, especially for <cite>float32</cite>.  Specifying a
+higher-precision accumulator using the <cite>dtype</cite> keyword can alleviate
+this issue.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">nanmean</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="go">2.6666666666666665</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">nanmean</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="go">array([2.,  4.])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">nanmean</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">array([1.,  3.5]) # may vary</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.nanmin">
+<code class="sig-name descname"><span class="pre">nanmin</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.nanmin" title="Permalink to this definition"></a></dt>
+<dd><p>Return minimum of an array or minimum along an axis, ignoring any NaNs.
+When all-NaN slices are encountered a <code class="docutils literal notranslate"><span class="pre">RuntimeWarning</span></code> is raised and
+Nan is returned for that slice.</p>
+<dl>
+<dt>a<span class="classifier">array_like</span></dt><dd><p>Array containing numbers whose minimum is desired. If <cite>a</cite> is not an
+array, a conversion is attempted.</p>
+</dd>
+<dt>axis<span class="classifier">{int, tuple of int, None}, optional</span></dt><dd><p>Axis or axes along which the minimum is computed. The default is to compute
+the minimum of the flattened array.</p>
+</dd>
+<dt>out<span class="classifier">ndarray, optional</span></dt><dd><p>Alternate output array in which to place the result.  The default
+is <code class="docutils literal notranslate"><span class="pre">None</span></code>; if provided, it must have the same shape as the
+expected output, but the type will be cast if necessary. See
+<span class="xref std std-ref">ufuncs-output-type</span> for more details.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 1.8.0.</span></p>
+</div>
+</dd>
+<dt>keepdims<span class="classifier">bool, optional</span></dt><dd><p>If this is set to True, the axes which are reduced are left
+in the result as dimensions with size one. With this option,
+the result will broadcast correctly against the original <cite>a</cite>.</p>
+<p>If the value is anything but the default, then
+<cite>keepdims</cite> will be passed through to the <cite>min</cite> method
+of sub-classes of <cite>ndarray</cite>.  If the sub-classes methods
+does not implement <cite>keepdims</cite> any exceptions will be raised.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 1.8.0.</span></p>
+</div>
+</dd>
+<dt>initial<span class="classifier">scalar, optional</span></dt><dd><p>The maximum value of an output element. Must be present to allow
+computation on empty slice. See <cite>~numpy.ufunc.reduce</cite> for details.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 1.22.0.</span></p>
+</div>
+</dd>
+<dt>where<span class="classifier">array_like of bool, optional</span></dt><dd><p>Elements to compare for the minimum. See <cite>~numpy.ufunc.reduce</cite>
+for details.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 1.22.0.</span></p>
+</div>
+</dd>
+</dl>
+<dl class="simple">
+<dt>nanmin<span class="classifier">ndarray</span></dt><dd><p>An array with the same shape as <cite>a</cite>, with the specified axis
+removed.  If <cite>a</cite> is a 0-d array, or if axis is None, an ndarray
+scalar is returned.  The same dtype as <cite>a</cite> is returned.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>nanmax :</dt><dd><p>The maximum value of an array along a given axis, ignoring any NaNs.</p>
+</dd>
+<dt>amin :</dt><dd><p>The minimum value of an array along a given axis, propagating any NaNs.</p>
+</dd>
+<dt>fmin :</dt><dd><p>Element-wise minimum of two arrays, ignoring any NaNs.</p>
+</dd>
+<dt>minimum :</dt><dd><p>Element-wise minimum of two arrays, propagating any NaNs.</p>
+</dd>
+<dt>isnan :</dt><dd><p>Shows which elements are Not a Number (NaN).</p>
+</dd>
+<dt>isfinite:</dt><dd><p>Shows which elements are neither NaN nor infinity.</p>
+</dd>
+</dl>
+<p>amax, fmax, maximum</p>
+<p>NumPy uses the IEEE Standard for Binary Floating-Point for Arithmetic
+(IEEE 754). This means that Not a Number is not equivalent to infinity.
+Positive infinity is treated as a very large number and negative
+infinity is treated as a very small (i.e. negative) number.</p>
+<p>If the input has a integer type the function is equivalent to np.min.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">nanmin</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="go">1.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">nanmin</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="go">array([1.,  2.])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">nanmin</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">array([1.,  3.])</span>
+</pre></div>
+</div>
+<p>When positive infinity and negative infinity are present:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">nanmin</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">])</span>
+<span class="go">1.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">nanmin</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">NINF</span><span class="p">])</span>
+<span class="go">-inf</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.nanstd">
+<code class="sig-name descname"><span class="pre">nanstd</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ddof</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.nanstd" title="Permalink to this definition"></a></dt>
+<dd><p>Compute the standard deviation along the specified axis, while
+ignoring NaNs.</p>
+<p>Returns the standard deviation, a measure of the spread of a
+distribution, of the non-NaN array elements. The standard deviation is
+computed for the flattened array by default, otherwise over the
+specified axis.</p>
+<p>For all-NaN slices or slices with zero degrees of freedom, NaN is
+returned and a <cite>RuntimeWarning</cite> is raised.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 1.8.0.</span></p>
+</div>
+<dl>
+<dt>a<span class="classifier">array_like</span></dt><dd><p>Calculate the standard deviation of the non-NaN values.</p>
+</dd>
+<dt>axis<span class="classifier">{int, tuple of int, None}, optional</span></dt><dd><p>Axis or axes along which the standard deviation is computed. The default is
+to compute the standard deviation of the flattened array.</p>
+</dd>
+<dt>dtype<span class="classifier">dtype, optional</span></dt><dd><p>Type to use in computing the standard deviation. For arrays of
+integer type the default is float64, for arrays of float types it
+is the same as the array type.</p>
+</dd>
+<dt>out<span class="classifier">ndarray, optional</span></dt><dd><p>Alternative output array in which to place the result. It must have
+the same shape as the expected output but the type (of the
+calculated values) will be cast if necessary.</p>
+</dd>
+<dt>ddof<span class="classifier">int, optional</span></dt><dd><p>Means Delta Degrees of Freedom.  The divisor used in calculations
+is <code class="docutils literal notranslate"><span class="pre">N</span> <span class="pre">-</span> <span class="pre">ddof</span></code>, where <code class="docutils literal notranslate"><span class="pre">N</span></code> represents the number of non-NaN
+elements.  By default <cite>ddof</cite> is zero.</p>
+</dd>
+<dt>keepdims<span class="classifier">bool, optional</span></dt><dd><p>If this is set to True, the axes which are reduced are left
+in the result as dimensions with size one. With this option,
+the result will broadcast correctly against the original <cite>a</cite>.</p>
+<p>If this value is anything but the default it is passed through
+as-is to the relevant functions of the sub-classes.  If these
+functions do not have a <cite>keepdims</cite> kwarg, a RuntimeError will
+be raised.</p>
+</dd>
+<dt>where<span class="classifier">array_like of bool, optional</span></dt><dd><p>Elements to include in the standard deviation.
+See <cite>~numpy.ufunc.reduce</cite> for details.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 1.22.0.</span></p>
+</div>
+</dd>
+</dl>
+<dl class="simple">
+<dt>standard_deviation<span class="classifier">ndarray, see dtype parameter above.</span></dt><dd><p>If <cite>out</cite> is None, return a new array containing the standard
+deviation, otherwise return a reference to the output array. If
+ddof is &gt;= the number of non-NaN elements in a slice or the slice
+contains only NaNs, then the result for that slice is NaN.</p>
+</dd>
+</dl>
+<p>var, mean, std
+nanvar, nanmean
+<span class="xref std std-ref">ufuncs-output-type</span></p>
+<p>The standard deviation is the square root of the average of the squared
+deviations from the mean: <code class="docutils literal notranslate"><span class="pre">std</span> <span class="pre">=</span> <span class="pre">sqrt(mean(abs(x</span> <span class="pre">-</span> <span class="pre">x.mean())**2))</span></code>.</p>
+<p>The average squared deviation is normally calculated as
+<code class="docutils literal notranslate"><span class="pre">x.sum()</span> <span class="pre">/</span> <span class="pre">N</span></code>, where <code class="docutils literal notranslate"><span class="pre">N</span> <span class="pre">=</span> <span class="pre">len(x)</span></code>.  If, however, <cite>ddof</cite> is
+specified, the divisor <code class="docutils literal notranslate"><span class="pre">N</span> <span class="pre">-</span> <span class="pre">ddof</span></code> is used instead. In standard
+statistical practice, <code class="docutils literal notranslate"><span class="pre">ddof=1</span></code> provides an unbiased estimator of the
+variance of the infinite population. <code class="docutils literal notranslate"><span class="pre">ddof=0</span></code> provides a maximum
+likelihood estimate of the variance for normally distributed variables.
+The standard deviation computed in this function is the square root of
+the estimated variance, so even with <code class="docutils literal notranslate"><span class="pre">ddof=1</span></code>, it will not be an
+unbiased estimate of the standard deviation per se.</p>
+<p>Note that, for complex numbers, <cite>std</cite> takes the absolute value before
+squaring, so that the result is always real and nonnegative.</p>
+<p>For floating-point input, the <em>std</em> is computed using the same
+precision the input has. Depending on the input data, this can cause
+the results to be inaccurate, especially for float32 (see example
+below).  Specifying a higher-accuracy accumulator using the <cite>dtype</cite>
+keyword can alleviate this issue.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">nanstd</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="go">1.247219128924647</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">nanstd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="go">array([1., 0.])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">nanstd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">array([0.,  0.5]) # may vary</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.nansum">
+<code class="sig-name descname"><span class="pre">nansum</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.nansum" title="Permalink to this definition"></a></dt>
+<dd><p>Return the sum of array elements over a given axis treating Not a
+Numbers (NaNs) as zero.</p>
+<p>In NumPy versions &lt;= 1.9.0 Nan is returned for slices that are all-NaN or
+empty. In later versions zero is returned.</p>
+<dl>
+<dt>a<span class="classifier">array_like</span></dt><dd><p>Array containing numbers whose sum is desired. If <cite>a</cite> is not an
+array, a conversion is attempted.</p>
+</dd>
+<dt>axis<span class="classifier">{int, tuple of int, None}, optional</span></dt><dd><p>Axis or axes along which the sum is computed. The default is to compute the
+sum of the flattened array.</p>
+</dd>
+<dt>dtype<span class="classifier">data-type, optional</span></dt><dd><p>The type of the returned array and of the accumulator in which the
+elements are summed.  By default, the dtype of <cite>a</cite> is used.  An
+exception is when <cite>a</cite> has an integer type with less precision than
+the platform (u)intp. In that case, the default will be either
+(u)int32 or (u)int64 depending on whether the platform is 32 or 64
+bits. For inexact inputs, dtype must be inexact.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 1.8.0.</span></p>
+</div>
+</dd>
+<dt>out<span class="classifier">ndarray, optional</span></dt><dd><p>Alternate output array in which to place the result.  The default
+is <code class="docutils literal notranslate"><span class="pre">None</span></code>. If provided, it must have the same shape as the
+expected output, but the type will be cast if necessary.  See
+<span class="xref std std-ref">ufuncs-output-type</span> for more details. The casting of NaN to integer
+can yield unexpected results.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 1.8.0.</span></p>
+</div>
+</dd>
+<dt>keepdims<span class="classifier">bool, optional</span></dt><dd><p>If this is set to True, the axes which are reduced are left
+in the result as dimensions with size one. With this option,
+the result will broadcast correctly against the original <cite>a</cite>.</p>
+<p>If the value is anything but the default, then
+<cite>keepdims</cite> will be passed through to the <cite>mean</cite> or <cite>sum</cite> methods
+of sub-classes of <cite>ndarray</cite>.  If the sub-classes methods
+does not implement <cite>keepdims</cite> any exceptions will be raised.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 1.8.0.</span></p>
+</div>
+</dd>
+<dt>initial<span class="classifier">scalar, optional</span></dt><dd><p>Starting value for the sum. See <cite>~numpy.ufunc.reduce</cite> for details.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 1.22.0.</span></p>
+</div>
+</dd>
+<dt>where<span class="classifier">array_like of bool, optional</span></dt><dd><p>Elements to include in the sum. See <cite>~numpy.ufunc.reduce</cite> for details.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 1.22.0.</span></p>
+</div>
+</dd>
+</dl>
+<dl class="simple">
+<dt>nansum<span class="classifier">ndarray.</span></dt><dd><p>A new array holding the result is returned unless <cite>out</cite> is
+specified, in which it is returned. The result has the same
+size as <cite>a</cite>, and the same shape as <cite>a</cite> if <cite>axis</cite> is not None
+or <cite>a</cite> is a 1-d array.</p>
+</dd>
+</dl>
+<p>numpy.sum : Sum across array propagating NaNs.
+isnan : Show which elements are NaN.
+isfinite : Show which elements are not NaN or +/-inf.</p>
+<p>If both positive and negative infinity are present, the sum will be Not
+A Number (NaN).</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">nansum</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">nansum</span><span class="p">([</span><span class="mi">1</span><span class="p">])</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">nansum</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">])</span>
+<span class="go">1.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">nansum</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="go">3.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">nansum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="go">array([2.,  1.])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">nansum</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">])</span>
+<span class="go">inf</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">nansum</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">NINF</span><span class="p">])</span>
+<span class="go">-inf</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">numpy.testing</span> <span class="kn">import</span> <span class="n">suppress_warnings</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">suppress_warnings</span><span class="p">()</span> <span class="k">as</span> <span class="n">sup</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">sup</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="ne">RuntimeWarning</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="n">np</span><span class="o">.</span><span class="n">nansum</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">])</span> <span class="c1"># both +/- infinity present</span>
+<span class="go">nan</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.nonzero">
+<code class="sig-name descname"><span class="pre">nonzero</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.nonzero" title="Permalink to this definition"></a></dt>
+<dd><p>Return the indices of the elements that are non-zero.</p>
+<p>Refer to <cite>numpy.nonzero</cite> for full documentation.</p>
+<p>numpy.nonzero : equivalent function</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.prod">
+<code class="sig-name descname"><span class="pre">prod</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keepdims</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">where</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.prod" title="Permalink to this definition"></a></dt>
+<dd><p>Return the product of the array elements over the given axis</p>
+<p>Refer to <cite>numpy.prod</cite> for full documentation.</p>
+<p>numpy.prod : equivalent function</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.ptp">
+<code class="sig-name descname"><span class="pre">ptp</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keepdims</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.ptp" title="Permalink to this definition"></a></dt>
+<dd><p>Peak to peak (maximum - minimum) value along a given axis.</p>
+<p>Refer to <cite>numpy.ptp</cite> for full documentation.</p>
+<p>numpy.ptp : equivalent function</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.put">
+<code class="sig-name descname"><span class="pre">put</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">indices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'raise'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.put" title="Permalink to this definition"></a></dt>
+<dd><p>Set <code class="docutils literal notranslate"><span class="pre">a.flat[n]</span> <span class="pre">=</span> <span class="pre">values[n]</span></code> for all <cite>n</cite> in indices.</p>
+<p>Refer to <cite>numpy.put</cite> for full documentation.</p>
+<p>numpy.put : equivalent function</p>
+<blockquote>
+<div><p>performs the equivalent of ndarray.put() but enforces units
+values - must be an Quantity with the same units as self</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.real">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">real</span></code><a class="headerlink" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.real" title="Permalink to this definition"></a></dt>
+<dd><p>The real part of the array.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">([</span><span class="mi">1</span><span class="o">+</span><span class="mi">0</span><span class="n">j</span><span class="p">,</span> <span class="mi">0</span><span class="o">+</span><span class="mi">1</span><span class="n">j</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">real</span>
+<span class="go">array([ 1.        ,  0.70710678])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">real</span><span class="o">.</span><span class="n">dtype</span>
+<span class="go">dtype(&#39;float64&#39;)</span>
+</pre></div>
+</div>
+<p>numpy.real : equivalent function</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.rescale">
+<code class="sig-name descname"><span class="pre">rescale</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.rescale" title="Permalink to this definition"></a></dt>
+<dd><p>Return a copy of the quantity converted to the specified units.
+If <cite>units</cite> is <cite>None</cite>, an attempt will be made to rescale the quantity
+to preferred units (see <cite>rescale_preferred</cite>).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.rescale_preferred">
+<code class="sig-name descname"><span class="pre">rescale_preferred</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.rescale_preferred" title="Permalink to this definition"></a></dt>
+<dd><p>Return a copy of the quantity converted to the preferred units and scale.
+These will be identified from among the compatible units specified in the
+list PREFERRED in this module. For example, a voltage quantity might be
+converted to <cite>mV</cite>:
+<code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">import</span> <span class="pre">quantities</span> <span class="pre">as</span> <span class="pre">pq</span>
+<span class="pre">pq.quantity.PREFERRED</span> <span class="pre">=</span> <span class="pre">[pq.mV,</span> <span class="pre">pq.pA]</span>
+<span class="pre">old</span> <span class="pre">=</span> <span class="pre">3.1415</span> <span class="pre">*</span> <span class="pre">pq.V</span>
+<span class="pre">new</span> <span class="pre">=</span> <span class="pre">old.rescale_preferred()</span> <span class="pre">#</span> <span class="pre">`new`</span> <span class="pre">will</span> <span class="pre">be</span> <span class="pre">3141.5</span> <span class="pre">mV.</span>
+<span class="pre">`</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.round">
+<code class="sig-name descname"><span class="pre">round</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">decimals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.round" title="Permalink to this definition"></a></dt>
+<dd><p>Return <cite>a</cite> with each element rounded to the given number of decimals.</p>
+<p>Refer to <cite>numpy.around</cite> for full documentation.</p>
+<p>numpy.around : equivalent function</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.searchsorted">
+<code class="sig-name descname"><span class="pre">searchsorted</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">side</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'left'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sorter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.searchsorted" title="Permalink to this definition"></a></dt>
+<dd><p>Find indices where elements of v should be inserted in a to maintain order.</p>
+<p>For full documentation, see <cite>numpy.searchsorted</cite></p>
+<p>numpy.searchsorted : equivalent function</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.simplified">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">simplified</span></code><a class="headerlink" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.simplified" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.squeeze">
+<code class="sig-name descname"><span class="pre">squeeze</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.squeeze" title="Permalink to this definition"></a></dt>
+<dd><p>Remove axes of length one from <cite>a</cite>.</p>
+<p>Refer to <cite>numpy.squeeze</cite> for full documentation.</p>
+<p>numpy.squeeze : equivalent function</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.std">
+<code class="sig-name descname"><span class="pre">std</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ddof</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keepdims</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">where</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.std" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the standard deviation of the array elements along given axis.</p>
+<p>Refer to <cite>numpy.std</cite> for full documentation.</p>
+<p>numpy.std : equivalent function</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.sum">
+<code class="sig-name descname"><span class="pre">sum</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keepdims</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">where</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.sum" title="Permalink to this definition"></a></dt>
+<dd><p>Return the sum of the array elements over the given axis.</p>
+<p>Refer to <cite>numpy.sum</cite> for full documentation.</p>
+<p>numpy.sum : equivalent function</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.tolist">
+<code class="sig-name descname"><span class="pre">tolist</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.tolist" title="Permalink to this definition"></a></dt>
+<dd><p>Return the array as an <code class="docutils literal notranslate"><span class="pre">a.ndim</span></code>-levels deep nested list of Python scalars.</p>
+<p>Return a copy of the array data as a (nested) Python list.
+Data items are converted to the nearest compatible builtin Python type, via
+the <cite>~numpy.ndarray.item</cite> function.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">a.ndim</span></code> is 0, then since the depth of the nested list is 0, it will
+not be a list at all, but a simple Python scalar.</p>
+<p>none</p>
+<dl class="simple">
+<dt>y<span class="classifier">object, or list of object, or list of list of object, or …</span></dt><dd><p>The possibly nested list of array elements.</p>
+</dd>
+</dl>
+<p>The array may be recreated via <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">np.array(a.tolist())</span></code>, although this
+may sometimes lose precision.</p>
+<p>For a 1D array, <code class="docutils literal notranslate"><span class="pre">a.tolist()</span></code> is almost the same as <code class="docutils literal notranslate"><span class="pre">list(a)</span></code>,
+except that <code class="docutils literal notranslate"><span class="pre">tolist</span></code> changes numpy scalars to Python scalars:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">uint32</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_list</span>
+<span class="go">[1, 2]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">a_list</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="go">&lt;class &#39;numpy.uint32&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_tolist</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_tolist</span>
+<span class="go">[1, 2]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">a_tolist</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="go">&lt;class &#39;int&#39;&gt;</span>
+</pre></div>
+</div>
+<p>Additionally, for a 2D array, <code class="docutils literal notranslate"><span class="pre">tolist</span></code> applies recursively:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="go">[array([1, 2]), array([3, 4])]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="go">[[1, 2], [3, 4]]</span>
+</pre></div>
+</div>
+<p>The base case for this recursion is a 0D array:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="gt">Traceback (most recent call last):</span>
+  <span class="c">...</span>
+<span class="gr">TypeError</span>: <span class="n">iteration over a 0-d array</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="go">1</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.trace">
+<code class="sig-name descname"><span class="pre">trace</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.trace" title="Permalink to this definition"></a></dt>
+<dd><p>Return the sum along diagonals of the array.</p>
+<p>Refer to <cite>numpy.trace</cite> for full documentation.</p>
+<p>numpy.trace : equivalent function</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.units">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">units</span></code><a class="headerlink" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.units" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.standardmodels.cells.Quantity.var">
+<code class="sig-name descname"><span class="pre">var</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ddof</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keepdims</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">where</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.standardmodels.cells.Quantity.var" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the variance of the array elements, along given axis.</p>
+<p>Refer to <cite>numpy.var</cite> for full documentation.</p>
+<p>numpy.var : equivalent function</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="pynn_brainscales.brainscales2.standardmodels.cells.Population.html" class="btn btn-neutral float-left" title="pynn_brainscales.brainscales2.standardmodels.cells.Population" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pynn_brainscales.brainscales2.standardmodels.cells.SpikeSourceArray.html" class="btn btn-neutral float-right" title="pynn_brainscales.brainscales2.standardmodels.cells.SpikeSourceArray" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Electronic Vision(s).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>hxtorch.perceptron &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="hxtorch.perceptron.nn" href="hxtorch.perceptron.nn.html" />
+    <link rel="prev" title="hxtorch.examples" href="hxtorch.examples.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> BrainScaleS-2 Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../brainscales2-demos/index.html">Demos &amp; Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software_components.html">Software Components</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../apis.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api_pynn-brainscales2.html">PyNN API</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../api_hxtorch.html">hxtorch API</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../api_hxtorch.html#hxtorch-from-python">hxtorch from Python</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="hxtorch.html">hxtorch</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api_hxtorch.html#hxtorch-from-c">hxtorch from C++</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api_grenade.html">grenade API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_haldls.html">haldls API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_lola.html">lola API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_stadls.html">stadls API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_fisch.html">fisch API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_hxcomm.html">hxcomm API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_calix.html">calix API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_hate.html">hate API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BrainScaleS-2 Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../apis.html">BrainScaleS-2 API Documentation</a> &raquo;</li>
+          <li><a href="../api_hxtorch.html">API Reference: hxtorch</a> &raquo;</li>
+          <li><a href="hxtorch.html">hxtorch</a> &raquo;</li>
+      <li>hxtorch.perceptron</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_autosummary/hxtorch.perceptron.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="hxtorch-perceptron">
+<h1>hxtorch.perceptron<a class="headerlink" href="#hxtorch-perceptron" title="Permalink to this headline"></a></h1>
+<p class="rubric">Modules</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.perceptron.nn.html#module-hxtorch.perceptron.nn" title="hxtorch.perceptron.nn"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hxtorch.perceptron.nn</span></code></a></p></td>
+<td><p>This module contains layers that can be used in modules together with the building blocks from py:mod:<cite>torch.nn</cite>.</p></td>
+</tr>
+</tbody>
+</table>
+<span class="target" id="module-hxtorch.perceptron"></span><p class="rubric">Classes</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.perceptron.InferenceTracer.html#hxtorch.perceptron.InferenceTracer" title="hxtorch.perceptron.InferenceTracer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InferenceTracer</span></code></a></p></td>
+<td><p>Inference tracer for a linear sequence of operations.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.perceptron.MockParameter.html#hxtorch.perceptron.MockParameter" title="hxtorch.perceptron.MockParameter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MockParameter</span></code></a></p></td>
+<td><p>Parameter of hardware mock.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Functions</p>
+<dl class="py function">
+<dt id="hxtorch.perceptron.add">
+<code class="sig-prename descclassname"><span class="pre">hxtorch.perceptron.</span></code><code class="sig-name descname"><span class="pre">add</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mock</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">torch.Tensor</span><a class="headerlink" href="#hxtorch.perceptron.add" title="Permalink to this definition"></a></dt>
+<dd><p>Elementwise addition operating on int8 value range.</p>
+<p>&#64;param input Input tensor
+&#64;param other Other tensor, which must be broadcastable to input tensor dimension
+&#64;param alpha The scalar multiplier for other
+&#64;param mock Enable mock mode</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="hxtorch.perceptron.argmax">
+<code class="sig-prename descclassname"><span class="pre">hxtorch.perceptron.</span></code><code class="sig-name descname"><span class="pre">argmax</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keepdim</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mock</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">torch.Tensor</span><a class="headerlink" href="#hxtorch.perceptron.argmax" title="Permalink to this definition"></a></dt>
+<dd><p>Arg max operation on int8 value range.</p>
+<p>&#64;param input The input tensor
+&#64;param dim The dimension to reduce. If unspecified, the argmax of the flattened</p>
+<blockquote>
+<div><p>input is returned.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>&#64;param keepdim Whether the output tensor has &#64;p dim retained or not. Ignored</dt><dd><p>if &#64;p dim is unspecified.</p>
+</dd>
+</dl>
+<p>&#64;param mock Enable mock mode</p>
+<p>&#64;return The indices of the maximum values of a tensor across a dimension</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="hxtorch.perceptron.conv1d">
+<code class="sig-prename descclassname"><span class="pre">hxtorch.perceptron.</span></code><code class="sig-name descname"><span class="pre">conv1d</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.perceptron.conv1d" title="Permalink to this definition"></a></dt>
+<dd><p>Overloaded function.</p>
+<ol class="arabic simple">
+<li><p>conv1d(input: torch.Tensor, weight: torch.Tensor, bias: Optional[torch.Tensor] = None, stride: int = 1, num_sends: int = 1, wait_between_events: int = 5, mock: bool = False) -&gt; torch.Tensor</p></li>
+<li><p>conv1d(input: torch.Tensor, weight: torch.Tensor, bias: Optional[torch.Tensor] = None, stride: List[int[1]], num_sends: int = 1, wait_between_events: int = 5, mock: bool = False) -&gt; torch.Tensor</p></li>
+</ol>
+</dd></dl>
+
+<dl class="py function">
+<dt id="hxtorch.perceptron.conv2d">
+<code class="sig-prename descclassname"><span class="pre">hxtorch.perceptron.</span></code><code class="sig-name descname"><span class="pre">conv2d</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.perceptron.conv2d" title="Permalink to this definition"></a></dt>
+<dd><p>Overloaded function.</p>
+<ol class="arabic simple">
+<li><p>conv2d(input: torch.Tensor, weight: torch.Tensor, bias: Optional[torch.Tensor] = None, stride: int = 1, num_sends: int = 1, wait_between_events: int = 5, mock: bool = False) -&gt; torch.Tensor</p></li>
+<li><p>conv2d(input: torch.Tensor, weight: torch.Tensor, bias: Optional[torch.Tensor] = None, stride: List[int[2]], num_sends: int = 1, wait_between_events: int = 5, mock: bool = False) -&gt; torch.Tensor</p></li>
+</ol>
+</dd></dl>
+
+<dl class="py function">
+<dt id="hxtorch.perceptron.converting_relu">
+<code class="sig-prename descclassname"><span class="pre">hxtorch.perceptron.</span></code><code class="sig-name descname"><span class="pre">converting_relu</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shift</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mock</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">torch.Tensor</span><a class="headerlink" href="#hxtorch.perceptron.converting_relu" title="Permalink to this definition"></a></dt>
+<dd><p>Rectified linear unit operating on int8 value range converting to uint5
+value range.
+The result is bit-shifted by &#64;p shift after applying the ReLU and clipped
+to the input range of BrainScaleS-2.</p>
+<p>&#64;param input Input tensor
+&#64;param shift Amount of bits to shift before clipping
+&#64;param mock Enable mock mode</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="hxtorch.perceptron.expanded_conv1d">
+<code class="sig-prename descclassname"><span class="pre">hxtorch.perceptron.</span></code><code class="sig-name descname"><span class="pre">expanded_conv1d</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.perceptron.expanded_conv1d" title="Permalink to this definition"></a></dt>
+<dd><p>Overloaded function.</p>
+<ol class="arabic simple">
+<li><p>expanded_conv1d(input: torch.Tensor, weight: torch.Tensor, bias: Optional[torch.Tensor] = None, stride: int = 1, num_expansions: int = 1, num_sends: int = 1, wait_between_events: int = 5, mock: bool = False) -&gt; torch.Tensor</p></li>
+</ol>
+<p>1D convolution operation that unrolls the weight matrix for execution
+on hardware. This maximizes the use of the synapses array.</p>
+<p>&#64;note
+Fixed-pattern noise cannot be individually compensated for during
+training, because the same weights are used at different locations!</p>
+<p>&#64;param input Input tensor of shape (minibatch, in_channels, <em>iW</em>)
+&#64;param weight Filters of shape (out_channels, in_channels / groups, <em>kW</em>)
+&#64;param bias Optional bias of shape (out_channels)
+&#64;param stride Stride of the convolving kernel
+&#64;param num_expansions Number of enrolled kernels that will be placed side</p>
+<blockquote>
+<div><p>by side in a single operation</p>
+</div></blockquote>
+<p>&#64;param num_sends How often to send the (same) input vector
+&#64;param wait_between_events How long to wait (in FPGA cycles) between events
+&#64;param mock Enable mock mode</p>
+<ol class="arabic simple" start="2">
+<li><p>expanded_conv1d(input: torch.Tensor, weight: torch.Tensor, bias: Optional[torch.Tensor] = None, stride: List[int[1]], num_expansions: int = 1, num_sends: int = 1, wait_between_events: int = 5, mock: bool = False) -&gt; torch.Tensor</p></li>
+</ol>
+</dd></dl>
+
+<dl class="py function">
+<dt id="hxtorch.perceptron.get_mock_parameter">
+<code class="sig-prename descclassname"><span class="pre">hxtorch.perceptron.</span></code><code class="sig-name descname"><span class="pre">get_mock_parameter</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">hxtorch::perceptron::MockParameter</span><a class="headerlink" href="#hxtorch.perceptron.get_mock_parameter" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the current mock parameters.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="hxtorch.perceptron.inference_trace">
+<code class="sig-prename descclassname"><span class="pre">hxtorch.perceptron.</span></code><code class="sig-name descname"><span class="pre">inference_trace</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">torch.Tensor</span><a class="headerlink" href="#hxtorch.perceptron.inference_trace" title="Permalink to this definition"></a></dt>
+<dd><p>Execute inference of stored trace.</p>
+<p>&#64;param input Input data to use
+&#64;param filename Filename to serialized operation trace</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="hxtorch.perceptron.mac">
+<code class="sig-prename descclassname"><span class="pre">hxtorch.perceptron.</span></code><code class="sig-name descname"><span class="pre">mac</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_sends</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_between_events</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mock</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">madc_recording_neuron_id</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">madc_recording_path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">torch.Tensor</span><a class="headerlink" href="#hxtorch.perceptron.mac" title="Permalink to this definition"></a></dt>
+<dd><p>The bare mutliply-accumulate operation of BrainScaleS-2. A 1D input &#64;p x
+is multiplied by the weight matrix &#64;p weights. If &#64;p x is two-dimensional,
+the weights are sent only once to the synapse array and the inputs are
+consecutively multiplied as a 1D vector.</p>
+<p>&#64;param x Input tensor
+&#64;param weights The weights of the synapse array
+&#64;param num_sends How often to send the (same) input vector
+&#64;param wait_between_events How long to wait (in FPGA cycles) between events
+&#64;param mock Enable mock mode</p>
+<p>&#64;return Resulting tensor</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="hxtorch.perceptron.matmul">
+<code class="sig-prename descclassname"><span class="pre">hxtorch.perceptron.</span></code><code class="sig-name descname"><span class="pre">matmul</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_sends</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_between_events</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mock</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">madc_recording_neuron_id</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">madc_recording_path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">torch.Tensor</span><a class="headerlink" href="#hxtorch.perceptron.matmul" title="Permalink to this definition"></a></dt>
+<dd><p>Drop-in replacement for the torch.matmul operation that uses BrainScaleS-2.</p>
+<p>&#64;note
+The current implementation only supports &#64;p other to be 1D or 2D.</p>
+<p>&#64;param input First input tensor
+&#64;param other Second input tensor
+&#64;param num_sends How often to send the (same) input vector
+&#64;param wait_between_events How long to wait (in FPGA cycles) between events
+&#64;param mock: Enable mock mode</p>
+<p>&#64;return Resulting tensor</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="hxtorch.perceptron.measure_mock_parameter">
+<code class="sig-prename descclassname"><span class="pre">hxtorch.perceptron.</span></code><code class="sig-name descname"><span class="pre">measure_mock_parameter</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">hxtorch::perceptron::MockParameter</span><a class="headerlink" href="#hxtorch.perceptron.measure_mock_parameter" title="Permalink to this definition"></a></dt>
+<dd><p>Measures the mock parameters, i.e. gain and noise_std, by multiplying a
+full weight with an artificial test input on the BSS-2 chip.
+For this purpose a random pattern is used, whose mean value is successively
+reduced to also work with higher gain factors.
+The output for the actual calibration is chosen such that it is close to
+the middle of the available range.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="hxtorch.perceptron.relu">
+<code class="sig-prename descclassname"><span class="pre">hxtorch.perceptron.</span></code><code class="sig-name descname"><span class="pre">relu</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mock</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">torch.Tensor</span><a class="headerlink" href="#hxtorch.perceptron.relu" title="Permalink to this definition"></a></dt>
+<dd><p>Rectified linear unit operating on int8 value range.</p>
+<p>&#64;param input Input tensor
+&#64;param mock Enable mock mode</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="hxtorch.perceptron.set_mock_parameter">
+<code class="sig-prename descclassname"><span class="pre">hxtorch.perceptron.</span></code><code class="sig-name descname"><span class="pre">set_mock_parameter</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">parameter:</span> <span class="pre">hxtorch::perceptron::MockParameter</span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.perceptron.set_mock_parameter" title="Permalink to this definition"></a></dt>
+<dd><p>Sets the mock parameters.</p>
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="hxtorch.examples.html" class="btn btn-neutral float-left" title="hxtorch.examples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="hxtorch.perceptron.nn.html" class="btn btn-neutral float-right" title="hxtorch.perceptron.nn" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Electronic Vision(s).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

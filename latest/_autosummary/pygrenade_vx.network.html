@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pygrenade_vx.network &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pygrenade_vx.network.routing" href="pygrenade_vx.network.routing.html" />
+    <link rel="prev" title="pygrenade_vx.execution.ManagedJITGraphExecutor" href="pygrenade_vx.execution.ManagedJITGraphExecutor.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> BrainScaleS-2 Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../brainscales2-demos/index.html">Demos &amp; Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software_components.html">Software Components</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../apis.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api_pynn-brainscales2.html">PyNN API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_hxtorch.html">hxtorch API</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../api_grenade.html">grenade API</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="pygrenade_vx.html">pygrenade_vx</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="pygrenade_vx.common.html">pygrenade_vx.common</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygrenade_vx.execution.html">pygrenade_vx.execution</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">pygrenade_vx.network</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygrenade_vx.signal_flow.html">pygrenade_vx.signal_flow</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api_haldls.html">haldls API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_lola.html">lola API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_stadls.html">stadls API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_fisch.html">fisch API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_hxcomm.html">hxcomm API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_calix.html">calix API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_hate.html">hate API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BrainScaleS-2 Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../apis.html">BrainScaleS-2 API Documentation</a> &raquo;</li>
+          <li><a href="../api_grenade.html">API Reference: grenade</a> &raquo;</li>
+          <li><a href="pygrenade_vx.html">pygrenade_vx</a> &raquo;</li>
+      <li>pygrenade_vx.network</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_autosummary/pygrenade_vx.network.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="pygrenade-vx-network">
+<h1>pygrenade_vx.network<a class="headerlink" href="#pygrenade-vx-network" title="Permalink to this headline"></a></h1>
+<p class="rubric">Modules</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="pygrenade_vx.network.routing.html#module-pygrenade_vx.network.routing" title="pygrenade_vx.network.routing"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pygrenade_vx.network.routing</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<span class="target" id="module-pygrenade_vx.network"></span><p class="rubric">Classes</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="pygrenade_vx.network.AtomicNeuronOnExecutionInstance.html#pygrenade_vx.network.AtomicNeuronOnExecutionInstance" title="pygrenade_vx.network.AtomicNeuronOnExecutionInstance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AtomicNeuronOnExecutionInstance</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pygrenade_vx.network.AtomicNeuronOnNetwork.html#pygrenade_vx.network.AtomicNeuronOnNetwork" title="pygrenade_vx.network.AtomicNeuronOnNetwork"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AtomicNeuronOnNetwork</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pygrenade_vx.network.BackgroundSourcePopulation.html#pygrenade_vx.network.BackgroundSourcePopulation" title="pygrenade_vx.network.BackgroundSourcePopulation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BackgroundSourcePopulation</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pygrenade_vx.network.CADCRecording.html#pygrenade_vx.network.CADCRecording" title="pygrenade_vx.network.CADCRecording"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CADCRecording</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pygrenade_vx.network.ConnectionToHardwareRoutes.html#pygrenade_vx.network.ConnectionToHardwareRoutes" title="pygrenade_vx.network.ConnectionToHardwareRoutes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ConnectionToHardwareRoutes</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pygrenade_vx.network.Coordinate.html#pygrenade_vx.network.Coordinate" title="pygrenade_vx.network.Coordinate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Coordinate</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pygrenade_vx.network.ExternalSourcePopulation.html#pygrenade_vx.network.ExternalSourcePopulation" title="pygrenade_vx.network.ExternalSourcePopulation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ExternalSourcePopulation</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pygrenade_vx.network.InputGenerator.html#pygrenade_vx.network.InputGenerator" title="pygrenade_vx.network.InputGenerator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InputGenerator</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pygrenade_vx.network.InterExecutionInstanceProjection.html#pygrenade_vx.network.InterExecutionInstanceProjection" title="pygrenade_vx.network.InterExecutionInstanceProjection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InterExecutionInstanceProjection</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pygrenade_vx.network.InterExecutionInstanceProjectionOnNetwork.html#pygrenade_vx.network.InterExecutionInstanceProjectionOnNetwork" title="pygrenade_vx.network.InterExecutionInstanceProjectionOnNetwork"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InterExecutionInstanceProjectionOnNetwork</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pygrenade_vx.network.MADCRecording.html#pygrenade_vx.network.MADCRecording" title="pygrenade_vx.network.MADCRecording"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MADCRecording</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pygrenade_vx.network.Network.html#pygrenade_vx.network.Network" title="pygrenade_vx.network.Network"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Network</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pygrenade_vx.network.NetworkBuilder.html#pygrenade_vx.network.NetworkBuilder" title="pygrenade_vx.network.NetworkBuilder"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NetworkBuilder</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pygrenade_vx.network.NetworkGraph.html#pygrenade_vx.network.NetworkGraph" title="pygrenade_vx.network.NetworkGraph"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NetworkGraph</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pygrenade_vx.network.NetworkGraphStatistics.html#pygrenade_vx.network.NetworkGraphStatistics" title="pygrenade_vx.network.NetworkGraphStatistics"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NetworkGraphStatistics</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pygrenade_vx.network.NeuronRecording.html#pygrenade_vx.network.NeuronRecording" title="pygrenade_vx.network.NeuronRecording"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NeuronRecording</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pygrenade_vx.network.OnlyRecordingPlasticityRuleGenerator.html#pygrenade_vx.network.OnlyRecordingPlasticityRuleGenerator" title="pygrenade_vx.network.OnlyRecordingPlasticityRuleGenerator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OnlyRecordingPlasticityRuleGenerator</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pygrenade_vx.network.PadRecording.html#pygrenade_vx.network.PadRecording" title="pygrenade_vx.network.PadRecording"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PadRecording</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pygrenade_vx.network.PlasticityRule.html#pygrenade_vx.network.PlasticityRule" title="pygrenade_vx.network.PlasticityRule"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PlasticityRule</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pygrenade_vx.network.PlasticityRuleOnExecutionInstance.html#pygrenade_vx.network.PlasticityRuleOnExecutionInstance" title="pygrenade_vx.network.PlasticityRuleOnExecutionInstance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PlasticityRuleOnExecutionInstance</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pygrenade_vx.network.PlasticityRuleOnNetwork.html#pygrenade_vx.network.PlasticityRuleOnNetwork" title="pygrenade_vx.network.PlasticityRuleOnNetwork"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PlasticityRuleOnNetwork</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pygrenade_vx.network.Population.html#pygrenade_vx.network.Population" title="pygrenade_vx.network.Population"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Population</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pygrenade_vx.network.PopulationOnExecutionInstance.html#pygrenade_vx.network.PopulationOnExecutionInstance" title="pygrenade_vx.network.PopulationOnExecutionInstance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PopulationOnExecutionInstance</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pygrenade_vx.network.PopulationOnNetwork.html#pygrenade_vx.network.PopulationOnNetwork" title="pygrenade_vx.network.PopulationOnNetwork"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PopulationOnNetwork</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pygrenade_vx.network.Projection.html#pygrenade_vx.network.Projection" title="pygrenade_vx.network.Projection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Projection</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pygrenade_vx.network.ProjectionOnExecutionInstance.html#pygrenade_vx.network.ProjectionOnExecutionInstance" title="pygrenade_vx.network.ProjectionOnExecutionInstance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ProjectionOnExecutionInstance</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pygrenade_vx.network.ProjectionOnNetwork.html#pygrenade_vx.network.ProjectionOnNetwork" title="pygrenade_vx.network.ProjectionOnNetwork"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ProjectionOnNetwork</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pygrenade_vx.network.RawRecording.html#pygrenade_vx.network.RawRecording" title="pygrenade_vx.network.RawRecording"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RawRecording</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pygrenade_vx.network.RawRecordingData.html#pygrenade_vx.network.RawRecordingData" title="pygrenade_vx.network.RawRecordingData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RawRecordingData</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pygrenade_vx.network.Receptor.html#pygrenade_vx.network.Receptor" title="pygrenade_vx.network.Receptor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Receptor</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pygrenade_vx.network.RoutingResult.html#pygrenade_vx.network.RoutingResult" title="pygrenade_vx.network.RoutingResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RoutingResult</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pygrenade_vx.network.TimedRecording.html#pygrenade_vx.network.TimedRecording" title="pygrenade_vx.network.TimedRecording"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TimedRecording</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Functions</p>
+<dl class="py function">
+<dt id="pygrenade_vx.network.build_network_graph">
+<code class="sig-prename descclassname"><span class="pre">pygrenade_vx.network.</span></code><code class="sig-name descname"><span class="pre">build_network_graph</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">network</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network.Network</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">routing_result</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network.RoutingResult</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">_pygrenade_vx_network.NetworkGraph</span><a class="headerlink" href="#pygrenade_vx.network.build_network_graph" title="Permalink to this definition"></a></dt>
+<dd><p>Build a hardware network representation for a given network.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pygrenade_vx.network.extract_cadc_samples">
+<code class="sig-prename descclassname"><span class="pre">pygrenade_vx.network.</span></code><code class="sig-name descname"><span class="pre">extract_cadc_samples</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_signal_flow.OutputData</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">network_graph</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network.NetworkGraph</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float32</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.int32</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.int32</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.int32</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.int32</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.int32</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#pygrenade_vx.network.extract_cadc_samples" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="pygrenade_vx.network.extract_madc_samples">
+<code class="sig-prename descclassname"><span class="pre">pygrenade_vx.network.</span></code><code class="sig-name descname"><span class="pre">extract_madc_samples</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_signal_flow.OutputData</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">network_graph</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network.NetworkGraph</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float32</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.int32</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.int32</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.int32</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.int32</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.int32</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#pygrenade_vx.network.extract_madc_samples" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="pygrenade_vx.network.extract_neuron_spikes">
+<code class="sig-prename descclassname"><span class="pre">pygrenade_vx.network.</span></code><code class="sig-name descname"><span class="pre">extract_neuron_spikes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_signal_flow.OutputData</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">network_graph</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network.NetworkGraph</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float64</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#pygrenade_vx.network.extract_neuron_spikes" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="pygrenade_vx.network.extract_plasticity_rule_recording_data">
+<code class="sig-prename descclassname"><span class="pre">pygrenade_vx.network.</span></code><code class="sig-name descname"><span class="pre">extract_plasticity_rule_recording_data</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_signal_flow.OutputData</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">network_graph</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network.NetworkGraph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">descriptor</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network.PlasticityRuleOnNetwork</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Union[grenade::vx::signal_flow::vertex::PlasticityRule::RawRecordingData,</span> <span class="pre">_pygrenade_vx_network.PlasticityRule.TimedRecordingData]</span><a class="headerlink" href="#pygrenade_vx.network.extract_plasticity_rule_recording_data" title="Permalink to this definition"></a></dt>
+<dd><p>Extract to be recorded observable data of a plasticity rule.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pygrenade_vx.network.extract_statistics">
+<code class="sig-prename descclassname"><span class="pre">pygrenade_vx.network.</span></code><code class="sig-name descname"><span class="pre">extract_statistics</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">network_graph:</span> <span class="pre">grenade::vx::network::NetworkGraph</span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">grenade::vx::network::NetworkGraphStatistics</span><a class="headerlink" href="#pygrenade_vx.network.extract_statistics" title="Permalink to this definition"></a></dt>
+<dd><p>Extract statistics from network graph.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pygrenade_vx.network.requires_routing">
+<code class="sig-prename descclassname"><span class="pre">pygrenade_vx.network.</span></code><code class="sig-name descname"><span class="pre">requires_routing</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">current</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network.Network</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">old_graph</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network.NetworkGraph</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#pygrenade_vx.network.requires_routing" title="Permalink to this definition"></a></dt>
+<dd><p>Get whether the current network requires routing compared to the old network.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pygrenade_vx.network.run">
+<code class="sig-prename descclassname"><span class="pre">pygrenade_vx.network.</span></code><code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygrenade_vx.network.run" title="Permalink to this definition"></a></dt>
+<dd><p>Overloaded function.</p>
+<ol class="arabic simple">
+<li><p>run(connection: pyhxcomm_vx.ZeroMockConnectionHandle, network_graph: _pygrenade_vx_network.NetworkGraph, config: Dict[_pygrenade_vx_common.ExecutionInstanceID, pylola_vx_v3.Chip], input: _pygrenade_vx_signal_flow.InputData, hooks: Dict[_pygrenade_vx_common.ExecutionInstanceID, _pygrenade_vx_signal_flow.ExecutionInstanceHooks]) -&gt; _pygrenade_vx_signal_flow.OutputData</p></li>
+<li><p>run(connection: pyhxcomm_vx.ZeroMockConnectionHandle, network_graphs: List[_pygrenade_vx_network.NetworkGraph], configs: List[Dict[_pygrenade_vx_common.ExecutionInstanceID, pylola_vx_v3.Chip]], inputs: List[_pygrenade_vx_signal_flow.InputData], hooks: Dict[_pygrenade_vx_common.ExecutionInstanceID, _pygrenade_vx_signal_flow.ExecutionInstanceHooks]) -&gt; List[_pygrenade_vx_signal_flow.OutputData]</p></li>
+<li><p>run(connection: pyhxcomm_vx.ZeroMockConnectionHandle, network_graph: _pygrenade_vx_network.NetworkGraph, config: Dict[_pygrenade_vx_common.ExecutionInstanceID, pylola_vx_v3.Chip], input: _pygrenade_vx_signal_flow.InputData) -&gt; _pygrenade_vx_signal_flow.OutputData</p></li>
+<li><p>run(connection: pyhxcomm_vx.ZeroMockConnectionHandle, network_graphs: List[_pygrenade_vx_network.NetworkGraph], configs: List[Dict[_pygrenade_vx_common.ExecutionInstanceID, pylola_vx_v3.Chip]], inputs: List[_pygrenade_vx_signal_flow.InputData]) -&gt; List[_pygrenade_vx_signal_flow.OutputData]</p></li>
+<li><p>run(connection: pyhxcomm_vx.QuiggeldyConnectionHandle, network_graph: _pygrenade_vx_network.NetworkGraph, config: Dict[_pygrenade_vx_common.ExecutionInstanceID, pylola_vx_v3.Chip], input: _pygrenade_vx_signal_flow.InputData, hooks: Dict[_pygrenade_vx_common.ExecutionInstanceID, _pygrenade_vx_signal_flow.ExecutionInstanceHooks]) -&gt; _pygrenade_vx_signal_flow.OutputData</p></li>
+<li><p>run(connection: pyhxcomm_vx.QuiggeldyConnectionHandle, network_graphs: List[_pygrenade_vx_network.NetworkGraph], configs: List[Dict[_pygrenade_vx_common.ExecutionInstanceID, pylola_vx_v3.Chip]], inputs: List[_pygrenade_vx_signal_flow.InputData], hooks: Dict[_pygrenade_vx_common.ExecutionInstanceID, _pygrenade_vx_signal_flow.ExecutionInstanceHooks]) -&gt; List[_pygrenade_vx_signal_flow.OutputData]</p></li>
+<li><p>run(connection: pyhxcomm_vx.QuiggeldyConnectionHandle, network_graph: _pygrenade_vx_network.NetworkGraph, config: Dict[_pygrenade_vx_common.ExecutionInstanceID, pylola_vx_v3.Chip], input: _pygrenade_vx_signal_flow.InputData) -&gt; _pygrenade_vx_signal_flow.OutputData</p></li>
+<li><p>run(connection: pyhxcomm_vx.QuiggeldyConnectionHandle, network_graphs: List[_pygrenade_vx_network.NetworkGraph], configs: List[Dict[_pygrenade_vx_common.ExecutionInstanceID, pylola_vx_v3.Chip]], inputs: List[_pygrenade_vx_signal_flow.InputData]) -&gt; List[_pygrenade_vx_signal_flow.OutputData]</p></li>
+<li><p>run(connection: pyhxcomm_vx.SimConnectionHandle, network_graph: _pygrenade_vx_network.NetworkGraph, config: Dict[_pygrenade_vx_common.ExecutionInstanceID, pylola_vx_v3.Chip], input: _pygrenade_vx_signal_flow.InputData, hooks: Dict[_pygrenade_vx_common.ExecutionInstanceID, _pygrenade_vx_signal_flow.ExecutionInstanceHooks]) -&gt; _pygrenade_vx_signal_flow.OutputData</p></li>
+<li><p>run(connection: pyhxcomm_vx.SimConnectionHandle, network_graphs: List[_pygrenade_vx_network.NetworkGraph], configs: List[Dict[_pygrenade_vx_common.ExecutionInstanceID, pylola_vx_v3.Chip]], inputs: List[_pygrenade_vx_signal_flow.InputData], hooks: Dict[_pygrenade_vx_common.ExecutionInstanceID, _pygrenade_vx_signal_flow.ExecutionInstanceHooks]) -&gt; List[_pygrenade_vx_signal_flow.OutputData]</p></li>
+<li><p>run(connection: pyhxcomm_vx.SimConnectionHandle, network_graph: _pygrenade_vx_network.NetworkGraph, config: Dict[_pygrenade_vx_common.ExecutionInstanceID, pylola_vx_v3.Chip], input: _pygrenade_vx_signal_flow.InputData) -&gt; _pygrenade_vx_signal_flow.OutputData</p></li>
+<li><p>run(connection: pyhxcomm_vx.SimConnectionHandle, network_graphs: List[_pygrenade_vx_network.NetworkGraph], configs: List[Dict[_pygrenade_vx_common.ExecutionInstanceID, pylola_vx_v3.Chip]], inputs: List[_pygrenade_vx_signal_flow.InputData]) -&gt; List[_pygrenade_vx_signal_flow.OutputData]</p></li>
+<li><p>run(connection: pyhxcomm_vx.ARQConnectionHandle, network_graph: _pygrenade_vx_network.NetworkGraph, config: Dict[_pygrenade_vx_common.ExecutionInstanceID, pylola_vx_v3.Chip], input: _pygrenade_vx_signal_flow.InputData, hooks: Dict[_pygrenade_vx_common.ExecutionInstanceID, _pygrenade_vx_signal_flow.ExecutionInstanceHooks]) -&gt; _pygrenade_vx_signal_flow.OutputData</p></li>
+<li><p>run(connection: pyhxcomm_vx.ARQConnectionHandle, network_graphs: List[_pygrenade_vx_network.NetworkGraph], configs: List[Dict[_pygrenade_vx_common.ExecutionInstanceID, pylola_vx_v3.Chip]], inputs: List[_pygrenade_vx_signal_flow.InputData], hooks: Dict[_pygrenade_vx_common.ExecutionInstanceID, _pygrenade_vx_signal_flow.ExecutionInstanceHooks]) -&gt; List[_pygrenade_vx_signal_flow.OutputData]</p></li>
+<li><p>run(connection: pyhxcomm_vx.ARQConnectionHandle, network_graph: _pygrenade_vx_network.NetworkGraph, config: Dict[_pygrenade_vx_common.ExecutionInstanceID, pylola_vx_v3.Chip], input: _pygrenade_vx_signal_flow.InputData) -&gt; _pygrenade_vx_signal_flow.OutputData</p></li>
+<li><p>run(connection: pyhxcomm_vx.ARQConnectionHandle, network_graphs: List[_pygrenade_vx_network.NetworkGraph], configs: List[Dict[_pygrenade_vx_common.ExecutionInstanceID, pylola_vx_v3.Chip]], inputs: List[_pygrenade_vx_signal_flow.InputData]) -&gt; List[_pygrenade_vx_signal_flow.OutputData]</p></li>
+<li><p>run(connection: _pygrenade_vx_execution.JITGraphExecutorHandle, network_graph: _pygrenade_vx_network.NetworkGraph, config: Dict[_pygrenade_vx_common.ExecutionInstanceID, pylola_vx_v3.Chip], input: _pygrenade_vx_signal_flow.InputData, hooks: Dict[_pygrenade_vx_common.ExecutionInstanceID, _pygrenade_vx_signal_flow.ExecutionInstanceHooks]) -&gt; _pygrenade_vx_signal_flow.OutputData</p></li>
+<li><p>run(connection: _pygrenade_vx_execution.JITGraphExecutorHandle, network_graphs: List[_pygrenade_vx_network.NetworkGraph], configs: List[Dict[_pygrenade_vx_common.ExecutionInstanceID, pylola_vx_v3.Chip]], inputs: List[_pygrenade_vx_signal_flow.InputData], hooks: Dict[_pygrenade_vx_common.ExecutionInstanceID, _pygrenade_vx_signal_flow.ExecutionInstanceHooks]) -&gt; List[_pygrenade_vx_signal_flow.OutputData]</p></li>
+<li><p>run(connection: _pygrenade_vx_execution.JITGraphExecutorHandle, network_graph: _pygrenade_vx_network.NetworkGraph, config: Dict[_pygrenade_vx_common.ExecutionInstanceID, pylola_vx_v3.Chip], input: _pygrenade_vx_signal_flow.InputData) -&gt; _pygrenade_vx_signal_flow.OutputData</p></li>
+<li><p>run(connection: _pygrenade_vx_execution.JITGraphExecutorHandle, network_graphs: List[_pygrenade_vx_network.NetworkGraph], configs: List[Dict[_pygrenade_vx_common.ExecutionInstanceID, pylola_vx_v3.Chip]], inputs: List[_pygrenade_vx_signal_flow.InputData]) -&gt; List[_pygrenade_vx_signal_flow.OutputData]</p></li>
+</ol>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pygrenade_vx.network.update_network_graph">
+<code class="sig-prename descclassname"><span class="pre">pygrenade_vx.network.</span></code><code class="sig-name descname"><span class="pre">update_network_graph</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">network_graph</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network.NetworkGraph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">network</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network.Network</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#pygrenade_vx.network.update_network_graph" title="Permalink to this definition"></a></dt>
+<dd><p>Update an exisiting hardware graph representation. For this to work, no new routing has to have been required.</p>
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="pygrenade_vx.execution.ManagedJITGraphExecutor.html" class="btn btn-neutral float-left" title="pygrenade_vx.execution.ManagedJITGraphExecutor" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pygrenade_vx.network.routing.html" class="btn btn-neutral float-right" title="pygrenade_vx.network.routing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Electronic Vision(s).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

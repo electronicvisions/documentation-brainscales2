@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>calix.hagen.neuron_leak_bias.MembraneTimeConstCalibOffset &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="calix.hagen.neuron_leak_bias.MembraneTimeConstCalibReset" href="calix.hagen.neuron_leak_bias.MembraneTimeConstCalibReset.html" />
+    <link rel="prev" title="calix.hagen.neuron_leak_bias.MembraneTimeConstCalibCADC" href="calix.hagen.neuron_leak_bias.MembraneTimeConstCalibCADC.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> BrainScaleS-2 Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../brainscales2-demos/index.html">Demos &amp; Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software_components.html">Software Components</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../apis.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api_pynn-brainscales2.html">PyNN API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_hxtorch.html">hxtorch API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_grenade.html">grenade API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_haldls.html">haldls API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_lola.html">lola API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_stadls.html">stadls API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_fisch.html">fisch API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_hxcomm.html">hxcomm API</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../api_calix.html">calix API</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="calix.html">calix</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="calix.calib_cache.html">calix.calib_cache</a></li>
+<li class="toctree-l4"><a class="reference internal" href="calix.common.html">calix.common</a></li>
+<li class="toctree-l4"><a class="reference internal" href="calix.constants.html">calix.constants</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="calix.hagen.html">calix.hagen</a></li>
+<li class="toctree-l4"><a class="reference internal" href="calix.spiking.html">calix.spiking</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api_hate.html">hate API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BrainScaleS-2 Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../apis.html">BrainScaleS-2 API Documentation</a> &raquo;</li>
+          <li><a href="../api_calix.html">API Reference: calix</a> &raquo;</li>
+          <li><a href="calix.html">calix</a> &raquo;</li>
+          <li><a href="calix.hagen.html">calix.hagen</a> &raquo;</li>
+          <li><a href="calix.hagen.neuron_leak_bias.html">calix.hagen.neuron_leak_bias</a> &raquo;</li>
+      <li>calix.hagen.neuron_leak_bias.MembraneTimeConstCalibOffset</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_autosummary/calix.hagen.neuron_leak_bias.MembraneTimeConstCalibOffset.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="calix-hagen-neuron-leak-bias-membranetimeconstcaliboffset">
+<h1>calix.hagen.neuron_leak_bias.MembraneTimeConstCalibOffset<a class="headerlink" href="#calix-hagen-neuron-leak-bias-membranetimeconstcaliboffset" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt id="calix.hagen.neuron_leak_bias.MembraneTimeConstCalibOffset">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">calix.hagen.neuron_leak_bias.</span></code><code class="sig-name descname"><span class="pre">MembraneTimeConstCalibOffset</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">quantities.quantity.Quantity</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">neuron_configs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">pyhaldls_vx_v3.NeuronConfig</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.hagen.neuron_leak_bias.MembraneTimeConstCalibOffset" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="calix.common.madc_base.Calib.html#calix.common.madc_base.Calib" title="calix.common.madc_base.Calib"><code class="xref py py-class docutils literal notranslate"><span class="pre">calix.common.madc_base.Calib</span></code></a></p>
+<p>Measure response to step current with MADC to calibrate the membrane time
+constant.</p>
+<p>Due to the MADC’s high sample rate, an exponential fit on the decaying
+potential after a step current stimulus is used to determine the
+membrane time constant. Leak bias currents are tweaked to reach
+the desired membrane time constant.</p>
+<p>This calibration decides whether leak division is required during
+prelude. The given neuron configs are therefore altered.
+The original neuron config (configured on chip before running the
+calibration) is not restored, instead we stay with the config
+used (and altered) during calibration.</p>
+<p>Requirements:
+* Leak potential is calibrated to the desired value. This is useful</p>
+<blockquote>
+<div><p>since the time constant is then calibrated at and above this
+selected potential.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>The desired membrane time constant is larger than some 3 us, since
+leak multiplication is not supported by this calibration.</p></li>
+<li><p>The synaptic input should be on; it should be calibrated or the
+bias currents should be set to 0. The reason is an effect on the
+membrane dynamics for some neurons, which looks similar to leakage.
+We recommend the synaptic input to be enabled and calibrated.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>neuron_configs</strong> – List of desired neuron configurations.
+Necessary to enable leak division.</p></li>
+<li><p><strong>adjust_bias_range</strong> – Enable/disable adjustment of leak division
+to extend the dynamic range of calibration. By default, this
+setting is enabled and we select appropriate settings during
+the prelude.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="calix.hagen.neuron_leak_bias.MembraneTimeConstCalibOffset.__init__">
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">quantities.quantity.Quantity</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">neuron_configs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">pyhaldls_vx_v3.NeuronConfig</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.hagen.neuron_leak_bias.MembraneTimeConstCalibOffset.__init__" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>neuron_configs</strong> – List of neuron configurations. If None, the
+hagen-mode default neuron config is used for all neurons.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.hagen.neuron_leak_bias.MembraneTimeConstCalibOffset.__init__" title="calix.hagen.neuron_leak_bias.MembraneTimeConstCalibOffset.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(target[, neuron_configs])</p></td>
+<td><p><dl class="field-list simple">
+<dt class="field-odd">param neuron_configs</dt>
+<dd class="field-odd"><p>List of neuron configurations. If None, the</p>
+</dd>
+</dl>
+</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#calix.hagen.neuron_leak_bias.MembraneTimeConstCalibOffset.configure_parameters" title="calix.hagen.neuron_leak_bias.MembraneTimeConstCalibOffset.configure_parameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">configure_parameters</span></code></a>(builder, parameters)</p></td>
+<td><p>Configure the given array of leak bias currents.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.hagen.neuron_leak_bias.MembraneTimeConstCalibOffset.evaluate" title="calix.hagen.neuron_leak_bias.MembraneTimeConstCalibOffset.evaluate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">evaluate</span></code></a>(samples)</p></td>
+<td><p>Evaluates the obtained MADC samples.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#calix.hagen.neuron_leak_bias.MembraneTimeConstCalibOffset.neuron_config_disabled" title="calix.hagen.neuron_leak_bias.MembraneTimeConstCalibOffset.neuron_config_disabled"><code class="xref py py-obj docutils literal notranslate"><span class="pre">neuron_config_disabled</span></code></a>(neuron_coord)</p></td>
+<td><p>Return a neuron config with readout disabled.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.hagen.neuron_leak_bias.MembraneTimeConstCalibOffset.neuron_config_readout" title="calix.hagen.neuron_leak_bias.MembraneTimeConstCalibOffset.neuron_config_readout"><code class="xref py py-obj docutils literal notranslate"><span class="pre">neuron_config_readout</span></code></a>(neuron_coord)</p></td>
+<td><p>Return a neuron config with readout enabled.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#calix.hagen.neuron_leak_bias.MembraneTimeConstCalibOffset.postlude" title="calix.hagen.neuron_leak_bias.MembraneTimeConstCalibOffset.postlude"><code class="xref py py-obj docutils literal notranslate"><span class="pre">postlude</span></code></a>(connection)</p></td>
+<td><p>Restore original readout configuration.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.hagen.neuron_leak_bias.MembraneTimeConstCalibOffset.prelude" title="calix.hagen.neuron_leak_bias.MembraneTimeConstCalibOffset.prelude"><code class="xref py py-obj docutils literal notranslate"><span class="pre">prelude</span></code></a>(connection)</p></td>
+<td><p>Prepares chip for calibration.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#calix.hagen.neuron_leak_bias.MembraneTimeConstCalibOffset.stimulate" title="calix.hagen.neuron_leak_bias.MembraneTimeConstCalibOffset.stimulate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stimulate</span></code></a>(builder, neuron_coord, …)</p></td>
+<td><p>Disable the membrane offset current.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="calix.hagen.neuron_leak_bias.MembraneTimeConstCalibOffset.configure_parameters">
+<code class="sig-name descname"><span class="pre">configure_parameters</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">builder</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="calix.common.base.WriteRecordingPlaybackProgramBuilder.html#calix.common.base.WriteRecordingPlaybackProgramBuilder" title="calix.common.base.WriteRecordingPlaybackProgramBuilder"><span class="pre">calix.common.base.WriteRecordingPlaybackProgramBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">numpy.ndarray</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="calix.common.base.WriteRecordingPlaybackProgramBuilder.html#calix.common.base.WriteRecordingPlaybackProgramBuilder" title="calix.common.base.WriteRecordingPlaybackProgramBuilder"><span class="pre">calix.common.base.WriteRecordingPlaybackProgramBuilder</span></a><a class="headerlink" href="#calix.hagen.neuron_leak_bias.MembraneTimeConstCalibOffset.configure_parameters" title="Permalink to this definition"></a></dt>
+<dd><p>Configure the given array of leak bias currents.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>builder</strong> – Builder to append configuration instructions to.</p></li>
+<li><p><strong>parameters</strong> – Array of bias currents to set up.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Builder with configuration appended.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calix.hagen.neuron_leak_bias.MembraneTimeConstCalibOffset.evaluate">
+<code class="sig-name descname"><span class="pre">evaluate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">samples</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">numpy.ndarray</span><a class="headerlink" href="#calix.hagen.neuron_leak_bias.MembraneTimeConstCalibOffset.evaluate" title="Permalink to this definition"></a></dt>
+<dd><p>Evaluates the obtained MADC samples.</p>
+<p>To each neuron’s MADC samples, an exponential decay is fitted,
+and the resulting time constant is returned.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>samples</strong> – MADC samples obtained for each neuron.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Numpy array of fitted synaptic input time constants.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calix.hagen.neuron_leak_bias.MembraneTimeConstCalibOffset.neuron_config_disabled">
+<code class="sig-name descname"><span class="pre">neuron_config_disabled</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">neuron_coord</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhalco_hicann_dls_vx_v3.NeuronConfigOnDLS</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">pyhaldls_vx_v3.NeuronConfig</span><a class="headerlink" href="#calix.hagen.neuron_leak_bias.MembraneTimeConstCalibOffset.neuron_config_disabled" title="Permalink to this definition"></a></dt>
+<dd><p>Return a neuron config with readout disabled.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>neuron_coord</strong> – Coordinate of neuron to get config for.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Neuron config with readout disabled.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calix.hagen.neuron_leak_bias.MembraneTimeConstCalibOffset.neuron_config_readout">
+<code class="sig-name descname"><span class="pre">neuron_config_readout</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">neuron_coord</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhalco_hicann_dls_vx_v3.NeuronConfigOnDLS</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">pyhaldls_vx_v3.NeuronConfig</span><a class="headerlink" href="#calix.hagen.neuron_leak_bias.MembraneTimeConstCalibOffset.neuron_config_readout" title="Permalink to this definition"></a></dt>
+<dd><p>Return a neuron config with readout enabled.
+The step current is alredy enabled here and will be disabled
+as the stimulus.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>neuron_coord</strong> – Coordinate of neuron to get config for.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Neuron config with readout enabled.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calix.hagen.neuron_leak_bias.MembraneTimeConstCalibOffset.postlude">
+<code class="sig-name descname"><span class="pre">postlude</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhxcomm_vx.ConnectionHandle</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.hagen.neuron_leak_bias.MembraneTimeConstCalibOffset.postlude" title="Permalink to this definition"></a></dt>
+<dd><p>Restore original readout configuration.
+The base class postlude is overwritten to _not_ restore
+the original neuron configuration, as leak division
+may be altered by this routine.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>connection</strong> – Connection to the chip to calibrate.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calix.hagen.neuron_leak_bias.MembraneTimeConstCalibOffset.prelude">
+<code class="sig-name descname"><span class="pre">prelude</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhxcomm_vx.ConnectionHandle</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.hagen.neuron_leak_bias.MembraneTimeConstCalibOffset.prelude" title="Permalink to this definition"></a></dt>
+<dd><p>Prepares chip for calibration.</p>
+<p>Sets a high offset current in all neurons.</p>
+<p>Also measures the membrane time constant at low leak
+bias currents to decide whether leak division is required
+to reach the given targets.</p>
+<p>Leak multiplication is not supported by this calibration:
+The offset current is too weak to stimulate the membrane
+significantly if multiplication gets enabled.
+The calibration can therefore only be used if the target
+membrane time constant is larger than some 3 us.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>connection</strong> – Connection to the chip to calibrate.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calix.hagen.neuron_leak_bias.MembraneTimeConstCalibOffset.stimulate">
+<code class="sig-name descname"><span class="pre">stimulate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">builder</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="calix.common.base.WriteRecordingPlaybackProgramBuilder.html#calix.common.base.WriteRecordingPlaybackProgramBuilder" title="calix.common.base.WriteRecordingPlaybackProgramBuilder"><span class="pre">calix.common.base.WriteRecordingPlaybackProgramBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">neuron_coord</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhalco_hicann_dls_vx_v3.NeuronConfigOnDLS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stimulation_time</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhaldls_vx_v3.Timer.Value</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="calix.common.base.WriteRecordingPlaybackProgramBuilder.html#calix.common.base.WriteRecordingPlaybackProgramBuilder" title="calix.common.base.WriteRecordingPlaybackProgramBuilder"><span class="pre">calix.common.base.WriteRecordingPlaybackProgramBuilder</span></a><a class="headerlink" href="#calix.hagen.neuron_leak_bias.MembraneTimeConstCalibOffset.stimulate" title="Permalink to this definition"></a></dt>
+<dd><p>Disable the membrane offset current.</p>
+<p>This results in a decaying potential back to the leak.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>builder</strong> – Builder to append instructions to.</p></li>
+<li><p><strong>neuron_coord</strong> – Coordinate of neuron which is currently recorded.</p></li>
+<li><p><strong>stimulation_time</strong> – Timer value at beginning of stimulation.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Builder with neuron resets appended.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="calix.hagen.neuron_leak_bias.MembraneTimeConstCalibCADC.html" class="btn btn-neutral float-left" title="calix.hagen.neuron_leak_bias.MembraneTimeConstCalibCADC" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="calix.hagen.neuron_leak_bias.MembraneTimeConstCalibReset.html" class="btn btn-neutral float-right" title="calix.hagen.neuron_leak_bias.MembraneTimeConstCalibReset" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Electronic Vision(s).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

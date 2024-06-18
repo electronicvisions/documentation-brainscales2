@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>hxtorch.perceptron.nn.MACLayer &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="hxtorch.perceptron.nn.ReLU" href="hxtorch.perceptron.nn.ReLU.html" />
+    <link rel="prev" title="hxtorch.perceptron.nn.Linear" href="hxtorch.perceptron.nn.Linear.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> BrainScaleS-2 Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../brainscales2-demos/index.html">Demos &amp; Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software_components.html">Software Components</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../apis.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api_pynn-brainscales2.html">PyNN API</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../api_hxtorch.html">hxtorch API</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../api_hxtorch.html#hxtorch-from-python">hxtorch from Python</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="hxtorch.html">hxtorch</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api_hxtorch.html#hxtorch-from-c">hxtorch from C++</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api_grenade.html">grenade API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_haldls.html">haldls API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_lola.html">lola API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_stadls.html">stadls API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_fisch.html">fisch API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_hxcomm.html">hxcomm API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_calix.html">calix API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_hate.html">hate API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BrainScaleS-2 Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../apis.html">BrainScaleS-2 API Documentation</a> &raquo;</li>
+          <li><a href="../api_hxtorch.html">API Reference: hxtorch</a> &raquo;</li>
+          <li><a href="hxtorch.html">hxtorch</a> &raquo;</li>
+          <li><a href="hxtorch.perceptron.html">hxtorch.perceptron</a> &raquo;</li>
+          <li><a href="hxtorch.perceptron.nn.html">hxtorch.perceptron.nn</a> &raquo;</li>
+      <li>hxtorch.perceptron.nn.MACLayer</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_autosummary/hxtorch.perceptron.nn.MACLayer.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="hxtorch-perceptron-nn-maclayer">
+<h1>hxtorch.perceptron.nn.MACLayer<a class="headerlink" href="#hxtorch-perceptron-nn-maclayer" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt id="hxtorch.perceptron.nn.MACLayer">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">hxtorch.perceptron.nn.</span></code><code class="sig-name descname"><span class="pre">MACLayer</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">num_sends:</span> <span class="pre">Optional[numbers.Integral]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">wait_between_events:</span> <span class="pre">numbers.Integral</span> <span class="pre">=</span> <span class="pre">5,</span> <span class="pre">mock:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False,</span> <span class="pre">*,</span> <span class="pre">input_transform:</span> <span class="pre">Optional[Callable[[torch.Tensor],</span> <span class="pre">torch.Tensor]]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">weight_transform:</span> <span class="pre">Optional[Callable[[torch.Tensor],</span> <span class="pre">torch.Tensor]]</span> <span class="pre">=</span> <span class="pre">&lt;function</span> <span class="pre">clamp_weight_&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.perceptron.nn.MACLayer" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="hxtorch.perceptron.nn.Layer.html#hxtorch.perceptron.nn.Layer" title="hxtorch.perceptron.nn.Layer"><code class="xref py py-class docutils literal notranslate"><span class="pre">hxtorch.perceptron.nn.Layer</span></code></a></p>
+<p>Layer that performs a multiply accumulate operation.</p>
+<dl class="py method">
+<dt id="hxtorch.perceptron.nn.MACLayer.__init__">
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">num_sends:</span> <span class="pre">Optional[numbers.Integral]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">wait_between_events:</span> <span class="pre">numbers.Integral</span> <span class="pre">=</span> <span class="pre">5,</span> <span class="pre">mock:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False,</span> <span class="pre">*,</span> <span class="pre">input_transform:</span> <span class="pre">Optional[Callable[[torch.Tensor],</span> <span class="pre">torch.Tensor]]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">weight_transform:</span> <span class="pre">Optional[Callable[[torch.Tensor],</span> <span class="pre">torch.Tensor]]</span> <span class="pre">=</span> <span class="pre">&lt;function</span> <span class="pre">clamp_weight_&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.perceptron.nn.MACLayer.__init__" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>num_sends</strong> – Number of sends of the input. Values greater than 1
+result in higher output to the neurons and increases the s/n ratio.
+For <code class="docutils literal notranslate"><span class="pre">None</span></code> this is automatically adjusted during initialization.</p></li>
+<li><p><strong>wait_between_events</strong> – Wait time between two successive vector
+inputs, in FPGA clock cycles.
+Shorter wait time can lead to saturation of the synaptic input.</p></li>
+<li><p><strong>mock</strong> – Enable mock mode.</p></li>
+<li><p><strong>input_transform</strong> – Function that receives the input and returns
+a tensor to be used as input to the chip.</p></li>
+<li><p><strong>weight_transform</strong> – Function that receives the weight and returns
+a tensor to be used as weight matrix on the chip.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.perceptron.nn.MACLayer.__init__" title="hxtorch.perceptron.nn.MACLayer.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([num_sends, wait_between_events, …])</p></td>
+<td><p><dl class="field-list simple">
+<dt class="field-odd">param num_sends</dt>
+<dd class="field-odd"><p>Number of sends of the input. Values greater than 1</p>
+</dd>
+</dl>
+</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.perceptron.nn.MACLayer.reset_parameters" title="hxtorch.perceptron.nn.MACLayer.reset_parameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset_parameters</span></code></a>([weight_mean, relu_shift])</p></td>
+<td><p>Reset parameters to reasonable initialization values.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="hxtorch.perceptron.nn.MACLayer.reset_parameters">
+<code class="sig-name descname"><span class="pre">reset_parameters</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">weight_mean</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">numbers.Real</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relu_shift</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">numbers.Integral</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.perceptron.nn.MACLayer.reset_parameters" title="Permalink to this definition"></a></dt>
+<dd><p>Reset parameters to reasonable initialization values. Method based on
+<em>Delving deep into rectifiers: Surpassing human-level performance on
+ImageNet classification</em> - He, K. et al. (2015)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>weight_mean</strong> – Mean value of the weight distribution</p></li>
+<li><p><strong>relu_shift</strong> – Bit shift assumed in subsequent ConvertingReLU</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="hxtorch.perceptron.nn.Linear.html" class="btn btn-neutral float-left" title="hxtorch.perceptron.nn.Linear" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="hxtorch.perceptron.nn.ReLU.html" class="btn btn-neutral float-right" title="hxtorch.perceptron.nn.ReLU" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Electronic Vision(s).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

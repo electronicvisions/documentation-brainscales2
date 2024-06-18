@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>hxtorch.spiking &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="hxtorch.spiking.backend" href="hxtorch.spiking.backend.html" />
+    <link rel="prev" title="hxtorch.perceptron.MockParameter" href="hxtorch.perceptron.MockParameter.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> BrainScaleS-2 Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../brainscales2-demos/index.html">Demos &amp; Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software_components.html">Software Components</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../apis.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api_pynn-brainscales2.html">PyNN API</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../api_hxtorch.html">hxtorch API</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../api_hxtorch.html#hxtorch-from-python">hxtorch from Python</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="hxtorch.html">hxtorch</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api_hxtorch.html#hxtorch-from-c">hxtorch from C++</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api_grenade.html">grenade API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_haldls.html">haldls API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_lola.html">lola API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_stadls.html">stadls API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_fisch.html">fisch API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_hxcomm.html">hxcomm API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_calix.html">calix API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_hate.html">hate API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BrainScaleS-2 Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../apis.html">BrainScaleS-2 API Documentation</a> &raquo;</li>
+          <li><a href="../api_hxtorch.html">API Reference: hxtorch</a> &raquo;</li>
+          <li><a href="hxtorch.html">hxtorch</a> &raquo;</li>
+      <li>hxtorch.spiking</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_autosummary/hxtorch.spiking.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="hxtorch-spiking">
+<h1>hxtorch.spiking<a class="headerlink" href="#hxtorch-spiking" title="Permalink to this headline"></a></h1>
+<p class="rubric">Modules</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.backend.html#module-hxtorch.spiking.backend" title="hxtorch.spiking.backend"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hxtorch.spiking.backend</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.datasets.html#module-hxtorch.spiking.datasets" title="hxtorch.spiking.datasets"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hxtorch.spiking.datasets</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.experiment.html#module-hxtorch.spiking.experiment" title="hxtorch.spiking.experiment"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hxtorch.spiking.experiment</span></code></a></p></td>
+<td><p>Defining basic types to create hw-executable instances</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.functional.html#module-hxtorch.spiking.functional" title="hxtorch.spiking.functional"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hxtorch.spiking.functional</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.handle.html#module-hxtorch.spiking.handle" title="hxtorch.spiking.handle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hxtorch.spiking.handle</span></code></a></p></td>
+<td><p>Defining tensor handles able to hold references to tensors for lazy assignment after hardware data acquisition</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.modules.html#module-hxtorch.spiking.modules" title="hxtorch.spiking.modules"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hxtorch.spiking.modules</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.morphology.html#module-hxtorch.spiking.morphology" title="hxtorch.spiking.morphology"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hxtorch.spiking.morphology</span></code></a></p></td>
+<td><p>User defined neuron morphologies.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.neuron_placement.html#module-hxtorch.spiking.neuron_placement" title="hxtorch.spiking.neuron_placement"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hxtorch.spiking.neuron_placement</span></code></a></p></td>
+<td><p>Defining neuron placement allocator</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.observables.html#module-hxtorch.spiking.observables" title="hxtorch.spiking.observables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hxtorch.spiking.observables</span></code></a></p></td>
+<td><p>Hardware observables object</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.run.html#module-hxtorch.spiking.run" title="hxtorch.spiking.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hxtorch.spiking.run</span></code></a>(experiment, runtime)</p></td>
+<td><p>Execute the given experiment.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.transforms.html#module-hxtorch.spiking.transforms" title="hxtorch.spiking.transforms"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hxtorch.spiking.transforms</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.utils.html#module-hxtorch.spiking.utils" title="hxtorch.spiking.utils"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hxtorch.spiking.utils</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<span class="target" id="module-hxtorch.spiking"></span><p class="rubric">Classes</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.BatchDropout.html#hxtorch.spiking.BatchDropout" title="hxtorch.spiking.BatchDropout"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BatchDropout</span></code></a>(size, dropout, experiment, …)</p></td>
+<td><p>Batch dropout layer</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.Experiment.html#hxtorch.spiking.Experiment" title="hxtorch.spiking.Experiment"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment</span></code></a>(mock, dt, calib_path, str]] = None)</p></td>
+<td><p>Experiment class for describing experiments on hardware</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.HXBaseExperimentModule.html#hxtorch.spiking.HXBaseExperimentModule" title="hxtorch.spiking.HXBaseExperimentModule"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HXBaseExperimentModule</span></code></a>(experiment)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.HXModule.html#hxtorch.spiking.HXModule" title="hxtorch.spiking.HXModule"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HXModule</span></code></a>(experiment, func, …)</p></td>
+<td><p>PyTorch module supplying basic functionality for elements of SNNs that do have a representation on hardware</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.HXModuleWrapper.html#hxtorch.spiking.HXModuleWrapper" title="hxtorch.spiking.HXModuleWrapper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HXModuleWrapper</span></code></a>(experiment, modules, func)</p></td>
+<td><p>Class to wrap HXModules</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.IAFNeuron.html#hxtorch.spiking.IAFNeuron" title="hxtorch.spiking.IAFNeuron"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IAFNeuron</span></code></a>(size, experiment, func, …)</p></td>
+<td><p>Integrate-and-fire neuron Caveat: For execution on hardware, this module can only be used in conjunction with a preceding Synapse module.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.InputNeuron.html#hxtorch.spiking.InputNeuron" title="hxtorch.spiking.InputNeuron"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InputNeuron</span></code></a>(size, experiment, execution_instance)</p></td>
+<td><p>Spike source generating spikes at the times [ms] given in the spike_times array.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.Neuron.html#hxtorch.spiking.Neuron" title="hxtorch.spiking.Neuron"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Neuron</span></code></a>(size, experiment, func, …)</p></td>
+<td><p>Neuron layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.NeuronHandle.html#hxtorch.spiking.NeuronHandle" title="hxtorch.spiking.NeuronHandle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NeuronHandle</span></code></a>(spikes, v_cadc, current, v_madc)</p></td>
+<td><p>Specialization for HX neuron observables</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.ReadoutNeuron.html#hxtorch.spiking.ReadoutNeuron" title="hxtorch.spiking.ReadoutNeuron"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ReadoutNeuron</span></code></a>(size, experiment, func, …)</p></td>
+<td><p>Readout neuron layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.ReadoutNeuronHandle.html#hxtorch.spiking.ReadoutNeuronHandle" title="hxtorch.spiking.ReadoutNeuronHandle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ReadoutNeuronHandle</span></code></a>(v_cadc, current, v_madc)</p></td>
+<td><p>Specialization for HX neuron observables</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.SparseSynapse.html#hxtorch.spiking.SparseSynapse" title="hxtorch.spiking.SparseSynapse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SparseSynapse</span></code></a>(connections, experiment, func, …)</p></td>
+<td><p>Sparse synapse layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.Synapse.html#hxtorch.spiking.Synapse" title="hxtorch.spiking.Synapse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Synapse</span></code></a>(in_features, out_features, …)</p></td>
+<td><p>Synapse layer</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.SynapseHandle.html#hxtorch.spiking.SynapseHandle" title="hxtorch.spiking.SynapseHandle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SynapseHandle</span></code></a>(graded_spikes)</p></td>
+<td><p>Specialization for HX synapses</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.TensorHandle.html#hxtorch.spiking.TensorHandle" title="hxtorch.spiking.TensorHandle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TensorHandle</span></code></a>()</p></td>
+<td><p>Base class for HX tensor handles.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Functions</p>
+<dl class="py function">
+<dt id="hxtorch.spiking.run">
+<code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.</span></code><code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">experiment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="hxtorch.spiking.experiment.Experiment.html#hxtorch.spiking.experiment.Experiment" title="hxtorch.spiking.experiment.Experiment"><span class="pre">hxtorch.spiking.experiment.Experiment</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">runtime</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">_pygrenade_vx_signal_flow.ExecutionTimeInfo</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#hxtorch.spiking.run" title="Permalink to this definition"></a></dt>
+<dd><p>Execute the given experiment.</p>
+<p>TODO: Why is this a standalone function?</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>experiment</strong> – The experiment representing the computational graph to
+be executed on hardware and/or in software.</p></li>
+<li><p><strong>runtime</strong> – Only relevant for hardware experiments. Indicates the
+runtime resolved with experiment.dt.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="hxtorch.perceptron.MockParameter.html" class="btn btn-neutral float-left" title="hxtorch.perceptron.MockParameter" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="hxtorch.spiking.backend.html" class="btn btn-neutral float-right" title="hxtorch.spiking.backend" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Electronic Vision(s).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

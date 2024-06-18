@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>hxtorch.spiking.experiment.Experiment &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="hxtorch.spiking.experiment.HardwareObservablesExtractor" href="hxtorch.spiking.experiment.HardwareObservablesExtractor.html" />
+    <link rel="prev" title="hxtorch.spiking.experiment.BaseModuleManager" href="hxtorch.spiking.experiment.BaseModuleManager.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> BrainScaleS-2 Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../brainscales2-demos/index.html">Demos &amp; Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software_components.html">Software Components</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../apis.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api_pynn-brainscales2.html">PyNN API</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../api_hxtorch.html">hxtorch API</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../api_hxtorch.html#hxtorch-from-python">hxtorch from Python</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="hxtorch.html">hxtorch</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api_hxtorch.html#hxtorch-from-c">hxtorch from C++</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api_grenade.html">grenade API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_haldls.html">haldls API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_lola.html">lola API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_stadls.html">stadls API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_fisch.html">fisch API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_hxcomm.html">hxcomm API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_calix.html">calix API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_hate.html">hate API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BrainScaleS-2 Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../apis.html">BrainScaleS-2 API Documentation</a> &raquo;</li>
+          <li><a href="../api_hxtorch.html">API Reference: hxtorch</a> &raquo;</li>
+          <li><a href="hxtorch.html">hxtorch</a> &raquo;</li>
+          <li><a href="hxtorch.spiking.html">hxtorch.spiking</a> &raquo;</li>
+          <li><a href="hxtorch.spiking.experiment.html">hxtorch.spiking.experiment</a> &raquo;</li>
+      <li>hxtorch.spiking.experiment.Experiment</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_autosummary/hxtorch.spiking.experiment.Experiment.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="hxtorch-spiking-experiment-experiment">
+<h1>hxtorch.spiking.experiment.Experiment<a class="headerlink" href="#hxtorch-spiking-experiment-experiment" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt id="hxtorch.spiking.experiment.Experiment">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.experiment.</span></code><code class="sig-name descname"><span class="pre">Experiment</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">mock:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></em>, <em class="sig-param"><span class="pre">dt:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">1e-06</span></em>, <em class="sig-param"><span class="pre">calib_path:</span> <span class="pre">Optional[Union[pathlib.Path</span></em>, <em class="sig-param"><span class="pre">str]]</span> <span class="pre">=</span> <span class="pre">None</span></em>, <em class="sig-param"><span class="pre">hw_routing_func=&lt;_pygrenade_vx_network_routing.PortfolioRouter</span> <span class="pre">object&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.experiment.Experiment" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="hxtorch.spiking.experiment.BaseExperiment.html#hxtorch.spiking.experiment.BaseExperiment" title="hxtorch.spiking.experiment.BaseExperiment"><code class="xref py py-class docutils literal notranslate"><span class="pre">hxtorch.spiking.experiment.BaseExperiment</span></code></a></p>
+<p>Experiment class for describing experiments on hardware</p>
+<dl class="py method">
+<dt id="hxtorch.spiking.experiment.Experiment.__init__">
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">mock:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></em>, <em class="sig-param"><span class="pre">dt:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">1e-06</span></em>, <em class="sig-param"><span class="pre">calib_path:</span> <span class="pre">Optional[Union[pathlib.Path</span></em>, <em class="sig-param"><span class="pre">str]]</span> <span class="pre">=</span> <span class="pre">None</span></em>, <em class="sig-param"><span class="pre">hw_routing_func=&lt;_pygrenade_vx_network_routing.PortfolioRouter</span> <span class="pre">object&gt;</span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.experiment.Experiment.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Instantiate a new experiment, representing an experiment on hardware
+and/or in software.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mock</strong> – Indicating whether module is executed on hardware (False)
+or simulated in software (True).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.experiment.Experiment.__init__" title="hxtorch.spiking.experiment.Experiment.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([mock, dt, calib_path, hw_routing_func])</p></td>
+<td><p>Instantiate a new experiment, representing an experiment on hardware and/or in software.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.experiment.Experiment.clear" title="hxtorch.spiking.experiment.Experiment.clear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear</span></code></a>()</p></td>
+<td><p>Reset the experiments’s state.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.experiment.Experiment.connect" title="hxtorch.spiking.experiment.Experiment.connect"><code class="xref py py-obj docutils literal notranslate"><span class="pre">connect</span></code></a>(module, input_handles, output_handle)</p></td>
+<td><p>Add an module to the experiment and connect it to other experiment modules via input and output handles.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.experiment.Experiment.get_hw_results" title="hxtorch.spiking.experiment.Experiment.get_hw_results"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_hw_results</span></code></a>(runtime)</p></td>
+<td><p>Executes the experiment in mock or on hardware using the information added to the experiment for a time given by <cite>runtime</cite> and returns a dict of hardware data represented as PyTorch data types.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.experiment.Experiment.load_calib" title="hxtorch.spiking.experiment.Experiment.load_calib"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_calib</span></code></a>([calib_path])</p></td>
+<td><p>Load a calibration from path <cite>calib_path</cite> and apply to the experiment`s chip object. If no path is specified a nightly calib is applied. :param calib_path: The path to the calibration. It None, the nightly     calib is loaded. :return: Returns the chip object for the given calibration.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.experiment.Experiment.register_population" title="hxtorch.spiking.experiment.Experiment.register_population"><code class="xref py py-obj docutils literal notranslate"><span class="pre">register_population</span></code></a>(module)</p></td>
+<td><p>Register a module as population.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.experiment.Experiment.register_projection" title="hxtorch.spiking.experiment.Experiment.register_projection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">register_projection</span></code></a>(module)</p></td>
+<td><p>Register a module as projection.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.experiment.Experiment.wrap_modules" title="hxtorch.spiking.experiment.Experiment.wrap_modules"><code class="xref py py-obj docutils literal notranslate"><span class="pre">wrap_modules</span></code></a>(modules[, func])</p></td>
+<td><p>Wrap a number of given modules into a wrapper to which a single function <cite>func</cite> can be assigned. In the PyTorch graph the individual module functions are then bypassed and only the wrapper’s function is considered when building the PyTorch graph. This functionality is of interest if several modules have cyclic dependencies and need to be represented by one PyTorch function. :param modules: A list of module to be wrapped. These modules need to     constitute a closed sub-graph with no modules in between that are     not element of the wrapper. :func: The function to assign to the wrapper. TODO: Add info about this functions signature.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.experiment.Experiment.last_run_chip_configs" title="hxtorch.spiking.experiment.Experiment.last_run_chip_configs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">last_run_chip_configs</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="hxtorch.spiking.experiment.Experiment.clear">
+<code class="sig-name descname"><span class="pre">clear</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.experiment.Experiment.clear" title="Permalink to this definition"></a></dt>
+<dd><p>Reset the experiments’s state. Corresponds to creating a new Experiment
+instance.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="hxtorch.spiking.experiment.Experiment.connect">
+<code class="sig-name descname"><span class="pre">connect</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.nn.modules.module.Module</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_handles</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="hxtorch.spiking.handle.TensorHandle.html#hxtorch.spiking.handle.TensorHandle" title="hxtorch.spiking.handle.TensorHandle"><span class="pre">hxtorch.spiking.handle.TensorHandle</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_handle</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="hxtorch.spiking.handle.TensorHandle.html#hxtorch.spiking.handle.TensorHandle" title="hxtorch.spiking.handle.TensorHandle"><span class="pre">hxtorch.spiking.handle.TensorHandle</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.experiment.Experiment.connect" title="Permalink to this definition"></a></dt>
+<dd><p>Add an module to the experiment and connect it to other experiment
+modules via input and output handles.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>module</strong> – The HXModule to add to the experiment.</p></li>
+<li><p><strong>input_handles</strong> – The TensorHandle serving as input to the module
+(its obsv_state).</p></li>
+<li><p><strong>output_handle</strong> – The TensorHandle outputted by the module,
+serving as input to subsequent HXModules.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="hxtorch.spiking.experiment.Experiment.get_hw_results">
+<code class="sig-name descname"><span class="pre">get_hw_results</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">runtime</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">_pygrenade_vx_network.PopulationOnNetwork</span><span class="p"><span class="pre">,</span> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="p"><span class="pre">…</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#hxtorch.spiking.experiment.Experiment.get_hw_results" title="Permalink to this definition"></a></dt>
+<dd><p>Executes the experiment in mock or on hardware using the information
+added to the experiment for a time given by <cite>runtime</cite> and returns a
+dict of hardware data represented as PyTorch data types.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>runtime</strong> – The runtime of the experiment on hardware in ms.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Returns the data map as dict, where the keys are the
+population descriptors and values are tuples of values returned by
+the corresponding module’s <cite>post_process</cite> method.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="hxtorch.spiking.experiment.Experiment.last_run_chip_configs">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">last_run_chip_configs</span></code><a class="headerlink" href="#hxtorch.spiking.experiment.Experiment.last_run_chip_configs" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="hxtorch.spiking.experiment.Experiment.load_calib">
+<code class="sig-name descname"><span class="pre">load_calib</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">calib_path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">pathlib.Path</span><span class="p"><span class="pre">,</span> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">pylola_vx_v3.Chip</span><a class="headerlink" href="#hxtorch.spiking.experiment.Experiment.load_calib" title="Permalink to this definition"></a></dt>
+<dd><p>Load a calibration from path <cite>calib_path</cite> and apply to the experiment`s
+chip object. If no path is specified a nightly calib is applied.
+:param calib_path: The path to the calibration. It None, the nightly</p>
+<blockquote>
+<div><p>calib is loaded.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Returns the chip object for the given calibration.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="hxtorch.spiking.experiment.Experiment.register_population">
+<code class="sig-name descname"><span class="pre">register_population</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="hxtorch.spiking.modules.hx_module.HXModule.html#hxtorch.spiking.modules.hx_module.HXModule" title="hxtorch.spiking.modules.hx_module.HXModule"><span class="pre">hxtorch.spiking.modules.hx_module.HXModule</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.experiment.Experiment.register_population" title="Permalink to this definition"></a></dt>
+<dd><p>Register a module as population.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>module</strong> – The module to register as population.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="hxtorch.spiking.experiment.Experiment.register_projection">
+<code class="sig-name descname"><span class="pre">register_projection</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="hxtorch.spiking.modules.hx_module.HXModule.html#hxtorch.spiking.modules.hx_module.HXModule" title="hxtorch.spiking.modules.hx_module.HXModule"><span class="pre">hxtorch.spiking.modules.hx_module.HXModule</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.experiment.Experiment.register_projection" title="Permalink to this definition"></a></dt>
+<dd><p>Register a module as projection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>module</strong> – The module to register as projection.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="hxtorch.spiking.experiment.Experiment.wrap_modules">
+<code class="sig-name descname"><span class="pre">wrap_modules</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modules</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="hxtorch.spiking.modules.hx_module.HXModule.html#hxtorch.spiking.modules.hx_module.HXModule" title="hxtorch.spiking.modules.hx_module.HXModule"><span class="pre">hxtorch.spiking.modules.hx_module.HXModule</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.experiment.Experiment.wrap_modules" title="Permalink to this definition"></a></dt>
+<dd><p>Wrap a number of given modules into a wrapper to which a single
+function <cite>func</cite> can be assigned. In the PyTorch graph the individual
+module functions are then bypassed and only the wrapper’s function is
+considered when building the PyTorch graph. This functionality is of
+interest if several modules have cyclic dependencies and need to be
+represented by one PyTorch function.
+:param modules: A list of module to be wrapped. These modules need to</p>
+<blockquote>
+<div><p>constitute a closed sub-graph with no modules in between that are
+not element of the wrapper.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Func</dt>
+<dd class="field-odd"><p>The function to assign to the wrapper.
+TODO: Add info about this functions signature.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="hxtorch.spiking.experiment.BaseModuleManager.html" class="btn btn-neutral float-left" title="hxtorch.spiking.experiment.BaseModuleManager" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="hxtorch.spiking.experiment.HardwareObservablesExtractor.html" class="btn btn-neutral float-right" title="hxtorch.spiking.experiment.HardwareObservablesExtractor" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Electronic Vision(s).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

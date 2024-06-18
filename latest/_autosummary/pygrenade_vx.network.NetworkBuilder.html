@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pygrenade_vx.network.NetworkBuilder &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pygrenade_vx.network.NetworkGraph" href="pygrenade_vx.network.NetworkGraph.html" />
+    <link rel="prev" title="pygrenade_vx.network.Network" href="pygrenade_vx.network.Network.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> BrainScaleS-2 Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../brainscales2-demos/index.html">Demos &amp; Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software_components.html">Software Components</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../apis.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api_pynn-brainscales2.html">PyNN API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_hxtorch.html">hxtorch API</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../api_grenade.html">grenade API</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="pygrenade_vx.html">pygrenade_vx</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="pygrenade_vx.common.html">pygrenade_vx.common</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygrenade_vx.execution.html">pygrenade_vx.execution</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="pygrenade_vx.network.html">pygrenade_vx.network</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygrenade_vx.signal_flow.html">pygrenade_vx.signal_flow</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api_haldls.html">haldls API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_lola.html">lola API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_stadls.html">stadls API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_fisch.html">fisch API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_hxcomm.html">hxcomm API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_calix.html">calix API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_hate.html">hate API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BrainScaleS-2 Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../apis.html">BrainScaleS-2 API Documentation</a> &raquo;</li>
+          <li><a href="../api_grenade.html">API Reference: grenade</a> &raquo;</li>
+          <li><a href="pygrenade_vx.html">pygrenade_vx</a> &raquo;</li>
+          <li><a href="pygrenade_vx.network.html">pygrenade_vx.network</a> &raquo;</li>
+      <li>pygrenade_vx.network.NetworkBuilder</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_autosummary/pygrenade_vx.network.NetworkBuilder.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="pygrenade-vx-network-networkbuilder">
+<h1>pygrenade_vx.network.NetworkBuilder<a class="headerlink" href="#pygrenade-vx-network-networkbuilder" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt id="pygrenade_vx.network.NetworkBuilder">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">pygrenade_vx.network.</span></code><code class="sig-name descname"><span class="pre">NetworkBuilder</span></code><a class="headerlink" href="#pygrenade_vx.network.NetworkBuilder" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_builtins.pybind11_object</span></code></p>
+<dl class="py method">
+<dt id="pygrenade_vx.network.NetworkBuilder.__init__">
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygrenade_vx.network.NetworkBuilder.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Overloaded function.</p>
+<ol class="arabic simple">
+<li><p>__init__(self: _pygrenade_vx_network.NetworkBuilder) -&gt; None</p></li>
+<li><p>__init__(self: _pygrenade_vx_network.NetworkBuilder, arg0: _pygrenade_vx_network.NetworkBuilder) -&gt; None</p></li>
+</ol>
+</dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.NetworkBuilder.__init__" title="pygrenade_vx.network.NetworkBuilder.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Overloaded function.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.network.NetworkBuilder.add" title="pygrenade_vx.network.NetworkBuilder.add"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Overloaded function.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.NetworkBuilder.done" title="pygrenade_vx.network.NetworkBuilder.done"><code class="xref py py-obj docutils literal notranslate"><span class="pre">done</span></code></a>(self)</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="pygrenade_vx.network.NetworkBuilder.add">
+<code class="sig-name descname"><span class="pre">add</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygrenade_vx.network.NetworkBuilder.add" title="Permalink to this definition"></a></dt>
+<dd><p>Overloaded function.</p>
+<ol class="arabic simple">
+<li><p>add(self: _pygrenade_vx_network.NetworkBuilder, population: _pygrenade_vx_network.Population, execution_instance: _pygrenade_vx_common.ExecutionInstanceID = ExecutionInstanceID(0)) -&gt; _pygrenade_vx_network.PopulationOnNetwork</p></li>
+</ol>
+<p>Add on-chip population. The population is expected to feature unique and unused neuron locations.</p>
+<ol class="arabic simple" start="2">
+<li><p>add(self: _pygrenade_vx_network.NetworkBuilder, population: _pygrenade_vx_network.ExternalSourcePopulation, execution_instance: _pygrenade_vx_common.ExecutionInstanceID = ExecutionInstanceID(0)) -&gt; _pygrenade_vx_network.PopulationOnNetwork</p></li>
+</ol>
+<p>Add off-chip population.</p>
+<ol class="arabic simple" start="3">
+<li><p>add(self: _pygrenade_vx_network.NetworkBuilder, population: _pygrenade_vx_network.BackgroundSourcePopulation, execution_instance: _pygrenade_vx_common.ExecutionInstanceID = ExecutionInstanceID(0)) -&gt; _pygrenade_vx_network.PopulationOnNetwork</p></li>
+</ol>
+<p>Add on-chip background spike source population.</p>
+<ol class="arabic simple" start="4">
+<li><p>add(self: _pygrenade_vx_network.NetworkBuilder, projection: _pygrenade_vx_network.Projection, execution_instance: _pygrenade_vx_common.ExecutionInstanceID = ExecutionInstanceID(0)) -&gt; _pygrenade_vx_network.ProjectionOnNetwork</p></li>
+</ol>
+<p>Add projection between already added populations. The projection is expected to be free of single connections present in already added projections. A single connection is considered equal, if it connects the same pre- and post-synaptic neurons and features the same receptor type.</p>
+<ol class="arabic simple" start="5">
+<li><p>add(self: _pygrenade_vx_network.NetworkBuilder, madc_recording: _pygrenade_vx_network.MADCRecording, execution_instance: _pygrenade_vx_common.ExecutionInstanceID = ExecutionInstanceID(0)) -&gt; None</p></li>
+</ol>
+<p>Add MADC recording of a single neuron. Only one MADC recording per network is allowed. If another recording is present at the recorded neuron, their source specification is required to match.</p>
+<ol class="arabic simple" start="6">
+<li><p>add(self: _pygrenade_vx_network.NetworkBuilder, cadc_recording: _pygrenade_vx_network.CADCRecording, execution_instance: _pygrenade_vx_common.ExecutionInstanceID = ExecutionInstanceID(0)) -&gt; None</p></li>
+</ol>
+<p>Add CADC recording of a collection of neurons. Only one CADC recording per network is allowed. If another recording is present at a recorded neuron, their source specification is required to match.</p>
+<ol class="arabic simple" start="7">
+<li><p>add(self: _pygrenade_vx_network.NetworkBuilder, pad_recording: _pygrenade_vx_network.PadRecording, execution_instance: _pygrenade_vx_common.ExecutionInstanceID = ExecutionInstanceID(0)) -&gt; None</p></li>
+</ol>
+<p>Add pad recording of a collection of neurons. Only one pad recording per network is allowed. If another recording is present at a recorded neuron, their source specification is required to match.</p>
+<ol class="arabic simple" start="8">
+<li><p>add(self: _pygrenade_vx_network.NetworkBuilder, plasticity_rule: _pygrenade_vx_network.PlasticityRule, execution_instance: _pygrenade_vx_common.ExecutionInstanceID = ExecutionInstanceID(0)) -&gt; _pygrenade_vx_network.PlasticityRuleOnNetwork</p></li>
+<li><p>add(self: _pygrenade_vx_network.NetworkBuilder, projection: _pygrenade_vx_network.InterExecutionInstanceProjection) -&gt; _pygrenade_vx_network.InterExecutionInstanceProjectionOnNetwork</p></li>
+</ol>
+<p>Add inter-execution-instance projection between already added populations. The projection is expected to be connecting different execution instances.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.NetworkBuilder.done">
+<code class="sig-name descname"><span class="pre">done</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network.NetworkBuilder</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">_pygrenade_vx_network.Network</span><a class="headerlink" href="#pygrenade_vx.network.NetworkBuilder.done" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="pygrenade_vx.network.Network.html" class="btn btn-neutral float-left" title="pygrenade_vx.network.Network" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pygrenade_vx.network.NetworkGraph.html" class="btn btn-neutral float-right" title="pygrenade_vx.network.NetworkGraph" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Electronic Vision(s).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
