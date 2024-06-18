@@ -17,7 +17,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="calix.hagen.synapse_driver.STPRampCalib" href="calix.hagen.synapse_driver.STPRampCalib.html" />
-    <link rel="prev" title="calix.hagen.synapse_driver" href="calix.hagen.synapse_driver.html" /> 
+    <link rel="prev" title="calix.hagen.synapse_driver.preconfigure_capmem" href="calix.hagen.synapse_driver.preconfigure_capmem.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -50,6 +50,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../api_hxcomm.html">hxcomm API</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../api_calix.html">calix API</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="calix.html">calix</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="calix.calibrate.html">calix.calibrate</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.calib_cache.html">calix.calib_cache</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.common.html">calix.common</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.constants.html">calix.constants</a></li>
@@ -125,7 +126,7 @@ to execute when measuring results.</p></li>
 <li><p><strong>maximum_amplitudes</strong> – Maximum amplitudes per driver, measured
 at a high ramp current and high activation. If not supplied
 otherwise, it will be measured during the prelude.</p></li>
-<li><p><strong>log</strong> – Logger used for printing outputs.</p></li>
+<li><p><a class="reference internal" href="hxtorch.spiking.modules.sparse_synapse.Parameter.html#hxtorch.spiking.modules.sparse_synapse.Parameter.log" title="hxtorch.spiking.modules.sparse_synapse.Parameter.log"><strong>log</strong></a> – Logger used for printing outputs.</p></li>
 </ul>
 </dd>
 </dl>
@@ -159,6 +160,9 @@ otherwise, it will be measured during the prelude.</p></li>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#calix.hagen.synapse_driver.HagenDACOffsetCalib.prelude" title="calix.hagen.synapse_driver.HagenDACOffsetCalib.prelude"><code class="xref py py-obj docutils literal notranslate"><span class="pre">prelude</span></code></a>(connection)</p></td>
 <td><p>Configure synapse array and measure calibration target.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.hagen.synapse_driver.HagenDACOffsetCalib.run" title="calix.hagen.synapse_driver.HagenDACOffsetCalib.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>(connection, algorithm[, target])</p></td>
+<td><p>Use the provided algorithm to find optimal parameters.</p></td>
 </tr>
 </tbody>
 </table>
@@ -236,6 +240,35 @@ i.e. the maximum amplitude for each driver.</p>
 </dl>
 </dd></dl>
 
+<dl class="py method">
+<dt id="calix.hagen.synapse_driver.HagenDACOffsetCalib.run">
+<code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhxcomm_vx.ConnectionHandle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">algorithm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="calix.common.base.Algorithm.html#calix.common.base.Algorithm" title="calix.common.base.Algorithm"><span class="pre">calix.common.base.Algorithm</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">numbers.Integral</span><span class="p"><span class="pre">,</span> </span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="calix.common.base.ParameterCalibResult.html#calix.common.base.ParameterCalibResult" title="calix.common.base.ParameterCalibResult"><span class="pre">calix.common.base.ParameterCalibResult</span></a><a class="headerlink" href="#calix.hagen.synapse_driver.HagenDACOffsetCalib.run" title="Permalink to this definition"></a></dt>
+<dd><p>Use the provided algorithm to find optimal parameters.</p>
+<p>Calls prelude function, calls algorithm.run(), calls postlude function.
+If self.target is not defined after the prelude function, the
+calibration target is required as a parameter to this function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>connection</strong> – Connection to the chip to calibrate.</p></li>
+<li><p><strong>algorithm</strong> – Instance of an algorithm to be used for
+calibration. Will be hooked to the calibration during running
+and unhooked afterwards.</p></li>
+<li><p><strong>target</strong> – Target result to be aimed for. If given, this target
+is used. If None, the attribute self.target is used.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>TypeError</strong> – If neither the target parameter or the attribute
+self.target are defined.</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>ParameterCalibResult, containing the optimal
+parameters.</p>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 </div>
@@ -244,7 +277,7 @@ i.e. the maximum amplitude for each driver.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="calix.hagen.synapse_driver.html" class="btn btn-neutral float-left" title="calix.hagen.synapse_driver" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="calix.hagen.synapse_driver.preconfigure_capmem.html" class="btn btn-neutral float-left" title="calix.hagen.synapse_driver.preconfigure_capmem" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="calix.hagen.synapse_driver.STPRampCalib.html" class="btn btn-neutral float-right" title="calix.hagen.synapse_driver.STPRampCalib" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

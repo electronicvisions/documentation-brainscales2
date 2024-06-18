@@ -50,6 +50,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../api_hxcomm.html">hxcomm API</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../api_calix.html">calix API</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="calix.html">calix</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="calix.calibrate.html">calix.calibrate</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.calib_cache.html">calix.calib_cache</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.common.html">calix.common</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.constants.html">calix.constants</a></li>
@@ -130,11 +131,17 @@ functions.</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="#calix.spiking.neuron_threshold.ThresholdCalibMADC.__init__" title="calix.spiking.neuron_threshold.ThresholdCalibMADC.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([target])</p></td>
 <td><p>Initialize self.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#calix.spiking.neuron_threshold.ThresholdCalibMADC.configure_parameters" title="calix.spiking.neuron_threshold.ThresholdCalibMADC.configure_parameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">configure_parameters</span></code></a>(builder, parameters)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#calix.spiking.neuron_threshold.ThresholdCalibMADC.build_measurement_program" title="calix.spiking.neuron_threshold.ThresholdCalibMADC.build_measurement_program"><code class="xref py py-obj docutils literal notranslate"><span class="pre">build_measurement_program</span></code></a>(builder)</p></td>
+<td><p>Builds a program to measure an arbitrary MADC trace for each neuron.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.spiking.neuron_threshold.ThresholdCalibMADC.configure_parameters" title="calix.spiking.neuron_threshold.ThresholdCalibMADC.configure_parameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">configure_parameters</span></code></a>(builder, parameters)</p></td>
 <td><p>Configure the given array of threshold voltages.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#calix.spiking.neuron_threshold.ThresholdCalibMADC.evaluate" title="calix.spiking.neuron_threshold.ThresholdCalibMADC.evaluate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">evaluate</span></code></a>(samples)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#calix.spiking.neuron_threshold.ThresholdCalibMADC.evaluate" title="calix.spiking.neuron_threshold.ThresholdCalibMADC.evaluate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">evaluate</span></code></a>(samples)</p></td>
 <td><p>Evaluates the obtained MADC samples.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.spiking.neuron_threshold.ThresholdCalibMADC.measure_results" title="calix.spiking.neuron_threshold.ThresholdCalibMADC.measure_results"><code class="xref py py-obj docutils literal notranslate"><span class="pre">measure_results</span></code></a>(connection, builder)</p></td>
+<td><p>Measure and evaluate the results.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#calix.spiking.neuron_threshold.ThresholdCalibMADC.neuron_config_disabled" title="calix.spiking.neuron_threshold.ThresholdCalibMADC.neuron_config_disabled"><code class="xref py py-obj docutils literal notranslate"><span class="pre">neuron_config_disabled</span></code></a>(neuron_coord)</p></td>
 <td><p>Return a neuron config with readout disabled.</p></td>
@@ -148,11 +155,49 @@ functions.</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="#calix.spiking.neuron_threshold.ThresholdCalibMADC.prelude" title="calix.spiking.neuron_threshold.ThresholdCalibMADC.prelude"><code class="xref py py-obj docutils literal notranslate"><span class="pre">prelude</span></code></a>(connection)</p></td>
 <td><p>Prepares chip for calibration.</p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#calix.spiking.neuron_threshold.ThresholdCalibMADC.prepare_recording" title="calix.spiking.neuron_threshold.ThresholdCalibMADC.prepare_recording"><code class="xref py py-obj docutils literal notranslate"><span class="pre">prepare_recording</span></code></a>(connection)</p></td>
+<td><p>Prepares chip for the experiment.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.spiking.neuron_threshold.ThresholdCalibMADC.record_traces" title="calix.spiking.neuron_threshold.ThresholdCalibMADC.record_traces"><code class="xref py py-obj docutils literal notranslate"><span class="pre">record_traces</span></code></a>(connection, builder)</p></td>
+<td><p>Executes measurement on chip, returns samples per neuron.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#calix.spiking.neuron_threshold.ThresholdCalibMADC.restore_initial_state" title="calix.spiking.neuron_threshold.ThresholdCalibMADC.restore_initial_state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">restore_initial_state</span></code></a>(connection)</p></td>
+<td><p>Restore original readout and neuron configuration.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.spiking.neuron_threshold.ThresholdCalibMADC.run" title="calix.spiking.neuron_threshold.ThresholdCalibMADC.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>(connection, algorithm[, target])</p></td>
+<td><p>Use the provided algorithm to find optimal parameters.</p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#calix.spiking.neuron_threshold.ThresholdCalibMADC.stimulate" title="calix.spiking.neuron_threshold.ThresholdCalibMADC.stimulate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stimulate</span></code></a>(builder, neuron_coord, …)</p></td>
 <td><p>Empty function.</p></td>
 </tr>
 </tbody>
 </table>
+<dl class="py method">
+<dt id="calix.spiking.neuron_threshold.ThresholdCalibMADC.build_measurement_program">
+<code class="sig-name descname"><span class="pre">build_measurement_program</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">builder</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="calix.common.base.WriteRecordingPlaybackProgramBuilder.html#calix.common.base.WriteRecordingPlaybackProgramBuilder" title="calix.common.base.WriteRecordingPlaybackProgramBuilder"><span class="pre">calix.common.base.WriteRecordingPlaybackProgramBuilder</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="calix.common.base.WriteRecordingPlaybackProgramBuilder.html#calix.common.base.WriteRecordingPlaybackProgramBuilder" title="calix.common.base.WriteRecordingPlaybackProgramBuilder"><span class="pre">calix.common.base.WriteRecordingPlaybackProgramBuilder</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">pystadls_vx_v3.ContainerTicket</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#calix.spiking.neuron_threshold.ThresholdCalibMADC.build_measurement_program" title="Permalink to this definition"></a></dt>
+<dd><p>Builds a program to measure an arbitrary MADC trace for each
+neuron.</p>
+<p>One neuron after another is connected to the MADC,
+the stimulate function is called and samples are recorded.
+The timing of each neuron is recorded, tickets containing the
+start and stop of the recording time are returned along with
+the builder.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>builder</strong> – Builder to append instructions to.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><p>Tuple containing:
+* Builder with instructions appended.
+* List of read tickets marking start and end of the</p>
+<blockquote>
+<div><p>recording of each neuron.</p>
+</div></blockquote>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py method">
 <dt id="calix.spiking.neuron_threshold.ThresholdCalibMADC.configure_parameters">
 <code class="sig-name descname"><span class="pre">configure_parameters</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">builder</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="calix.common.base.WriteRecordingPlaybackProgramBuilder.html#calix.common.base.WriteRecordingPlaybackProgramBuilder" title="calix.common.base.WriteRecordingPlaybackProgramBuilder"><span class="pre">calix.common.base.WriteRecordingPlaybackProgramBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">numpy.ndarray</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="calix.common.base.WriteRecordingPlaybackProgramBuilder.html#calix.common.base.WriteRecordingPlaybackProgramBuilder" title="calix.common.base.WriteRecordingPlaybackProgramBuilder"><span class="pre">calix.common.base.WriteRecordingPlaybackProgramBuilder</span></a><a class="headerlink" href="#calix.spiking.neuron_threshold.ThresholdCalibMADC.configure_parameters" title="Permalink to this definition"></a></dt>
@@ -182,6 +227,25 @@ assumed to be near the threshold voltage.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Numpy array of measured threshold voltages.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calix.spiking.neuron_threshold.ThresholdCalibMADC.measure_results">
+<code class="sig-name descname"><span class="pre">measure_results</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhxcomm_vx.ConnectionHandle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">builder</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="calix.common.base.WriteRecordingPlaybackProgramBuilder.html#calix.common.base.WriteRecordingPlaybackProgramBuilder" title="calix.common.base.WriteRecordingPlaybackProgramBuilder"><span class="pre">calix.common.base.WriteRecordingPlaybackProgramBuilder</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">numpy.ndarray</span><a class="headerlink" href="#calix.spiking.neuron_threshold.ThresholdCalibMADC.measure_results" title="Permalink to this definition"></a></dt>
+<dd><p>Measure and evaluate the results.</p>
+<p>Calls record_traces() to acquire an MADC trace per neuron,
+and calls evaluate() to get an array of results from, e.g., fits.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>connection</strong> – Connection to the chip to calibrate.</p></li>
+<li><p><strong>builder</strong> – Builder to append measurement program to.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Numpy array, containing evaluated results.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -237,6 +301,83 @@ that only the amplitude of the current is set but it is not enabled.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>connection</strong> – Connection to the chip to calibrate.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calix.spiking.neuron_threshold.ThresholdCalibMADC.prepare_recording">
+<code class="sig-name descname"><span class="pre">prepare_recording</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhxcomm_vx.ConnectionHandle</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.spiking.neuron_threshold.ThresholdCalibMADC.prepare_recording" title="Permalink to this definition"></a></dt>
+<dd><p>Prepares chip for the experiment.</p>
+<p>Configures the MADC and sets necessary bias currents.
+Reads and saves readout config and neuron config to
+restore original state after the experiment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>connection</strong> – Connection to the chip.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calix.spiking.neuron_threshold.ThresholdCalibMADC.record_traces">
+<code class="sig-name descname"><span class="pre">record_traces</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhxcomm_vx.ConnectionHandle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">builder</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="calix.common.base.WriteRecordingPlaybackProgramBuilder.html#calix.common.base.WriteRecordingPlaybackProgramBuilder" title="calix.common.base.WriteRecordingPlaybackProgramBuilder"><span class="pre">calix.common.base.WriteRecordingPlaybackProgramBuilder</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#calix.spiking.neuron_threshold.ThresholdCalibMADC.record_traces" title="Permalink to this definition"></a></dt>
+<dd><p>Executes measurement on chip, returns samples per neuron.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>connection</strong> – Connection to the chip to calibrate.</p></li>
+<li><p><strong>builder</strong> – Builder to append measurement program to.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>List of numpy arrays, containing samples for each neuron.</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><a class="reference internal" href="calix.common.exceptions.TooFewSamplesError.html#calix.common.exceptions.TooFewSamplesError" title="calix.common.exceptions.TooFewSamplesError"><strong>TooFewSamplesError</strong></a> – If the number of received MADC samples
+is significantly smaller than expected for at least one neuron.
+The evaluate function may fail in this case, thus the error
+is caught here.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calix.spiking.neuron_threshold.ThresholdCalibMADC.restore_initial_state">
+<code class="sig-name descname"><span class="pre">restore_initial_state</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhxcomm_vx.ConnectionHandle</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.spiking.neuron_threshold.ThresholdCalibMADC.restore_initial_state" title="Permalink to this definition"></a></dt>
+<dd><p>Restore original readout and neuron configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>connection</strong> – Connection to the chip to calibrate.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calix.spiking.neuron_threshold.ThresholdCalibMADC.run">
+<code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhxcomm_vx.ConnectionHandle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">algorithm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="calix.common.base.Algorithm.html#calix.common.base.Algorithm" title="calix.common.base.Algorithm"><span class="pre">calix.common.base.Algorithm</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">numbers.Integral</span><span class="p"><span class="pre">,</span> </span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="calix.common.base.ParameterCalibResult.html#calix.common.base.ParameterCalibResult" title="calix.common.base.ParameterCalibResult"><span class="pre">calix.common.base.ParameterCalibResult</span></a><a class="headerlink" href="#calix.spiking.neuron_threshold.ThresholdCalibMADC.run" title="Permalink to this definition"></a></dt>
+<dd><p>Use the provided algorithm to find optimal parameters.</p>
+<p>Calls prelude function, calls algorithm.run(), calls postlude function.
+If self.target is not defined after the prelude function, the
+calibration target is required as a parameter to this function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>connection</strong> – Connection to the chip to calibrate.</p></li>
+<li><p><strong>algorithm</strong> – Instance of an algorithm to be used for
+calibration. Will be hooked to the calibration during running
+and unhooked afterwards.</p></li>
+<li><p><strong>target</strong> – Target result to be aimed for. If given, this target
+is used. If None, the attribute self.target is used.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>TypeError</strong> – If neither the target parameter or the attribute
+self.target are defined.</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>ParameterCalibResult, containing the optimal
+parameters.</p>
 </dd>
 </dl>
 </dd></dl>

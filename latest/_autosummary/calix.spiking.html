@@ -16,8 +16,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="calix.spiking.correlation" href="calix.spiking.correlation.html" />
-    <link rel="prev" title="calix.hagen.HagenSyninCalibTarget" href="calix.hagen.HagenSyninCalibTarget.html" /> 
+    <link rel="next" title="calix.spiking.calibrate" href="calix.spiking.calibrate.html" />
+    <link rel="prev" title="calix.hagen.synapse_driver.SynapseDriverMeasurement" href="calix.hagen.synapse_driver.SynapseDriverMeasurement.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -50,6 +50,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../api_hxcomm.html">hxcomm API</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../api_calix.html">calix API</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="calix.html">calix</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="calix.calibrate.html">calix.calibrate</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.calib_cache.html">calix.calib_cache</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.common.html">calix.common</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.constants.html">calix.constants</a></li>
@@ -92,8 +93,47 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="calix-spiking">
-<h1>calix.spiking<a class="headerlink" href="#calix-spiking" title="Permalink to this headline"></a></h1>
+  <div class="section" id="module-calix.spiking">
+<span id="calix-spiking"></span><h1>calix.spiking<a class="headerlink" href="#module-calix.spiking" title="Permalink to this headline"></a></h1>
+<p class="rubric">Functions</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="calix.spiking.calibrate.html#calix.spiking.calibrate" title="calix.spiking.calibrate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calibrate</span></code></a>(connection[, target, options])</p></td>
+<td><p>Execute a full calibration for spiking mode: Calibrate CADCs to a suitable dynamic range.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="calix.spiking.dataclass.html#calix.spiking.dataclass" title="calix.spiking.dataclass"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dataclass</span></code></a>([cls, init, repr, eq, order, …])</p></td>
+<td><p>Returns the same class as was passed in, with dunder methods added based on the fields defined in the class.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="calix.spiking.field.html#calix.spiking.field" title="calix.spiking.field"><code class="xref py py-obj docutils literal notranslate"><span class="pre">field</span></code></a>(*[, default, default_factory, init, …])</p></td>
+<td><p>Return an object to identify dataclass fields.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="calix.spiking.warn.html#calix.spiking.warn" title="calix.spiking.warn"><code class="xref py py-obj docutils literal notranslate"><span class="pre">warn</span></code></a>(message[, category, stacklevel, source])</p></td>
+<td><p>Issue a warning, or maybe ignore it or raise an exception.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Classes</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="calix.spiking.SpikingCalibOptions.html#calix.spiking.SpikingCalibOptions" title="calix.spiking.SpikingCalibOptions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SpikingCalibOptions</span></code></a>(cadc_options, …)</p></td>
+<td><p>Data class containing further options for spiking calibration.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="calix.spiking.SpikingCalibResult.html#calix.spiking.SpikingCalibResult" title="calix.spiking.SpikingCalibResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SpikingCalibResult</span></code></a>(target, options, …)</p></td>
+<td><p>Data class containing results of cadc and neuron calibration, all what is necessary for operation in spiking mode.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="calix.spiking.SpikingCalibTarget.html#calix.spiking.SpikingCalibTarget" title="calix.spiking.SpikingCalibTarget"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SpikingCalibTarget</span></code></a>(cadc_target, …)</p></td>
+<td><p>Data class containing targets for spiking neuron calibration.</p></td>
+</tr>
+</tbody>
+</table>
 <p class="rubric">Modules</p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -124,96 +164,14 @@
 </tr>
 </tbody>
 </table>
-<span class="target" id="module-calix.spiking"></span><p class="rubric">Classes</p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="calix.spiking.SpikingCalibOptions.html#calix.spiking.SpikingCalibOptions" title="calix.spiking.SpikingCalibOptions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SpikingCalibOptions</span></code></a>(cadc_options, …)</p></td>
-<td><p>Data class containing further options for spiking calibration.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="calix.spiking.SpikingCalibResult.html#calix.spiking.SpikingCalibResult" title="calix.spiking.SpikingCalibResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SpikingCalibResult</span></code></a>(target, options, …)</p></td>
-<td><p>Data class containing results of cadc and neuron calibration, all what is necessary for operation in spiking mode.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="calix.spiking.SpikingCalibTarget.html#calix.spiking.SpikingCalibTarget" title="calix.spiking.SpikingCalibTarget"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SpikingCalibTarget</span></code></a>(cadc_target, …)</p></td>
-<td><p>Data class containing targets for spiking neuron calibration.</p></td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Functions</p>
-<dl class="py function">
-<dt id="calix.spiking.calibrate">
-<code class="sig-prename descclassname"><span class="pre">calix.spiking.</span></code><code class="sig-name descname"><span class="pre">calibrate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhxcomm_vx.ConnectionHandle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="calix.spiking.SpikingCalibTarget.html#calix.spiking.SpikingCalibTarget" title="calix.spiking.SpikingCalibTarget"><span class="pre">calix.spiking.SpikingCalibTarget</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="calix.spiking.SpikingCalibOptions.html#calix.spiking.SpikingCalibOptions" title="calix.spiking.SpikingCalibOptions"><span class="pre">calix.spiking.SpikingCalibOptions</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="calix.spiking.SpikingCalibResult.html#calix.spiking.SpikingCalibResult" title="calix.spiking.SpikingCalibResult"><span class="pre">calix.spiking.SpikingCalibResult</span></a><a class="headerlink" href="#calix.spiking.calibrate" title="Permalink to this definition"></a></dt>
-<dd><p>Execute a full calibration for spiking mode:
-Calibrate CADCs to a suitable dynamic range.
-Calibrate neurons.</p>
-<p>The chip has to be initialized first, which can be done using the
-stadls ExperimentInit().</p>
-<p>The individual calibrations’ default parameters can be overwritten
-by providing <a href="#id1"><span class="problematic" id="id2">cadc_</span></a> or neuron_kwargs, respectively.</p>
-<p>After the “usual” neuron calibration has finished, the CADC calibration
-is repeated in order to mitigate CapMem crosstalk effects.
-Afterwards, the neuron potentials are calibrated once again.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>connection</strong> – Connection to the chip to calibrate.</p></li>
-<li><p><strong>target</strong> – Target parameters for calibration, given as an
-instance of SpikingCalibTarget.</p></li>
-<li><p><strong>options</strong> – Further options for calibration, given as an
-instance of SpikingCalibOptions.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>SpikingCalibResult, containing cadc and neuron results.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="calix.spiking.dataclass">
-<code class="sig-prename descclassname"><span class="pre">calix.spiking.</span></code><code class="sig-name descname"><span class="pre">dataclass</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">repr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unsafe_hash</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frozen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.spiking.dataclass" title="Permalink to this definition"></a></dt>
-<dd><p>Returns the same class as was passed in, with dunder methods
-added based on the fields defined in the class.</p>
-<p>Examines PEP 526 __annotations__ to determine fields.</p>
-<p>If init is true, an __init__() method is added to the class. If
-repr is true, a __repr__() method is added. If order is true, rich
-comparison dunder methods are added. If unsafe_hash is true, a
-__hash__() method function is added. If frozen is true, fields may
-not be assigned to after instance creation.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="calix.spiking.field">
-<code class="sig-prename descclassname"><span class="pre">calix.spiking.</span></code><code class="sig-name descname"><span class="pre">field</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">*</span></em>, <em class="sig-param"><span class="pre">default=&lt;dataclasses._MISSING_TYPE</span> <span class="pre">object&gt;</span></em>, <em class="sig-param"><span class="pre">default_factory=&lt;dataclasses._MISSING_TYPE</span> <span class="pre">object&gt;</span></em>, <em class="sig-param"><span class="pre">init=True</span></em>, <em class="sig-param"><span class="pre">repr=True</span></em>, <em class="sig-param"><span class="pre">hash=None</span></em>, <em class="sig-param"><span class="pre">compare=True</span></em>, <em class="sig-param"><span class="pre">metadata=None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.spiking.field" title="Permalink to this definition"></a></dt>
-<dd><p>Return an object to identify dataclass fields.</p>
-<p>default is the default value of the field.  default_factory is a
-0-argument function called to initialize a field’s value.  If init
-is True, the field will be a parameter to the class’s __init__()
-function.  If repr is True, the field will be included in the
-object’s repr().  If hash is True, the field will be included in
-the object’s hash().  If compare is True, the field will be used
-in comparison functions.  metadata, if specified, must be a
-mapping which is stored but not otherwise examined by dataclass.</p>
-<p>It is an error to specify both default and default_factory.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="calix.spiking.warn">
-<code class="sig-prename descclassname"><span class="pre">calix.spiking.</span></code><code class="sig-name descname"><span class="pre">warn</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stacklevel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.spiking.warn" title="Permalink to this definition"></a></dt>
-<dd><p>Issue a warning, or maybe ignore it or raise an exception.</p>
-</dd></dl>
-
 </div>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="calix.hagen.HagenSyninCalibTarget.html" class="btn btn-neutral float-left" title="calix.hagen.HagenSyninCalibTarget" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="calix.spiking.correlation.html" class="btn btn-neutral float-right" title="calix.spiking.correlation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="calix.hagen.synapse_driver.SynapseDriverMeasurement.html" class="btn btn-neutral float-left" title="calix.hagen.synapse_driver.SynapseDriverMeasurement" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="calix.spiking.calibrate.html" class="btn btn-neutral float-right" title="calix.spiking.calibrate" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

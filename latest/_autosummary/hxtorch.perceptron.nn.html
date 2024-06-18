@@ -16,8 +16,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="hxtorch.perceptron.nn.Conv1d" href="hxtorch.perceptron.nn.Conv1d.html" />
-    <link rel="prev" title="hxtorch.perceptron" href="hxtorch.perceptron.html" /> 
+    <link rel="next" title="hxtorch.perceptron.nn.abstractmethod" href="hxtorch.perceptron.nn.abstractmethod.html" />
+    <link rel="prev" title="hxtorch.perceptron.MockParameter" href="hxtorch.perceptron.MockParameter.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -97,6 +97,30 @@ with the building blocks from py:mod:<cite>torch.nn</cite>. Unlike their counter
 their multiply-accumulate operations are performed with the
 BrainScaleS-2 accelerator. Additional digital operations are performed
 in the SIMD processors of BSS-2.</p>
+<p class="rubric">Functions</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.perceptron.nn.abstractmethod.html#hxtorch.perceptron.nn.abstractmethod" title="hxtorch.perceptron.nn.abstractmethod"><code class="xref py py-obj docutils literal notranslate"><span class="pre">abstractmethod</span></code></a>(funcobj)</p></td>
+<td><p>A decorator indicating abstract methods.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.perceptron.nn.clamp_weight_.html#hxtorch.perceptron.nn.clamp_weight_" title="hxtorch.perceptron.nn.clamp_weight_"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clamp_weight_</span></code></a>(weight)</p></td>
+<td><p>Clamps all elements of the weight in-place into the maximal weight range of BrainScaleS-2.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.perceptron.nn.scale_input.html#hxtorch.perceptron.nn.scale_input" title="hxtorch.perceptron.nn.scale_input"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scale_input</span></code></a>(x_in)</p></td>
+<td><p>Scales the tensor to the maximal input range of BrainScaleS-2.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.perceptron.nn.scale_weight.html#hxtorch.perceptron.nn.scale_weight" title="hxtorch.perceptron.nn.scale_weight"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scale_weight</span></code></a>(weight)</p></td>
+<td><p>Scales the tensor to the maximal weight range of BrainScaleS-2.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.perceptron.nn.signature.html#hxtorch.perceptron.nn.signature" title="hxtorch.perceptron.nn.signature"><code class="xref py py-obj docutils literal notranslate"><span class="pre">signature</span></code></a>(obj, *[, follow_wrapped])</p></td>
+<td><p>Get a signature object for the passed callable.</p></td>
+</tr>
+</tbody>
+</table>
 <p class="rubric">Classes</p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -139,63 +163,14 @@ in the SIMD processors of BSS-2.</p>
 </tr>
 </tbody>
 </table>
-<p class="rubric">Functions</p>
-<dl class="py function">
-<dt id="hxtorch.perceptron.nn.abstractmethod">
-<code class="sig-prename descclassname"><span class="pre">hxtorch.perceptron.nn.</span></code><code class="sig-name descname"><span class="pre">abstractmethod</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">funcobj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.perceptron.nn.abstractmethod" title="Permalink to this definition"></a></dt>
-<dd><p>A decorator indicating abstract methods.</p>
-<p>Requires that the metaclass is ABCMeta or derived from it.  A
-class that has a metaclass derived from ABCMeta cannot be
-instantiated unless all of its abstract methods are overridden.
-The abstract methods can be called using any of the normal
-‘super’ call mechanisms.  abstractmethod() may be used to declare
-abstract methods for properties and descriptors.</p>
-<p>Usage:</p>
-<blockquote>
-<div><dl>
-<dt>class C(metaclass=ABCMeta):</dt><dd><p>&#64;abstractmethod
-def my_abstract_method(self, …):</p>
-<blockquote>
-<div><p>…</p>
-</div></blockquote>
-</dd>
-</dl>
-</div></blockquote>
-</dd></dl>
-
-<dl class="py function">
-<dt id="hxtorch.perceptron.nn.clamp_weight_">
-<code class="sig-prename descclassname"><span class="pre">hxtorch.perceptron.nn.</span></code><code class="sig-name descname"><span class="pre">clamp_weight_</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">torch.Tensor</span><a class="headerlink" href="#hxtorch.perceptron.nn.clamp_weight_" title="Permalink to this definition"></a></dt>
-<dd><p>Clamps all elements of the weight in-place into the maximal weight range
-of BrainScaleS-2.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="hxtorch.perceptron.nn.scale_input">
-<code class="sig-prename descclassname"><span class="pre">hxtorch.perceptron.nn.</span></code><code class="sig-name descname"><span class="pre">scale_input</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_in</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">torch.Tensor</span><a class="headerlink" href="#hxtorch.perceptron.nn.scale_input" title="Permalink to this definition"></a></dt>
-<dd><p>Scales the tensor to the maximal input range of BrainScaleS-2.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="hxtorch.perceptron.nn.scale_weight">
-<code class="sig-prename descclassname"><span class="pre">hxtorch.perceptron.nn.</span></code><code class="sig-name descname"><span class="pre">scale_weight</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">torch.Tensor</span><a class="headerlink" href="#hxtorch.perceptron.nn.scale_weight" title="Permalink to this definition"></a></dt>
-<dd><p>Scales the tensor to the maximal weight range of BrainScaleS-2.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="hxtorch.perceptron.nn.signature">
-<code class="sig-prename descclassname"><span class="pre">hxtorch.perceptron.nn.</span></code><code class="sig-name descname"><span class="pre">signature</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">follow_wrapped</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.perceptron.nn.signature" title="Permalink to this definition"></a></dt>
-<dd><p>Get a signature object for the passed callable.</p>
-</dd></dl>
-
 </div>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="hxtorch.perceptron.html" class="btn btn-neutral float-left" title="hxtorch.perceptron" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="hxtorch.perceptron.nn.Conv1d.html" class="btn btn-neutral float-right" title="hxtorch.perceptron.nn.Conv1d" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="hxtorch.perceptron.MockParameter.html" class="btn btn-neutral float-left" title="hxtorch.perceptron.MockParameter" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="hxtorch.perceptron.nn.abstractmethod.html" class="btn btn-neutral float-right" title="hxtorch.perceptron.nn.abstractmethod" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

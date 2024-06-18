@@ -16,7 +16,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="calix.spiking" href="calix.spiking.html" />
+    <link rel="next" title="calix.hagen.multiplication" href="calix.hagen.multiplication.html" />
     <link rel="prev" title="calix.hagen.HagenSyninCalibResult" href="calix.hagen.HagenSyninCalibResult.html" /> 
 </head>
 
@@ -50,6 +50,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../api_hxcomm.html">hxcomm API</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../api_calix.html">calix API</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="calix.html">calix</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="calix.calibrate.html">calix.calibrate</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.calib_cache.html">calix.calib_cache</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.common.html">calix.common</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.constants.html">calix.constants</a></li>
@@ -130,6 +131,15 @@ multiplication.</p></li>
 <tr class="row-even"><td><p><a class="reference internal" href="#calix.hagen.HagenSyninCalibTarget.calibrate" title="calix.hagen.HagenSyninCalibTarget.calibrate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calibrate</span></code></a>(connection[, options])</p></td>
 <td><p>Execute a calibration for this target.</p></td>
 </tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.hagen.HagenSyninCalibTarget.check" title="calix.hagen.HagenSyninCalibTarget.check"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check</span></code></a>()</p></td>
+<td><p>Check types and values of parameters.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#calix.hagen.HagenSyninCalibTarget.check_types" title="calix.hagen.HagenSyninCalibTarget.check_types"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_types</span></code></a>()</p></td>
+<td><p>Check whether the given types and shapes of arrays are suitable.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.hagen.HagenSyninCalibTarget.check_values" title="calix.hagen.HagenSyninCalibTarget.check_values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_values</span></code></a>()</p></td>
+<td><p>Check whether the provided target parameters are feasible for calibration.</p></td>
+</tr>
 </tbody>
 </table>
 <p class="rubric">Attributes</p>
@@ -169,6 +179,26 @@ multiplication.</p></li>
 </dl>
 </dd></dl>
 
+<dl class="py method">
+<dt id="calix.hagen.HagenSyninCalibTarget.check">
+<code class="sig-name descname"><span class="pre">check</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#calix.hagen.HagenSyninCalibTarget.check" title="Permalink to this definition"></a></dt>
+<dd><p>Check types and values of parameters.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calix.hagen.HagenSyninCalibTarget.check_types">
+<code class="sig-name descname"><span class="pre">check_types</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#calix.hagen.HagenSyninCalibTarget.check_types" title="Permalink to this definition"></a></dt>
+<dd><p>Check whether the given types and shapes of arrays are
+suitable.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calix.hagen.HagenSyninCalibTarget.check_values">
+<code class="sig-name descname"><span class="pre">check_values</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#calix.hagen.HagenSyninCalibTarget.check_values" title="Permalink to this definition"></a></dt>
+<dd><p>Check whether the provided target parameters are feasible
+for calibration.</p>
+</dd></dl>
+
 <dl class="py attribute">
 <dt id="calix.hagen.HagenSyninCalibTarget.feasible_ranges">
 <code class="sig-name descname"><span class="pre">feasible_ranges</span></code><em class="property"><span class="pre">:</span> <span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">ParameterRange</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{'synapse_dac_bias':</span> <span class="pre">ParameterRange(lower=30,</span> <span class="pre">upper=1022)}</span></em><a class="headerlink" href="#calix.hagen.HagenSyninCalibTarget.feasible_ranges" title="Permalink to this definition"></a></dt>
@@ -188,7 +218,7 @@ multiplication.</p></li>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="calix.hagen.HagenSyninCalibResult.html" class="btn btn-neutral float-left" title="calix.hagen.HagenSyninCalibResult" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="calix.spiking.html" class="btn btn-neutral float-right" title="calix.spiking" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="calix.hagen.multiplication.html" class="btn btn-neutral float-right" title="calix.hagen.multiplication" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

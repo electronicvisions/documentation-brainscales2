@@ -16,7 +16,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="calix.spiking.neuron.NeuronCalibOptions" href="calix.spiking.neuron.NeuronCalibOptions.html" />
+    <link rel="next" title="calix.spiking.neuron.calibrate" href="calix.spiking.neuron.calibrate.html" />
     <link rel="prev" title="calix.spiking.correlation_measurement.CorrelationMeasurement" href="calix.spiking.correlation_measurement.CorrelationMeasurement.html" /> 
 </head>
 
@@ -50,6 +50,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../api_hxcomm.html">hxcomm API</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../api_calix.html">calix API</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="calix.html">calix</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="calix.calibrate.html">calix.calibrate</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.calib_cache.html">calix.calib_cache</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.common.html">calix.common</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.constants.html">calix.constants</a></li>
@@ -96,6 +97,27 @@
   <div class="section" id="module-calix.spiking.neuron">
 <span id="calix-spiking-neuron"></span><h1>calix.spiking.neuron<a class="headerlink" href="#module-calix.spiking.neuron" title="Permalink to this headline"></a></h1>
 <p>Provides an interface for calibrating LIF neurons.</p>
+<p class="rubric">Functions</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="calix.spiking.neuron.calibrate.html#calix.spiking.neuron.calibrate" title="calix.spiking.neuron.calibrate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calibrate</span></code></a>(connection[, target, options])</p></td>
+<td><p>Calibrate neurons for spiking operation in the LIF model.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="calix.spiking.neuron.calibrate_leak_over_threshold.html#calix.spiking.neuron.calibrate_leak_over_threshold" title="calix.spiking.neuron.calibrate_leak_over_threshold"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calibrate_leak_over_threshold</span></code></a>(connection, result)</p></td>
+<td><p>Calibrate neurons to a specific firing rate in leak over threshold setup, by adjusting the threshold.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="calix.spiking.neuron.dataclass.html#calix.spiking.neuron.dataclass" title="calix.spiking.neuron.dataclass"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dataclass</span></code></a>([cls, init, repr, eq, order, …])</p></td>
+<td><p>Returns the same class as was passed in, with dunder methods added based on the fields defined in the class.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="calix.spiking.neuron.refine_potentials.html#calix.spiking.neuron.refine_potentials" title="calix.spiking.neuron.refine_potentials"><code class="xref py py-obj docutils literal notranslate"><span class="pre">refine_potentials</span></code></a>(connection, result[, target])</p></td>
+<td><p>Re-calibrate the leak, reset and threshold potentials.</p></td>
+</tr>
+</tbody>
+</table>
 <p class="rubric">Classes</p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -114,101 +136,6 @@
 </tr>
 </tbody>
 </table>
-<p class="rubric">Functions</p>
-<dl class="py function">
-<dt id="calix.spiking.neuron.calibrate">
-<code class="sig-prename descclassname"><span class="pre">calix.spiking.neuron.</span></code><code class="sig-name descname"><span class="pre">calibrate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhxcomm_vx.ConnectionHandle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="calix.spiking.neuron.NeuronCalibTarget.html#calix.spiking.neuron.NeuronCalibTarget" title="calix.spiking.neuron.NeuronCalibTarget"><span class="pre">calix.spiking.neuron.NeuronCalibTarget</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="calix.spiking.neuron.NeuronCalibOptions.html#calix.spiking.neuron.NeuronCalibOptions" title="calix.spiking.neuron.NeuronCalibOptions"><span class="pre">calix.spiking.neuron.NeuronCalibOptions</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="calix.hagen.neuron_dataclasses.NeuronCalibResult.html#calix.hagen.neuron_dataclasses.NeuronCalibResult" title="calix.hagen.neuron_dataclasses.NeuronCalibResult"><span class="pre">calix.hagen.neuron_dataclasses.NeuronCalibResult</span></a><a class="headerlink" href="#calix.spiking.neuron.calibrate" title="Permalink to this definition"></a></dt>
-<dd><p>Calibrate neurons for spiking operation in the LIF model.</p>
-<p>Parts of the calibration use the CADC, thus it has to be
-calibrated beforehand. All parameters are given in a “technical”
-domain. Parameters can be single values or numpy arrays shaped (512,),
-matching the number of neurons.</p>
-<p>Requirements:
-- The CADCs are enabled and calibrated. You can achieve this using</p>
-<blockquote>
-<div><p>the function <cite>calix.common.cadc.calibrate()</cite>.</p>
-</div></blockquote>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>connection</strong> – Connection to the chip to calibrate.</p></li>
-<li><p><strong>target</strong> – Calib target, given as an instance of
-NeuronCalibTarget. Refer there for the individual parameters.</p></li>
-<li><p><strong>options</strong> – Further options for neuron calibration.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Raises</dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>TypeError</strong> – If time constants are not given with a unit
-from the <cite>quantities</cite> package.</p></li>
-<li><p><strong>ValueError</strong> – If parameters are badly shaped
-or out of feasible range.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="calix.spiking.neuron.calibrate_leak_over_threshold">
-<code class="sig-prename descclassname"><span class="pre">calix.spiking.neuron.</span></code><code class="sig-name descname"><span class="pre">calibrate_leak_over_threshold</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhxcomm_vx.ConnectionHandle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">result</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="calix.hagen.neuron_dataclasses.NeuronCalibResult.html#calix.hagen.neuron_dataclasses.NeuronCalibResult" title="calix.hagen.neuron_dataclasses.NeuronCalibResult"><span class="pre">calix.hagen.neuron_dataclasses.NeuronCalibResult</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">leak_over_threshold_rate</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">quantities.quantity.Quantity</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">array(100.)</span> <span class="pre">*</span> <span class="pre">kHz</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.spiking.neuron.calibrate_leak_over_threshold" title="Permalink to this definition"></a></dt>
-<dd><p>Calibrate neurons to a specific firing rate in leak over threshold
-setup, by adjusting the threshold.</p>
-<p>The previously chosen threshold is disregarded here, it is not necessary
-to choose a leak over threshold setup beforehand. There has to be
-sufficient range between the reset and leak potential, though, in order
-to calibrate the threshold in between the two.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>connection</strong> – Connection to the chip to calibrate.</p></li>
-<li><p><strong>result</strong> – Result of the previous neuron calibration.
-The spike thresholds will be adjusted.</p></li>
-<li><p><strong>leak_over_threshold_rate</strong> – Target spike rate, given with a
-unit in the hardware time domain (so usual values
-are 10 to 100 kHz). The threshold is calibrated such that
-the neuron spikes with the given rate without any synaptic input.
-The previously calibrated threshold is threfore overwritten.
-If configuring an array in order to set individual targets
-per neuron, use a rate of zero to leave the threshold untouched.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="calix.spiking.neuron.dataclass">
-<code class="sig-prename descclassname"><span class="pre">calix.spiking.neuron.</span></code><code class="sig-name descname"><span class="pre">dataclass</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">repr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unsafe_hash</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frozen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.spiking.neuron.dataclass" title="Permalink to this definition"></a></dt>
-<dd><p>Returns the same class as was passed in, with dunder methods
-added based on the fields defined in the class.</p>
-<p>Examines PEP 526 __annotations__ to determine fields.</p>
-<p>If init is true, an __init__() method is added to the class. If
-repr is true, a __repr__() method is added. If order is true, rich
-comparison dunder methods are added. If unsafe_hash is true, a
-__hash__() method function is added. If frozen is true, fields may
-not be assigned to after instance creation.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="calix.spiking.neuron.refine_potentials">
-<code class="sig-prename descclassname"><span class="pre">calix.spiking.neuron.</span></code><code class="sig-name descname"><span class="pre">refine_potentials</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhxcomm_vx.ConnectionHandle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">result</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="calix.hagen.neuron_dataclasses.NeuronCalibResult.html#calix.hagen.neuron_dataclasses.NeuronCalibResult" title="calix.hagen.neuron_dataclasses.NeuronCalibResult"><span class="pre">calix.hagen.neuron_dataclasses.NeuronCalibResult</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="calix.spiking.neuron.NeuronCalibTarget.html#calix.spiking.neuron.NeuronCalibTarget" title="calix.spiking.neuron.NeuronCalibTarget"><span class="pre">calix.spiking.neuron.NeuronCalibTarget</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#calix.spiking.neuron.refine_potentials" title="Permalink to this definition"></a></dt>
-<dd><p>Re-calibrate the leak, reset and threshold potentials.</p>
-<p>This can be useful to minimize the effects of CapMem crosstalk
-on the end calibration. For best results, first run/apply a neuron
-calibration and then re-run the CADC calibration, as it is also
-affected by the neuron calibration. Call this function last.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>connection</strong> – Connection to the chip to re-calibrate.</p></li>
-<li><p><strong>result</strong> – Result of the previous neuron calibration.
-The potentials will be overwritten by the refinement.</p></li>
-<li><p><strong>target</strong> – Calib target parameters. Only the potentials
-(leak, reset, threshold) will be used and re-calibrated.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
 </div>
 
 
@@ -216,7 +143,7 @@ The potentials will be overwritten by the refinement.</p></li>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="calix.spiking.correlation_measurement.CorrelationMeasurement.html" class="btn btn-neutral float-left" title="calix.spiking.correlation_measurement.CorrelationMeasurement" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="calix.spiking.neuron.NeuronCalibOptions.html" class="btn btn-neutral float-right" title="calix.spiking.neuron.NeuronCalibOptions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="calix.spiking.neuron.calibrate.html" class="btn btn-neutral float-right" title="calix.spiking.neuron.calibrate" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

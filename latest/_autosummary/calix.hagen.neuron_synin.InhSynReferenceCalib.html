@@ -50,6 +50,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../api_hxcomm.html">hxcomm API</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../api_calix.html">calix API</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="calix.html">calix</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="calix.calibrate.html">calix.calibrate</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.calib_cache.html">calix.calib_cache</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.common.html">calix.common</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.constants.html">calix.constants</a></li>
@@ -126,8 +127,121 @@ disabled.</p></li>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.hagen.neuron_synin.InhSynReferenceCalib.__init__" title="calix.hagen.neuron_synin.InhSynReferenceCalib.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([bias_currents, target])</p></td>
+<td><p><dl class="field-list simple">
+<dt class="field-odd">param bias_currents</dt>
+<dd class="field-odd"><p>Synaptic input bias currents to configure</p>
+</dd>
+</dl>
+</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#calix.hagen.neuron_synin.InhSynReferenceCalib.configure_parameters" title="calix.hagen.neuron_synin.InhSynReferenceCalib.configure_parameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">configure_parameters</span></code></a>(builder, parameters)</p></td>
+<td><p>Configure the given parameters to the respective CapMem cell determined by whether the excitatory or inhibitory synaptic input is to be calibrated.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.hagen.neuron_synin.InhSynReferenceCalib.measure_results" title="calix.hagen.neuron_synin.InhSynReferenceCalib.measure_results"><code class="xref py py-obj docutils literal notranslate"><span class="pre">measure_results</span></code></a>(connection, builder)</p></td>
+<td><p>Measure the membrane potentials of each neuron.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#calix.hagen.neuron_synin.InhSynReferenceCalib.postlude" title="calix.hagen.neuron_synin.InhSynReferenceCalib.postlude"><code class="xref py py-obj docutils literal notranslate"><span class="pre">postlude</span></code></a>(connection)</p></td>
+<td><p>Print statistics of the resting potentials with synaptic input enabled and reference potential calibrated.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.hagen.neuron_synin.InhSynReferenceCalib.prelude" title="calix.hagen.neuron_synin.InhSynReferenceCalib.prelude"><code class="xref py py-obj docutils literal notranslate"><span class="pre">prelude</span></code></a>(connection)</p></td>
+<td><p>If desired, configure the synaptic input bias currents to the given values.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#calix.hagen.neuron_synin.InhSynReferenceCalib.run" title="calix.hagen.neuron_synin.InhSynReferenceCalib.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>(connection, algorithm[, target])</p></td>
+<td><p>Use the provided algorithm to find optimal parameters.</p></td>
+</tr>
 </tbody>
 </table>
+<dl class="py method">
+<dt id="calix.hagen.neuron_synin.InhSynReferenceCalib.configure_parameters">
+<code class="sig-name descname"><span class="pre">configure_parameters</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">builder</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="calix.common.base.WriteRecordingPlaybackProgramBuilder.html#calix.common.base.WriteRecordingPlaybackProgramBuilder" title="calix.common.base.WriteRecordingPlaybackProgramBuilder"><span class="pre">calix.common.base.WriteRecordingPlaybackProgramBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">numpy.ndarray</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="calix.common.base.WriteRecordingPlaybackProgramBuilder.html#calix.common.base.WriteRecordingPlaybackProgramBuilder" title="calix.common.base.WriteRecordingPlaybackProgramBuilder"><span class="pre">calix.common.base.WriteRecordingPlaybackProgramBuilder</span></a><a class="headerlink" href="#calix.hagen.neuron_synin.InhSynReferenceCalib.configure_parameters" title="Permalink to this definition"></a></dt>
+<dd><p>Configure the given parameters to the respective CapMem cell
+determined by whether the excitatory or inhibitory synaptic input
+is to be calibrated.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>builder</strong> – Builder to append configuration to.</p></li>
+<li><p><strong>parameters</strong> – Array of reference potential settings to configure.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Builder with configuration instructions appended.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calix.hagen.neuron_synin.InhSynReferenceCalib.measure_results">
+<code class="sig-name descname"><span class="pre">measure_results</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhxcomm_vx.ConnectionHandle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">builder</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="calix.common.base.WriteRecordingPlaybackProgramBuilder.html#calix.common.base.WriteRecordingPlaybackProgramBuilder" title="calix.common.base.WriteRecordingPlaybackProgramBuilder"><span class="pre">calix.common.base.WriteRecordingPlaybackProgramBuilder</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">numpy.ndarray</span><a class="headerlink" href="#calix.hagen.neuron_synin.InhSynReferenceCalib.measure_results" title="Permalink to this definition"></a></dt>
+<dd><p>Measure the membrane potentials of each neuron.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>connection</strong> – Connection to chip to run measurement.</p></li>
+<li><p><strong>builder</strong> – Builder to append read instructions to.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Array with CADC reads of neuron membrane potentials.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calix.hagen.neuron_synin.InhSynReferenceCalib.postlude">
+<code class="sig-name descname"><span class="pre">postlude</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhxcomm_vx.ConnectionHandle</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#calix.hagen.neuron_synin.InhSynReferenceCalib.postlude" title="Permalink to this definition"></a></dt>
+<dd><p>Print statistics of the resting potentials with synaptic input
+enabled and reference potential calibrated.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>connection</strong> – Connection to the chip to run on.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calix.hagen.neuron_synin.InhSynReferenceCalib.prelude">
+<code class="sig-name descname"><span class="pre">prelude</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhxcomm_vx.ConnectionHandle</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.hagen.neuron_synin.InhSynReferenceCalib.prelude" title="Permalink to this definition"></a></dt>
+<dd><p>If desired, configure the synaptic input bias currents
+to the given values. If no bias currents were given,
+the configuration is unchanged.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>connection</strong> – Connection to the chip to calibrate.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calix.hagen.neuron_synin.InhSynReferenceCalib.run">
+<code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhxcomm_vx.ConnectionHandle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">algorithm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="calix.common.base.Algorithm.html#calix.common.base.Algorithm" title="calix.common.base.Algorithm"><span class="pre">calix.common.base.Algorithm</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">numbers.Integral</span><span class="p"><span class="pre">,</span> </span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="calix.common.base.ParameterCalibResult.html#calix.common.base.ParameterCalibResult" title="calix.common.base.ParameterCalibResult"><span class="pre">calix.common.base.ParameterCalibResult</span></a><a class="headerlink" href="#calix.hagen.neuron_synin.InhSynReferenceCalib.run" title="Permalink to this definition"></a></dt>
+<dd><p>Use the provided algorithm to find optimal parameters.</p>
+<p>Calls prelude function, calls algorithm.run(), calls postlude function.
+If self.target is not defined after the prelude function, the
+calibration target is required as a parameter to this function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>connection</strong> – Connection to the chip to calibrate.</p></li>
+<li><p><strong>algorithm</strong> – Instance of an algorithm to be used for
+calibration. Will be hooked to the calibration during running
+and unhooked afterwards.</p></li>
+<li><p><strong>target</strong> – Target result to be aimed for. If given, this target
+is used. If None, the attribute self.target is used.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>TypeError</strong> – If neither the target parameter or the attribute
+self.target are defined.</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>ParameterCalibResult, containing the optimal
+parameters.</p>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 </div>

@@ -16,7 +16,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="calix.hagen.multiplication" href="calix.hagen.multiplication.html" />
+    <link rel="next" title="calix.hagen.calibrate" href="calix.hagen.calibrate.html" />
     <link rel="prev" title="calix.constants" href="calix.constants.html" /> 
 </head>
 
@@ -50,6 +50,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../api_hxcomm.html">hxcomm API</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../api_calix.html">calix API</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="calix.html">calix</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="calix.calibrate.html">calix.calibrate</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.calib_cache.html">calix.calib_cache</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.common.html">calix.common</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.constants.html">calix.constants</a></li>
@@ -92,8 +93,61 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="calix-hagen">
-<h1>calix.hagen<a class="headerlink" href="#calix-hagen" title="Permalink to this headline"></a></h1>
+  <div class="section" id="module-calix.hagen">
+<span id="calix-hagen"></span><h1>calix.hagen<a class="headerlink" href="#module-calix.hagen" title="Permalink to this headline"></a></h1>
+<p>Module for calibrating the HICANN-X chips for usage in hagen mode,
+i.e. for multiply-accumulate operation.</p>
+<p class="rubric">Functions</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="calix.hagen.calibrate.html#calix.hagen.calibrate" title="calix.hagen.calibrate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calibrate</span></code></a>(connection[, target, options])</p></td>
+<td><p>Execute a full calibration for hagen mode: Calibrate CADCs to a suitable dynamic range.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="calix.hagen.calibrate_for_synin_integration.html#calix.hagen.calibrate_for_synin_integration" title="calix.hagen.calibrate_for_synin_integration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calibrate_for_synin_integration</span></code></a>(connection)</p></td>
+<td><p>Calibrate the chip for integration on synaptic input lines.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="calix.hagen.dataclass.html#calix.hagen.dataclass" title="calix.hagen.dataclass"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dataclass</span></code></a>([cls, init, repr, eq, order, …])</p></td>
+<td><p>Returns the same class as was passed in, with dunder methods added based on the fields defined in the class.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="calix.hagen.field.html#calix.hagen.field" title="calix.hagen.field"><code class="xref py py-obj docutils literal notranslate"><span class="pre">field</span></code></a>(*[, default, default_factory, init, …])</p></td>
+<td><p>Return an object to identify dataclass fields.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="calix.hagen.warn.html#calix.hagen.warn" title="calix.hagen.warn"><code class="xref py py-obj docutils literal notranslate"><span class="pre">warn</span></code></a>(message[, category, stacklevel, source])</p></td>
+<td><p>Issue a warning, or maybe ignore it or raise an exception.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Classes</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="calix.hagen.HagenCalibOptions.html#calix.hagen.HagenCalibOptions" title="calix.hagen.HagenCalibOptions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HagenCalibOptions</span></code></a>(cadc_options, …)</p></td>
+<td><p>Dataclass collecting further options for Hagen-mode calibrations with integration on membranes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="calix.hagen.HagenCalibResult.html#calix.hagen.HagenCalibResult" title="calix.hagen.HagenCalibResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HagenCalibResult</span></code></a>(target, options, …)</p></td>
+<td><p>Data class containing results of cadc, neuron and synapse driver calibration, all what is necessary for operation in hagen mode when using integration on the neurons’ membranes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="calix.hagen.HagenCalibTarget.html#calix.hagen.HagenCalibTarget" title="calix.hagen.HagenCalibTarget"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HagenCalibTarget</span></code></a>(cadc_target, neuron_target)</p></td>
+<td><p>Dataclass collecting target parameters for Hagen-mode calibrations with integration on membranes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="calix.hagen.HagenSyninCalibOptions.html#calix.hagen.HagenSyninCalibOptions" title="calix.hagen.HagenSyninCalibOptions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HagenSyninCalibOptions</span></code></a>(cadc_options, …)</p></td>
+<td><p>Dataclass collecting further options for Hagen-mode calibrations with integration on synaptic input lines.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="calix.hagen.HagenSyninCalibResult.html#calix.hagen.HagenSyninCalibResult" title="calix.hagen.HagenSyninCalibResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HagenSyninCalibResult</span></code></a>(target, options, …)</p></td>
+<td><p>Calib results needed for hagen mode integration on the synaptic inputs.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="calix.hagen.HagenSyninCalibTarget.html#calix.hagen.HagenSyninCalibTarget" title="calix.hagen.HagenSyninCalibTarget"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HagenSyninCalibTarget</span></code></a>(cadc_target, …)</p></td>
+<td><p>Dataclass collecting target parameters for Hagen-mode calibrations.</p></td>
+</tr>
+</tbody>
+</table>
 <p class="rubric">Modules</p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -133,117 +187,6 @@
 </tr>
 </tbody>
 </table>
-<span class="target" id="module-calix.hagen"></span><p>Module for calibrating the HICANN-X chips for usage in hagen mode,
-i.e. for multiply-accumulate operation.</p>
-<p class="rubric">Classes</p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="calix.hagen.HagenCalibOptions.html#calix.hagen.HagenCalibOptions" title="calix.hagen.HagenCalibOptions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HagenCalibOptions</span></code></a>(cadc_options, …)</p></td>
-<td><p>Dataclass collecting further options for Hagen-mode calibrations with integration on membranes.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="calix.hagen.HagenCalibResult.html#calix.hagen.HagenCalibResult" title="calix.hagen.HagenCalibResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HagenCalibResult</span></code></a>(target, options, …)</p></td>
-<td><p>Data class containing results of cadc, neuron and synapse driver calibration, all what is necessary for operation in hagen mode when using integration on the neurons’ membranes.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="calix.hagen.HagenCalibTarget.html#calix.hagen.HagenCalibTarget" title="calix.hagen.HagenCalibTarget"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HagenCalibTarget</span></code></a>(cadc_target, neuron_target)</p></td>
-<td><p>Dataclass collecting target parameters for Hagen-mode calibrations with integration on membranes.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="calix.hagen.HagenSyninCalibOptions.html#calix.hagen.HagenSyninCalibOptions" title="calix.hagen.HagenSyninCalibOptions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HagenSyninCalibOptions</span></code></a>(cadc_options, …)</p></td>
-<td><p>Dataclass collecting further options for Hagen-mode calibrations with integration on synaptic input lines.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="calix.hagen.HagenSyninCalibResult.html#calix.hagen.HagenSyninCalibResult" title="calix.hagen.HagenSyninCalibResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HagenSyninCalibResult</span></code></a>(target, options, …)</p></td>
-<td><p>Calib results needed for hagen mode integration on the synaptic inputs.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="calix.hagen.HagenSyninCalibTarget.html#calix.hagen.HagenSyninCalibTarget" title="calix.hagen.HagenSyninCalibTarget"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HagenSyninCalibTarget</span></code></a>(cadc_target, …)</p></td>
-<td><p>Dataclass collecting target parameters for Hagen-mode calibrations.</p></td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Functions</p>
-<dl class="py function">
-<dt id="calix.hagen.calibrate">
-<code class="sig-prename descclassname"><span class="pre">calix.hagen.</span></code><code class="sig-name descname"><span class="pre">calibrate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhxcomm_vx.ConnectionHandle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="calix.hagen.HagenCalibTarget.html#calix.hagen.HagenCalibTarget" title="calix.hagen.HagenCalibTarget"><span class="pre">calix.hagen.HagenCalibTarget</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="calix.hagen.HagenCalibOptions.html#calix.hagen.HagenCalibOptions" title="calix.hagen.HagenCalibOptions"><span class="pre">calix.hagen.HagenCalibOptions</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="calix.hagen.HagenCalibResult.html#calix.hagen.HagenCalibResult" title="calix.hagen.HagenCalibResult"><span class="pre">calix.hagen.HagenCalibResult</span></a><a class="headerlink" href="#calix.hagen.calibrate" title="Permalink to this definition"></a></dt>
-<dd><p>Execute a full calibration for hagen mode:
-Calibrate CADCs to a suitable dynamic range.
-Calibrate neurons, calibrate synapse drivers.</p>
-<p>The chip has to be initialized first, which can be done using the
-stadls ExperimentInit().</p>
-<p>The individual calibrations’ default parameters can be overwritten
-by providing the appropriate arguments.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>connection</strong> – Connection to the chip to calibrate.</p></li>
-<li><p><strong>target</strong> – Target parameters for calibration, given as an
-instance of HagenCalibTarget.</p></li>
-<li><p><strong>options</strong> – Further options for calibration, given as an
-instance of HagenCalibOptions.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>HagenCalibResult, containing cadc, neuron and
-synapse driver results.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="calix.hagen.calibrate_for_synin_integration">
-<code class="sig-prename descclassname"><span class="pre">calix.hagen.</span></code><code class="sig-name descname"><span class="pre">calibrate_for_synin_integration</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhxcomm_vx.ConnectionHandle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="calix.hagen.HagenSyninCalibTarget.html#calix.hagen.HagenSyninCalibTarget" title="calix.hagen.HagenSyninCalibTarget"><span class="pre">calix.hagen.HagenSyninCalibTarget</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="calix.hagen.HagenSyninCalibOptions.html#calix.hagen.HagenSyninCalibOptions" title="calix.hagen.HagenSyninCalibOptions"><span class="pre">calix.hagen.HagenSyninCalibOptions</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="calix.hagen.HagenSyninCalibResult.html#calix.hagen.HagenSyninCalibResult" title="calix.hagen.HagenSyninCalibResult"><span class="pre">calix.hagen.HagenSyninCalibResult</span></a><a class="headerlink" href="#calix.hagen.calibrate_for_synin_integration" title="Permalink to this definition"></a></dt>
-<dd><p>Calibrate the chip for integration on synaptic input lines.</p>
-<p>Calibrate CADC, synapse drivers, and synapse DAC bias.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>connection</strong> – Connection to the chip to calibrate.</p></li>
-<li><p><strong>target</strong> – Calib target parameters.</p></li>
-<li><p><strong>options</strong> – Further options for calibration.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Calib result for integration on the synaptic input
-lines.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="calix.hagen.dataclass">
-<code class="sig-prename descclassname"><span class="pre">calix.hagen.</span></code><code class="sig-name descname"><span class="pre">dataclass</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">repr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unsafe_hash</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frozen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.hagen.dataclass" title="Permalink to this definition"></a></dt>
-<dd><p>Returns the same class as was passed in, with dunder methods
-added based on the fields defined in the class.</p>
-<p>Examines PEP 526 __annotations__ to determine fields.</p>
-<p>If init is true, an __init__() method is added to the class. If
-repr is true, a __repr__() method is added. If order is true, rich
-comparison dunder methods are added. If unsafe_hash is true, a
-__hash__() method function is added. If frozen is true, fields may
-not be assigned to after instance creation.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="calix.hagen.field">
-<code class="sig-prename descclassname"><span class="pre">calix.hagen.</span></code><code class="sig-name descname"><span class="pre">field</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">*</span></em>, <em class="sig-param"><span class="pre">default=&lt;dataclasses._MISSING_TYPE</span> <span class="pre">object&gt;</span></em>, <em class="sig-param"><span class="pre">default_factory=&lt;dataclasses._MISSING_TYPE</span> <span class="pre">object&gt;</span></em>, <em class="sig-param"><span class="pre">init=True</span></em>, <em class="sig-param"><span class="pre">repr=True</span></em>, <em class="sig-param"><span class="pre">hash=None</span></em>, <em class="sig-param"><span class="pre">compare=True</span></em>, <em class="sig-param"><span class="pre">metadata=None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.hagen.field" title="Permalink to this definition"></a></dt>
-<dd><p>Return an object to identify dataclass fields.</p>
-<p>default is the default value of the field.  default_factory is a
-0-argument function called to initialize a field’s value.  If init
-is True, the field will be a parameter to the class’s __init__()
-function.  If repr is True, the field will be included in the
-object’s repr().  If hash is True, the field will be included in
-the object’s hash().  If compare is True, the field will be used
-in comparison functions.  metadata, if specified, must be a
-mapping which is stored but not otherwise examined by dataclass.</p>
-<p>It is an error to specify both default and default_factory.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="calix.hagen.warn">
-<code class="sig-prename descclassname"><span class="pre">calix.hagen.</span></code><code class="sig-name descname"><span class="pre">warn</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stacklevel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.hagen.warn" title="Permalink to this definition"></a></dt>
-<dd><p>Issue a warning, or maybe ignore it or raise an exception.</p>
-</dd></dl>
-
 </div>
 
 
@@ -251,7 +194,7 @@ mapping which is stored but not otherwise examined by dataclass.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="calix.constants.html" class="btn btn-neutral float-left" title="calix.constants" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="calix.hagen.multiplication.html" class="btn btn-neutral float-right" title="calix.hagen.multiplication" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="calix.hagen.calibrate.html" class="btn btn-neutral float-right" title="calix.hagen.calibrate" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

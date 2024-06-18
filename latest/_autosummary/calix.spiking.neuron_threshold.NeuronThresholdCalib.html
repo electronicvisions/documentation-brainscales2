@@ -50,6 +50,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../api_hxcomm.html">hxcomm API</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../api_calix.html">calix API</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="calix.html">calix</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="calix.calibrate.html">calix.calibrate</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.calib_cache.html">calix.calib_cache</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.common.html">calix.common</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.constants.html">calix.constants</a></li>
@@ -143,14 +144,60 @@ calibration on HICANN-X v2.</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="#calix.spiking.neuron_threshold.NeuronThresholdCalib.__init__" title="calix.spiking.neuron_threshold.NeuronThresholdCalib.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([safe_margin])</p></td>
 <td><p>Initialize self.</p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#calix.spiking.neuron_threshold.NeuronThresholdCalib.configure_parameters" title="calix.spiking.neuron_threshold.NeuronThresholdCalib.configure_parameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">configure_parameters</span></code></a>(builder, parameters)</p></td>
+<td><p>Configure the given spike threshold potentials in the given builder.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.spiking.neuron_threshold.NeuronThresholdCalib.measure_results" title="calix.spiking.neuron_threshold.NeuronThresholdCalib.measure_results"><code class="xref py py-obj docutils literal notranslate"><span class="pre">measure_results</span></code></a>(connection, builder)</p></td>
+<td><p>Resets the spike counters, waits for a suitable amount of time, and reads the spike counters.</p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#calix.spiking.neuron_threshold.NeuronThresholdCalib.postlude" title="calix.spiking.neuron_threshold.NeuronThresholdCalib.postlude"><code class="xref py py-obj docutils literal notranslate"><span class="pre">postlude</span></code></a>(connection)</p></td>
 <td><p>Increase parameters found during calibration by safe margin.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#calix.spiking.neuron_threshold.NeuronThresholdCalib.prelude" title="calix.spiking.neuron_threshold.NeuronThresholdCalib.prelude"><code class="xref py py-obj docutils literal notranslate"><span class="pre">prelude</span></code></a>(connection)</p></td>
 <td><p>Configure neurons for easy spiking.</p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#calix.spiking.neuron_threshold.NeuronThresholdCalib.run" title="calix.spiking.neuron_threshold.NeuronThresholdCalib.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>(connection, algorithm[, target])</p></td>
+<td><p>Use the provided algorithm to find optimal parameters.</p></td>
+</tr>
 </tbody>
 </table>
+<dl class="py method">
+<dt id="calix.spiking.neuron_threshold.NeuronThresholdCalib.configure_parameters">
+<code class="sig-name descname"><span class="pre">configure_parameters</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">builder</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="calix.common.base.WriteRecordingPlaybackProgramBuilder.html#calix.common.base.WriteRecordingPlaybackProgramBuilder" title="calix.common.base.WriteRecordingPlaybackProgramBuilder"><span class="pre">calix.common.base.WriteRecordingPlaybackProgramBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">numpy.ndarray</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="calix.common.base.WriteRecordingPlaybackProgramBuilder.html#calix.common.base.WriteRecordingPlaybackProgramBuilder" title="calix.common.base.WriteRecordingPlaybackProgramBuilder"><span class="pre">calix.common.base.WriteRecordingPlaybackProgramBuilder</span></a><a class="headerlink" href="#calix.spiking.neuron_threshold.NeuronThresholdCalib.configure_parameters" title="Permalink to this definition"></a></dt>
+<dd><p>Configure the given spike threshold potentials in the
+given builder.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>builder</strong> – Builder to append configuration instructions to.</p></li>
+<li><p><strong>parameters</strong> – Threshold potential for each neuron.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Builder with configuration appended.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calix.spiking.neuron_threshold.NeuronThresholdCalib.measure_results">
+<code class="sig-name descname"><span class="pre">measure_results</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhxcomm_vx.ConnectionHandle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">builder</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="calix.common.base.WriteRecordingPlaybackProgramBuilder.html#calix.common.base.WriteRecordingPlaybackProgramBuilder" title="calix.common.base.WriteRecordingPlaybackProgramBuilder"><span class="pre">calix.common.base.WriteRecordingPlaybackProgramBuilder</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">numpy.ndarray</span><a class="headerlink" href="#calix.spiking.neuron_threshold.NeuronThresholdCalib.measure_results" title="Permalink to this definition"></a></dt>
+<dd><p>Resets the spike counters, waits for a suitable amount of time,
+and reads the spike counters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>connection</strong> – Connection to a chip.</p></li>
+<li><p><strong>builder</strong> – Builder to append read instructions to.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Array with the number of spikes during the accumulation time.
+If the counter has overflown, the value is set to a high value.</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py method">
 <dt id="calix.spiking.neuron_threshold.NeuronThresholdCalib.postlude">
 <code class="sig-name descname"><span class="pre">postlude</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhxcomm_vx.ConnectionHandle</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.spiking.neuron_threshold.NeuronThresholdCalib.postlude" title="Permalink to this definition"></a></dt>
@@ -176,6 +223,35 @@ spike threshold, which is not yet known.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>connection</strong> – Connection to the chip to configure.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calix.spiking.neuron_threshold.NeuronThresholdCalib.run">
+<code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhxcomm_vx.ConnectionHandle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">algorithm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="calix.common.base.Algorithm.html#calix.common.base.Algorithm" title="calix.common.base.Algorithm"><span class="pre">calix.common.base.Algorithm</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">numbers.Integral</span><span class="p"><span class="pre">,</span> </span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="calix.common.base.ParameterCalibResult.html#calix.common.base.ParameterCalibResult" title="calix.common.base.ParameterCalibResult"><span class="pre">calix.common.base.ParameterCalibResult</span></a><a class="headerlink" href="#calix.spiking.neuron_threshold.NeuronThresholdCalib.run" title="Permalink to this definition"></a></dt>
+<dd><p>Use the provided algorithm to find optimal parameters.</p>
+<p>Calls prelude function, calls algorithm.run(), calls postlude function.
+If self.target is not defined after the prelude function, the
+calibration target is required as a parameter to this function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>connection</strong> – Connection to the chip to calibrate.</p></li>
+<li><p><strong>algorithm</strong> – Instance of an algorithm to be used for
+calibration. Will be hooked to the calibration during running
+and unhooked afterwards.</p></li>
+<li><p><strong>target</strong> – Target result to be aimed for. If given, this target
+is used. If None, the attribute self.target is used.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>TypeError</strong> – If neither the target parameter or the attribute
+self.target are defined.</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>ParameterCalibResult, containing the optimal
+parameters.</p>
 </dd>
 </dl>
 </dd></dl>

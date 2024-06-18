@@ -16,7 +16,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="calix.common.madc_base" href="calix.common.madc_base.html" />
+    <link rel="next" title="calix.common.helpers.capmem_noise" href="calix.common.helpers.capmem_noise.html" />
     <link rel="prev" title="calix.common.exceptions.TooFewSamplesError" href="calix.common.exceptions.TooFewSamplesError.html" /> 
 </head>
 
@@ -50,6 +50,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../api_hxcomm.html">hxcomm API</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../api_calix.html">calix API</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="calix.html">calix</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="calix.calibrate.html">calix.calibrate</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.calib_cache.html">calix.calib_cache</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="calix.common.html">calix.common</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.constants.html">calix.constants</a></li>
@@ -98,92 +99,26 @@
 <p>Various helper functions that are more general and thus not contained
 in one of the named modules.</p>
 <p class="rubric">Functions</p>
-<dl class="py function">
-<dt id="calix.common.helpers.capmem_noise">
-<code class="sig-prename descclassname"><span class="pre">calix.common.helpers.</span></code><code class="sig-name descname"><span class="pre">capmem_noise</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">-</span> <span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">6</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#calix.common.helpers.capmem_noise" title="Permalink to this definition"></a></dt>
-<dd><p>Creates random integers between start and end-1.
-Used mainly to vary CapMem settings in order to avoid
-setting many cells to the same value.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>start</strong> – Lower end of the random range.</p></li>
-<li><p><strong>end</strong> – One above the upper end of the random range.</p></li>
-<li><p><strong>size</strong> – Number/shape of values to draw. If None, a single integer
-is returned.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Array with integer noise, or single integer.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="calix.common.helpers.capmem_set_neuron_cells">
-<code class="sig-prename descclassname"><span class="pre">calix.common.helpers.</span></code><code class="sig-name descname"><span class="pre">capmem_set_neuron_cells</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">builder</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="calix.common.base.WriteRecordingPlaybackProgramBuilder.html#calix.common.base.WriteRecordingPlaybackProgramBuilder" title="calix.common.base.WriteRecordingPlaybackProgramBuilder"><span class="pre">calix.common.base.WriteRecordingPlaybackProgramBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">pyhalco_hicann_dls_vx_v3.CapMemRowOnCapMemBlock</span><span class="p"><span class="pre">,</span> </span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="calix.common.base.WriteRecordingPlaybackProgramBuilder.html#calix.common.base.WriteRecordingPlaybackProgramBuilder" title="calix.common.base.WriteRecordingPlaybackProgramBuilder"><span class="pre">calix.common.base.WriteRecordingPlaybackProgramBuilder</span></a><a class="headerlink" href="#calix.common.helpers.capmem_set_neuron_cells" title="Permalink to this definition"></a></dt>
-<dd><p>Set single CapMem rows on the neurons to the desired values.
-Expects parameters to be configured along with the
-desired row coordinates.
-The parameters can either be a numpy array of integer values, which
-are written to the neurons directly, or a single value, which is
-written only after adding some noise of +/- 5, if the range allows.
-Values of zero are not changed, turning something off is always possible.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>builder</strong> – Builder to append configuration to.</p></li>
-<li><p><strong>config</strong> – Dict which contains pairs of CapMemRowOnCapMemBlock
-coordinates and either a single CapMemCell value or
-an array of CapMemCell values.
-In case a single non-zero value is given, it is changed to an
-array with noise and this array is written to hardware. This aims to
-reduce the crosstalk between CapMem cells.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Builder with configuration appended.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="calix.common.helpers.capmem_set_quadrant_cells">
-<code class="sig-prename descclassname"><span class="pre">calix.common.helpers.</span></code><code class="sig-name descname"><span class="pre">capmem_set_quadrant_cells</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">builder</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="calix.common.base.WriteRecordingPlaybackProgramBuilder.html#calix.common.base.WriteRecordingPlaybackProgramBuilder" title="calix.common.base.WriteRecordingPlaybackProgramBuilder"><span class="pre">calix.common.base.WriteRecordingPlaybackProgramBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">pyhalco_hicann_dls_vx_v3.CapMemCellOnCapMemBlock</span><span class="p"><span class="pre">,</span> </span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="calix.common.base.WriteRecordingPlaybackProgramBuilder.html#calix.common.base.WriteRecordingPlaybackProgramBuilder" title="calix.common.base.WriteRecordingPlaybackProgramBuilder"><span class="pre">calix.common.base.WriteRecordingPlaybackProgramBuilder</span></a><a class="headerlink" href="#calix.common.helpers.capmem_set_quadrant_cells" title="Permalink to this definition"></a></dt>
-<dd><p>Set multiple CapMem cells that are global per quadrant to the same
-provided values.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>builder</strong> – Builder to append configuration to.</p></li>
-<li><p><strong>config</strong> – Dict with the desired configuration.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Builder with configuration appended.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="calix.common.helpers.wait">
-<code class="sig-prename descclassname"><span class="pre">calix.common.helpers.</span></code><code class="sig-name descname"><span class="pre">wait</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">builder</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="calix.common.base.WriteRecordingPlaybackProgramBuilder.html#calix.common.base.WriteRecordingPlaybackProgramBuilder" title="calix.common.base.WriteRecordingPlaybackProgramBuilder"><span class="pre">calix.common.base.WriteRecordingPlaybackProgramBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">waiting_time</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">quantities.quantity.Quantity</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="calix.common.base.WriteRecordingPlaybackProgramBuilder.html#calix.common.base.WriteRecordingPlaybackProgramBuilder" title="calix.common.base.WriteRecordingPlaybackProgramBuilder"><span class="pre">calix.common.base.WriteRecordingPlaybackProgramBuilder</span></a><a class="headerlink" href="#calix.common.helpers.wait" title="Permalink to this definition"></a></dt>
-<dd><p>Waits for a given amount of time.</p>
-<p>This function appends instructions to the given builder which
-first reset the timer and then wait until the given time is reached.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>builder</strong> – Builder to add wait instruction to.</p></li>
-<li><p><strong>waiting_time</strong> – Time to wait for.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Builder with wait instruction added to.</p>
-</dd>
-</dl>
-</dd></dl>
-
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="calix.common.helpers.capmem_noise.html#calix.common.helpers.capmem_noise" title="calix.common.helpers.capmem_noise"><code class="xref py py-obj docutils literal notranslate"><span class="pre">capmem_noise</span></code></a>([start, end, size])</p></td>
+<td><p>Creates random integers between start and end-1.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="calix.common.helpers.capmem_set_neuron_cells.html#calix.common.helpers.capmem_set_neuron_cells" title="calix.common.helpers.capmem_set_neuron_cells"><code class="xref py py-obj docutils literal notranslate"><span class="pre">capmem_set_neuron_cells</span></code></a>(builder, config)</p></td>
+<td><p>Set single CapMem rows on the neurons to the desired values.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="calix.common.helpers.capmem_set_quadrant_cells.html#calix.common.helpers.capmem_set_quadrant_cells" title="calix.common.helpers.capmem_set_quadrant_cells"><code class="xref py py-obj docutils literal notranslate"><span class="pre">capmem_set_quadrant_cells</span></code></a>(builder, config)</p></td>
+<td><p>Set multiple CapMem cells that are global per quadrant to the same provided values.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="calix.common.helpers.wait.html#calix.common.helpers.wait" title="calix.common.helpers.wait"><code class="xref py py-obj docutils literal notranslate"><span class="pre">wait</span></code></a>(builder, waiting_time)</p></td>
+<td><p>Waits for a given amount of time.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 
 
@@ -191,7 +126,7 @@ first reset the timer and then wait until the given time is reached.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="calix.common.exceptions.TooFewSamplesError.html" class="btn btn-neutral float-left" title="calix.common.exceptions.TooFewSamplesError" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="calix.common.madc_base.html" class="btn btn-neutral float-right" title="calix.common.madc_base" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="calix.common.helpers.capmem_noise.html" class="btn btn-neutral float-right" title="calix.common.helpers.capmem_noise" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

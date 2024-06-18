@@ -127,8 +127,20 @@ the shape is expanded horizontally.</p></li>
 <tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.neuron.SingleCompartmentNeuron.__init__" title="hxtorch.spiking.modules.neuron.SingleCompartmentNeuron.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(size[, expand_horizontally])</p></td>
 <td><p>Create a single-compartment neuron.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.neuron.SingleCompartmentNeuron.implement_morphology" title="hxtorch.spiking.modules.neuron.SingleCompartmentNeuron.implement_morphology"><code class="xref py py-obj docutils literal notranslate"><span class="pre">implement_morphology</span></code></a>(coord, neuron_block)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.neuron.SingleCompartmentNeuron.disable_leak" title="hxtorch.spiking.modules.neuron.SingleCompartmentNeuron.disable_leak"><code class="xref py py-obj docutils literal notranslate"><span class="pre">disable_leak</span></code></a>(coord, neuron_block)</p></td>
+<td><p>Disable the leak for the given neuron.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.neuron.SingleCompartmentNeuron.disable_spiking" title="hxtorch.spiking.modules.neuron.SingleCompartmentNeuron.disable_spiking"><code class="xref py py-obj docutils literal notranslate"><span class="pre">disable_spiking</span></code></a>(coord, neuron_block)</p></td>
+<td><p>Disable spiking for the given neuron.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.neuron.SingleCompartmentNeuron.enable_madc_recording" title="hxtorch.spiking.modules.neuron.SingleCompartmentNeuron.enable_madc_recording"><code class="xref py py-obj docutils literal notranslate"><span class="pre">enable_madc_recording</span></code></a>(coord, neuron_block, …)</p></td>
+<td><p>Configure neuron such that traces can be recorded with the MADC.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.neuron.SingleCompartmentNeuron.implement_morphology" title="hxtorch.spiking.modules.neuron.SingleCompartmentNeuron.implement_morphology"><code class="xref py py-obj docutils literal notranslate"><span class="pre">implement_morphology</span></code></a>(coord, neuron_block)</p></td>
 <td><p>Configure the atomic neurons in the given neuron block to represent this morphology.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.neuron.SingleCompartmentNeuron.set_spike_recording" title="hxtorch.spiking.modules.neuron.SingleCompartmentNeuron.set_spike_recording"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_spike_recording</span></code></a>(enable, coord, neuron_block)</p></td>
+<td><p>Set whether spikes are forwarded digitally.</p></td>
 </tr>
 </tbody>
 </table>
@@ -151,6 +163,56 @@ the shape is expanded horizontally.</p></li>
 <dt id="hxtorch.spiking.modules.neuron.SingleCompartmentNeuron.compartments">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">compartments</span></code><a class="headerlink" href="#hxtorch.spiking.modules.neuron.SingleCompartmentNeuron.compartments" title="Permalink to this definition"></a></dt>
 <dd><p>Unplaced coordinate of the logical neuron.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="hxtorch.spiking.modules.neuron.SingleCompartmentNeuron.disable_leak">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">disable_leak</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coord</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhalco_hicann_dls_vx_v3.LogicalNeuronOnDLS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">neuron_block</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pylola_vx_v3.NeuronBlock</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.modules.neuron.SingleCompartmentNeuron.disable_leak" title="Permalink to this definition"></a></dt>
+<dd><p>Disable the leak for the given neuron.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>coord</strong> – Coordinate of the logical neuron for which the leak is
+disabled.</p></li>
+<li><p><strong>neuron_block</strong> – Neuron block in which the configuration of the
+atomic neurons is changed.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="hxtorch.spiking.modules.neuron.SingleCompartmentNeuron.disable_spiking">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">disable_spiking</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coord</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhalco_hicann_dls_vx_v3.LogicalNeuronOnDLS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">neuron_block</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pylola_vx_v3.NeuronBlock</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.modules.neuron.SingleCompartmentNeuron.disable_spiking" title="Permalink to this definition"></a></dt>
+<dd><p>Disable spiking for the given neuron.</p>
+<p>Disable the threshold comparator and the digital spike output.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>coord</strong> – Coordinate of the logical neuron for which spiking is
+disabled.</p></li>
+<li><p><strong>neuron_block</strong> – Neuron block in which the configuration of the
+atomic neurons is changed.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="hxtorch.spiking.modules.neuron.SingleCompartmentNeuron.enable_madc_recording">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">enable_madc_recording</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coord</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhalco_hicann_dls_vx_v3.LogicalNeuronOnDLS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">neuron_block</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pylola_vx_v3.NeuronBlock</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">readout_source</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhaldls_vx_v3.NeuronConfig.ReadoutSource</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.modules.neuron.SingleCompartmentNeuron.enable_madc_recording" title="Permalink to this definition"></a></dt>
+<dd><p>Configure neuron such that traces can be recorded with the MADC.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>coord</strong> – Coordinate of the logical neuron for which the recording
+is enabled.</p></li>
+<li><p><strong>neuron_block</strong> – Neuron block in which the configuration of the
+atomic neurons is changed.</p></li>
+<li><p><strong>readout_source</strong> – Voltage which should be recorded.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -178,6 +240,23 @@ implemented.</p></li>
 <p>Default constructed logical neuron, the connections between neuron
 circuits are configured such that the specified morphology is
 implemented.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="hxtorch.spiking.modules.neuron.SingleCompartmentNeuron.set_spike_recording">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">set_spike_recording</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">enable</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coord</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhalco_hicann_dls_vx_v3.LogicalNeuronOnDLS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">neuron_block</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pylola_vx_v3.NeuronBlock</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.modules.neuron.SingleCompartmentNeuron.set_spike_recording" title="Permalink to this definition"></a></dt>
+<dd><p>Set whether spikes are forwarded digitally.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>enable</strong> – Enable/disable the digital routing of spikes.</p></li>
+<li><p><strong>coord</strong> – Coordinate of the logical neuron for which the recording
+is enabled.</p></li>
+<li><p><strong>neuron_block</strong> – Neuron block in which the configuration of the
+atomic neurons is changed.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>

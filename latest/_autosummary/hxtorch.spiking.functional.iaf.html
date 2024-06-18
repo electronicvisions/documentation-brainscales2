@@ -16,8 +16,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="hxtorch.spiking.functional.iaf.CUBAIAFParams" href="hxtorch.spiking.functional.iaf.CUBAIAFParams.html" />
-    <link rel="prev" title="hxtorch.spiking.functional.dropout" href="hxtorch.spiking.functional.dropout.html" /> 
+    <link rel="next" title="hxtorch.spiking.functional.iaf.cuba_iaf_integration" href="hxtorch.spiking.functional.iaf.cuba_iaf_integration.html" />
+    <link rel="prev" title="hxtorch.spiking.functional.dropout.batch_dropout" href="hxtorch.spiking.functional.dropout.batch_dropout.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -94,6 +94,30 @@
   <div class="section" id="module-hxtorch.spiking.functional.iaf">
 <span id="hxtorch-spiking-functional-iaf"></span><h1>hxtorch.spiking.functional.iaf<a class="headerlink" href="#module-hxtorch.spiking.functional.iaf" title="Permalink to this headline"></a></h1>
 <p>Integrate and fire neurons</p>
+<p class="rubric">Functions</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.functional.iaf.cuba_iaf_integration.html#hxtorch.spiking.functional.iaf.cuba_iaf_integration" title="hxtorch.spiking.functional.iaf.cuba_iaf_integration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cuba_iaf_integration</span></code></a>(input, params[, …])</p></td>
+<td><p>Leaky-integrate and fire neuron integration for realization of simple spiking neurons with exponential synapses. Integrates according to:     v^{t+1} = dt /  au_{men} * (v_l - v^t + i^t) + v^t     i^{t+1} = i^t * (1 - dt /       au_{syn}) + x^t     z^{t+1} = 1 if v^{t+1} &gt; params.v_th     v^{t+1} = v_reset if z^{t+1} == 1 Assumes i^0, v^0 = 0., v_reset :note: One <cite>dt</cite> synaptic delay between input and output :param input: Input spikes in shape (batch, time, neurons). :param params: LIFParams object holding neuron parameters. :return: Returns the spike trains in shape and membrane trace as a tuple. Both tensors are of shape (batch, time, neurons).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.functional.iaf.cuba_refractory_iaf_integration.html#hxtorch.spiking.functional.iaf.cuba_refractory_iaf_integration" title="hxtorch.spiking.functional.iaf.cuba_refractory_iaf_integration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cuba_refractory_iaf_integration</span></code></a>(input, params)</p></td>
+<td><p>Integrate and fire neuron integration for realization of simple spiking neurons with exponential synapses and refractory period. Integrates according to:     v^{t+1} = dt /  au_{men} * i^t + v^t     i^{t+1} = i^t * (1 - dt /       au_{syn}) + x^t     z^{t+1} = 1 if v^{t+1} &gt; params.v_th     v^{t+1} = params.v_reset if z^{t+1} == 1 or ref^t &gt; 0     ref^{t+1} -= 1     ref^{t+1} = params.tau_ref if z^{t+1} == 1 Assumes i^0, v^0 = 0., v_reset :note: One <cite>dt</cite> synaptic delay between input and output :param input: Input spikes in shape (batch, time, neurons). :param params: LIFParams object holding neuron parameters. :return: Returns the spike trains in shape and membrane trace as a tuple. Both tensors are of shape (batch, time, neurons).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.functional.iaf.iaf_step.html#hxtorch.spiking.functional.iaf.iaf_step" title="hxtorch.spiking.functional.iaf.iaf_step"><code class="xref py py-obj docutils literal notranslate"><span class="pre">iaf_step</span></code></a>(z, v, i, input, z_hw, v_hw, params, dt)</p></td>
+<td><p>Integrate the membrane of a neurons one time step further according to the integrate and fire dynamics. :param z: The spike tensor at time step t. :param v: The membrane tensor at time step t. :param i: The current tensor at time step t. :param input: The input tensor at time step t (graded spikes). :param z_hw: The hardware spikes corresponding to the current time step. In     case this is None, no HW spikes will be injected. :param v_hw: The hardware cadc traces corresponding to the current time     step. In case this is None, no HW cadc values will be injected. :param params: Parameter object holding the LIF parameters. :param dt: Integration step width. :returns: Returns a tuple (z, v, i) holding the tensors of time step t + 1.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.functional.iaf.refractory_update.html#hxtorch.spiking.functional.iaf.refractory_update" title="hxtorch.spiking.functional.iaf.refractory_update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">refractory_update</span></code></a>(z, v, ref_state, params[, dt])</p></td>
+<td><p>Update neuron membrane and spikes to account for refractory period. This implemention is widly adopted from: <a class="reference external" href="https://github.com/norse/norse/blob/main/norse/torch/functional/lif_refrac.py">https://github.com/norse/norse/blob/main/norse/torch/functional/lif_refrac.py</a> :param z: The spike tensor at time step t. :param v: The membrane tensor at time step t. :param ref_state: The refractory state holding the number of time steps the     neurons has to remain in the refractory period. :param params: Parameter object holding the LIF parameters. :returns: Returns a tuple (z, v, ref_state) holding the tensors of time     step t.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.functional.iaf.threshold.html#hxtorch.spiking.functional.iaf.threshold" title="hxtorch.spiking.functional.iaf.threshold"><code class="xref py py-obj docutils literal notranslate"><span class="pre">threshold</span></code></a>(input, method, alpha)</p></td>
+<td><p>Selection of the used threshold function. :param input: Input tensor to threshold function. :param method: The string indicator of the the threshold function. Currently supported: ‘super_spike’. :param alpha: Parameter controlling the slope of the surrogate     derivative in case of ‘superspike’. :return: Returns the tensor of the threshold function.</p></td>
+</tr>
+</tbody>
+</table>
 <p class="rubric">Classes</p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -115,132 +139,14 @@
 </tr>
 </tbody>
 </table>
-<p class="rubric">Functions</p>
-<dl class="py function">
-<dt id="hxtorch.spiking.functional.iaf.cuba_iaf_integration">
-<code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.functional.iaf.</span></code><code class="sig-name descname"><span class="pre">cuba_iaf_integration</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="hxtorch.spiking.functional.iaf.NamedTuple.html#hxtorch.spiking.functional.iaf.NamedTuple" title="hxtorch.spiking.functional.iaf.NamedTuple"><span class="pre">NamedTuple</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">hw_data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1e-06</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">,</span> </span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#hxtorch.spiking.functional.iaf.cuba_iaf_integration" title="Permalink to this definition"></a></dt>
-<dd><p>Leaky-integrate and fire neuron integration for realization of simple
-spiking neurons with exponential synapses.
-Integrates according to:</p>
-<blockquote>
-<div><p>v^{t+1} = dt /  au_{men} * (v_l - v^t + i^t) + v^t
-i^{t+1} = i^t * (1 - dt /       au_{syn}) + x^t
-z^{t+1} = 1 if v^{t+1} &gt; params.v_th
-v^{t+1} = v_reset if z^{t+1} == 1</p>
-</div></blockquote>
-<p>Assumes i^0, v^0 = 0., v_reset
-:note: One <cite>dt</cite> synaptic delay between input and output
-:param input: Input spikes in shape (batch, time, neurons).
-:param params: LIFParams object holding neuron parameters.
-:return: Returns the spike trains in shape and membrane trace as a tuple.</p>
-<blockquote>
-<div><p>Both tensors are of shape (batch, time, neurons).</p>
-</div></blockquote>
-</dd></dl>
-
-<dl class="py function">
-<dt id="hxtorch.spiking.functional.iaf.cuba_refractory_iaf_integration">
-<code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.functional.iaf.</span></code><code class="sig-name descname"><span class="pre">cuba_refractory_iaf_integration</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="hxtorch.spiking.functional.iaf.NamedTuple.html#hxtorch.spiking.functional.iaf.NamedTuple" title="hxtorch.spiking.functional.iaf.NamedTuple"><span class="pre">NamedTuple</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">hw_data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1e-06</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">,</span> </span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#hxtorch.spiking.functional.iaf.cuba_refractory_iaf_integration" title="Permalink to this definition"></a></dt>
-<dd><p>Integrate and fire neuron integration for realization of simple
-spiking neurons with exponential synapses and refractory period.
-Integrates according to:</p>
-<blockquote>
-<div><p>v^{t+1} = dt /  au_{men} * i^t + v^t
-i^{t+1} = i^t * (1 - dt /       au_{syn}) + x^t
-z^{t+1} = 1 if v^{t+1} &gt; params.v_th
-v^{t+1} = params.v_reset if z^{t+1} == 1 or ref^t &gt; 0
-ref^{t+1} -= 1
-ref^{t+1} = params.tau_ref if z^{t+1} == 1</p>
-</div></blockquote>
-<p>Assumes i^0, v^0 = 0., v_reset
-:note: One <cite>dt</cite> synaptic delay between input and output
-:param input: Input spikes in shape (batch, time, neurons).
-:param params: LIFParams object holding neuron parameters.
-:return: Returns the spike trains in shape and membrane trace as a tuple.</p>
-<blockquote>
-<div><p>Both tensors are of shape (batch, time, neurons).</p>
-</div></blockquote>
-</dd></dl>
-
-<dl class="py function">
-<dt id="hxtorch.spiking.functional.iaf.iaf_step">
-<code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.functional.iaf.</span></code><code class="sig-name descname"><span class="pre">iaf_step</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z_hw</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_hw</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="hxtorch.spiking.functional.iaf.NamedTuple.html#hxtorch.spiking.functional.iaf.NamedTuple" title="hxtorch.spiking.functional.iaf.NamedTuple"><span class="pre">NamedTuple</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">,</span> </span><span class="p"><span class="pre">…</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#hxtorch.spiking.functional.iaf.iaf_step" title="Permalink to this definition"></a></dt>
-<dd><p>Integrate the membrane of a neurons one time step further according to the
-integrate and fire dynamics.
-:param z: The spike tensor at time step t.
-:param v: The membrane tensor at time step t.
-:param i: The current tensor at time step t.
-:param input: The input tensor at time step t (graded spikes).
-:param z_hw: The hardware spikes corresponding to the current time step. In</p>
-<blockquote>
-<div><p>case this is None, no HW spikes will be injected.</p>
-</div></blockquote>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>v_hw</strong> – The hardware cadc traces corresponding to the current time
-step. In case this is None, no HW cadc values will be injected.</p></li>
-<li><p><strong>params</strong> – Parameter object holding the LIF parameters.</p></li>
-<li><p><strong>dt</strong> – Integration step width.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Returns a tuple (z, v, i) holding the tensors of time step t + 1.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="hxtorch.spiking.functional.iaf.refractory_update">
-<code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.functional.iaf.</span></code><code class="sig-name descname"><span class="pre">refractory_update</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_state</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="hxtorch.spiking.functional.iaf.NamedTuple.html#hxtorch.spiking.functional.iaf.NamedTuple" title="hxtorch.spiking.functional.iaf.NamedTuple"><span class="pre">NamedTuple</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1e-06</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">,</span> </span><span class="p"><span class="pre">…</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#hxtorch.spiking.functional.iaf.refractory_update" title="Permalink to this definition"></a></dt>
-<dd><p>Update neuron membrane and spikes to account for refractory period.
-This implemention is widly adopted from:
-<a class="reference external" href="https://github.com/norse/norse/blob/main/norse/torch/functional/lif_refrac.py">https://github.com/norse/norse/blob/main/norse/torch/functional/lif_refrac.py</a>
-:param z: The spike tensor at time step t.
-:param v: The membrane tensor at time step t.
-:param ref_state: The refractory state holding the number of time steps the</p>
-<blockquote>
-<div><p>neurons has to remain in the refractory period.</p>
-</div></blockquote>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>params</strong> – Parameter object holding the LIF parameters.</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Returns a tuple (z, v, ref_state) holding the tensors of time
-step t.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="hxtorch.spiking.functional.iaf.threshold">
-<code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.functional.iaf.</span></code><code class="sig-name descname"><span class="pre">threshold</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">torch.Tensor</span><a class="headerlink" href="#hxtorch.spiking.functional.iaf.threshold" title="Permalink to this definition"></a></dt>
-<dd><p>Selection of the used threshold function.
-:param input: Input tensor to threshold function.
-:param method: The string indicator of the the threshold function.</p>
-<blockquote>
-<div><p>Currently supported: ‘super_spike’.</p>
-</div></blockquote>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>alpha</strong> – Parameter controlling the slope of the surrogate
-derivative in case of ‘superspike’.</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Returns the tensor of the threshold function.</p>
-</dd>
-</dl>
-</dd></dl>
-
 </div>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="hxtorch.spiking.functional.dropout.html" class="btn btn-neutral float-left" title="hxtorch.spiking.functional.dropout" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="hxtorch.spiking.functional.iaf.CUBAIAFParams.html" class="btn btn-neutral float-right" title="hxtorch.spiking.functional.iaf.CUBAIAFParams" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="hxtorch.spiking.functional.dropout.batch_dropout.html" class="btn btn-neutral float-left" title="hxtorch.spiking.functional.dropout.batch_dropout" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="hxtorch.spiking.functional.iaf.cuba_iaf_integration.html" class="btn btn-neutral float-right" title="hxtorch.spiking.functional.iaf.cuba_iaf_integration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

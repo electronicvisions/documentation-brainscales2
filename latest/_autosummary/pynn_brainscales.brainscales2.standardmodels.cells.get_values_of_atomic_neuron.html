@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pynn_brainscales.brainscales2.standardmodels.cells.get_values_of_atomic_neuron &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pynn_brainscales.brainscales2.standardmodels.cells.ArrayParameter" href="pynn_brainscales.brainscales2.standardmodels.cells.ArrayParameter.html" />
+    <link rel="prev" title="pynn_brainscales.brainscales2.standardmodels.cells.decompose_in_member_names" href="pynn_brainscales.brainscales2.standardmodels.cells.decompose_in_member_names.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> BrainScaleS-2 Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../brainscales2-demos/index.html">Demos &amp; Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software_components.html">Software Components</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../apis.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../api_pynn-brainscales2.html">PyNN API</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="pynn_brainscales.brainscales2.html">pynn_brainscales.brainscales2</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.connect.html">pynn_brainscales.brainscales2.connect</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.create.html">pynn_brainscales.brainscales2.create</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.dataclass.html">pynn_brainscales.brainscales2.dataclass</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.end.html">pynn_brainscales.brainscales2.end</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.field.html">pynn_brainscales.brainscales2.field</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.get_backend_statistics.html">pynn_brainscales.brainscales2.get_backend_statistics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.get_current_time.html">pynn_brainscales.brainscales2.get_current_time</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.get_execution_time_info.html">pynn_brainscales.brainscales2.get_execution_time_info</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.get_io.html">pynn_brainscales.brainscales2.get_io</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.get_max_delay.html">pynn_brainscales.brainscales2.get_max_delay</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.get_min_delay.html">pynn_brainscales.brainscales2.get_min_delay</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.get_post_realtime_read.html">pynn_brainscales.brainscales2.get_post_realtime_read</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.get_post_realtime_read_ppu_symbols.html">pynn_brainscales.brainscales2.get_post_realtime_read_ppu_symbols</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.get_pre_realtime_read.html">pynn_brainscales.brainscales2.get_pre_realtime_read</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.get_time_step.html">pynn_brainscales.brainscales2.get_time_step</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.initialize.html">pynn_brainscales.brainscales2.initialize</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.list_standard_models.html">pynn_brainscales.brainscales2.list_standard_models</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.num_processes.html">pynn_brainscales.brainscales2.num_processes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.preprocess.html">pynn_brainscales.brainscales2.preprocess</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.rank.html">pynn_brainscales.brainscales2.rank</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.record.html">pynn_brainscales.brainscales2.record</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.reset.html">pynn_brainscales.brainscales2.reset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.run.html">pynn_brainscales.brainscales2.run</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.run_for.html">pynn_brainscales.brainscales2.run_for</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.run_until.html">pynn_brainscales.brainscales2.run_until</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.set.html">pynn_brainscales.brainscales2.set</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.setup.html">pynn_brainscales.brainscales2.setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.warn.html">pynn_brainscales.brainscales2.warn</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.AllToAllConnector.html">pynn_brainscales.brainscales2.AllToAllConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.ArrayConnector.html">pynn_brainscales.brainscales2.ArrayConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.Assembly.html">pynn_brainscales.brainscales2.Assembly</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.CSAConnector.html">pynn_brainscales.brainscales2.CSAConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.CloneConnector.html">pynn_brainscales.brainscales2.CloneConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.DisplacementDependentProbabilityConnector.html">pynn_brainscales.brainscales2.DisplacementDependentProbabilityConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.DistanceDependentProbabilityConnector.html">pynn_brainscales.brainscales2.DistanceDependentProbabilityConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.Enum.html">pynn_brainscales.brainscales2.Enum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.FixedNumberPostConnector.html">pynn_brainscales.brainscales2.FixedNumberPostConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.FixedNumberPreConnector.html">pynn_brainscales.brainscales2.FixedNumberPreConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.FixedProbabilityConnector.html">pynn_brainscales.brainscales2.FixedProbabilityConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.FixedTotalNumberConnector.html">pynn_brainscales.brainscales2.FixedTotalNumberConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.FromFileConnector.html">pynn_brainscales.brainscales2.FromFileConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.FromListConnector.html">pynn_brainscales.brainscales2.FromListConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.IndexBasedProbabilityConnector.html">pynn_brainscales.brainscales2.IndexBasedProbabilityConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.InjectedConfiguration.html">pynn_brainscales.brainscales2.InjectedConfiguration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.InjectedReadout.html">pynn_brainscales.brainscales2.InjectedReadout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.OneToOneConnector.html">pynn_brainscales.brainscales2.OneToOneConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.PlasticityRule.html">pynn_brainscales.brainscales2.PlasticityRule</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.Population.html">pynn_brainscales.brainscales2.Population</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.PopulationView.html">pynn_brainscales.brainscales2.PopulationView</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.Projection.html">pynn_brainscales.brainscales2.Projection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.RunCommand.html">pynn_brainscales.brainscales2.RunCommand</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.SmallWorldConnector.html">pynn_brainscales.brainscales2.SmallWorldConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.SpikingCalibOptions.html">pynn_brainscales.brainscales2.SpikingCalibOptions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.SpikingCalibTarget.html">pynn_brainscales.brainscales2.SpikingCalibTarget</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.Timer.html">pynn_brainscales.brainscales2.Timer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.auto.html">pynn_brainscales.brainscales2.auto</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.connectors.html">pynn_brainscales.brainscales2.connectors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.examples.html">pynn_brainscales.brainscales2.examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.helper.html">pynn_brainscales.brainscales2.helper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.morphology.html">pynn_brainscales.brainscales2.morphology</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.plasticity_rules.html">pynn_brainscales.brainscales2.plasticity_rules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.populations.html">pynn_brainscales.brainscales2.populations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.projections.html">pynn_brainscales.brainscales2.projections</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.recording.html">pynn_brainscales.brainscales2.recording</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.recording_data.html">pynn_brainscales.brainscales2.recording_data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.simulator.html">pynn_brainscales.brainscales2.simulator</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="pynn_brainscales.brainscales2.standardmodels.html">pynn_brainscales.brainscales2.standardmodels</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api_hxtorch.html">hxtorch API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_grenade.html">grenade API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_haldls.html">haldls API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_lola.html">lola API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_stadls.html">stadls API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_fisch.html">fisch API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_hxcomm.html">hxcomm API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_calix.html">calix API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_hate.html">hate API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BrainScaleS-2 Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../apis.html">BrainScaleS-2 API Documentation</a> &raquo;</li>
+          <li><a href="../api_pynn-brainscales2.html">API Reference: PyNN.brainscales2</a> &raquo;</li>
+          <li><a href="pynn_brainscales.brainscales2.html">pynn_brainscales.brainscales2</a> &raquo;</li>
+          <li><a href="pynn_brainscales.brainscales2.standardmodels.html">pynn_brainscales.brainscales2.standardmodels</a> &raquo;</li>
+          <li><a href="pynn_brainscales.brainscales2.standardmodels.cells.html">pynn_brainscales.brainscales2.standardmodels.cells</a> &raquo;</li>
+      <li>pynn_brainscales.brainscales2.standardmodels.cells.get_values_of_atomic_neuron</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_autosummary/pynn_brainscales.brainscales2.standardmodels.cells.get_values_of_atomic_neuron.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="pynn-brainscales-brainscales2-standardmodels-cells-get-values-of-atomic-neuron">
+<h1>pynn_brainscales.brainscales2.standardmodels.cells.get_values_of_atomic_neuron<a class="headerlink" href="#pynn-brainscales-brainscales2-standardmodels-cells-get-values-of-atomic-neuron" title="Permalink to this headline"></a></h1>
+<dl class="py function">
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron(atomic_neuron:</span> <span class="pre">AtomicNeuron(</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron	excitatory_input:</span> <span class="pre">SynapticInput(</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		enable:</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">false</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		i_bias_tau:</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">Value(0)</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		i_shift_reference:</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">Value(0)</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		i_bias_gm:</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">Value(0)</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		i_bias_coba:</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">Value(0)</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		enable_small_capacitance:</span> <span class="pre">true</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		enable_high_resistance:</span>&#160;&#160; <span class="pre">false</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		enable_coba_mode:</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">false</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron	)</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron	inhibitory_input:</span> <span class="pre">SynapticInput(</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		enable:</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">false</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		i_bias_tau:</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">Value(0)</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		i_shift_reference:</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">Value(0)</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		i_bias_gm:</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">Value(0)</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		i_bias_coba:</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">Value(0)</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		enable_small_capacitance:</span> <span class="pre">true</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		enable_high_resistance:</span>&#160;&#160; <span class="pre">false</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		enable_coba_mode:</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">false</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron	)</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron	Leak(</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		v_leak:</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">Value(0)</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		i_bias:</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">Value(0)</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		enable_degeneration:</span>&#160;&#160; <span class="pre">false</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		enable_division:</span>&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">false</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		enable_multiplication:</span> <span class="pre">false</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron	)</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron	Reset(</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		v_reset:</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">Value(0)</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		i_bias:</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">Value(0)</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		enable_degeneration:</span>&#160;&#160; <span class="pre">false</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		enable_division:</span>&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">false</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		enable_multiplication:</span> <span class="pre">false</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron	)</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron	Threshold(</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		enable:</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">false</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		v_threshold:</span> <span class="pre">Value(0)</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron	)</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron	Multicompartment(</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		connect_soma:</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">false</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		connect_soma_right:</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">false</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		connect_right:</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">false</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		connect_vertical:</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">false</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		enable_conductance:</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">false</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		enable_conductance_division:</span>&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">false</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		enable_conductance_multiplication:</span> <span class="pre">false</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		i_bias_nmda:</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">Value(0)</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron	)</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron	ConstantCurrent(</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		enable:</span>&#160;&#160; <span class="pre">false</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		i_offset:</span> <span class="pre">Value(0)</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		type:</span>&#160;&#160;&#160;&#160; <span class="pre">source</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron	)</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron	MembraneCapacitance(</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		capacitance:</span> <span class="pre">MembraneCapacitorSize(0)</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron	)</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron	Adaptation(</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		enable:</span>&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">false</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		enable_pulse:</span> <span class="pre">false</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		invert_a:</span>&#160;&#160;&#160;&#160; <span class="pre">false</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		invert_b:</span>&#160;&#160;&#160;&#160; <span class="pre">false</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		v_ref:</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">Value(0)</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		i_bias_tau:</span>&#160;&#160; <span class="pre">Value(0)</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		i_bias_a:</span>&#160;&#160;&#160;&#160; <span class="pre">Value(0)</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		i_bias_b:</span>&#160;&#160;&#160;&#160; <span class="pre">Value(0)</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		v_leak:</span>&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">Value(0)</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron	)</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron	Exponential(</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		enable:</span> <span class="pre">false</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		v_exp:</span>&#160; <span class="pre">Value(0)</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		i_bias:</span> <span class="pre">Value(0)</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron	)</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron	EventRouting(</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		analog_output:</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">off</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		enable_digital:</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">false</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		address:</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">NeuronBackendAddressOut(0)</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		enable_bypass_excitatory:</span> <span class="pre">false</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		enable_bypass_inhibitory:</span> <span class="pre">false</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		enable_post_overwrite:</span>&#160;&#160;&#160; <span class="pre">false</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron	)</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron	Readout(</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		enable_buffered_access:</span>&#160;&#160; <span class="pre">false</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		enable_amplifier:</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">false</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		enable_unbuffered_access:</span> <span class="pre">false</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		source:</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">membrane</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron	)</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron	RefractoryPeriod(</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		input_clock:</span>&#160;&#160;&#160;&#160; <span class="pre">InputClock(0)</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		enable_pause:</span>&#160;&#160;&#160; <span class="pre">0</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		refractory_time:</span> <span class="pre">RefractoryTime(0)</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		reset_holdoff:</span>&#160;&#160; <span class="pre">ResetHoldoff(15)</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron	)</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron	Bayesian(</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		to_post_pulse:</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">true</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		connect_fire_vertical:</span>&#160;&#160; <span class="pre">false</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		connect_fire_to_right:</span>&#160;&#160; <span class="pre">false</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		connect_fire_from_right:</span> <span class="pre">false</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		enable_master:</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">false</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		enable_slave:</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">false</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron		operation:</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">local</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron	)</span></code></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">get_values_of_atomic_neuron),</span> <span class="pre">exclude:</span> <span class="pre">Optional[List[str]]</span> <span class="pre">=</span> <span class="pre">None)</span> <span class="pre">-&gt;</span> <span class="pre">dict</span></code></dt>
+<dd><p>Get values of a LoLa Neuron instance as a dict.</p>
+<p>Parse the atomic neuron and save the values of all members and their
+attributes in a dictionary. The keys of the dictionary are the member’s
+name and it’s attributes name combined by an underscore.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>atomic_neuron</strong> – Atomic neuron from which to get the values.</p></li>
+<li><p><strong>exclude</strong> – Members to exclude from parsing.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Dictionary with the values saved in the atomic neuron.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="pynn_brainscales.brainscales2.standardmodels.cells.decompose_in_member_names.html" class="btn btn-neutral float-left" title="pynn_brainscales.brainscales2.standardmodels.cells.decompose_in_member_names" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pynn_brainscales.brainscales2.standardmodels.cells.ArrayParameter.html" class="btn btn-neutral float-right" title="pynn_brainscales.brainscales2.standardmodels.cells.ArrayParameter" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Electronic Vision(s).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

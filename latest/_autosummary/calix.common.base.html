@@ -16,7 +16,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="calix.common.base.ABC" href="calix.common.base.ABC.html" />
+    <link rel="next" title="calix.common.base.abstractmethod" href="calix.common.base.abstractmethod.html" />
     <link rel="prev" title="calix.common.algorithms.PredictiveModel" href="calix.common.algorithms.PredictiveModel.html" /> 
 </head>
 
@@ -50,6 +50,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../api_hxcomm.html">hxcomm API</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../api_calix.html">calix API</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="calix.html">calix</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="calix.calibrate.html">calix.calibrate</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.calib_cache.html">calix.calib_cache</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="calix.common.html">calix.common</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.constants.html">calix.constants</a></li>
@@ -96,6 +97,30 @@
   <div class="section" id="module-calix.common.base">
 <span id="calix-common-base"></span><h1>calix.common.base<a class="headerlink" href="#module-calix.common.base" title="Permalink to this headline"></a></h1>
 <p>Provides abstract base classes for calibrations and algorithms.</p>
+<p class="rubric">Functions</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="calix.common.base.abstractmethod.html#calix.common.base.abstractmethod" title="calix.common.base.abstractmethod"><code class="xref py py-obj docutils literal notranslate"><span class="pre">abstractmethod</span></code></a>(funcobj)</p></td>
+<td><p>A decorator indicating abstract methods.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="calix.common.base.check_range_boundaries.html#calix.common.base.check_range_boundaries" title="calix.common.base.check_range_boundaries"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_range_boundaries</span></code></a>(parameters, boundaries)</p></td>
+<td><p>Checks if parameters are in a given range and sets them to the limits if they exceed the range.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="calix.common.base.dataclass.html#calix.common.base.dataclass" title="calix.common.base.dataclass"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dataclass</span></code></a>([cls, init, repr, eq, order, …])</p></td>
+<td><p>Returns the same class as was passed in, with dunder methods added based on the fields defined in the class.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="calix.common.base.namedtuple.html#calix.common.base.namedtuple" title="calix.common.base.namedtuple"><code class="xref py py-obj docutils literal notranslate"><span class="pre">namedtuple</span></code></a>(typename, field_names, *[, …])</p></td>
+<td><p>Returns a new subclass of tuple with named fields.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="calix.common.base.run.html#calix.common.base.run" title="calix.common.base.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>(connection, builder)</p></td>
+<td><p>Wraps the stadls run function.</p></td>
+</tr>
+</tbody>
+</table>
 <p class="rubric">Classes</p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -131,122 +156,13 @@
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="calix.common.base.TopLevelCalibTarget.html#calix.common.base.TopLevelCalibTarget" title="calix.common.base.TopLevelCalibTarget"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TopLevelCalibTarget</span></code></a>()</p></td>
-<td><p><a class="reference internal" href="calix.common.base.CalibTarget.html#calix.common.base.CalibTarget" title="calix.common.base.CalibTarget"><code class="xref py py-class docutils literal notranslate"><span class="pre">CalibTarget</span></code></a> that can be calibrated for as part of the public calix API via <a class="reference internal" href="calix.html#calix.calibrate" title="calix.calibrate"><code class="xref py py-func docutils literal notranslate"><span class="pre">calix.calibrate()</span></code></a>.</p></td>
+<td><p><a class="reference internal" href="calix.common.base.CalibTarget.html#calix.common.base.CalibTarget" title="calix.common.base.CalibTarget"><code class="xref py py-class docutils literal notranslate"><span class="pre">CalibTarget</span></code></a> that can be calibrated for as part of the public calix API via <a class="reference internal" href="calix.calibrate.html#calix.calibrate" title="calix.calibrate"><code class="xref py py-func docutils literal notranslate"><span class="pre">calix.calibrate()</span></code></a>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="calix.common.base.WriteRecordingPlaybackProgramBuilder.html#calix.common.base.WriteRecordingPlaybackProgramBuilder" title="calix.common.base.WriteRecordingPlaybackProgramBuilder"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WriteRecordingPlaybackProgramBuilder</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
 </tbody>
 </table>
-<p class="rubric">Functions</p>
-<dl class="py function">
-<dt id="calix.common.base.abstractmethod">
-<code class="sig-prename descclassname"><span class="pre">calix.common.base.</span></code><code class="sig-name descname"><span class="pre">abstractmethod</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">funcobj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.common.base.abstractmethod" title="Permalink to this definition"></a></dt>
-<dd><p>A decorator indicating abstract methods.</p>
-<p>Requires that the metaclass is ABCMeta or derived from it.  A
-class that has a metaclass derived from ABCMeta cannot be
-instantiated unless all of its abstract methods are overridden.
-The abstract methods can be called using any of the normal
-‘super’ call mechanisms.  abstractmethod() may be used to declare
-abstract methods for properties and descriptors.</p>
-<p>Usage:</p>
-<blockquote>
-<div><dl>
-<dt>class C(metaclass=ABCMeta):</dt><dd><p>&#64;abstractmethod
-def my_abstract_method(self, …):</p>
-<blockquote>
-<div><p>…</p>
-</div></blockquote>
-</dd>
-</dl>
-</div></blockquote>
-</dd></dl>
-
-<dl class="py function">
-<dt id="calix.common.base.check_range_boundaries">
-<code class="sig-prename descclassname"><span class="pre">calix.common.base.</span></code><code class="sig-name descname"><span class="pre">check_range_boundaries</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">np.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundaries</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="calix.common.base.ParameterRange.html#calix.common.base.ParameterRange" title="calix.common.base.ParameterRange"><span class="pre">ParameterRange</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">errors</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">BoundaryCheckResult</span><a class="headerlink" href="#calix.common.base.check_range_boundaries" title="Permalink to this definition"></a></dt>
-<dd><p>Checks if parameters are in a given range and sets them to the limits if
-they exceed the range.
-If error messages are given, returns those if a parameter has reached the
-limits or has gone beyond.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>parameters</strong> – Array of parameters to check.</p></li>
-<li><p><strong>boundaries</strong> – Parameter range to be checked for.</p></li>
-<li><p><strong>errors</strong> – List of error messages to print when parameter exceeds
-respective boundaries, in format [err_lower, err_upper]. Message needs
-to include placeholer ‘{0}’ where indices of the violating parameters
-are inserted.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>BoundaryCheckResult, containing parameters within boundaries,
-error mask and optional error messages.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="calix.common.base.dataclass">
-<code class="sig-prename descclassname"><span class="pre">calix.common.base.</span></code><code class="sig-name descname"><span class="pre">dataclass</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">repr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unsafe_hash</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frozen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.common.base.dataclass" title="Permalink to this definition"></a></dt>
-<dd><p>Returns the same class as was passed in, with dunder methods
-added based on the fields defined in the class.</p>
-<p>Examines PEP 526 __annotations__ to determine fields.</p>
-<p>If init is true, an __init__() method is added to the class. If
-repr is true, a __repr__() method is added. If order is true, rich
-comparison dunder methods are added. If unsafe_hash is true, a
-__hash__() method function is added. If frozen is true, fields may
-not be assigned to after instance creation.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="calix.common.base.namedtuple">
-<code class="sig-prename descclassname"><span class="pre">calix.common.base.</span></code><code class="sig-name descname"><span class="pre">namedtuple</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">typename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field_names</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">defaults</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.common.base.namedtuple" title="Permalink to this definition"></a></dt>
-<dd><p>Returns a new subclass of tuple with named fields.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Point</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;Point&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">Point</span><span class="o">.</span><span class="vm">__doc__</span>                   <span class="c1"># docstring for the new class</span>
-<span class="go">&#39;Point(x, y)&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">22</span><span class="p">)</span>             <span class="c1"># instantiate with positional args or keywords</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>                     <span class="c1"># indexable like a plain tuple</span>
-<span class="go">33</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">p</span>                        <span class="c1"># unpack like a regular tuple</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span>
-<span class="go">(11, 22)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">p</span><span class="o">.</span><span class="n">y</span>                       <span class="c1"># fields also accessible by name</span>
-<span class="go">33</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">_asdict</span><span class="p">()</span>                 <span class="c1"># convert to a dictionary</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span>
-<span class="go">11</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">Point</span><span class="p">(</span><span class="o">**</span><span class="n">d</span><span class="p">)</span>                      <span class="c1"># convert from a dictionary</span>
-<span class="go">Point(x=11, y=22)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">_replace</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>               <span class="c1"># _replace() is like str.replace() but targets named fields</span>
-<span class="go">Point(x=100, y=22)</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py function">
-<dt id="calix.common.base.run">
-<code class="sig-prename descclassname"><span class="pre">calix.common.base.</span></code><code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="calix.common.base.StatefulConnection.html#calix.common.base.StatefulConnection" title="calix.common.base.StatefulConnection"><span class="pre">calix.common.base.StatefulConnection</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">builder</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="calix.common.base.WriteRecordingPlaybackProgramBuilder.html#calix.common.base.WriteRecordingPlaybackProgramBuilder" title="calix.common.base.WriteRecordingPlaybackProgramBuilder"><span class="pre">calix.common.base.WriteRecordingPlaybackProgramBuilder</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">pystadls_vx_v3.PlaybackProgram</span><a class="headerlink" href="#calix.common.base.run" title="Permalink to this definition"></a></dt>
-<dd><p>Wraps the stadls run function.</p>
-<p>Records all write accesses and updates the connection’s reinit program.</p>
-<p>Includes a barrier, blocking for the omnibus being idle, before
-the end of the program. The finished program is returned,
-such that, e.g., spikes are accessible.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>connection</strong> – Connection to the chip to execute on.</p></li>
-<li><p><strong>builder</strong> – Builder to execute.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Program compiled by builder.done() that is executed.</p>
-</dd>
-</dl>
-</dd></dl>
-
 </div>
 
 
@@ -254,7 +170,7 @@ such that, e.g., spikes are accessible.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="calix.common.algorithms.PredictiveModel.html" class="btn btn-neutral float-left" title="calix.common.algorithms.PredictiveModel" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="calix.common.base.ABC.html" class="btn btn-neutral float-right" title="calix.common.base.ABC" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="calix.common.base.abstractmethod.html" class="btn btn-neutral float-right" title="calix.common.base.abstractmethod" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

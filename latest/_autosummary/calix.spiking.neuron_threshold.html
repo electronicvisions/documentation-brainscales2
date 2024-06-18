@@ -16,7 +16,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="calix.spiking.neuron_threshold.LeakOverThresholdCalib" href="calix.spiking.neuron_threshold.LeakOverThresholdCalib.html" />
+    <link rel="next" title="calix.spiking.neuron_threshold.check_range_boundaries" href="calix.spiking.neuron_threshold.check_range_boundaries.html" />
     <link rel="prev" title="calix.spiking.neuron_calib_parts.SyninParameters" href="calix.spiking.neuron_calib_parts.SyninParameters.html" /> 
 </head>
 
@@ -50,6 +50,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../api_hxcomm.html">hxcomm API</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../api_calix.html">calix API</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="calix.html">calix</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="calix.calibrate.html">calix.calibrate</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.calib_cache.html">calix.calib_cache</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.common.html">calix.common</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.constants.html">calix.constants</a></li>
@@ -95,6 +96,21 @@
              
   <div class="section" id="module-calix.spiking.neuron_threshold">
 <span id="calix-spiking-neuron-threshold"></span><h1>calix.spiking.neuron_threshold<a class="headerlink" href="#module-calix.spiking.neuron_threshold" title="Permalink to this headline"></a></h1>
+<p class="rubric">Functions</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="calix.spiking.neuron_threshold.check_range_boundaries.html#calix.spiking.neuron_threshold.check_range_boundaries" title="calix.spiking.neuron_threshold.check_range_boundaries"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_range_boundaries</span></code></a>(parameters, boundaries)</p></td>
+<td><p>Checks if parameters are in a given range and sets them to the limits if they exceed the range.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="calix.spiking.neuron_threshold.deepcopy.html#calix.spiking.neuron_threshold.deepcopy" title="calix.spiking.neuron_threshold.deepcopy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">deepcopy</span></code></a>(x[, memo, _nil])</p></td>
+<td><p>Deep copy operation on arbitrary Python objects.</p></td>
+</tr>
+</tbody>
+</table>
 <p class="rubric">Classes</p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -116,39 +132,6 @@
 </tr>
 </tbody>
 </table>
-<p class="rubric">Functions</p>
-<dl class="py function">
-<dt id="calix.spiking.neuron_threshold.check_range_boundaries">
-<code class="sig-prename descclassname"><span class="pre">calix.spiking.neuron_threshold.</span></code><code class="sig-name descname"><span class="pre">check_range_boundaries</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">np.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundaries</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">ParameterRange</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">errors</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">BoundaryCheckResult</span><a class="headerlink" href="#calix.spiking.neuron_threshold.check_range_boundaries" title="Permalink to this definition"></a></dt>
-<dd><p>Checks if parameters are in a given range and sets them to the limits if
-they exceed the range.
-If error messages are given, returns those if a parameter has reached the
-limits or has gone beyond.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>parameters</strong> – Array of parameters to check.</p></li>
-<li><p><strong>boundaries</strong> – Parameter range to be checked for.</p></li>
-<li><p><strong>errors</strong> – List of error messages to print when parameter exceeds
-respective boundaries, in format [err_lower, err_upper]. Message needs
-to include placeholer ‘{0}’ where indices of the violating parameters
-are inserted.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>BoundaryCheckResult, containing parameters within boundaries,
-error mask and optional error messages.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="calix.spiking.neuron_threshold.deepcopy">
-<code class="sig-prename descclassname"><span class="pre">calix.spiking.neuron_threshold.</span></code><code class="sig-name descname"><span class="pre">deepcopy</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">memo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_nil</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.spiking.neuron_threshold.deepcopy" title="Permalink to this definition"></a></dt>
-<dd><p>Deep copy operation on arbitrary Python objects.</p>
-<p>See the module’s __doc__ string for more info.</p>
-</dd></dl>
-
 </div>
 
 
@@ -156,7 +139,7 @@ error mask and optional error messages.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="calix.spiking.neuron_calib_parts.SyninParameters.html" class="btn btn-neutral float-left" title="calix.spiking.neuron_calib_parts.SyninParameters" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="calix.spiking.neuron_threshold.LeakOverThresholdCalib.html" class="btn btn-neutral float-right" title="calix.spiking.neuron_threshold.LeakOverThresholdCalib" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="calix.spiking.neuron_threshold.check_range_boundaries.html" class="btn btn-neutral float-right" title="calix.spiking.neuron_threshold.check_range_boundaries" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -50,6 +50,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../api_hxcomm.html">hxcomm API</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../api_calix.html">calix API</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="calix.html">calix</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="calix.calibrate.html">calix.calibrate</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.calib_cache.html">calix.calib_cache</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="calix.common.html">calix.common</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.constants.html">calix.constants</a></li>
@@ -147,6 +148,12 @@ algorithm <cite>BinarySearch</cite> to work without noise.</p>
 <tr class="row-even"><td><p><a class="reference internal" href="#calix.common.algorithms.NoisyBinarySearch.hook_to_calibration" title="calix.common.algorithms.NoisyBinarySearch.hook_to_calibration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hook_to_calibration</span></code></a>(calibration)</p></td>
 <td><p>Make an instance of a calibration known to the algorithm, allowing to use parameters set there.</p></td>
 </tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.common.algorithms.NoisyBinarySearch.run" title="calix.common.algorithms.NoisyBinarySearch.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>(connection, target_result)</p></td>
+<td><p>Perform a binary search within given parameter range.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#calix.common.algorithms.NoisyBinarySearch.unhook_from_calibration" title="calix.common.algorithms.NoisyBinarySearch.unhook_from_calibration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unhook_from_calibration</span></code></a>()</p></td>
+<td><p>Clear a calibration instance previously hooked to this algorithm.</p></td>
+</tr>
 </tbody>
 </table>
 <p class="rubric">Attributes</p>
@@ -156,6 +163,9 @@ algorithm <cite>BinarySearch</cite> to work without noise.</p>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.common.algorithms.NoisyBinarySearch.n_steps_best" title="calix.common.algorithms.NoisyBinarySearch.n_steps_best"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_steps_best</span></code></a></p></td>
+<td><p></p></td>
+</tr>
 </tbody>
 </table>
 <dl class="py attribute">
@@ -192,9 +202,55 @@ noise would lead to hitting the range boundaries instantly.</p>
 <dd></dd></dl>
 
 <dl class="py attribute">
+<dt id="calix.common.algorithms.NoisyBinarySearch.n_steps_best">
+<code class="sig-name descname"><span class="pre">n_steps_best</span></code><em class="property"><span class="pre">:</span> <span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">3</span></em><a class="headerlink" href="#calix.common.algorithms.NoisyBinarySearch.n_steps_best" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="calix.common.algorithms.NoisyBinarySearch.run">
+<code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhxcomm_vx.ConnectionHandle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_result</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">,</span> </span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">numpy.ndarray</span><a class="headerlink" href="#calix.common.algorithms.NoisyBinarySearch.run" title="Permalink to this definition"></a></dt>
+<dd><p>Perform a binary search within given parameter range.
+In the end, the parameter is moved by 1 additionally.
+This way, the result of the binary search and the two neighboring
+settings are tested and the best-suitable parameter is returned.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>connection</strong> – Connection that will be used when setting up
+parameters and measuring results.</p></li>
+<li><p><strong>target_result</strong> – Target for the calibration. The parameters will
+be set up such that the results match the target as close as
+possible. The target can be either a single value that will be used
+for all instances of parameters or an array containing a specific
+target for each instance. When using an array, its length has to
+match n_instances.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Best suited parameters to reach given targets.</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ValueError</strong> – if the measure_parameters() function of the
+provided calibration class returns an array with bad length.</p></li>
+<li><p><strong>ValueError</strong> – if the number of steps to take into account
+when finding the best parameters in the end is smaller than 3.
+A value of 3 is required for the additional step to make sense.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
 <dt id="calix.common.algorithms.NoisyBinarySearch.step_increments">
 <code class="sig-name descname"><span class="pre">step_increments</span></code><em class="property"><span class="pre">:</span> <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">np.ndarray</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#calix.common.algorithms.NoisyBinarySearch.step_increments" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
+
+<dl class="py method">
+<dt id="calix.common.algorithms.NoisyBinarySearch.unhook_from_calibration">
+<code class="sig-name descname"><span class="pre">unhook_from_calibration</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#calix.common.algorithms.NoisyBinarySearch.unhook_from_calibration" title="Permalink to this definition"></a></dt>
+<dd><p>Clear a calibration instance previously hooked to this algorithm.</p>
+</dd></dl>
 
 </dd></dl>
 

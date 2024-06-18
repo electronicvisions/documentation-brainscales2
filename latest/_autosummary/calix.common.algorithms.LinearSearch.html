@@ -50,6 +50,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../api_hxcomm.html">hxcomm API</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../api_calix.html">calix API</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="calix.html">calix</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="calix.calibrate.html">calix.calibrate</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.calib_cache.html">calix.calib_cache</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="calix.common.html">calix.common</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.constants.html">calix.constants</a></li>
@@ -142,11 +143,30 @@ algorithm with.</p></li>
 <tr class="row-odd"><td><p><a class="reference internal" href="#calix.common.algorithms.LinearSearch.__init__" title="calix.common.algorithms.LinearSearch.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([initial_parameters, step_size, …])</p></td>
 <td><p>Initialize self.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#calix.common.algorithms.LinearSearch.run" title="calix.common.algorithms.LinearSearch.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>(connection, target_result)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#calix.common.algorithms.LinearSearch.hook_to_calibration" title="calix.common.algorithms.LinearSearch.hook_to_calibration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hook_to_calibration</span></code></a>(calibration)</p></td>
+<td><p>Make an instance of a calibration known to the algorithm, allowing to use parameters set there.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.common.algorithms.LinearSearch.run" title="calix.common.algorithms.LinearSearch.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>(connection, target_result)</p></td>
 <td><p>Performs the calibration sweeping the parameter by step_size.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#calix.common.algorithms.LinearSearch.unhook_from_calibration" title="calix.common.algorithms.LinearSearch.unhook_from_calibration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unhook_from_calibration</span></code></a>()</p></td>
+<td><p>Clear a calibration instance previously hooked to this algorithm.</p></td>
 </tr>
 </tbody>
 </table>
+<dl class="py method">
+<dt id="calix.common.algorithms.LinearSearch.hook_to_calibration">
+<code class="sig-name descname"><span class="pre">hook_to_calibration</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">calibration</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="calix.common.base.Calib.html#calix.common.base.Calib" title="calix.common.base.Calib"><span class="pre">calix.common.base.Calib</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.common.algorithms.LinearSearch.hook_to_calibration" title="Permalink to this definition"></a></dt>
+<dd><p>Make an instance of a calibration known to the algorithm, allowing
+to use parameters set there.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>calibration</strong> – Instance of calibration class that will
+be run with this algorithm.</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py method">
 <dt id="calix.common.algorithms.LinearSearch.run">
 <code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhxcomm_vx.ConnectionHandle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_result</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span> </span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">numpy.ndarray</span><a class="headerlink" href="#calix.common.algorithms.LinearSearch.run" title="Permalink to this definition"></a></dt>
@@ -177,6 +197,12 @@ provided calibration class returns an array with bad length.</p></li>
 </ul>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calix.common.algorithms.LinearSearch.unhook_from_calibration">
+<code class="sig-name descname"><span class="pre">unhook_from_calibration</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#calix.common.algorithms.LinearSearch.unhook_from_calibration" title="Permalink to this definition"></a></dt>
+<dd><p>Clear a calibration instance previously hooked to this algorithm.</p>
 </dd></dl>
 
 </dd></dl>

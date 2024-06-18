@@ -50,6 +50,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../api_hxcomm.html">hxcomm API</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../api_calix.html">calix API</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="calix.html">calix</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="calix.calibrate.html">calix.calibrate</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.calib_cache.html">calix.calib_cache</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.common.html">calix.common</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.constants.html">calix.constants</a></li>
@@ -139,6 +140,15 @@ voltage set 1, in CapMem LSB.</p></li>
 <tr class="row-odd"><td><p><a class="reference internal" href="#calix.spiking.synapse_driver.STPCalibTarget.__init__" title="calix.spiking.synapse_driver.STPCalibTarget.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>()</p></td>
 <td><p>Initialize self.</p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#calix.spiking.synapse_driver.STPCalibTarget.check" title="calix.spiking.synapse_driver.STPCalibTarget.check"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check</span></code></a>()</p></td>
+<td><p>Check types and values of parameters.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.spiking.synapse_driver.STPCalibTarget.check_types" title="calix.spiking.synapse_driver.STPCalibTarget.check_types"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_types</span></code></a>()</p></td>
+<td><p>Check whether the given types and shapes of arrays are suitable.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#calix.spiking.synapse_driver.STPCalibTarget.check_values" title="calix.spiking.synapse_driver.STPCalibTarget.check_values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_values</span></code></a>()</p></td>
+<td><p>Check whether the provided target parameters are feasible for calibration.</p></td>
+</tr>
 </tbody>
 </table>
 <p class="rubric">Attributes</p>
@@ -148,20 +158,48 @@ voltage set 1, in CapMem LSB.</p></li>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#calix.spiking.synapse_driver.STPCalibTarget.v_charge_0" title="calix.spiking.synapse_driver.STPCalibTarget.v_charge_0"><code class="xref py py-obj docutils literal notranslate"><span class="pre">v_charge_0</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.spiking.synapse_driver.STPCalibTarget.feasible_ranges" title="calix.spiking.synapse_driver.STPCalibTarget.feasible_ranges"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feasible_ranges</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#calix.spiking.synapse_driver.STPCalibTarget.v_charge_1" title="calix.spiking.synapse_driver.STPCalibTarget.v_charge_1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">v_charge_1</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#calix.spiking.synapse_driver.STPCalibTarget.v_charge_0" title="calix.spiking.synapse_driver.STPCalibTarget.v_charge_0"><code class="xref py py-obj docutils literal notranslate"><span class="pre">v_charge_0</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#calix.spiking.synapse_driver.STPCalibTarget.v_recover_0" title="calix.spiking.synapse_driver.STPCalibTarget.v_recover_0"><code class="xref py py-obj docutils literal notranslate"><span class="pre">v_recover_0</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.spiking.synapse_driver.STPCalibTarget.v_charge_1" title="calix.spiking.synapse_driver.STPCalibTarget.v_charge_1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">v_charge_1</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#calix.spiking.synapse_driver.STPCalibTarget.v_recover_1" title="calix.spiking.synapse_driver.STPCalibTarget.v_recover_1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">v_recover_1</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#calix.spiking.synapse_driver.STPCalibTarget.v_recover_0" title="calix.spiking.synapse_driver.STPCalibTarget.v_recover_0"><code class="xref py py-obj docutils literal notranslate"><span class="pre">v_recover_0</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.spiking.synapse_driver.STPCalibTarget.v_recover_1" title="calix.spiking.synapse_driver.STPCalibTarget.v_recover_1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">v_recover_1</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
 </table>
+<dl class="py method">
+<dt id="calix.spiking.synapse_driver.STPCalibTarget.check">
+<code class="sig-name descname"><span class="pre">check</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#calix.spiking.synapse_driver.STPCalibTarget.check" title="Permalink to this definition"></a></dt>
+<dd><p>Check types and values of parameters.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calix.spiking.synapse_driver.STPCalibTarget.check_types">
+<code class="sig-name descname"><span class="pre">check_types</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#calix.spiking.synapse_driver.STPCalibTarget.check_types" title="Permalink to this definition"></a></dt>
+<dd><p>Check whether the given types and shapes of arrays are
+suitable.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calix.spiking.synapse_driver.STPCalibTarget.check_values">
+<code class="sig-name descname"><span class="pre">check_values</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#calix.spiking.synapse_driver.STPCalibTarget.check_values" title="Permalink to this definition"></a></dt>
+<dd><p>Check whether the provided target parameters are feasible
+for calibration.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="calix.spiking.synapse_driver.STPCalibTarget.feasible_ranges">
+<code class="sig-name descname"><span class="pre">feasible_ranges</span></code><em class="property"><span class="pre">:</span> <span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">ParameterRange</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{}</span></em><a class="headerlink" href="#calix.spiking.synapse_driver.STPCalibTarget.feasible_ranges" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
 <dl class="py attribute">
 <dt id="calix.spiking.synapse_driver.STPCalibTarget.v_charge_0">
 <code class="sig-name descname"><span class="pre">v_charge_0</span></code><em class="property"> <span class="pre">=</span> <span class="pre">100</span></em><a class="headerlink" href="#calix.spiking.synapse_driver.STPCalibTarget.v_charge_0" title="Permalink to this definition"></a></dt>
