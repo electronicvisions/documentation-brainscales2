@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Structured Neurons &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <title>Multicompartmental Neurons &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -43,7 +43,7 @@
 <li class="toctree-l3"><a class="reference internal" href="ts_00-single_neuron.html">BrainScaleS-2 single neuron experiments</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ts_01-superspike.html">Learning with the SuperSpike rule</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ts_02-plasticity_rate_coding.html">BrainScaleS-2 on-chip plasticity experiment</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Structured Neurons</a><ul>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Multicompartmental Neurons</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#imports-and-calibration">Imports and Calibration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#constructing-a-compartment-chain">Constructing a Compartment Chain</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#external-input-and-experiment-definition">External Input and Experiment Definition</a></li>
@@ -54,11 +54,7 @@
 <li class="toctree-l3"><a class="reference internal" href="ts_05-yin_yang.html">Training an SNN on BrainScaleS-2 with PyTorch</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ts_06-dynamic_range.html">Exploring the dynamic range</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ts_07-pong.html">Pong</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ts_08-adex_complex_dynamics.html">Complex neuron dynamics with a silicon adaptive exponential integrate-and-fire neuron</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ts_08-adex_complex_dynamics.html#understanding-subthreshold-adaptation">Understanding subthreshold adaptation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ts_08-adex_complex_dynamics.html#transient-spiking">Transient spiking</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ts_08-adex_complex_dynamics.html#spike-frequency-adaptation">Spike-frequency adaptation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ts_08-adex_complex_dynamics.html#bursting">Bursting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ts_08-adex_complex_dynamics.html">Complex Neuron Dynamics with a Silicon Adaptive Exponential Integrate-and-Fire Neuron</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ts_09-inside_realtime_hook.html">Demonstration of inside realtime hook</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ts_10-multiple_configs.html">Demonstration of multiple chip-reconfigurations during an experiment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="tp_00-introduction.html">Introduction to matrix multiplication</a></li>
@@ -70,8 +66,8 @@
 <li class="toctree-l3"><a class="reference internal" href="tutorial.html#final-test-hardware-execution">Final test: Hardware Execution</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="girlsday.html">Girlsday</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fortgeschrittenen_praktikum.html">Advanced Lab Course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="girlsday.html">Wie verarbeitet unser Gehirn Informationen?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fortgeschrittenen_praktikum.html">Welcome to the Advanced Physics Lab for Physicists by the Electronic Vision(s) Group</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../software_components.html">Software Components</a></li>
@@ -95,7 +91,7 @@
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="index.html">Welcome to the BrainScaleS-2 Demos &amp; Examples!</a> &raquo;</li>
           <li><a href="tutorial.html">Welcome to the BrainScaleS-2 Tutorial</a> &raquo;</li>
-      <li>Structured Neurons</li>
+      <li>Multicompartmental Neurons</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/brainscales2-demos/ts_03-multicompartment.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -105,8 +101,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="structured-neurons">
-<h1>Structured Neurons<a class="headerlink" href="#structured-neurons" title="Permalink to this headline"></a></h1>
+  <div class="section" id="multicompartmental-neurons">
+<h1>Multicompartmental Neurons<a class="headerlink" href="#multicompartmental-neurons" title="Permalink to this headline"></a></h1>
 <p>In the previous demonstrations we considered point neuron models.
 However, biological neurons often posses elaborate dendritic trees, which allow them to pre-process the synaptic inputs before they reach the somatic spike initiation zone near the axon initial segment.
 Taking dendrites as well as their passive and active properties into account can greatly enhance the computational power of neurons [1-3].</p>

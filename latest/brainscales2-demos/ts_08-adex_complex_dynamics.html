@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Complex neuron dynamics with a silicon adaptive exponential integrate-and-fire neuron &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <title>Complex Neuron Dynamics with a Silicon Adaptive Exponential Integrate-and-Fire Neuron &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -43,21 +43,21 @@
 <li class="toctree-l3"><a class="reference internal" href="ts_00-single_neuron.html">BrainScaleS-2 single neuron experiments</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ts_01-superspike.html">Learning with the SuperSpike rule</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ts_02-plasticity_rate_coding.html">BrainScaleS-2 on-chip plasticity experiment</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ts_03-multicompartment.html">Structured Neurons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ts_03-multicompartment.html">Multicompartmental Neurons</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ts_04-mc_genetic_algorithms.html">How to use Genetic Algorithms to automatically parameterize BrainScaleS-2</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ts_05-yin_yang.html">Training an SNN on BrainScaleS-2 with PyTorch</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ts_06-dynamic_range.html">Exploring the dynamic range</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ts_07-pong.html">Pong</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Complex neuron dynamics with a silicon adaptive exponential integrate-and-fire neuron</a><ul>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Complex Neuron Dynamics with a Silicon Adaptive Exponential Integrate-and-Fire Neuron</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#the-adaptive-exponential-integrate-and-fire-model">The adaptive exponential integrate-and-fire model</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#the-firing-patterns-of-the-adex-model">The firing patterns of the AdEx model</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#silicon-neuron-implementation">Silicon neuron implementation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#understanding-subthreshold-adaptation">Understanding subthreshold adaptation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#transient-spiking">Transient spiking</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spike-frequency-adaptation">Spike-frequency adaptation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bursting">Bursting</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#understanding-subthreshold-adaptation">Understanding subthreshold adaptation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#transient-spiking">Transient spiking</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#spike-frequency-adaptation">Spike-frequency adaptation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#bursting">Bursting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ts_09-inside_realtime_hook.html">Demonstration of inside realtime hook</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ts_10-multiple_configs.html">Demonstration of multiple chip-reconfigurations during an experiment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="tp_00-introduction.html">Introduction to matrix multiplication</a></li>
@@ -69,8 +69,8 @@
 <li class="toctree-l3"><a class="reference internal" href="tutorial.html#final-test-hardware-execution">Final test: Hardware Execution</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="girlsday.html">Girlsday</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fortgeschrittenen_praktikum.html">Advanced Lab Course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="girlsday.html">Wie verarbeitet unser Gehirn Informationen?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fortgeschrittenen_praktikum.html">Welcome to the Advanced Physics Lab for Physicists by the Electronic Vision(s) Group</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../software_components.html">Software Components</a></li>
@@ -94,7 +94,7 @@
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="index.html">Welcome to the BrainScaleS-2 Demos &amp; Examples!</a> &raquo;</li>
           <li><a href="tutorial.html">Welcome to the BrainScaleS-2 Tutorial</a> &raquo;</li>
-      <li>Complex neuron dynamics with a silicon adaptive exponential integrate-and-fire neuron</li>
+      <li>Complex Neuron Dynamics with a Silicon Adaptive Exponential Integrate-and-Fire Neuron</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/brainscales2-demos/ts_08-adex_complex_dynamics.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -105,7 +105,7 @@
            <div itemprop="articleBody">
              
   <div class="section" id="complex-neuron-dynamics-with-a-silicon-adaptive-exponential-integrate-and-fire-neuron">
-<h1>Complex neuron dynamics with a silicon adaptive exponential integrate-and-fire neuron<a class="headerlink" href="#complex-neuron-dynamics-with-a-silicon-adaptive-exponential-integrate-and-fire-neuron" title="Permalink to this headline"></a></h1>
+<h1>Complex Neuron Dynamics with a Silicon Adaptive Exponential Integrate-and-Fire Neuron<a class="headerlink" href="#complex-neuron-dynamics-with-a-silicon-adaptive-exponential-integrate-and-fire-neuron" title="Permalink to this headline"></a></h1>
 <p>Biological neurons exhibit electrophysiological behavior beyond the
 dynamics of the plain leaky integrate-and-fire model. These dynamics
 include adaptation processes on vastly different time scales which may
@@ -118,15 +118,15 @@ effects with a varying degree of biophysical detail.</p>
 <p>The adaptive exponential integrate-and-fire (AdEx) equations address
 this in a rather phenomenological manner and for that purpose simply
 extend the leaky integrate-and-fire equation. It introduces an
-exponential feedback current to mimick the onset of an action potential
+exponential feedback current to mimic the onset of an action potential
 and augments the membrane equation by a second differential equation for
 an adaptation current <span class="math notranslate nohighlight">\(w\)</span>:</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}C\frac{\operatorname{d} V}{\operatorname{d} t} = -g_l\left(V-E_l\right)
+\[\begin{split}C\frac{\operatorname{d} V}{\operatorname{d} t} &amp;= -g_l\left(V-E_l\right)
                 \,+\, g_\text{l}\Delta_\text{T}\operatorname{exp}\left(\frac{V-V_\text{T}}{\Delta_\text{T}}\right)
                 \,-\, w
                 \,+\, I_\text{stim}\\[1em]
-                \tau_w \frac{\operatorname{d}w}{\operatorname{d}t} = a\left(V-E_\text{l}\right) - w \,.\end{split}\]</div>
+                \tau_w \frac{\operatorname{d}w}{\operatorname{d}t} &amp;= a\left(V-E_\text{l}\right) - w \,.\end{split}\]</div>
 <p>On top of the LIF model, these equations introduce the exponential slope
 and threshold <span class="math notranslate nohighlight">\(\Delta_\text{T}\)</span> and <span class="math notranslate nohighlight">\(V_\text{T}\)</span>,
 respectively, the adaptation current <span class="math notranslate nohighlight">\(w\)</span>, its time constant
@@ -280,9 +280,8 @@ subthreshold adaptation strength.</p>
 </pre></div>
 </div>
 </div>
-</div>
 <div class="section" id="understanding-subthreshold-adaptation">
-<h1>Understanding subthreshold adaptation<a class="headerlink" href="#understanding-subthreshold-adaptation" title="Permalink to this headline"></a></h1>
+<h2>Understanding subthreshold adaptation<a class="headerlink" href="#understanding-subthreshold-adaptation" title="Permalink to this headline"></a></h2>
 <ol class="arabic simple">
 <li><p>Get accustomed with the shown neuron parameters and attempt to
 associate them with model parameters from the differential equations.</p></li>
@@ -307,7 +306,7 @@ the membrane and increasing the speed of the adaptation state).</p></li>
 <a class="solution reference internal image-reference" href="../_images/adex-subthreshold.png"><img alt="../_images/adex-subthreshold.png" class="solution" src="../_images/adex-subthreshold.png" style="width: 100%;" /></a>
 </div>
 <div class="section" id="transient-spiking">
-<h1>Transient spiking<a class="headerlink" href="#transient-spiking" title="Permalink to this headline"></a></h1>
+<h2>Transient spiking<a class="headerlink" href="#transient-spiking" title="Permalink to this headline"></a></h2>
 <ol class="arabic simple" start="3">
 <li><p>Let’s now consider a few more neuron parameters (i.e. <em>reset
 potential</em>, <em>spike-triggered adaptation strength</em>, <em>exponential onset
@@ -332,7 +331,7 @@ and the spike count. Adjust it to enforce only a single spike.</p></li>
 <a class="solution reference internal image-reference" href="../_images/adex-transient.png"><img alt="../_images/adex-transient.png" class="solution" src="../_images/adex-transient.png" style="width: 100%;" /></a>
 </div>
 <div class="section" id="spike-frequency-adaptation">
-<h1>Spike-frequency adaptation<a class="headerlink" href="#spike-frequency-adaptation" title="Permalink to this headline"></a></h1>
+<h2>Spike-frequency adaptation<a class="headerlink" href="#spike-frequency-adaptation" title="Permalink to this headline"></a></h2>
 <ol class="arabic simple" start="5">
 <li><p>Let us now consider a state with dominating spike-triggered
 adaptation by reducing (or disabling) the strength of the
@@ -349,7 +348,7 @@ adaptation time constant and vary the stimulus current strength.</p></li>
 <a class="solution reference internal image-reference" href="../_images/adex-adaptation.png"><img alt="../_images/adex-adaptation.png" class="solution" src="../_images/adex-adaptation.png" style="width: 100%;" /></a>
 </div>
 <div class="section" id="bursting">
-<h1>Bursting<a class="headerlink" href="#bursting" title="Permalink to this headline"></a></h1>
+<h2>Bursting<a class="headerlink" href="#bursting" title="Permalink to this headline"></a></h2>
 <ol class="arabic simple" start="7">
 <li><p>Using your freshly gained knowledge, configure the neuron for
 spike-frequency adaptation and roughly a dozen spikes. Now,
@@ -369,6 +368,7 @@ and the spike-triggered adaptation strength.</p></li>
 </pre></div>
 </div>
 <a class="solution reference internal image-reference" href="../_images/adex-bursting.png"><img alt="../_images/adex-bursting.png" class="solution" src="../_images/adex-bursting.png" style="width: 100%;" /></a>
+</div>
 </div>
 
 

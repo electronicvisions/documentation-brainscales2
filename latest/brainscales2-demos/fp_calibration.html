@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calibration: Characterising and Measuring Analog Behaviour &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Synaptic Input for Neurons" href="fp_synapticInput.html" />
+    <link rel="prev" title="Solving sudokus with BrainScaleS-2" href="fp_sudoku.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> BrainScaleS-2 Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Demos &amp; Examples</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html">Demos and Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="girlsday.html">Wie verarbeitet unser Gehirn Informationen?</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="fortgeschrittenen_praktikum.html">Welcome to the Advanced Physics Lab for Physicists by the Electronic Vision(s) Group</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="fp_biological-background.html">Biological background</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fp_neuromorphic-computing.html">Neuromorphic computing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fp_brainscales.html">The BrainScaleS-2 system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fp_pynn_introduction.html">Introduction to PyNN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fp_lui.html">Lu.i experiment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fp_singleNeuron.html">Investigating a single neuron</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fp_synfireChain.html">A simple feedforward network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fp_sudoku.html">Solving sudokus with BrainScaleS-2</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="fortgeschrittenen_praktikum.html#optional-experiments">Optional experiments</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Calibration: Characterising and Measuring Analog Behaviour</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fp_synapticInput.html">Synaptic Input for Neurons</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fp_adex_complex_dynamics.html">Complex Neuron Dynamics with a Silicon Adaptive Exponential Integrate-and-Fire Neuron</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fp_multicompartment.html">Multicompartmental Neurons</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fp_superspike.html">Learning with the SuperSpike rule</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../software_components.html">Software Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../apis.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BrainScaleS-2 Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Welcome to the BrainScaleS-2 Demos &amp; Examples!</a> &raquo;</li>
+          <li><a href="fortgeschrittenen_praktikum.html">Welcome to the Advanced Physics Lab for Physicists by the Electronic Vision(s) Group</a> &raquo;</li>
+      <li>Calibration: Characterising and Measuring Analog Behaviour</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/brainscales2-demos/fp_calibration.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="calibration-characterising-and-measuring-analog-behaviour">
+<h1>Calibration: Characterising and Measuring Analog Behaviour<a class="headerlink" href="#calibration-characterising-and-measuring-analog-behaviour" title="Permalink to this headline"></a></h1>
+<p>The goal of the exercises assembled in this task is to familiarise yourself with how we characterise and measure the analog behaviour of the chip. At the end you will understand
+how to convert raw hardware measurements into physical units and how to relate digital calibration values to measured membrane traces.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This print-friendly version of the instructions only lists the most central functions and code blocks.
+The interactive variant provides additional helpers.</p>
+</div>
+<div class="section" id="characterizing-the-madc">
+<h2>Characterizing the MADC<a class="headerlink" href="#characterizing-the-madc" title="Permalink to this headline"></a></h2>
+<p>Before we continue our investigations of analog neurons, we need to characterize the readout chain used for the neurons’ signals. Since HICANN-X has digital communication interfaces, the analog voltage recordings of a neuron need to be digitized on chip.</p>
+<p>Characterizing the analog-to-digital-converter (ADC) means applying a known voltage externally and recording the value returned by the ADC. Later, we will reverse this relation in order to convert measured data back to SI units.</p>
+<p>In the following, we define a function which applies an external voltage and returns samples from the MADC. Your task is to sweep the external voltage and analyze the returned reads. Plot the characteristic and perform a linear fit to a suitable range. You will use the parameters of your fit in the following notebooks.</p>
+<div class="section" id="low-level-hardware-access">
+<h3>Low Level Hardware Access<a class="headerlink" href="#low-level-hardware-access" title="Permalink to this headline"></a></h3>
+<p>You will not need to make changes to the function imported in the next cell. If you are curious how it is implemented you can take a <a class="reference external" href="_static/common/measure_voltage.py">look at it</a>.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">_static.common.measure_voltage</span> <span class="kn">import</span> <span class="n">measure_voltage</span>
+</pre></div>
+</div>
+<p>We first test the function above by setting a medium voltage, say 0.5 V. Look at the printed samples and their data type - notice the sampled value is the first entry in each tuple, accessible by the named field “value”.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dlens_vx_v3</span> <span class="kn">import</span> <span class="n">hxcomm</span>
+
+<span class="c1"># since we&#39;re not using the PyNN frontend here, we need to define our own</span>
+<span class="c1"># connection to the hardware. It is available as a context manager:</span>
+<span class="k">with</span> <span class="n">hxcomm</span><span class="o">.</span><span class="n">ManagedConnection</span><span class="p">()</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">measure_voltage</span><span class="p">(</span><span class="n">connection</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">[:</span><span class="mi">20</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="exercises">
+<h3>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Measure the sampled value for voltages between 0 and 1.2 V. We recommend steps of 0.05 V. For each data point, save a mean ADC value. Hint: Use something like <code class="docutils literal notranslate"><span class="pre">result[&quot;value&quot;]</span></code> for calculating your mean ADC values. Complete the cell below to do so:</p></li>
+</ul>
+<p>Hint: You can use the measure_voltage function.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Measure characteristic</span>
+<span class="n">voltages</span> <span class="o">=</span>  <span class="o">...</span> <span class="c1"># volt</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">voltages</span><span class="p">)</span>  <span class="c1"># mean ADC values in LSB</span>
+<span class="n">errors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">voltages</span><span class="p">)</span>  <span class="c1"># std deviation of ADC values in LSB</span>
+
+<span class="k">with</span> <span class="n">hxcomm</span><span class="o">.</span><span class="n">ManagedConnection</span><span class="p">()</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+      <span class="k">for</span> <span class="n">voltage_id</span><span class="p">,</span> <span class="n">voltage</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">voltages</span><span class="p">):</span>
+        <span class="n">samples</span> <span class="o">=</span> <span class="o">...</span>
+        <span class="n">results</span><span class="p">[</span><span class="n">voltage_id</span><span class="p">]</span> <span class="o">=</span> <span class="o">...</span>
+        <span class="n">errors</span><span class="p">[</span><span class="n">voltage_id</span><span class="p">]</span> <span class="o">=</span> <span class="o">...</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Plot the characteristic, i.e. plot the acquired value over the external voltage.</p></li>
+</ul>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+
+<span class="c1"># TODO</span>
+<span class="o">...</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Voltage [V]&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;MADC value [LSB]&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Perform a linear fit in a suitable range (exclude possibly saturated values on top and bottom). Hint: In order to convert sample values to voltage later, you can use the results as “x data” and the voltages as “y data” for your fit function.</p></li>
+</ul>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># fit linear function to data</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">curve_fit</span>
+
+<span class="c1"># TODO</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Plot your linear fit and save the plot.</p></li>
+<li><p>Save the fit parameters for later, so you can convert ADC values to Volt.</p></li>
+</ul>
+<p>You can use the fit parameters you obtained to implement a madc value to voltage conversion routine like so:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">madc_to_voltage_conversion</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">convert</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">m</span> <span class="o">*</span> <span class="n">value</span> <span class="o">+</span> <span class="n">b</span>
+    <span class="k">return</span> <span class="n">convert</span>
+
+<span class="n">madc_to_v</span> <span class="o">=</span> <span class="n">madc_to_voltage_conversion</span><span class="p">(</span><span class="o">*</span><span class="n">popt</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="characterizing-neuron-parameters">
+<h2>Characterizing Neuron Parameters<a class="headerlink" href="#characterizing-neuron-parameters" title="Permalink to this headline"></a></h2>
+<p>We now move on to a characterisation of Neuron Parameters, the goal is to relate the
+parameter values, which are specified in arbitrary units to the MADC measurement values.
+That way you will establish a correspondence between the values you specify and the membrane
+measurement values send back to you by the chip.</p>
+<p>We begin by importing some commonly used calibration code</p>
+<p>A default calibration is generated for every setup every night.
+We save the nightly calibration in two variables such that we can use it later when we define our neuronal network.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">_static.common.helpers</span> <span class="kn">import</span> <span class="n">get_nightly_calibration</span>
+<span class="n">calib</span> <span class="o">=</span> <span class="n">get_nightly_calibration</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>and define plotting functions</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pynn_brainscales.brainscales2</span> <span class="k">as</span> <span class="nn">pynn</span>
+
+<span class="kn">from</span> <span class="nn">pynn_brainscales.brainscales2</span> <span class="kn">import</span> <span class="n">Population</span>
+<span class="kn">from</span> <span class="nn">pynn_brainscales.brainscales2.standardmodels.cells</span> <span class="kn">import</span> <span class="n">SpikeSourceArray</span>
+<span class="kn">from</span> <span class="nn">pynn_brainscales.brainscales2.standardmodels.synapses</span> <span class="kn">import</span> <span class="n">StaticSynapse</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;_static/matplotlibrc&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">plot_membrane_dynamics</span><span class="p">(</span><span class="n">population</span><span class="p">:</span> <span class="n">Population</span><span class="p">,</span> <span class="n">segment_id</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Plot the membrane potential of the neuron in a given population view. Only</span>
+<span class="sd">    population views of size 1 are supported.</span>
+<span class="sd">    :param population: Population, membrane traces and spikes are plotted for.</span>
+<span class="sd">    :param segment_id: Index of the neo segment to be plotted. Defaults to</span>
+<span class="sd">                       -1, encoding the last recorded segment.</span>
+<span class="sd">    :param ylim: y-axis limits for the plot.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">population</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Plotting is supported for populations of size 1.&quot;</span><span class="p">)</span>
+    <span class="c1"># Experimental results are given in the &#39;neo&#39; data format</span>
+    <span class="n">mem_v</span> <span class="o">=</span> <span class="n">population</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="s2">&quot;v&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">segments</span><span class="p">[</span><span class="n">segment_id</span><span class="p">]</span><span class="o">.</span><span class="n">irregularlysampledsignals</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">spikes</span> <span class="o">=</span> <span class="n">population</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="s2">&quot;spikes&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">segments</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">spiketrains</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mem_v</span><span class="o">.</span><span class="n">times</span><span class="p">,</span> <span class="n">mem_v</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+
+    <span class="c1"># indicate the spikes as red dots</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">spikes</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">mem_v</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">spikes</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Wall clock time [ms]&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;ADC readout [a.u.]&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">ylim</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="n">ylim</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The following experiment code let’s you interactively explore the measurement we are about to perform:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span><span class="p">,</span> <span class="n">IntSlider</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
+<span class="n">IntSlider</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">IntSlider</span><span class="p">,</span> <span class="n">continuous_update</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="nd">@interact</span><span class="p">(</span>
+    <span class="n">neuron_idx</span><span class="o">=</span><span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">511</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+    <span class="n">v_leak</span><span class="o">=</span><span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">1022</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">1000</span><span class="p">),</span>
+    <span class="n">v_threshold</span><span class="o">=</span><span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">500</span><span class="p">),</span>
+    <span class="n">v_reset</span><span class="o">=</span><span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">1022</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">400</span><span class="p">),</span>
+    <span class="n">i_bias_leak</span><span class="o">=</span><span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">1022</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">150</span><span class="p">),</span>
+<span class="p">)</span>
+<span class="k">def</span> <span class="nf">experiment</span><span class="p">(</span><span class="n">neuron_idx</span><span class="p">,</span> <span class="n">v_leak</span><span class="p">,</span> <span class="n">v_threshold</span><span class="p">,</span> <span class="n">v_reset</span><span class="p">,</span> <span class="n">i_bias_leak</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Set up a leak over threshold neuron.</span>
+
+<span class="sd">    :param v_leak: Leak potential.</span>
+<span class="sd">    :param v_threshold: Spike threshold potential.</span>
+<span class="sd">    :param v_reset: Reset potential.</span>
+<span class="sd">    :param i_bias_leak: Controls the leak conductance (membrane time constant).</span>
+<span class="sd">    :param savefig: Save the experiment figure.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+
+    <span class="c1"># everything between pynn.setup() and pynn.end()</span>
+    <span class="c1"># below is part of one hardware run.</span>
+    <span class="n">pynn</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="n">initial_config</span><span class="o">=</span><span class="n">calib</span><span class="p">,</span> <span class="n">neuronPermutation</span><span class="o">=</span><span class="p">[</span><span class="n">neuron_idx</span><span class="p">])</span>
+
+    <span class="c1"># a pynn.Population corresponds to a certain number of</span>
+    <span class="c1"># neuron circuits on the chip</span>
+    <span class="n">pop</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">pynn</span><span class="o">.</span><span class="n">cells</span><span class="o">.</span><span class="n">HXNeuron</span><span class="p">(</span>
+        <span class="c1"># Leak potential, range: 400-1000</span>
+        <span class="n">leak_v_leak</span><span class="o">=</span><span class="n">v_leak</span><span class="p">,</span>
+        <span class="c1"># Leak conductance, range: 0-1022</span>
+        <span class="n">leak_i_bias</span><span class="o">=</span><span class="n">i_bias_leak</span><span class="p">,</span>
+        <span class="c1"># Threshold potential, range: 0-500</span>
+        <span class="n">threshold_v_threshold</span><span class="o">=</span><span class="n">v_threshold</span><span class="p">,</span>
+        <span class="c1"># Reset potential, range: 300-1000</span>
+        <span class="n">reset_v_reset</span><span class="o">=</span><span class="n">v_reset</span><span class="p">,</span>
+        <span class="c1"># Membrane capacitance, range: 0-63</span>
+        <span class="n">membrane_capacitance_capacitance</span><span class="o">=</span><span class="mi">63</span><span class="p">,</span>
+        <span class="c1"># Refractory time (counter), range: 0-255</span>
+        <span class="n">refractory_period_refractory_time</span><span class="o">=</span><span class="mi">255</span><span class="p">,</span>
+        <span class="c1"># Enable reset on threshold crossing</span>
+        <span class="n">threshold_enable</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="c1"># Reset conductance, range: 0-1022</span>
+        <span class="n">reset_i_bias</span><span class="o">=</span><span class="mi">1022</span><span class="p">,</span>
+        <span class="c1"># Increase reset conductance</span>
+        <span class="n">reset_enable_multiplication</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+
+    <span class="n">pop</span><span class="o">.</span><span class="n">record</span><span class="p">([</span><span class="s2">&quot;v&quot;</span><span class="p">,</span> <span class="s2">&quot;spikes&quot;</span><span class="p">])</span>
+
+    <span class="c1"># this triggers a hardware execution</span>
+    <span class="c1"># with a duration of 0.2 ms</span>
+    <span class="n">pynn</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
+    <span class="n">plot_membrane_dynamics</span><span class="p">(</span><span class="n">pop</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">800</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+    <span class="n">mem</span> <span class="o">=</span> <span class="n">pop</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="s2">&quot;v&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">segments</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">irregularlysampledsignals</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">spikes</span> <span class="o">=</span> <span class="n">pop</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="s2">&quot;spikes&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">segments</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">spiketrains</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">pynn</span><span class="o">.</span><span class="n">end</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">mem</span><span class="p">,</span> <span class="n">spikes</span>
+</pre></div>
+</div>
+<p>We now define a function which returns the measured membrane voltage trace for a given set of parameters</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_v_mem</span><span class="p">(</span><span class="n">neuron_params</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">neuron_idx</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+    <span class="n">pynn</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="n">initial_config</span><span class="o">=</span><span class="n">calib</span><span class="p">,</span> <span class="n">neuronPermutation</span><span class="o">=</span><span class="p">[</span><span class="n">neuron_idx</span><span class="p">])</span>
+    <span class="n">pop</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">pynn</span><span class="o">.</span><span class="n">cells</span><span class="o">.</span><span class="n">HXNeuron</span><span class="p">(</span><span class="o">**</span><span class="n">neuron_params</span><span class="p">))</span>
+    <span class="n">pop</span><span class="o">.</span><span class="n">record</span><span class="p">([</span><span class="s2">&quot;v&quot;</span><span class="p">])</span>
+    <span class="n">pynn</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
+    <span class="n">mem_v</span> <span class="o">=</span> <span class="n">pop</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="s2">&quot;v&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">segments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">irregularlysampledsignals</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">pynn</span><span class="o">.</span><span class="n">end</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">mem_v</span><span class="o">.</span><span class="n">base</span>
+</pre></div>
+</div>
+<p>We want to perform this experiment over potentially a larger number of neurons
+and for specific neuron ranges</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_data</span><span class="p">(</span><span class="n">number_of_neurons</span><span class="p">,</span> <span class="n">sweep_range</span><span class="p">,</span> <span class="n">sweep_neuron_param</span><span class="p">,</span>
+             <span class="n">filter_function</span><span class="p">,</span> <span class="n">neuron_params</span><span class="p">):</span>
+
+    <span class="n">y_measured</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">number_of_neurons</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">sweep_range</span><span class="p">)))</span>
+    <span class="k">for</span> <span class="n">neuron_idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">number_of_neurons</span><span class="p">):</span>
+        <span class="n">y_measured_local</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">dac_idx</span><span class="p">,</span> <span class="n">dac_value</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sweep_range</span><span class="p">):</span>
+            <span class="n">neuron_params</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">sweep_neuron_param</span><span class="p">:</span> <span class="n">dac_value</span><span class="p">})</span>
+            <span class="n">membrane</span> <span class="o">=</span> <span class="n">get_v_mem</span><span class="p">(</span><span class="n">neuron_params</span><span class="p">,</span> <span class="n">neuron_idx</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Measuring neuron </span><span class="si">{</span><span class="n">neuron_idx</span><span class="si">}</span><span class="s2"> for &quot;</span>
+                  <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">sweep_neuron_param</span><span class="si">}</span><span class="s2"> with value: </span><span class="si">{</span><span class="n">dac_value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">y_measured_local</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">filter_function</span><span class="p">(</span><span class="n">membrane</span><span class="o">.</span><span class="n">magnitude</span><span class="p">))</span>
+            <span class="n">y_measured</span><span class="p">[</span><span class="n">neuron_idx</span><span class="p">][</span><span class="n">dac_idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">filter_function</span><span class="p">(</span><span class="n">membrane</span><span class="o">.</span><span class="n">magnitude</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">y_measured</span>
+</pre></div>
+</div>
+<p>This defines the main function for the parameter sweep</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">number_of_neurons</span><span class="p">,</span> <span class="n">sweep_range</span><span class="p">,</span> <span class="n">param_to_be_determined</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">param_to_be_determined</span> <span class="o">==</span> <span class="s2">&quot;threshold&quot;</span><span class="p">:</span>
+        <span class="n">neuron_params</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;leak_v_leak&quot;</span><span class="p">:</span> <span class="mi">1022</span><span class="p">,</span>
+                         <span class="s2">&quot;reset_v_reset&quot;</span><span class="p">:</span> <span class="mi">50</span><span class="p">}</span>
+        <span class="n">sweep_neuron_param</span> <span class="o">=</span> <span class="s2">&quot;threshold_v_threshold&quot;</span>
+        <span class="n">filter_function</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span>
+
+    <span class="k">if</span> <span class="n">param_to_be_determined</span> <span class="o">==</span> <span class="s2">&quot;reset&quot;</span><span class="p">:</span>
+        <span class="n">neuron_params</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;threshold_v_threshold&quot;</span><span class="p">:</span> <span class="mi">150</span><span class="p">,</span>
+                         <span class="s2">&quot;leak_v_leak&quot;</span><span class="p">:</span> <span class="mi">1022</span><span class="p">}</span>
+        <span class="n">sweep_neuron_param</span> <span class="o">=</span> <span class="s2">&quot;reset_v_reset&quot;</span>
+        <span class="n">filter_function</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span>
+
+    <span class="k">if</span> <span class="n">param_to_be_determined</span> <span class="o">==</span> <span class="s2">&quot;leak&quot;</span><span class="p">:</span>
+        <span class="n">neuron_params</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;threshold_v_threshold&quot;</span><span class="p">:</span> <span class="mi">1022</span><span class="p">,</span>
+                         <span class="s2">&quot;reset_v_reset&quot;</span><span class="p">:</span> <span class="mi">50</span><span class="p">}</span>
+        <span class="n">sweep_neuron_param</span> <span class="o">=</span> <span class="s2">&quot;leak_v_leak&quot;</span>
+        <span class="n">filter_function</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span>
+
+    <span class="n">y_measured</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="n">number_of_neurons</span><span class="p">,</span> <span class="n">sweep_range</span><span class="p">,</span> <span class="n">sweep_neuron_param</span><span class="p">,</span>
+             <span class="n">filter_function</span><span class="p">,</span> <span class="n">neuron_params</span><span class="p">)</span>
+
+    <span class="c1">#</span>
+    <span class="n">measured_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y_measured</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">measured_err</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">y_measured</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">sweep_range</span><span class="p">,</span> <span class="n">y_measured</span><span class="p">,</span> <span class="n">measured_mean</span><span class="p">,</span> <span class="n">measured_err</span>
+
+<span class="k">def</span> <span class="nf">plot_and_fit</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">label</span><span class="p">):</span>
+    <span class="n">sweep_range</span><span class="p">,</span> <span class="n">y_measured</span><span class="p">,</span> <span class="n">measured_mean</span><span class="p">,</span> <span class="n">measured_err</span> <span class="o">=</span> <span class="n">data</span>
+
+    <span class="n">number_of_neurons</span> <span class="o">=</span> <span class="n">y_measured</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;set $V_</span><span class="se">{{</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="se">}}</span><span class="s2">$ [DAC value]&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;measured $V_</span><span class="se">{{</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="se">}}</span><span class="s2">$ [ADC value]&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">number_of_neurons</span><span class="p">):</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sweep_range</span><span class="p">,</span> <span class="n">y_measured</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span>
+                 <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkgray&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">sweep_range</span><span class="p">,</span> <span class="n">measured_mean</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">measured_err</span><span class="p">,</span>
+                 <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="n">linear_fit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">sweep_range</span><span class="p">,</span> <span class="n">measured_mean</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sweep_range</span><span class="p">,</span> <span class="n">linear_fit</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">sweep_range</span> <span class="o">+</span> <span class="n">linear_fit</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+             <span class="s1">&#39;b--&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">linear_fit</span>
+</pre></div>
+</div>
+<p>The general idea is to modify the sweep range to find a suitable range for the fit
+for respective parameters. Start with full range and narrow down.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># for how many neurons should an average characterisation be done</span>
+<span class="n">num_neurons</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1"># valid range [0, 1022]</span>
+<span class="n">adc_sweep_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1022</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+
+<span class="c1"># parameter to be determined, valid &quot;threshold&quot;, &quot;reset&quot; or &quot;leak&quot;</span>
+<span class="n">adc_sweep_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">301</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">param_name</span> <span class="o">=</span> <span class="s2">&quot;threshold&quot;</span>
+<span class="n">threshold_data</span> <span class="o">=</span> <span class="n">main</span><span class="p">(</span><span class="n">num_neurons</span><span class="p">,</span> <span class="n">adc_sweep_range</span><span class="p">,</span> <span class="n">param_name</span><span class="p">)</span>
+
+<span class="n">adc_sweep_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">901</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">param_name</span> <span class="o">=</span> <span class="s2">&quot;leak&quot;</span>
+<span class="n">leak_data</span> <span class="o">=</span> <span class="n">main</span><span class="p">(</span><span class="n">num_neurons</span><span class="p">,</span> <span class="n">adc_sweep_range</span><span class="p">,</span> <span class="n">param_name</span><span class="p">)</span>
+
+<span class="n">adc_sweep_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">901</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">param_name</span> <span class="o">=</span> <span class="s2">&quot;reset&quot;</span>
+<span class="n">reset_data</span> <span class="o">=</span> <span class="n">main</span><span class="p">(</span><span class="n">num_neurons</span><span class="p">,</span> <span class="n">adc_sweep_range</span><span class="p">,</span> <span class="n">param_name</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="excercises">
+<h3>Excercises<a class="headerlink" href="#excercises" title="Permalink to this headline"></a></h3>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">v_th_fit</span> <span class="o">=</span> <span class="n">plot_and_fit</span><span class="p">(</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">threshold_data</span><span class="p">,</span> <span class="s2">&quot;th&quot;</span><span class="p">)</span>
+<span class="n">v_leak_fit</span> <span class="o">=</span> <span class="n">plot_and_fit</span><span class="p">(</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">leak_data</span><span class="p">,</span> <span class="s2">&quot;leak&quot;</span><span class="p">)</span>
+<span class="n">v_reset_fit</span> <span class="o">=</span> <span class="n">plot_and_fit</span><span class="p">(</span><span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">reset_data</span><span class="p">,</span> <span class="s2">&quot;reset&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">linear</span><span class="p">(</span><span class="n">param</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">param</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">param</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">inverse</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">param</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="n">param</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">fun</span><span class="p">,</span> <span class="n">inverse</span>
+
+<span class="n">v_th_s2m</span><span class="p">,</span> <span class="n">v_th_m2s</span> <span class="o">=</span> <span class="n">linear</span><span class="p">(</span><span class="n">v_th_fit</span><span class="p">)</span>
+<span class="n">v_leak_s2m</span><span class="p">,</span> <span class="n">v_leak_m2s</span> <span class="o">=</span> <span class="n">linear</span><span class="p">(</span><span class="n">v_leak_fit</span><span class="p">)</span>
+<span class="n">v_reset_s2m</span><span class="p">,</span> <span class="n">v_reset_m2s</span> <span class="o">=</span> <span class="n">linear</span><span class="p">(</span><span class="n">v_reset_fit</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@interact</span><span class="p">(</span>
+    <span class="n">neuron_idx</span><span class="o">=</span><span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">511</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+    <span class="n">v_leak</span><span class="o">=</span><span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="n">v_leak_s2m</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="nb">max</span><span class="o">=</span><span class="n">v_leak_s2m</span><span class="p">(</span><span class="mi">1022</span><span class="p">),</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">v_leak_s2m</span><span class="p">(</span><span class="mi">1000</span><span class="p">)),</span>
+    <span class="n">v_threshold</span><span class="o">=</span><span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="n">v_leak_s2m</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="nb">max</span><span class="o">=</span><span class="n">v_th_s2m</span><span class="p">(</span><span class="mi">500</span><span class="p">),</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">v_th_s2m</span><span class="p">(</span><span class="mi">500</span><span class="p">)),</span>
+    <span class="n">v_reset</span><span class="o">=</span><span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="n">v_reset_s2m</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="nb">max</span><span class="o">=</span><span class="n">v_reset_s2m</span><span class="p">(</span><span class="mi">1022</span><span class="p">),</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">v_reset_s2m</span><span class="p">(</span><span class="mi">400</span><span class="p">)),</span>
+    <span class="n">i_bias_leak</span><span class="o">=</span><span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">1022</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">150</span><span class="p">),</span>
+<span class="p">)</span>
+<span class="k">def</span> <span class="nf">experiment</span><span class="p">(</span><span class="n">neuron_idx</span><span class="p">,</span> <span class="n">v_leak</span><span class="p">,</span> <span class="n">v_threshold</span><span class="p">,</span> <span class="n">v_reset</span><span class="p">,</span> <span class="n">i_bias_leak</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Set up a leak over threshold neuron.</span>
+
+<span class="sd">    :param v_leak: Leak potential.</span>
+<span class="sd">    :param v_threshold: Spike threshold potential.</span>
+<span class="sd">    :param v_reset: Reset potential.</span>
+<span class="sd">    :param i_bias_leak: Controls the leak conductance (membrane time constant).</span>
+<span class="sd">    :param savefig: Save the experiment figure.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">v_leak</span> <span class="o">=</span> <span class="n">v_leak_m2s</span><span class="p">(</span><span class="n">v_leak</span><span class="p">)</span>
+    <span class="n">v_threshold</span> <span class="o">=</span> <span class="n">v_th_m2s</span><span class="p">(</span><span class="n">v_threshold</span><span class="p">)</span>
+    <span class="n">v_reset</span> <span class="o">=</span> <span class="n">v_reset_m2s</span><span class="p">(</span><span class="n">v_reset</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+
+    <span class="c1"># everything between pynn.setup() and pynn.end()</span>
+    <span class="c1"># below is part of one hardware run.</span>
+    <span class="n">pynn</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="n">initial_config</span><span class="o">=</span><span class="n">calib</span><span class="p">,</span> <span class="n">neuronPermutation</span><span class="o">=</span><span class="p">[</span><span class="n">neuron_idx</span><span class="p">])</span>
+
+    <span class="c1"># a pynn.Population corresponds to a certain number of</span>
+    <span class="c1"># neuron circuits on the chip</span>
+    <span class="n">pop</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">pynn</span><span class="o">.</span><span class="n">cells</span><span class="o">.</span><span class="n">HXNeuron</span><span class="p">(</span>
+        <span class="c1"># Leak potential, range: 400-1000</span>
+        <span class="n">leak_v_leak</span><span class="o">=</span><span class="n">v_leak</span><span class="p">,</span>
+        <span class="c1"># Leak conductance, range: 0-1022</span>
+        <span class="n">leak_i_bias</span><span class="o">=</span><span class="n">i_bias_leak</span><span class="p">,</span>
+        <span class="c1"># Threshold potential, range: 0-500</span>
+        <span class="n">threshold_v_threshold</span><span class="o">=</span><span class="n">v_threshold</span><span class="p">,</span>
+        <span class="c1"># Reset potential, range: 300-1000</span>
+        <span class="n">reset_v_reset</span><span class="o">=</span><span class="n">v_reset</span><span class="p">,</span>
+        <span class="c1"># Membrane capacitance, range: 0-63</span>
+        <span class="n">membrane_capacitance_capacitance</span><span class="o">=</span><span class="mi">63</span><span class="p">,</span>
+        <span class="c1"># Refractory time (counter), range: 0-255</span>
+        <span class="n">refractory_period_refractory_time</span><span class="o">=</span><span class="mi">255</span><span class="p">,</span>
+        <span class="c1"># Enable reset on threshold crossing</span>
+        <span class="n">threshold_enable</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="c1"># Reset conductance, range: 0-1022</span>
+        <span class="n">reset_i_bias</span><span class="o">=</span><span class="mi">1022</span><span class="p">,</span>
+        <span class="c1"># Increase reset conductance</span>
+        <span class="n">reset_enable_multiplication</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+
+    <span class="n">pop</span><span class="o">.</span><span class="n">record</span><span class="p">([</span><span class="s2">&quot;v&quot;</span><span class="p">,</span> <span class="s2">&quot;spikes&quot;</span><span class="p">])</span>
+
+    <span class="c1"># this triggers a hardware execution</span>
+    <span class="c1"># with a duration of 0.2 ms</span>
+    <span class="n">pynn</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
+    <span class="n">plot_membrane_dynamics</span><span class="p">(</span><span class="n">pop</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">800</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">v_th_s2m</span><span class="p">(</span><span class="n">v_threshold</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">v_reset_s2m</span><span class="p">(</span><span class="n">v_reset</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">v_leak_s2m</span><span class="p">(</span><span class="n">v_leak</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+    <span class="n">mem</span> <span class="o">=</span> <span class="n">pop</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="s2">&quot;v&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">segments</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">irregularlysampledsignals</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">spikes</span> <span class="o">=</span> <span class="n">pop</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="s2">&quot;spikes&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">segments</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">spiketrains</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">pynn</span><span class="o">.</span><span class="n">end</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">mem</span><span class="p">,</span> <span class="n">spikes</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="calibrating-neuron-parameters">
+<h2>Calibrating Neuron Parameters<a class="headerlink" href="#calibrating-neuron-parameters" title="Permalink to this headline"></a></h2>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">membrane2dac</span><span class="p">(</span><span class="n">voltage</span><span class="p">,</span> <span class="n">slope</span><span class="p">,</span> <span class="n">offset</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">((</span><span class="n">voltage</span> <span class="o">-</span> <span class="n">offset</span><span class="p">)</span> <span class="o">/</span> <span class="n">slope</span><span class="p">)</span>
+
+
+<span class="c1"># set voltages</span>
+<span class="c1"># threshold must be according to:</span>
+<span class="n">v_leak</span> <span class="o">=</span> <span class="mi">350</span>
+<span class="n">v_reset</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">v_th</span> <span class="o">=</span> <span class="n">v_leak</span> <span class="o">-</span> <span class="p">(</span><span class="n">v_leak</span> <span class="o">-</span> <span class="n">v_reset</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># enter your fit results from task a) into the membrane2dac calls</span>
+<span class="n">neuron_params</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;leak_i_bias&quot;</span><span class="p">:</span> <span class="mi">400</span><span class="p">,</span>
+                 <span class="s2">&quot;reset_i_bias&quot;</span><span class="p">:</span> <span class="mi">1022</span><span class="p">,</span>
+                 <span class="s2">&quot;leak_enable_division&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                 <span class="s2">&quot;threshold_enable&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                 <span class="s2">&quot;reset_enable_multiplication&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                 <span class="s2">&quot;membrane_capacitance_capacitance&quot;</span><span class="p">:</span> <span class="mi">63</span><span class="p">,</span>
+                 <span class="s2">&quot;refractory_period_refractory_time&quot;</span><span class="p">:</span> <span class="mi">150</span><span class="p">,</span>
+                 <span class="s2">&quot;leak_v_leak&quot;</span><span class="p">:</span> <span class="n">membrane2dac</span><span class="p">(</span><span class="n">v_leak</span><span class="p">,</span> <span class="mf">0.79</span><span class="p">,</span> <span class="o">-</span><span class="mi">180</span><span class="p">),</span>
+                 <span class="s2">&quot;reset_v_reset&quot;</span><span class="p">:</span> <span class="n">membrane2dac</span><span class="p">(</span><span class="n">v_reset</span><span class="p">,</span> <span class="mf">0.88</span><span class="p">,</span> <span class="o">-</span><span class="mi">250</span><span class="p">),</span>
+                 <span class="s2">&quot;threshold_v_threshold&quot;</span><span class="p">:</span> <span class="n">membrane2dac</span><span class="p">(</span><span class="n">v_th</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
+                 <span class="p">}</span>
+
+<span class="c1"># the leak conductance g_leak is set by I_bias</span>
+<span class="c1"># each entry refers to a different neuron</span>
+<span class="c1"># must be adjusted for identical firing rates!</span>
+<span class="n">I_bias</span> <span class="o">=</span> <span class="p">[</span><span class="mi">400</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">400</span><span class="p">]</span>
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">I_bias</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;You need to look at least on 4 neurons.&quot;</span>
+</pre></div>
+</div>
+<p>Gather spikes an membrane trace for different neurons</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># as we can only readout the membrane of one neuron at a time we need to</span>
+<span class="c1"># repeat the measurement for each neuron</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">nrnidx</span><span class="p">,</span> <span class="n">bias</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">I_bias</span><span class="p">):</span>
+    <span class="n">pynn</span><span class="o">.</span><span class="n">setup</span><span class="p">()</span>
+
+    <span class="n">pop</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">I_bias</span><span class="p">),</span>
+                          <span class="n">pynn</span><span class="o">.</span><span class="n">cells</span><span class="o">.</span><span class="n">HXNeuron</span><span class="p">(</span><span class="o">**</span><span class="n">neuron_params</span><span class="p">))</span>
+    <span class="n">pop</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">leak_i_bias</span><span class="o">=</span><span class="n">bias</span><span class="p">)</span>
+
+    <span class="c1"># a population view is a subset of a population</span>
+    <span class="n">p_view</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">PopulationView</span><span class="p">(</span><span class="n">pop</span><span class="p">,</span> <span class="p">[</span><span class="n">nrnidx</span><span class="p">])</span>
+    <span class="n">p_view</span><span class="o">.</span><span class="n">record</span><span class="p">([</span><span class="s2">&quot;v&quot;</span><span class="p">,</span> <span class="s2">&quot;spikes&quot;</span><span class="p">])</span>
+
+    <span class="n">pynn</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">spikes</span> <span class="o">=</span> <span class="n">p_view</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="s2">&quot;spikes&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">segments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">spiketrains</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="c1"># # FIXME spike readout fails some times</span>
+    <span class="c1"># if len(spikes) &lt;= 1:</span>
+    <span class="c1">#     raise RuntimeError(&quot;not enough spikes recorded&quot;)</span>
+
+    <span class="n">mem_v</span> <span class="o">=</span> <span class="n">p_view</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="s2">&quot;v&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">segments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">irregularlysampledsignals</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="n">pynn</span><span class="o">.</span><span class="n">end</span><span class="p">()</span>
+
+    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">spikes</span><span class="p">,</span> <span class="n">mem_v</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Analyse and plot neuron output</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">membrane</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">spikes</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">isi</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">nrnidx</span><span class="p">,</span> <span class="p">(</span><span class="n">spike</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">result</span><span class="p">):</span>
+    <span class="n">spikes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">spike</span><span class="p">)</span>
+    <span class="n">membrane</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+    <span class="n">isi</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">spikes</span><span class="p">[</span><span class="n">nrnidx</span><span class="p">]))</span>
+
+<span class="n">num_plots</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">I_bias</span><span class="p">)</span>
+<span class="c1"># -&gt; play around with figsize to modify plot resolution</span>
+<span class="n">_</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span>
+    <span class="n">num_plots</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">axes</span> <span class="o">=</span> <span class="n">axes</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">nrnidx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_plots</span><span class="p">):</span>
+    <span class="n">max_v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">membrane</span><span class="p">[</span><span class="n">nrnidx</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;neuron </span><span class="si">{</span><span class="n">nrnidx</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;max. membrane potential: </span><span class="si">{</span><span class="n">max_v</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> V&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;firing rate: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">isi</span><span class="p">[</span><span class="n">nrnidx</span><span class="p">])</span><span class="si">:</span><span class="s2">.4</span><span class="si">}</span><span class="s2"> &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;+- </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">isi</span><span class="p">[</span><span class="n">nrnidx</span><span class="p">])</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> MHz&quot;</span><span class="p">)</span>
+
+    <span class="n">axes</span><span class="p">[</span><span class="n">nrnidx</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">membrane</span><span class="p">[</span><span class="n">nrnidx</span><span class="p">]</span><span class="o">.</span><span class="n">times</span><span class="p">,</span> <span class="n">membrane</span><span class="p">[</span><span class="n">nrnidx</span><span class="p">])</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">nrnidx</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+        <span class="n">spikes</span><span class="p">[</span><span class="n">nrnidx</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">max_v</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">spikes</span><span class="p">[</span><span class="n">nrnidx</span><span class="p">]))],</span>
+        <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;V [V]&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;t [ms]&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="n">figname</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;fp_task2b_4membranes_</span><span class="si">{</span><span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y%m</span><span class="si">%d</span><span class="s2">-%H%M%S&quot;</span><span class="p">)</span><span class="si">}</span><span class="s1">.png&#39;</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">figname</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;plot saved </span><span class="si">{</span><span class="n">figname</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="calibrating-membrane-time-constant">
+<h2>Calibrating Membrane Time Constant<a class="headerlink" href="#calibrating-membrane-time-constant" title="Permalink to this headline"></a></h2>
+<p>In this optional task you create a calibration routine to calibrate the leak potential of all neurons.</p>
+<blockquote>
+<div><div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">membrane2dac</span><span class="p">(</span><span class="n">voltage</span><span class="p">,</span> <span class="n">slope</span><span class="p">,</span> <span class="n">offset</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">((</span><span class="n">voltage</span> <span class="o">-</span> <span class="n">offset</span><span class="p">)</span> <span class="o">/</span> <span class="n">slope</span><span class="p">)</span>
+
+
+<span class="c1"># set voltages in volt</span>
+<span class="c1"># threshold must be according to:</span>
+<span class="n">v_leak</span> <span class="o">=</span> <span class="mi">350</span>
+<span class="n">v_reset</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">v_th</span> <span class="o">=</span> <span class="n">v_leak</span> <span class="o">-</span> <span class="p">(</span><span class="n">v_leak</span> <span class="o">-</span> <span class="n">v_reset</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># enter your fit results from task a) into the voltage2dac calls</span>
+<span class="n">neuron_params</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;leak_i_bias&quot;</span><span class="p">:</span> <span class="mi">400</span><span class="p">,</span>
+                 <span class="s2">&quot;reset_i_bias&quot;</span><span class="p">:</span> <span class="mi">38</span><span class="p">,</span>
+                 <span class="s2">&quot;leak_enable_division&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>  <span class="c1"># set False for freq &gt; 40</span>
+                 <span class="s2">&quot;threshold_enable&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                 <span class="s2">&quot;reset_enable_multiplication&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                 <span class="s2">&quot;membrane_capacitance_capacitance&quot;</span><span class="p">:</span> <span class="mi">63</span><span class="p">,</span>
+                 <span class="s2">&quot;refractory_period_refractory_time&quot;</span><span class="p">:</span> <span class="mi">150</span><span class="p">,</span>
+                 <span class="s2">&quot;leak_v_leak&quot;</span><span class="p">:</span> <span class="n">membrane2dac</span><span class="p">(</span><span class="n">v_leak</span><span class="p">,</span> <span class="mf">0.79</span><span class="p">,</span> <span class="o">-</span><span class="mi">180</span><span class="p">),</span>
+                 <span class="s2">&quot;reset_v_reset&quot;</span><span class="p">:</span> <span class="n">membrane2dac</span><span class="p">(</span><span class="n">v_reset</span><span class="p">,</span> <span class="mf">0.88</span><span class="p">,</span> <span class="o">-</span><span class="mi">250</span><span class="p">),</span>
+                 <span class="s2">&quot;threshold_v_threshold&quot;</span><span class="p">:</span> <span class="n">membrane2dac</span><span class="p">(</span><span class="n">v_th</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
+                <span class="p">}</span>
+
+<span class="n">targetrate</span> <span class="o">=</span> <span class="mf">30.0</span>  <span class="c1"># in kHz</span>
+
+<span class="c1"># strength of calibration</span>
+<span class="c1"># choose value between 0 and 1</span>
+<span class="n">calib_param</span> <span class="o">=</span> <span class="mf">0.7</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_data</span><span class="p">(</span><span class="n">i_bias</span><span class="p">,</span> <span class="n">iteration</span><span class="p">):</span>
+    <span class="n">rates</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">gleaks</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># capacitance from DAC value (63 equals 2.2pF)</span>
+    <span class="n">c_m</span> <span class="o">=</span> <span class="mf">2.2</span> <span class="o">*</span> <span class="mf">10e-12</span> <span class="o">*</span> <span class="n">neuron_params</span><span class="p">[</span><span class="s2">&quot;membrane_capacitance_capacitance&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="mi">63</span>
+
+    <span class="c1"># tau_ref from DAC value with f_clock = 10MHz</span>
+    <span class="n">tau_ref</span> <span class="o">=</span> <span class="n">neuron_params</span><span class="p">[</span><span class="s2">&quot;refractory_period_refractory_time&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span><span class="mf">10e6</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1e3</span>
+
+    <span class="n">pynn</span><span class="o">.</span><span class="n">setup</span><span class="p">()</span>
+
+    <span class="n">pop</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">i_bias</span><span class="p">),</span> <span class="n">pynn</span><span class="o">.</span><span class="n">cells</span><span class="o">.</span><span class="n">HXNeuron</span><span class="p">(</span><span class="o">**</span><span class="n">neuron_params</span><span class="p">))</span>
+    <span class="n">pop</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">leak_i_bias</span><span class="o">=</span><span class="n">i_bias</span><span class="p">)</span>
+    <span class="n">pop</span><span class="o">.</span><span class="n">record</span><span class="p">([</span><span class="s2">&quot;spikes&quot;</span><span class="p">])</span>
+
+    <span class="n">pynn</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">all_spikes</span> <span class="o">=</span> <span class="n">pop</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="s2">&quot;spikes&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">segments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">spiketrains</span>
+
+    <span class="n">pynn</span><span class="o">.</span><span class="n">end</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">nrnidx</span><span class="p">,</span> <span class="n">spikes</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">all_spikes</span><span class="p">):</span>
+        <span class="c1"># if not enough spikes are recorded, the neuron is skipped</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">spikes</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">rates</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">gleaks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;not enough spikes recorded for neuron &quot;</span><span class="p">,</span> <span class="n">nrnidx</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># calculate the firing rate from the spike array</span>
+            <span class="n">isi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">spikes</span><span class="p">))</span>
+            <span class="n">rates</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">isi</span><span class="p">))</span>
+
+            <span class="c1"># calculate gleak from the interspike interval</span>
+            <span class="n">tau_m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">isi</span><span class="p">)</span> <span class="o">-</span> <span class="n">tau_ref</span>
+            <span class="n">gleaks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">c_m</span> <span class="o">/</span> <span class="n">tau_m</span><span class="p">)</span>
+
+            <span class="c1"># print(f&quot;data obtained for neuron {nrnidx}&quot;)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The average firing rate is </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">rates</span><span class="p">)</span><span class="si">:</span><span class="s2">.4</span><span class="si">}</span><span class="s2"> &quot;</span>
+          <span class="sa">f</span><span class="s2">&quot;+- </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">rates</span><span class="p">)</span><span class="si">:</span><span class="s2">.3</span><span class="si">}</span><span class="s2"> kHz&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The average leak conductance is </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">gleaks</span><span class="p">)</span><span class="si">:</span><span class="s2">.4</span><span class="si">}</span><span class="s2"> &quot;</span>
+          <span class="sa">f</span><span class="s2">&quot;+- </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">gleaks</span><span class="p">)</span><span class="si">:</span><span class="s2">.3</span><span class="si">}</span><span class="s2"> S&quot;</span><span class="p">)</span>
+
+    <span class="c1"># save results for plotting</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;fp_task2c_rates_iteration</span><span class="si">{</span><span class="n">iteration</span><span class="si">}</span><span class="s2">.txt&quot;</span><span class="p">,</span> <span class="n">rates</span><span class="p">)</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;fp_task2c_gleaks_iteration</span><span class="si">{</span><span class="n">iteration</span><span class="si">}</span><span class="s2">.txt&quot;</span><span class="p">,</span> <span class="n">gleaks</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calibrate_neurons</span><span class="p">(</span><span class="n">i_bias</span><span class="p">,</span> <span class="n">num_iterations</span><span class="p">):</span>
+
+    <span class="k">for</span> <span class="n">iteration</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_iterations</span><span class="p">):</span>
+        <span class="n">get_data</span><span class="p">(</span><span class="n">i_bias</span><span class="p">,</span> <span class="n">iteration</span><span class="p">)</span>
+        <span class="n">rates</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;fp_task2c_rates_iteration</span><span class="si">{</span><span class="n">iteration</span><span class="si">}</span><span class="s2">.txt&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">nrnidx</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">i_bias</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">rates</span><span class="p">[</span><span class="n">nrnidx</span><span class="p">]</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="c1"># TODO: Check code here</span>
+                <span class="n">scaling</span> <span class="o">=</span> <span class="p">(</span><span class="n">calib_param</span> <span class="o">*</span> <span class="p">(</span><span class="n">targetrate</span> <span class="o">/</span> <span class="n">rates</span><span class="p">[</span><span class="n">nrnidx</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+                <span class="n">i_bias</span><span class="p">[</span><span class="n">nrnidx</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">scaling</span> <span class="o">*</span> <span class="n">i_bias</span><span class="p">[</span><span class="n">nrnidx</span><span class="p">])</span>
+                <span class="k">if</span> <span class="n">i_bias</span><span class="p">[</span><span class="n">nrnidx</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">1022</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Reached max i_bias for neuron </span><span class="si">{</span><span class="n">nrnidx</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                    <span class="n">i_bias</span><span class="p">[</span><span class="n">nrnidx</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1022</span>
+                <span class="k">if</span> <span class="n">i_bias</span><span class="p">[</span><span class="n">nrnidx</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Reached min i_bias for neuron </span><span class="si">{</span><span class="n">nrnidx</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                    <span class="n">i_bias</span><span class="p">[</span><span class="n">nrnidx</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<p>Definition of visualization</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_histogram</span><span class="p">(</span><span class="n">num_iterations</span><span class="p">):</span>
+    <span class="c1"># read data and filter failed runs</span>
+    <span class="n">rates_pre</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;fp_task2c_rates_iteration0.txt&quot;</span><span class="p">)</span>
+    <span class="n">rates_pre</span> <span class="o">=</span> <span class="n">rates_pre</span><span class="p">[</span><span class="n">rates_pre</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="n">gleaks_pre</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;fp_task2c_gleaks_iteration0.txt&quot;</span><span class="p">)</span>
+    <span class="n">gleaks_pre</span> <span class="o">=</span> <span class="n">gleaks_pre</span><span class="p">[</span><span class="n">gleaks_pre</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="n">rates_post</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;fp_task2c_rates_iteration</span><span class="si">{</span><span class="n">num_iterations</span><span class="o">-</span><span class="mi">1</span><span class="si">}</span><span class="s2">.txt&quot;</span><span class="p">)</span>
+    <span class="n">rates_post</span> <span class="o">=</span> <span class="n">rates_post</span><span class="p">[</span><span class="n">rates_post</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="n">gleaks_post</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;fp_task2c_gleaks_iteration</span><span class="si">{</span><span class="n">num_iterations</span><span class="o">-</span><span class="mi">1</span><span class="si">}</span><span class="s2">.txt&quot;</span><span class="p">)</span>
+    <span class="n">gleaks_post</span> <span class="o">=</span> <span class="n">gleaks_post</span><span class="p">[</span><span class="n">gleaks_post</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="n">bins</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">rates_pre</span><span class="p">),</span> <span class="mi">20</span><span class="p">)</span>
+
+    <span class="c1"># plot two histograms</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+    <span class="n">ax_rate</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">221</span><span class="p">)</span>
+    <span class="n">ax_rate</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Uncalibrated firing rates&quot;</span><span class="p">)</span>
+    <span class="n">ax_rate</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;rates [kHz]&quot;</span><span class="p">)</span>
+    <span class="n">ax_rate</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;number of neurons&quot;</span><span class="p">)</span>
+    <span class="n">ax_rate</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">rates_pre</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">)</span>
+
+    <span class="n">ax_gleak</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">222</span><span class="p">)</span>
+    <span class="n">ax_gleak</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Uncalibrated leak conductance&quot;</span><span class="p">)</span>
+    <span class="n">ax_gleak</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;$g_</span><span class="si">{leak}</span><span class="s2">$ [S]&quot;</span><span class="p">)</span>
+    <span class="n">ax_gleak</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;number of neurons&quot;</span><span class="p">)</span>
+    <span class="n">ax_gleak</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">tick_right</span><span class="p">()</span>
+    <span class="n">ax_gleak</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_label_position</span><span class="p">(</span><span class="s2">&quot;right&quot;</span><span class="p">)</span>
+    <span class="n">ax_gleak</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">gleaks_pre</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">)</span>
+
+    <span class="n">rates_range</span> <span class="o">=</span> <span class="p">[</span><span class="nb">min</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">rates_pre</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">rates_post</span><span class="p">)),</span>
+                   <span class="nb">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">rates_pre</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">rates_post</span><span class="p">))]</span>
+    <span class="n">ax_rate</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">223</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="n">ax_rate</span><span class="p">)</span>
+    <span class="n">ax_rate</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Calibrated firing rates&quot;</span><span class="p">)</span>
+    <span class="n">ax_rate</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;rates [kHz]&quot;</span><span class="p">)</span>
+    <span class="n">ax_rate</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;number of neurons&quot;</span><span class="p">)</span>
+    <span class="n">ax_rate</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">rates_post</span><span class="p">,</span>
+                 <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span>
+                 <span class="nb">range</span><span class="o">=</span><span class="n">rates_range</span><span class="p">)</span>
+
+    <span class="n">gleak_ranges</span> <span class="o">=</span> <span class="p">[</span><span class="nb">min</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">gleaks_pre</span><span class="p">,</span> <span class="n">initial</span><span class="o">=</span><span class="mf">0.</span><span class="p">),</span>
+                        <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">gleaks_post</span><span class="p">,</span> <span class="n">initial</span><span class="o">=</span><span class="mf">0.</span><span class="p">)),</span>
+                    <span class="nb">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">gleaks_pre</span><span class="p">,</span> <span class="n">initial</span><span class="o">=</span><span class="mf">0.</span><span class="p">),</span>
+                        <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">gleaks_post</span><span class="p">,</span> <span class="n">initial</span><span class="o">=</span><span class="mf">0.</span><span class="p">))]</span>
+    <span class="n">ax_gleak</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">224</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="n">ax_gleak</span><span class="p">)</span>
+    <span class="n">ax_gleak</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Calibrated leak conductance&quot;</span><span class="p">)</span>
+    <span class="n">ax_gleak</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;$g_</span><span class="si">{leak}</span><span class="s2">$ [S]&quot;</span><span class="p">)</span>
+    <span class="n">ax_gleak</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;number of neurons&quot;</span><span class="p">)</span>
+    <span class="n">ax_gleak</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">tick_right</span><span class="p">()</span>
+    <span class="n">ax_gleak</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_label_position</span><span class="p">(</span><span class="s2">&quot;right&quot;</span><span class="p">)</span>
+    <span class="n">ax_gleak</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">gleaks_post</span><span class="p">,</span>
+                  <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span>
+                  <span class="nb">range</span><span class="o">=</span><span class="n">gleak_ranges</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span>
+                        <span class="n">wspace</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">hspace</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">figname</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;fp_task2c_histo_</span><span class="si">{</span><span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y%m</span><span class="si">%d</span><span class="s2">-%H%M%S&quot;</span><span class="p">)</span><span class="si">}</span><span class="s1">.png&#39;</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">figname</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;plots saved </span><span class="si">{</span><span class="n">figname</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Execution</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># choose neurons you want to observe</span>
+<span class="c1"># the default is range(0,128)</span>
+<span class="n">num_neurons</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="c1"># number of iterations for calibration</span>
+<span class="n">num_iterations</span> <span class="o">=</span> <span class="mi">20</span>
+
+<span class="c1"># the leak conductance g_leak is set by I_bias</span>
+<span class="c1"># will be adjusted for identical firing rates</span>
+<span class="n">i_bias</span> <span class="o">=</span> <span class="p">[</span><span class="mi">400</span><span class="p">]</span> <span class="o">*</span> <span class="n">num_neurons</span>
+
+<span class="c1"># calibrate neurons for same firing rate</span>
+<span class="n">calibrate_neurons</span><span class="p">(</span><span class="n">i_bias</span><span class="p">,</span> <span class="n">num_iterations</span><span class="p">)</span>
+
+<span class="c1"># plot histograms for uncalibrated and calibrated neurons</span>
+<span class="n">plot_histogram</span><span class="p">(</span><span class="n">num_iterations</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="id1">
+<h2>Exercises<a class="headerlink" href="#id1" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>Please complete the missing code in the cells above</p></li>
+<li><p>Execute all cells, determine sensible parameter characterization ranges</p></li>
+<li><p>Document the results that you have obtained and the plots that you have created below</p></li>
+</ul>
+</div>
+<div class="section" id="solution">
+<h2>Solution<a class="headerlink" href="#solution" title="Permalink to this headline"></a></h2>
+<p>Please insert your results here…</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="fp_sudoku.html" class="btn btn-neutral float-left" title="Solving sudokus with BrainScaleS-2" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="fp_synapticInput.html" class="btn btn-neutral float-right" title="Synaptic Input for Neurons" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Electronic Vision(s).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

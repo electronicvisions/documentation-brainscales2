@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Investigating a single neuron &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="A simple feedforward network" href="fp_synfireChain.html" />
+    <link rel="prev" title="Lu.i experiment" href="fp_lui.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> BrainScaleS-2 Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Demos &amp; Examples</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html">Demos and Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="girlsday.html">Wie verarbeitet unser Gehirn Informationen?</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="fortgeschrittenen_praktikum.html">Welcome to the Advanced Physics Lab for Physicists by the Electronic Vision(s) Group</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="fp_biological-background.html">Biological background</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fp_neuromorphic-computing.html">Neuromorphic computing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fp_brainscales.html">The BrainScaleS-2 system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fp_pynn_introduction.html">Introduction to PyNN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fp_lui.html">Lu.i experiment</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Investigating a single neuron</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#experiment-setup">Experiment setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fp_synfireChain.html">A simple feedforward network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fp_sudoku.html">Solving sudokus with BrainScaleS-2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fortgeschrittenen_praktikum.html#optional-experiments">Optional experiments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../software_components.html">Software Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../apis.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BrainScaleS-2 Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Welcome to the BrainScaleS-2 Demos &amp; Examples!</a> &raquo;</li>
+          <li><a href="fortgeschrittenen_praktikum.html">Welcome to the Advanced Physics Lab for Physicists by the Electronic Vision(s) Group</a> &raquo;</li>
+      <li>Investigating a single neuron</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/brainscales2-demos/fp_singleNeuron.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="investigating-a-single-neuron">
+<h1>Investigating a single neuron<a class="headerlink" href="#investigating-a-single-neuron" title="Permalink to this headline"></a></h1>
+<p>In this task you can familiarise yourself with the way you will interact with the BrainScaleS-2 chip during the lab exercises.
+For all tasks there exist <cite>jupyter</cite> notebooks that are intended to be used as a basis for the results.
+If you are not familiar with <cite>python</cite> or <cite>jupyter</cite> notebooks before beginning this lab course, we recommend that you spend some time beforehand to familiarise yourself.</p>
+<p>During the execution of some of the notebook cells, you will cause an experiment to be run on a BrainScaleS-2 system remotely.
+You will find that due to the analog nature of some of the system’s implementation the execution is not deterministic, i.e., not each hardware execution will result in the same outcome.</p>
+<p>Generally speaking the simplest hardware experiment can be divided in three steps</p>
+<ul class="simple">
+<li><p>hardware configuration</p></li>
+<li><p>hardware execution</p></li>
+<li><p>analysis of hardware observables.</p></li>
+</ul>
+<p>More sophisticated experiments can involve multiple iterations of these basic three steps or a subset of them.
+At the level of abstraction you will be working on for these lab exercises, most of the intricacies of the hardware configuration and execution will be hidden behind a common high-level API, called <cite>PyNN</cite>.</p>
+<p>In the next section we will set up a connection to an RPC server that multiplexes connections to the hardware, which will allow us to work with the system interactively.
+This process is handled by a custom microscheduler (<em>quiggeldy</em>), a conceptual view of which you can see in the following figure.
+The actual hardware execution time has been colored in blue.</p>
+<a class="reference internal image-reference" href="../_images/daas_multi.png"><img alt="../_images/daas_multi.png" class="align-center" src="../_images/daas_multi.png" style="width: 65%;" /></a>
+<p>At the end of this notebook you will find a number of exercises to complete.</p>
+<div class="section" id="experiment-setup">
+<h2>Experiment setup<a class="headerlink" href="#experiment-setup" title="Permalink to this headline"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This print-friendly version of the instructions only lists the most central functions and code blocks.
+The interactive variant provides additional helpers.</p>
+</div>
+<p>For our first experiment, we create a single neuron and record its spikes as well as its membrane potential.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">experiment</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">v_leak</span><span class="p">,</span> <span class="n">v_threshold</span><span class="p">,</span> <span class="n">v_reset</span><span class="p">,</span> <span class="n">i_bias_leak</span><span class="p">,</span> <span class="n">savefig</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+     <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">     Set up a leak over threshold neuron.</span>
+
+<span class="sd">     :param v_leak: Leak potential.</span>
+<span class="sd">     :param v_threshold: Spike threshold potential.</span>
+<span class="sd">     :param v_reset: Reset potential.</span>
+<span class="sd">     :param i_bias_leak: Controls the leak conductance (membrane time constant).</span>
+<span class="sd">     :param savefig: Save the experiment figure.</span>
+<span class="sd">     &quot;&quot;&quot;</span>
+
+     <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+     <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+
+     <span class="c1"># everything between pynn.setup() and pynn.end()</span>
+     <span class="c1"># below is part of one hardware run.</span>
+     <span class="n">pynn</span><span class="o">.</span><span class="n">setup</span><span class="p">()</span>
+
+     <span class="c1"># a pynn.Population corresponds to a certain number of</span>
+     <span class="c1"># neuron circuits on the chip</span>
+     <span class="n">pop</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">pynn</span><span class="o">.</span><span class="n">cells</span><span class="o">.</span><span class="n">HXNeuron</span><span class="p">(</span>
+         <span class="c1"># Leak potential, range: 400-1000</span>
+         <span class="n">leak_v_leak</span><span class="o">=</span><span class="n">v_leak</span><span class="p">,</span>
+         <span class="c1"># Leak conductance, range: 0-1022</span>
+         <span class="n">leak_i_bias</span><span class="o">=</span><span class="n">i_bias_leak</span><span class="p">,</span>
+         <span class="c1"># Threshold potential, range: 0-500</span>
+         <span class="n">threshold_v_threshold</span><span class="o">=</span><span class="n">v_threshold</span><span class="p">,</span>
+         <span class="c1"># Reset potential, range: 300-1000</span>
+         <span class="n">reset_v_reset</span><span class="o">=</span><span class="n">v_reset</span><span class="p">,</span>
+         <span class="c1"># Membrane capacitance, range: 0-63</span>
+         <span class="n">membrane_capacitance_capacitance</span><span class="o">=</span><span class="mi">63</span><span class="p">,</span>
+         <span class="c1"># Refractory time (counter), range: 0-255</span>
+         <span class="n">refractory_period_refractory_time</span><span class="o">=</span><span class="mi">255</span><span class="p">,</span>
+         <span class="c1"># Enable reset on threshold crossing</span>
+         <span class="n">threshold_enable</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+         <span class="c1"># Reset conductance, range: 0-1022</span>
+         <span class="n">reset_i_bias</span><span class="o">=</span><span class="mi">1022</span><span class="p">,</span>
+         <span class="c1"># Increase reset conductance</span>
+         <span class="n">reset_enable_multiplication</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+
+     <span class="n">pop</span><span class="o">.</span><span class="n">record</span><span class="p">([</span><span class="s2">&quot;v&quot;</span><span class="p">,</span> <span class="s2">&quot;spikes&quot;</span><span class="p">])</span>
+
+     <span class="c1"># this triggers a hardware execution</span>
+     <span class="c1"># with a duration of 0.2 ms</span>
+     <span class="n">pynn</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
+     <span class="n">plot_membrane_dynamics</span><span class="p">(</span><span class="n">pop</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">800</span><span class="p">))</span>
+
+     <span class="k">if</span> <span class="n">savefig</span><span class="p">:</span>
+         <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">results_folder</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;fp_task1_</span><span class="si">{</span><span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y%m</span><span class="si">%d</span><span class="s2">-%H%M%S&quot;</span><span class="p">)</span><span class="si">}</span><span class="s1">.png&#39;</span><span class="p">))</span>
+
+     <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+     <span class="n">mem</span> <span class="o">=</span> <span class="n">pop</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="s2">&quot;v&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">segments</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">irregularlysampledsignals</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+     <span class="n">spikes</span> <span class="o">=</span> <span class="n">pop</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="s2">&quot;spikes&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">segments</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">spiketrains</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+     <span class="n">pynn</span><span class="o">.</span><span class="n">end</span><span class="p">()</span>
+
+     <span class="k">return</span> <span class="n">mem</span><span class="p">,</span> <span class="n">spikes</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline"></a></h2>
+<div class="section" id="a-continuously-spiking-neuron">
+<h3>A continuously spiking neuron<a class="headerlink" href="#a-continuously-spiking-neuron" title="Permalink to this headline"></a></h3>
+<p>As a first exercise, set the neuron up such that it spikes continuously without any external input.
+For that purpose, play with the function’s parameters and note down a suitable configuration in the following cell.
+Make sure to also save the resulting plot.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mem</span><span class="p">,</span> <span class="n">spikes</span> <span class="o">=</span> <span class="n">experiment</span><span class="p">(</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;A continuously spiking neuron&quot;</span><span class="p">,</span>
+    <span class="n">v_leak</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span>
+    <span class="n">v_threshold</span> <span class="o">=</span> <span class="mi">500</span><span class="p">,</span>
+    <span class="n">v_reset</span> <span class="o">=</span> <span class="mi">400</span><span class="p">,</span>
+    <span class="n">i_bias_leak</span> <span class="o">=</span> <span class="mi">150</span><span class="p">,</span>
+    <span class="n">savefig</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="simple-spike-train-statistics">
+<h3>Simple spike train statistics<a class="headerlink" href="#simple-spike-train-statistics" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Calculate the mean and standard deviation of the neuron’s firing rate.</p></li>
+<li><p>Derive the inter-spike intervals (ISIs) of the spike train recorded in the previous exercise.
+The inter-spike interval denotes the time between two consecutive spikes of a neuron.
+Plot a histogram of the ISIs.</p></li>
+</ul>
+<p>Hint: You may use, e.g., <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.diff.html">np.diff</a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.mean.html">np.mean</a>, and <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.std.html">np.std</a> to complete these tasks.</p>
+</div>
+<div class="section" id="recording-the-f-i-curve-of-a-silicon-neuron">
+<h3>Recording the f-I curve of a silicon neuron<a class="headerlink" href="#recording-the-f-i-curve-of-a-silicon-neuron" title="Permalink to this headline"></a></h3>
+<p>Next, we want to study the behavior of neurons with a current source.
+For this, we introduce a new parameters for our neuron model.
+This will allow to enable/disable a constant current source and observe the impact.</p>
+<ul class="simple">
+<li><p>Add <cite>constant_current_enable</cite> (True/False) and <cite>constant_current_i_offset</cite> (range=0-1022) as parameters into your experiment</p></li>
+<li><p>Configure a non firing neuron</p></li>
+<li><p>Vary the current and observe the impact</p></li>
+</ul>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">interact</span><span class="p">(</span>
+    <span class="n">experiment</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Task 2: Current introduced firing&quot;</span><span class="p">,</span>
+    <span class="n">refractory_time</span><span class="o">=</span><span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">255</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">20</span><span class="p">),</span>
+    <span class="n">v_leak</span><span class="o">=</span><span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">1022</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">1000</span><span class="p">),</span>
+    <span class="n">v_threshold</span><span class="o">=</span><span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">500</span><span class="p">),</span>
+    <span class="n">v_reset</span><span class="o">=</span><span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">1022</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">400</span><span class="p">),</span>
+    <span class="n">i_bias_leak</span><span class="o">=</span><span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">1022</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">150</span><span class="p">),</span>
+    <span class="n">current</span><span class="o">=</span><span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">1022</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">300</span><span class="p">),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>To quantify your observations write a program that sweeps over a current range from 0 up to 800.</p></li>
+<li><p>Plot the firing frequency including its error over current.</p></li>
+</ul>
+</div>
+<div class="section" id="synaptic-stimuli-and-psp-staking">
+<h3>Synaptic stimuli and PSP staking<a class="headerlink" href="#synaptic-stimuli-and-psp-staking" title="Permalink to this headline"></a></h3>
+<p>We now confirmed a normal behavior of the neuron.
+In this task we want to look at the responses of the neuron to stimulations of incoming spikes.
+Your goal will be to recreate the image of PSP-Staking from the introduction.
+You might take a look into pynn_introduction again</p>
+<p>Steps:</p>
+<ul class="simple">
+<li><p>Set up a population of one neuron to record its membrane potential</p></li>
+<li><p>Create a population of at least one <cite>SpikeSourceArray</cite> as a stimulating population</p></li>
+<li><p>Connect the stimulating population to the neuron population</p></li>
+<li><p>Find a suitable spike pattern to recreate the plot (you might require multiple spikes)</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="fp_lui.html" class="btn btn-neutral float-left" title="Lu.i experiment" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="fp_synfireChain.html" class="btn btn-neutral float-right" title="A simple feedforward network" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Electronic Vision(s).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -16,8 +16,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Binary operations using spiking neurons" href="fp_binary_operations.html" />
-    <link rel="prev" title="Welcome to the Advanced Physics Lab for Physicists by the Electronic Vision(s) Group" href="fortgeschrittenen_praktikum.html" /> 
+    <link rel="next" title="Lu.i experiment" href="fp_lui.html" />
+    <link rel="prev" title="The BrainScaleS-2 system" href="fp_brainscales.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -39,11 +39,17 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Demos &amp; Examples</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="tutorial.html">Demos and Examples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="girlsday.html">Girlsday</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="fortgeschrittenen_praktikum.html">Advanced Lab Course</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="girlsday.html">Wie verarbeitet unser Gehirn Informationen?</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="fortgeschrittenen_praktikum.html">Welcome to the Advanced Physics Lab for Physicists by the Electronic Vision(s) Group</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="fp_biological-background.html">Biological background</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fp_neuromorphic-computing.html">Neuromorphic computing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fp_brainscales.html">The BrainScaleS-2 system</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Introduction to PyNN</a></li>
-<li class="toctree-l3"><a class="reference internal" href="fp_binary_operations.html">Binary operations using spiking neurons</a></li>
-<li class="toctree-l3"><a class="reference internal" href="fp_sudoku.html">Sudoku</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fp_lui.html">Lu.i experiment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fp_singleNeuron.html">Investigating a single neuron</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fp_synfireChain.html">A simple feedforward network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fp_sudoku.html">Solving sudokus with BrainScaleS-2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fortgeschrittenen_praktikum.html#optional-experiments">Optional experiments</a></li>
 </ul>
 </li>
 </ul>
@@ -88,34 +94,22 @@ different ways to each other. Also, the parameters of individual neurons
 can be varied and the resulting dynamic can be observed.</p>
 <p>In the following, we want to build a simple network in which a neuron is
 stimulated by a group of five neurons.</p>
-<a class="reference internal image-reference" href="../_images/pynn_simple_network.png"><img alt="../_images/pynn_simple_network.png" src="../_images/pynn_simple_network.png" style="width: 400px;" /></a>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import the module PyNN</span>
-<span class="kn">import</span> <span class="nn">pynn_brainscales.brainscales2</span> <span class="k">as</span> <span class="nn">pynn</span>
-
-<span class="c1"># set the environment</span>
-<span class="kn">from</span> <span class="nn">_static.common.helpers</span> <span class="kn">import</span> <span class="n">setup_hardware_client</span><span class="p">,</span> <span class="n">get_nightly_calibration</span>
-
-<span class="n">setup_hardware_client</span><span class="p">()</span>
-<span class="n">calib</span> <span class="o">=</span> <span class="n">get_nightly_calibration</span><span class="p">()</span>
-<span class="n">pynn</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="n">initial_config</span><span class="o">=</span><span class="n">calib</span><span class="p">)</span>
-</pre></div>
+<a class="reference internal image-reference" href="../_images/pynn_simple_network.png"><img alt="../_images/pynn_simple_network.png" class="align-center" src="../_images/pynn_simple_network.png" style="width: 400px;" /></a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This print-friendly version of the instructions only lists the most central functions and code blocks.
+The interactive variant provides additional helpers.</p>
 </div>
 <p>Groups of neurons are called <a class="reference external" href="http://neuralensemble.org/docs/PyNN/reference/populations.html#populations">populations</a>.
-Such a population is
-instantiated by setting the number of neurons it should contain, the
-cell type of these neurons and the values of the cell parameters. The
-<a class="reference external" href="http://neuralensemble.org/docs/PyNN/reference/neuronmodels.html">cell type</a>
-of our artificial neurons is called <code class="docutils literal notranslate"><span class="pre">HXNeuron</span></code>. Its
-parameters are not expressed in the same units as for biological
-neurons, but in hardware units. These two systems of units are not
-directly related. Also within the hardware units there is no general
-translation to physical voltages and currents. These values
-can have different meanings for the different parameters on a chip, for
-example, a threshold voltage of 300 may be higher than a leakage voltage
-of 400. But also compared to other chips that are designed completely
-identical the actual measured values can vary slightly.</p>
+Such a population is instantiated by setting the number of neurons it should contain, the cell type of these neurons and the values of the cell parameters.
+The <a class="reference external" href="http://neuralensemble.org/docs/PyNN/reference/neuronmodels.html">cell type</a> of our artificial neurons is called <code class="docutils literal notranslate"><span class="pre">HXNeuron</span></code>.
+Its parameters are not expressed in the same units as for biological neurons, but in hardware units.
+These two systems of units are not directly related.
+Also within the hardware units there is no general translation to physical voltages and currents.
+Furthermore, these values can have different meanings for the different parameters on a chip, for example, a threshold voltage of 300 may be higher than a leakage voltage of 400.
+Especially in the comparison between chips, even though they are designed completely identical, the actual measured values can vary slightly.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define the neuron parameters of the population</span>
-<span class="n">numb_neurons</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">n_neurons</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">neuron_parameters</span> <span class="o">=</span> <span class="p">{</span>                          <span class="c1"># range</span>
     <span class="s2">&quot;leak_v_leak&quot;</span><span class="p">:</span> <span class="mi">400</span><span class="p">,</span>                        <span class="c1"># (300-1000)</span>
     <span class="s2">&quot;leak_i_bias&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>                        <span class="c1"># (0-1022)</span>
@@ -130,13 +124,12 @@ identical the actual measured values can vary slightly.</p>
 <span class="n">neuron_type</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">cells</span><span class="o">.</span><span class="n">HXNeuron</span><span class="p">(</span><span class="o">**</span><span class="n">neuron_parameters</span><span class="p">)</span>
 
 <span class="c1"># save the configured neuron in the population &#39;pop&#39;</span>
-<span class="n">pop</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="n">numb_neurons</span><span class="p">,</span> <span class="n">neuron_type</span><span class="p">)</span>
+<span class="n">pop</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="n">n_neurons</span><span class="p">,</span> <span class="n">neuron_type</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The spikes of all neurons that have been stored in populations can be
-recorded. Furthermore, it is also possible to record the membrane
-potential of a single neuron. Consequently, for this purpose the
-population must have a size of one.</p>
+<p>The spikes of all neurons that have been stored in populations can be recorded.
+Furthermore, it is also possible to record the membrane potential of a single neuron.
+Consequently, for this purpose the population must have a size of one.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>We can only record one neuron at the time. Make sure to use
@@ -149,17 +142,9 @@ populations of size one or use views to select a single neuron, see.
 </pre></div>
 </div>
 <p>Different populations can be connected by so-called <a class="reference external" href="http://neuralensemble.org/docs/PyNN/reference/projections.html">projections</a>.
-For this, firstly it must be specified which is the pre-synaptic (source)
-and which the post-synaptic (receiver) population. Furthermore, the way
-in which the neurons within the populations are exactly connected to
-each other is specified, e.g. all neurons are connected or only a
-certain percentage of the neurons are connected to each other. In
-addition, the synaptic weight which describes the strength of the
-connection and the <a class="reference external" href="http://neuralensemble.org/docs/PyNN/reference/plasticitymodels.html">synapse type</a>
-are specified. This can either be
-excitatory, meaning that the membrane voltage increases in case of
-stimulation, or it is inhibitory, which causes the membrane voltage to
-decrease.</p>
+For this, firstly it must be specified which is the pre-synaptic (source) and which the post-synaptic (receiver) population. Furthermore, the way in which the neurons within the populations are exactly connected to each other is specified, e.g., all neurons are connected, or only a certain percentage of the neurons are connected to each other.
+In addition, the synaptic weight which describes the strength of the connection and the <a class="reference external" href="http://neuralensemble.org/docs/PyNN/reference/plasticitymodels.html">synapse type</a> are specified.
+This can either be excitatory, meaning that the membrane voltage increases in case of stimulation, or it is inhibitory, which causes the membrane voltage to decrease.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a source population that generates spikes at given times</span>
 <span class="n">spike_times</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.07</span><span class="p">,</span> <span class="mf">0.09</span><span class="p">]</span>
 <span class="n">src</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">pynn</span><span class="o">.</span><span class="n">cells</span><span class="o">.</span><span class="n">SpikeSourceArray</span><span class="p">(</span><span class="n">spike_times</span><span class="o">=</span><span class="n">spike_times</span><span class="p">))</span>
@@ -208,8 +193,8 @@ for a selected time.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="fortgeschrittenen_praktikum.html" class="btn btn-neutral float-left" title="Welcome to the Advanced Physics Lab for Physicists by the Electronic Vision(s) Group" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="fp_binary_operations.html" class="btn btn-neutral float-right" title="Binary operations using spiking neurons" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="fp_brainscales.html" class="btn btn-neutral float-left" title="The BrainScaleS-2 system" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="fp_lui.html" class="btn btn-neutral float-right" title="Lu.i experiment" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

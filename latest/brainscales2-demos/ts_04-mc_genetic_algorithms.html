@@ -18,7 +18,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Training an SNN on BrainScaleS-2 with PyTorch" href="ts_05-yin_yang.html" />
-    <link rel="prev" title="Structured Neurons" href="ts_03-multicompartment.html" /> 
+    <link rel="prev" title="Multicompartmental Neurons" href="ts_03-multicompartment.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -43,7 +43,7 @@
 <li class="toctree-l3"><a class="reference internal" href="ts_00-single_neuron.html">BrainScaleS-2 single neuron experiments</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ts_01-superspike.html">Learning with the SuperSpike rule</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ts_02-plasticity_rate_coding.html">BrainScaleS-2 on-chip plasticity experiment</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ts_03-multicompartment.html">Structured Neurons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ts_03-multicompartment.html">Multicompartmental Neurons</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">How to use Genetic Algorithms to automatically parameterize BrainScaleS-2</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#constructing-the-compartment-chain-in-pynn">Constructing the Compartment Chain in PyNN</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#genetic-algorithm">Genetic Algorithm</a></li>
@@ -53,11 +53,7 @@
 <li class="toctree-l3"><a class="reference internal" href="ts_05-yin_yang.html">Training an SNN on BrainScaleS-2 with PyTorch</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ts_06-dynamic_range.html">Exploring the dynamic range</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ts_07-pong.html">Pong</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ts_08-adex_complex_dynamics.html">Complex neuron dynamics with a silicon adaptive exponential integrate-and-fire neuron</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ts_08-adex_complex_dynamics.html#understanding-subthreshold-adaptation">Understanding subthreshold adaptation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ts_08-adex_complex_dynamics.html#transient-spiking">Transient spiking</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ts_08-adex_complex_dynamics.html#spike-frequency-adaptation">Spike-frequency adaptation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ts_08-adex_complex_dynamics.html#bursting">Bursting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ts_08-adex_complex_dynamics.html">Complex Neuron Dynamics with a Silicon Adaptive Exponential Integrate-and-Fire Neuron</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ts_09-inside_realtime_hook.html">Demonstration of inside realtime hook</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ts_10-multiple_configs.html">Demonstration of multiple chip-reconfigurations during an experiment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="tp_00-introduction.html">Introduction to matrix multiplication</a></li>
@@ -69,8 +65,8 @@
 <li class="toctree-l3"><a class="reference internal" href="tutorial.html#final-test-hardware-execution">Final test: Hardware Execution</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="girlsday.html">Girlsday</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fortgeschrittenen_praktikum.html">Advanced Lab Course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="girlsday.html">Wie verarbeitet unser Gehirn Informationen?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fortgeschrittenen_praktikum.html">Welcome to the Advanced Physics Lab for Physicists by the Electronic Vision(s) Group</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../software_components.html">Software Components</a></li>
@@ -154,9 +150,9 @@ It is saved in a variable such that we can use it later when we define our exper
 </div>
 <div class="section" id="constructing-the-compartment-chain-in-pynn">
 <h2>Constructing the Compartment Chain in PyNN<a class="headerlink" href="#constructing-the-compartment-chain-in-pynn" title="Permalink to this headline"></a></h2>
-<p>In the tutorial <a class="reference internal" href="ts_03-multicompartment.html"><span class="doc">Structured Neurons</span></a>, the concept of multi-compartment neurons was introduced, which are spatially structured neurons.
+<p>In the tutorial <a class="reference internal" href="ts_03-multicompartment.html"><span class="doc">Multicompartmental Neurons</span></a>, the concept of multi-compartment neurons was introduced, which are spatially structured neurons.
 Here we will continue with the compartment chain experiments.
-Therefore, we first create a compartment chain class, summarizing the experiments of the <a class="reference internal" href="ts_03-multicompartment.html"><span class="doc">Structured Neurons</span></a> tutorial and extending it with further functionality for the experiments of this tutorial.
+Therefore, we first create a compartment chain class, summarizing the experiments of the <a class="reference internal" href="ts_03-multicompartment.html"><span class="doc">Multicompartmental Neurons</span></a> tutorial and extending it with further functionality for the experiments of this tutorial.
 Upon initialization the class creates a compartment chain of provided length.
 Additionally, the first compartment is connected to an external population (refer to <a class="reference internal" href="#figure-1">figure 1</a>) that will spike at a specified point in time.
 This causes an EPSP that travels along the chain.</p>
@@ -802,7 +798,7 @@ of genetic adaptive systems. PhD thesis, 1975.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="ts_03-multicompartment.html" class="btn btn-neutral float-left" title="Structured Neurons" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ts_03-multicompartment.html" class="btn btn-neutral float-left" title="Multicompartmental Neurons" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="ts_05-yin_yang.html" class="btn btn-neutral float-right" title="Training an SNN on BrainScaleS-2 with PyTorch" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
