@@ -92,18 +92,23 @@
 <h1>hxtorch.spiking.Experiment<a class="headerlink" href="#hxtorch-spiking-experiment" title="Permalink to this headline"></a></h1>
 <dl class="py class">
 <dt id="hxtorch.spiking.Experiment">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.</span></code><code class="sig-name descname"><span class="pre">Experiment</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">mock:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></em>, <em class="sig-param"><span class="pre">dt:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">1e-06</span></em>, <em class="sig-param"><span class="pre">calib_path:</span> <span class="pre">Optional[Union[pathlib.Path</span></em>, <em class="sig-param"><span class="pre">str]]</span> <span class="pre">=</span> <span class="pre">None</span></em>, <em class="sig-param"><span class="pre">hw_routing_func=&lt;_pygrenade_vx_network_routing.PortfolioRouter</span> <span class="pre">object&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.Experiment" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.</span></code><code class="sig-name descname"><span class="pre">Experiment</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">mock:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></em>, <em class="sig-param"><span class="pre">dt:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">1e-06</span></em>, <em class="sig-param"><span class="pre">calib_path:</span> <span class="pre">Optional[Union[pathlib.Path</span></em>, <em class="sig-param"><span class="pre">str]]</span> <span class="pre">=</span> <span class="pre">None</span></em>, <em class="sig-param"><span class="pre">hw_routing_func=&lt;_pygrenade_vx_network_routing.PortfolioRouter</span> <span class="pre">object&gt;</span></em>, <em class="sig-param"><span class="pre">input_loopback:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.Experiment" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="hxtorch.spiking.experiment.BaseExperiment.html#hxtorch.spiking.experiment.BaseExperiment" title="hxtorch.spiking.experiment.BaseExperiment"><code class="xref py py-class docutils literal notranslate"><span class="pre">hxtorch.spiking.experiment.BaseExperiment</span></code></a></p>
 <p>Experiment class for describing experiments on hardware</p>
 <dl class="py method">
 <dt id="hxtorch.spiking.Experiment.__init__">
-<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">mock:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></em>, <em class="sig-param"><span class="pre">dt:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">1e-06</span></em>, <em class="sig-param"><span class="pre">calib_path:</span> <span class="pre">Optional[Union[pathlib.Path</span></em>, <em class="sig-param"><span class="pre">str]]</span> <span class="pre">=</span> <span class="pre">None</span></em>, <em class="sig-param"><span class="pre">hw_routing_func=&lt;_pygrenade_vx_network_routing.PortfolioRouter</span> <span class="pre">object&gt;</span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.Experiment.__init__" title="Permalink to this definition"></a></dt>
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">mock:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></em>, <em class="sig-param"><span class="pre">dt:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">1e-06</span></em>, <em class="sig-param"><span class="pre">calib_path:</span> <span class="pre">Optional[Union[pathlib.Path</span></em>, <em class="sig-param"><span class="pre">str]]</span> <span class="pre">=</span> <span class="pre">None</span></em>, <em class="sig-param"><span class="pre">hw_routing_func=&lt;_pygrenade_vx_network_routing.PortfolioRouter</span> <span class="pre">object&gt;</span></em>, <em class="sig-param"><span class="pre">input_loopback:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.Experiment.__init__" title="Permalink to this definition"></a></dt>
 <dd><p>Instantiate a new experiment, representing an experiment on hardware
 and/or in software.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>mock</strong> – Indicating whether module is executed on hardware (False)
-or simulated in software (True).</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mock</strong> – Indicating whether module is executed on hardware (False)
+or simulated in software (True).</p></li>
+<li><p><strong>input_loopback</strong> – Record input spikes and use them for gradient
+calculation. Depending on link congestion, this may or may not be
+beneficial for the calculated gradient’s precision.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -115,7 +120,7 @@ or simulated in software (True).</p>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.Experiment.__init__" title="hxtorch.spiking.Experiment.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([mock, dt, calib_path, hw_routing_func])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.Experiment.__init__" title="hxtorch.spiking.Experiment.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([mock, dt, calib_path, …])</p></td>
 <td><p>Instantiate a new experiment, representing an experiment on hardware and/or in software.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.Experiment.clear" title="hxtorch.spiking.Experiment.clear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear</span></code></a>()</p></td>

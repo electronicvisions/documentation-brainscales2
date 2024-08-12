@@ -281,13 +281,15 @@ ref^{t+1} = params.tau_ref if z^{t+1} == 1</p>
 
 <dl class="py function">
 <dt id="hxtorch.spiking.functional.input_neuron">
-<code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.functional.</span></code><code class="sig-name descname"><span class="pre">input_neuron</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">torch.Tensor</span><a class="headerlink" href="#hxtorch.spiking.functional.input_neuron" title="Permalink to this definition"></a></dt>
-<dd><p>Identity input neuron. This forwards only the input tensor and is only used
-for consistency in <cite>HXInputNeuron</cite> which can also takes autograd
-functions. This enables gradient flow though input layers.</p>
+<code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.functional.</span></code><code class="sig-name descname"><span class="pre">input_neuron</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hw_data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">torch.Tensor</span><a class="headerlink" href="#hxtorch.spiking.functional.input_neuron" title="Permalink to this definition"></a></dt>
+<dd><p>Input neuron, forwards spikes without modification in non-hardware runs
+but injects loop-back recorded spikes if available.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>input</strong> – Input spike tensor.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> – Input spike tensor.</p></li>
+<li><p><strong>hw_data</strong> – Loop-back spikes, if available.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Returns the input spike tensor.</p>
