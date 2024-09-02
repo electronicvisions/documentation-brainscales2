@@ -272,8 +272,9 @@ corresponds to one of the three classes: ying, yang and dot.</p>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="n">mock</span><span class="p">:</span>
             <span class="n">save_nightly_calibration</span><span class="p">(</span><span class="s1">&#39;spiking2_cocolist.pbin&#39;</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">experiment</span> <span class="o">=</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">Experiment</span><span class="p">(</span><span class="n">mock</span><span class="o">=</span><span class="n">mock</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="n">dt</span><span class="p">,</span>
-                    <span class="n">calib_path</span><span class="o">=</span><span class="s1">&#39;spiking2_cocolist.pbin&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">experiment</span> <span class="o">=</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">Experiment</span><span class="p">(</span><span class="n">mock</span><span class="o">=</span><span class="n">mock</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="n">dt</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">experiment</span><span class="o">.</span><span class="n">default_execution_instance</span><span class="o">.</span><span class="n">load_calib</span><span class="p">(</span>
+                <span class="n">calib_path</span><span class="o">=</span><span class="s1">&#39;spiking2_cocolist.pbin&#39;</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">experiment</span> <span class="o">=</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">Experiment</span><span class="p">(</span><span class="n">mock</span><span class="o">=</span><span class="n">mock</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="n">dt</span><span class="p">)</span>
 

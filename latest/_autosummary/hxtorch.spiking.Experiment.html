@@ -17,7 +17,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="hxtorch.spiking.HXBaseExperimentModule" href="hxtorch.spiking.HXBaseExperimentModule.html" />
-    <link rel="prev" title="hxtorch.spiking.BatchDropout" href="hxtorch.spiking.BatchDropout.html" /> 
+    <link rel="prev" title="hxtorch.spiking.ExecutionInstance" href="hxtorch.spiking.ExecutionInstance.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -92,12 +92,12 @@
 <h1>hxtorch.spiking.Experiment<a class="headerlink" href="#hxtorch-spiking-experiment" title="Permalink to this headline"></a></h1>
 <dl class="py class">
 <dt id="hxtorch.spiking.Experiment">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.</span></code><code class="sig-name descname"><span class="pre">Experiment</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">mock:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></em>, <em class="sig-param"><span class="pre">dt:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">1e-06</span></em>, <em class="sig-param"><span class="pre">calib_path:</span> <span class="pre">Optional[Union[pathlib.Path</span></em>, <em class="sig-param"><span class="pre">str]]</span> <span class="pre">=</span> <span class="pre">None</span></em>, <em class="sig-param"><span class="pre">hw_routing_func=&lt;_pygrenade_vx_network_routing.PortfolioRouter</span> <span class="pre">object&gt;</span></em>, <em class="sig-param"><span class="pre">input_loopback:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.Experiment" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.</span></code><code class="sig-name descname"><span class="pre">Experiment</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">mock:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></em>, <em class="sig-param"><span class="pre">dt:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">1e-06</span></em>, <em class="sig-param"><span class="pre">hw_routing_func=&lt;_pygrenade_vx_network_routing.PortfolioRouter</span> <span class="pre">object&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.Experiment" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="hxtorch.spiking.experiment.BaseExperiment.html#hxtorch.spiking.experiment.BaseExperiment" title="hxtorch.spiking.experiment.BaseExperiment"><code class="xref py py-class docutils literal notranslate"><span class="pre">hxtorch.spiking.experiment.BaseExperiment</span></code></a></p>
 <p>Experiment class for describing experiments on hardware</p>
 <dl class="py method">
 <dt id="hxtorch.spiking.Experiment.__init__">
-<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">mock:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></em>, <em class="sig-param"><span class="pre">dt:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">1e-06</span></em>, <em class="sig-param"><span class="pre">calib_path:</span> <span class="pre">Optional[Union[pathlib.Path</span></em>, <em class="sig-param"><span class="pre">str]]</span> <span class="pre">=</span> <span class="pre">None</span></em>, <em class="sig-param"><span class="pre">hw_routing_func=&lt;_pygrenade_vx_network_routing.PortfolioRouter</span> <span class="pre">object&gt;</span></em>, <em class="sig-param"><span class="pre">input_loopback:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.Experiment.__init__" title="Permalink to this definition"></a></dt>
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">mock:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></em>, <em class="sig-param"><span class="pre">dt:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">1e-06</span></em>, <em class="sig-param"><span class="pre">hw_routing_func=&lt;_pygrenade_vx_network_routing.PortfolioRouter</span> <span class="pre">object&gt;</span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.Experiment.__init__" title="Permalink to this definition"></a></dt>
 <dd><p>Instantiate a new experiment, representing an experiment on hardware
 and/or in software.</p>
 <dl class="field-list simple">
@@ -120,7 +120,7 @@ beneficial for the calculated gradient’s precision.</p></li>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.Experiment.__init__" title="hxtorch.spiking.Experiment.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([mock, dt, calib_path, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.Experiment.__init__" title="hxtorch.spiking.Experiment.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([mock, dt, hw_routing_func])</p></td>
 <td><p>Instantiate a new experiment, representing an experiment on hardware and/or in software.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.Experiment.clear" title="hxtorch.spiking.Experiment.clear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear</span></code></a>()</p></td>
@@ -132,16 +132,13 @@ beneficial for the calculated gradient’s precision.</p></li>
 <tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.Experiment.get_hw_results" title="hxtorch.spiking.Experiment.get_hw_results"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_hw_results</span></code></a>(runtime)</p></td>
 <td><p>Executes the experiment in mock or on hardware using the information added to the experiment for a time given by <cite>runtime</cite> and returns a dict of hardware data represented as PyTorch data types.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.Experiment.load_calib" title="hxtorch.spiking.Experiment.load_calib"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_calib</span></code></a>([calib_path])</p></td>
-<td><p>Load a calibration from path <cite>calib_path</cite> and apply to the experiment`s chip object. If no path is specified a nightly calib is applied. :param calib_path: The path to the calibration. It None, the nightly     calib is loaded. :return: Returns the chip object for the given calibration.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.Experiment.register_population" title="hxtorch.spiking.Experiment.register_population"><code class="xref py py-obj docutils literal notranslate"><span class="pre">register_population</span></code></a>(module)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.Experiment.register_population" title="hxtorch.spiking.Experiment.register_population"><code class="xref py py-obj docutils literal notranslate"><span class="pre">register_population</span></code></a>(module)</p></td>
 <td><p>Register a module as population.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.Experiment.register_projection" title="hxtorch.spiking.Experiment.register_projection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">register_projection</span></code></a>(module)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.Experiment.register_projection" title="hxtorch.spiking.Experiment.register_projection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">register_projection</span></code></a>(module)</p></td>
 <td><p>Register a module as projection.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.Experiment.wrap_modules" title="hxtorch.spiking.Experiment.wrap_modules"><code class="xref py py-obj docutils literal notranslate"><span class="pre">wrap_modules</span></code></a>(modules[, func])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.Experiment.wrap_modules" title="hxtorch.spiking.Experiment.wrap_modules"><code class="xref py py-obj docutils literal notranslate"><span class="pre">wrap_modules</span></code></a>(modules[, func])</p></td>
 <td><p>Wrap a number of given modules into a wrapper to which a single function <cite>func</cite> can be assigned. In the PyTorch graph the individual module functions are then bypassed and only the wrapper’s function is considered when building the PyTorch graph. This functionality is of interest if several modules have cyclic dependencies and need to be represented by one PyTorch function. :param modules: A list of module to be wrapped. These modules need to     constitute a closed sub-graph with no modules in between that are     not element of the wrapper. :func: The function to assign to the wrapper. TODO: Add info about this functions signature.</p></td>
 </tr>
 </tbody>
@@ -153,7 +150,10 @@ beneficial for the calculated gradient’s precision.</p></li>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.Experiment.last_run_chip_configs" title="hxtorch.spiking.Experiment.last_run_chip_configs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">last_run_chip_configs</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.Experiment.default_execution_instance" title="hxtorch.spiking.Experiment.default_execution_instance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">default_execution_instance</span></code></a></p></td>
+<td><p>Getter for the default <code class="docutils literal notranslate"><span class="pre">ExecutionInstance</span></code> object.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.Experiment.last_run_chip_configs" title="hxtorch.spiking.Experiment.last_run_chip_configs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">last_run_chip_configs</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -184,6 +184,20 @@ serving as input to subsequent HXModules.</p></li>
 </dd></dl>
 
 <dl class="py method">
+<dt id="hxtorch.spiking.Experiment.default_execution_instance">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">default_execution_instance</span></code><a class="headerlink" href="#hxtorch.spiking.Experiment.default_execution_instance" title="Permalink to this definition"></a></dt>
+<dd><p>Getter for the default <code class="docutils literal notranslate"><span class="pre">ExecutionInstance</span></code> object. All modules that
+have the same <code class="docutils literal notranslate"><span class="pre">Experiment</span></code> instance assigned and do not hold an
+explicit <code class="docutils literal notranslate"><span class="pre">ExecutionInstance</span></code> are assigned to this default execution
+instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The default execution instance</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt id="hxtorch.spiking.Experiment.get_hw_results">
 <code class="sig-name descname"><span class="pre">get_hw_results</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">runtime</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">_pygrenade_vx_network.PopulationOnNetwork</span><span class="p"><span class="pre">,</span> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="p"><span class="pre">…</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#hxtorch.spiking.Experiment.get_hw_results" title="Permalink to this definition"></a></dt>
 <dd><p>Executes the experiment in mock or on hardware using the information
@@ -205,22 +219,6 @@ the corresponding module’s <cite>post_process</cite> method.</p>
 <dt id="hxtorch.spiking.Experiment.last_run_chip_configs">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">last_run_chip_configs</span></code><a class="headerlink" href="#hxtorch.spiking.Experiment.last_run_chip_configs" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
-
-<dl class="py method">
-<dt id="hxtorch.spiking.Experiment.load_calib">
-<code class="sig-name descname"><span class="pre">load_calib</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">calib_path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">pathlib.Path</span><span class="p"><span class="pre">,</span> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">pylola_vx_v3.Chip</span><a class="headerlink" href="#hxtorch.spiking.Experiment.load_calib" title="Permalink to this definition"></a></dt>
-<dd><p>Load a calibration from path <cite>calib_path</cite> and apply to the experiment`s
-chip object. If no path is specified a nightly calib is applied.
-:param calib_path: The path to the calibration. It None, the nightly</p>
-<blockquote>
-<div><p>calib is loaded.</p>
-</div></blockquote>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>Returns the chip object for the given calibration.</p>
-</dd>
-</dl>
-</dd></dl>
 
 <dl class="py method">
 <dt id="hxtorch.spiking.Experiment.register_population">
@@ -274,7 +272,7 @@ TODO: Add info about this functions signature.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="hxtorch.spiking.BatchDropout.html" class="btn btn-neutral float-left" title="hxtorch.spiking.BatchDropout" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="hxtorch.spiking.ExecutionInstance.html" class="btn btn-neutral float-left" title="hxtorch.spiking.ExecutionInstance" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="hxtorch.spiking.HXBaseExperimentModule.html" class="btn btn-neutral float-right" title="hxtorch.spiking.HXBaseExperimentModule" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
