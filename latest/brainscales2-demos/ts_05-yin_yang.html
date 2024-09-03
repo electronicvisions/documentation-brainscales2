@@ -797,8 +797,8 @@ and one for the <code class="docutils literal notranslate"><span class="pre">Syn
 <span class="sd">    Gradient estimation with time-discretized EventProp using explicit Euler integration.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="nb">input</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
-                <span class="n">params</span><span class="p">:</span> <span class="n">F</span><span class="o">.</span><span class="n">CUBALIFParams</span><span class="p">,</span> <span class="n">dt</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="nb">input</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">params</span><span class="p">:</span> <span class="n">NamedTuple</span><span class="p">,</span> <span class="n">dt</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+            <span class="n">hw_data</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Forward function, generating spikes at positions &gt; 0.</span>
 
@@ -809,13 +809,20 @@ and one for the <code class="docutils literal notranslate"><span class="pre">Syn
 <span class="sd">        :returns: Returns the spike trains and membrane trace.</span>
 <span class="sd">            Both tensors are of shape (batch, time, neurons).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># If hardware observables are given, return them directly.</span>
+        <span class="k">if</span> <span class="n">hw_data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">ctx</span><span class="o">.</span><span class="n">extra_kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;params&quot;</span><span class="p">:</span> <span class="n">params</span><span class="p">,</span> <span class="s2">&quot;dt&quot;</span><span class="p">:</span> <span class="n">dt</span><span class="p">}</span>
+            <span class="n">ctx</span><span class="o">.</span><span class="n">save_for_backward</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="o">*</span><span class="n">hw_data</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">hw_data</span>
+
+        <span class="c1"># Otherwise integrate the neuron dynamics in software</span>
         <span class="n">dev</span> <span class="o">=</span> <span class="nb">input</span><span class="o">.</span><span class="n">device</span>
         <span class="n">T</span><span class="p">,</span> <span class="n">bs</span><span class="p">,</span> <span class="n">ps</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
         <span class="n">z</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">bs</span><span class="p">,</span> <span class="n">ps</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">dev</span><span class="p">)</span>
         <span class="n">i</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">bs</span><span class="p">,</span> <span class="n">ps</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">dev</span><span class="p">)</span>
         <span class="n">v</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">bs</span><span class="p">,</span> <span class="n">ps</span><span class="p">)</span><span class="o">.</span><span class="n">fill_</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">v_leak</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">dev</span><span class="p">)</span>
-
         <span class="n">spikes</span><span class="p">,</span> <span class="n">current</span><span class="p">,</span> <span class="n">membrane</span> <span class="o">=</span> <span class="p">[</span><span class="n">z</span><span class="p">],</span> <span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="p">[</span><span class="n">v</span><span class="p">]</span>
+
         <span class="k">for</span> <span class="n">ts</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
             <span class="c1"># Current</span>
             <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">params</span><span class="o">.</span><span class="n">tau_syn_inv</span><span class="p">)</span> <span class="o">+</span> <span class="nb">input</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">ts</span><span class="p">]</span>
@@ -899,7 +906,7 @@ and one for the <code class="docutils literal notranslate"><span class="pre">Syn
                 <span class="o">+</span> <span class="n">output_term</span>
             <span class="p">)</span>
         <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">((</span><span class="n">lambda_i</span> <span class="o">/</span> <span class="n">params</span><span class="o">.</span><span class="n">tau_syn_inv</span><span class="p">,</span>
-                            <span class="n">lambda_v</span> <span class="o">-</span> <span class="n">lambda_i</span><span class="p">)),</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+                            <span class="n">lambda_v</span> <span class="o">-</span> <span class="n">lambda_i</span><span class="p">)),</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
 
 
 <span class="k">class</span> <span class="nc">EventPropSynapse</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">autograd</span><span class="o">.</span><span class="n">Function</span><span class="p">):</span>
@@ -953,6 +960,16 @@ and one for the <code class="docutils literal notranslate"><span class="pre">Syn
                     <span class="nb">input</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 
         <span class="k">return</span> <span class="n">grad_input</span><span class="p">,</span> <span class="n">grad_weight</span><span class="p">,</span> <span class="kc">None</span>
+
+
+<span class="k">def</span> <span class="nf">eventprop_synapse</span><span class="p">(</span><span class="nb">input</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">weight</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
+                    <span class="n">_</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">EventPropSynapse</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">weight</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">eventprop_neuron</span><span class="p">(</span><span class="nb">input</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">params</span><span class="p">:</span> <span class="n">NamedTuple</span><span class="p">,</span> <span class="n">dt</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+                    <span class="n">hw_data</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+    <span class="k">return</span> <span class="n">EventPropNeuron</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">hw_data</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">EventPropSNN</span><span class="p">(</span><span class="n">SNN</span><span class="p">):</span>
@@ -960,8 +977,8 @@ and one for the <code class="docutils literal notranslate"><span class="pre">Syn
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="c1"># use EventProp in hidden (spiking) LIF layer</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">linear_h</span><span class="o">.</span><span class="n">func</span> <span class="o">=</span> <span class="n">EventPropSynapse</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">lif_h</span><span class="o">.</span><span class="n">func</span> <span class="o">=</span> <span class="n">EventPropNeuron</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">linear_h</span><span class="o">.</span><span class="n">func</span> <span class="o">=</span> <span class="n">eventprop_synapse</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lif_h</span><span class="o">.</span><span class="n">func</span> <span class="o">=</span> <span class="n">eventprop_neuron</span>
         <span class="c1"># trace information is not used in EventProp -&gt;  disable cadc recording</span>
         <span class="c1"># of hidden layer</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">lif_h</span><span class="o">.</span><span class="n">_enable_cadc_recording</span> <span class="o">=</span> <span class="kc">False</span>
