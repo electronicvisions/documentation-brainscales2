@@ -190,9 +190,10 @@ The main additions are an exponential and an adaptation term.
 This is required to process high frequent synaptic input and model the spike initiation accurately.
 Further, a recovery variable is introduced to capture adaptation and resonance properties.</p>
 <div class="math notranslate nohighlight" id="equation-eq-adex">
-<span class="eqno">(3)<a class="headerlink" href="#equation-eq-adex" title="Permalink to this equation"></a></span>\[\begin{split}\tau_m \frac{\mathrm{d}u_i}{\mathrm{d}t} &amp;= - \left( u_i - u_\text{rest} \right) + R \left( I_\text{stim} - I_\text{ad} \right) + \Delta_\text{T} \mathrm{exp}\left( \frac{u_i-u_T}{\Delta_\text{T}} \right) \\
-\tau_w \frac{\mathrm{d}I_\text{ad}}{\mathrm{d}t} &amp;= a \left( u_i - u_\text{rest} \right) - I_\text{ad}\end{split}\]</div>
-<p>The equation above is arranged in such a way that the extension to the LIF-equation <a class="reference internal" href="#equation-eq-lif">(2)</a> is easily visible.
+\begin{align}
+\tau_m \frac{\mathrm{d}u_i}{\mathrm{d}t} &amp;= - \left( u_i - u_\text{rest} \right) + R \left( I_\text{stim} - I_\text{ad} \right) + \Delta_\text{T} \mathrm{exp}\left( \frac{u_i-u_T}{\Delta_\text{T}} \right) \\
+\tau_w \frac{\mathrm{d}I_\text{ad}}{\mathrm{d}t} &amp;= a \left( u_i - u_\text{rest} \right) - I_\text{ad}
+\end{align}</div><p>The equation above is arranged in such a way that the extension to the LIF-equation <a class="reference internal" href="#equation-eq-lif">(2)</a> is easily visible.
 As new terms are introduced:
 <span class="math notranslate nohighlight">\(I_\text{ad}\)</span> which is the adaptation current,
 <span class="math notranslate nohighlight">\(\Delta_\text{T}\)</span> is the threshold slope factor,
