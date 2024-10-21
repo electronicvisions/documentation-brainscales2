@@ -166,13 +166,16 @@ supplied.</p>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.populations.Population.find_units" title="pynn_brainscales.brainscales2.populations.Population.find_units"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_units</span></code></a>(variable)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.populations.Population.describe" title="pynn_brainscales.brainscales2.populations.Population.describe"><code class="xref py py-obj docutils literal notranslate"><span class="pre">describe</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Returns a human-readable description of the population.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.populations.Population.find_units" title="pynn_brainscales.brainscales2.populations.Population.find_units"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_units</span></code></a>(variable)</p></td>
 <td><p>Returns units of the specified variable or parameter, as a string.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.populations.Population.get_plasticity_data" title="pynn_brainscales.brainscales2.populations.Population.get_plasticity_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_plasticity_data</span></code></a>(observable)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.populations.Population.get_plasticity_data" title="pynn_brainscales.brainscales2.populations.Population.get_plasticity_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_plasticity_data</span></code></a>(observable)</p></td>
 <td><p>Get recorded observable data for this population from plasticity rule. :raises RuntimeError: On no plasticity rule or requested observable     name present :param observable: Observable name to get data for :returns: Observable data per plasticity rule execution period per     neuron.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.populations.Population.record" title="pynn_brainscales.brainscales2.populations.Population.record"><code class="xref py py-obj docutils literal notranslate"><span class="pre">record</span></code></a>(variables[, to_file, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.populations.Population.record" title="pynn_brainscales.brainscales2.populations.Population.record"><code class="xref py py-obj docutils literal notranslate"><span class="pre">record</span></code></a>(variables[, to_file, …])</p></td>
 <td><p>Record the specified variable or variables for all cells in the Population or view.</p></td>
 </tr>
 </tbody>
@@ -222,6 +225,16 @@ supplied.</p>
 <dt id="pynn_brainscales.brainscales2.populations.Population.changed_since_last_run">
 <code class="sig-name descname"><span class="pre">changed_since_last_run</span></code><em class="property"> <span class="pre">=</span> <span class="pre">True</span></em><a class="headerlink" href="#pynn_brainscales.brainscales2.populations.Population.changed_since_last_run" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.populations.Population.describe">
+<code class="sig-name descname"><span class="pre">describe</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.populations.Population.describe" title="Permalink to this definition"></a></dt>
+<dd><p>Returns a human-readable description of the population.</p>
+<p>The output may be customized by specifying a different template
+together with an associated template engine (see <code class="xref py py-mod docutils literal notranslate"><span class="pre">pyNN.descriptions</span></code>).</p>
+<p>If template is None, then a dictionary containing the template context
+will be returned.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt id="pynn_brainscales.brainscales2.populations.Population.find_units">
