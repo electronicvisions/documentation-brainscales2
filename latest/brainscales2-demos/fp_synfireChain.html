@@ -234,6 +234,7 @@ This scaffold can be used to investigate the behaviour of a synfire chain and an
 <span class="sd">    :return: spikes of all neurons and membrane trace of the first exc. neuron</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># emulate the network</span>
+    <span class="n">pynn</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
     <span class="n">pynn</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">duration</span><span class="o">.</span><span class="n">rescale</span><span class="p">(</span><span class="n">pq</span><span class="o">.</span><span class="n">ms</span><span class="p">)))</span>
 
     <span class="c1"># read back all recorded spikes</span>
@@ -242,7 +243,7 @@ This scaffold can be used to investigate the behaviour of a synfire chain and an
     <span class="k">for</span> <span class="n">syn_type</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;exc&#39;</span><span class="p">,</span> <span class="s1">&#39;inh&#39;</span><span class="p">]:</span>
         <span class="k">for</span> <span class="n">pop_index</span><span class="p">,</span> <span class="n">pop</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">populations</span><span class="p">[</span><span class="n">syn_type</span><span class="p">]):</span>
             <span class="n">spike_collector</span><span class="p">[</span><span class="n">syn_type</span><span class="p">][</span><span class="n">pop_index</span><span class="p">]</span> <span class="o">=</span> \
-                <span class="n">pop</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="s2">&quot;spikes&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">segments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">spiketrains</span>
+                <span class="n">pop</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="s2">&quot;spikes&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">segments</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">spiketrains</span>
 
     <span class="c1"># read back the membrane potential</span>
     <span class="n">mem_v</span> <span class="o">=</span> <span class="n">populations</span><span class="p">[</span><span class="s1">&#39;exc&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="s2">&quot;v&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">segments</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">irregularlysampledsignals</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -282,10 +283,7 @@ This scaffold can be used to investigate the behaviour of a synfire chain and an
 Which hardware feature limits the minimal number of neurons in each population?
 What is the maximal chain length that you can produce?
 Make comments in your lab book.</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># dont forget to call pynn.end() before setting up a new network</span>
-<span class="n">pynn</span><span class="o">.</span><span class="n">end</span><span class="p">()</span>
-
-<span class="n">projs</span><span class="p">,</span> <span class="n">pops</span> <span class="o">=</span> <span class="n">setup_network</span><span class="p">(</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">projs</span><span class="p">,</span> <span class="n">pops</span> <span class="o">=</span> <span class="n">setup_network</span><span class="p">(</span>
     <span class="n">numb_pops</span><span class="o">=...</span><span class="p">,</span>                       <span class="c1"># chain length</span>
     <span class="n">pop_sizes</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;exc&#39;</span><span class="p">:</span> <span class="o">...</span><span class="p">,</span> <span class="s1">&#39;inh&#39;</span><span class="p">:</span> <span class="o">...</span><span class="p">})</span>  <span class="c1"># size of each chain link</span>
 
@@ -306,10 +304,7 @@ Make comments in your lab book.</p>
 <p>Hint: For this part it might be easier to switch to a smaller chain with larger populations.</p>
 <p>Hint: Take a look into the code above.
 The closed loop is already implemented and just need to be activated.</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># dont forget to call pynn.end() before setting up a new network</span>
-<span class="n">pynn</span><span class="o">.</span><span class="n">end</span><span class="p">()</span>
-
-<span class="n">projs</span><span class="p">,</span> <span class="n">pops</span> <span class="o">=</span> <span class="n">setup_network</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">projs</span><span class="p">,</span> <span class="n">pops</span> <span class="o">=</span> <span class="n">setup_network</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
 
 <span class="n">set_network_weights</span><span class="p">(</span><span class="n">weights</span><span class="o">=...</span><span class="p">,</span> <span class="n">projections</span><span class="o">=</span><span class="n">projs</span><span class="p">)</span>
 
