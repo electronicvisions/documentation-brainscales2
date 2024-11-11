@@ -146,7 +146,8 @@ This scaffold can be used to investigate the behaviour of a synfire chain and an
     <span class="c1"># record membrane potential from first neuron of first excitatory</span>
     <span class="c1"># population of chain</span>
     <span class="n">pop1exc</span> <span class="o">=</span> <span class="n">pop_collector</span><span class="p">[</span><span class="s1">&#39;exc&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">pop1exc</span><span class="p">[[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">record</span><span class="p">(</span><span class="s1">&#39;v&#39;</span><span class="p">)</span>
+    <span class="n">pop1exc</span><span class="p">[[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">record</span><span class="p">(</span><span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s1">&#39;pad_0_buffered&#39;</span><span class="p">)</span>
+    <span class="n">pop1exc</span><span class="p">[[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">record</span><span class="p">(</span><span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s1">&#39;madc&#39;</span><span class="p">)</span>
 
     <span class="c1"># kick starter input pulse at t = 0</span>
     <span class="n">stim_pop</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="n">pop_sizes</span><span class="p">[</span><span class="s1">&#39;exc&#39;</span><span class="p">],</span>

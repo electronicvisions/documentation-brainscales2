@@ -91,7 +91,7 @@
              
   <div class="section" id="solving-sudokus-with-brainscales-2">
 <h1>Solving sudokus with BrainScaleS-2<a class="headerlink" href="#solving-sudokus-with-brainscales-2" title="Permalink to this headline"></a></h1>
-<p>In this task we want to apply our newly gained knowledge to well-known problem:
+<p>In this task we want to apply our newly gained knowledge to a well-known problem:
 We will deal with solving a sudoku on spiking hardware.</p>
 <p>If you never before encountered this logic puzzle from 1984, let’s define the rules.
 Usually you have a 9x9 square grid and the goal is to fill in numbers from 1 to 9, given crucial constraints:</p>
@@ -111,7 +111,7 @@ In our case, each field would have four neurons representing the numbers 1 to 4,
 A neuron being active is interpreted as that field being filled with the respective number, consequently a given, hinted number is represented by a continuously spiking neuron.
 An excluding constraint will be realised with an inhibitory synapse due to the suppressing effect on the activity.
 To allow the network to explore different states, a random Poisson-distributed background noise is applied to all neurons.
-In addition, each neuron is excitatorily connected to themselves to maintain possible activity.</p>
+In addition, each neuron is excitatorily connected to itself to maintain possible activity.</p>
 <p>Let’s start with a simplified version of a sudoku with a 4x4 grid, as shown in the figure.
 Assume the grey three is given, applying the previously mentioned constraints we obtain:</p>
 <ul class="simple">
@@ -130,7 +130,7 @@ there are four such blocks to complete the 4x4 sudoku.</span><a class="headerlin
 <p>For further information read into <a class="reference external" href="https://www.kip.uni-heidelberg.de/Veroeffentlichungen/download.php/6118/temp/3666.pdf">Solving the Constraint Satisfaction Problem Sudoku on Neuromorphic Hardware (MA Thesis)</a>.</p>
 <div class="section" id="experiment-setup">
 <h2>Experiment setup<a class="headerlink" href="#experiment-setup" title="Permalink to this headline"></a></h2>
-<p>We start by creating a population of neurons satisfying the required number and additionally creating a view for each field to later access them easier
+<p>We start by creating a population with the required number of neurons. Additionally, we create a view for each field to facilitate easier access later
 <code class="docutils literal notranslate"><span class="pre">pops_collector[row][field][neuron]</span></code></p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Defining total runtime and dimensionality of sudoku</span>
 <span class="n">runtime</span> <span class="o">=</span> <span class="mf">0.5</span>
@@ -223,7 +223,7 @@ there are four such blocks to complete the 4x4 sudoku.</span><a class="headerlin
     <span class="k">return</span> <span class="n">clues</span>
 
 <span class="k">def</span> <span class="nf">get_solution</span><span class="p">(</span><span class="n">runtime</span><span class="p">,</span> <span class="n">clues</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Executes the network ad returns the current solution.&quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;Executes the network and returns the current solution.&quot;&quot;&quot;</span>
     <span class="n">set_clues</span><span class="p">(</span><span class="n">clues</span><span class="p">)</span>
     <span class="n">grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
 
@@ -231,12 +231,13 @@ there are four such blocks to complete the 4x4 sudoku.</span><a class="headerlin
     <span class="n">poisson_source</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">duration</span><span class="o">=</span><span class="n">runtime</span> <span class="o">-</span> <span class="mf">0.01</span><span class="p">)</span>
 
     <span class="c1"># emulate the network</span>
+    <span class="n">pynn</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
     <span class="n">pynn</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">runtime</span><span class="p">)</span>
     <span class="c1"># read back solution</span>
     <span class="k">for</span> <span class="n">row</span><span class="p">,</span> <span class="n">row_populations</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">pops_collector</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">field_populations</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">row_populations</span><span class="p">):</span>
             <span class="n">num_spikes</span> <span class="o">=</span> <span class="p">[</span>
-                <span class="nb">len</span><span class="p">(</span><span class="n">num_population</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="s2">&quot;spikes&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">segments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">spiketrains</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                <span class="nb">len</span><span class="p">(</span><span class="n">num_population</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="s2">&quot;spikes&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">segments</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">spiketrains</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
                 <span class="k">for</span> <span class="n">num_population</span> <span class="ow">in</span> <span class="n">field_populations</span>
             <span class="p">]</span>
             <span class="n">grid</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">num_spikes</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
@@ -645,7 +646,7 @@ there are four such blocks to complete the 4x4 sudoku.</span><a class="headerlin
 <span class="p">])</span>
 </pre></div>
 </div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The below will only work, of course, if you implemented the correct constraints above.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The cell below will only work, of course, if you implemented the correct constraints above.</span>
 <span class="c1"># Red/green frame show (in)correctness of the proposed solution (consistency with the given sudoku).</span>
 
 <span class="k">def</span> <span class="nf">experiment</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
@@ -658,7 +659,7 @@ there are four such blocks to complete the 4x4 sudoku.</span><a class="headerlin
 </div>
 <p>The hardware will try to solve the given sudoku.
 If you want to implement your own sudoku with unknown numbers you can enter <cite>0</cite> as an empty field.
-(<em>Hint:</em>: When you change the sudoku, rerun the cell)</p>
+(<em>Hint</em>: When you change the sudoku, rerun the cell)</p>
 <p>The hints are chosen randomly. By varying the seed you vary the position of the clue and by changing the number the sudoku changes the difficulty.</p>
 </div>
 <div class="section" id="exercises">
