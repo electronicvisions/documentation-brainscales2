@@ -115,11 +115,11 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.execution_instance.BaseExecutionInstance.cadc_recordings" title="hxtorch.spiking.execution_instance.BaseExecutionInstance.cadc_recordings"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cadc_recordings</span></code></a>()</p></td>
 <td><p>Return the instance’s <code class="docutils literal notranslate"><span class="pre">CADCRecording</span></code> object, holding all neurons that are to be recorded in this instance.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.execution_instance.BaseExecutionInstance.generate_playback_hooks" title="hxtorch.spiking.execution_instance.BaseExecutionInstance.generate_playback_hooks"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_playback_hooks</span></code></a>()</p></td>
-<td><p>Generate a <code class="docutils literal notranslate"><span class="pre">ExecutionInstanceHooks</span></code> object for the given execution instance, injected in <code class="docutils literal notranslate"><span class="pre">grenade.run</span></code>.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.execution_instance.BaseExecutionInstance.calibrate" title="hxtorch.spiking.execution_instance.BaseExecutionInstance.calibrate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calibrate</span></code></a>()</p></td>
+<td><p>Handle the calibration of the instance</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.execution_instance.BaseExecutionInstance.prepare_static_config" title="hxtorch.spiking.execution_instance.BaseExecutionInstance.prepare_static_config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">prepare_static_config</span></code></a>()</p></td>
-<td><p>Prepare the static configuration of the instance</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.execution_instance.BaseExecutionInstance.generate_playback_hooks" title="hxtorch.spiking.execution_instance.BaseExecutionInstance.generate_playback_hooks"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_playback_hooks</span></code></a>()</p></td>
+<td><p>Generate a <code class="docutils literal notranslate"><span class="pre">ExecutionInstanceHooks</span></code> object for the given execution instance, injected in <code class="docutils literal notranslate"><span class="pre">grenade.run</span></code>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -153,6 +153,12 @@ that are to be recorded in this instance.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt id="hxtorch.spiking.execution_instance.BaseExecutionInstance.calibrate">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">calibrate</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.execution_instance.BaseExecutionInstance.calibrate" title="Permalink to this definition"></a></dt>
+<dd><p>Handle the calibration of the instance</p>
+</dd></dl>
+
+<dl class="py method">
 <dt id="hxtorch.spiking.execution_instance.BaseExecutionInstance.generate_playback_hooks">
 <em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">generate_playback_hooks</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">_pygrenade_vx_signal_flow.ExecutionInstanceHooks</span><a class="headerlink" href="#hxtorch.spiking.execution_instance.BaseExecutionInstance.generate_playback_hooks" title="Permalink to this definition"></a></dt>
 <dd><p>Generate a <code class="docutils literal notranslate"><span class="pre">ExecutionInstanceHooks</span></code> object for the given
@@ -162,12 +168,6 @@ execution instance, injected in <code class="docutils literal notranslate"><span
 <dd class="field-odd"><p>The execution instance’s playback hook.</p>
 </dd>
 </dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="hxtorch.spiking.execution_instance.BaseExecutionInstance.prepare_static_config">
-<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">prepare_static_config</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.execution_instance.BaseExecutionInstance.prepare_static_config" title="Permalink to this definition"></a></dt>
-<dd><p>Prepare the static configuration of the instance</p>
 </dd></dl>
 
 </dd></dl>

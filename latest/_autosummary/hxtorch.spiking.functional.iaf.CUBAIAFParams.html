@@ -16,7 +16,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="hxtorch.spiking.functional.iaf.NamedTuple" href="hxtorch.spiking.functional.iaf.NamedTuple.html" />
+    <link rel="next" title="hxtorch.spiking.functional.iaf.CalibratedCUBAIAFParams" href="hxtorch.spiking.functional.iaf.CalibratedCUBAIAFParams.html" />
     <link rel="prev" title="hxtorch.spiking.functional.iaf" href="hxtorch.spiking.functional.iaf.html" /> 
 </head>
 
@@ -94,7 +94,7 @@
 <h1>hxtorch.spiking.functional.iaf.CUBAIAFParams<a class="headerlink" href="#hxtorch-spiking-functional-iaf-cubaiafparams" title="Permalink to this headline"></a></h1>
 <dl class="py class">
 <dt id="hxtorch.spiking.functional.iaf.CUBAIAFParams">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.functional.iaf.</span></code><code class="sig-name descname"><span class="pre">CUBAIAFParams</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tau_mem_inv</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau_syn_inv</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau_ref</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">tensor(0.)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_th</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">tensor(1.)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_reset</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">tensor(0.)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">50.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'superspike'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.functional.iaf.CUBAIAFParams" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.functional.iaf.</span></code><code class="sig-name descname"><span class="pre">CUBAIAFParams</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tau_mem</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau_syn</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">refractory_time</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">tensor(0.)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">tensor(1.)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reset</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">tensor(0.)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">50.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'superspike'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.functional.iaf.CUBAIAFParams" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></p>
 <p>Parameters for IAF integration and backward path</p>
 <dl class="py method">
@@ -125,19 +125,19 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.functional.iaf.CUBAIAFParams.method" title="hxtorch.spiking.functional.iaf.CUBAIAFParams.method"><code class="xref py py-obj docutils literal notranslate"><span class="pre">method</span></code></a></p></td>
 <td><p>Alias for field number 6</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.functional.iaf.CUBAIAFParams.tau_mem_inv" title="hxtorch.spiking.functional.iaf.CUBAIAFParams.tau_mem_inv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tau_mem_inv</span></code></a></p></td>
-<td><p>Alias for field number 0</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.functional.iaf.CUBAIAFParams.tau_ref" title="hxtorch.spiking.functional.iaf.CUBAIAFParams.tau_ref"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tau_ref</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.functional.iaf.CUBAIAFParams.refractory_time" title="hxtorch.spiking.functional.iaf.CUBAIAFParams.refractory_time"><code class="xref py py-obj docutils literal notranslate"><span class="pre">refractory_time</span></code></a></p></td>
 <td><p>Alias for field number 2</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.functional.iaf.CUBAIAFParams.tau_syn_inv" title="hxtorch.spiking.functional.iaf.CUBAIAFParams.tau_syn_inv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tau_syn_inv</span></code></a></p></td>
-<td><p>Alias for field number 1</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.functional.iaf.CUBAIAFParams.v_reset" title="hxtorch.spiking.functional.iaf.CUBAIAFParams.v_reset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">v_reset</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.functional.iaf.CUBAIAFParams.reset" title="hxtorch.spiking.functional.iaf.CUBAIAFParams.reset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset</span></code></a></p></td>
 <td><p>Alias for field number 4</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.functional.iaf.CUBAIAFParams.v_th" title="hxtorch.spiking.functional.iaf.CUBAIAFParams.v_th"><code class="xref py py-obj docutils literal notranslate"><span class="pre">v_th</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.functional.iaf.CUBAIAFParams.tau_mem" title="hxtorch.spiking.functional.iaf.CUBAIAFParams.tau_mem"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tau_mem</span></code></a></p></td>
+<td><p>Alias for field number 0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.functional.iaf.CUBAIAFParams.tau_syn" title="hxtorch.spiking.functional.iaf.CUBAIAFParams.tau_syn"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tau_syn</span></code></a></p></td>
+<td><p>Alias for field number 1</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.functional.iaf.CUBAIAFParams.threshold" title="hxtorch.spiking.functional.iaf.CUBAIAFParams.threshold"><code class="xref py py-obj docutils literal notranslate"><span class="pre">threshold</span></code></a></p></td>
 <td><p>Alias for field number 3</p></td>
 </tr>
 </tbody>
@@ -155,32 +155,32 @@
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="hxtorch.spiking.functional.iaf.CUBAIAFParams.tau_mem_inv">
-<code class="sig-name descname"><span class="pre">tau_mem_inv</span></code><em class="property"><span class="pre">:</span> <span class="pre">torch.Tensor</span></em><a class="headerlink" href="#hxtorch.spiking.functional.iaf.CUBAIAFParams.tau_mem_inv" title="Permalink to this definition"></a></dt>
-<dd><p>Alias for field number 0</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt id="hxtorch.spiking.functional.iaf.CUBAIAFParams.tau_ref">
-<code class="sig-name descname"><span class="pre">tau_ref</span></code><em class="property"><span class="pre">:</span> <span class="pre">torch.Tensor</span></em><a class="headerlink" href="#hxtorch.spiking.functional.iaf.CUBAIAFParams.tau_ref" title="Permalink to this definition"></a></dt>
+<dt id="hxtorch.spiking.functional.iaf.CUBAIAFParams.refractory_time">
+<code class="sig-name descname"><span class="pre">refractory_time</span></code><em class="property"><span class="pre">:</span> <span class="pre">torch.Tensor</span></em><a class="headerlink" href="#hxtorch.spiking.functional.iaf.CUBAIAFParams.refractory_time" title="Permalink to this definition"></a></dt>
 <dd><p>Alias for field number 2</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="hxtorch.spiking.functional.iaf.CUBAIAFParams.tau_syn_inv">
-<code class="sig-name descname"><span class="pre">tau_syn_inv</span></code><em class="property"><span class="pre">:</span> <span class="pre">torch.Tensor</span></em><a class="headerlink" href="#hxtorch.spiking.functional.iaf.CUBAIAFParams.tau_syn_inv" title="Permalink to this definition"></a></dt>
-<dd><p>Alias for field number 1</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt id="hxtorch.spiking.functional.iaf.CUBAIAFParams.v_reset">
-<code class="sig-name descname"><span class="pre">v_reset</span></code><em class="property"><span class="pre">:</span> <span class="pre">torch.Tensor</span></em><a class="headerlink" href="#hxtorch.spiking.functional.iaf.CUBAIAFParams.v_reset" title="Permalink to this definition"></a></dt>
+<dt id="hxtorch.spiking.functional.iaf.CUBAIAFParams.reset">
+<code class="sig-name descname"><span class="pre">reset</span></code><em class="property"><span class="pre">:</span> <span class="pre">torch.Tensor</span></em><a class="headerlink" href="#hxtorch.spiking.functional.iaf.CUBAIAFParams.reset" title="Permalink to this definition"></a></dt>
 <dd><p>Alias for field number 4</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="hxtorch.spiking.functional.iaf.CUBAIAFParams.v_th">
-<code class="sig-name descname"><span class="pre">v_th</span></code><em class="property"><span class="pre">:</span> <span class="pre">torch.Tensor</span></em><a class="headerlink" href="#hxtorch.spiking.functional.iaf.CUBAIAFParams.v_th" title="Permalink to this definition"></a></dt>
+<dt id="hxtorch.spiking.functional.iaf.CUBAIAFParams.tau_mem">
+<code class="sig-name descname"><span class="pre">tau_mem</span></code><em class="property"><span class="pre">:</span> <span class="pre">torch.Tensor</span></em><a class="headerlink" href="#hxtorch.spiking.functional.iaf.CUBAIAFParams.tau_mem" title="Permalink to this definition"></a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="hxtorch.spiking.functional.iaf.CUBAIAFParams.tau_syn">
+<code class="sig-name descname"><span class="pre">tau_syn</span></code><em class="property"><span class="pre">:</span> <span class="pre">torch.Tensor</span></em><a class="headerlink" href="#hxtorch.spiking.functional.iaf.CUBAIAFParams.tau_syn" title="Permalink to this definition"></a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="hxtorch.spiking.functional.iaf.CUBAIAFParams.threshold">
+<code class="sig-name descname"><span class="pre">threshold</span></code><em class="property"><span class="pre">:</span> <span class="pre">torch.Tensor</span></em><a class="headerlink" href="#hxtorch.spiking.functional.iaf.CUBAIAFParams.threshold" title="Permalink to this definition"></a></dt>
 <dd><p>Alias for field number 3</p>
 </dd></dl>
 
@@ -193,7 +193,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="hxtorch.spiking.functional.iaf.html" class="btn btn-neutral float-left" title="hxtorch.spiking.functional.iaf" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="hxtorch.spiking.functional.iaf.NamedTuple.html" class="btn btn-neutral float-right" title="hxtorch.spiking.functional.iaf.NamedTuple" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="hxtorch.spiking.functional.iaf.CalibratedCUBAIAFParams.html" class="btn btn-neutral float-right" title="hxtorch.spiking.functional.iaf.CalibratedCUBAIAFParams" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

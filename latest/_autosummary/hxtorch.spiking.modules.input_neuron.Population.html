@@ -130,8 +130,17 @@ TODO: Inform about func args</p></li>
 </dl>
 </p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.input_neuron.Population.calib_changed_since_last_run" title="hxtorch.spiking.modules.input_neuron.Population.calib_changed_since_last_run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calib_changed_since_last_run</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.input_neuron.Population.calibration_from_params" title="hxtorch.spiking.modules.input_neuron.Population.calibration_from_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calibration_from_params</span></code></a>(spiking_calib_target)</p></td>
+<td><p>Add population specific calibration targets to the experiment-wide calibration target, which holds information for all populations.</p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.input_neuron.Population.extra_repr" title="hxtorch.spiking.modules.input_neuron.Population.extra_repr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">extra_repr</span></code></a>()</p></td>
 <td><p>Add additional information</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.input_neuron.Population.params_from_calibration" title="hxtorch.spiking.modules.input_neuron.Population.params_from_calibration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">params_from_calibration</span></code></a>(spiking_calib_target)</p></td>
+<td><p></p></td>
 </tr>
 </tbody>
 </table>
@@ -144,6 +153,27 @@ TODO: Inform about func args</p></li>
 <tbody>
 </tbody>
 </table>
+<dl class="py method">
+<dt id="hxtorch.spiking.modules.input_neuron.Population.calib_changed_since_last_run">
+<code class="sig-name descname"><span class="pre">calib_changed_since_last_run</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#hxtorch.spiking.modules.input_neuron.Population.calib_changed_since_last_run" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="hxtorch.spiking.modules.input_neuron.Population.calibration_from_params">
+<code class="sig-name descname"><span class="pre">calibration_from_params</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spiking_calib_target</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">SpikingCalibTarget</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Dict</span><a class="headerlink" href="#hxtorch.spiking.modules.input_neuron.Population.calibration_from_params" title="Permalink to this definition"></a></dt>
+<dd><p>Add population specific calibration targets to the experiment-wide
+calibration target, which holds information for all populations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>spiking_calib_target</strong> – Calibration target parameters of all
+neuron populations registered in the self.experiment instance.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The chip_wide_calib_target with adjusted parameters.</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py attribute">
 <dt id="hxtorch.spiking.modules.input_neuron.Population.extra_args">
 <code class="sig-name descname"><span class="pre">extra_args</span></code><em class="property"><span class="pre">:</span> <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#hxtorch.spiking.modules.input_neuron.Population.extra_args" title="Permalink to this definition"></a></dt>
@@ -159,6 +189,11 @@ TODO: Inform about func args</p></li>
 <code class="sig-name descname"><span class="pre">extra_repr</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="headerlink" href="#hxtorch.spiking.modules.input_neuron.Population.extra_repr" title="Permalink to this definition"></a></dt>
 <dd><p>Add additional information</p>
 </dd></dl>
+
+<dl class="py method">
+<dt id="hxtorch.spiking.modules.input_neuron.Population.params_from_calibration">
+<code class="sig-name descname"><span class="pre">params_from_calibration</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spiking_calib_target</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">SpikingCalibTarget</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.modules.input_neuron.Population.params_from_calibration" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
 
 <dl class="py attribute">
 <dt id="hxtorch.spiking.modules.input_neuron.Population.size">
