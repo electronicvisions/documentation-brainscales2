@@ -94,19 +94,12 @@
 <h1>hxtorch.spiking.modules.hx_module.HXTorchFunctionMixin<a class="headerlink" href="#hxtorch-spiking-modules-hx-module-hxtorchfunctionmixin" title="Permalink to this headline"></a></h1>
 <dl class="py class">
 <dt id="hxtorch.spiking.modules.hx_module.HXTorchFunctionMixin">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.modules.hx_module.</span></code><code class="sig-name descname"><span class="pre">HXTorchFunctionMixin</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">,</span> </span><span class="pre">torch.autograd.function.Function</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.modules.hx_module.HXTorchFunctionMixin" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.modules.hx_module.</span></code><code class="sig-name descname"><span class="pre">HXTorchFunctionMixin</span></code><a class="headerlink" href="#hxtorch.spiking.modules.hx_module.HXTorchFunctionMixin" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py method">
 <dt id="hxtorch.spiking.modules.hx_module.HXTorchFunctionMixin.__init__">
-<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">,</span> </span><span class="pre">torch.autograd.function.Function</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.modules.hx_module.HXTorchFunctionMixin.__init__" title="Permalink to this definition"></a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>func</strong> – Callable function implementing the module’s forward
-functionality or a torch.autograd.Function implementing the
-module’s forward and backward operation.
-TODO: Inform about func args</p>
-</dd>
-</dl>
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.modules.hx_module.HXTorchFunctionMixin.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
 <p class="rubric">Methods</p>
@@ -116,16 +109,14 @@ TODO: Inform about func args</p>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.hx_module.HXTorchFunctionMixin.__init__" title="hxtorch.spiking.modules.hx_module.HXTorchFunctionMixin.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(func)</p></td>
-<td><p><dl class="field-list simple">
-<dt class="field-odd">param func</dt>
-<dd class="field-odd"><p>Callable function implementing the module’s forward</p>
-</dd>
-</dl>
-</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.hx_module.HXTorchFunctionMixin.__init__" title="hxtorch.spiking.modules.hx_module.HXTorchFunctionMixin.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>()</p></td>
+<td><p>Initialize self.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.hx_module.HXTorchFunctionMixin.extra_repr" title="hxtorch.spiking.modules.hx_module.HXTorchFunctionMixin.extra_repr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">extra_repr</span></code></a>()</p></td>
 <td><p>Add additional information</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.hx_module.HXTorchFunctionMixin.forward_func" title="hxtorch.spiking.modules.hx_module.HXTorchFunctionMixin.forward_func"><code class="xref py py-obj docutils literal notranslate"><span class="pre">forward_func</span></code></a>(input[, hw_data])</p></td>
+<td><p></p></td>
 </tr>
 </tbody>
 </table>
@@ -146,6 +137,11 @@ TODO: Inform about func args</p>
 <code class="sig-name descname"><span class="pre">extra_repr</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="headerlink" href="#hxtorch.spiking.modules.hx_module.HXTorchFunctionMixin.extra_repr" title="Permalink to this definition"></a></dt>
 <dd><p>Add additional information</p>
 </dd></dl>
+
+<dl class="py method">
+<dt id="hxtorch.spiking.modules.hx_module.HXTorchFunctionMixin.forward_func">
+<code class="sig-name descname"><span class="pre">forward_func</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="hxtorch.spiking.handle.TensorHandle.html#hxtorch.spiking.handle.TensorHandle" title="hxtorch.spiking.handle.TensorHandle"><span class="pre">hxtorch.spiking.handle.TensorHandle</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">hw_data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="hxtorch.spiking.handle.TensorHandle.html#hxtorch.spiking.handle.TensorHandle" title="hxtorch.spiking.handle.TensorHandle"><span class="pre">hxtorch.spiking.handle.TensorHandle</span></a><a class="headerlink" href="#hxtorch.spiking.modules.hx_module.HXTorchFunctionMixin.forward_func" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt id="hxtorch.spiking.modules.hx_module.HXTorchFunctionMixin.func">

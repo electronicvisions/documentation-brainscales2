@@ -132,7 +132,7 @@ Signal Processing Magazine 36, 6 (2019),51–63.
 for spiking neural networks. Scientific Reports 11, 12829 (2021).
 <a class="reference external" href="https://doi.org/10.1038/s41598-021-91786-z">doi: 10.1038/s41598-021-91786-z</a>.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Optional</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">w</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -263,11 +263,17 @@ corresponds to one of the three classes: ying, yang and dot.</p>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
         <span class="c1"># Neuron parameters</span>
-        <span class="n">lif_params</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">CUBALIFParams</span><span class="p">(</span><span class="n">tau_mem</span><span class="p">,</span> <span class="n">tau_syn</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
-        <span class="n">li_params</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">CUBALIParams</span><span class="p">(</span><span class="n">tau_mem</span><span class="p">,</span> <span class="n">tau_syn</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lif_params</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">CUBALIFParams</span><span class="p">(</span><span class="n">tau_mem</span><span class="p">,</span> <span class="n">tau_syn</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">li_params</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">CUBALIParams</span><span class="p">(</span><span class="n">tau_mem</span><span class="p">,</span> <span class="n">tau_syn</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">dt</span> <span class="o">=</span> <span class="n">dt</span>
 
         <span class="c1"># Instance to work on</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_in</span> <span class="o">=</span> <span class="n">n_in</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_hidden</span> <span class="o">=</span> <span class="n">n_hidden</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">input_repetitions</span> <span class="o">=</span> <span class="n">input_repetitions</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">weight_scale</span> <span class="o">=</span> <span class="n">weight_scale</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">trace_scale</span> <span class="o">=</span> <span class="n">trace_scale</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">trace_shift_hidden</span> <span class="o">=</span> <span class="n">trace_shift_hidden</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="n">mock</span><span class="p">:</span>
             <span class="n">save_nightly_calibration</span><span class="p">(</span><span class="s1">&#39;spiking2_cocolist.pbin&#39;</span><span class="p">)</span>
@@ -298,8 +304,7 @@ corresponds to one of the three classes: ying, yang and dot.</p>
         <span class="bp">self</span><span class="o">.</span><span class="n">lif_h</span> <span class="o">=</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">Neuron</span><span class="p">(</span>
             <span class="n">n_hidden</span><span class="p">,</span>
             <span class="n">experiment</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">experiment</span><span class="p">,</span>
-            <span class="n">func</span><span class="o">=</span><span class="n">F</span><span class="o">.</span><span class="n">cuba_lif_integration</span><span class="p">,</span>
-            <span class="n">params</span><span class="o">=</span><span class="n">lif_params</span><span class="p">,</span>
+            <span class="n">params</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">lif_params</span><span class="p">,</span>
             <span class="n">trace_scale</span><span class="o">=</span><span class="n">trace_scale</span><span class="p">,</span>
             <span class="n">cadc_time_shift</span><span class="o">=</span><span class="n">trace_shift_hidden</span><span class="p">,</span>
             <span class="n">shift_cadc_to_first</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -316,8 +321,7 @@ corresponds to one of the three classes: ying, yang and dot.</p>
         <span class="bp">self</span><span class="o">.</span><span class="n">li_readout</span> <span class="o">=</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">ReadoutNeuron</span><span class="p">(</span>
             <span class="n">n_out</span><span class="p">,</span>
             <span class="n">experiment</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">experiment</span><span class="p">,</span>
-            <span class="n">func</span><span class="o">=</span><span class="n">F</span><span class="o">.</span><span class="n">cuba_li_integration</span><span class="p">,</span>
-            <span class="n">params</span><span class="o">=</span><span class="n">li_params</span><span class="p">,</span>
+            <span class="n">params</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">li_params</span><span class="p">,</span>
             <span class="n">trace_scale</span><span class="o">=</span><span class="n">trace_scale</span><span class="p">,</span>
             <span class="n">cadc_time_shift</span><span class="o">=</span><span class="n">trace_shift_out</span><span class="p">,</span>
             <span class="n">shift_cadc_to_first</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
@@ -359,7 +363,7 @@ corresponds to one of the three classes: ying, yang and dot.</p>
         <span class="c1"># Execute on hardware</span>
         <span class="n">hxtorch</span><span class="o">.</span><span class="n">snn</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">experiment</span><span class="p">,</span> <span class="n">spikes</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_o</span><span class="o">.</span><span class="n">v_cadc</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_o</span><span class="o">.</span><span class="n">membrane_cadc</span>
 </pre></div>
 </div>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N_HIDDEN</span>      <span class="o">=</span> <span class="mi">120</span>
@@ -649,7 +653,7 @@ function.</p>
     <span class="n">update</span><span class="p">(</span>
         <span class="n">model</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">s_in</span><span class="o">.</span><span class="n">detach</span><span class="p">(),</span>
         <span class="n">model</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">s_h</span><span class="o">.</span><span class="n">spikes</span><span class="o">.</span><span class="n">detach</span><span class="p">(),</span>
-        <span class="n">model</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">y_o</span><span class="o">.</span><span class="n">v_cadc</span><span class="o">.</span><span class="n">detach</span><span class="p">(),</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">y_o</span><span class="o">.</span><span class="n">membrane_cadc</span><span class="o">.</span><span class="n">detach</span><span class="p">(),</span>
         <span class="n">data</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">scores</span><span class="p">,</span>
         <span class="n">loss</span><span class="p">,</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">acc</span><span class="p">,</span> <span class="n">rate</span><span class="p">)</span>
 
@@ -791,7 +795,7 @@ the computation and propagation of gradients, one for <code class="docutils lite
 and one for the <code class="docutils literal notranslate"><span class="pre">Synapse</span></code> layer.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">NamedTuple</span><span class="p">,</span> <span class="n">Optional</span>
 
-<span class="k">class</span> <span class="nc">EventPropNeuron</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">autograd</span><span class="o">.</span><span class="n">Function</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">EventPropNeuronFunction</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">autograd</span><span class="o">.</span><span class="n">Function</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Gradient estimation with time-discretized EventProp using explicit Euler integration.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -908,7 +912,7 @@ and one for the <code class="docutils literal notranslate"><span class="pre">Syn
                             <span class="n">lambda_v</span> <span class="o">-</span> <span class="n">lambda_i</span><span class="p">)),</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
 
 
-<span class="k">class</span> <span class="nc">EventPropSynapse</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">autograd</span><span class="o">.</span><span class="n">Function</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">EventPropSynapseFunction</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">autograd</span><span class="o">.</span><span class="n">Function</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Synapse function for proper gradient transport when using EventPropNeuron.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -961,14 +965,18 @@ and one for the <code class="docutils literal notranslate"><span class="pre">Syn
         <span class="k">return</span> <span class="n">grad_input</span><span class="p">,</span> <span class="n">grad_weight</span><span class="p">,</span> <span class="kc">None</span>
 
 
-<span class="k">def</span> <span class="nf">eventprop_synapse</span><span class="p">(</span><span class="nb">input</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">weight</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
-                    <span class="n">_</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
-    <span class="k">return</span> <span class="n">EventPropSynapse</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">weight</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">EventPropSynapse</span><span class="p">(</span><span class="n">hxsnn</span><span class="o">.</span><span class="n">Synapse</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">forward_func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">:</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">NeuronHandle</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">SynapseHandle</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">SynapseHandle</span><span class="p">(</span>
+            <span class="n">EventPropSynapseFunction</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">input</span><span class="o">.</span><span class="n">spikes</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">weight</span><span class="p">))</span>
 
 
-<span class="k">def</span> <span class="nf">eventprop_neuron</span><span class="p">(</span><span class="nb">input</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">params</span><span class="p">:</span> <span class="n">NamedTuple</span><span class="p">,</span> <span class="n">dt</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
-                    <span class="n">hw_data</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
-    <span class="k">return</span> <span class="n">EventPropNeuron</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">hw_data</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">EventPropNeuron</span><span class="p">(</span><span class="n">hxsnn</span><span class="o">.</span><span class="n">Neuron</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">forward_func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">:</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">SynapseHandle</span><span class="p">,</span>
+                    <span class="n">hw_data</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> \
+            <span class="o">-&gt;</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">NeuronHandle</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">NeuronHandle</span><span class="p">(</span><span class="o">*</span><span class="n">EventPropNeuronFunction</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+            <span class="nb">input</span><span class="o">.</span><span class="n">graded_spikes</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">experiment</span><span class="o">.</span><span class="n">dt</span><span class="p">,</span> <span class="n">hw_data</span><span class="p">))</span>
 </pre></div>
 </div>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">EventPropSNN</span><span class="p">(</span><span class="n">SNN</span><span class="p">):</span>
@@ -976,11 +984,25 @@ and one for the <code class="docutils literal notranslate"><span class="pre">Syn
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="c1"># use EventProp in hidden (spiking) LIF layer</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">linear_h</span><span class="o">.</span><span class="n">func</span> <span class="o">=</span> <span class="n">eventprop_synapse</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">lif_h</span><span class="o">.</span><span class="n">func</span> <span class="o">=</span> <span class="n">eventprop_neuron</span>
+        <span class="n">weight</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">linear_h</span><span class="o">.</span><span class="n">weight</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">linear_h</span> <span class="o">=</span> <span class="n">EventPropSynapse</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">n_in</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">input_repetitions</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">n_hidden</span><span class="p">,</span>
+            <span class="n">experiment</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">experiment</span><span class="p">,</span>
+            <span class="n">transform</span><span class="o">=</span><span class="n">partial</span><span class="p">(</span>
+                <span class="n">weight_transforms</span><span class="o">.</span><span class="n">linear_saturating</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">weight_scale</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">linear_h</span><span class="o">.</span><span class="n">weight</span> <span class="o">=</span> <span class="n">weight</span>
+        <span class="c1"># Hidden layer</span>
         <span class="c1"># trace information is not used in EventProp -&gt;  disable cadc recording</span>
         <span class="c1"># of hidden layer</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">lif_h</span><span class="o">.</span><span class="n">_enable_cadc_recording</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lif_h</span> <span class="o">=</span> <span class="n">EventPropNeuron</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">n_hidden</span><span class="p">,</span>
+            <span class="n">experiment</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">experiment</span><span class="p">,</span>
+            <span class="n">params</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">lif_params</span><span class="p">,</span>
+            <span class="n">trace_scale</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">trace_scale</span><span class="p">,</span>
+            <span class="n">enable_cadc_recording</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">cadc_time_shift</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">trace_shift_hidden</span><span class="p">,</span>
+            <span class="n">shift_cadc_to_first</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N_HIDDEN</span>      <span class="o">=</span> <span class="mi">120</span>

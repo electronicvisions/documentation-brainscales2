@@ -94,22 +94,16 @@
 <h1>hxtorch.spiking.modules.hx_module.HXFunctionalModule<a class="headerlink" href="#hxtorch-spiking-modules-hx-module-hxfunctionalmodule" title="Permalink to this headline"></a></h1>
 <dl class="py class">
 <dt id="hxtorch.spiking.modules.hx_module.HXFunctionalModule">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.modules.hx_module.</span></code><code class="sig-name descname"><span class="pre">HXFunctionalModule</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">experiment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Experiment</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">,</span> </span><span class="pre">torch.autograd.Function</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.modules.hx_module.HXFunctionalModule" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.modules.hx_module.</span></code><code class="sig-name descname"><span class="pre">HXFunctionalModule</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">experiment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Experiment</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.modules.hx_module.HXFunctionalModule" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="hxtorch.spiking.modules.hx_module.HXTorchFunctionMixin.html#hxtorch.spiking.modules.hx_module.HXTorchFunctionMixin" title="hxtorch.spiking.modules.hx_module.HXTorchFunctionMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">hxtorch.spiking.modules.hx_module.HXTorchFunctionMixin</span></code></a>, <a class="reference internal" href="hxtorch.spiking.modules.hx_module.HXBaseExperimentModule.html#hxtorch.spiking.modules.hx_module.HXBaseExperimentModule" title="hxtorch.spiking.modules.hx_module.HXBaseExperimentModule"><code class="xref py py-class docutils literal notranslate"><span class="pre">hxtorch.spiking.modules.hx_module.HXBaseExperimentModule</span></code></a></p>
 <p>PyTorch module supplying basic functionality for elements of SNNs that do
 not have a direct hardware representation</p>
 <dl class="py method">
 <dt id="hxtorch.spiking.modules.hx_module.HXFunctionalModule.__init__">
-<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">experiment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Experiment</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">,</span> </span><span class="pre">torch.autograd.Function</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.modules.hx_module.HXFunctionalModule.__init__" title="Permalink to this definition"></a></dt>
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">experiment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Experiment</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.modules.hx_module.HXFunctionalModule.__init__" title="Permalink to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>experiment</strong> – Experiment to append layer to.</p></li>
-<li><p><strong>func</strong> – Callable function implementing the module’s forward
-functionality or a torch.autograd.Function implementing the
-module’s forward and backward operation.
-TODO: Inform about func args</p></li>
-</ul>
+<dd class="field-odd"><p><strong>experiment</strong> – Experiment to append layer to.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -121,7 +115,7 @@ TODO: Inform about func args</p></li>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.hx_module.HXFunctionalModule.__init__" title="hxtorch.spiking.modules.hx_module.HXFunctionalModule.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(experiment, func)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.hx_module.HXFunctionalModule.__init__" title="hxtorch.spiking.modules.hx_module.HXFunctionalModule.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(experiment)</p></td>
 <td><p><dl class="field-list simple">
 <dt class="field-odd">param experiment</dt>
 <dd class="field-odd"><p>Experiment to append layer to.</p>
@@ -140,16 +134,6 @@ TODO: Inform about func args</p></li>
 <tbody>
 </tbody>
 </table>
-<dl class="py attribute">
-<dt id="hxtorch.spiking.modules.hx_module.HXFunctionalModule.extra_args">
-<code class="sig-name descname"><span class="pre">extra_args</span></code><em class="property"><span class="pre">:</span> <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#hxtorch.spiking.modules.hx_module.HXFunctionalModule.extra_args" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="hxtorch.spiking.modules.hx_module.HXFunctionalModule.extra_kwargs">
-<code class="sig-name descname"><span class="pre">extra_kwargs</span></code><em class="property"><span class="pre">:</span> <span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#hxtorch.spiking.modules.hx_module.HXFunctionalModule.extra_kwargs" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
 <dl class="py attribute">
 <dt id="hxtorch.spiking.modules.hx_module.HXFunctionalModule.training">
 <code class="sig-name descname"><span class="pre">training</span></code><em class="property"><span class="pre">:</span> <span class="pre">bool</span></em><a class="headerlink" href="#hxtorch.spiking.modules.hx_module.HXFunctionalModule.training" title="Permalink to this definition"></a></dt>

@@ -16,7 +16,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="hxtorch.spiking.modules.hx_module.partial" href="hxtorch.spiking.modules.hx_module.partial.html" />
+    <link rel="next" title="hxtorch.spiking.modules.hx_module_wrapper" href="hxtorch.spiking.modules.hx_module_wrapper.html" />
     <link rel="prev" title="hxtorch.spiking.modules.hx_module.NeuronHandle" href="hxtorch.spiking.modules.hx_module.NeuronHandle.html" /> 
 </head>
 
@@ -94,19 +94,18 @@
 <h1>hxtorch.spiking.modules.hx_module.TensorHandle<a class="headerlink" href="#hxtorch-spiking-modules-hx-module-tensorhandle" title="Permalink to this headline"></a></h1>
 <dl class="py class">
 <dt id="hxtorch.spiking.modules.hx_module.TensorHandle">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.modules.hx_module.</span></code><code class="sig-name descname"><span class="pre">TensorHandle</span></code><a class="headerlink" href="#hxtorch.spiking.modules.hx_module.TensorHandle" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Base class for HX tensor handles. New tensor handles have to be derived
-from this class. The name of tensors the tensor handle ‘carries’ has to be
-indicated in the class member ‘_carries’. For all elements in this list a
-property is created implicitly.</p>
-<p>The observable state of the tensor handle is defined in ‘_obsv_state’ and
-defines which tensor is passed to the subsequent layer as input.
-Member ‘_obsv_state’ has to be in ‘_carries’.</p>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.modules.hx_module.</span></code><code class="sig-name descname"><span class="pre">TensorHandle</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tensor</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.modules.hx_module.TensorHandle" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="hxtorch.spiking.handle.Handle.html#hxtorch.spiking.handle.Handle" title="hxtorch.spiking.handle.Handle"><code class="xref py py-class docutils literal notranslate"><span class="pre">hxtorch.spiking.handle.Handle</span></code></a></p>
+<p>Specialization for single tensor, mostly for testing</p>
 <dl class="py method">
 <dt id="hxtorch.spiking.modules.hx_module.TensorHandle.__init__">
-<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.modules.hx_module.TensorHandle.__init__" title="Permalink to this definition"></a></dt>
-<dd><p>Instantiate a new HX handle holding references to torch tensors.</p>
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tensor</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.modules.hx_module.TensorHandle.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Instantiate a tensor handle to hold a single tensor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>tensor</strong> – torch.Tensor holding data.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <p class="rubric">Methods</p>
@@ -116,17 +115,8 @@ Member ‘_obsv_state’ has to be in ‘_carries’.</p>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.hx_module.TensorHandle.__init__" title="hxtorch.spiking.modules.hx_module.TensorHandle.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>()</p></td>
-<td><p>Instantiate a new HX handle holding references to torch tensors.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.hx_module.TensorHandle.clear" title="hxtorch.spiking.modules.hx_module.TensorHandle.clear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear</span></code></a>()</p></td>
-<td><p>Set all data in handle to ‘None’.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.hx_module.TensorHandle.holds" title="hxtorch.spiking.modules.hx_module.TensorHandle.holds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">holds</span></code></a>(name)</p></td>
-<td><p>Checks whether the tensor handle already holds a tensor with key <cite>name</cite>.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.hx_module.TensorHandle.put" title="hxtorch.spiking.modules.hx_module.TensorHandle.put"><code class="xref py py-obj docutils literal notranslate"><span class="pre">put</span></code></a>(*tensors, **kwargs)</p></td>
-<td><p>Fill the tensor handle with actual data given by tensors or kwargs.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.hx_module.TensorHandle.__init__" title="hxtorch.spiking.modules.hx_module.TensorHandle.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([tensor])</p></td>
+<td><p>Instantiate a tensor handle to hold a single tensor.</p></td>
 </tr>
 </tbody>
 </table>
@@ -137,79 +127,15 @@ Member ‘_obsv_state’ has to be in ‘_carries’.</p>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.hx_module.TensorHandle.observable_state" title="hxtorch.spiking.modules.hx_module.TensorHandle.observable_state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">observable_state</span></code></a></p></td>
-<td><p>Getter for observable state.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.hx_module.TensorHandle.observable_state_identifier" title="hxtorch.spiking.modules.hx_module.TensorHandle.observable_state_identifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">observable_state_identifier</span></code></a></p></td>
-<td><p>Getter for observable state identifier.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.hx_module.TensorHandle.tensor" title="hxtorch.spiking.modules.hx_module.TensorHandle.tensor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tensor</span></code></a></p></td>
+<td><p></p></td>
 </tr>
 </tbody>
 </table>
 <dl class="py method">
-<dt id="hxtorch.spiking.modules.hx_module.TensorHandle.clear">
-<code class="sig-name descname"><span class="pre">clear</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.modules.hx_module.TensorHandle.clear" title="Permalink to this definition"></a></dt>
-<dd><p>Set all data in handle to ‘None’.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="hxtorch.spiking.modules.hx_module.TensorHandle.holds">
-<code class="sig-name descname"><span class="pre">holds</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#hxtorch.spiking.modules.hx_module.TensorHandle.holds" title="Permalink to this definition"></a></dt>
-<dd><p>Checks whether the tensor handle already holds a tensor with key
-<cite>name</cite>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>name</strong> – Key of reference to tensor.</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Returns a bool indicating whether the data present at key
-<cite>name</cite> is not None.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="hxtorch.spiking.modules.hx_module.TensorHandle.observable_state">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">observable_state</span></code><a class="headerlink" href="#hxtorch.spiking.modules.hx_module.TensorHandle.observable_state" title="Permalink to this definition"></a></dt>
-<dd><p>Getter for observable state.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>Returns the tensor associated with ‘_obsv_state’</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="hxtorch.spiking.modules.hx_module.TensorHandle.observable_state_identifier">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">observable_state_identifier</span></code><a class="headerlink" href="#hxtorch.spiking.modules.hx_module.TensorHandle.observable_state_identifier" title="Permalink to this definition"></a></dt>
-<dd><p>Getter for observable state identifier.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>Returns the identifier string associated with the observable
-state of the handle.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="hxtorch.spiking.modules.hx_module.TensorHandle.put">
-<code class="sig-name descname"><span class="pre">put</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">tensors</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.modules.hx_module.TensorHandle.put" title="Permalink to this definition"></a></dt>
-<dd><p>Fill the tensor handle with actual data given by tensors or kwargs. If
-tensors are given as positional arguments the tensors are assigned in
-the order given by class member ‘_carries’. Keyword arguments are
-assigned to the corresponding key. Therefore, the key has to be in
-‘_carries.’</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>tensors</strong> – Tensors which are assigned to the tensor handle. The
-given tensors are associated with the elements in ‘_carries’ in
-successive order.</p></li>
-<li><p><strong>kwargs</strong> (<em>param</em>) – Assigns the items in kwargs to the elements in
-the tensor handle associated with the corresponding kwargs keys.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
+<dt id="hxtorch.spiking.modules.hx_module.TensorHandle.tensor">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">tensor</span></code><a class="headerlink" href="#hxtorch.spiking.modules.hx_module.TensorHandle.tensor" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 
@@ -220,7 +146,7 @@ the tensor handle associated with the corresponding kwargs keys.</p></li>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="hxtorch.spiking.modules.hx_module.NeuronHandle.html" class="btn btn-neutral float-left" title="hxtorch.spiking.modules.hx_module.NeuronHandle" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="hxtorch.spiking.modules.hx_module.partial.html" class="btn btn-neutral float-right" title="hxtorch.spiking.modules.hx_module.partial" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="hxtorch.spiking.modules.hx_module_wrapper.html" class="btn btn-neutral float-right" title="hxtorch.spiking.modules.hx_module_wrapper" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

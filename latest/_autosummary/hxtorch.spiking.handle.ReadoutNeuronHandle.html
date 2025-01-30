@@ -93,21 +93,23 @@
 <h1>hxtorch.spiking.handle.ReadoutNeuronHandle<a class="headerlink" href="#hxtorch-spiking-handle-readoutneuronhandle" title="Permalink to this headline"></a></h1>
 <dl class="py class">
 <dt id="hxtorch.spiking.handle.ReadoutNeuronHandle">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.handle.</span></code><code class="sig-name descname"><span class="pre">ReadoutNeuronHandle</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v_cadc</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_madc</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.handle.ReadoutNeuronHandle" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="hxtorch.spiking.handle.TensorHandle.html#hxtorch.spiking.handle.TensorHandle" title="hxtorch.spiking.handle.TensorHandle"><code class="xref py py-class docutils literal notranslate"><span class="pre">hxtorch.spiking.handle.TensorHandle</span></code></a></p>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.handle.</span></code><code class="sig-name descname"><span class="pre">ReadoutNeuronHandle</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">membrane_cadc</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">membrane_madc</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.handle.ReadoutNeuronHandle" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="hxtorch.spiking.handle.Handle.html#hxtorch.spiking.handle.Handle" title="hxtorch.spiking.handle.Handle"><code class="xref py py-class docutils literal notranslate"><span class="pre">hxtorch.spiking.handle.Handle</span></code></a></p>
 <p>Specialization for HX neuron observables</p>
 <dl class="py method">
 <dt id="hxtorch.spiking.handle.ReadoutNeuronHandle.__init__">
-<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v_cadc</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_madc</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.handle.ReadoutNeuronHandle.__init__" title="Permalink to this definition"></a></dt>
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">membrane_cadc</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">membrane_madc</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.handle.ReadoutNeuronHandle.__init__" title="Permalink to this definition"></a></dt>
 <dd><p>Instantiate a readout neuron handle able to hold MADC, current, and
 CADC data. This handle defines the CADC values as the observable state,
 this can be changed by deriving this class.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>v_cadc</strong> – Optional membrane tensor, holding CADC recordings.</p></li>
+<li><p><strong>membrane_cadc</strong> – Optional membrane tensor, holding CADC
+recordings.</p></li>
 <li><p><strong>current</strong> – Optional current tensor, holding synaptic current.</p></li>
-<li><p><strong>v_madc</strong> – Optional membrane tensor, holding MADC recordings.</p></li>
+<li><p><strong>membrane_madc</strong> – Optional membrane tensor, holding MADC
+recordings.</p></li>
 </ul>
 </dd>
 </dl>
@@ -120,7 +122,7 @@ this can be changed by deriving this class.</p>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.handle.ReadoutNeuronHandle.__init__" title="hxtorch.spiking.handle.ReadoutNeuronHandle.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([v_cadc, current, v_madc])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.handle.ReadoutNeuronHandle.__init__" title="hxtorch.spiking.handle.ReadoutNeuronHandle.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([membrane_cadc, current, membrane_madc])</p></td>
 <td><p>Instantiate a readout neuron handle able to hold MADC, current, and CADC data.</p></td>
 </tr>
 </tbody>
@@ -135,10 +137,10 @@ this can be changed by deriving this class.</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.handle.ReadoutNeuronHandle.current" title="hxtorch.spiking.handle.ReadoutNeuronHandle.current"><code class="xref py py-obj docutils literal notranslate"><span class="pre">current</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.handle.ReadoutNeuronHandle.v_cadc" title="hxtorch.spiking.handle.ReadoutNeuronHandle.v_cadc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">v_cadc</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.handle.ReadoutNeuronHandle.membrane_cadc" title="hxtorch.spiking.handle.ReadoutNeuronHandle.membrane_cadc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">membrane_cadc</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.handle.ReadoutNeuronHandle.v_madc" title="hxtorch.spiking.handle.ReadoutNeuronHandle.v_madc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">v_madc</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.handle.ReadoutNeuronHandle.membrane_madc" title="hxtorch.spiking.handle.ReadoutNeuronHandle.membrane_madc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">membrane_madc</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -149,13 +151,13 @@ this can be changed by deriving this class.</p>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="hxtorch.spiking.handle.ReadoutNeuronHandle.v_cadc">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">v_cadc</span></code><a class="headerlink" href="#hxtorch.spiking.handle.ReadoutNeuronHandle.v_cadc" title="Permalink to this definition"></a></dt>
+<dt id="hxtorch.spiking.handle.ReadoutNeuronHandle.membrane_cadc">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">membrane_cadc</span></code><a class="headerlink" href="#hxtorch.spiking.handle.ReadoutNeuronHandle.membrane_cadc" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="hxtorch.spiking.handle.ReadoutNeuronHandle.v_madc">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">v_madc</span></code><a class="headerlink" href="#hxtorch.spiking.handle.ReadoutNeuronHandle.v_madc" title="Permalink to this definition"></a></dt>
+<dt id="hxtorch.spiking.handle.ReadoutNeuronHandle.membrane_madc">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">membrane_madc</span></code><a class="headerlink" href="#hxtorch.spiking.handle.ReadoutNeuronHandle.membrane_madc" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>

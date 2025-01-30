@@ -130,13 +130,20 @@ z^{t+1} = 1 if v^{t+1} &gt; params.threshold
 v^{t+1} = v_reset if z^{t+1} == 1</p>
 </div></blockquote>
 <p>Assumes i^0, v^0 = 0., params.reset
-:note: One <cite>dt</cite> synaptic delay between input and output
-:param input: Input spikes in shape (batch, time, neurons).
-:param params: LIFParams object holding neuron parameters.
-:return: Returns the spike trains in shape and membrane trace as a tuple.</p>
-<blockquote>
-<div><p>Both tensors are of shape (batch, time, neurons).</p>
-</div></blockquote>
+:note: One <cite>dt</cite> synaptic delay between input and output</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> – Input tensor holding ‘graded_spikes’ in shape (batch, time,
+neurons).</p></li>
+<li><p><strong>params</strong> – LIFParams object holding neuron parameters.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Returns tuple of tensors with membrane traces, spikes and synaptic
+current. Tensors are of shape (batch, time, neurons).</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -154,13 +161,20 @@ ref^{t+1} -= 1
 ref^{t+1} = params.tau_ref if z^{t+1} == 1</p>
 </div></blockquote>
 <p>Assumes i^0, v^0 = 0., v_reset
-:note: One <cite>dt</cite> synaptic delay between input and output
-:param input: Input spikes in shape (batch, time, neurons).
-:param params: LIFParams object holding neuron parameters.
-:return: Returns the spike trains in shape and membrane trace as a tuple.</p>
-<blockquote>
-<div><p>Both tensors are of shape (batch, time, neurons).</p>
-</div></blockquote>
+:note: One <cite>dt</cite> synaptic delay between input and output</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> – SynapseHandle holding <cite>graded_spikes</cite> in shape (batch, time,
+neurons).</p></li>
+<li><p><strong>params</strong> – LIFParams object holding neuron parameters.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Returns NeuronHandle holding tensors with membrane traces, spikes
+and synaptic current. Tensors are of shape (batch, time, neurons).</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">

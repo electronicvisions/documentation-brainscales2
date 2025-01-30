@@ -147,7 +147,7 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.BatchDropout.html#hxtorch.spiking.BatchDropout" title="hxtorch.spiking.BatchDropout"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BatchDropout</span></code></a>(size, dropout, experiment, …)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.BatchDropout.html#hxtorch.spiking.BatchDropout" title="hxtorch.spiking.BatchDropout"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BatchDropout</span></code></a>(size, dropout, experiment)</p></td>
 <td><p>Batch dropout layer</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.CalibratedParams.html#hxtorch.spiking.CalibratedParams" title="hxtorch.spiking.CalibratedParams"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CalibratedParams</span></code></a>(leak, reset, threshold, …)</p></td>
@@ -162,41 +162,44 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.HXBaseExperimentModule.html#hxtorch.spiking.HXBaseExperimentModule" title="hxtorch.spiking.HXBaseExperimentModule"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HXBaseExperimentModule</span></code></a>(experiment)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.HXModule.html#hxtorch.spiking.HXModule" title="hxtorch.spiking.HXModule"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HXModule</span></code></a>(experiment, func, …)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.HXModule.html#hxtorch.spiking.HXModule" title="hxtorch.spiking.HXModule"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HXModule</span></code></a>(experiment, execution_instance)</p></td>
 <td><p>PyTorch module supplying basic functionality for elements of SNNs that do have a representation on hardware</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.HXModuleWrapper.html#hxtorch.spiking.HXModuleWrapper" title="hxtorch.spiking.HXModuleWrapper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HXModuleWrapper</span></code></a>(experiment, modules, func)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.HXModuleWrapper.html#hxtorch.spiking.HXModuleWrapper" title="hxtorch.spiking.HXModuleWrapper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HXModuleWrapper</span></code></a>(experiment, **modules)</p></td>
 <td><p>Class to wrap HXModules</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.IAFNeuron.html#hxtorch.spiking.IAFNeuron" title="hxtorch.spiking.IAFNeuron"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IAFNeuron</span></code></a>(size, experiment, func, …[, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.Handle.html#hxtorch.spiking.Handle" title="hxtorch.spiking.Handle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Handle</span></code></a>()</p></td>
+<td><p>Base class for HX tensor handles.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.IAFNeuron.html#hxtorch.spiking.IAFNeuron" title="hxtorch.spiking.IAFNeuron"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IAFNeuron</span></code></a>(size, experiment, …[, …])</p></td>
 <td><p>Integrate-and-fire neuron Caveat: For execution on hardware, this module can only be used in conjunction with a preceding Synapse module.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.InputNeuron.html#hxtorch.spiking.InputNeuron" title="hxtorch.spiking.InputNeuron"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InputNeuron</span></code></a>(size, experiment, execution_instance)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.InputNeuron.html#hxtorch.spiking.InputNeuron" title="hxtorch.spiking.InputNeuron"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InputNeuron</span></code></a>(size, experiment, execution_instance)</p></td>
 <td><p>Spike source generating spikes at the times [ms] given in the spike_times array.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.Neuron.html#hxtorch.spiking.Neuron" title="hxtorch.spiking.Neuron"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Neuron</span></code></a>(size, experiment, func, …[, leak, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.Neuron.html#hxtorch.spiking.Neuron" title="hxtorch.spiking.Neuron"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Neuron</span></code></a>(size, experiment, execution_instance, …)</p></td>
 <td><p>Neuron layer</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.NeuronHandle.html#hxtorch.spiking.NeuronHandle" title="hxtorch.spiking.NeuronHandle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NeuronHandle</span></code></a>(spikes, v_cadc, current, v_madc)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.NeuronHandle.html#hxtorch.spiking.NeuronHandle" title="hxtorch.spiking.NeuronHandle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NeuronHandle</span></code></a>(spikes, membrane_cadc, current, …)</p></td>
 <td><p>Specialization for HX neuron observables</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.ReadoutNeuron.html#hxtorch.spiking.ReadoutNeuron" title="hxtorch.spiking.ReadoutNeuron"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ReadoutNeuron</span></code></a>(size, experiment, func, …)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.ReadoutNeuron.html#hxtorch.spiking.ReadoutNeuron" title="hxtorch.spiking.ReadoutNeuron"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ReadoutNeuron</span></code></a>(size, experiment, …)</p></td>
 <td><p>Readout neuron layer</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.ReadoutNeuronHandle.html#hxtorch.spiking.ReadoutNeuronHandle" title="hxtorch.spiking.ReadoutNeuronHandle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ReadoutNeuronHandle</span></code></a>(v_cadc, current, v_madc)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.ReadoutNeuronHandle.html#hxtorch.spiking.ReadoutNeuronHandle" title="hxtorch.spiking.ReadoutNeuronHandle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ReadoutNeuronHandle</span></code></a>(membrane_cadc, current, …)</p></td>
 <td><p>Specialization for HX neuron observables</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.SparseSynapse.html#hxtorch.spiking.SparseSynapse" title="hxtorch.spiking.SparseSynapse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SparseSynapse</span></code></a>(connections, experiment, func, …)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.SparseSynapse.html#hxtorch.spiking.SparseSynapse" title="hxtorch.spiking.SparseSynapse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SparseSynapse</span></code></a>(connections, experiment, …)</p></td>
 <td><p>Sparse synapse layer</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.Synapse.html#hxtorch.spiking.Synapse" title="hxtorch.spiking.Synapse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Synapse</span></code></a>(in_features, out_features, …)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.Synapse.html#hxtorch.spiking.Synapse" title="hxtorch.spiking.Synapse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Synapse</span></code></a>(in_features, out_features, …)</p></td>
 <td><p>Synapse layer</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.SynapseHandle.html#hxtorch.spiking.SynapseHandle" title="hxtorch.spiking.SynapseHandle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SynapseHandle</span></code></a>(graded_spikes)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.SynapseHandle.html#hxtorch.spiking.SynapseHandle" title="hxtorch.spiking.SynapseHandle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SynapseHandle</span></code></a>(graded_spikes)</p></td>
 <td><p>Specialization for HX synapses</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.TensorHandle.html#hxtorch.spiking.TensorHandle" title="hxtorch.spiking.TensorHandle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TensorHandle</span></code></a>()</p></td>
-<td><p>Base class for HX tensor handles.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.TensorHandle.html#hxtorch.spiking.TensorHandle" title="hxtorch.spiking.TensorHandle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TensorHandle</span></code></a>(tensor)</p></td>
+<td><p>Specialization for single tensor, mostly for testing</p></td>
 </tr>
 </tbody>
 </table>

@@ -16,7 +16,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="hxtorch.spiking.functional.eventprop.EventPropNeuron" href="hxtorch.spiking.functional.eventprop.EventPropNeuron.html" />
+    <link rel="next" title="hxtorch.spiking.functional.eventprop.EventPropNeuronFunction" href="hxtorch.spiking.functional.eventprop.EventPropNeuronFunction.html" />
     <link rel="prev" title="hxtorch.spiking.functional.dropout" href="hxtorch.spiking.functional.dropout.html" /> 
 </head>
 
@@ -98,10 +98,10 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.functional.eventprop.EventPropNeuron.html#hxtorch.spiking.functional.eventprop.EventPropNeuron" title="hxtorch.spiking.functional.eventprop.EventPropNeuron"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EventPropNeuron</span></code></a>(*args, **kwargs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.functional.eventprop.EventPropNeuronFunction.html#hxtorch.spiking.functional.eventprop.EventPropNeuronFunction" title="hxtorch.spiking.functional.eventprop.EventPropNeuronFunction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EventPropNeuronFunction</span></code></a>(*args, **kwargs)</p></td>
 <td><p>Define gradient using adjoint code (EventProp) from norse</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.functional.eventprop.EventPropSynapse.html#hxtorch.spiking.functional.eventprop.EventPropSynapse" title="hxtorch.spiking.functional.eventprop.EventPropSynapse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EventPropSynapse</span></code></a>(*args, **kwargs)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.functional.eventprop.EventPropSynapseFunction.html#hxtorch.spiking.functional.eventprop.EventPropSynapseFunction" title="hxtorch.spiking.functional.eventprop.EventPropSynapseFunction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EventPropSynapseFunction</span></code></a>(*args, **kwargs)</p></td>
 <td><p>Synapse function for proper gradient transport when using EventPropNeuron.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.functional.eventprop.NamedTuple.html#hxtorch.spiking.functional.eventprop.NamedTuple" title="hxtorch.spiking.functional.eventprop.NamedTuple"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NamedTuple</span></code></a>(typename[, fields])</p></td>
@@ -109,17 +109,6 @@
 </tr>
 </tbody>
 </table>
-<p class="rubric">Functions</p>
-<dl class="py function">
-<dt id="hxtorch.spiking.functional.eventprop.eventprop_neuron">
-<code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.functional.eventprop.</span></code><code class="sig-name descname"><span class="pre">eventprop_neuron</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="hxtorch.spiking.functional.eventprop.NamedTuple.html#hxtorch.spiking.functional.eventprop.NamedTuple" title="hxtorch.spiking.functional.eventprop.NamedTuple"><span class="pre">NamedTuple</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hw_data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#hxtorch.spiking.functional.eventprop.eventprop_neuron" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt id="hxtorch.spiking.functional.eventprop.eventprop_synapse">
-<code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.functional.eventprop.</span></code><code class="sig-name descname"><span class="pre">eventprop_synapse</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">torch.Tensor</span><a class="headerlink" href="#hxtorch.spiking.functional.eventprop.eventprop_synapse" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
 </div>
 
 
@@ -127,7 +116,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="hxtorch.spiking.functional.dropout.html" class="btn btn-neutral float-left" title="hxtorch.spiking.functional.dropout" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="hxtorch.spiking.functional.eventprop.EventPropNeuron.html" class="btn btn-neutral float-right" title="hxtorch.spiking.functional.eventprop.EventPropNeuron" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="hxtorch.spiking.functional.eventprop.EventPropNeuronFunction.html" class="btn btn-neutral float-right" title="hxtorch.spiking.functional.eventprop.EventPropNeuronFunction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -94,7 +94,7 @@
 <h1>hxtorch.spiking.modules.batch_dropout.BatchDropout<a class="headerlink" href="#hxtorch-spiking-modules-batch-dropout-batchdropout" title="Permalink to this headline"></a></h1>
 <dl class="py class">
 <dt id="hxtorch.spiking.modules.batch_dropout.BatchDropout">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.modules.batch_dropout.</span></code><code class="sig-name descname"><span class="pre">BatchDropout</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">size:</span> <span class="pre">int</span></em>, <em class="sig-param"><span class="pre">dropout:</span> <span class="pre">float</span></em>, <em class="sig-param"><span class="pre">experiment:</span> <span class="pre">Experiment</span></em>, <em class="sig-param"><span class="pre">func:</span> <span class="pre">Union[Callable</span></em>, <em class="sig-param"><span class="pre">torch.autograd.Function]</span> <span class="pre">=</span> <span class="pre">&lt;function</span> <span class="pre">batch_dropout&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.modules.batch_dropout.BatchDropout" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.modules.batch_dropout.</span></code><code class="sig-name descname"><span class="pre">BatchDropout</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dropout</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">experiment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Experiment</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.modules.batch_dropout.BatchDropout" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="hxtorch.spiking.modules.hx_module.HXFunctionalModule.html#hxtorch.spiking.modules.hx_module.HXFunctionalModule" title="hxtorch.spiking.modules.hx_module.HXFunctionalModule"><code class="xref py py-class docutils literal notranslate"><span class="pre">hxtorch.spiking.modules.hx_module.HXFunctionalModule</span></code></a></p>
 <p>Batch dropout layer</p>
 <p>Caveat:
@@ -102,7 +102,7 @@ In-place operations on TensorHandles are not supported. Must be placed
 after a neuron layer, i.e. Neuron.</p>
 <dl class="py method">
 <dt id="hxtorch.spiking.modules.batch_dropout.BatchDropout.__init__">
-<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">size:</span> <span class="pre">int</span></em>, <em class="sig-param"><span class="pre">dropout:</span> <span class="pre">float</span></em>, <em class="sig-param"><span class="pre">experiment:</span> <span class="pre">Experiment</span></em>, <em class="sig-param"><span class="pre">func:</span> <span class="pre">Union[Callable</span></em>, <em class="sig-param"><span class="pre">torch.autograd.Function]</span> <span class="pre">=</span> <span class="pre">&lt;function</span> <span class="pre">batch_dropout&gt;</span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.modules.batch_dropout.BatchDropout.__init__" title="Permalink to this definition"></a></dt>
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dropout</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">experiment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Experiment</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.modules.batch_dropout.BatchDropout.__init__" title="Permalink to this definition"></a></dt>
 <dd><p>Initialize BatchDropout layer. This layer disables spiking neurons in
 the previous spiking Neuron layer with a probability of <cite>dropout</cite>.
 Note, <cite>size</cite> has to be equal to the size in the corresponding spiking
@@ -114,10 +114,6 @@ layer. The spiking mask is maintained for the whole batch.</p>
 <li><p><strong>dropout</strong> – Probability that a neuron in the precessing layer gets
 disabled during training.</p></li>
 <li><p><strong>experiment</strong> – Experiment to append layer to.</p></li>
-<li><p><strong>func</strong> – Callable function implementing the module’s forward
-functionality or a torch.autograd.Function implementing the
-module’s forward and backward operation. Defaults to
-<cite>batch_dropout</cite>.</p></li>
 </ul>
 </dd>
 </dl>
@@ -130,13 +126,16 @@ module’s forward and backward operation. Defaults to
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.batch_dropout.BatchDropout.__init__" title="hxtorch.spiking.modules.batch_dropout.BatchDropout.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(size, dropout, experiment[, func])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.batch_dropout.BatchDropout.__init__" title="hxtorch.spiking.modules.batch_dropout.BatchDropout.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(size, dropout, experiment)</p></td>
 <td><p>Initialize BatchDropout layer.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.batch_dropout.BatchDropout.extra_repr" title="hxtorch.spiking.modules.batch_dropout.BatchDropout.extra_repr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">extra_repr</span></code></a>()</p></td>
 <td><p>Add additional information</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.batch_dropout.BatchDropout.set_mask" title="hxtorch.spiking.modules.batch_dropout.BatchDropout.set_mask"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_mask</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.batch_dropout.BatchDropout.forward_func" title="hxtorch.spiking.modules.batch_dropout.BatchDropout.forward_func"><code class="xref py py-obj docutils literal notranslate"><span class="pre">forward_func</span></code></a>(input)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.batch_dropout.BatchDropout.set_mask" title="hxtorch.spiking.modules.batch_dropout.BatchDropout.set_mask"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_mask</span></code></a>()</p></td>
 <td><p>Creates a new random dropout mask, applied to the spiking neurons in the previous module.</p></td>
 </tr>
 </tbody>
@@ -158,6 +157,11 @@ module’s forward and backward operation. Defaults to
 <code class="sig-name descname"><span class="pre">extra_repr</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="headerlink" href="#hxtorch.spiking.modules.batch_dropout.BatchDropout.extra_repr" title="Permalink to this definition"></a></dt>
 <dd><p>Add additional information</p>
 </dd></dl>
+
+<dl class="py method">
+<dt id="hxtorch.spiking.modules.batch_dropout.BatchDropout.forward_func">
+<code class="sig-name descname"><span class="pre">forward_func</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="hxtorch.spiking.handle.NeuronHandle.html#hxtorch.spiking.handle.NeuronHandle" title="hxtorch.spiking.handle.NeuronHandle"><span class="pre">hxtorch.spiking.handle.NeuronHandle</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="hxtorch.spiking.handle.NeuronHandle.html#hxtorch.spiking.handle.NeuronHandle" title="hxtorch.spiking.handle.NeuronHandle"><span class="pre">hxtorch.spiking.handle.NeuronHandle</span></a><a class="headerlink" href="#hxtorch.spiking.modules.batch_dropout.BatchDropout.forward_func" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt id="hxtorch.spiking.modules.batch_dropout.BatchDropout.mask">

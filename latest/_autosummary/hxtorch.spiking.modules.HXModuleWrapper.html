@@ -93,40 +93,24 @@
 <h1>hxtorch.spiking.modules.HXModuleWrapper<a class="headerlink" href="#hxtorch-spiking-modules-hxmodulewrapper" title="Permalink to this headline"></a></h1>
 <dl class="py class">
 <dt id="hxtorch.spiking.modules.HXModuleWrapper">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.modules.</span></code><code class="sig-name descname"><span class="pre">HXModuleWrapper</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">experiment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Experiment</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modules</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="hxtorch.spiking.modules.HXModule.html#hxtorch.spiking.modules.HXModule" title="hxtorch.spiking.modules.HXModule"><span class="pre">HXModule</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.modules.HXModuleWrapper" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.modules.</span></code><code class="sig-name descname"><span class="pre">HXModuleWrapper</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">experiment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Experiment</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">modules</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="hxtorch.spiking.modules.HXModule.html#hxtorch.spiking.modules.HXModule" title="hxtorch.spiking.modules.HXModule"><span class="pre">HXModule</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.modules.HXModuleWrapper" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="hxtorch.spiking.modules.hx_module.HXFunctionalModule.html#hxtorch.spiking.modules.hx_module.HXFunctionalModule" title="hxtorch.spiking.modules.hx_module.HXFunctionalModule"><code class="xref py py-class docutils literal notranslate"><span class="pre">hxtorch.spiking.modules.hx_module.HXFunctionalModule</span></code></a></p>
 <p>Class to wrap HXModules</p>
 <dl class="py method">
 <dt id="hxtorch.spiking.modules.HXModuleWrapper.__init__">
-<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">experiment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Experiment</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modules</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="hxtorch.spiking.modules.HXModule.html#hxtorch.spiking.modules.HXModule" title="hxtorch.spiking.modules.HXModule"><span class="pre">HXModule</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.modules.HXModuleWrapper.__init__" title="Permalink to this definition"></a></dt>
-<dd><p>A module which wraps a number of HXModules defined in <cite>modules</cite> to
-which a single PyTorch-differential function <cite>func</cite> is defined. For
-instance, this allows to wrap a Synapse and a Neuron to describe
-recurrence.
-:param experiment: The experiment to register this wrapper in.
-:param modules: A list of modules to be represented by this wrapper.
-:param func: The function describing the unified functionality of all</p>
-<blockquote>
-<div><p>modules assigned to this wrapper. As for HXModules, this needs to
-be a PyTorch-differentiable function and can be either an
-autograd.Function or a function defined by PyTorch operation. The
-signature of this function is expected as:
-1. All positional arguments of each function in <cite>modules</cite> appended</p>
-<blockquote>
-<div><p>in the order given in <cite>modules</cite>.</p>
-</div></blockquote>
-<ol class="arabic simple" start="2">
-<li><p>All keywords arguments of each function in <cite>modules</cite>. If a
-keyword occurs multiple times, it is post-fixed <cite>_i</cite>, where
-<cite>i</cite> is an integer incremented with each occurrence.</p></li>
-<li><p>A keyword argument <cite>hw_data</cite> if hardware data is expected, which
-is a tuple holding the data for each module for which data is
-expected. The order is defined by <cite>modules</cite>.</p></li>
-</ol>
-<p>The function is expected to output a tensor or a tuple of tensors
-for each module in <cite>modules</cite>, that can be assigned to the output
-handle of the corresponding HXModule.</p>
-</div></blockquote>
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">experiment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Experiment</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">modules</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="hxtorch.spiking.modules.HXModule.html#hxtorch.spiking.modules.HXModule" title="hxtorch.spiking.modules.HXModule"><span class="pre">HXModule</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.modules.HXModuleWrapper.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>A module which wraps a number of HXModules defined in <cite>modules</cite> for
+which a single PyTorch-differential member function <cite>forward_func</cite> is
+defined. For instance, this allows to wrap a Synapse and a Neuron to
+describe recurrence.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>experiment</strong> – The experiment to register this wrapper in.</p></li>
+<li><p><strong>modules</strong> – A list of modules to be represented by this wrapper.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <p class="rubric">Methods</p>
@@ -136,23 +120,26 @@ handle of the corresponding HXModule.</p>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.HXModuleWrapper.__init__" title="hxtorch.spiking.modules.HXModuleWrapper.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(experiment, modules, func)</p></td>
-<td><p>A module which wraps a number of HXModules defined in <cite>modules</cite> to which a single PyTorch-differential function <cite>func</cite> is defined. For instance, this allows to wrap a Synapse and a Neuron to describe recurrence. :param experiment: The experiment to register this wrapper in. :param modules: A list of modules to be represented by this wrapper. :param func: The function describing the unified functionality of all     modules assigned to this wrapper. As for HXModules, this needs to     be a PyTorch-differentiable function and can be either an     autograd.Function or a function defined by PyTorch operation. The     signature of this function is expected as:     1. All positional arguments of each function in <cite>modules</cite> appended        in the order given in <cite>modules</cite>. 2. All keywords arguments of each function in <cite>modules</cite>. If a        keyword occurs multiple times, it is post-fixed <cite>_i</cite>, where        <cite>i</cite> is an integer incremented with each occurrence. 3. A keyword argument <cite>hw_data</cite> if hardware data is expected, which        is a tuple holding the data for each module for which data is        expected. The order is defined by <cite>modules</cite>. The function is expected to output a tensor or a tuple of tensors     for each module in <cite>modules</cite>, that can be assigned to the output     handle of the corresponding HXModule.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.HXModuleWrapper.__init__" title="hxtorch.spiking.modules.HXModuleWrapper.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(experiment, **modules)</p></td>
+<td><p>A module which wraps a number of HXModules defined in <cite>modules</cite> for which a single PyTorch-differential member function <cite>forward_func</cite> is defined.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.HXModuleWrapper.contains" title="hxtorch.spiking.modules.HXModuleWrapper.contains"><code class="xref py py-obj docutils literal notranslate"><span class="pre">contains</span></code></a>(modules)</p></td>
 <td><p>Checks whether a list of modules <cite>modules</cite> is registered in the wrapper.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.HXModuleWrapper.exec_forward" title="hxtorch.spiking.modules.HXModuleWrapper.exec_forward"><code class="xref py py-obj docutils literal notranslate"><span class="pre">exec_forward</span></code></a>(input, output, hw_map)</p></td>
-<td><p>Execute the the forward function of the wrapper. This method assigns each output handle in <cite>output</cite> their corresponding PyTorch tensors and adds the wrapper’s <cite>func</cite> to the PyTorch graph. :param input: A tuple of the input handles where each handle     corresponds to a certain module. The order is defined by <cite>modules</cite>. Note, a module can have multiple input handles. :param output: A tuple of output handles, each corresponding to one     module. The order is defined by <cite>modules</cite>. :param hw_map: The hardware data map.</p></td>
+<td><p>Execute the the forward function of the wrapper. This method assigns each output handle in <cite>output</cite> their corresponding PyTorch tensors and adds the wrapper’s <cite>forward_func</cite> to the PyTorch graph. :param input: A tuple of the input handles where each handle     corresponds to a certain module. The order is defined by <cite>modules</cite>. Note, a module can have multiple input handles. :param output: A tuple of output handles, each corresponding to one     module. The order is defined by <cite>modules</cite>. :param hw_map: The hardware data map.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.HXModuleWrapper.extra_repr" title="hxtorch.spiking.modules.HXModuleWrapper.extra_repr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">extra_repr</span></code></a>()</p></td>
 <td><p>Add additional information</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.HXModuleWrapper.update" title="hxtorch.spiking.modules.HXModuleWrapper.update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update</span></code></a>(modules[, func])</p></td>
-<td><p>Update the modules and the function in the wrapper.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.HXModuleWrapper.forward" title="hxtorch.spiking.modules.HXModuleWrapper.forward"><code class="xref py py-obj docutils literal notranslate"><span class="pre">forward</span></code></a>()</p></td>
+<td><p>Forward method registering layer operation in given experiment</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.HXModuleWrapper.update_args" title="hxtorch.spiking.modules.HXModuleWrapper.update_args"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_args</span></code></a>(modules)</p></td>
-<td><p>Gathers the args and kwargs of all modules in <cite>modules</cite> and renames keyword arguments that occur multiple times.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.HXModuleWrapper.forward_func" title="hxtorch.spiking.modules.HXModuleWrapper.forward_func"><code class="xref py py-obj docutils literal notranslate"><span class="pre">forward_func</span></code></a>(input[, hw_data])</p></td>
+<td><p>This function describes the unified functionality of all modules assigned to this wrapper. As for HXModules, this needs to be a PyTorch- differentiable function defined by PyTorch operations. The input and output of this member function is wrapped by (tuples of) <cite>Handles</cite>. The signature of this function is expected as: - Input: All input handles required for each module in <cite>modules</cite> as     positional arguments in the order given by <cite>modules</cite>. - Outputs: Output a tuple of handles each corresponding to the output     of one module in <cite>modules</cite>. The order is given by <cite>modules</cite>. - Additionally, hardware data can be accessed via a <cite>hw_data</cite> keyword     arguments to which the the hardware data is supplied via a tuple     holding the hardware data for each module.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.HXModuleWrapper.update" title="hxtorch.spiking.modules.HXModuleWrapper.update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update</span></code></a>(**modules)</p></td>
+<td><p>Update the modules and the function in the wrapper.</p></td>
 </tr>
 </tbody>
 </table>
@@ -167,7 +154,7 @@ handle of the corresponding HXModule.</p>
 </table>
 <dl class="py method">
 <dt id="hxtorch.spiking.modules.HXModuleWrapper.contains">
-<code class="sig-name descname"><span class="pre">contains</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modules</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="hxtorch.spiking.modules.hx_module.HXModule.html#hxtorch.spiking.modules.hx_module.HXModule" title="hxtorch.spiking.modules.hx_module.HXModule"><span class="pre">hxtorch.spiking.modules.hx_module.HXModule</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#hxtorch.spiking.modules.HXModuleWrapper.contains" title="Permalink to this definition"></a></dt>
+<code class="sig-name descname"><span class="pre">contains</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modules</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="hxtorch.spiking.modules.hx_module.HXModule.html#hxtorch.spiking.modules.hx_module.HXModule" title="hxtorch.spiking.modules.hx_module.HXModule"><span class="pre">hxtorch.spiking.modules.hx_module.HXModule</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="hxtorch.spiking.modules.hx_module.HXModule.html#hxtorch.spiking.modules.hx_module.HXModule" title="hxtorch.spiking.modules.hx_module.HXModule"><span class="pre">hxtorch.spiking.modules.hx_module.HXModule</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#hxtorch.spiking.modules.HXModuleWrapper.contains" title="Permalink to this definition"></a></dt>
 <dd><p>Checks whether a list of modules <cite>modules</cite> is registered in the
 wrapper.
 :param modules: The modules for which to check if they are registered.
@@ -179,7 +166,7 @@ wrapper.
 <code class="sig-name descname"><span class="pre">exec_forward</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="hxtorch.spiking.handle.TensorHandle.html#hxtorch.spiking.handle.TensorHandle" title="hxtorch.spiking.handle.TensorHandle"><span class="pre">hxtorch.spiking.handle.TensorHandle</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="hxtorch.spiking.handle.TensorHandle.html#hxtorch.spiking.handle.TensorHandle" title="hxtorch.spiking.handle.TensorHandle"><span class="pre">hxtorch.spiking.handle.TensorHandle</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hw_map</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">_pygrenade_vx_network.PopulationOnNetwork</span><span class="p"><span class="pre">,</span> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.modules.HXModuleWrapper.exec_forward" title="Permalink to this definition"></a></dt>
 <dd><p>Execute the the forward function of the wrapper. This method assigns
 each output handle in <cite>output</cite> their corresponding PyTorch tensors and
-adds the wrapper’s <cite>func</cite> to the PyTorch graph.
+adds the wrapper’s <cite>forward_func</cite> to the PyTorch graph.
 :param input: A tuple of the input handles where each handle</p>
 <blockquote>
 <div><p>corresponds to a certain module. The order is defined by <cite>modules</cite>.
@@ -196,20 +183,43 @@ module. The order is defined by <cite>modules</cite>.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="py attribute">
-<dt id="hxtorch.spiking.modules.HXModuleWrapper.extra_args">
-<code class="sig-name descname"><span class="pre">extra_args</span></code><em class="property"><span class="pre">:</span> <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#hxtorch.spiking.modules.HXModuleWrapper.extra_args" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="hxtorch.spiking.modules.HXModuleWrapper.extra_kwargs">
-<code class="sig-name descname"><span class="pre">extra_kwargs</span></code><em class="property"><span class="pre">:</span> <span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#hxtorch.spiking.modules.HXModuleWrapper.extra_kwargs" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
 <dl class="py method">
 <dt id="hxtorch.spiking.modules.HXModuleWrapper.extra_repr">
 <code class="sig-name descname"><span class="pre">extra_repr</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="headerlink" href="#hxtorch.spiking.modules.HXModuleWrapper.extra_repr" title="Permalink to this definition"></a></dt>
 <dd><p>Add additional information</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="hxtorch.spiking.modules.HXModuleWrapper.forward">
+<code class="sig-name descname"><span class="pre">forward</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.modules.HXModuleWrapper.forward" title="Permalink to this definition"></a></dt>
+<dd><p>Forward method registering layer operation in given experiment</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="hxtorch.spiking.modules.HXModuleWrapper.forward_func">
+<code class="sig-name descname"><span class="pre">forward_func</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="hxtorch.spiking.handle.TensorHandle.html#hxtorch.spiking.handle.TensorHandle" title="hxtorch.spiking.handle.TensorHandle"><span class="pre">hxtorch.spiking.handle.TensorHandle</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">hw_data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="hxtorch.spiking.handle.TensorHandle.html#hxtorch.spiking.handle.TensorHandle" title="hxtorch.spiking.handle.TensorHandle"><span class="pre">hxtorch.spiking.handle.TensorHandle</span></a><a class="headerlink" href="#hxtorch.spiking.modules.HXModuleWrapper.forward_func" title="Permalink to this definition"></a></dt>
+<dd><p>This function describes the unified functionality of all modules
+assigned to this wrapper. As for HXModules, this needs to be a PyTorch-
+differentiable function defined by PyTorch operations. The input and
+output of this member function is wrapped by (tuples of) <cite>Handles</cite>. The
+signature of this function is expected as:
+- Input: All input handles required for each module in <cite>modules</cite> as</p>
+<blockquote>
+<div><p>positional arguments in the order given by <cite>modules</cite>.</p>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Outputs: Output a tuple of handles each corresponding to the output</dt><dd><p>of one module in <cite>modules</cite>. The order is given by <cite>modules</cite>.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Additionally, hardware data can be accessed via a <cite>hw_data</cite> keyword</dt><dd><p>arguments to which the the hardware data is supplied via a tuple
+holding the hardware data for each module.</p>
+</dd>
+</dl>
+</li>
+</ul>
 </dd></dl>
 
 <dl class="py attribute">
@@ -219,18 +229,9 @@ module. The order is defined by <cite>modules</cite>.</p></li>
 
 <dl class="py method">
 <dt id="hxtorch.spiking.modules.HXModuleWrapper.update">
-<code class="sig-name descname"><span class="pre">update</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modules</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="hxtorch.spiking.modules.hx_module.HXModule.html#hxtorch.spiking.modules.hx_module.HXModule" title="hxtorch.spiking.modules.hx_module.HXModule"><span class="pre">hxtorch.spiking.modules.hx_module.HXModule</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.modules.HXModuleWrapper.update" title="Permalink to this definition"></a></dt>
+<code class="sig-name descname"><span class="pre">update</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">modules</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="hxtorch.spiking.modules.HXModule.html#hxtorch.spiking.modules.HXModule" title="hxtorch.spiking.modules.HXModule"><span class="pre">HXModule</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.modules.HXModuleWrapper.update" title="Permalink to this definition"></a></dt>
 <dd><p>Update the modules and the function in the wrapper.
-:param modules: The new modules to assign to the wrapper.
-:param func: The new function to represent the modules in the wrapper.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="hxtorch.spiking.modules.HXModuleWrapper.update_args">
-<code class="sig-name descname"><span class="pre">update_args</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modules</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="hxtorch.spiking.modules.hx_module.HXModule.html#hxtorch.spiking.modules.hx_module.HXModule" title="hxtorch.spiking.modules.hx_module.HXModule"><span class="pre">hxtorch.spiking.modules.hx_module.HXModule</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.modules.HXModuleWrapper.update_args" title="Permalink to this definition"></a></dt>
-<dd><p>Gathers the args and kwargs of all modules in <cite>modules</cite> and renames
-keyword arguments that occur multiple times.
-:param modules: The modules represented by the wrapper.</p>
+:param modules: The new modules to assign to the wrapper.</p>
 </dd></dl>
 
 </dd></dl>

@@ -135,14 +135,15 @@ v^{t+1} = params.reset if z^{t+1} == 1</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>input</strong> – Input spikes in shape (batch, time, neurons).</p></li>
+<li><p><strong>input</strong> – Tensor holding ‘graded_spikes’ in shape (batch, time,
+neurons).</p></li>
 <li><p><strong>params</strong> – LIFParams object holding neuron parameters.</p></li>
 <li><p><strong>dt</strong> – Step width of integration.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Returns the spike trains in shape and membrane trace as a tuple.
-Both tensors are of shape (batch, time, neurons).</p>
+<dd class="field-even"><p>Returns tuple holding tensors with membrane traces, spikes
+and synaptic current. Tensors are of shape (batch, time, neurons).</p>
 </dd>
 </dl>
 </dd></dl>
@@ -190,13 +191,14 @@ ref^{t+1} -= 1</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>input</strong> – Input spikes in shape (batch, time, neurons).</p></li>
+<li><p><strong>input</strong> – Tensor holding ‘graded_spikes’ in shape (batch, time,
+neurons).</p></li>
 <li><p><strong>params</strong> – LIFParams object holding neuron parameters.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Returns the spike trains in shape and membrane trace as a tuple.
-Both tensors are of shape (batch, time, neurons).</p>
+<dd class="field-even"><p>Returns tuple holding tensors with membrane traces, spikes
+and synaptic current. Tensors are of shape (batch, time, neurons).</p>
 </dd>
 </dl>
 </dd></dl>

@@ -130,17 +130,17 @@ beneficial for the calculated gradient’s precision.</p></li>
 <tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.experiment.Experiment.connect" title="hxtorch.spiking.experiment.Experiment.connect"><code class="xref py py-obj docutils literal notranslate"><span class="pre">connect</span></code></a>(module, input_handles, output_handle)</p></td>
 <td><p>Add an module to the experiment and connect it to other experiment modules via input and output handles.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.experiment.Experiment.get_hw_results" title="hxtorch.spiking.experiment.Experiment.get_hw_results"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_hw_results</span></code></a>(runtime)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.experiment.Experiment.connect_wrapper" title="hxtorch.spiking.experiment.Experiment.connect_wrapper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">connect_wrapper</span></code></a>(wrapper)</p></td>
+<td><p>Add a wrapper module to the experiment and assign it to the experiments modules.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.experiment.Experiment.get_hw_results" title="hxtorch.spiking.experiment.Experiment.get_hw_results"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_hw_results</span></code></a>(runtime)</p></td>
 <td><p>Executes the experiment in mock or on hardware using the information added to the experiment for a time given by <cite>runtime</cite> and returns a dict of hardware data represented as PyTorch data types.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.experiment.Experiment.register_population" title="hxtorch.spiking.experiment.Experiment.register_population"><code class="xref py py-obj docutils literal notranslate"><span class="pre">register_population</span></code></a>(module)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.experiment.Experiment.register_population" title="hxtorch.spiking.experiment.Experiment.register_population"><code class="xref py py-obj docutils literal notranslate"><span class="pre">register_population</span></code></a>(module)</p></td>
 <td><p>Register a module as population.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.experiment.Experiment.register_projection" title="hxtorch.spiking.experiment.Experiment.register_projection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">register_projection</span></code></a>(module)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.experiment.Experiment.register_projection" title="hxtorch.spiking.experiment.Experiment.register_projection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">register_projection</span></code></a>(module)</p></td>
 <td><p>Register a module as projection.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.experiment.Experiment.wrap_modules" title="hxtorch.spiking.experiment.Experiment.wrap_modules"><code class="xref py py-obj docutils literal notranslate"><span class="pre">wrap_modules</span></code></a>(modules[, func])</p></td>
-<td><p>Wrap a number of given modules into a wrapper to which a single function <cite>func</cite> can be assigned. In the PyTorch graph the individual module functions are then bypassed and only the wrapper’s function is considered when building the PyTorch graph. This functionality is of interest if several modules have cyclic dependencies and need to be represented by one PyTorch function. :param modules: A list of module to be wrapped. These modules need to     constitute a closed sub-graph with no modules in between that are     not element of the wrapper. :func: The function to assign to the wrapper. TODO: Add info about this functions signature.</p></td>
 </tr>
 </tbody>
 </table>
@@ -180,6 +180,22 @@ modules via input and output handles.</p>
 <li><p><strong>output_handle</strong> – The TensorHandle outputted by the module,
 serving as input to subsequent HXModules.</p></li>
 </ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="hxtorch.spiking.experiment.Experiment.connect_wrapper">
+<code class="sig-name descname"><span class="pre">connect_wrapper</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wrapper</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="hxtorch.spiking.modules.hx_module_wrapper.HXModuleWrapper.html#hxtorch.spiking.modules.hx_module_wrapper.HXModuleWrapper" title="hxtorch.spiking.modules.hx_module_wrapper.HXModuleWrapper"><span class="pre">hxtorch.spiking.modules.hx_module_wrapper.HXModuleWrapper</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.experiment.Experiment.connect_wrapper" title="Permalink to this definition"></a></dt>
+<dd><p>Add a wrapper module to the experiment and assign it to the experiments
+modules. In the PyTorch graph the individual module functions assigned
+to the wrapper are then bypassed and only the wrapper’s <cite>forward_func</cite>
+is considered when building the PyTorch graph. This functionality is of
+interest if several modules have cyclic dependencies and need to be
+represented by one PyTorch function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>wrapper</strong> – The HWModuleWrapper to add to the experiment.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -239,28 +255,6 @@ the corresponding module’s <cite>post_process</cite> method.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>module</strong> – The module to register as projection.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="hxtorch.spiking.experiment.Experiment.wrap_modules">
-<code class="sig-name descname"><span class="pre">wrap_modules</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modules</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="hxtorch.spiking.modules.hx_module.HXModule.html#hxtorch.spiking.modules.hx_module.HXModule" title="hxtorch.spiking.modules.hx_module.HXModule"><span class="pre">hxtorch.spiking.modules.hx_module.HXModule</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.experiment.Experiment.wrap_modules" title="Permalink to this definition"></a></dt>
-<dd><p>Wrap a number of given modules into a wrapper to which a single
-function <cite>func</cite> can be assigned. In the PyTorch graph the individual
-module functions are then bypassed and only the wrapper’s function is
-considered when building the PyTorch graph. This functionality is of
-interest if several modules have cyclic dependencies and need to be
-represented by one PyTorch function.
-:param modules: A list of module to be wrapped. These modules need to</p>
-<blockquote>
-<div><p>constitute a closed sub-graph with no modules in between that are
-not element of the wrapper.</p>
-</div></blockquote>
-<dl class="field-list simple">
-<dt class="field-odd">Func</dt>
-<dd class="field-odd"><p>The function to assign to the wrapper.
-TODO: Add info about this functions signature.</p>
 </dd>
 </dl>
 </dd></dl>

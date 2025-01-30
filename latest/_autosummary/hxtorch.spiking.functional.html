@@ -154,6 +154,12 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.functional.CalibratedCUBALIParams.html#hxtorch.spiking.functional.CalibratedCUBALIParams" title="hxtorch.spiking.functional.CalibratedCUBALIParams"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CalibratedCUBALIParams</span></code></a>(leak, reset, …)</p></td>
 <td><p>Parameters for CUBA LI integration and backward path</p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.functional.EventPropNeuronFunction.html#hxtorch.spiking.functional.EventPropNeuronFunction" title="hxtorch.spiking.functional.EventPropNeuronFunction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EventPropNeuronFunction</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Define gradient using adjoint code (EventProp) from norse</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.functional.EventPropSynapseFunction.html#hxtorch.spiking.functional.EventPropSynapseFunction" title="hxtorch.spiking.functional.EventPropSynapseFunction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EventPropSynapseFunction</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Synapse function for proper gradient transport when using EventPropNeuron.</p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.functional.SuperSpike.html#hxtorch.spiking.functional.SuperSpike" title="hxtorch.spiking.functional.SuperSpike"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SuperSpike</span></code></a>(*args, **kwargs)</p></td>
 <td><p>Define Surrogate Gradient ‘SuperSpike’ (negative side of Fast Sigmoid) See: <a class="reference external" href="https://arxiv.org/abs/1705.11146">https://arxiv.org/abs/1705.11146</a></p></td>
 </tr>
@@ -191,13 +197,20 @@ z^{t+1} = 1 if v^{t+1} &gt; params.threshold
 v^{t+1} = v_reset if z^{t+1} == 1</p>
 </div></blockquote>
 <p>Assumes i^0, v^0 = 0., params.reset
-:note: One <cite>dt</cite> synaptic delay between input and output
-:param input: Input spikes in shape (batch, time, neurons).
-:param params: LIFParams object holding neuron parameters.
-:return: Returns the spike trains in shape and membrane trace as a tuple.</p>
-<blockquote>
-<div><p>Both tensors are of shape (batch, time, neurons).</p>
-</div></blockquote>
+:note: One <cite>dt</cite> synaptic delay between input and output</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> – Input tensor holding ‘graded_spikes’ in shape (batch, time,
+neurons).</p></li>
+<li><p><strong>params</strong> – LIFParams object holding neuron parameters.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Returns tuple of tensors with membrane traces, spikes and synaptic
+current. Tensors are of shape (batch, time, neurons).</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -212,7 +225,7 @@ i^{t+1} = i^t * (1 - dt /       au_{syn}) + x^t</p>
 </div></blockquote>
 <p>Assumes i^0, v^0 = 0.
 :note: One <cite>dt</cite> synaptic delay between input and output
-:param input: Input spikes in shape (batch, time, neurons).
+:param input: Input graded spike tensor of shape (batch, time, neurons).
 :param params: LIParams object holding neuron parameters.
 :param dt: Integration step width</p>
 <dl class="field-list simple">
@@ -240,14 +253,15 @@ v^{t+1} = params.reset if z^{t+1} == 1</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>input</strong> – Input spikes in shape (batch, time, neurons).</p></li>
+<li><p><strong>input</strong> – Tensor holding ‘graded_spikes’ in shape (batch, time,
+neurons).</p></li>
 <li><p><strong>params</strong> – LIFParams object holding neuron parameters.</p></li>
 <li><p><strong>dt</strong> – Step width of integration.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Returns the spike trains in shape and membrane trace as a tuple.
-Both tensors are of shape (batch, time, neurons).</p>
+<dd class="field-even"><p>Returns tuple holding tensors with membrane traces, spikes
+and synaptic current. Tensors are of shape (batch, time, neurons).</p>
 </dd>
 </dl>
 </dd></dl>
@@ -267,13 +281,20 @@ ref^{t+1} -= 1
 ref^{t+1} = params.tau_ref if z^{t+1} == 1</p>
 </div></blockquote>
 <p>Assumes i^0, v^0 = 0., v_reset
-:note: One <cite>dt</cite> synaptic delay between input and output
-:param input: Input spikes in shape (batch, time, neurons).
-:param params: LIFParams object holding neuron parameters.
-:return: Returns the spike trains in shape and membrane trace as a tuple.</p>
-<blockquote>
-<div><p>Both tensors are of shape (batch, time, neurons).</p>
-</div></blockquote>
+:note: One <cite>dt</cite> synaptic delay between input and output</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> – SynapseHandle holding <cite>graded_spikes</cite> in shape (batch, time,
+neurons).</p></li>
+<li><p><strong>params</strong> – LIFParams object holding neuron parameters.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Returns NeuronHandle holding tensors with membrane traces, spikes
+and synaptic current. Tensors are of shape (batch, time, neurons).</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -294,30 +315,21 @@ ref^{t+1} -= 1</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>input</strong> – Input spikes in shape (batch, time, neurons).</p></li>
+<li><p><strong>input</strong> – Tensor holding ‘graded_spikes’ in shape (batch, time,
+neurons).</p></li>
 <li><p><strong>params</strong> – LIFParams object holding neuron parameters.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Returns the spike trains in shape and membrane trace as a tuple.
-Both tensors are of shape (batch, time, neurons).</p>
+<dd class="field-even"><p>Returns tuple holding tensors with membrane traces, spikes
+and synaptic current. Tensors are of shape (batch, time, neurons).</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
-<dt id="hxtorch.spiking.functional.eventprop_neuron">
-<code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.functional.</span></code><code class="sig-name descname"><span class="pre">eventprop_neuron</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">NamedTuple</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hw_data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#hxtorch.spiking.functional.eventprop_neuron" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt id="hxtorch.spiking.functional.eventprop_synapse">
-<code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.functional.</span></code><code class="sig-name descname"><span class="pre">eventprop_synapse</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">torch.Tensor</span><a class="headerlink" href="#hxtorch.spiking.functional.eventprop_synapse" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
 <dt id="hxtorch.spiking.functional.input_neuron">
-<code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.functional.</span></code><code class="sig-name descname"><span class="pre">input_neuron</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hw_data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">torch.Tensor</span><a class="headerlink" href="#hxtorch.spiking.functional.input_neuron" title="Permalink to this definition"></a></dt>
+<code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.functional.</span></code><code class="sig-name descname"><span class="pre">input_neuron</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hw_data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="hxtorch.spiking.handle.NeuronHandle.html#hxtorch.spiking.handle.NeuronHandle" title="hxtorch.spiking.handle.NeuronHandle"><span class="pre">hxtorch.spiking.handle.NeuronHandle</span></a><a class="headerlink" href="#hxtorch.spiking.functional.input_neuron" title="Permalink to this definition"></a></dt>
 <dd><p>Input neuron, forwards spikes without modification in non-hardware runs
 but injects loop-back recorded spikes if available.</p>
 <dl class="field-list simple">
@@ -347,7 +359,8 @@ in weight tensor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>input</strong> – The input to be multiplied with the params tensor <cite>weight</cite>.</p></li>
+<li><p><strong>input</strong> – The input neuron tensor holding spikes to be multiplied with
+the params tensor <cite>weight</cite>.</p></li>
 <li><p><strong>weight</strong> – The weight parameter tensor. This tensor is expected to be
 dense since pytorch, see issue: 4039.</p></li>
 <li><p><strong>bias</strong> – The bias of the linear operation.</p></li>
