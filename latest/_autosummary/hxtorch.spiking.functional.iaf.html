@@ -16,8 +16,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="hxtorch.spiking.functional.iaf.CUBAIAFParams" href="hxtorch.spiking.functional.iaf.CUBAIAFParams.html" />
-    <link rel="prev" title="hxtorch.spiking.functional.eventprop.NamedTuple" href="hxtorch.spiking.functional.eventprop.NamedTuple.html" /> 
+    <link rel="next" title="hxtorch.spiking.functional.iaf.Unterjubel" href="hxtorch.spiking.functional.iaf.Unterjubel.html" />
+    <link rel="prev" title="hxtorch.spiking.functional.eventprop.EventPropSynapseFunction" href="hxtorch.spiking.functional.eventprop.EventPropSynapseFunction.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -99,18 +99,6 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.functional.iaf.CUBAIAFParams.html#hxtorch.spiking.functional.iaf.CUBAIAFParams" title="hxtorch.spiking.functional.iaf.CUBAIAFParams"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CUBAIAFParams</span></code></a>(tau_mem, tau_syn, …)</p></td>
-<td><p>Parameters for IAF integration and backward path</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.functional.iaf.CalibratedCUBAIAFParams.html#hxtorch.spiking.functional.iaf.CalibratedCUBAIAFParams" title="hxtorch.spiking.functional.iaf.CalibratedCUBAIAFParams"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CalibratedCUBAIAFParams</span></code></a>(leak, reset, …)</p></td>
-<td><p>Parameters for CUBA LIF integration and backward path</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.functional.iaf.CalibratedParams.html#hxtorch.spiking.functional.iaf.CalibratedParams" title="hxtorch.spiking.functional.iaf.CalibratedParams"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CalibratedParams</span></code></a>(leak, reset, threshold, …)</p></td>
-<td><p>Parameters for any (of currently available) forward and backward path.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.functional.iaf.NamedTuple.html#hxtorch.spiking.functional.iaf.NamedTuple" title="hxtorch.spiking.functional.iaf.NamedTuple"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NamedTuple</span></code></a>(typename[, fields])</p></td>
-<td><p>Typed version of namedtuple.</p></td>
-</tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.functional.iaf.Unterjubel.html#hxtorch.spiking.functional.iaf.Unterjubel" title="hxtorch.spiking.functional.iaf.Unterjubel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Unterjubel</span></code></a>(*args, **kwargs)</p></td>
 <td><p>Unterjubel hardware observables to allow correct gradient flow</p></td>
 </tr>
@@ -119,7 +107,7 @@
 <p class="rubric">Functions</p>
 <dl class="py function">
 <dt id="hxtorch.spiking.functional.iaf.cuba_iaf_integration">
-<code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.functional.iaf.</span></code><code class="sig-name descname"><span class="pre">cuba_iaf_integration</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="hxtorch.spiking.functional.iaf.CalibratedCUBAIAFParams.html#hxtorch.spiking.functional.iaf.CalibratedCUBAIAFParams" title="hxtorch.spiking.functional.iaf.CalibratedCUBAIAFParams"><span class="pre">hxtorch.spiking.functional.iaf.CalibratedCUBAIAFParams</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="hxtorch.spiking.functional.iaf.CUBAIAFParams.html#hxtorch.spiking.functional.iaf.CUBAIAFParams" title="hxtorch.spiking.functional.iaf.CUBAIAFParams"><span class="pre">hxtorch.spiking.functional.iaf.CUBAIAFParams</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hw_data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1e-06</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">,</span> </span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#hxtorch.spiking.functional.iaf.cuba_iaf_integration" title="Permalink to this definition"></a></dt>
+<code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.functional.iaf.</span></code><code class="sig-name descname"><span class="pre">cuba_iaf_integration</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reset</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau_syn</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau_mem</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hw_data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1e-06</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">,</span> </span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#hxtorch.spiking.functional.iaf.cuba_iaf_integration" title="Permalink to this definition"></a></dt>
 <dd><p>Leaky-integrate and fire neuron integration for realization of simple
 spiking neurons with exponential synapses.
 Integrates according to:</p>
@@ -136,7 +124,16 @@ v^{t+1} = v_reset if z^{t+1} == 1</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>input</strong> – Input tensor holding ‘graded_spikes’ in shape (batch, time,
 neurons).</p></li>
-<li><p><strong>params</strong> – LIFParams object holding neuron parameters.</p></li>
+<li><p><strong>reset</strong> – The reset voltage as torch.Tensor.</p></li>
+<li><p><strong>threshold</strong> – The threshold voltage as torch.Tensor.</p></li>
+<li><p><strong>tau_syn</strong> – The synaptic time constant as torch.Tensor.</p></li>
+<li><p><strong>tau_mem</strong> – The membrane time constant as torch.Tensor.</p></li>
+<li><p><strong>method</strong> – The method used for the surrogate gradient, e.g.,
+‘superspike’.</p></li>
+<li><p><strong>alpha</strong> – The slope of the surrogate gradient in case of ‘superspike’.</p></li>
+<li><p><strong>hw_data</strong> – An optional tuple holding optional hardware observables in
+the order (spikes, membrane_cadc, membrane_madc).</p></li>
+<li><p><strong>dt</strong> – Integration step width.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -148,7 +145,7 @@ current. Tensors are of shape (batch, time, neurons).</p>
 
 <dl class="py function">
 <dt id="hxtorch.spiking.functional.iaf.cuba_refractory_iaf_integration">
-<code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.functional.iaf.</span></code><code class="sig-name descname"><span class="pre">cuba_refractory_iaf_integration</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="hxtorch.spiking.functional.iaf.NamedTuple.html#hxtorch.spiking.functional.iaf.NamedTuple" title="hxtorch.spiking.functional.iaf.NamedTuple"><span class="pre">NamedTuple</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">hw_data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1e-06</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">,</span> </span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#hxtorch.spiking.functional.iaf.cuba_refractory_iaf_integration" title="Permalink to this definition"></a></dt>
+<code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.functional.iaf.</span></code><code class="sig-name descname"><span class="pre">cuba_refractory_iaf_integration</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reset</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau_syn</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau_mem</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">refractory_time</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hw_data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1e-06</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">,</span> </span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#hxtorch.spiking.functional.iaf.cuba_refractory_iaf_integration" title="Permalink to this definition"></a></dt>
 <dd><p>Integrate and fire neuron integration for realization of simple
 spiking neurons with exponential synapses and refractory period.
 Integrates according to:</p>
@@ -167,7 +164,17 @@ ref^{t+1} = params.tau_ref if z^{t+1} == 1</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>input</strong> – SynapseHandle holding <cite>graded_spikes</cite> in shape (batch, time,
 neurons).</p></li>
-<li><p><strong>params</strong> – LIFParams object holding neuron parameters.</p></li>
+<li><p><strong>reset</strong> – The reset voltage as torch.Tensor.</p></li>
+<li><p><strong>threshold</strong> – The threshold voltage as torch.Tensor.</p></li>
+<li><p><strong>tau_syn</strong> – The synaptic time constant as torch.Tensor.</p></li>
+<li><p><strong>tau_mem</strong> – The membrane time constant as torch.Tensor.</p></li>
+<li><p><strong>refractory_time</strong> – The refractory time constant as torch.Tensor.</p></li>
+<li><p><strong>method</strong> – The method used for the surrogate gradient, e.g.,
+‘superspike’.</p></li>
+<li><p><strong>alpha</strong> – The slope of the surrogate gradient in case of ‘superspike’.</p></li>
+<li><p><strong>hw_data</strong> – An optional tuple holding optional hardware observables in
+the order (spikes, membrane_cadc, membrane_madc).</p></li>
+<li><p><strong>dt</strong> – Integration step width.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -179,23 +186,27 @@ and synaptic current. Tensors are of shape (batch, time, neurons).</p>
 
 <dl class="py function">
 <dt id="hxtorch.spiking.functional.iaf.iaf_step">
-<code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.functional.iaf.</span></code><code class="sig-name descname"><span class="pre">iaf_step</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z_hw</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_hw</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="hxtorch.spiking.functional.iaf.NamedTuple.html#hxtorch.spiking.functional.iaf.NamedTuple" title="hxtorch.spiking.functional.iaf.NamedTuple"><span class="pre">NamedTuple</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">,</span> </span><span class="p"><span class="pre">…</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#hxtorch.spiking.functional.iaf.iaf_step" title="Permalink to this definition"></a></dt>
+<code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.functional.iaf.</span></code><code class="sig-name descname"><span class="pre">iaf_step</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spikes_hw</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">membrane_hw</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reset</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau_syn</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau_mem</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">,</span> </span><span class="p"><span class="pre">…</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#hxtorch.spiking.functional.iaf.iaf_step" title="Permalink to this definition"></a></dt>
 <dd><p>Integrate the membrane of a neurons one time step further according to the
-integrate and fire dynamics.
-:param z: The spike tensor at time step t.
-:param v: The membrane tensor at time step t.
-:param i: The current tensor at time step t.
-:param input: The input tensor at time step t (graded spikes).
-:param z_hw: The hardware spikes corresponding to the current time step. In</p>
-<blockquote>
-<div><p>case this is None, no HW spikes will be injected.</p>
-</div></blockquote>
+integrate and fire dynamics.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>v_hw</strong> – The hardware cadc traces corresponding to the current time
-step. In case this is None, no HW cadc values will be injected.</p></li>
-<li><p><strong>params</strong> – Parameter object holding the LIF parameters.</p></li>
+<li><p><strong>z</strong> – The spike tensor at time step t.</p></li>
+<li><p><strong>v</strong> – The membrane tensor at time step t.</p></li>
+<li><p><strong>i</strong> – The current tensor at time step t.</p></li>
+<li><p><strong>input</strong> – The input tensor at time step t (graded spikes).</p></li>
+<li><p><strong>spikes_hw</strong> – The hardware spikes corresponding to the current time
+step. In case this is None, no HW spikes will be injected.</p></li>
+<li><p><strong>membrane_hw</strong> – The hardware CADC traces corresponding to the current
+time step. In case this is None, no HW CADC values will be injected.</p></li>
+<li><p><strong>reset</strong> – The reset voltage as torch.Tensor.</p></li>
+<li><p><strong>threshold</strong> – The threshold voltage as torch.Tensor.</p></li>
+<li><p><strong>tau_syn</strong> – The synaptic time constant as torch.Tensor.</p></li>
+<li><p><strong>tau_mem</strong> – The membrane time constant as torch.Tensor.</p></li>
+<li><p><strong>method</strong> – The method used for the surrogate gradient, e.g.,
+‘superspike’.</p></li>
+<li><p><strong>alpha</strong> – The slope of the surrogate gradient in case of ‘superspike’.</p></li>
 <li><p><strong>dt</strong> – Integration step width.</p></li>
 </ul>
 </dd>
@@ -207,24 +218,24 @@ step. In case this is None, no HW cadc values will be injected.</p></li>
 
 <dl class="py function">
 <dt id="hxtorch.spiking.functional.iaf.refractory_update">
-<code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.functional.iaf.</span></code><code class="sig-name descname"><span class="pre">refractory_update</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z_hw</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_hw</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_state</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="hxtorch.spiking.functional.iaf.NamedTuple.html#hxtorch.spiking.functional.iaf.NamedTuple" title="hxtorch.spiking.functional.iaf.NamedTuple"><span class="pre">NamedTuple</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1e-06</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">,</span> </span><span class="p"><span class="pre">…</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#hxtorch.spiking.functional.iaf.refractory_update" title="Permalink to this definition"></a></dt>
+<code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.functional.iaf.</span></code><code class="sig-name descname"><span class="pre">refractory_update</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_state</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch._VariableFunctionsClass.tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spikes_hw</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">membrane_hw</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reset</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">refractory_time</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">,</span> </span><span class="p"><span class="pre">…</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#hxtorch.spiking.functional.iaf.refractory_update" title="Permalink to this definition"></a></dt>
 <dd><p>Update neuron membrane and spikes to account for refractory period.
 This implemention is widly adopted from:
-<a class="reference external" href="https://github.com/norse/norse/blob/main/norse/torch/functional/lif_refrac.py">https://github.com/norse/norse/blob/main/norse/torch/functional/lif_refrac.py</a>
-:param z: The spike tensor at time step t.
-:param v: The membrane tensor at time step t.
-:param ref_state: The refractory state holding the number of time steps the</p>
-<blockquote>
-<div><p>neurons has to remain in the refractory period.</p>
-</div></blockquote>
+<a class="reference external" href="https://github.com/norse/norse/blob/main/norse/torch/functional/lif_refrac.py">https://github.com/norse/norse/blob/main/norse/torch/functional/lif_refrac.py</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>z_hw</strong> – The hardware spikes corresponding to the current time step. In
-case this is None, no HW spikes will be injected.</p></li>
-<li><p><strong>v_hw</strong> – The hardware cadc traces corresponding to the current time
-step. In case this is None, no HW cadc values will be injected.</p></li>
-<li><p><strong>params</strong> – Parameter object holding the LIF parameters.</p></li>
+<li><p><strong>z</strong> – The spike tensor at time step t.</p></li>
+<li><p><strong>v</strong> – The membrane tensor at time step t.</p></li>
+<li><p><strong>ref_state</strong> – The refractory state holding the number of time steps the
+neurons has to remain in the refractory period.</p></li>
+<li><p><strong>spikes_hw</strong> – The hardware spikes corresponding to the current time
+step. In case this is None, no HW spikes will be injected.</p></li>
+<li><p><strong>membrnae_hw</strong> – The hardware CADC traces corresponding to the current
+time step. In case this is None, no HW CADC values will be injected.</p></li>
+<li><p><strong>reset</strong> – The reset voltage as torch.Tensor.</p></li>
+<li><p><strong>refractory_time</strong> – The refractory time constant as torch.Tensor.</p></li>
+<li><p><strong>dt</strong> – Integration step width.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -260,8 +271,8 @@ derivative in case of ‘superspike’.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="hxtorch.spiking.functional.eventprop.NamedTuple.html" class="btn btn-neutral float-left" title="hxtorch.spiking.functional.eventprop.NamedTuple" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="hxtorch.spiking.functional.iaf.CUBAIAFParams.html" class="btn btn-neutral float-right" title="hxtorch.spiking.functional.iaf.CUBAIAFParams" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="hxtorch.spiking.functional.eventprop.EventPropSynapseFunction.html" class="btn btn-neutral float-left" title="hxtorch.spiking.functional.eventprop.EventPropSynapseFunction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="hxtorch.spiking.functional.iaf.Unterjubel.html" class="btn btn-neutral float-right" title="hxtorch.spiking.functional.iaf.Unterjubel" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -17,7 +17,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="hxtorch.spiking.functional.EventPropSynapseFunction" href="hxtorch.spiking.functional.EventPropSynapseFunction.html" />
-    <link rel="prev" title="hxtorch.spiking.functional.CalibratedCUBALIParams" href="hxtorch.spiking.functional.CalibratedCUBALIParams.html" /> 
+    <link rel="prev" title="hxtorch.spiking.functional.unterjubel.Unterjubel" href="hxtorch.spiking.functional.unterjubel.Unterjubel.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -112,7 +112,7 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.functional.EventPropNeuronFunction.backward" title="hxtorch.spiking.functional.EventPropNeuronFunction.backward"><code class="xref py py-obj docutils literal notranslate"><span class="pre">backward</span></code></a>(ctx, grad_spikes, grad_membrane, …)</p></td>
 <td><p>Implements ‘EventProp’ for backward.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.functional.EventPropNeuronFunction.forward" title="hxtorch.spiking.functional.EventPropNeuronFunction.forward"><code class="xref py py-obj docutils literal notranslate"><span class="pre">forward</span></code></a>(ctx, input, params, dt[, hw_data])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.functional.EventPropNeuronFunction.forward" title="hxtorch.spiking.functional.EventPropNeuronFunction.forward"><code class="xref py py-obj docutils literal notranslate"><span class="pre">forward</span></code></a>(ctx, input, leak, reset, threshold, …)</p></td>
 <td><p>Forward function returning hardware data if given or otherwise integrating LIF neuron dynamics, therefore generating spikes at positions &gt; 0.</p></td>
 </tr>
 </tbody>
@@ -148,7 +148,7 @@
 
 <dl class="py method">
 <dt id="hxtorch.spiking.functional.EventPropNeuronFunction.forward">
-<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">forward</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">NamedTuple</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hw_data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#hxtorch.spiking.functional.EventPropNeuronFunction.forward" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">forward</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">leak</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reset</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau_syn</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau_mem</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hw_data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1e-06</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#hxtorch.spiking.functional.EventPropNeuronFunction.forward" title="Permalink to this definition"></a></dt>
 <dd><p>Forward function returning hardware data if given or otherwise
 integrating LIF neuron dynamics, therefore generating spikes at
 positions &gt; 0.</p>
@@ -159,7 +159,11 @@ positions &gt; 0.</p>
 input[0] holds graded spikes, input[1] holds zero-tensor with same
 shape as placeholder to allow backpropagation of two (batch, time,
 neurons)-shaped tensors.</p></li>
-<li><p><strong>params</strong> – CUBALIFParams object holding neuron parameters.</p></li>
+<li><p><strong>leak</strong> – The leak voltage as torch.Tensor.</p></li>
+<li><p><strong>reset</strong> – The reset voltage as torch.Tensor.</p></li>
+<li><p><strong>threshold</strong> – The threshold voltage as torch.Tensor.</p></li>
+<li><p><strong>tau_syn</strong> – The synaptic time constant as torch.Tensor.</p></li>
+<li><p><strong>tau_mem</strong> – The membrane time constant as torch.Tensor.</p></li>
 <li><p><strong>dt</strong> – Step width of integration.</p></li>
 <li><p><strong>hw_data</strong> – Optionally available observables from hardware.</p></li>
 </ul>
@@ -185,7 +189,7 @@ All tensors are of shape (batch, time, neurons).</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="hxtorch.spiking.functional.CalibratedCUBALIParams.html" class="btn btn-neutral float-left" title="hxtorch.spiking.functional.CalibratedCUBALIParams" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="hxtorch.spiking.functional.unterjubel.Unterjubel.html" class="btn btn-neutral float-left" title="hxtorch.spiking.functional.unterjubel.Unterjubel" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="hxtorch.spiking.functional.EventPropSynapseFunction.html" class="btn btn-neutral float-right" title="hxtorch.spiking.functional.EventPropSynapseFunction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
