@@ -262,26 +262,20 @@ corresponds to one of the three classes: ying, yang and dot.</p>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
-        <span class="c1"># Neuron parameters</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">lif_params</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">CUBALIFParams</span><span class="p">(</span><span class="n">tau_mem</span><span class="p">,</span> <span class="n">tau_syn</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">li_params</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">CUBALIParams</span><span class="p">(</span><span class="n">tau_mem</span><span class="p">,</span> <span class="n">tau_syn</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">dt</span> <span class="o">=</span> <span class="n">dt</span>
 
         <span class="c1"># Instance to work on</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">n_in</span> <span class="o">=</span> <span class="n">n_in</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">n_hidden</span> <span class="o">=</span> <span class="n">n_hidden</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tau_mem</span> <span class="o">=</span> <span class="n">tau_mem</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tau_syn</span> <span class="o">=</span> <span class="n">tau_syn</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">input_repetitions</span> <span class="o">=</span> <span class="n">input_repetitions</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">weight_scale</span> <span class="o">=</span> <span class="n">weight_scale</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">trace_scale</span> <span class="o">=</span> <span class="n">trace_scale</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">trace_shift_hidden</span> <span class="o">=</span> <span class="n">trace_shift_hidden</span>
 
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">mock</span><span class="p">:</span>
-            <span class="n">save_nightly_calibration</span><span class="p">(</span><span class="s1">&#39;spiking2_cocolist.pbin&#39;</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">experiment</span> <span class="o">=</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">Experiment</span><span class="p">(</span><span class="n">mock</span><span class="o">=</span><span class="n">mock</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="n">dt</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">experiment</span><span class="o">.</span><span class="n">default_execution_instance</span><span class="o">.</span><span class="n">load_calib</span><span class="p">(</span>
-                <span class="n">calib_path</span><span class="o">=</span><span class="s1">&#39;spiking2_cocolist.pbin&#39;</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">experiment</span> <span class="o">=</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">Experiment</span><span class="p">(</span><span class="n">mock</span><span class="o">=</span><span class="n">mock</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="n">dt</span><span class="p">)</span>
+        <span class="c1"># Experiment instance</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">experiment</span> <span class="o">=</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">Experiment</span><span class="p">(</span><span class="n">mock</span><span class="o">=</span><span class="n">mock</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="n">dt</span><span class="p">)</span>
 
         <span class="c1"># Repeat input</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">input_repetitions</span> <span class="o">=</span> <span class="n">input_repetitions</span>
@@ -304,7 +298,13 @@ corresponds to one of the three classes: ying, yang and dot.</p>
         <span class="bp">self</span><span class="o">.</span><span class="n">lif_h</span> <span class="o">=</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">Neuron</span><span class="p">(</span>
             <span class="n">n_hidden</span><span class="p">,</span>
             <span class="n">experiment</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">experiment</span><span class="p">,</span>
-            <span class="n">params</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">lif_params</span><span class="p">,</span>
+            <span class="n">tau_mem</span><span class="o">=</span><span class="n">tau_mem</span><span class="p">,</span>
+            <span class="n">tau_syn</span><span class="o">=</span><span class="n">tau_syn</span><span class="p">,</span>
+            <span class="n">leak</span><span class="o">=</span><span class="n">hxsnn</span><span class="o">.</span><span class="n">MixedHXModelParameter</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mi">80</span><span class="p">),</span>
+            <span class="n">reset</span><span class="o">=</span><span class="n">hxsnn</span><span class="o">.</span><span class="n">MixedHXModelParameter</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mi">80</span><span class="p">),</span>
+            <span class="n">threshold</span><span class="o">=</span><span class="n">hxsnn</span><span class="o">.</span><span class="n">MixedHXModelParameter</span><span class="p">(</span><span class="mf">1.</span><span class="p">,</span> <span class="mi">150</span><span class="p">),</span>
+            <span class="n">i_synin_gm</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
+            <span class="n">synapse_dac_bias</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
             <span class="n">trace_scale</span><span class="o">=</span><span class="n">trace_scale</span><span class="p">,</span>
             <span class="n">cadc_time_shift</span><span class="o">=</span><span class="n">trace_shift_hidden</span><span class="p">,</span>
             <span class="n">shift_cadc_to_first</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -321,7 +321,11 @@ corresponds to one of the three classes: ying, yang and dot.</p>
         <span class="bp">self</span><span class="o">.</span><span class="n">li_readout</span> <span class="o">=</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">ReadoutNeuron</span><span class="p">(</span>
             <span class="n">n_out</span><span class="p">,</span>
             <span class="n">experiment</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">experiment</span><span class="p">,</span>
-            <span class="n">params</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">li_params</span><span class="p">,</span>
+            <span class="n">tau_mem</span><span class="o">=</span><span class="n">tau_mem</span><span class="p">,</span>
+            <span class="n">tau_syn</span><span class="o">=</span><span class="n">tau_syn</span><span class="p">,</span>
+            <span class="n">leak</span><span class="o">=</span><span class="n">hxsnn</span><span class="o">.</span><span class="n">MixedHXModelParameter</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mi">80</span><span class="p">),</span>
+            <span class="n">i_synin_gm</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
+            <span class="n">synapse_dac_bias</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
             <span class="n">trace_scale</span><span class="o">=</span><span class="n">trace_scale</span><span class="p">,</span>
             <span class="n">cadc_time_shift</span><span class="o">=</span><span class="n">trace_shift_out</span><span class="p">,</span>
             <span class="n">shift_cadc_to_first</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
@@ -800,14 +804,27 @@ and one for the <code class="docutils literal notranslate"><span class="pre">Syn
 <span class="sd">    Gradient estimation with time-discretized EventProp using explicit Euler integration.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="nb">input</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">params</span><span class="p">:</span> <span class="n">NamedTuple</span><span class="p">,</span> <span class="n">dt</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
-            <span class="n">hw_data</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span>
+                <span class="nb">input</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
+                <span class="n">leak</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
+                <span class="n">reset</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
+                <span class="n">threshold</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
+                <span class="n">tau_syn</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
+                <span class="n">tau_mem</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
+                <span class="n">hw_data</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="n">dt</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1e-6</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Forward function, generating spikes at positions &gt; 0.</span>
 
 <span class="sd">        :param input: Weighted input spikes in shape (2, batch, time, neurons).</span>
 <span class="sd">            The 2 at dim 0 comes from stacked output in EventPropSynapse.</span>
-<span class="sd">        :param params: CUBALIFParams object holding neuron parameters.</span>
+<span class="sd">        :param leak: The leak voltage as torch.Tensor.</span>
+<span class="sd">        :param reset: The reset voltage as torch.Tensor.</span>
+<span class="sd">        :param threshold: The threshold voltage as torch.Tensor.</span>
+<span class="sd">        :param tau_syn: The synaptic time constant as torch.Tensor.</span>
+<span class="sd">        :param tau_mem: The membrane time constant as torch.Tensor.</span>
+<span class="sd">        :param dt: Step width of integration.</span>
+<span class="sd">        :param hw_data: Optionally available observables from hardware.</span>
 
 <span class="sd">        :returns: Returns the spike trains and membrane trace.</span>
 <span class="sd">            Both tensors are of shape (batch, time, neurons).</span>
@@ -815,7 +832,8 @@ and one for the <code class="docutils literal notranslate"><span class="pre">Syn
         <span class="n">dev</span> <span class="o">=</span> <span class="nb">input</span><span class="o">.</span><span class="n">device</span>
         <span class="c1"># If hardware observables are given, return them directly.</span>
         <span class="k">if</span> <span class="n">hw_data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">ctx</span><span class="o">.</span><span class="n">extra_kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;params&quot;</span><span class="p">:</span> <span class="n">params</span><span class="p">,</span> <span class="s2">&quot;dt&quot;</span><span class="p">:</span> <span class="n">dt</span><span class="p">}</span>
+            <span class="n">ctx</span><span class="o">.</span><span class="n">extra_kwargs</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;params&quot;</span><span class="p">:</span> <span class="p">(</span><span class="n">leak</span><span class="p">,</span> <span class="n">reset</span><span class="p">,</span> <span class="n">threshold</span><span class="p">,</span> <span class="n">tau_syn</span><span class="p">,</span> <span class="n">tau_mem</span><span class="p">),</span> <span class="s2">&quot;dt&quot;</span><span class="p">:</span> <span class="n">dt</span><span class="p">}</span>
             <span class="n">hw_data</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span>
                 <span class="n">data</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">dev</span><span class="p">)</span> <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="kc">None</span> <span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">hw_data</span><span class="p">)</span>
             <span class="n">ctx</span><span class="o">.</span><span class="n">save_for_backward</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="o">*</span><span class="n">hw_data</span><span class="p">)</span>
@@ -823,63 +841,67 @@ and one for the <code class="docutils literal notranslate"><span class="pre">Syn
 
         <span class="c1"># Otherwise integrate the neuron dynamics in software</span>
         <span class="n">T</span><span class="p">,</span> <span class="n">bs</span><span class="p">,</span> <span class="n">ps</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
-        <span class="n">z</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">bs</span><span class="p">,</span> <span class="n">ps</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">dev</span><span class="p">)</span>
-        <span class="n">i</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">bs</span><span class="p">,</span> <span class="n">ps</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">dev</span><span class="p">)</span>
-        <span class="n">v</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">bs</span><span class="p">,</span> <span class="n">ps</span><span class="p">)</span><span class="o">.</span><span class="n">fill_</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">leak</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">dev</span><span class="p">)</span>
+        <span class="n">z</span><span class="p">,</span> <span class="n">i</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">bs</span><span class="p">,</span> <span class="n">ps</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">dev</span><span class="p">),</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">bs</span><span class="p">,</span> <span class="n">ps</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">dev</span><span class="p">)</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">bs</span><span class="p">,</span> <span class="n">ps</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">dev</span><span class="p">)</span>
+        <span class="n">v</span><span class="p">[:,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">leak</span>
         <span class="n">spikes</span><span class="p">,</span> <span class="n">current</span><span class="p">,</span> <span class="n">membrane</span> <span class="o">=</span> <span class="p">[</span><span class="n">z</span><span class="p">],</span> <span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="p">[</span><span class="n">v</span><span class="p">]</span>
-
         <span class="k">for</span> <span class="n">ts</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
             <span class="c1"># Current</span>
-            <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">dt</span> <span class="o">/</span> <span class="n">params</span><span class="o">.</span><span class="n">tau_syn</span><span class="p">)</span> <span class="o">+</span> <span class="nb">input</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">ts</span><span class="p">]</span>
+            <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">dt</span> <span class="o">/</span> <span class="n">tau_syn</span><span class="p">)</span> <span class="o">+</span> <span class="nb">input</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">ts</span><span class="p">]</span>
+            <span class="n">current</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 
             <span class="c1"># Membrane</span>
-            <span class="n">dv</span> <span class="o">=</span> <span class="n">dt</span> <span class="o">/</span> <span class="n">params</span><span class="o">.</span><span class="n">tau_mem</span> <span class="o">*</span> <span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">leak</span> <span class="o">-</span> <span class="n">v</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span>
+            <span class="n">dv</span> <span class="o">=</span> <span class="n">dt</span> <span class="o">/</span> <span class="n">tau_mem</span> <span class="o">*</span> <span class="p">(</span><span class="n">leak</span> <span class="o">-</span> <span class="n">v</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span>
             <span class="n">v</span> <span class="o">=</span> <span class="n">dv</span> <span class="o">+</span> <span class="n">v</span>
 
             <span class="c1"># Spikes</span>
-            <span class="n">z</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">gt</span><span class="p">(</span><span class="n">v</span> <span class="o">-</span> <span class="n">params</span><span class="o">.</span><span class="n">threshold</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">((</span><span class="n">v</span> <span class="o">-</span> <span class="n">params</span><span class="o">.</span><span class="n">threshold</span><span class="p">)</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+            <span class="n">spike</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">gt</span><span class="p">(</span><span class="n">v</span> <span class="o">-</span> <span class="n">threshold</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">((</span><span class="n">v</span> <span class="o">-</span> <span class="n">threshold</span><span class="p">)</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+            <span class="n">z</span> <span class="o">=</span> <span class="n">spike</span>
 
             <span class="c1"># Reset</span>
-            <span class="n">v</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">z</span><span class="p">)</span> <span class="o">*</span> <span class="n">v</span> <span class="o">+</span> <span class="n">z</span> <span class="o">*</span> <span class="n">params</span><span class="o">.</span><span class="n">reset</span>
+            <span class="n">v</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">z</span><span class="o">.</span><span class="n">detach</span><span class="p">())</span> <span class="o">*</span> <span class="n">v</span> <span class="o">+</span> <span class="n">z</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span> <span class="o">*</span> <span class="n">reset</span>
 
             <span class="c1"># Save data</span>
             <span class="n">spikes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
             <span class="n">membrane</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
-            <span class="n">current</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 
         <span class="n">spikes</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">spikes</span><span class="p">)</span>
         <span class="n">membrane</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">membrane</span><span class="p">)</span>
         <span class="n">current</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">current</span><span class="p">)</span>
 
         <span class="n">ctx</span><span class="o">.</span><span class="n">save_for_backward</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">spikes</span><span class="p">,</span> <span class="n">membrane</span><span class="p">,</span> <span class="n">current</span><span class="p">)</span>
-        <span class="n">ctx</span><span class="o">.</span><span class="n">extra_kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;params&quot;</span><span class="p">:</span> <span class="n">params</span><span class="p">,</span> <span class="s2">&quot;dt&quot;</span><span class="p">:</span> <span class="n">dt</span><span class="p">}</span>
+        <span class="n">ctx</span><span class="o">.</span><span class="n">extra_kwargs</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;params&quot;</span><span class="p">:</span> <span class="p">(</span><span class="n">leak</span><span class="p">,</span> <span class="n">reset</span><span class="p">,</span> <span class="n">threshold</span><span class="p">,</span> <span class="n">tau_syn</span><span class="p">,</span> <span class="n">tau_mem</span><span class="p">),</span> <span class="s2">&quot;dt&quot;</span><span class="p">:</span> <span class="n">dt</span><span class="p">}</span>
 
         <span class="k">return</span> <span class="n">spikes</span><span class="p">,</span> <span class="n">membrane</span><span class="p">,</span> <span class="n">current</span>
 
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">backward</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">grad_spikes</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">grad_membrane</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
-                <span class="n">grad_current</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span> <span class="o">...</span><span class="p">]:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+                <span class="n">grad_current</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> \
+            <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span> <span class="o">...</span><span class="p">]:</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Implements &#39;EventProp&#39; for backward.</span>
 
-<span class="sd">        :param grad_spikes: Backpropagted gradient wrt output spikes.</span>
-<span class="sd">        :param _: backpropagated gradient wrt to membrane trace (currently not used).</span>
+<span class="sd">        :param grad_spikes: Gradient with respect to output spikes.</span>
+<span class="sd">        :param grad_membrane: Gradient with respect to membrane trace.</span>
+<span class="sd">            (Not considered in EventProp algorithm, therefore not used further)</span>
+<span class="sd">        :param grad_current: Gradient with respect to current.</span>
+<span class="sd">            (Not considered in EventProp algorithm, therefore not used further)</span>
 
 <span class="sd">        :returns: Gradient given by adjoint function lambda_i of current.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+
         <span class="c1"># input and layer data</span>
         <span class="n">input_current</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">saved_tensors</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
         <span class="n">T</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">input_current</span><span class="o">.</span><span class="n">shape</span>
         <span class="n">z</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">saved_tensors</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-        <span class="n">params</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">extra_kwargs</span><span class="p">[</span><span class="s2">&quot;params&quot;</span><span class="p">]</span>
+        <span class="n">leak</span><span class="p">,</span> <span class="n">reset</span><span class="p">,</span> <span class="n">threshold</span><span class="p">,</span> <span class="n">tau_syn</span><span class="p">,</span> <span class="n">tau_mem</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">extra_kwargs</span><span class="p">[</span><span class="s2">&quot;params&quot;</span><span class="p">]</span>
         <span class="n">dt</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">extra_kwargs</span><span class="p">[</span><span class="s2">&quot;dt&quot;</span><span class="p">]</span>
 
         <span class="c1"># adjoints</span>
         <span class="n">lambda_v</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">input_current</span><span class="p">)</span>
         <span class="n">lambda_i</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">input_current</span><span class="p">)</span>
 
-        <span class="c1"># When executed on hardware, spikes and membrane voltage are injected but the synaptic</span>
-        <span class="c1"># current is not recorded. Approximate it:</span>
         <span class="k">if</span> <span class="n">ctx</span><span class="o">.</span><span class="n">saved_tensors</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">i</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">saved_tensors</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
@@ -887,31 +909,32 @@ and one for the <code class="docutils literal notranslate"><span class="pre">Syn
             <span class="c1"># compute current</span>
             <span class="k">for</span> <span class="n">ts</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
                 <span class="n">i</span><span class="p">[</span><span class="n">ts</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> \
-                    <span class="n">i</span><span class="p">[</span><span class="n">ts</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">dt</span> <span class="o">/</span> <span class="n">params</span><span class="o">.</span><span class="n">tau_syn</span><span class="p">)</span> \
-                    <span class="o">+</span> <span class="n">input_current</span><span class="p">[</span><span class="n">ts</span><span class="p">]</span>
+                    <span class="n">i</span><span class="p">[</span><span class="n">ts</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">dt</span> <span class="o">/</span> <span class="n">tau_syn</span><span class="p">)</span> <span class="o">+</span> <span class="n">input_current</span><span class="p">[</span><span class="n">ts</span><span class="p">]</span>
 
         <span class="k">for</span> <span class="n">ts</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-            <span class="n">dv_m</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">leak</span> <span class="o">-</span> <span class="n">params</span><span class="o">.</span><span class="n">threshold</span> <span class="o">+</span> <span class="n">i</span><span class="p">[</span><span class="n">ts</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
-            <span class="n">dv_p</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">leak</span> <span class="o">-</span> <span class="n">params</span><span class="o">.</span><span class="n">reset</span> <span class="o">+</span> <span class="n">i</span><span class="p">[</span><span class="n">ts</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="n">dv_m</span> <span class="o">=</span> <span class="n">leak</span> <span class="o">-</span> <span class="n">threshold</span> <span class="o">+</span> <span class="n">i</span><span class="p">[</span><span class="n">ts</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="n">dv_p</span> <span class="o">=</span> <span class="n">leak</span> <span class="o">-</span> <span class="n">reset</span> <span class="o">+</span> <span class="n">i</span><span class="p">[</span><span class="n">ts</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
 
             <span class="n">lambda_i</span><span class="p">[</span><span class="n">ts</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">lambda_i</span><span class="p">[</span><span class="n">ts</span><span class="p">]</span> <span class="o">+</span> <span class="n">dt</span> <span class="o">/</span> \
-                <span class="n">params</span><span class="o">.</span><span class="n">tau_syn</span> <span class="o">*</span> <span class="p">(</span><span class="n">lambda_v</span><span class="p">[</span><span class="n">ts</span><span class="p">]</span> <span class="o">-</span> <span class="n">lambda_i</span><span class="p">[</span><span class="n">ts</span><span class="p">])</span>
-            <span class="n">lambda_v</span><span class="p">[</span><span class="n">ts</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">lambda_v</span><span class="p">[</span><span class="n">ts</span><span class="p">]</span> <span class="o">*</span> \
-                <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">dt</span> <span class="o">/</span> <span class="n">params</span><span class="o">.</span><span class="n">tau_mem</span><span class="p">)</span>
+                <span class="n">tau_syn</span> <span class="o">*</span> <span class="p">(</span><span class="n">lambda_v</span><span class="p">[</span><span class="n">ts</span><span class="p">]</span> <span class="o">-</span> <span class="n">lambda_i</span><span class="p">[</span><span class="n">ts</span><span class="p">])</span>
+            <span class="n">lambda_v</span><span class="p">[</span><span class="n">ts</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">lambda_v</span><span class="p">[</span><span class="n">ts</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">dt</span> <span class="o">/</span> <span class="n">tau_mem</span><span class="p">)</span>
 
             <span class="n">output_term</span> <span class="o">=</span> <span class="n">z</span><span class="p">[</span><span class="n">ts</span><span class="p">]</span> <span class="o">/</span> <span class="n">dv_m</span> <span class="o">*</span> <span class="n">grad_spikes</span><span class="p">[</span><span class="n">ts</span><span class="p">]</span>
             <span class="n">output_term</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">output_term</span><span class="p">)]</span> <span class="o">=</span> <span class="mf">0.0</span>
+            <span class="n">output_term</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">isinf</span><span class="p">(</span><span class="n">output_term</span><span class="p">)]</span> <span class="o">=</span> <span class="mf">0.0</span>
 
             <span class="n">jump_term</span> <span class="o">=</span> <span class="n">z</span><span class="p">[</span><span class="n">ts</span><span class="p">]</span> <span class="o">*</span> <span class="n">dv_p</span> <span class="o">/</span> <span class="n">dv_m</span>
             <span class="n">jump_term</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">jump_term</span><span class="p">)]</span> <span class="o">=</span> <span class="mf">0.0</span>
+            <span class="n">jump_term</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">isinf</span><span class="p">(</span><span class="n">jump_term</span><span class="p">)]</span> <span class="o">=</span> <span class="mf">0.0</span>
 
             <span class="n">lambda_v</span><span class="p">[</span><span class="n">ts</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
                 <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">z</span><span class="p">[</span><span class="n">ts</span><span class="p">])</span> <span class="o">*</span> <span class="n">lambda_v</span><span class="p">[</span><span class="n">ts</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
                 <span class="o">+</span> <span class="n">jump_term</span> <span class="o">*</span> <span class="n">lambda_v</span><span class="p">[</span><span class="n">ts</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
                 <span class="o">+</span> <span class="n">output_term</span>
             <span class="p">)</span>
-        <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">((</span><span class="n">lambda_i</span> <span class="o">*</span> <span class="n">params</span><span class="o">.</span><span class="n">tau_syn</span><span class="p">,</span>
-                            <span class="n">lambda_v</span> <span class="o">-</span> <span class="n">lambda_i</span><span class="p">)),</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+
+        <span class="k">return</span> <span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">((</span><span class="n">lambda_i</span> <span class="o">*</span> <span class="n">tau_syn</span><span class="p">,</span> <span class="n">lambda_v</span> <span class="o">-</span> <span class="n">lambda_i</span><span class="p">)),</span>
+                <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
 
 
 <span class="k">class</span> <span class="nc">EventPropSynapseFunction</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">autograd</span><span class="o">.</span><span class="n">Function</span><span class="p">):</span>
@@ -977,8 +1000,15 @@ and one for the <code class="docutils literal notranslate"><span class="pre">Syn
     <span class="k">def</span> <span class="nf">forward_func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">:</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">SynapseHandle</span><span class="p">,</span>
                     <span class="n">hw_data</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> \
             <span class="o">-&gt;</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">NeuronHandle</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">NeuronHandle</span><span class="p">(</span><span class="o">*</span><span class="n">EventPropNeuronFunction</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
-            <span class="nb">input</span><span class="o">.</span><span class="n">graded_spikes</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">experiment</span><span class="o">.</span><span class="n">dt</span><span class="p">,</span> <span class="n">hw_data</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">NeuronHandle</span><span class="p">(</span><span class="o">*</span><span class="n">F</span><span class="o">.</span><span class="n">EventPropNeuronFunction</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+            <span class="nb">input</span><span class="o">.</span><span class="n">graded_spikes</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">leak</span><span class="o">.</span><span class="n">model_value</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">reset</span><span class="o">.</span><span class="n">model_value</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">threshold</span><span class="o">.</span><span class="n">model_value</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tau_syn</span><span class="o">.</span><span class="n">model_value</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tau_mem</span><span class="o">.</span><span class="n">model_value</span><span class="p">,</span>
+            <span class="n">hw_data</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">experiment</span><span class="o">.</span><span class="n">dt</span><span class="p">))</span>
 </pre></div>
 </div>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">EventPropSNN</span><span class="p">(</span><span class="n">SNN</span><span class="p">):</span>
@@ -1000,7 +1030,13 @@ and one for the <code class="docutils literal notranslate"><span class="pre">Syn
         <span class="bp">self</span><span class="o">.</span><span class="n">lif_h</span> <span class="o">=</span> <span class="n">EventPropNeuron</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">n_hidden</span><span class="p">,</span>
             <span class="n">experiment</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">experiment</span><span class="p">,</span>
-            <span class="n">params</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">lif_params</span><span class="p">,</span>
+            <span class="n">tau_mem</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">tau_mem</span><span class="p">,</span>
+            <span class="n">tau_syn</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">tau_syn</span><span class="p">,</span>
+            <span class="n">leak</span><span class="o">=</span><span class="n">hxsnn</span><span class="o">.</span><span class="n">MixedHXModelParameter</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mi">80</span><span class="p">),</span>
+            <span class="n">reset</span><span class="o">=</span><span class="n">hxsnn</span><span class="o">.</span><span class="n">MixedHXModelParameter</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mi">80</span><span class="p">),</span>
+            <span class="n">threshold</span><span class="o">=</span><span class="n">hxsnn</span><span class="o">.</span><span class="n">MixedHXModelParameter</span><span class="p">(</span><span class="mf">1.</span><span class="p">,</span> <span class="mi">150</span><span class="p">),</span>
+            <span class="n">i_synin_gm</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
+            <span class="n">synapse_dac_bias</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
             <span class="n">trace_scale</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">trace_scale</span><span class="p">,</span>
             <span class="n">enable_cadc_recording</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
             <span class="n">cadc_time_shift</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">trace_shift_hidden</span><span class="p">,</span>
