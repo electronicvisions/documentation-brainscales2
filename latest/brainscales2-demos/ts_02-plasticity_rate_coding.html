@@ -189,6 +189,7 @@ onto the neurons’ firing rate.</p>
 <span class="s2">        #include &quot;grenade/vx/ppu/synapse_array_view_handle.h&quot;</span>
 <span class="s2">        #include &quot;grenade/vx/ppu/neuron_view_handle.h&quot;</span>
 <span class="s2">        #include &quot;libnux/vx/dls.h&quot;</span>
+<span class="s2">        #include &lt;array&gt;</span>
 
 <span class="s2">        using namespace grenade::vx::ppu;</span>
 <span class="s2">        using namespace libnux::vx;</span>
@@ -218,22 +219,17 @@ onto the neurons’ firing rate.</p>
 <span class="s2">            if (synapses[0].hemisphere != ppu) {{</span>
 <span class="s2">                return;</span>
 <span class="s2">            }}</span>
-<span class="s2">            for (size_t row = 0; row &lt; synapses[0].rows.size; ++row) {{</span>
-<span class="s2">                if (synapses[0].rows.test(row)) {{</span>
-<span class="s2">                    // load new vertical line of image</span>
-<span class="s2">                    vector_row_t weight_row;</span>
-<span class="s2">                    size_t w = 0;</span>
-<span class="s2">                    for (size_t column = 0;</span>
-<span class="s2">                         column &lt; synapses[0].columns.size; ++column) {{</span>
-<span class="s2">                        if (synapses[0].columns.test(column)) {{</span>
-<span class="s2">                            weight_row[column] = image[w][current_row];</span>
-<span class="s2">                            w++;</span>
-<span class="s2">                        }}</span>
-<span class="s2">                    }}</span>
-
-<span class="s2">                    // alter weights in synapse memory</span>
-<span class="s2">                    synapses[0].set_weights(weight_row, row);</span>
+<span class="s2">            for (size_t row = 0; row &lt; synapses[0].rows.size(); ++row) {{</span>
+<span class="s2">                // load new vertical line of image</span>
+<span class="s2">                vector_row_t weight_row;</span>
+<span class="s2">                size_t w = 0;</span>
+<span class="s2">                for (auto const column: synapses[0].columns) {{</span>
+<span class="s2">                    weight_row[column] = image[w][current_row];</span>
+<span class="s2">                    w++;</span>
 <span class="s2">                }}</span>
+
+<span class="s2">                // alter weights in synapse memory</span>
+<span class="s2">                synapses[0].set_weights(weight_row, row);</span>
 <span class="s2">            }}</span>
 <span class="s2">            current_row++;</span>
 <span class="s2">        }}</span>

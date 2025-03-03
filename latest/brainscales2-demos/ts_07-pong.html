@@ -452,10 +452,8 @@ below the cell.</p>
 <span class="s2">                random, VectorIfCondition::lesser, VectorRowFracSat8(0), random);</span>
 <span class="s2">            random = vector_if(</span>
 <span class="s2">                random - 63, VectorIfCondition::greater, VectorRowFracSat8(63), random);</span>
-<span class="s2">            for (size_t row = 0; row &lt; synapses[0].rows.size; ++row) </span><span class="se">{{</span><span class="s2"></span>
-<span class="s2">                if (synapses[0].rows.test(row)) </span><span class="se">{{</span><span class="s2"></span>
-<span class="s2">                    synapses[0].set_weights(VectorRowMod8(random), row);</span>
-<span class="s2">                </span><span class="se">}}</span><span class="s2"></span>
+<span class="s2">            for (size_t row = 0; row &lt; synapses[0].rows.size(); ++row) </span><span class="se">{{</span><span class="s2"></span>
+<span class="s2">                synapses[0].set_weights(VectorRowMod8(random), row);</span>
 <span class="s2">            </span><span class="se">}}</span><span class="s2"></span>
 
 <span class="s2">            // prepare for next correlation experiment:</span>
@@ -496,7 +494,7 @@ below the cell.</p>
 <span class="sd">    Update synapse weights according to STDP learning rule.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timer</span><span class="p">:</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Timer</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timer</span><span class="p">:</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Timer</span><span class="p">,</span> <span class="n">same_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Initialize plastic synapse with execution timing information,</span>
 <span class="sd">        hyperparameters and initial weight.</span>
@@ -513,7 +511,8 @@ below the cell.</p>
             <span class="n">pynn</span><span class="o">.</span><span class="n">PlasticityRule</span><span class="o">.</span><span class="n">ObservableArray</span><span class="o">.</span><span class="n">Type</span><span class="o">.</span><span class="n">uint8</span>
         <span class="n">observables</span><span class="p">[</span><span class="s2">&quot;success&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">size</span> <span class="o">=</span> <span class="mi">1</span>
 
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">timer</span><span class="o">=</span><span class="n">timer</span><span class="p">,</span> <span class="n">observables</span><span class="o">=</span><span class="n">observables</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">timer</span><span class="o">=</span><span class="n">timer</span><span class="p">,</span> <span class="n">observables</span><span class="o">=</span><span class="n">observables</span><span class="p">,</span> <span class="n">same_id</span><span class="o">=</span><span class="n">same_id</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">generate_kernel</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -649,44 +648,39 @@ below the cell.</p>
 <span class="s2">                * </span><span class="si">{</span><span class="n">parameters</span><span class="o">.</span><span class="n">get_learning_rate</span><span class="p">(</span><span class="n">epoch</span><span class="p">)</span><span class="si">}</span><span class="s2">;</span>
 
 <span class="s2">            // update weights</span>
-<span class="s2">            size_t active_row = 0;</span>
-<span class="s2">            for (size_t row = 0; row &lt; synapses[0].rows.size; ++row) </span><span class="se">{{</span><span class="s2"></span>
-<span class="s2">                if (synapses[0].rows.test(row)) </span><span class="se">{{</span><span class="s2"></span>
-<span class="s2">                    VectorRowMod8 weights = synapses[0].get_weights(row);</span>
-<span class="s2">                    VectorRowMod8 result;</span>
-<span class="s2">                    get_causal_correlation(&amp;result.even.data, &amp;result.odd.data, row);</span>
+<span class="s2">            for (size_t row = 0; row &lt; synapses[0].rows.size(); ++row) </span><span class="se">{{</span><span class="s2"></span>
+<span class="s2">                VectorRowMod8 weights = synapses[0].get_weights(row);</span>
+<span class="s2">                VectorRowMod8 result;</span>
+<span class="s2">                get_causal_correlation(&amp;result.even.data, &amp;result.odd.data, synapses[0].rows[row]);</span>
 
-<span class="s2">                    // shift result by 1 bit to stay in signed 8-bit int range</span>
-<span class="s2">                    VectorRowFracSat8 result_fracsat =</span>
-<span class="s2">                        (result &gt;&gt; 1).convert_contiguous();</span>
-<span class="s2">                    VectorRowFracSat8 baselines_fracsat =</span>
-<span class="s2">                        (correlation_baselines &gt;&gt; 1).convert_contiguous();</span>
-<span class="s2">                    VectorRowFracSat8 correlation_fracsat =</span>
-<span class="s2">                        baselines_fracsat - result_fracsat;</span>
+<span class="s2">                // shift result by 1 bit to stay in signed 8-bit int range</span>
+<span class="s2">                VectorRowFracSat8 result_fracsat =</span>
+<span class="s2">                    (result &gt;&gt; 1).convert_contiguous();</span>
+<span class="s2">                VectorRowFracSat8 baselines_fracsat =</span>
+<span class="s2">                    (correlation_baselines &gt;&gt; 1).convert_contiguous();</span>
+<span class="s2">                VectorRowFracSat8 correlation_fracsat =</span>
+<span class="s2">                    baselines_fracsat - result_fracsat;</span>
 
-<span class="s2">                    // multiplication of fracsat type scales down by 128 to</span>
-<span class="s2">                    // ensure we stay in value range, hence we multiply</span>
-<span class="s2">                    // the update_rate by 128</span>
-<span class="s2">                    VectorRowFracSat8 weight_update =</span>
-<span class="s2">                        correlation_fracsat * static_cast&lt;int8_t&gt;(update_rate * 128);</span>
+<span class="s2">                // multiplication of fracsat type scales down by 128 to</span>
+<span class="s2">                // ensure we stay in value range, hence we multiply</span>
+<span class="s2">                // the update_rate by 128</span>
+<span class="s2">                VectorRowFracSat8 weight_update =</span>
+<span class="s2">                    correlation_fracsat * static_cast&lt;int8_t&gt;(update_rate * 128);</span>
 
-<span class="s2">                    // truncate weight update, i.e. round symetrically to zero:</span>
-<span class="s2">                    // for negative updates, we want to add 1.</span>
-<span class="s2">                    weight_update = vector_if(</span>
-<span class="s2">                        weight_update, VectorIfCondition::lesser,</span>
-<span class="s2">                        weight_update + 1, weight_update);</span>
-<span class="s2">                    VectorRowFracSat8 new_weights =</span>
-<span class="s2">                        static_cast&lt;VectorRowFracSat8&gt;(weights)</span>
-<span class="s2">                        + weight_update;</span>
+<span class="s2">                // truncate weight update, i.e. round symetrically to zero:</span>
+<span class="s2">                // for negative updates, we want to add 1.</span>
+<span class="s2">                weight_update = vector_if(</span>
+<span class="s2">                    weight_update, VectorIfCondition::lesser,</span>
+<span class="s2">                    weight_update + 1, weight_update);</span>
+<span class="s2">                VectorRowFracSat8 new_weights =</span>
+<span class="s2">                    static_cast&lt;VectorRowFracSat8&gt;(weights)</span>
+<span class="s2">                    + weight_update;</span>
 
-<span class="s2">                    // clip weights to hardware range limits</span>
-<span class="s2">                    new_weights = check_boundaries(new_weights);</span>
-<span class="s2">                    weights = static_cast&lt;VectorRowMod8&gt;(new_weights);</span>
+<span class="s2">                // clip weights to hardware range limits</span>
+<span class="s2">                new_weights = check_boundaries(new_weights);</span>
+<span class="s2">                weights = static_cast&lt;VectorRowMod8&gt;(new_weights);</span>
 
-<span class="s2">                    synapses[0].set_weights(weights, row);</span>
-
-<span class="s2">                    active_row++;</span>
-<span class="s2">                </span><span class="se">}}</span><span class="s2"></span>
+<span class="s2">                synapses[0].set_weights(weights, row);</span>
 <span class="s2">            </span><span class="se">}}</span><span class="s2"></span>
 
 <span class="s2">            // update mean rewards</span>
@@ -725,17 +719,15 @@ below the cell.</p>
 <span class="s2">                        deviation * </span><span class="si">{</span><span class="n">parameters</span><span class="o">.</span><span class="n">homeostasis_rate</span><span class="si">}</span><span class="s2">;</span>
 <span class="s2">                </span><span class="se">}}</span><span class="s2"></span>
 
-<span class="s2">                for (size_t row = 0; row &lt; synapses[0].rows.size; ++row) </span><span class="se">{{</span><span class="s2"></span>
-<span class="s2">                    if (synapses[0].rows.test(row)) </span><span class="se">{{</span><span class="s2"></span>
-<span class="s2">                        VectorRowMod8 weights = synapses[0].get_weights(row);</span>
-<span class="s2">                        VectorRowFracSat8 new_weights =</span>
-<span class="s2">                            static_cast&lt;VectorRowFracSat8&gt;(weights) + update;</span>
+<span class="s2">                for (size_t row = 0; row &lt; synapses[0].rows.size(); ++row) </span><span class="se">{{</span><span class="s2"></span>
+<span class="s2">                    VectorRowMod8 weights = synapses[0].get_weights(row);</span>
+<span class="s2">                    VectorRowFracSat8 new_weights =</span>
+<span class="s2">                        static_cast&lt;VectorRowFracSat8&gt;(weights) + update;</span>
 
-<span class="s2">                        new_weights = check_boundaries(new_weights);</span>
-<span class="s2">                        weights = static_cast&lt;VectorRowMod8&gt;(new_weights);</span>
+<span class="s2">                    new_weights = check_boundaries(new_weights);</span>
+<span class="s2">                    weights = static_cast&lt;VectorRowMod8&gt;(new_weights);</span>
 
-<span class="s2">                        synapses[0].set_weights(weights, row);</span>
-<span class="s2">                    </span><span class="se">}}</span><span class="s2"></span>
+<span class="s2">                    synapses[0].set_weights(weights, row);</span>
 <span class="s2">                </span><span class="se">}}</span><span class="s2"></span>
 
 <span class="s2">                // reset row counter and spike accumulators</span>
@@ -882,7 +874,7 @@ able to observe an onset of the diagonal in the weights.</p>
     <span class="mi">1</span><span class="p">,</span> <span class="n">pynn</span><span class="o">.</span><span class="n">cells</span><span class="o">.</span><span class="n">SpikeSourceArray</span><span class="p">(</span><span class="n">spike_times</span><span class="o">=</span><span class="n">spiketrains_noise</span><span class="p">))</span>
 
 <span class="n">synapses</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">standardmodels</span><span class="o">.</span><span class="n">synapses</span><span class="o">.</span><span class="n">PlasticSynapse</span><span class="p">(</span>
-    <span class="n">plasticity_rule</span><span class="o">=</span><span class="n">PlasticityRule</span><span class="p">(</span><span class="n">timer</span><span class="o">=</span><span class="n">plasticity_timer</span><span class="p">),</span>
+    <span class="n">plasticity_rule</span><span class="o">=</span><span class="n">PlasticityRule</span><span class="p">(</span><span class="n">timer</span><span class="o">=</span><span class="n">plasticity_timer</span><span class="p">,</span> <span class="n">same_id</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
     <span class="n">weight</span><span class="o">=</span><span class="n">logical_weights</span> <span class="k">if</span> <span class="n">logical_weights</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
     <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">parameters</span><span class="o">.</span><span class="n">n_inputs</span><span class="p">,</span> <span class="n">parameters</span><span class="o">.</span><span class="n">n_outputs</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">))</span>
 <span class="n">projection</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Projection</span><span class="p">(</span>
@@ -890,7 +882,7 @@ able to observe an onset of the diagonal in the weights.</p>
     <span class="n">synapse_type</span><span class="o">=</span><span class="n">synapses</span><span class="p">,</span> <span class="n">receptor_type</span><span class="o">=</span><span class="s2">&quot;excitatory&quot;</span><span class="p">)</span>
 
 <span class="n">synapses_noise</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">standardmodels</span><span class="o">.</span><span class="n">synapses</span><span class="o">.</span><span class="n">PlasticSynapse</span><span class="p">(</span>
-    <span class="n">plasticity_rule</span><span class="o">=</span><span class="n">NoiseSynapseRule</span><span class="p">(</span><span class="n">timer</span><span class="o">=</span><span class="n">init_timer</span><span class="p">),</span>
+    <span class="n">plasticity_rule</span><span class="o">=</span><span class="n">NoiseSynapseRule</span><span class="p">(</span><span class="n">timer</span><span class="o">=</span><span class="n">init_timer</span><span class="p">,</span> <span class="n">same_id</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
     <span class="n">weight</span><span class="o">=</span><span class="mi">63</span><span class="p">)</span>
 <span class="n">projection_noise</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Projection</span><span class="p">(</span>
     <span class="n">pop_noise</span><span class="p">,</span> <span class="n">pop_output</span><span class="p">,</span> <span class="n">pynn</span><span class="o">.</span><span class="n">AllToAllConnector</span><span class="p">(),</span>
