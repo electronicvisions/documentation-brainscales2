@@ -384,6 +384,33 @@ but injects loop-back recorded spikes if available.</p>
 </dd></dl>
 
 <dl class="py function">
+<dt id="hxtorch.spiking.functional.linear_exponential_clamp">
+<code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.functional.</span></code><code class="sig-name descname"><span class="pre">linear_exponential_clamp</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.nn.parameter.Parameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bias</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.nn.parameter.Parameter</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cap</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_weight</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">61.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quantize</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">torch.Tensor</span><a class="headerlink" href="#hxtorch.spiking.functional.linear_exponential_clamp" title="Permalink to this definition"></a></dt>
+<dd><p>Clamps the weights with an exponential roll-off towards saturation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> – The input neuron tensor holding spikes to be multiplied with
+the params tensor <cite>weight</cite>.</p></li>
+<li><p><strong>weight</strong> – Weight Tensor to be clamped.</p></li>
+<li><p><strong>bias</strong> – The bias of the linear operation.</p></li>
+<li><p><strong>cap</strong> – Upper resp. -1 * lower boundary of the weights. Choose this
+value to be 1 / weight_scaling (see hxtorch.spiking.Synapse) to
+saturate the software weights where theirs scaled values saturate on
+hardware.</p></li>
+<li><p><strong>start_weight</strong> – Indicating at which hardware-weight the roll off
+begins. Has to be in range (0, 63).</p></li>
+<li><p><strong>quantize</strong> – If true, the weights are rounded to multiples of cap / 63
+to match the discrete hardware representation.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Clamped weights and possibly rounded weights</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt id="hxtorch.spiking.functional.linear_sparse">
 <code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.functional.</span></code><code class="sig-name descname"><span class="pre">linear_sparse</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.nn.parameter.Parameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connections</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bias</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.nn.parameter.Parameter</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">torch.Tensor</span><a class="headerlink" href="#hxtorch.spiking.functional.linear_sparse" title="Permalink to this definition"></a></dt>
 <dd><p>Wrap <cite>linear</cite> to allow signature inspection. Disable inactive connections
