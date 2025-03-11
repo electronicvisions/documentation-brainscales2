@@ -206,6 +206,11 @@ given sample. For that we use an SNN with one hidden leaky-integrate and
 fire (LIF) layer projecting its spike events onto one leaky-integrator
 (LI) readout layer, as in [3]. Each neuron in the output layer
 corresponds to one of the three classes: ying, yang and dot.</p>
+<p>To avoid time-consuming implicit calibration from given “Neuron” parameters we
+load a prepared calibration. Note, that changing “Neuron” hardware parameters
+becomes not effective. You can comment out the lines loading the calibration
+if you want to use different parameters but be aware than the this will trigger
+a hardware calibration which might take a long time.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
 <span class="kn">import</span> <span class="nn">hxtorch</span>
 <span class="kn">import</span> <span class="nn">hxtorch.snn</span> <span class="k">as</span> <span class="nn">hxsnn</span>
@@ -276,6 +281,12 @@ corresponds to one of the three classes: ying, yang and dot.</p>
 
         <span class="c1"># Experiment instance</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">experiment</span> <span class="o">=</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">Experiment</span><span class="p">(</span><span class="n">mock</span><span class="o">=</span><span class="n">mock</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="n">dt</span><span class="p">)</span>
+        <span class="c1"># To avoid time-consuming implicit calibration from given parameters</span>
+        <span class="c1"># we load a prepared calibration. Note, that changing &quot;Neuron&quot;</span>
+        <span class="c1"># hardware parameters become ineffective</span>
+        <span class="n">save_nightly_calibration</span><span class="p">(</span><span class="s1">&#39;spiking2_calix-native.pkl&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">experiment</span><span class="o">.</span><span class="n">default_execution_instance</span><span class="o">.</span><span class="n">load_calib</span><span class="p">(</span>
+            <span class="s2">&quot;spiking2_calix-native.pkl&quot;</span><span class="p">)</span>
 
         <span class="c1"># Repeat input</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">input_repetitions</span> <span class="o">=</span> <span class="n">input_repetitions</span>
