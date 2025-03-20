@@ -142,15 +142,14 @@ lua << EOF
     -- runs clangd in the "dls" app within the latest container
     cmd = { "bash", "-c", "singularity exec --app dls /containers/stable/latest clangd" },
   }
-
-  -- as of 2022-06029 pylsp is missing in the container...
-  --require('lspconfig')['pylsp'].setup{
-  --  on_attach = on_attach,
-  --  flags = lsp_flags,
-  -- cmd = { "bash", "-c", "singularity exec --app dls /containers/stable/latest pylsp" },
-  --}
 EOF
 ```
+See the section on `clangd` for futher details.
+
+Some people might be interested in adding support for LLMs through LSP, e.g. using `copilot-cmp`;
+others might be interested in the official extension provided by [github](https://github.com/github/copilot.vim),
+or the [CopilotChat](https://github.com/CopilotC-Nvim/CopilotChat.nvim).
+
 
 #### clangd functionality
 
@@ -164,16 +163,16 @@ There are at least two ways to generate it:
 
 #### VS Code
 
-The following steps will explain how to setup `vscode` in conjunction with `ssh` to enable your local IDE to interact with a remote server (cf.  [LSP](https://en.wikipedia.org/wiki/Language_Server_Protocol)) running in a containerized environment.
-Due to `vscode`'s limited configurability we *abuse* `ssh/.authorized_keys` to containerize the working environment.
+The following steps will explain how to setup `vscode` in conjunction with `ssh` to enable your local IDE to interact with a remote server (cf. [LSP](https://en.wikipedia.org/wiki/Language_Server_Protocol)) running in a containerized environment.
+Due to `vscode`'s "limited" (non-existant) configurability we *abuse* `ssh/.authorized_keys` to containerize the working environment.
 Similarly, environment modules are also unsupported by `vscode`, we use `.env` files to inject the environment variables.
 
 * See {ref}`brainscales_build_system` and {ref}`containerized_software_environment` for information about the build process and the software environment.
 * Install vscode (see [here](https://code.visualstudio.com/docs/setup/setup-overview)), start it up and install the extension `Remote - SSH`.
 * For `vscode` a dedicated ssh key pair is needed:
   ```
-  local_machine $ ssh-keygen -t rsa
-  # /YOUR_HOME/.ssh/hel_vscode.id_rsa
+  local_machine $ ssh-keygen -t ed25519
+  # /YOUR_HOME/.ssh/hel_vscode.ed25519
   # …
   ```
 * Then setup your ssh client to use it:
@@ -184,16 +183,20 @@ Similarly, environment modules are also unsupported by `vscode`, we use `.env` f
           User YOUR_USERNAME
           Hostname brainscales-r.kip.uni-heidelberg.de
           Port 11022
-          IdentityFile /YOUR_HOME/.ssh/hel_vscode.id_rsa
+          IdentityFile /YOUR_HOME/.ssh/hel_vscode.ed25519
           #RequestTTY yes # ECM (2022-06-29) it seems this is not needed anymore
   # …
   ```
-* Enable ssh-key-based login and adjust it to startup within the latest container environment.
+* Start up a persistent container instance on the cluster frontend:
+  ```
+  hel $ apptainer instance start /containers/stable/latest whateverinstancename
+  ```
+* Enable ssh-key-based login and adjust it to startup within the persistent container environment.
   Add your public key to the file and prefix it:
   ```
   hel $ editor .ssh/authorized_keys
   #…
-  command="apptainer shell --app dls /containers/stable/latest" ssh-rsa YOUR_PUBLIC_KEY_YOUR_PUBLIC_KEY
+  command="HOME=/maybe/not/needed apptainer shell --app dls instance://whateverinstancename" YOUR_PUBLIC_KEY_YOUR_PUBLIC_KEY
   ```
 * Newer versions of `vscode` seem to play around with the PATH environment variable, so we need to fix that; append the following to your `.bashrc`:
   ```
