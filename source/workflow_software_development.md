@@ -8,14 +8,14 @@
 ### Containerized Software Environment
 
 BrainScaleS adopted a container-based approach to software environments.
-In particular, we use [singularity](https://sylabs.io/docs/)-based containers.
+In particular, we use [apptainer](https://apptainer.org/documentation)-based containers (which the modern version of `singularity`).
 In contrast to many other container ecosystems that focus on persistent services, our approach only provides a *wrapper* for the execution of commands in different environments.
 This can be easily layered with SLURM-based execution on our hardware-control cluster.
 E.g., to run a command inside a container on the cluster:
 ```
-$ srun -p <PARTITION> singularity exec <CONTAINER.IMG> <COMMAND>
+$ srun -p <PARTITION> apptainer exec <CONTAINER.IMG> <COMMAND>
 ```
-We typically make use of singularity's `--app <APP>` option to switch between different environments within the container.
+We typically make use of apptainer's `--app <APP>` option to switch between different environments within the container.
 For BrainScaleS-2 most users rely on `--app dls`, the CI tries to work on a slimmer software dependency tree available via `--app dls-core`.
 
 
@@ -24,7 +24,7 @@ For BrainScaleS-2 most users rely on `--app dls`, the CI tries to work on a slim
 We extended SLURM to support special-purpose options describing requested neuromorphic hardware resources.
 To run, for example, an experiment on the single-chip lab setup (*cube*s) number 60, FPGA no. 3:
 ```
-$ srun -p cube --wafer 60 --fpga-without-aout 3 <singularity call> experiment.py
+$ srun -p cube --wafer 60 --fpga-without-aout 3 <apptainer call> experiment.py
 ```
 
 
@@ -103,22 +103,22 @@ The [`lsp-mode`](https://emacs-lsp.github.io/lsp-mode/page/installation/) plugin
 On `hel` the containerized versions of `clangd` and `pylsp` should be used. You can configure `lsp-mode` to use these using
 ```
 (lsp-register-client
-  (make-lsp-client :new-connection (lsp-tramp-connection '("singularity" "exec" "--app" "dls" "/containers/stable/latest" "clangd"))
+  (make-lsp-client :new-connection (lsp-tramp-connection '("apptainer" "exec" "--app" "dls" "/containers/stable/latest" "clangd"))
                   :major-modes '(c++-mode c-mode)
                   :remote? t
                   :server-id 'clangd-remote))
 (lsp-register-client
-  (make-lsp-client :new-connection (lsp-tramp-connection '("singularity" "exec" "--app" "dls" "/containers/stable/latest" "pylsp"))
+  (make-lsp-client :new-connection (lsp-tramp-connection '("apptainer" "exec" "--app" "dls" "/containers/stable/latest" "pylsp"))
                   :major-modes '(python-mode)
                   :remote? t
                   :server-id 'pyls-remote)))
 ```
-For `TRAMP` to be able to find the `singularity` executable one needs to configure `TRAMP` to use the same `PATH` environment variable as the login shell. This can be done using
+For `TRAMP` to be able to find the `apptainer` executable one needs to configure `TRAMP` to use the same `PATH` environment variable as the login shell. This can be done using
 ```
-(connection-local-set-profile-variables 'remote-with-singularity-dls
+(connection-local-set-profile-variables 'remote-with-apptainer-dls
                                         '((tramp-remote-path . (tramp-own-remote-path tramp-default-remote-path))))
 (connection-local-set-profiles
- '(:application tramp :machine "hel") 'remote-with-singularity-dls)
+ '(:application tramp :machine "hel") 'remote-with-apptainer-dls)
 ```
 Depending on your ssh configuration you might need to change `"hel"` to match yours.
 
@@ -155,7 +155,7 @@ Similarly, environment modules are also unsupported by `vscode`, we use `.env` f
   ```
   hel $ editor .ssh/authorized_keys
   #…
-  command="singularity shell --app dls /containers/stable/latest" ssh-rsa YOUR_PUBLIC_KEY_YOUR_PUBLIC_KEY
+  command="apptainer shell --app dls /containers/stable/latest" ssh-rsa YOUR_PUBLIC_KEY_YOUR_PUBLIC_KEY
   ```
 * Use the extension (`Remote-SSH: Connect to Host…`) to connect to `hel-vscode`.
 * Open a new terminal and verify that it runs on the remote host within the dls app in the container.
@@ -164,10 +164,10 @@ Similarly, environment modules are also unsupported by `vscode`, we use `.env` f
   helvetica.kip.uni-heidelberg.de
   hel $ pwd
   YOUR_HOME
-  hel $ env | grep ^SINGULARITY
-  SINGULARITY_NAME=latest
-  SINGULARITY_CONTAINER=/containers/stable/latest
-  SINGULARITY_APPNAME=dls
+  hel $ env | grep ^APPTAINER
+  APPTAINER_NAME=latest
+  APPTAINER_CONTAINER=/containers/stable/latest
+  APPTAINER_APPNAME=dls
   ```
 
 To enable Python-related functionality in `vscode` the `Python` extension needs to be installed on the remote site.
