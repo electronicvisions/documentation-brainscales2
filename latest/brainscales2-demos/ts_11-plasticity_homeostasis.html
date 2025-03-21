@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BrainScaleS-2 on-chip plasticity experiment &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Introduction to matrix multiplication" href="tp_00-introduction.html" />
+    <link rel="prev" title="hxtorch.snn Introduction" href="ts_11-hxtorch_snn_intro.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> BrainScaleS-2 Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Demos &amp; Examples</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="tutorial.html">Demos and Examples</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="ts_00-single_neuron.html">BrainScaleS-2 single neuron experiments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ts_01-superspike.html">Learning with the SuperSpike rule</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ts_02-plasticity_rate_coding.html">BrainScaleS-2 on-chip plasticity experiment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ts_03-multicompartment.html">Multicompartmental Neurons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ts_04-mc_genetic_algorithms.html">How to use Genetic Algorithms to automatically parameterize BrainScaleS-2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ts_05-yin_yang.html">Training an SNN on BrainScaleS-2 with PyTorch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ts_06-dynamic_range.html">Exploring the dynamic range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ts_07-pong.html">Pong</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ts_08-adex_complex_dynamics.html">Complex Neuron Dynamics with a Silicon Adaptive Exponential Integrate-and-Fire Neuron</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ts_09-inside_realtime_hook.html">Demonstration of inside realtime hook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ts_10-multiple_configs.html">Demonstration of multiple chip-reconfigurations during an experiment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ts_11-hxtorch_snn_intro.html">hxtorch.snn Introduction</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">BrainScaleS-2 on-chip plasticity experiment</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#the-network">The network</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#controlling-the-on-chip-plasticity-processor">Controlling the on-chip plasticity processor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-plasticity-kernel">The plasticity kernel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-experiment">The experiment</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tp_00-introduction.html">Introduction to matrix multiplication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tp_01-properties.html">Exploring the analog MAC operation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tp_02-yin_yang.html">Train DNNs on BrainScaleS-2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nmpi_00-non_interactive_queue_runner.html">Introduction to the non-interactive queue runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#executing-the-notebooks">Executing the Notebooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#shared-hardware-resources">Shared Hardware Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#final-test-hardware-execution">Final test: Hardware Execution</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="girlsday.html">Wie verarbeitet unser Gehirn Informationen?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fortgeschrittenen_praktikum.html">Welcome to the Advanced Physics Lab for Physicists by the Electronic Vision(s) Group</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../software_components.html">Software Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../apis.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BrainScaleS-2 Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Welcome to the BrainScaleS-2 Demos &amp; Examples!</a> &raquo;</li>
+          <li><a href="tutorial.html">Welcome to the BrainScaleS-2 Tutorial</a> &raquo;</li>
+      <li>BrainScaleS-2 on-chip plasticity experiment</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/brainscales2-demos/ts_11-plasticity_homeostasis.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="brainscales-2-on-chip-plasticity-experiment">
+<h1>BrainScaleS-2 on-chip plasticity experiment<a class="headerlink" href="#brainscales-2-on-chip-plasticity-experiment" title="Permalink to this headline"></a></h1>
+<p>In this tutorial we will show how to define a custom plasticity rule and how to execute it during run-time on the BrainScaleS-2 system.
+In addition to the analog neural network core, BrainScaleS-2 features two embedded general-purpose processors, called PPUs (Plasticity Processing Units).
+They can be used for experiment control and alterations of configuration during the run-time of an experiment.
+This example makes use of this feature by show-casing synaptic plasticity for a simple homeostatic rule stabilizing the firing frequency of neurons.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">join</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pynn_brainscales.brainscales2</span> <span class="k">as</span> <span class="nn">pynn</span>
+<span class="kn">from</span> <span class="nn">dlens_vx_v3</span> <span class="kn">import</span> <span class="n">hal</span><span class="p">,</span> <span class="n">lola</span><span class="p">,</span> <span class="n">halco</span><span class="p">,</span> <span class="n">sta</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">_static.common.helpers</span> <span class="kn">import</span> <span class="n">setup_hardware_client</span>
+<span class="n">setup_hardware_client</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>We initialize the system using a nightly-generated default calibration for the neurons.</p>
+<p>A default calibration is generated for every setup every night.
+We save the nightly calibration in a variable such that we can use it later when we define our experiment.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">_static.common.helpers</span> <span class="kn">import</span> <span class="n">get_nightly_calibration</span>
+<span class="n">calib</span> <span class="o">=</span> <span class="n">get_nightly_calibration</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pynn</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="n">initial_config</span><span class="o">=</span><span class="n">calib</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="the-network">
+<h2>The network<a class="headerlink" href="#the-network" title="Permalink to this headline"></a></h2>
+<p>Our network topology looks like follows:</p>
+<a class="reference internal image-reference" href="../_images/plasticity_homeostasis_network.svg"><img alt="../_images/plasticity_homeostasis_network.svg" src="../_images/plasticity_homeostasis_network.svg" width="20%" /></a>
+<p>Our network consists of one Poisson source and a number of target neurons.
+The Poisson stimulus is generated with a constant rate.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">runtime</span> <span class="o">=</span> <span class="mf">1000.</span>  <span class="c1"># ms</span>
+
+<span class="n">bg_props</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="n">seed</span><span class="o">=</span><span class="mi">1234</span><span class="p">,</span>
+    <span class="n">rate</span><span class="o">=</span><span class="mf">120e3</span><span class="p">,</span>  <span class="c1"># Hz</span>
+<span class="p">)</span>
+<span class="n">poisson_input</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">pynn</span><span class="o">.</span><span class="n">cells</span><span class="o">.</span><span class="n">SpikeSourcePoissonOnChip</span><span class="p">(</span><span class="o">**</span><span class="n">bg_props</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>We now want to use local plasticity to tune the weights between the Poisson source and the target neurons for them to stabilize around a target firing rate.
+The weights are updated according to:</p>
+<div class="math notranslate nohighlight">
+\[\Delta w = \mathrm{sign}\left(\nu_\mathrm{target} - \nu \right)\]</div>
+</div>
+<div class="section" id="controlling-the-on-chip-plasticity-processor">
+<h2>Controlling the on-chip plasticity processor<a class="headerlink" href="#controlling-the-on-chip-plasticity-processor" title="Permalink to this headline"></a></h2>
+<p>During the experiment, the PPUs execute an earliest-deadline-first scheduler for tasks to be performed.
+It periodically fetches new tasks to be performed and executes the task with the earliest deadline first.
+In PyNN, execution of a plasticity rule is such a task.
+A plasticity rule is applied onto a projection or population via the synapse type or the cell type respectively.
+The plasticity rule features a method yielding C++-code to be executed as a task on the PPU.
+Tasks can be executed periodically, for which a timer object is to be supplied.</p>
+</div>
+<div class="section" id="the-plasticity-kernel">
+<h2>The plasticity kernel<a class="headerlink" href="#the-plasticity-kernel" title="Permalink to this headline"></a></h2>
+<p>We now define the plasticity rule type with the C++-code which stabilizes the neurons’ firing rate by alteration of the synaptic weights.
+We need the neurons’ firing rate as observables in the plasticity rule function.
+Therefore, we require the rule to operate on both the synaptic weights as well as the target neurons.
+The entry point of the plasticity task is called <code class="docutils literal notranslate"><span class="pre">PLASTICITY_RULE_KERNEL</span></code> and is supplied with information about the synapse and neuron locations.
+This information corresponds to the projections and populations in PyNN.</p>
+<p>Within the task function, the program accesses synaptic weights row-wise via <code class="docutils literal notranslate"><span class="pre">set_weights(weight_values,</span> <span class="pre">row)</span></code> and <code class="docutils literal notranslate"><span class="pre">get_weights(row)</span></code>.
+The neurons’ firing rates are accessed via <code class="docutils literal notranslate"><span class="pre">get_rate_counters(reset)</span></code>.
+The task, which corresponds to the execution of the plasticity rule, is scheduled periodically.
+Over time, this leads to the a stabilization of  the neurons’ firing rate.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">textwrap</span>
+
+<span class="k">class</span> <span class="nc">PlasticityRule</span><span class="p">(</span><span class="n">pynn</span><span class="o">.</span><span class="n">PlasticityRule</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timer</span><span class="p">:</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Timer</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param timer: Timing information for the execution of the rule</span>
+<span class="sd">        :param target: Target firing rate of the neurons in number of spikes per execution</span>
+<span class="sd">                       period</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">observables</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;w&quot;</span><span class="p">:</span> <span class="n">pynn</span><span class="o">.</span><span class="n">PlasticityRule</span><span class="o">.</span><span class="n">ObservablePerSynapse</span><span class="p">(</span>
+                <span class="n">pynn</span><span class="o">.</span><span class="n">PlasticityRule</span><span class="o">.</span><span class="n">ObservablePerSynapse</span><span class="o">.</span><span class="n">Type</span><span class="o">.</span><span class="n">uint8</span><span class="p">,</span>
+                <span class="n">pynn</span><span class="o">.</span><span class="n">PlasticityRule</span><span class="o">.</span><span class="n">ObservablePerSynapse</span><span class="o">.</span><span class="n">LayoutPerRow</span><span class="o">.</span><span class="n">packed_active_columns</span><span class="p">)</span>
+        <span class="p">}</span>
+
+        <span class="n">pynn</span><span class="o">.</span><span class="n">PlasticityRule</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timer</span><span class="p">,</span> <span class="n">observables</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">target</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">target</span> <span class="o">&gt;</span> <span class="mi">256</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The target factor must be in [0, 256).&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_target</span> <span class="o">=</span> <span class="n">target</span>
+
+    <span class="k">def</span> <span class="nf">_set_target</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_target</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">new_target</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">new_target</span> <span class="o">&gt;</span> <span class="mi">256</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The target factor must be in [0, 256).&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_target</span> <span class="o">=</span> <span class="n">new_target</span>
+        <span class="c1"># needed for differential updates of the experiment description</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">changed_since_last_run</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="nf">_get_target</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_target</span>
+
+    <span class="n">target</span> <span class="o">=</span> <span class="nb">property</span><span class="p">(</span><span class="n">_get_target</span><span class="p">,</span> <span class="n">_set_target</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">generate_kernel</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generate plasticity rule kernel to be compiled into PPU program.</span>
+
+<span class="sd">        :return: PPU-code of plasticity-rule kernel as string.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">        #include &quot;grenade/vx/ppu/synapse_array_view_handle.h&quot;</span>
+<span class="s2">        #include &quot;grenade/vx/ppu/neuron_view_handle.h&quot;</span>
+<span class="s2">        #include &quot;grenade/vx/ppu/time.h&quot;</span>
+<span class="s2">        #include &quot;libnux/vx/vector_if.h&quot;</span>
+<span class="s2">        #include &quot;hate/tuple.h&quot;</span>
+
+<span class="s2">        using namespace grenade::vx::ppu;</span>
+<span class="s2">        using namespace libnux::vx;</span>
+<span class="s2">        extern volatile PPUOnDLS ppu;</span>
+
+<span class="s2">        /**</span>
+<span class="s2">         * Get the sign for each entry of a SIMD vector row (with 256 elements, one for each</span>
+<span class="s2">         * neuron column).</span>
+<span class="s2">         * We use signed fractional saturating SIMD arithmetics to express the sign.</span>
+<span class="s2">         */</span>
+<span class="s2">        VectorRowFracSat8 sign(VectorRowFracSat8 const&amp; value)</span>
+<span class="s2">        {{</span>
+<span class="s2">            // (value == 0) ? 0 : ((value &gt;= 0) ? 1 : -1);</span>
+<span class="s2">            // vector_if applies a conditional selection for each SIMD vector entry</span>
+<span class="s2">            return vector_if(</span>
+<span class="s2">                value,</span>
+<span class="s2">                VectorIfCondition::equal,</span>
+<span class="s2">                VectorRowFracSat8(0),</span>
+<span class="s2">                vector_if(</span>
+<span class="s2">                    value,</span>
+<span class="s2">                    VectorIfCondition::greater_equal,</span>
+<span class="s2">                    VectorRowFracSat8(1),</span>
+<span class="s2">                    VectorRowFracSat8(-1)));</span>
+<span class="s2">        }}</span>
+
+<span class="s2">        /**</span>
+<span class="s2">         * The plasticity rule function, which will be invoked at the requested times during the</span>
+<span class="s2">         * experiment.</span>
+<span class="s2">         *</span>
+<span class="s2">         * @tparam N Number of handles to synapses of the projection and neurons of the</span>
+<span class="s2">         *           population. The handles contain all synapses or neurons, which reside on</span>
+<span class="s2">         *           one hemisphere of the chip, therefore these can here be one or two.</span>
+<span class="s2">         */</span>
+<span class="s2">        template &lt;size_t N&gt;</span>
+<span class="s2">        void PLASTICITY_RULE_KERNEL(</span>
+<span class="s2">            std::array&lt;SynapseArrayViewHandle, N&gt;&amp; synapses,</span>
+<span class="s2">            std::array&lt;NeuronViewHandle, N&gt;&amp; neurons,</span>
+<span class="s2">            Recording&amp; recording)</span>
+<span class="s2">        {{</span>
+<span class="s2">            // record the current time of the experiment</span>
+<span class="s2">            recording.time = now();</span>
+
+<span class="s2">            // for each part (synapses placed on the top or bottom hemisphere of the chip)</span>
+<span class="s2">            // of the projection perform the plasticity update</span>
+<span class="s2">            hate::for_each(</span>
+<span class="s2">                [&amp;ppu](SynapseArrayViewHandle const&amp; local_synapses,</span>
+<span class="s2">                    NeuronViewHandle&amp; local_neurons,</span>
+<span class="s2">                    auto&amp; local_recording_w) {{</span>
+<span class="s2">                    // Both PPUs execute the same code, we therefore check that we only apply</span>
+<span class="s2">                    // weight updates to the hemisphere/PPU-local synapses</span>
+<span class="s2">                    if (local_synapses.hemisphere != ppu) {{</span>
+<span class="s2">                        return;</span>
+<span class="s2">                    }}</span>
+
+<span class="s2">                    // get the number of spikes for each neuron in the population residing on</span>
+<span class="s2">                    // this hemisphere since the last rule execution (and reset the counter)</span>
+<span class="s2">                    auto const neuron_counters = local_neurons.get_rate_counters(true);</span>
+
+<span class="s2">                    // iterate over all synapse rows, which contain plastic synapses:</span>
+<span class="s2">                    //  - get the weights</span>
+<span class="s2">                    //  - calculate weight update</span>
+<span class="s2">                    //  - set updated weights</span>
+<span class="s2">                    //  - record current weight values</span>
+<span class="s2">                    for (size_t j = 0; j &lt; local_synapses.rows.size(); ++j) {{</span>
+<span class="s2">                        auto weights = static_cast&lt;VectorRowFracSat8&gt;(local_synapses.get_weights(j));</span>
+
+<span class="s2">                        weights += sign(</span>
+<span class="s2">                            VectorRowFracSat8(</span><span class="si">{target}</span><span class="s2">)</span>
+<span class="s2">                            - static_cast&lt;VectorRowFracSat8&gt;(neuron_counters));</span>
+
+<span class="s2">                        // ensure positive weight</span>
+<span class="s2">                        // (weights &gt; 0) ? weights : 0</span>
+<span class="s2">                        weights = vector_if(</span>
+<span class="s2">                            weights,</span>
+<span class="s2">                            VectorIfCondition::greater,</span>
+<span class="s2">                            weights,</span>
+<span class="s2">                            VectorRowFracSat8(0));</span>
+
+<span class="s2">                        // ensure weight in hardware range</span>
+<span class="s2">                        // (weights &gt; 63) ? 63 : weights</span>
+<span class="s2">                        weights = vector_if(</span>
+<span class="s2">                            weights -63,</span>
+<span class="s2">                            VectorIfCondition::greater,</span>
+<span class="s2">                            VectorRowFracSat8(63),</span>
+<span class="s2">                            weights);</span>
+
+<span class="s2">                        local_synapses.set_weights(static_cast&lt;VectorRowMod8&gt;(weights), j);</span>
+
+<span class="s2">                        for (size_t c = 0; c &lt; local_synapses.columns.size(); ++c) {{</span>
+<span class="s2">                            local_recording_w[j][c] = weights[local_synapses.columns[c]];</span>
+<span class="s2">                        }}</span>
+<span class="s2">                    }}</span>
+<span class="s2">                }}, synapses, neurons, recording.w);</span>
+<span class="s2">        }}</span>
+<span class="s2">        &quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_target</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="the-experiment">
+<h2>The experiment<a class="headerlink" href="#the-experiment" title="Permalink to this headline"></a></h2>
+<p>We have already constructed the Poisson source.
+We now construct the plasticity rule with a target firing rate.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plasticity execution timing</span>
+<span class="n">period</span> <span class="o">=</span> <span class="mf">10.</span>  <span class="c1"># ms</span>
+<span class="n">timer</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span>
+    <span class="n">start</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="c1"># ms</span>
+    <span class="n">period</span><span class="o">=</span><span class="n">period</span><span class="p">,</span>
+    <span class="n">num_periods</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">runtime</span> <span class="o">/</span> <span class="n">period</span><span class="p">))</span>
+
+<span class="n">target_rate</span> <span class="o">=</span> <span class="mf">6.</span>  <span class="c1"># kHz</span>
+
+<span class="n">plasticity_rule</span> <span class="o">=</span> <span class="n">PlasticityRule</span><span class="p">(</span><span class="n">timer</span><span class="o">=</span><span class="n">timer</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="n">target_rate</span> <span class="o">*</span> <span class="n">period</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The target population consists of <code class="docutils literal notranslate"><span class="pre">num_neurons</span></code> neurons, of which spikes are recorded.
+The plasticity rule is supplied as an argument to the celltype, which is an argument to the initialized neuron population.
+This allows to define a neuron population that is accessible to the plasticity rule under consideration and therefore to access these neurons’ firing rates.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_neurons</span> <span class="o">=</span> <span class="mi">512</span>
+<span class="n">neurons</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="n">num_neurons</span><span class="p">,</span> <span class="n">pynn</span><span class="o">.</span><span class="n">cells</span><span class="o">.</span><span class="n">HXNeuron</span><span class="p">(</span><span class="n">plasticity_rule</span><span class="o">=</span><span class="n">plasticity_rule</span><span class="p">))</span>
+<span class="n">neurons</span><span class="o">.</span><span class="n">record</span><span class="p">([</span><span class="s2">&quot;spikes&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>A all-to-all connector is used as a projection between the Poisson stimulus and the target neurons.
+Initially the weights are set to zero, the PPU will alter them during the experiment.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">synapse</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">standardmodels</span><span class="o">.</span><span class="n">synapses</span><span class="o">.</span><span class="n">PlasticSynapse</span><span class="p">(</span>
+    <span class="n">plasticity_rule</span><span class="o">=</span><span class="n">plasticity_rule</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">projection</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Projection</span><span class="p">(</span><span class="n">poisson_input</span><span class="p">,</span>
+                <span class="n">neurons</span><span class="p">,</span>
+                <span class="n">pynn</span><span class="o">.</span><span class="n">AllToAllConnector</span><span class="p">(),</span>
+                <span class="n">synapse_type</span><span class="o">=</span><span class="n">synapse</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We run the experiment for 1000 ms, during which we expect a plasticity execution every 10 ms
+leading to convergence of the neurons firing rates towards the target rate.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pynn</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">runtime</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To plot the neurons’ firing rate, we count spikes in bins:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">neo</span>
+
+<span class="k">def</span> <span class="nf">calculate_firing_rates</span><span class="p">(</span><span class="n">spikes</span><span class="p">:</span> <span class="n">neo</span><span class="o">.</span><span class="n">SpikeTrain</span><span class="p">,</span> <span class="n">runtime</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">bins</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get the neurons&#39; firing rates by counting spikes in time intervals.</span>
+
+<span class="sd">    :param spikes: Spikes of the neurons</span>
+<span class="sd">    :param runtime: Total experiment runtime in ms</span>
+<span class="sd">    :param bins: Number of bins to divide runtime into</span>
+<span class="sd">    :return: Firing rate of neurons in each bin across the runtime and left limits of the bins.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">counts</span><span class="p">,</span> <span class="n">times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">spikes</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="n">runtime</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">counts</span> <span class="o">*</span> <span class="p">(</span><span class="n">bins</span> <span class="o">/</span> <span class="n">runtime</span><span class="p">),</span> <span class="n">times</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>We visualize the recorded spike-trains.
+The neurons’ firing rates converge towards the target firing rate.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot data</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;t [ms]&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;$</span><span class="se">\\</span><span class="s2">nu$ [kHz]&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">target_rate</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">target_rate</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s2">&quot;$</span><span class="se">\\</span><span class="s2">nu_</span><span class="se">\\</span><span class="s2">mathrm</span><span class="si">{target}</span><span class="s2">$&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;C0&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">spikes</span> <span class="ow">in</span> <span class="n">neurons</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="s2">&quot;spikes&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">segments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">spiketrains</span><span class="p">:</span>
+    <span class="n">nus</span><span class="p">,</span> <span class="n">times</span> <span class="o">=</span> <span class="n">calculate_firing_rates</span><span class="p">(</span><span class="n">spikes</span><span class="p">,</span> <span class="n">runtime</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">nus</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<a class="solution reference internal image-reference" href="../_images/plasticity_homeostasis_rate.png"><img alt="../_images/plasticity_homeostasis_rate.png" class="solution align-center" src="../_images/plasticity_homeostasis_rate.png" style="width: 90%;" /></a>
+<p>Last, we visualize the synaptic weights, which were recorded as observables of the plasticity rule.
+The weights are altered such that the neurons’ firing rate approaches the target firing rate.
+Since the update rule uses the <cite>sign</cite> function, the weights are always either increased or decreased in each update step and therefore oscillating.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get batch entry 0 here, currently in PyNN we don&#39;t support batch size larger one</span>
+<span class="n">weights</span> <span class="o">=</span> <span class="n">projection</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="s2">&quot;w&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">weight_times</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">weight_values</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">weights</span><span class="p">)):</span>
+    <span class="c1"># times are not yet converted to ms, but are given in FPGA clock cycles (with 125MHz clock)</span>
+    <span class="n">weight_times</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">weights</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">/</span> <span class="mi">125</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">)</span>
+    <span class="n">weight_values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">weights</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+<span class="n">weight_times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">weight_times</span><span class="p">)</span>
+<span class="n">weight_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">weight_values</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">weight_times</span><span class="p">,</span> <span class="n">weight_values</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;synaptic weight [a.u.]&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;t [ms]&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<a class="solution reference internal image-reference" href="../_images/plasticity_homeostasis_weight.png"><img alt="../_images/plasticity_homeostasis_weight.png" class="solution align-center" src="../_images/plasticity_homeostasis_weight.png" style="width: 90%;" /></a>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ts_11-hxtorch_snn_intro.html" class="btn btn-neutral float-left" title="hxtorch.snn Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="tp_00-introduction.html" class="btn btn-neutral float-right" title="Introduction to matrix multiplication" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Electronic Vision(s).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
