@@ -126,35 +126,35 @@
 <code class="sig-name descname"><span class="pre">add</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygrenade_vx.network.NetworkBuilder.add" title="Permalink to this definition"></a></dt>
 <dd><p>Overloaded function.</p>
 <ol class="arabic simple">
-<li><p>add(self: _pygrenade_vx_network.NetworkBuilder, population: _pygrenade_vx_network.Population, execution_instance: _pygrenade_vx_common.ExecutionInstanceID = ExecutionInstanceID(0)) -&gt; _pygrenade_vx_network.PopulationOnNetwork</p></li>
+<li><p>add(self: _pygrenade_vx_network.NetworkBuilder, population: _pygrenade_vx_network.Population, execution_instance: pygrenade_common.ExecutionInstanceID = ExecutionInstanceID(0)) -&gt; _pygrenade_vx_network.PopulationOnNetwork</p></li>
 </ol>
 <p>Add on-chip population. The population is expected to feature unique and unused neuron locations.</p>
 <ol class="arabic simple" start="2">
-<li><p>add(self: _pygrenade_vx_network.NetworkBuilder, population: _pygrenade_vx_network.ExternalSourcePopulation, execution_instance: _pygrenade_vx_common.ExecutionInstanceID = ExecutionInstanceID(0)) -&gt; _pygrenade_vx_network.PopulationOnNetwork</p></li>
+<li><p>add(self: _pygrenade_vx_network.NetworkBuilder, population: _pygrenade_vx_network.ExternalSourcePopulation, execution_instance: pygrenade_common.ExecutionInstanceID = ExecutionInstanceID(0)) -&gt; _pygrenade_vx_network.PopulationOnNetwork</p></li>
 </ol>
 <p>Add off-chip population.</p>
 <ol class="arabic simple" start="3">
-<li><p>add(self: _pygrenade_vx_network.NetworkBuilder, population: _pygrenade_vx_network.BackgroundSourcePopulation, execution_instance: _pygrenade_vx_common.ExecutionInstanceID = ExecutionInstanceID(0)) -&gt; _pygrenade_vx_network.PopulationOnNetwork</p></li>
+<li><p>add(self: _pygrenade_vx_network.NetworkBuilder, population: _pygrenade_vx_network.BackgroundSourcePopulation, execution_instance: pygrenade_common.ExecutionInstanceID = ExecutionInstanceID(0)) -&gt; _pygrenade_vx_network.PopulationOnNetwork</p></li>
 </ol>
 <p>Add on-chip background spike source population.</p>
 <ol class="arabic simple" start="4">
-<li><p>add(self: _pygrenade_vx_network.NetworkBuilder, projection: _pygrenade_vx_network.Projection, execution_instance: _pygrenade_vx_common.ExecutionInstanceID = ExecutionInstanceID(0)) -&gt; _pygrenade_vx_network.ProjectionOnNetwork</p></li>
+<li><p>add(self: _pygrenade_vx_network.NetworkBuilder, projection: _pygrenade_vx_network.Projection, execution_instance: pygrenade_common.ExecutionInstanceID = ExecutionInstanceID(0)) -&gt; _pygrenade_vx_network.ProjectionOnNetwork</p></li>
 </ol>
 <p>Add projection between already added populations. The projection is expected to be free of single connections present in already added projections. A single connection is considered equal, if it connects the same pre- and post-synaptic neurons and features the same receptor type.</p>
 <ol class="arabic simple" start="5">
-<li><p>add(self: _pygrenade_vx_network.NetworkBuilder, madc_recording: _pygrenade_vx_network.MADCRecording, execution_instance: _pygrenade_vx_common.ExecutionInstanceID = ExecutionInstanceID(0)) -&gt; None</p></li>
+<li><p>add(self: _pygrenade_vx_network.NetworkBuilder, madc_recording: _pygrenade_vx_network.MADCRecording, execution_instance: pygrenade_common.ExecutionInstanceID = ExecutionInstanceID(0)) -&gt; None</p></li>
 </ol>
 <p>Add MADC recording of a single neuron. Only one MADC recording per network is allowed. If another recording is present at the recorded neuron, their source specification is required to match.</p>
 <ol class="arabic simple" start="6">
-<li><p>add(self: _pygrenade_vx_network.NetworkBuilder, cadc_recording: _pygrenade_vx_network.CADCRecording, execution_instance: _pygrenade_vx_common.ExecutionInstanceID = ExecutionInstanceID(0)) -&gt; None</p></li>
+<li><p>add(self: _pygrenade_vx_network.NetworkBuilder, cadc_recording: _pygrenade_vx_network.CADCRecording, execution_instance: pygrenade_common.ExecutionInstanceID = ExecutionInstanceID(0)) -&gt; None</p></li>
 </ol>
 <p>Add CADC recording of a collection of neurons. Only one CADC recording per network is allowed. If another recording is present at a recorded neuron, their source specification is required to match.</p>
 <ol class="arabic simple" start="7">
-<li><p>add(self: _pygrenade_vx_network.NetworkBuilder, pad_recording: _pygrenade_vx_network.PadRecording, execution_instance: _pygrenade_vx_common.ExecutionInstanceID = ExecutionInstanceID(0)) -&gt; None</p></li>
+<li><p>add(self: _pygrenade_vx_network.NetworkBuilder, pad_recording: _pygrenade_vx_network.PadRecording, execution_instance: pygrenade_common.ExecutionInstanceID = ExecutionInstanceID(0)) -&gt; None</p></li>
 </ol>
 <p>Add pad recording of a collection of neurons. Only one pad recording per network is allowed. If another recording is present at a recorded neuron, their source specification is required to match.</p>
 <ol class="arabic simple" start="8">
-<li><p>add(self: _pygrenade_vx_network.NetworkBuilder, plasticity_rule: _pygrenade_vx_network.PlasticityRule, execution_instance: _pygrenade_vx_common.ExecutionInstanceID = ExecutionInstanceID(0)) -&gt; _pygrenade_vx_network.PlasticityRuleOnNetwork</p></li>
+<li><p>add(self: _pygrenade_vx_network.NetworkBuilder, plasticity_rule: _pygrenade_vx_network.PlasticityRule, execution_instance: pygrenade_common.ExecutionInstanceID = ExecutionInstanceID(0)) -&gt; _pygrenade_vx_network.PlasticityRuleOnNetwork</p></li>
 <li><p>add(self: _pygrenade_vx_network.NetworkBuilder, projection: _pygrenade_vx_network.InterExecutionInstanceProjection) -&gt; _pygrenade_vx_network.InterExecutionInstanceProjectionOnNetwork</p></li>
 </ol>
 <p>Add inter-execution-instance projection between already added populations. The projection is expected to be connecting different execution instances.</p>
