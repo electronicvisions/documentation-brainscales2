@@ -25,11 +25,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> BrainScaleS-2 Documentation
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            BrainScaleS-2 Documentation
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -76,10 +80,10 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="index.html">Welcome to the BrainScaleS-2 Demos &amp; Examples!</a> &raquo;</li>
-          <li><a href="fortgeschrittenen_praktikum.html">Welcome to the Advanced Physics Lab for Physicists by the Electronic Vision(s) Group</a> &raquo;</li>
-      <li>Solving sudokus with BrainScaleS-2</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Welcome to the BrainScaleS-2 Demos &amp; Examples!</a></li>
+          <li class="breadcrumb-item"><a href="fortgeschrittenen_praktikum.html">Welcome to the Advanced Physics Lab for Physicists by the Electronic Vision(s) Group</a></li>
+      <li class="breadcrumb-item active">Solving sudokus with BrainScaleS-2</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/brainscales2-demos/fp_sudoku.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -201,7 +205,7 @@ there are four such blocks to complete the 4x4 sudoku.</span><a class="headerlin
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># functions to solve the sudoku:</span>
 
 <span class="k">def</span> <span class="nf">set_clues</span><span class="p">(</span><span class="n">clues</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Sets the clues in the network.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Sets the clues in the network.&quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">clues</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">clues</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">row</span><span class="p">,</span> <span class="n">row_clues</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">clue_projections</span><span class="p">):</span>
@@ -211,7 +215,7 @@ there are four such blocks to complete the 4x4 sudoku.</span><a class="headerlin
                     <span class="n">connection</span><span class="o">.</span><span class="n">weight</span> <span class="o">=</span> <span class="mf">63.</span> <span class="k">if</span> <span class="n">clues</span><span class="p">[</span><span class="n">row</span><span class="p">,</span><span class="n">col</span><span class="p">]</span> <span class="o">==</span> <span class="n">number</span> <span class="k">else</span> <span class="mf">0.</span>
 
 <span class="k">def</span> <span class="nf">hide_solution</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">num_clues</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Hides the solution and only leaves `num_clues` hints.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Hides the solution and only leaves `num_clues` hints.&quot;&quot;&quot;</span>
     <span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argwhere</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">grid</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">grid</span> <span class="o">&lt;=</span> <span class="mi">4</span><span class="p">))</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">indices</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">num_clues</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
@@ -223,7 +227,7 @@ there are four such blocks to complete the 4x4 sudoku.</span><a class="headerlin
     <span class="k">return</span> <span class="n">clues</span>
 
 <span class="k">def</span> <span class="nf">get_solution</span><span class="p">(</span><span class="n">runtime</span><span class="p">,</span> <span class="n">clues</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Executes the network and returns the current solution.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Executes the network and returns the current solution.&quot;&quot;&quot;</span>
     <span class="n">set_clues</span><span class="p">(</span><span class="n">clues</span><span class="p">)</span>
     <span class="n">grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
 
@@ -289,7 +293,7 @@ there are four such blocks to complete the 4x4 sudoku.</span><a class="headerlin
               <span class="n">config</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
               <span class="n">defaults</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
               <span class="n">copy_configuration</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Build a slider-based GUI for an experiment callback function.</span>
 <span class="sd">    The sliders are grouped by the specific circuit they affect and the</span>
 <span class="sd">    callback&#39;s result (e.g. graph) is displayed above the sliders.</span>
@@ -379,7 +383,7 @@ there are four such blocks to complete the 4x4 sudoku.</span><a class="headerlin
         <span class="n">get_solution</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="nb">float</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span>
     <span class="p">):</span>
         <span class="c1"># Initialize and contain sudoku solver and plotter</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Initialize a Sudoku Plotter</span>
 
 <span class="sd">        :param dimension : Size of Sudoku to solve</span>
@@ -419,7 +423,7 @@ there are four such blocks to complete the 4x4 sudoku.</span><a class="headerlin
         <span class="bp">self</span><span class="o">.</span><span class="n">runtime</span> <span class="o">=</span> <span class="kc">None</span>
 
     <span class="k">def</span> <span class="nf">empty_sudoku</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="p">:</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Draws onto an axis an empty sudoku grid with dimensions of</span>
 <span class="sd">            self.dimension</span>
 
@@ -472,7 +476,7 @@ there are four such blocks to complete the 4x4 sudoku.</span><a class="headerlin
     <span class="k">def</span> <span class="nf">sudoku_populate</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="p">:</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">,</span> <span class="n">sudoku</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Insert Numbers from a given sudoku. If field equal 0 no number</span>
 <span class="sd">        is written</span>
 
@@ -503,7 +507,7 @@ there are four such blocks to complete the 4x4 sudoku.</span><a class="headerlin
                                            <span class="n">fc</span><span class="o">=</span><span class="p">(</span><span class="mf">.85</span><span class="p">,</span> <span class="mf">.85</span><span class="p">,</span> <span class="mf">.85</span><span class="p">),</span> <span class="n">zorder</span><span class="o">=-</span><span class="mi">11</span><span class="p">))</span>
 
     <span class="k">def</span> <span class="nf">check_solution</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sudoku</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Checks if a sudoku is correct by checking sum in each row.</span>
 <span class="sd">        Expected value is</span>
 <span class="sd">        x_exp = 1 + ... + dimension</span>
@@ -520,7 +524,7 @@ there are four such blocks to complete the 4x4 sudoku.</span><a class="headerlin
         <span class="k">return</span> <span class="kc">True</span>
 
     <span class="k">def</span> <span class="nf">solve_sudoku</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sudoku</span><span class="p">,</span> <span class="n">runtime</span><span class="p">,</span> <span class="n">num_clues</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Executes required steps to solve sudoku</span>
 <span class="sd">        1. Defines clues -&gt; SudokuPlotter.clues</span>
 <span class="sd">        2. Applies clues with set_clues</span>
@@ -540,7 +544,7 @@ there are four such blocks to complete the 4x4 sudoku.</span><a class="headerlin
         <span class="bp">self</span><span class="o">.</span><span class="n">runtime</span> <span class="o">=</span> <span class="n">runtime</span>
 
     <span class="k">def</span> <span class="nf">plot_sudoku</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Plots sudoku</span>
 <span class="sd">        If no axis is given, a new figure is created</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -553,7 +557,7 @@ there are four such blocks to complete the 4x4 sudoku.</span><a class="headerlin
         <span class="bp">self</span><span class="o">.</span><span class="n">sudoku_populate_clues</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">clues</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">plot_activities</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Plots the activity of each individual neuron</span>
 <span class="sd">        If no axis is given, a new figure is created</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -607,7 +611,7 @@ there are four such blocks to complete the 4x4 sudoku.</span><a class="headerlin
         <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Coordinat [row, column]&quot;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Plots the results</span>
 <span class="sd">        if grid is True, makes one plot with grid and anctivities, else two</span>
 <span class="sd">            separate images</span>

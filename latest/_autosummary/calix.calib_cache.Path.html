@@ -25,11 +25,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> BrainScaleS-2 Documentation
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            BrainScaleS-2 Documentation
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -73,12 +77,12 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../apis.html">BrainScaleS-2 API Documentation</a> &raquo;</li>
-          <li><a href="../apis_python.html">BrainScaleS-2 API Documentation</a> &raquo;</li>
-          <li><a href="calix.html">calix</a> &raquo;</li>
-          <li><a href="calix.calib_cache.html">calix.calib_cache</a> &raquo;</li>
-      <li>calix.calib_cache.Path</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../apis.html">BrainScaleS-2 API Documentation</a></li>
+          <li class="breadcrumb-item"><a href="../apis_python.html">BrainScaleS-2 API Documentation</a></li>
+          <li class="breadcrumb-item"><a href="calix.html">calix</a></li>
+          <li class="breadcrumb-item"><a href="calix.calib_cache.html">calix.calib_cache</a></li>
+      <li class="breadcrumb-item active">calix.calib_cache.Path</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/_autosummary/calix.calib_cache.Path.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -116,7 +120,7 @@ but cannot instantiate a WindowsPath on a POSIX system or vice versa.</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="#calix.calib_cache.Path.absolute" title="calix.calib_cache.Path.absolute"><code class="xref py py-obj docutils literal notranslate"><span class="pre">absolute</span></code></a>()</p></td>
 <td><p>Return an absolute version of this path.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#calix.calib_cache.Path.chmod" title="calix.calib_cache.Path.chmod"><code class="xref py py-obj docutils literal notranslate"><span class="pre">chmod</span></code></a>(mode)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#calix.calib_cache.Path.chmod" title="calix.calib_cache.Path.chmod"><code class="xref py py-obj docutils literal notranslate"><span class="pre">chmod</span></code></a>(mode, *[, follow_symlinks])</p></td>
 <td><p>Change the permissions of the path, like os.chmod().</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#calix.calib_cache.Path.cwd" title="calix.calib_cache.Path.cwd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cwd</span></code></a>()</p></td>
@@ -134,65 +138,71 @@ but cannot instantiate a WindowsPath on a POSIX system or vice versa.</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="#calix.calib_cache.Path.group" title="calix.calib_cache.Path.group"><code class="xref py py-obj docutils literal notranslate"><span class="pre">group</span></code></a>()</p></td>
 <td><p>Return the group name of the file gid.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#calix.calib_cache.Path.home" title="calix.calib_cache.Path.home"><code class="xref py py-obj docutils literal notranslate"><span class="pre">home</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#calix.calib_cache.Path.hardlink_to" title="calix.calib_cache.Path.hardlink_to"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hardlink_to</span></code></a>(target)</p></td>
+<td><p>Make this path a hard link pointing to the same file as <em>target</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.calib_cache.Path.home" title="calix.calib_cache.Path.home"><code class="xref py py-obj docutils literal notranslate"><span class="pre">home</span></code></a>()</p></td>
 <td><p>Return a new path pointing to the user’s home directory (as returned by os.path.expanduser(‘~’)).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#calix.calib_cache.Path.is_block_device" title="calix.calib_cache.Path.is_block_device"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_block_device</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#calix.calib_cache.Path.is_block_device" title="calix.calib_cache.Path.is_block_device"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_block_device</span></code></a>()</p></td>
 <td><p>Whether this path is a block device.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#calix.calib_cache.Path.is_char_device" title="calix.calib_cache.Path.is_char_device"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_char_device</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.calib_cache.Path.is_char_device" title="calix.calib_cache.Path.is_char_device"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_char_device</span></code></a>()</p></td>
 <td><p>Whether this path is a character device.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#calix.calib_cache.Path.is_dir" title="calix.calib_cache.Path.is_dir"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_dir</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#calix.calib_cache.Path.is_dir" title="calix.calib_cache.Path.is_dir"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_dir</span></code></a>()</p></td>
 <td><p>Whether this path is a directory.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#calix.calib_cache.Path.is_fifo" title="calix.calib_cache.Path.is_fifo"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_fifo</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.calib_cache.Path.is_fifo" title="calix.calib_cache.Path.is_fifo"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_fifo</span></code></a>()</p></td>
 <td><p>Whether this path is a FIFO.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#calix.calib_cache.Path.is_file" title="calix.calib_cache.Path.is_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_file</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#calix.calib_cache.Path.is_file" title="calix.calib_cache.Path.is_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_file</span></code></a>()</p></td>
 <td><p>Whether this path is a regular file (also True for symlinks pointing to regular files).</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#calix.calib_cache.Path.is_mount" title="calix.calib_cache.Path.is_mount"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_mount</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.calib_cache.Path.is_mount" title="calix.calib_cache.Path.is_mount"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_mount</span></code></a>()</p></td>
 <td><p>Check if this path is a POSIX mount point</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#calix.calib_cache.Path.is_socket" title="calix.calib_cache.Path.is_socket"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_socket</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#calix.calib_cache.Path.is_socket" title="calix.calib_cache.Path.is_socket"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_socket</span></code></a>()</p></td>
 <td><p>Whether this path is a socket.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#calix.calib_cache.Path.is_symlink" title="calix.calib_cache.Path.is_symlink"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_symlink</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.calib_cache.Path.is_symlink" title="calix.calib_cache.Path.is_symlink"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_symlink</span></code></a>()</p></td>
 <td><p>Whether this path is a symbolic link.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#calix.calib_cache.Path.iterdir" title="calix.calib_cache.Path.iterdir"><code class="xref py py-obj docutils literal notranslate"><span class="pre">iterdir</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#calix.calib_cache.Path.iterdir" title="calix.calib_cache.Path.iterdir"><code class="xref py py-obj docutils literal notranslate"><span class="pre">iterdir</span></code></a>()</p></td>
 <td><p>Iterate over the files in this directory.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#calix.calib_cache.Path.lchmod" title="calix.calib_cache.Path.lchmod"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lchmod</span></code></a>(mode)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.calib_cache.Path.lchmod" title="calix.calib_cache.Path.lchmod"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lchmod</span></code></a>(mode)</p></td>
 <td><p>Like chmod(), except if the path points to a symlink, the symlink’s permissions are changed, rather than its target’s.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#calix.calib_cache.Path.link_to" title="calix.calib_cache.Path.link_to"><code class="xref py py-obj docutils literal notranslate"><span class="pre">link_to</span></code></a>(target)</p></td>
-<td><p>Create a hard link pointing to a path named target.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#calix.calib_cache.Path.link_to" title="calix.calib_cache.Path.link_to"><code class="xref py py-obj docutils literal notranslate"><span class="pre">link_to</span></code></a>(target)</p></td>
+<td><p>Make the target path a hard link pointing to this path.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#calix.calib_cache.Path.lstat" title="calix.calib_cache.Path.lstat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lstat</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.calib_cache.Path.lstat" title="calix.calib_cache.Path.lstat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lstat</span></code></a>()</p></td>
 <td><p>Like stat(), except if the path points to a symlink, the symlink’s status information is returned, rather than its target’s.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#calix.calib_cache.Path.mkdir" title="calix.calib_cache.Path.mkdir"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mkdir</span></code></a>([mode, parents, exist_ok])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#calix.calib_cache.Path.mkdir" title="calix.calib_cache.Path.mkdir"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mkdir</span></code></a>([mode, parents, exist_ok])</p></td>
 <td><p>Create a new directory at this given path.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#calix.calib_cache.Path.open" title="calix.calib_cache.Path.open"><code class="xref py py-obj docutils literal notranslate"><span class="pre">open</span></code></a>([mode, buffering, encoding, errors, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.calib_cache.Path.open" title="calix.calib_cache.Path.open"><code class="xref py py-obj docutils literal notranslate"><span class="pre">open</span></code></a>([mode, buffering, encoding, errors, …])</p></td>
 <td><p>Open the file pointed by this path and return a file object, as the built-in open() function does.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#calix.calib_cache.Path.owner" title="calix.calib_cache.Path.owner"><code class="xref py py-obj docutils literal notranslate"><span class="pre">owner</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#calix.calib_cache.Path.owner" title="calix.calib_cache.Path.owner"><code class="xref py py-obj docutils literal notranslate"><span class="pre">owner</span></code></a>()</p></td>
 <td><p>Return the login name of the file owner.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#calix.calib_cache.Path.read_bytes" title="calix.calib_cache.Path.read_bytes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_bytes</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.calib_cache.Path.read_bytes" title="calix.calib_cache.Path.read_bytes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_bytes</span></code></a>()</p></td>
 <td><p>Open the file in bytes mode, read it, and close the file.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#calix.calib_cache.Path.read_text" title="calix.calib_cache.Path.read_text"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_text</span></code></a>([encoding, errors])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#calix.calib_cache.Path.read_text" title="calix.calib_cache.Path.read_text"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_text</span></code></a>([encoding, errors])</p></td>
 <td><p>Open the file in text mode, read it, and close the file.</p></td>
 </tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.calib_cache.Path.readlink" title="calix.calib_cache.Path.readlink"><code class="xref py py-obj docutils literal notranslate"><span class="pre">readlink</span></code></a>()</p></td>
+<td><p>Return the path to which the symbolic link points.</p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#calix.calib_cache.Path.rename" title="calix.calib_cache.Path.rename"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rename</span></code></a>(target)</p></td>
-<td><p>Rename this path to the given path, and return a new Path instance pointing to the given path.</p></td>
+<td><p>Rename this path to the target path.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#calix.calib_cache.Path.replace" title="calix.calib_cache.Path.replace"><code class="xref py py-obj docutils literal notranslate"><span class="pre">replace</span></code></a>(target)</p></td>
-<td><p>Rename this path to the given path, clobbering the existing destination if it exists, and return a new Path instance pointing to the given path.</p></td>
+<td><p>Rename this path to the target path, overwriting if that path exists.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#calix.calib_cache.Path.resolve" title="calix.calib_cache.Path.resolve"><code class="xref py py-obj docutils literal notranslate"><span class="pre">resolve</span></code></a>([strict])</p></td>
 <td><p>Make the path absolute, resolving all symlinks on the way and also normalizing it (for example turning slashes into backslashes under Windows).</p></td>
@@ -206,11 +216,11 @@ but cannot instantiate a WindowsPath on a POSIX system or vice versa.</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="#calix.calib_cache.Path.samefile" title="calix.calib_cache.Path.samefile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">samefile</span></code></a>(other_path)</p></td>
 <td><p>Return whether other_path is the same or not as this file (as returned by os.path.samefile()).</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#calix.calib_cache.Path.stat" title="calix.calib_cache.Path.stat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stat</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#calix.calib_cache.Path.stat" title="calix.calib_cache.Path.stat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stat</span></code></a>(*[, follow_symlinks])</p></td>
 <td><p>Return the result of the stat() system call on this path, like os.stat() does.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#calix.calib_cache.Path.symlink_to" title="calix.calib_cache.Path.symlink_to"><code class="xref py py-obj docutils literal notranslate"><span class="pre">symlink_to</span></code></a>(target[, target_is_directory])</p></td>
-<td><p>Make this path a symlink pointing to the given path.</p></td>
+<td><p>Make this path a symlink pointing to the target path.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#calix.calib_cache.Path.touch" title="calix.calib_cache.Path.touch"><code class="xref py py-obj docutils literal notranslate"><span class="pre">touch</span></code></a>([mode, exist_ok])</p></td>
 <td><p>Create this file with the given access mode, if it doesn’t exist.</p></td>
@@ -221,7 +231,7 @@ but cannot instantiate a WindowsPath on a POSIX system or vice versa.</p>
 <tr class="row-even"><td><p><a class="reference internal" href="#calix.calib_cache.Path.write_bytes" title="calix.calib_cache.Path.write_bytes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_bytes</span></code></a>(data)</p></td>
 <td><p>Open the file in bytes mode, write to it, and close the file.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#calix.calib_cache.Path.write_text" title="calix.calib_cache.Path.write_text"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_text</span></code></a>(data[, encoding, errors])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.calib_cache.Path.write_text" title="calix.calib_cache.Path.write_text"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_text</span></code></a>(data[, encoding, errors, newline])</p></td>
 <td><p>Open the file in text mode, write to it, and close the file.</p></td>
 </tr>
 </tbody>
@@ -246,7 +256,7 @@ Use resolve() to get the canonical path to a file.</p>
 
 <dl class="py method">
 <dt id="calix.calib_cache.Path.chmod">
-<code class="sig-name descname"><span class="pre">chmod</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.calib_cache.Path.chmod" title="Permalink to this definition"></a></dt>
+<code class="sig-name descname"><span class="pre">chmod</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">follow_symlinks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.calib_cache.Path.chmod" title="Permalink to this definition"></a></dt>
 <dd><p>Change the permissions of the path, like os.chmod().</p>
 </dd></dl>
 
@@ -281,6 +291,13 @@ kind, including directories) matching the given relative pattern.</p>
 <dt id="calix.calib_cache.Path.group">
 <code class="sig-name descname"><span class="pre">group</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#calix.calib_cache.Path.group" title="Permalink to this definition"></a></dt>
 <dd><p>Return the group name of the file gid.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calix.calib_cache.Path.hardlink_to">
+<code class="sig-name descname"><span class="pre">hardlink_to</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.calib_cache.Path.hardlink_to" title="Permalink to this definition"></a></dt>
+<dd><p>Make this path a hard link pointing to the same file as <em>target</em>.</p>
+<p>Note the order of arguments (self, target) is the reverse of os.link’s.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -356,7 +373,13 @@ permissions are changed, rather than its target’s.</p>
 <dl class="py method">
 <dt id="calix.calib_cache.Path.link_to">
 <code class="sig-name descname"><span class="pre">link_to</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.calib_cache.Path.link_to" title="Permalink to this definition"></a></dt>
-<dd><p>Create a hard link pointing to a path named target.</p>
+<dd><p>Make the target path a hard link pointing to this path.</p>
+<p>Note this function does not make this path a hard link to <em>target</em>,
+despite the implication of the function and argument names. The order
+of arguments (target, link) is the reverse of Path.symlink_to, but
+matches that of os.link.</p>
+<p>Deprecated since Python 3.10 and scheduled for removal in Python 3.12.
+Use <cite>hardlink_to()</cite> instead.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -398,18 +421,29 @@ the built-in open() function does.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt id="calix.calib_cache.Path.readlink">
+<code class="sig-name descname"><span class="pre">readlink</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#calix.calib_cache.Path.readlink" title="Permalink to this definition"></a></dt>
+<dd><p>Return the path to which the symbolic link points.</p>
+</dd></dl>
+
+<dl class="py method">
 <dt id="calix.calib_cache.Path.rename">
 <code class="sig-name descname"><span class="pre">rename</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.calib_cache.Path.rename" title="Permalink to this definition"></a></dt>
-<dd><p>Rename this path to the given path,
-and return a new Path instance pointing to the given path.</p>
+<dd><p>Rename this path to the target path.</p>
+<p>The target path may be absolute or relative. Relative paths are
+interpreted relative to the current working directory, <em>not</em> the
+directory of the Path object.</p>
+<p>Returns the new Path instance pointing to the target path.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="calix.calib_cache.Path.replace">
 <code class="sig-name descname"><span class="pre">replace</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.calib_cache.Path.replace" title="Permalink to this definition"></a></dt>
-<dd><p>Rename this path to the given path, clobbering the existing
-destination if it exists, and return a new Path instance
-pointing to the given path.</p>
+<dd><p>Rename this path to the target path, overwriting if that path exists.</p>
+<p>The target path may be absolute or relative. Relative paths are
+interpreted relative to the current working directory, <em>not</em> the
+directory of the Path object.</p>
+<p>Returns the new Path instance pointing to the target path.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -443,7 +477,7 @@ this subtree.</p>
 
 <dl class="py method">
 <dt id="calix.calib_cache.Path.stat">
-<code class="sig-name descname"><span class="pre">stat</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#calix.calib_cache.Path.stat" title="Permalink to this definition"></a></dt>
+<code class="sig-name descname"><span class="pre">stat</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">follow_symlinks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.calib_cache.Path.stat" title="Permalink to this definition"></a></dt>
 <dd><p>Return the result of the stat() system call on this path, like
 os.stat() does.</p>
 </dd></dl>
@@ -451,8 +485,8 @@ os.stat() does.</p>
 <dl class="py method">
 <dt id="calix.calib_cache.Path.symlink_to">
 <code class="sig-name descname"><span class="pre">symlink_to</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_is_directory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.calib_cache.Path.symlink_to" title="Permalink to this definition"></a></dt>
-<dd><p>Make this path a symlink pointing to the given path.
-Note the order of arguments (self, target) is the reverse of os.symlink’s.</p>
+<dd><p>Make this path a symlink pointing to the target path.
+Note the order of arguments (link, target) is the reverse of os.symlink.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -476,7 +510,7 @@ If the path is a directory, use rmdir() instead.</p>
 
 <dl class="py method">
 <dt id="calix.calib_cache.Path.write_text">
-<code class="sig-name descname"><span class="pre">write_text</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">errors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.calib_cache.Path.write_text" title="Permalink to this definition"></a></dt>
+<code class="sig-name descname"><span class="pre">write_text</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">errors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">newline</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.calib_cache.Path.write_text" title="Permalink to this definition"></a></dt>
 <dd><p>Open the file in text mode, write to it, and close the file.</p>
 </dd></dl>
 

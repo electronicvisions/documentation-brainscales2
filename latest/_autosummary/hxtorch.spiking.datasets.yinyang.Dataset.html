@@ -25,11 +25,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> BrainScaleS-2 Documentation
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            BrainScaleS-2 Documentation
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -73,14 +77,14 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../apis.html">BrainScaleS-2 API Documentation</a> &raquo;</li>
-          <li><a href="../apis_python.html">BrainScaleS-2 API Documentation</a> &raquo;</li>
-          <li><a href="hxtorch.html">hxtorch</a> &raquo;</li>
-          <li><a href="hxtorch.spiking.html">hxtorch.spiking</a> &raquo;</li>
-          <li><a href="hxtorch.spiking.datasets.html">hxtorch.spiking.datasets</a> &raquo;</li>
-          <li><a href="hxtorch.spiking.datasets.yinyang.html">hxtorch.spiking.datasets.yinyang</a> &raquo;</li>
-      <li>hxtorch.spiking.datasets.yinyang.Dataset</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../apis.html">BrainScaleS-2 API Documentation</a></li>
+          <li class="breadcrumb-item"><a href="../apis_python.html">BrainScaleS-2 API Documentation</a></li>
+          <li class="breadcrumb-item"><a href="hxtorch.html">hxtorch</a></li>
+          <li class="breadcrumb-item"><a href="hxtorch.spiking.html">hxtorch.spiking</a></li>
+          <li class="breadcrumb-item"><a href="hxtorch.spiking.datasets.html">hxtorch.spiking.datasets</a></li>
+          <li class="breadcrumb-item"><a href="hxtorch.spiking.datasets.yinyang.html">hxtorch.spiking.datasets.yinyang</a></li>
+      <li class="breadcrumb-item active">hxtorch.spiking.datasets.yinyang.Dataset</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/_autosummary/hxtorch.spiking.datasets.yinyang.Dataset.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -94,7 +98,7 @@
 <h1>hxtorch.spiking.datasets.yinyang.Dataset<a class="headerlink" href="#hxtorch-spiking-datasets-yinyang-dataset" title="Permalink to this headline"></a></h1>
 <dl class="py class">
 <dt id="hxtorch.spiking.datasets.yinyang.Dataset">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.datasets.yinyang.</span></code><code class="sig-name descname"><span class="pre">Dataset</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.datasets.yinyang.Dataset" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.datasets.yinyang.</span></code><code class="sig-name descname"><span class="pre">Dataset</span></code><a class="headerlink" href="#hxtorch.spiking.datasets.yinyang.Dataset" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">torch.utils.data.dataset.T_co</span></code>]</p>
 <p>An abstract class representing a <a class="reference internal" href="#hxtorch.spiking.datasets.yinyang.Dataset" title="hxtorch.spiking.datasets.yinyang.Dataset"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dataset</span></code></a>.</p>
 <p>All datasets that represent a map from keys to data samples should subclass
@@ -102,10 +106,13 @@ it. All subclasses should overwrite <code class="xref py py-meth docutils litera
 data sample for a given key. Subclasses could also optionally overwrite
 <code class="xref py py-meth docutils literal notranslate"><span class="pre">__len__()</span></code>, which is expected to return the size of the dataset by many
 <code class="xref py py-class docutils literal notranslate"><span class="pre">Sampler</span></code> implementations and the default options
-of <code class="xref py py-class docutils literal notranslate"><span class="pre">DataLoader</span></code>.</p>
+of <code class="xref py py-class docutils literal notranslate"><span class="pre">DataLoader</span></code>. Subclasses could also
+optionally implement <code class="xref py py-meth docutils literal notranslate"><span class="pre">__getitems__()</span></code>, for speedup batched samples
+loading. This method accepts list of indices of samples of batch and returns
+list of samples.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><code class="xref py py-class docutils literal notranslate"><span class="pre">DataLoader</span></code> by default constructs a index
+<p><code class="xref py py-class docutils literal notranslate"><span class="pre">DataLoader</span></code> by default constructs an index
 sampler that yields integral indices.  To make it work with a map-style
 dataset with non-integral indices/keys, a custom sampler must be provided.</p>
 </div>

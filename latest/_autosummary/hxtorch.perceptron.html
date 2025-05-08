@@ -25,11 +25,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> BrainScaleS-2 Documentation
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            BrainScaleS-2 Documentation
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -73,11 +77,11 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../apis.html">BrainScaleS-2 API Documentation</a> &raquo;</li>
-          <li><a href="../apis_python.html">BrainScaleS-2 API Documentation</a> &raquo;</li>
-          <li><a href="hxtorch.html">hxtorch</a> &raquo;</li>
-      <li>hxtorch.perceptron</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../apis.html">BrainScaleS-2 API Documentation</a></li>
+          <li class="breadcrumb-item"><a href="../apis_python.html">BrainScaleS-2 API Documentation</a></li>
+          <li class="breadcrumb-item"><a href="hxtorch.html">hxtorch</a></li>
+      <li class="breadcrumb-item active">hxtorch.perceptron</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/_autosummary/hxtorch.perceptron.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -150,7 +154,7 @@
 <dd><p>Overloaded function.</p>
 <ol class="arabic simple">
 <li><p>conv1d(input: torch.Tensor, weight: torch.Tensor, bias: Optional[torch.Tensor] = None, stride: int = 1, num_sends: int = 1, wait_between_events: int = 5, mock: bool = False) -&gt; torch.Tensor</p></li>
-<li><p>conv1d(input: torch.Tensor, weight: torch.Tensor, bias: Optional[torch.Tensor] = None, stride: List[int[1]], num_sends: int = 1, wait_between_events: int = 5, mock: bool = False) -&gt; torch.Tensor</p></li>
+<li><p>conv1d(input: torch.Tensor, weight: torch.Tensor, bias: Optional[torch.Tensor] = None, stride: Annotated[list[int], FixedSize(1)], num_sends: int = 1, wait_between_events: int = 5, mock: bool = False) -&gt; torch.Tensor</p></li>
 </ol>
 </dd></dl>
 
@@ -160,7 +164,7 @@
 <dd><p>Overloaded function.</p>
 <ol class="arabic simple">
 <li><p>conv2d(input: torch.Tensor, weight: torch.Tensor, bias: Optional[torch.Tensor] = None, stride: int = 1, num_sends: int = 1, wait_between_events: int = 5, mock: bool = False) -&gt; torch.Tensor</p></li>
-<li><p>conv2d(input: torch.Tensor, weight: torch.Tensor, bias: Optional[torch.Tensor] = None, stride: List[int[2]], num_sends: int = 1, wait_between_events: int = 5, mock: bool = False) -&gt; torch.Tensor</p></li>
+<li><p>conv2d(input: torch.Tensor, weight: torch.Tensor, bias: Optional[torch.Tensor] = None, stride: Annotated[list[int], FixedSize(2)], num_sends: int = 1, wait_between_events: int = 5, mock: bool = False) -&gt; torch.Tensor</p></li>
 </ol>
 </dd></dl>
 
@@ -200,7 +204,7 @@ training, because the same weights are used at different locations!</p>
 &#64;param wait_between_events How long to wait (in FPGA cycles) between events
 &#64;param mock Enable mock mode</p>
 <ol class="arabic simple" start="2">
-<li><p>expanded_conv1d(input: torch.Tensor, weight: torch.Tensor, bias: Optional[torch.Tensor] = None, stride: List[int[1]], num_expansions: int = 1, num_sends: int = 1, wait_between_events: int = 5, mock: bool = False) -&gt; torch.Tensor</p></li>
+<li><p>expanded_conv1d(input: torch.Tensor, weight: torch.Tensor, bias: Optional[torch.Tensor] = None, stride: Annotated[list[int], FixedSize(1)], num_expansions: int = 1, num_sends: int = 1, wait_between_events: int = 5, mock: bool = False) -&gt; torch.Tensor</p></li>
 </ol>
 </dd></dl>
 

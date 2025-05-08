@@ -26,11 +26,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> BrainScaleS-2 Documentation
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            BrainScaleS-2 Documentation
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -77,10 +81,10 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="index.html">Welcome to the BrainScaleS-2 Demos &amp; Examples!</a> &raquo;</li>
-          <li><a href="fortgeschrittenen_praktikum.html">Welcome to the Advanced Physics Lab for Physicists by the Electronic Vision(s) Group</a> &raquo;</li>
-      <li>A simple feedforward network</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Welcome to the BrainScaleS-2 Demos &amp; Examples!</a></li>
+          <li class="breadcrumb-item"><a href="fortgeschrittenen_praktikum.html">Welcome to the Advanced Physics Lab for Physicists by the Electronic Vision(s) Group</a></li>
+      <li class="breadcrumb-item active">A simple feedforward network</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/brainscales2-demos/fp_synfireChain.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -114,7 +118,7 @@ This scaffold can be used to investigate the behaviour of a synfire chain and an
 
 <span class="k">def</span> <span class="nf">setup_network</span><span class="p">(</span><span class="n">numb_pops</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">pop_sizes</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">],</span>
                   <span class="n">closed</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">ProjCollType</span><span class="p">,</span> <span class="n">PopCollType</span><span class="p">]:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This function generates a synfire chain network</span>
 <span class="sd">    Attention: You need to run &#39;pynn.end()&#39; before a re-setup of a network</span>
 <span class="sd">               is possible!</span>
@@ -205,7 +209,7 @@ This scaffold can be used to investigate the behaviour of a synfire chain and an
 <p>With the network setup we can configure and run it.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">set_network_weights</span><span class="p">(</span><span class="n">weights</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span>
                         <span class="n">projections</span><span class="p">:</span> <span class="n">ProjCollType</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Sets weights in the network.</span>
 
 <span class="sd">    :param weights: unsigned weights to be set</span>
@@ -227,7 +231,7 @@ This scaffold can be used to investigate the behaviour of a synfire chain and an
 
 <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="n">populations</span><span class="p">:</span> <span class="n">PopCollType</span><span class="p">,</span> <span class="n">duration</span><span class="p">:</span> <span class="n">pq</span><span class="o">.</span><span class="n">Quantity</span><span class="p">)</span> \
     <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Perform the configured experiment.</span>
 
 <span class="sd">    :param populations: population collector to extract some network information</span>

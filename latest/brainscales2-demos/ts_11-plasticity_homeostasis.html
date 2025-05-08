@@ -26,11 +26,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> BrainScaleS-2 Documentation
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            BrainScaleS-2 Documentation
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -90,10 +94,10 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="index.html">Welcome to the BrainScaleS-2 Demos &amp; Examples!</a> &raquo;</li>
-          <li><a href="tutorial.html">Welcome to the BrainScaleS-2 Tutorial</a> &raquo;</li>
-      <li>BrainScaleS-2 on-chip plasticity experiment</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Welcome to the BrainScaleS-2 Demos &amp; Examples!</a></li>
+          <li class="breadcrumb-item"><a href="tutorial.html">Welcome to the BrainScaleS-2 Tutorial</a></li>
+      <li class="breadcrumb-item active">BrainScaleS-2 on-chip plasticity experiment</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/brainscales2-demos/ts_11-plasticity_homeostasis.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -175,7 +179,7 @@ Over time, this leads to the a stabilization of  the neurons’ firing rate.</p>
 
 <span class="k">class</span> <span class="nc">PlasticityRule</span><span class="p">(</span><span class="n">pynn</span><span class="o">.</span><span class="n">PlasticityRule</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timer</span><span class="p">:</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Timer</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        :param timer: Timing information for the execution of the rule</span>
 <span class="sd">        :param target: Target firing rate of the neurons in number of spikes per execution</span>
 <span class="sd">                       period</span>
@@ -204,7 +208,7 @@ Over time, this leads to the a stabilization of  the neurons’ firing rate.</p>
     <span class="n">target</span> <span class="o">=</span> <span class="nb">property</span><span class="p">(</span><span class="n">_get_target</span><span class="p">,</span> <span class="n">_set_target</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">generate_kernel</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Generate plasticity rule kernel to be compiled into PPU program.</span>
 
 <span class="sd">        :return: PPU-code of plasticity-rule kernel as string.</span>
@@ -357,7 +361,7 @@ leading to convergence of the neurons firing rates towards the target rate.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">neo</span>
 
 <span class="k">def</span> <span class="nf">calculate_firing_rates</span><span class="p">(</span><span class="n">spikes</span><span class="p">:</span> <span class="n">neo</span><span class="o">.</span><span class="n">SpikeTrain</span><span class="p">,</span> <span class="n">runtime</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">bins</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get the neurons&#39; firing rates by counting spikes in time intervals.</span>
 
 <span class="sd">    :param spikes: Spikes of the neurons</span>

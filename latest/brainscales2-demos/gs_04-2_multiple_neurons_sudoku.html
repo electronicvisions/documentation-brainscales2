@@ -25,11 +25,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> BrainScaleS-2 Documentation
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            BrainScaleS-2 Documentation
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -78,10 +82,10 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="index.html">Welcome to the BrainScaleS-2 Demos &amp; Examples!</a> &raquo;</li>
-          <li><a href="girlsday.html">Wie verarbeitet unser Gehirn Informationen?</a> &raquo;</li>
-      <li>Experimente mit mehreren Nervenzellen Teil 2</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Welcome to the BrainScaleS-2 Demos &amp; Examples!</a></li>
+          <li class="breadcrumb-item"><a href="girlsday.html">Wie verarbeitet unser Gehirn Informationen?</a></li>
+      <li class="breadcrumb-item active">Experimente mit mehreren Nervenzellen Teil 2</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/brainscales2-demos/gs_04-2_multiple_neurons_sudoku.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -275,7 +279,7 @@ erhalten.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Funktionen, um das Sudoku zu lösen:</span>
 
 <span class="k">def</span> <span class="nf">set_clues</span><span class="p">(</span><span class="n">clues</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Setzt die gegebenen Tipps in das Netzwerk &quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Setzt die gegebenen Tipps in das Netzwerk &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">clues</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">clues</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">row</span><span class="p">,</span> <span class="n">row_clues</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">clue_projections</span><span class="p">):</span>
@@ -285,7 +289,7 @@ erhalten.</p>
                     <span class="n">connection</span><span class="o">.</span><span class="n">weight</span> <span class="o">=</span> <span class="mf">63.</span> <span class="k">if</span> <span class="n">clues</span><span class="p">[</span><span class="n">row</span><span class="p">,</span><span class="n">col</span><span class="p">]</span> <span class="o">==</span> <span class="n">number</span> <span class="k">else</span> <span class="mf">0.</span>
 
 <span class="k">def</span> <span class="nf">hide_solution</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">num_clues</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Versteckt die Lösung und lässt nur `num_clues` Tipps übrig &quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Versteckt die Lösung und lässt nur `num_clues` Tipps übrig &quot;&quot;&quot;</span>
     <span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argwhere</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">grid</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">grid</span> <span class="o">&lt;=</span> <span class="mi">4</span><span class="p">))</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">indices</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">num_clues</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
@@ -297,7 +301,7 @@ erhalten.</p>
     <span class="k">return</span> <span class="n">clues</span>
 
 <span class="k">def</span> <span class="nf">get_solution</span><span class="p">(</span><span class="n">clues</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Führt das Netzwerk aus und gibt die aktuelle Lösung zurück &quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Führt das Netzwerk aus und gibt die aktuelle Lösung zurück &quot;&quot;&quot;</span>
     <span class="n">set_clues</span><span class="p">(</span><span class="n">clues</span><span class="p">)</span>
     <span class="c1"># Das Netzwerk wird emuliert</span>
     <span class="n">pynn</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">runtime</span><span class="p">)</span>
@@ -319,7 +323,7 @@ erhalten.</p>
 <span class="c1"># Funktionen, um das Sudoku anzuzeigen:</span>
 
 <span class="k">def</span> <span class="nf">canvas_leer</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">canvas</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Erstellt eine leere Zeichenfläche für das Sudoku &quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Erstellt eine leere Zeichenfläche für das Sudoku &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">canvas</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">canvas</span> <span class="o">=</span> <span class="n">Canvas</span><span class="p">(</span>
             <span class="n">width</span><span class="o">=</span><span class="n">size</span><span class="o">*</span><span class="n">N</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="n">size</span><span class="o">*</span><span class="n">N</span><span class="p">,</span>
@@ -333,7 +337,7 @@ erhalten.</p>
     <span class="k">return</span> <span class="n">canvas</span>
 
 <span class="k">def</span> <span class="nf">canvas_sudoku_leer</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">canvas</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Erstellt ein leeres Sudoku. Nur die Zahlen fehlen &quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Erstellt ein leeres Sudoku. Nur die Zahlen fehlen &quot;&quot;&quot;</span>
     <span class="n">Ns</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="n">N</span><span class="p">))</span>
     <span class="n">canvas</span> <span class="o">=</span> <span class="n">canvas_leer</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">canvas</span><span class="o">=</span><span class="n">canvas</span><span class="p">)</span>
     <span class="k">with</span> <span class="n">hold_canvas</span><span class="p">(</span><span class="n">canvas</span><span class="p">):</span>
@@ -352,7 +356,7 @@ erhalten.</p>
                     <span class="n">canvas</span><span class="o">.</span><span class="n">fill_rect</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">check_solution</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Überprüft, ob die Sudoku-Regeln erfüllt werden &quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Überprüft, ob die Sudoku-Regeln erfüllt werden &quot;&quot;&quot;</span>
     <span class="n">Ns</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="n">N</span><span class="p">))</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
         <span class="c1"># j, k index top left hand corner of each 3x3 tile</span>
@@ -373,7 +377,7 @@ erhalten.</p>
             <span class="o">+</span> <span class="p">(</span><span class="s1">&#39; green&#39;</span> <span class="k">if</span> <span class="n">check_solution</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span> <span class="k">else</span> <span class="s1">&#39; darkred&#39;</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">display_sudoku_solver</span><span class="p">(</span><span class="n">sudoku</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Sudoku und Slider anzeigen &quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Sudoku und Slider anzeigen &quot;&quot;&quot;</span>
     <span class="n">canvas</span> <span class="o">=</span> <span class="n">canvas_sudoku_leer</span><span class="p">()</span>
     <span class="n">num_clues_slider</span> <span class="o">=</span> <span class="n">IntSlider</span><span class="p">(</span>
         <span class="mi">7</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argwhere</span><span class="p">(</span><span class="n">sudoku</span><span class="p">)),</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Anzahl Tipps&quot;</span><span class="p">)</span>
@@ -382,7 +386,7 @@ erhalten.</p>
     <span class="n">run_button</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;nochmal&#39;</span><span class="p">,</span><span class="n">icon</span><span class="o">=</span><span class="s1">&#39;play&#39;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">solve_sudoku</span><span class="p">(</span><span class="n">num_clues</span><span class="p">,</span> <span class="n">seed</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; Versucht das Sudoku zu lösen und zeigt das Ergebnis an &quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Versucht das Sudoku zu lösen und zeigt das Ergebnis an &quot;&quot;&quot;</span>
         <span class="k">with</span> <span class="n">hold_canvas</span><span class="p">(</span><span class="n">canvas</span><span class="p">):</span>
             <span class="n">canvas_sudoku_leer</span><span class="p">(</span><span class="n">canvas</span><span class="o">=</span><span class="n">canvas</span><span class="p">)</span>
         <span class="n">clues</span> <span class="o">=</span> <span class="n">hide_solution</span><span class="p">(</span><span class="n">sudoku</span><span class="p">,</span> <span class="n">num_clues</span><span class="p">,</span> <span class="n">seed</span><span class="p">)</span>

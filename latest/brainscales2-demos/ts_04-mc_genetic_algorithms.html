@@ -26,11 +26,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> BrainScaleS-2 Documentation
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            BrainScaleS-2 Documentation
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -89,10 +93,10 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="index.html">Welcome to the BrainScaleS-2 Demos &amp; Examples!</a> &raquo;</li>
-          <li><a href="tutorial.html">Welcome to the BrainScaleS-2 Tutorial</a> &raquo;</li>
-      <li>How to use Genetic Algorithms to automatically parameterize BrainScaleS-2</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Welcome to the BrainScaleS-2 Demos &amp; Examples!</a></li>
+          <li class="breadcrumb-item"><a href="tutorial.html">Welcome to the BrainScaleS-2 Tutorial</a></li>
+      <li class="breadcrumb-item active">How to use Genetic Algorithms to automatically parameterize BrainScaleS-2</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/brainscales2-demos/ts_04-mc_genetic_algorithms.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -175,7 +179,7 @@ All neurons of the external population will spike simultaneously, introducing an
 <li><p><code class="docutils literal notranslate"><span class="pre">fitfunc</span></code>: Defines an exponential function of the form <span class="math notranslate nohighlight">\(f(x) = A \cdot \exp\left(-\frac{x}{\lambda}\right) + c\)</span>.</p></li>
 </ul>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">CompartmentChain</span><span class="p">():</span>
-    <span class="sd">&#39;&#39;&#39;</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Creates a compartment chain of provided length upon initialization and</span>
 <span class="sd">    supplies further functionalities to run and evaluate experiments.</span>
 
@@ -195,7 +199,7 @@ All neurons of the external population will spike simultaneously, introducing an
         <span class="bp">self</span><span class="o">.</span><span class="n">projection</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">weight</span><span class="o">=</span><span class="n">weight</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_create_chain</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">pynn</span><span class="o">.</span><span class="n">PopulationView</span><span class="p">]:</span>
-        <span class="sd">&#39;&#39;&#39;</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        Create linear compartment chain.</span>
 
 <span class="sd">        A compartment will be constructed out of two neuron circuits.</span>
@@ -244,7 +248,7 @@ All neurons of the external population will spike simultaneously, introducing an
                 <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">length</span><span class="p">,</span> <span class="mi">2</span><span class="p">)]</span>
 
     <span class="k">def</span> <span class="nf">create_input_projection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Projection</span><span class="p">:</span>
-        <span class="sd">&#39;&#39;&#39;</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        Set projection from an external population of size `inputs`, which</span>
 <span class="sd">        elicits a spike at the time defined by spike_time, to the first</span>
 <span class="sd">        compartment.</span>
@@ -264,7 +268,7 @@ All neurons of the external population will spike simultaneously, introducing an
 
     <span class="k">def</span> <span class="nf">set_conductances</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">leak_conductance</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
                          <span class="n">inter_compartment_conductance</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&#39;&#39;&#39;</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        Set leak and inter-compartment conductance of the chain.</span>
 
 <span class="sd">        Both the leak_conductance and the inter_compartment_conductance</span>
@@ -282,7 +286,7 @@ All neurons of the external population will spike simultaneously, introducing an
             <span class="n">comp</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">leak_i_bias</span><span class="o">=</span><span class="n">leak_conductance</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">record_membrane</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">neo</span><span class="o">.</span><span class="n">IrregularlySampledSignal</span><span class="p">]:</span>
-        <span class="sd">&#39;&#39;&#39;</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        Record the membrane of each compartment of the chain.</span>
 
 <span class="sd">        The experiment is repeated `self.length` times since the MADC can only</span>
@@ -310,7 +314,7 @@ All neurons of the external population will spike simultaneously, introducing an
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">extract_psp_amplitudes</span><span class="p">(</span>
             <span class="n">membrane_traces</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">neo</span><span class="o">.</span><span class="n">IrregularlySampledSignal</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
-        <span class="sd">&#39;&#39;&#39;</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        Extract the PSP amplitudes from membrane recordings.</span>
 
 <span class="sd">        :param traces: Analog signal for each compartment in the chain.</span>
@@ -330,7 +334,7 @@ All neurons of the external population will spike simultaneously, introducing an
     <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">fit_length_constant</span><span class="p">(</span>
             <span class="bp">cls</span><span class="p">,</span> <span class="n">amplitudes</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
-        <span class="sd">&#39;&#39;&#39;</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        Fit an exponential decay to the PSP amplitudes in the compartments.</span>
 
 <span class="sd">        :param amplitudes: Amplitudes of the EPSP for each compartment in the</span>
@@ -362,7 +366,7 @@ All neurons of the external population will spike simultaneously, introducing an
     <span class="k">def</span> <span class="nf">run_and_eval</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">leak_conductance</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
                      <span class="n">inter_compartment_conductance</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span>
             <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
-        <span class="sd">&#39;&#39;&#39;</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        Executes the experiment and fits an exponential to the maximum</span>
 <span class="sd">        amplitude of the EPSP in each compartment.</span>
 
@@ -386,7 +390,7 @@ All neurons of the external population will spike simultaneously, introducing an
 
     <span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span>
             <span class="bp">self</span><span class="p">,</span> <span class="n">individual</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-        <span class="sd">&#39;&#39;&#39;</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        Evaluation function used for the genetic algorithm.</span>
 
 <span class="sd">        Executes the experiment and fits an exponential to the maximum</span>
@@ -406,7 +410,7 @@ All neurons of the external population will spike simultaneously, introducing an
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">fitfunc</span><span class="p">(</span><span class="n">location</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span> <span class="n">length_const</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
                 <span class="n">offset</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">scale</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
-        <span class="sd">&#39;&#39;&#39;</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        Exponential function with offset.</span>
 
 <span class="sd">        :param location: Numerator inside the exponential.</span>
@@ -627,7 +631,7 @@ Therefore <code class="docutils literal notranslate"><span class="pre">TOURNSIZE
 
 <span class="k">def</span> <span class="nf">create_individual</span><span class="p">(</span><span class="n">lower_limit</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
                       <span class="n">upper_limit</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Sequence</span><span class="p">:</span>
-    <span class="sd">&#39;&#39;&#39;</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Creates an array of random integers of size 2 bounded to the provided</span>
 <span class="sd">    limits.</span>
 
@@ -704,7 +708,7 @@ During selection, this ensures, that individuals with a smaller fitness value ar
 
 
 <span class="k">def</span> <span class="nf">mean_fitness</span><span class="p">(</span><span class="n">population</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculate the mean fitness of a population.</span>
 
 <span class="sd">    :param population: Population containing individuals.</span>
@@ -714,7 +718,7 @@ During selection, this ensures, that individuals with a smaller fitness value ar
 
 
 <span class="k">def</span> <span class="nf">min_fitness</span><span class="p">(</span><span class="n">population</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Find minimum fitness of a population.</span>
 
 <span class="sd">    :param population: Population containing individuals.</span>

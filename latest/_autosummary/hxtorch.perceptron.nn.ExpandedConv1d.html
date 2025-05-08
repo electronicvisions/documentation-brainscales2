@@ -25,11 +25,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> BrainScaleS-2 Documentation
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            BrainScaleS-2 Documentation
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -73,13 +77,13 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../apis.html">BrainScaleS-2 API Documentation</a> &raquo;</li>
-          <li><a href="../apis_python.html">BrainScaleS-2 API Documentation</a> &raquo;</li>
-          <li><a href="hxtorch.html">hxtorch</a> &raquo;</li>
-          <li><a href="hxtorch.perceptron.html">hxtorch.perceptron</a> &raquo;</li>
-          <li><a href="hxtorch.perceptron.nn.html">hxtorch.perceptron.nn</a> &raquo;</li>
-      <li>hxtorch.perceptron.nn.ExpandedConv1d</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../apis.html">BrainScaleS-2 API Documentation</a></li>
+          <li class="breadcrumb-item"><a href="../apis_python.html">BrainScaleS-2 API Documentation</a></li>
+          <li class="breadcrumb-item"><a href="hxtorch.html">hxtorch</a></li>
+          <li class="breadcrumb-item"><a href="hxtorch.perceptron.html">hxtorch.perceptron</a></li>
+          <li class="breadcrumb-item"><a href="hxtorch.perceptron.nn.html">hxtorch.perceptron.nn</a></li>
+      <li class="breadcrumb-item active">hxtorch.perceptron.nn.ExpandedConv1d</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/_autosummary/hxtorch.perceptron.nn.ExpandedConv1d.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -93,7 +97,7 @@
 <h1>hxtorch.perceptron.nn.ExpandedConv1d<a class="headerlink" href="#hxtorch-perceptron-nn-expandedconv1d" title="Permalink to this headline"></a></h1>
 <dl class="py class">
 <dt id="hxtorch.perceptron.nn.ExpandedConv1d">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">hxtorch.perceptron.nn.</span></code><code class="sig-name descname"><span class="pre">ExpandedConv1d</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">in_channels:</span> <span class="pre">int,</span> <span class="pre">out_channels:</span> <span class="pre">int,</span> <span class="pre">kernel_size:</span> <span class="pre">Union[int,</span> <span class="pre">Tuple[int]],</span> <span class="pre">stride:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">1,</span> <span class="pre">padding:</span> <span class="pre">Union[int,</span> <span class="pre">Tuple[int,</span> <span class="pre">int]]</span> <span class="pre">=</span> <span class="pre">0,</span> <span class="pre">dilation:</span> <span class="pre">Union[int,</span> <span class="pre">Tuple]</span> <span class="pre">=</span> <span class="pre">1,</span> <span class="pre">groups:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">1,</span> <span class="pre">bias:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True,</span> <span class="pre">padding_mode:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'zeros',</span> <span class="pre">num_sends:</span> <span class="pre">Optional[int]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">wait_between_events:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">5,</span> <span class="pre">mock:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False,</span> <span class="pre">*,</span> <span class="pre">input_transform:</span> <span class="pre">Optional[Callable[[torch.Tensor],</span> <span class="pre">torch.Tensor]]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">weight_transform:</span> <span class="pre">Optional[Callable[[torch.Tensor],</span> <span class="pre">torch.Tensor]]</span> <span class="pre">=</span> <span class="pre">&lt;function</span> <span class="pre">clamp_weight_&gt;,</span> <span class="pre">num_expansions:</span> <span class="pre">Optional[int]</span> <span class="pre">=</span> <span class="pre">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.perceptron.nn.ExpandedConv1d" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">hxtorch.perceptron.nn.</span></code><code class="sig-name descname"><span class="pre">ExpandedConv1d</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">in_channels:</span> <span class="pre">int,</span> <span class="pre">out_channels:</span> <span class="pre">int,</span> <span class="pre">kernel_size:</span> <span class="pre">Union[int,</span> <span class="pre">Tuple[int]],</span> <span class="pre">stride:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">1,</span> <span class="pre">padding:</span> <span class="pre">Union[int,</span> <span class="pre">Tuple[int,</span> <span class="pre">int]]</span> <span class="pre">=</span> <span class="pre">0,</span> <span class="pre">dilation:</span> <span class="pre">Union[int,</span> <span class="pre">Tuple]</span> <span class="pre">=</span> <span class="pre">1,</span> <span class="pre">groups:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">1,</span> <span class="pre">bias:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True,</span> <span class="pre">padding_mode:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'zeros',</span> <span class="pre">num_sends:</span> <span class="pre">Optional[int,</span> <span class="pre">None]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">wait_between_events:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">5,</span> <span class="pre">mock:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False,</span> <span class="pre">*,</span> <span class="pre">input_transform:</span> <span class="pre">Optional[Callable[[torch.Tensor],</span> <span class="pre">torch.Tensor],</span> <span class="pre">None]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">weight_transform:</span> <span class="pre">Optional[Callable[[torch.Tensor],</span> <span class="pre">torch.Tensor],</span> <span class="pre">None]</span> <span class="pre">=</span> <span class="pre">&lt;function</span> <span class="pre">clamp_weight_&gt;,</span> <span class="pre">num_expansions:</span> <span class="pre">Optional[int,</span> <span class="pre">None]</span> <span class="pre">=</span> <span class="pre">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.perceptron.nn.ExpandedConv1d" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="hxtorch.perceptron.nn.Conv1d.html#hxtorch.perceptron.nn.Conv1d" title="hxtorch.perceptron.nn.Conv1d"><code class="xref py py-class docutils literal notranslate"><span class="pre">hxtorch.perceptron.nn.Conv1d</span></code></a></p>
 <p>Unrolls the weight matrix for execution on hardware.
 This maximizes the use of the synapses array.</p>
@@ -102,7 +106,7 @@ Fixed-pattern noise cannot be individually compensated for during
 training, because the same weights are used at different locations!</p>
 <dl class="py method">
 <dt id="hxtorch.perceptron.nn.ExpandedConv1d.__init__">
-<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">in_channels:</span> <span class="pre">int,</span> <span class="pre">out_channels:</span> <span class="pre">int,</span> <span class="pre">kernel_size:</span> <span class="pre">Union[int,</span> <span class="pre">Tuple[int]],</span> <span class="pre">stride:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">1,</span> <span class="pre">padding:</span> <span class="pre">Union[int,</span> <span class="pre">Tuple[int,</span> <span class="pre">int]]</span> <span class="pre">=</span> <span class="pre">0,</span> <span class="pre">dilation:</span> <span class="pre">Union[int,</span> <span class="pre">Tuple]</span> <span class="pre">=</span> <span class="pre">1,</span> <span class="pre">groups:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">1,</span> <span class="pre">bias:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True,</span> <span class="pre">padding_mode:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'zeros',</span> <span class="pre">num_sends:</span> <span class="pre">Optional[int]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">wait_between_events:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">5,</span> <span class="pre">mock:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False,</span> <span class="pre">*,</span> <span class="pre">input_transform:</span> <span class="pre">Optional[Callable[[torch.Tensor],</span> <span class="pre">torch.Tensor]]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">weight_transform:</span> <span class="pre">Optional[Callable[[torch.Tensor],</span> <span class="pre">torch.Tensor]]</span> <span class="pre">=</span> <span class="pre">&lt;function</span> <span class="pre">clamp_weight_&gt;,</span> <span class="pre">num_expansions:</span> <span class="pre">Optional[int]</span> <span class="pre">=</span> <span class="pre">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.perceptron.nn.ExpandedConv1d.__init__" title="Permalink to this definition"></a></dt>
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">in_channels:</span> <span class="pre">int,</span> <span class="pre">out_channels:</span> <span class="pre">int,</span> <span class="pre">kernel_size:</span> <span class="pre">Union[int,</span> <span class="pre">Tuple[int]],</span> <span class="pre">stride:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">1,</span> <span class="pre">padding:</span> <span class="pre">Union[int,</span> <span class="pre">Tuple[int,</span> <span class="pre">int]]</span> <span class="pre">=</span> <span class="pre">0,</span> <span class="pre">dilation:</span> <span class="pre">Union[int,</span> <span class="pre">Tuple]</span> <span class="pre">=</span> <span class="pre">1,</span> <span class="pre">groups:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">1,</span> <span class="pre">bias:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True,</span> <span class="pre">padding_mode:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'zeros',</span> <span class="pre">num_sends:</span> <span class="pre">Optional[int,</span> <span class="pre">None]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">wait_between_events:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">5,</span> <span class="pre">mock:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False,</span> <span class="pre">*,</span> <span class="pre">input_transform:</span> <span class="pre">Optional[Callable[[torch.Tensor],</span> <span class="pre">torch.Tensor],</span> <span class="pre">None]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">weight_transform:</span> <span class="pre">Optional[Callable[[torch.Tensor],</span> <span class="pre">torch.Tensor],</span> <span class="pre">None]</span> <span class="pre">=</span> <span class="pre">&lt;function</span> <span class="pre">clamp_weight_&gt;,</span> <span class="pre">num_expansions:</span> <span class="pre">Optional[int,</span> <span class="pre">None]</span> <span class="pre">=</span> <span class="pre">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.perceptron.nn.ExpandedConv1d.__init__" title="Permalink to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -149,7 +153,7 @@ a tensor to be used as weight matrix on the chip.</p></li>
 </p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.perceptron.nn.ExpandedConv1d.extra_repr" title="hxtorch.perceptron.nn.ExpandedConv1d.extra_repr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">extra_repr</span></code></a>()</p></td>
-<td><p>Set the extra representation of the module</p></td>
+<td><p>Set the extra representation of the module.</p></td>
 </tr>
 </tbody>
 </table>
@@ -162,79 +166,14 @@ a tensor to be used as weight matrix on the chip.</p></li>
 <tbody>
 </tbody>
 </table>
-<dl class="py attribute">
-<dt id="hxtorch.perceptron.nn.ExpandedConv1d.bias">
-<code class="sig-name descname"><span class="pre">bias</span></code><em class="property"><span class="pre">:</span> <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#hxtorch.perceptron.nn.ExpandedConv1d.bias" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="hxtorch.perceptron.nn.ExpandedConv1d.dilation">
-<code class="sig-name descname"><span class="pre">dilation</span></code><em class="property"><span class="pre">:</span> <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="p"><span class="pre">…</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#hxtorch.perceptron.nn.ExpandedConv1d.dilation" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
 <dl class="py method">
 <dt id="hxtorch.perceptron.nn.ExpandedConv1d.extra_repr">
 <code class="sig-name descname"><span class="pre">extra_repr</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="headerlink" href="#hxtorch.perceptron.nn.ExpandedConv1d.extra_repr" title="Permalink to this definition"></a></dt>
-<dd><p>Set the extra representation of the module</p>
+<dd><p>Set the extra representation of the module.</p>
 <p>To print customized extra information, you should re-implement
 this method in your own modules. Both single-line and multi-line
 strings are acceptable.</p>
 </dd></dl>
-
-<dl class="py attribute">
-<dt id="hxtorch.perceptron.nn.ExpandedConv1d.groups">
-<code class="sig-name descname"><span class="pre">groups</span></code><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#hxtorch.perceptron.nn.ExpandedConv1d.groups" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="hxtorch.perceptron.nn.ExpandedConv1d.in_channels">
-<code class="sig-name descname"><span class="pre">in_channels</span></code><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#hxtorch.perceptron.nn.ExpandedConv1d.in_channels" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="hxtorch.perceptron.nn.ExpandedConv1d.kernel_size">
-<code class="sig-name descname"><span class="pre">kernel_size</span></code><em class="property"><span class="pre">:</span> <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="p"><span class="pre">…</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#hxtorch.perceptron.nn.ExpandedConv1d.kernel_size" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="hxtorch.perceptron.nn.ExpandedConv1d.out_channels">
-<code class="sig-name descname"><span class="pre">out_channels</span></code><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#hxtorch.perceptron.nn.ExpandedConv1d.out_channels" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="hxtorch.perceptron.nn.ExpandedConv1d.output_padding">
-<code class="sig-name descname"><span class="pre">output_padding</span></code><em class="property"><span class="pre">:</span> <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="p"><span class="pre">…</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#hxtorch.perceptron.nn.ExpandedConv1d.output_padding" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="hxtorch.perceptron.nn.ExpandedConv1d.padding">
-<code class="sig-name descname"><span class="pre">padding</span></code><em class="property"><span class="pre">:</span> <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="p"><span class="pre">…</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#hxtorch.perceptron.nn.ExpandedConv1d.padding" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="hxtorch.perceptron.nn.ExpandedConv1d.padding_mode">
-<code class="sig-name descname"><span class="pre">padding_mode</span></code><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#hxtorch.perceptron.nn.ExpandedConv1d.padding_mode" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="hxtorch.perceptron.nn.ExpandedConv1d.stride">
-<code class="sig-name descname"><span class="pre">stride</span></code><em class="property"><span class="pre">:</span> <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="p"><span class="pre">…</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#hxtorch.perceptron.nn.ExpandedConv1d.stride" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="hxtorch.perceptron.nn.ExpandedConv1d.training">
-<code class="sig-name descname"><span class="pre">training</span></code><em class="property"><span class="pre">:</span> <span class="pre">bool</span></em><a class="headerlink" href="#hxtorch.perceptron.nn.ExpandedConv1d.training" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="hxtorch.perceptron.nn.ExpandedConv1d.transposed">
-<code class="sig-name descname"><span class="pre">transposed</span></code><em class="property"><span class="pre">:</span> <span class="pre">bool</span></em><a class="headerlink" href="#hxtorch.perceptron.nn.ExpandedConv1d.transposed" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="hxtorch.perceptron.nn.ExpandedConv1d.weight">
-<code class="sig-name descname"><span class="pre">weight</span></code><em class="property"><span class="pre">:</span> <span class="pre">torch.Tensor</span></em><a class="headerlink" href="#hxtorch.perceptron.nn.ExpandedConv1d.weight" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
 
 </dd></dl>
 

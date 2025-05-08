@@ -25,11 +25,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> BrainScaleS-2 Documentation
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            BrainScaleS-2 Documentation
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -90,10 +94,10 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="index.html">Welcome to the BrainScaleS-2 Demos &amp; Examples!</a> &raquo;</li>
-          <li><a href="tutorial.html">Welcome to the BrainScaleS-2 Tutorial</a> &raquo;</li>
-      <li>BrainScaleS-2 single neuron experiments</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Welcome to the BrainScaleS-2 Demos &amp; Examples!</a></li>
+          <li class="breadcrumb-item"><a href="tutorial.html">Welcome to the BrainScaleS-2 Tutorial</a></li>
+      <li class="breadcrumb-item active">BrainScaleS-2 single neuron experiments</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/brainscales2-demos/ts_00-single_neuron.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -125,7 +129,7 @@
 
 
 <span class="k">def</span> <span class="nf">plot_membrane_dynamics</span><span class="p">(</span><span class="n">population</span><span class="p">:</span> <span class="n">Population</span><span class="p">,</span> <span class="n">segment_id</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Plot the membrane potential of the neuron in a given population view. Only</span>
 <span class="sd">    population views of size 1 are supported.</span>
 <span class="sd">    :param population: Population, membrane traces and spikes are plotted for.</span>
@@ -221,7 +225,7 @@ threshold setting of 300 may correspond to a higher leak potential of
     <span class="n">i_bias_leak</span><span class="o">=</span><span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">1022</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">150</span><span class="p">),</span>
 <span class="p">)</span>
 <span class="k">def</span> <span class="nf">experiment</span><span class="p">(</span><span class="n">v_leak</span><span class="p">,</span> <span class="n">v_threshold</span><span class="p">,</span> <span class="n">v_reset</span><span class="p">,</span> <span class="n">i_bias_leak</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Set up a leak over threshold neuron.</span>
 
 <span class="sd">    :param v_leak: Leak potential.</span>
@@ -373,7 +377,7 @@ We save the nightly calibration in a variable such that we can use it later when
           <span class="n">inh_weight</span><span class="o">=</span><span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">63</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">31</span><span class="p">),</span>
           <span class="n">isi</span><span class="o">=</span><span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">50</span><span class="p">))</span>
 <span class="k">def</span> <span class="nf">run_experiment</span><span class="p">(</span><span class="n">exc_weight</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">inh_weight</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">isi</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Run external input demonstration on BSS-2.</span>
 
 <span class="sd">    Adjust weight of projections, set input spikes and execute experiment</span>

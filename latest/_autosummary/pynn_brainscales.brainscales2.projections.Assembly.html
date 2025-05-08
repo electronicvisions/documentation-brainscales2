@@ -25,11 +25,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> BrainScaleS-2 Documentation
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            BrainScaleS-2 Documentation
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -107,12 +111,12 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../apis.html">BrainScaleS-2 API Documentation</a> &raquo;</li>
-          <li><a href="../apis_python.html">BrainScaleS-2 API Documentation</a> &raquo;</li>
-          <li><a href="pynn_brainscales.brainscales2.html">pynn_brainscales.brainscales2</a> &raquo;</li>
-          <li><a href="pynn_brainscales.brainscales2.projections.html">pynn_brainscales.brainscales2.projections</a> &raquo;</li>
-      <li>pynn_brainscales.brainscales2.projections.Assembly</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../apis.html">BrainScaleS-2 API Documentation</a></li>
+          <li class="breadcrumb-item"><a href="../apis_python.html">BrainScaleS-2 API Documentation</a></li>
+          <li class="breadcrumb-item"><a href="pynn_brainscales.brainscales2.html">pynn_brainscales.brainscales2</a></li>
+          <li class="breadcrumb-item"><a href="pynn_brainscales.brainscales2.projections.html">pynn_brainscales.brainscales2.projections</a></li>
+      <li class="breadcrumb-item active">pynn_brainscales.brainscales2.projections.Assembly</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/_autosummary/pynn_brainscales.brainscales2.projections.Assembly.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -209,7 +213,7 @@ all the neurons are of the same type.</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.projections.Assembly.print_v" title="pynn_brainscales.brainscales2.projections.Assembly.print_v"><code class="xref py py-obj docutils literal notranslate"><span class="pre">print_v</span></code></a>(**kwargs)</p></td>
 <td><p><em>Deprecated</em>.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.projections.Assembly.record" title="pynn_brainscales.brainscales2.projections.Assembly.record"><code class="xref py py-obj docutils literal notranslate"><span class="pre">record</span></code></a>(variables[, to_file, sampling_interval])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.projections.Assembly.record" title="pynn_brainscales.brainscales2.projections.Assembly.record"><code class="xref py py-obj docutils literal notranslate"><span class="pre">record</span></code></a>(variables[, to_file, …])</p></td>
 <td><p>Record the specified variable or variables for all cells in the Assembly.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.projections.Assembly.record_gsyn" title="pynn_brainscales.brainscales2.projections.Assembly.record_gsyn"><code class="xref py py-obj docutils literal notranslate"><span class="pre">record_gsyn</span></code></a>(**kwargs)</p></td>
@@ -457,7 +461,7 @@ within the assembly.</p>
 
 <dl class="py method">
 <dt id="pynn_brainscales.brainscales2.projections.Assembly.record">
-<code class="sig-name descname"><span class="pre">record</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variables</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampling_interval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.projections.Assembly.record" title="Permalink to this definition"></a></dt>
+<code class="sig-name descname"><span class="pre">record</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variables</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampling_interval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">locations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.projections.Assembly.record" title="Permalink to this definition"></a></dt>
 <dd><p>Record the specified variable or variables for all cells in the Assembly.</p>
 <p><cite>variables</cite> may be either a single variable name or a list of variable
 names. For a given celltype class, <cite>celltype.recordable</cite> contains a list of

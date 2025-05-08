@@ -24,11 +24,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> BrainScaleS-2 Documentation
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            BrainScaleS-2 Documentation
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -55,8 +59,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Multicompartmental Neurons</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Multicompartmental Neurons</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/brainscales2-demos/common_task_multicompartment.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -195,7 +199,7 @@ Once we defined all compartments and connections, we can create a new neuron typ
 <p>Now we define a function which runs the experiment on the BrainScaleS-2 system.
 Since we use a single ADC (analog-to-digital converter) to record the membrane potential of each compartment, we have to perform <code class="docutils literal notranslate"><span class="pre">length</span></code> hardware runs.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">record_membrane_traces</span><span class="p">(</span><span class="n">weight</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">conductance</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Run emulation on BSS-2 and record membrane traces of each compartment.</span>
 
 <span class="sd">    :param weight: Weight of stimulus projection. Value range: [0, 63].</span>
@@ -231,7 +235,7 @@ For that purpose we create a grid of size <code class="docutils literal notransl
 Each cell in this grid will contain a subplot which displays the membrane response in a single compartment to a single input.
 We will change the recording site in the x-axis and the injection site on the y-axis.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_membrane_traces</span><span class="p">(</span><span class="n">membrane_traces</span><span class="p">:</span> <span class="n">List</span><span class="p">,</span> <span class="n">old_traces</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">]):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Display recorded membrane traces.</span>
 
 <span class="sd">    Split the recorded membrane trace of each compartment and create a grid of</span>
@@ -246,7 +250,7 @@ We will change the recording site in the x-axis and the injection site on the y-
                             <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
 
     <span class="k">def</span> <span class="nf">plot_single</span><span class="p">(</span><span class="n">traces</span><span class="p">:</span> <span class="n">List</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39;</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        Helper function to plot membrane traces recorded in a single experiment.</span>
 <span class="sd">        &#39;&#39;&#39;</span>
         <span class="k">for</span> <span class="n">injected</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">length</span><span class="p">):</span>

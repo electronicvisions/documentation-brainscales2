@@ -25,11 +25,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> BrainScaleS-2 Documentation
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            BrainScaleS-2 Documentation
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -107,10 +111,10 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../apis.html">BrainScaleS-2 API Documentation</a> &raquo;</li>
-          <li><a href="../apis_python.html">BrainScaleS-2 API Documentation</a> &raquo;</li>
-      <li>pynn_brainscales.brainscales2</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../apis.html">BrainScaleS-2 API Documentation</a></li>
+          <li class="breadcrumb-item"><a href="../apis_python.html">BrainScaleS-2 API Documentation</a></li>
+      <li class="breadcrumb-item active">pynn_brainscales.brainscales2</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/_autosummary/pynn_brainscales.brainscales2.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -261,24 +265,19 @@
 <p class="rubric">Functions</p>
 <dl class="py function">
 <dt id="pynn_brainscales.brainscales2.connect">
-<code class="sig-prename descclassname"><span class="pre">pynn_brainscales.brainscales2.</span></code><code class="sig-name descname"><span class="pre">connect</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pre</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">post</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">receptor_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rng</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.connect" title="Permalink to this definition"></a></dt>
-<dd><p>Connect a source of spikes to a synaptic target.</p>
-<p><cite>source</cite> and <cite>target</cite> can both be individual cells or populations/
-assemblies of cells, in which case all possible connections are made
-with probability <cite>p</cite>, using either the random number generator supplied,
-or the default RNG otherwise. Weights should be in nA or µS.</p>
+<code class="sig-prename descclassname"><span class="pre">pynn_brainscales.brainscales2.</span></code><code class="sig-name descname"><span class="pre">connect</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.connect" title="Permalink to this definition"></a></dt>
+<dd><p><em>Deprecated</em>. Use <code class="docutils literal notranslate"><span class="pre">Projection()</span></code> instead.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt id="pynn_brainscales.brainscales2.create">
-<code class="sig-prename descclassname"><span class="pre">pynn_brainscales.brainscales2.</span></code><code class="sig-name descname"><span class="pre">create</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cellclass</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cellparams</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.create" title="Permalink to this definition"></a></dt>
-<dd><p>Create <cite>n</cite> cells all of the same type.</p>
-<p>Returns a Population object.</p>
+<code class="sig-prename descclassname"><span class="pre">pynn_brainscales.brainscales2.</span></code><code class="sig-name descname"><span class="pre">create</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.create" title="Permalink to this definition"></a></dt>
+<dd><p><em>Deprecated</em>. Use <code class="docutils literal notranslate"><span class="pre">Population()</span></code> instead.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt id="pynn_brainscales.brainscales2.dataclass">
-<code class="sig-prename descclassname"><span class="pre">pynn_brainscales.brainscales2.</span></code><code class="sig-name descname"><span class="pre">dataclass</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">repr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unsafe_hash</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frozen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.dataclass" title="Permalink to this definition"></a></dt>
+<code class="sig-prename descclassname"><span class="pre">pynn_brainscales.brainscales2.</span></code><code class="sig-name descname"><span class="pre">dataclass</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">repr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unsafe_hash</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frozen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">match_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kw_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slots</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.dataclass" title="Permalink to this definition"></a></dt>
 <dd><p>Returns the same class as was passed in, with dunder methods
 added based on the fields defined in the class.</p>
 <p>Examines PEP 526 __annotations__ to determine fields.</p>
@@ -286,7 +285,10 @@ added based on the fields defined in the class.</p>
 repr is true, a __repr__() method is added. If order is true, rich
 comparison dunder methods are added. If unsafe_hash is true, a
 __hash__() method function is added. If frozen is true, fields may
-not be assigned to after instance creation.</p>
+not be assigned to after instance creation. If match_args is true,
+the __match_args__ tuple is added. If kw_only is true, then by
+default all fields are keyword-only. If slots is true, an
+__slots__ attribute is added.</p>
 </dd></dl>
 
 <dl class="py function">
@@ -297,16 +299,18 @@ not be assigned to after instance creation.</p>
 
 <dl class="py function">
 <dt id="pynn_brainscales.brainscales2.field">
-<code class="sig-prename descclassname"><span class="pre">pynn_brainscales.brainscales2.</span></code><code class="sig-name descname"><span class="pre">field</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">*</span></em>, <em class="sig-param"><span class="pre">default=&lt;dataclasses._MISSING_TYPE</span> <span class="pre">object&gt;</span></em>, <em class="sig-param"><span class="pre">default_factory=&lt;dataclasses._MISSING_TYPE</span> <span class="pre">object&gt;</span></em>, <em class="sig-param"><span class="pre">init=True</span></em>, <em class="sig-param"><span class="pre">repr=True</span></em>, <em class="sig-param"><span class="pre">hash=None</span></em>, <em class="sig-param"><span class="pre">compare=True</span></em>, <em class="sig-param"><span class="pre">metadata=None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.field" title="Permalink to this definition"></a></dt>
+<code class="sig-prename descclassname"><span class="pre">pynn_brainscales.brainscales2.</span></code><code class="sig-name descname"><span class="pre">field</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">*</span></em>, <em class="sig-param"><span class="pre">default=&lt;dataclasses._MISSING_TYPE</span> <span class="pre">object&gt;</span></em>, <em class="sig-param"><span class="pre">default_factory=&lt;dataclasses._MISSING_TYPE</span> <span class="pre">object&gt;</span></em>, <em class="sig-param"><span class="pre">init=True</span></em>, <em class="sig-param"><span class="pre">repr=True</span></em>, <em class="sig-param"><span class="pre">hash=None</span></em>, <em class="sig-param"><span class="pre">compare=True</span></em>, <em class="sig-param"><span class="pre">metadata=None</span></em>, <em class="sig-param"><span class="pre">kw_only=&lt;dataclasses._MISSING_TYPE</span> <span class="pre">object&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.field" title="Permalink to this definition"></a></dt>
 <dd><p>Return an object to identify dataclass fields.</p>
 <p>default is the default value of the field.  default_factory is a
 0-argument function called to initialize a field’s value.  If init
-is True, the field will be a parameter to the class’s __init__()
-function.  If repr is True, the field will be included in the
-object’s repr().  If hash is True, the field will be included in
-the object’s hash().  If compare is True, the field will be used
-in comparison functions.  metadata, if specified, must be a
-mapping which is stored but not otherwise examined by dataclass.</p>
+is true, the field will be a parameter to the class’s __init__()
+function.  If repr is true, the field will be included in the
+object’s repr().  If hash is true, the field will be included in the
+object’s hash().  If compare is true, the field will be used in
+comparison functions.  metadata, if specified, must be a mapping
+which is stored but not otherwise examined by dataclass.  If kw_only
+is true, the field will become a keyword-only parameter to
+__init__().</p>
 <p>It is an error to specify both default and default_factory.</p>
 </dd></dl>
 
@@ -430,26 +434,8 @@ called.</p>
 
 <dl class="py function">
 <dt id="pynn_brainscales.brainscales2.initialize">
-<code class="sig-prename descclassname"><span class="pre">pynn_brainscales.brainscales2.</span></code><code class="sig-name descname"><span class="pre">initialize</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cells</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">initial_values</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.initialize" title="Permalink to this definition"></a></dt>
-<dd><p>Set initial values of state variables, e.g. the membrane potential.</p>
-<dl class="simple">
-<dt>Values passed to initialize() may be:</dt><dd><ol class="arabic simple">
-<li><p>single numeric values (all neurons set to the same value)</p></li>
-<li><p>RandomDistribution objects</p></li>
-<li><p>lists/arrays of numbers of the same size as the population</p></li>
-<li><p>mapping functions, where a mapping function accepts a single
-argument (the cell index) and returns a single number.</p></li>
-</ol>
-</dd>
-</dl>
-<p>Values should be expressed in the standard PyNN units (i.e. millivolts,
-nanoamps, milliseconds, microsiemens, nanofarads, event per second).</p>
-<p>Examples:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">initialize</span><span class="p">(</span><span class="n">cells</span><span class="p">,</span> <span class="n">v</span><span class="o">=-</span><span class="mf">70.0</span><span class="p">)</span>
-<span class="n">initialize</span><span class="p">(</span><span class="n">cells</span><span class="p">,</span> <span class="n">v</span><span class="o">=</span><span class="n">rand_distr</span><span class="p">,</span> <span class="n">gsyn_exc</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
-<span class="n">initialize</span><span class="p">(</span><span class="n">cells</span><span class="p">,</span> <span class="n">v</span><span class="o">=</span><span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="o">-</span><span class="mi">65</span> <span class="o">+</span> <span class="n">i</span><span class="o">/</span><span class="mf">10.0</span><span class="p">)</span>
-</pre></div>
-</div>
+<code class="sig-prename descclassname"><span class="pre">pynn_brainscales.brainscales2.</span></code><code class="sig-name descname"><span class="pre">initialize</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.initialize" title="Permalink to this definition"></a></dt>
+<dd><p><em>Deprecated</em>. Use <code class="docutils literal notranslate"><span class="pre">Population.initialize()</span></code> instead.</p>
 </dd></dl>
 
 <dl class="py function">
@@ -480,9 +466,8 @@ Exists only due to backwards-compatibility reasons.</p>
 
 <dl class="py function">
 <dt id="pynn_brainscales.brainscales2.record">
-<code class="sig-prename descclassname"><span class="pre">pynn_brainscales.brainscales2.</span></code><code class="sig-name descname"><span class="pre">record</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variables</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampling_interval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">annotations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.record" title="Permalink to this definition"></a></dt>
-<dd><p>Record variables to a file. source can be an individual cell, a
-Population, PopulationView or Assembly.</p>
+<code class="sig-prename descclassname"><span class="pre">pynn_brainscales.brainscales2.</span></code><code class="sig-name descname"><span class="pre">record</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.record" title="Permalink to this definition"></a></dt>
+<dd><p><em>Deprecated</em>. Use <code class="docutils literal notranslate"><span class="pre">Population.record()</span></code> instead.</p>
 </dd></dl>
 
 <dl class="py function">
@@ -496,7 +481,7 @@ nor the specification of which neurons to record from.</p>
 
 <dl class="py function">
 <dt id="pynn_brainscales.brainscales2.run">
-<code class="sig-prename descclassname"><span class="pre">pynn_brainscales.brainscales2.</span></code><code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">runtime:</span> <span class="pre">Optional[float],</span> <span class="pre">command:</span> <span class="pre">pynn_brainscales.brainscales2.RunCommand</span> <span class="pre">=</span> <span class="pre">&lt;RunCommand.EXECUTE:</span> <span class="pre">3&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.run" title="Permalink to this definition"></a></dt>
+<code class="sig-prename descclassname"><span class="pre">pynn_brainscales.brainscales2.</span></code><code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">runtime:</span> <span class="pre">Optional[float,</span> <span class="pre">None],</span> <span class="pre">command:</span> <span class="pre">pynn_brainscales.brainscales2.RunCommand</span> <span class="pre">=</span> <span class="pre">&lt;RunCommand.EXECUTE:</span> <span class="pre">3&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.run" title="Permalink to this definition"></a></dt>
 <dd><p>Take different actions according to the value passed for command:</p>
 <p>For command=pyNN.RunCommand.PREPARE:
 Execute all steps needed for the hardware back-end.
@@ -520,7 +505,7 @@ executing the experiment, if a value is passed for runtime.</p>
 
 <dl class="py function">
 <dt id="pynn_brainscales.brainscales2.run_for">
-<code class="sig-prename descclassname"><span class="pre">pynn_brainscales.brainscales2.</span></code><code class="sig-name descname"><span class="pre">run_for</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">runtime:</span> <span class="pre">Optional[float],</span> <span class="pre">command:</span> <span class="pre">pynn_brainscales.brainscales2.RunCommand</span> <span class="pre">=</span> <span class="pre">&lt;RunCommand.EXECUTE:</span> <span class="pre">3&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.run_for" title="Permalink to this definition"></a></dt>
+<code class="sig-prename descclassname"><span class="pre">pynn_brainscales.brainscales2.</span></code><code class="sig-name descname"><span class="pre">run_for</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">runtime:</span> <span class="pre">Optional[float,</span> <span class="pre">None],</span> <span class="pre">command:</span> <span class="pre">pynn_brainscales.brainscales2.RunCommand</span> <span class="pre">=</span> <span class="pre">&lt;RunCommand.EXECUTE:</span> <span class="pre">3&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.run_for" title="Permalink to this definition"></a></dt>
 <dd><p>Take different actions according to the value passed for command:</p>
 <p>For command=pyNN.RunCommand.PREPARE:
 Execute all steps needed for the hardware back-end.
@@ -555,21 +540,8 @@ documentation of the <code class="docutils literal notranslate"><span class="pre
 
 <dl class="py function">
 <dt id="pynn_brainscales.brainscales2.set">
-<code class="sig-prename descclassname"><span class="pre">pynn_brainscales.brainscales2.</span></code><code class="sig-name descname"><span class="pre">set</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cells</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.set" title="Permalink to this definition"></a></dt>
-<dd><p>Set one or more parameters for every cell in a population, view or assembly.</p>
-<dl class="simple">
-<dt>Values passed to set() may be:</dt><dd><ol class="arabic simple">
-<li><p>single values</p></li>
-<li><p>RandomDistribution objects</p></li>
-<li><p>mapping functions, where a mapping function accepts a single
-argument (the cell index) and returns a single value.</p></li>
-</ol>
-</dd>
-</dl>
-<p>Here, a “single value” may be either a single number or a list/array of
-numbers (e.g. for spike times). Values should be expressed in the standard
-PyNN units (i.e. millivolts, nanoamps, milliseconds, microsiemens,
-nanofarads, event per second).</p>
+<code class="sig-prename descclassname"><span class="pre">pynn_brainscales.brainscales2.</span></code><code class="sig-name descname"><span class="pre">set</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.set" title="Permalink to this definition"></a></dt>
+<dd><p><em>Deprecated</em>. Use <code class="docutils literal notranslate"><span class="pre">Population.set()</span></code> instead.</p>
 </dd></dl>
 
 <dl class="py function">

@@ -25,11 +25,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> BrainScaleS-2 Documentation
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            BrainScaleS-2 Documentation
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -79,10 +83,10 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="index.html">Welcome to the BrainScaleS-2 Demos &amp; Examples!</a> &raquo;</li>
-          <li><a href="fortgeschrittenen_praktikum.html">Welcome to the Advanced Physics Lab for Physicists by the Electronic Vision(s) Group</a> &raquo;</li>
-      <li>Calibration: Characterising and Measuring Analog Behaviour</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Welcome to the BrainScaleS-2 Demos &amp; Examples!</a></li>
+          <li class="breadcrumb-item"><a href="fortgeschrittenen_praktikum.html">Welcome to the Advanced Physics Lab for Physicists by the Electronic Vision(s) Group</a></li>
+      <li class="breadcrumb-item active">Calibration: Characterising and Measuring Analog Behaviour</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/brainscales2-demos/fp_calibration.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -211,7 +215,7 @@ We save the nightly calibration in a variable such that we can use it later when
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;_static/matplotlibrc&quot;</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">plot_membrane_dynamics</span><span class="p">(</span><span class="n">population</span><span class="p">:</span> <span class="n">Population</span><span class="p">,</span> <span class="n">segment_id</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Plot the membrane potential of the neuron in a given population view. Only</span>
 <span class="sd">    population views of size 1 are supported.</span>
 <span class="sd">    :param population: Population, membrane traces and spikes are plotted for.</span>
@@ -248,7 +252,7 @@ We save the nightly calibration in a variable such that we can use it later when
     <span class="n">i_bias_leak</span><span class="o">=</span><span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">1022</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">150</span><span class="p">),</span>
 <span class="p">)</span>
 <span class="k">def</span> <span class="nf">experiment</span><span class="p">(</span><span class="n">neuron_idx</span><span class="p">,</span> <span class="n">v_leak</span><span class="p">,</span> <span class="n">v_threshold</span><span class="p">,</span> <span class="n">v_reset</span><span class="p">,</span> <span class="n">i_bias_leak</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Set up a leak over threshold neuron.</span>
 
 <span class="sd">    :param v_leak: Leak potential.</span>
@@ -433,7 +437,7 @@ for respective parameters. Start with full range and narrow down.</p>
     <span class="n">i_bias_leak</span><span class="o">=</span><span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">1022</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">150</span><span class="p">),</span>
 <span class="p">)</span>
 <span class="k">def</span> <span class="nf">experiment</span><span class="p">(</span><span class="n">neuron_idx</span><span class="p">,</span> <span class="n">v_leak</span><span class="p">,</span> <span class="n">v_threshold</span><span class="p">,</span> <span class="n">v_reset</span><span class="p">,</span> <span class="n">i_bias_leak</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Set up a leak over threshold neuron.</span>
 
 <span class="sd">    :param v_leak: Leak potential.</span>
@@ -578,8 +582,8 @@ for respective parameters. Start with full range and narrow down.</p>
     <span class="n">max_v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">membrane</span><span class="p">[</span><span class="n">nrnidx</span><span class="p">])</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;neuron </span><span class="si">{</span><span class="n">nrnidx</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;max. membrane potential: </span><span class="si">{</span><span class="n">max_v</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> V&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;firing rate: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">isi</span><span class="p">[</span><span class="n">nrnidx</span><span class="p">])</span><span class="si">:</span><span class="s2">.4</span><span class="si">}</span><span class="s2"> &quot;</span>
-            <span class="sa">f</span><span class="s2">&quot;+- </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">isi</span><span class="p">[</span><span class="n">nrnidx</span><span class="p">])</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> MHz&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;firing rate: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">isi</span><span class="p">[</span><span class="n">nrnidx</span><span class="p">])</span><span class="si">:</span><span class="s2">.4</span><span class="si">}</span><span class="s2"> &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;+- </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">isi</span><span class="p">[</span><span class="n">nrnidx</span><span class="p">])</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> MHz&quot;</span><span class="p">)</span>
 
     <span class="n">axes</span><span class="p">[</span><span class="n">nrnidx</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">membrane</span><span class="p">[</span><span class="n">nrnidx</span><span class="p">]</span><span class="o">.</span><span class="n">times</span><span class="p">,</span> <span class="n">membrane</span><span class="p">[</span><span class="n">nrnidx</span><span class="p">])</span>
     <span class="n">axes</span><span class="p">[</span><span class="n">nrnidx</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>

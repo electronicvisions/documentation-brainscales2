@@ -25,11 +25,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> BrainScaleS-2 Documentation
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            BrainScaleS-2 Documentation
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -73,14 +77,14 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../apis.html">BrainScaleS-2 API Documentation</a> &raquo;</li>
-          <li><a href="../apis_python.html">BrainScaleS-2 API Documentation</a> &raquo;</li>
-          <li><a href="hxtorch.html">hxtorch</a> &raquo;</li>
-          <li><a href="hxtorch.spiking.html">hxtorch.spiking</a> &raquo;</li>
-          <li><a href="hxtorch.spiking.modules.html">hxtorch.spiking.modules</a> &raquo;</li>
-          <li><a href="hxtorch.spiking.modules.synapse.html">hxtorch.spiking.modules.synapse</a> &raquo;</li>
-      <li>hxtorch.spiking.modules.synapse.Parameter</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../apis.html">BrainScaleS-2 API Documentation</a></li>
+          <li class="breadcrumb-item"><a href="../apis_python.html">BrainScaleS-2 API Documentation</a></li>
+          <li class="breadcrumb-item"><a href="hxtorch.html">hxtorch</a></li>
+          <li class="breadcrumb-item"><a href="hxtorch.spiking.html">hxtorch.spiking</a></li>
+          <li class="breadcrumb-item"><a href="hxtorch.spiking.modules.html">hxtorch.spiking.modules</a></li>
+          <li class="breadcrumb-item"><a href="hxtorch.spiking.modules.synapse.html">hxtorch.spiking.modules.synapse</a></li>
+      <li class="breadcrumb-item active">hxtorch.spiking.modules.synapse.Parameter</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/_autosummary/hxtorch.spiking.modules.synapse.Parameter.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -107,9 +111,12 @@ the model. If there was no such class as <a class="reference internal" href="#hx
 temporaries would get registered too.</p>
 <dl>
 <dt>Args:</dt><dd><p>data (Tensor): parameter tensor.
-requires_grad (bool, optional): if the parameter requires gradient. See</p>
+requires_grad (bool, optional): if the parameter requires gradient. Note that</p>
 <blockquote>
-<div><p><span class="xref std std-ref">locally-disable-grad-doc</span> for more details. Default: <cite>True</cite></p>
+<div><p>the torch.no_grad() context does NOT affect the default behavior of
+Parameter creation–the Parameter will still have <cite>requires_grad=True</cite> in
+<code class="xref py py-class docutils literal notranslate"><span class="pre">no_grad</span></code> mode. See <span class="xref std std-ref">locally-disable-grad-doc</span> for more
+details. Default: <cite>True</cite></p>
 </div></blockquote>
 </dd>
 </dl>

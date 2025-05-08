@@ -25,11 +25,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> BrainScaleS-2 Documentation
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            BrainScaleS-2 Documentation
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -73,13 +77,13 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../apis.html">BrainScaleS-2 API Documentation</a> &raquo;</li>
-          <li><a href="../apis_python.html">BrainScaleS-2 API Documentation</a> &raquo;</li>
-          <li><a href="hxtorch.html">hxtorch</a> &raquo;</li>
-          <li><a href="hxtorch.perceptron.html">hxtorch.perceptron</a> &raquo;</li>
-          <li><a href="hxtorch.perceptron.nn.html">hxtorch.perceptron.nn</a> &raquo;</li>
-      <li>hxtorch.perceptron.nn.MACLayer</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../apis.html">BrainScaleS-2 API Documentation</a></li>
+          <li class="breadcrumb-item"><a href="../apis_python.html">BrainScaleS-2 API Documentation</a></li>
+          <li class="breadcrumb-item"><a href="hxtorch.html">hxtorch</a></li>
+          <li class="breadcrumb-item"><a href="hxtorch.perceptron.html">hxtorch.perceptron</a></li>
+          <li class="breadcrumb-item"><a href="hxtorch.perceptron.nn.html">hxtorch.perceptron.nn</a></li>
+      <li class="breadcrumb-item active">hxtorch.perceptron.nn.MACLayer</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/_autosummary/hxtorch.perceptron.nn.MACLayer.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -93,12 +97,12 @@
 <h1>hxtorch.perceptron.nn.MACLayer<a class="headerlink" href="#hxtorch-perceptron-nn-maclayer" title="Permalink to this headline"></a></h1>
 <dl class="py class">
 <dt id="hxtorch.perceptron.nn.MACLayer">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">hxtorch.perceptron.nn.</span></code><code class="sig-name descname"><span class="pre">MACLayer</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">num_sends:</span> <span class="pre">Optional[numbers.Integral]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">wait_between_events:</span> <span class="pre">numbers.Integral</span> <span class="pre">=</span> <span class="pre">5,</span> <span class="pre">mock:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False,</span> <span class="pre">*,</span> <span class="pre">input_transform:</span> <span class="pre">Optional[Callable[[torch.Tensor],</span> <span class="pre">torch.Tensor]]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">weight_transform:</span> <span class="pre">Optional[Callable[[torch.Tensor],</span> <span class="pre">torch.Tensor]]</span> <span class="pre">=</span> <span class="pre">&lt;function</span> <span class="pre">clamp_weight_&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.perceptron.nn.MACLayer" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">hxtorch.perceptron.nn.</span></code><code class="sig-name descname"><span class="pre">MACLayer</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">num_sends:</span> <span class="pre">Optional[numbers.Integral,</span> <span class="pre">None]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">wait_between_events:</span> <span class="pre">numbers.Integral</span> <span class="pre">=</span> <span class="pre">5,</span> <span class="pre">mock:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False,</span> <span class="pre">*,</span> <span class="pre">input_transform:</span> <span class="pre">Optional[Callable[[torch.Tensor],</span> <span class="pre">torch.Tensor],</span> <span class="pre">None]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">weight_transform:</span> <span class="pre">Optional[Callable[[torch.Tensor],</span> <span class="pre">torch.Tensor],</span> <span class="pre">None]</span> <span class="pre">=</span> <span class="pre">&lt;function</span> <span class="pre">clamp_weight_&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.perceptron.nn.MACLayer" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="hxtorch.perceptron.nn.Layer.html#hxtorch.perceptron.nn.Layer" title="hxtorch.perceptron.nn.Layer"><code class="xref py py-class docutils literal notranslate"><span class="pre">hxtorch.perceptron.nn.Layer</span></code></a></p>
 <p>Layer that performs a multiply accumulate operation.</p>
 <dl class="py method">
 <dt id="hxtorch.perceptron.nn.MACLayer.__init__">
-<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">num_sends:</span> <span class="pre">Optional[numbers.Integral]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">wait_between_events:</span> <span class="pre">numbers.Integral</span> <span class="pre">=</span> <span class="pre">5,</span> <span class="pre">mock:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False,</span> <span class="pre">*,</span> <span class="pre">input_transform:</span> <span class="pre">Optional[Callable[[torch.Tensor],</span> <span class="pre">torch.Tensor]]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">weight_transform:</span> <span class="pre">Optional[Callable[[torch.Tensor],</span> <span class="pre">torch.Tensor]]</span> <span class="pre">=</span> <span class="pre">&lt;function</span> <span class="pre">clamp_weight_&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.perceptron.nn.MACLayer.__init__" title="Permalink to this definition"></a></dt>
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">num_sends:</span> <span class="pre">Optional[numbers.Integral,</span> <span class="pre">None]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">wait_between_events:</span> <span class="pre">numbers.Integral</span> <span class="pre">=</span> <span class="pre">5,</span> <span class="pre">mock:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False,</span> <span class="pre">*,</span> <span class="pre">input_transform:</span> <span class="pre">Optional[Callable[[torch.Tensor],</span> <span class="pre">torch.Tensor],</span> <span class="pre">None]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">weight_transform:</span> <span class="pre">Optional[Callable[[torch.Tensor],</span> <span class="pre">torch.Tensor],</span> <span class="pre">None]</span> <span class="pre">=</span> <span class="pre">&lt;function</span> <span class="pre">clamp_weight_&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.perceptron.nn.MACLayer.__init__" title="Permalink to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">

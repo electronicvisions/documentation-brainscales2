@@ -25,11 +25,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> BrainScaleS-2 Documentation
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            BrainScaleS-2 Documentation
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -78,10 +82,10 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="index.html">Welcome to the BrainScaleS-2 Demos &amp; Examples!</a> &raquo;</li>
-          <li><a href="girlsday.html">Wie verarbeitet unser Gehirn Informationen?</a> &raquo;</li>
-      <li>Maschinelles Lernen</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Welcome to the BrainScaleS-2 Demos &amp; Examples!</a></li>
+          <li class="breadcrumb-item"><a href="girlsday.html">Wie verarbeitet unser Gehirn Informationen?</a></li>
+      <li class="breadcrumb-item active">Maschinelles Lernen</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/brainscales2-demos/gs_05_machine_learning.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -221,7 +225,7 @@ zunächst eine Beschreibung eines neuronalen Netzwerks benötigt. Der
 folgende Programmcode definiert ein Netzwerk mit einer einzelnen
 verstecken Lage mit 128 Neuronen.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Model</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Ein sehr einfaches neuronales Netzwerk mit einer einzigen</span>
 <span class="sd">    Lage aus versteckten Neuronen.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -257,7 +261,7 @@ verstecken Lage mit 128 Neuronen.</p>
 <p>Dieses Modell ist aber noch “dumm”, d.h. es kann die Zahlen noch nicht
 richtig erkennen. Das können wir direkt mal ausprobieren:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ZahlenMalen</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Einfache Oberfläche, um MNIST-Bilder zu malen.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -389,7 +393,7 @@ richtig erkennen. Das können wir direkt mal ausprobieren:</p>
             <span class="bp">self</span><span class="o">.</span><span class="n">print_traceback</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">print_traceback</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Zeigt eventuelle Fehler als roten Text auf der Oberfläche</span>
 <span class="sd">        https://github.com/martinRenou/ipycanvas/issues/61</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -401,7 +405,7 @@ richtig erkennen. Das können wir direkt mal ausprobieren:</p>
             <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">fill_text</span><span class="p">(</span><span class="n">si</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="o">+</span><span class="mi">15</span><span class="o">*</span><span class="n">i</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">start_worker</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">_</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; Startet einen neuen Hintergrundprozess &quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Startet einen neuen Hintergrundprozess &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">started_at</span> <span class="o">=</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">execution_count</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">running</span> <span class="o">=</span> <span class="kc">True</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">submit_button</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;Stop&quot;</span>
@@ -464,7 +468,7 @@ verglichen.</p></li>
 <span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="n">model</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">,</span>
           <span class="n">loader</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">,</span>
           <span class="n">optimizer</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Optimizer</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Diese Funktion trainiert das Modell.</span>
 
 <span class="sd">    :param model: Das Modell</span>
@@ -487,7 +491,7 @@ verglichen.</p></li>
 
 
 <span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="n">model</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">,</span> <span class="n">loader</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Diese Funktion testet das Modell.</span>
 
 <span class="sd">    :param model: Das zu testende Modell</span>

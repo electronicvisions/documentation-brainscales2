@@ -25,11 +25,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> BrainScaleS-2 Documentation
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            BrainScaleS-2 Documentation
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -89,10 +93,10 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="index.html">Welcome to the BrainScaleS-2 Demos &amp; Examples!</a> &raquo;</li>
-          <li><a href="tutorial.html">Welcome to the BrainScaleS-2 Tutorial</a> &raquo;</li>
-      <li>Introduction to the non-interactive queue runner</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Welcome to the BrainScaleS-2 Demos &amp; Examples!</a></li>
+          <li class="breadcrumb-item"><a href="tutorial.html">Welcome to the BrainScaleS-2 Tutorial</a></li>
+      <li class="breadcrumb-item active">Introduction to the non-interactive queue runner</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/brainscales2-demos/nmpi_00-non_interactive_queue_runner.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -107,8 +111,8 @@
 <p>Welcome to this tutorial of using pyNN for the BrainScaleS-2 neuromorphic accelerator with the non-interactive queue runner.
 We will guide you through all the steps necessary to interact with the system and help you explore the capabilities of the on-chip analog neurons and synapses.
 A tutorial of the interactive usage can be found in <a class="reference internal" href="ts_00-single_neuron.html#brainscales-2-single-neuron-experiments"><span class="std std-ref">BrainScaleS-2 single neuron experiments</span></a>.</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install -U hbp_neuromorphic_platform
-<span class="o">!</span>pip install ebrains-drive
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>hbp_neuromorphic_platform
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>ebrains-drive
 <span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
 </div>
@@ -207,7 +211,7 @@ A tutorial of the interactive usage can be found in <a class="reference internal
 <span class="n">outputDir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s2">&quot;~&quot;</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">execute_on_hardware</span><span class="p">(</span><span class="n">script_name</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Sends the provided script to the local cluster, where it is scheduled and executed on</span>
 <span class="sd">    the neuromorphic chip. The result files are then loaded back into the collaboratory.</span>
 <span class="sd">    :param script_name: Name of the script which gets executed</span>
@@ -304,7 +308,7 @@ In Heidelberg the experiment is executed on the BrainScaleS-2 neuromorphic syste
 <span class="kn">from</span> <span class="nn">neo.io</span> <span class="kn">import</span> <span class="n">PickleIO</span>
 
 <span class="k">def</span> <span class="nf">plot_membrane_dynamics</span><span class="p">(</span><span class="n">path</span> <span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Load the neuron data from the given path and plot the membrane potential</span>
 <span class="sd">    and spiketrain of the first neuron.</span>
 <span class="sd">    :param path: Path to the result file</span>

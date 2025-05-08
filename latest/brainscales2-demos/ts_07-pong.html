@@ -26,11 +26,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> BrainScaleS-2 Documentation
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            BrainScaleS-2 Documentation
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -90,10 +94,10 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="index.html">Welcome to the BrainScaleS-2 Demos &amp; Examples!</a> &raquo;</li>
-          <li><a href="tutorial.html">Welcome to the BrainScaleS-2 Tutorial</a> &raquo;</li>
-      <li>Pong</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Welcome to the BrainScaleS-2 Demos &amp; Examples!</a></li>
+          <li class="breadcrumb-item"><a href="tutorial.html">Welcome to the BrainScaleS-2 Tutorial</a></li>
+      <li class="breadcrumb-item active">Pong</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/brainscales2-demos/ts_07-pong.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -377,13 +381,13 @@ rule.</p>
 readability, we print the returned code with <code class="docutils literal notranslate"><span class="pre">c++</span></code> syntax highlighting
 below the cell.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">NoiseSynapseRule</span><span class="p">(</span><span class="n">pynn</span><span class="o">.</span><span class="n">PlasticityRule</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Draw a new set of noise weights after each input row, and do further</span>
 <span class="sd">    initialization tasks.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="nf">generate_kernel</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Generate plasticity rule kernel to be compiled into PPU program.</span>
 
 <span class="sd">        :return: PPU-code of plasticity-rule kernel as string.</span>
@@ -410,25 +414,25 @@ below the cell.</p>
 <span class="s2">         * and drawing a few random numbers initially.</span>
 <span class="s2">         */</span>
 <span class="s2">        class RNGInit</span>
-<span class="s2">        </span><span class="se">{{</span><span class="s2"></span>
+<span class="s2">        </span><span class="se">{{</span>
 <span class="s2">            public:</span>
 <span class="s2">            RNGInit()</span>
-<span class="s2">            </span><span class="se">{{</span><span class="s2"></span>
-<span class="s2">                parallel_rng_seed(VectorRowMod8(</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">256</span><span class="p">)</span><span class="si">}</span><span class="s2">));</span>
+<span class="s2">            </span><span class="se">{{</span>
+<span class="s2">                parallel_rng_seed(VectorRowMod8(</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">256</span><span class="p">)</span><span class="si">}</span><span class="s2">));</span>
 <span class="s2">                for (size_t i = 0; i &lt; 234 + </span><span class="si">{</span><span class="n">epoch</span><span class="si">}</span><span class="s2">; ++i)</span>
 <span class="s2">                    parallel_rng_rand&lt;VectorRowMod8&gt;();</span>
-<span class="s2">            </span><span class="se">}}</span><span class="s2"></span>
+<span class="s2">            </span><span class="se">}}</span>
 <span class="s2">        </span><span class="se">}}</span><span class="s2">;</span>
 <span class="s2">        RNGInit rng_init;</span>
 
 <span class="s2">        void PLASTICITY_RULE_KERNEL(</span>
 <span class="s2">            std::array&lt;SynapseArrayViewHandle, 1&gt;&amp; synapses,</span>
 <span class="s2">            std::array&lt;NeuronViewHandle, 0&gt;&amp; /* neurons */)</span>
-<span class="s2">        </span><span class="se">{{</span><span class="s2"></span>
+<span class="s2">        </span><span class="se">{{</span>
 <span class="s2">            // only continue if code is executed on the correct PPU</span>
-<span class="s2">            if (synapses[0].hemisphere != ppu) </span><span class="se">{{</span><span class="s2"></span>
+<span class="s2">            if (synapses[0].hemisphere != ppu) </span><span class="se">{{</span>
 <span class="s2">                return;</span>
-<span class="s2">            </span><span class="se">}}</span><span class="s2"></span>
+<span class="s2">            </span><span class="se">}}</span>
 
 <span class="s2">            // pick a new row of random weights:</span>
 <span class="s2">            // Use 12 random vectors with a uniform distribution and summarize</span>
@@ -437,7 +441,7 @@ below the cell.</p>
 <span class="s2">            // a mean of -4.5 and a standard deviation of 32.</span>
 <span class="s2">            VectorRowFracSat16 accumulator;</span>
 <span class="s2">            for (size_t i = 0; i &lt; 12; ++i)</span>
-<span class="s2">            </span><span class="se">{{</span><span class="s2"></span>
+<span class="s2">            </span><span class="se">{{</span>
 <span class="s2">                accumulator += VectorRowFracSat16(</span>
 <span class="s2">                    parallel_rng_rand&lt;VectorRowFracSat8&gt;() &gt;&gt; 3);</span>
 <span class="s2">                // Draw more vectors to avoid summarizing correlated ones:</span>
@@ -445,7 +449,7 @@ below the cell.</p>
 <span class="s2">                // get one new random bit per draw</span>
 <span class="s2">                for (size_t j = 0; j &lt; 13; ++j)</span>
 <span class="s2">                    parallel_rng_rand&lt;VectorRowFracSat8&gt;();</span>
-<span class="s2">            </span><span class="se">}}</span><span class="s2"></span>
+<span class="s2">            </span><span class="se">}}</span>
 <span class="s2">            VectorRowFracSat8 accumulator_8 = VectorRowFracSat8(accumulator - 6);</span>
 <span class="s2">            VectorRowFracSat8 random = VectorRowFracSat8(</span>
 <span class="s2">                accumulator_8 * (</span><span class="si">{</span><span class="n">parameters</span><span class="o">.</span><span class="n">get_noise_range</span><span class="p">(</span><span class="n">epoch</span><span class="p">)</span><span class="si">}</span><span class="s2"> * 4));</span>
@@ -454,26 +458,26 @@ below the cell.</p>
 <span class="s2">                random, VectorIfCondition::lesser, VectorRowFracSat8(0), random);</span>
 <span class="s2">            random = vector_if(</span>
 <span class="s2">                random - 63, VectorIfCondition::greater, VectorRowFracSat8(63), random);</span>
-<span class="s2">            for (size_t row = 0; row &lt; synapses[0].rows.size(); ++row) </span><span class="se">{{</span><span class="s2"></span>
+<span class="s2">            for (size_t row = 0; row &lt; synapses[0].rows.size(); ++row) </span><span class="se">{{</span>
 <span class="s2">                synapses[0].set_weights(VectorRowMod8(random), row);</span>
-<span class="s2">            </span><span class="se">}}</span><span class="s2"></span>
+<span class="s2">            </span><span class="se">}}</span>
 
 <span class="s2">            // prepare for next correlation experiment:</span>
 <span class="s2">            reset_neurons();</span>
 
 <span class="s2">            // reset spike counters</span>
 <span class="s2">            for (size_t i = 0; i &lt; </span><span class="si">{</span><span class="n">parameters</span><span class="o">.</span><span class="n">n_outputs</span><span class="si">}</span><span class="s2">; ++i)</span>
-<span class="s2">            </span><span class="se">{{</span><span class="s2"></span>
+<span class="s2">            </span><span class="se">{{</span>
 <span class="s2">                auto coord = halco::hicann_dls::vx::v3::AtomicNeuronOnDLS(</span>
 <span class="s2">                    halco::hicann_dls::vx::v3::NeuronColumnOnDLS(i),</span>
 <span class="s2">                    halco::hicann_dls::vx::v3::NeuronRowOnDLS()</span>
 <span class="s2">                ).toSpikeCounterResetOnDLS();</span>
 <span class="s2">                stadls::vx::v3::ppu::write(</span>
 <span class="s2">                    coord, haldls::vx::v3::SpikeCounterReset());</span>
-<span class="s2">            </span><span class="se">}}</span><span class="s2"></span>
+<span class="s2">            </span><span class="se">}}</span>
 
 <span class="s2">            reset_all_correlations();</span>
-<span class="s2">        </span><span class="se">}}</span><span class="s2"></span>
+<span class="s2">        </span><span class="se">}}</span>
 <span class="s2">        &quot;&quot;&quot;</span><span class="p">)</span>
 
 <span class="c1"># create a timer that controls when this plasticity rule is executed</span>
@@ -492,12 +496,12 @@ below the cell.</p>
 </pre></div>
 </div>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">PlasticityRule</span><span class="p">(</span><span class="n">pynn</span><span class="o">.</span><span class="n">PlasticityRule</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Update synapse weights according to STDP learning rule.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timer</span><span class="p">:</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Timer</span><span class="p">,</span> <span class="n">same_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Initialize plastic synapse with execution timing information,</span>
 <span class="sd">        hyperparameters and initial weight.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -517,7 +521,7 @@ below the cell.</p>
             <span class="n">timer</span><span class="o">=</span><span class="n">timer</span><span class="p">,</span> <span class="n">observables</span><span class="o">=</span><span class="n">observables</span><span class="p">,</span> <span class="n">same_id</span><span class="o">=</span><span class="n">same_id</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">generate_kernel</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Generate plasticity rule kernel to be compiled into PPU program.</span>
 
 <span class="sd">        :return: PPU-code of plasticity-rule kernel as string.</span>
@@ -546,34 +550,34 @@ below the cell.</p>
 <span class="s2">        /**</span>
 <span class="s2">         * Mean rewards, updated exponentially each epoch</span>
 <span class="s2">         */</span>
-<span class="s2">        float mean_rewards[</span><span class="si">{</span><span class="n">parameters</span><span class="o">.</span><span class="n">n_inputs</span><span class="si">}</span><span class="s2">] = </span><span class="se">{{</span><span class="s2"></span>
-<span class="s2">            </span><span class="si">{</span><span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">rewards</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">))</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">        float mean_rewards[</span><span class="si">{</span><span class="n">parameters</span><span class="o">.</span><span class="n">n_inputs</span><span class="si">}</span><span class="s2">] = </span><span class="se">{{</span>
+<span class="s2">            </span><span class="si">{</span><span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">rewards</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">))</span><span class="si">}</span>
 <span class="s2">        </span><span class="se">}}</span><span class="s2">;</span>
 
 <span class="s2">        /**</span>
 <span class="s2">         * Baseline reads from correlation sensors, one per column.</span>
 <span class="s2">         */</span>
 <span class="s2">        VectorRowMod8 get_baselines()</span>
-<span class="s2">        </span><span class="se">{{</span><span class="s2"></span>
+<span class="s2">        </span><span class="se">{{</span>
 <span class="s2">            reset_all_correlations();</span>
 
 <span class="s2">            VectorRowMod16 accumulator(0);</span>
 <span class="s2">            for (size_t row = 0; row &lt; 256; ++row)</span>
-<span class="s2">            </span><span class="se">{{</span><span class="s2"></span>
+<span class="s2">            </span><span class="se">{{</span>
 <span class="s2">                VectorRowMod8 result;</span>
 <span class="s2">                get_causal_correlation(&amp;result.even.data, &amp;result.odd.data, row);</span>
 <span class="s2">                accumulator += static_cast&lt;VectorRowMod16&gt;(result);</span>
-<span class="s2">            </span><span class="se">}}</span><span class="s2"></span>
+<span class="s2">            </span><span class="se">}}</span>
 
 <span class="s2">            return VectorRowMod8(accumulator &gt;&gt; 8);</span>
-<span class="s2">        </span><span class="se">}}</span><span class="s2"></span>
+<span class="s2">        </span><span class="se">}}</span>
 <span class="s2">        VectorRowMod8 correlation_baselines = get_baselines();</span>
 
 <span class="s2">        /**</span>
 <span class="s2">         * Accumulated spikes per neuron (per epoch).</span>
 <span class="s2">         */</span>
-<span class="s2">        uint16_t all_spikes[</span><span class="si">{</span><span class="n">parameters</span><span class="o">.</span><span class="n">n_outputs</span><span class="si">}</span><span class="s2">] = </span><span class="se">{{</span><span class="s2"></span>
-<span class="s2">            </span><span class="si">{</span><span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s2">&quot;0&quot;</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">parameters</span><span class="o">.</span><span class="n">n_outputs</span><span class="p">)])</span><span class="si">}</span><span class="s2"> </span><span class="se">}}</span><span class="s2">;</span>
+<span class="s2">        uint16_t all_spikes[</span><span class="si">{</span><span class="n">parameters</span><span class="o">.</span><span class="n">n_outputs</span><span class="si">}</span><span class="s2">] = </span><span class="se">{{</span>
+<span class="s2">            </span><span class="si">{</span><span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s2">&quot;0&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nb">range</span><span class="p">(</span><span class="n">parameters</span><span class="o">.</span><span class="n">n_outputs</span><span class="p">)])</span><span class="si">}</span><span class="s2"> </span><span class="se">}}</span><span class="s2">;</span>
 
 <span class="s2">        /**</span>
 <span class="s2">         * Currently active input row.</span>
@@ -581,7 +585,7 @@ below the cell.</p>
 <span class="s2">        size_t current_row = 0;</span>
 
 <span class="s2">        VectorRowFracSat8 check_boundaries(VectorRowFracSat8 vec)</span>
-<span class="s2">        </span><span class="se">{{</span><span class="s2"></span>
+<span class="s2">        </span><span class="se">{{</span>
 <span class="s2">            vec = vector_if(</span>
 <span class="s2">                vec, VectorIfCondition::greater,</span>
 <span class="s2">                vec, VectorRowFracSat8(0));</span>
@@ -590,17 +594,17 @@ below the cell.</p>
 <span class="s2">                VectorRowFracSat8(63), vec);</span>
 
 <span class="s2">            return vec;</span>
-<span class="s2">        </span><span class="se">}}</span><span class="s2"></span>
+<span class="s2">        </span><span class="se">}}</span>
 
 <span class="s2">        void PLASTICITY_RULE_KERNEL(</span>
 <span class="s2">            std::array&lt;SynapseArrayViewHandle, 1&gt;&amp; synapses,</span>
 <span class="s2">            std::array&lt;NeuronViewHandle, 0&gt;&amp; /* neurons */,</span>
 <span class="s2">            Recording&amp; recording)</span>
-<span class="s2">        </span><span class="se">{{</span><span class="s2"></span>
+<span class="s2">        </span><span class="se">{{</span>
 <span class="s2">            // only continue if code is executed on the correct PPU</span>
-<span class="s2">            if (synapses[0].hemisphere != ppu) </span><span class="se">{{</span><span class="s2"></span>
+<span class="s2">            if (synapses[0].hemisphere != ppu) </span><span class="se">{{</span>
 <span class="s2">                return;</span>
-<span class="s2">            </span><span class="se">}}</span><span class="s2"></span>
+<span class="s2">            </span><span class="se">}}</span>
 
 <span class="s2">            recording.time = 0;</span>
 
@@ -623,12 +627,12 @@ below the cell.</p>
         <span class="n">ppucode</span> <span class="o">+=</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">                else</span>
 <span class="s2">                    reward_array[i] = </span><span class="si">{</span><span class="n">parameters</span><span class="o">.</span><span class="n">rewards</span><span class="p">[</span><span class="s2">&quot;elsewhere&quot;</span><span class="p">]</span><span class="si">}</span><span class="s2">;</span>
-<span class="s2">            </span><span class="se">}}</span><span class="s2"></span>
+<span class="s2">            </span><span class="se">}}</span>
 
 <span class="s2">            // read out spike counters</span>
 <span class="s2">            size_t spike_counts[</span><span class="si">{</span><span class="n">parameters</span><span class="o">.</span><span class="n">n_outputs</span><span class="si">}</span><span class="s2">];</span>
 <span class="s2">            for (size_t i = 0; i &lt; </span><span class="si">{</span><span class="n">parameters</span><span class="o">.</span><span class="n">n_outputs</span><span class="si">}</span><span class="s2">; ++i)</span>
-<span class="s2">            </span><span class="se">{{</span><span class="s2"></span>
+<span class="s2">            </span><span class="se">{{</span>
 <span class="s2">                auto coord = halco::hicann_dls::vx::v3::AtomicNeuronOnDLS(</span>
 <span class="s2">                    halco::hicann_dls::vx::v3::NeuronColumnOnDLS(i),</span>
 <span class="s2">                    halco::hicann_dls::vx::v3::NeuronRowOnDLS()</span>
@@ -639,7 +643,7 @@ below the cell.</p>
 <span class="s2">                spike_counts[i] = container.get_count();</span>
 <span class="s2">                if (current_row &gt; 0)</span>
 <span class="s2">                    all_spikes[i] += spike_counts[i];</span>
-<span class="s2">            </span><span class="se">}}</span><span class="s2"></span>
+<span class="s2">            </span><span class="se">}}</span>
 
 <span class="s2">            // calculate reward and weight update rate</span>
 <span class="s2">            int accumulator = 0;</span>
@@ -650,7 +654,7 @@ below the cell.</p>
 <span class="s2">                * </span><span class="si">{</span><span class="n">parameters</span><span class="o">.</span><span class="n">get_learning_rate</span><span class="p">(</span><span class="n">epoch</span><span class="p">)</span><span class="si">}</span><span class="s2">;</span>
 
 <span class="s2">            // update weights</span>
-<span class="s2">            for (size_t row = 0; row &lt; synapses[0].rows.size(); ++row) </span><span class="se">{{</span><span class="s2"></span>
+<span class="s2">            for (size_t row = 0; row &lt; synapses[0].rows.size(); ++row) </span><span class="se">{{</span>
 <span class="s2">                VectorRowMod8 weights = synapses[0].get_weights(row);</span>
 <span class="s2">                VectorRowMod8 result;</span>
 <span class="s2">                get_causal_correlation(&amp;result.even.data, &amp;result.odd.data, synapses[0].rows[row]);</span>
@@ -683,11 +687,11 @@ below the cell.</p>
 <span class="s2">                weights = static_cast&lt;VectorRowMod8&gt;(new_weights);</span>
 
 <span class="s2">                synapses[0].set_weights(weights, row);</span>
-<span class="s2">            </span><span class="se">}}</span><span class="s2"></span>
+<span class="s2">            </span><span class="se">}}</span>
 
 <span class="s2">            // update mean rewards</span>
 <span class="s2">            mean_rewards[current_row] =</span>
-<span class="s2">                (</span><span class="si">{</span><span class="mi">1</span> <span class="o">-</span> <span class="n">parameters</span><span class="o">.</span><span class="n">get_reward_decay</span><span class="p">(</span><span class="n">epoch</span><span class="p">)</span><span class="si">}</span><span class="s2"> * mean_rewards[current_row])</span>
+<span class="s2">                (</span><span class="si">{</span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">parameters</span><span class="o">.</span><span class="n">get_reward_decay</span><span class="p">(</span><span class="n">epoch</span><span class="p">)</span><span class="si">}</span><span class="s2"> * mean_rewards[current_row])</span>
 <span class="s2">                + (</span><span class="si">{</span><span class="n">parameters</span><span class="o">.</span><span class="n">get_reward_decay</span><span class="p">(</span><span class="n">epoch</span><span class="p">)</span><span class="si">}</span><span class="s2"> * reward);</span>
 
 <span class="s2">            // record mean reward:</span>
@@ -709,19 +713,19 @@ below the cell.</p>
 <span class="s2">                recording.success[0] = 0;</span>
 
 <span class="s2">            // apply homeostasis at end of epoch</span>
-<span class="s2">            if (current_row == </span><span class="si">{</span><span class="n">parameters</span><span class="o">.</span><span class="n">n_inputs</span> <span class="o">-</span> <span class="mi">1</span><span class="si">}</span><span class="s2">)</span>
-<span class="s2">            </span><span class="se">{{</span><span class="s2"></span>
+<span class="s2">            if (current_row == </span><span class="si">{</span><span class="n">parameters</span><span class="o">.</span><span class="n">n_inputs</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">)</span>
+<span class="s2">            </span><span class="se">{{</span>
 <span class="s2">                VectorRowFracSat8 update(0);</span>
 
 <span class="s2">                for (size_t column = 0; column &lt; </span><span class="si">{</span><span class="n">parameters</span><span class="o">.</span><span class="n">n_outputs</span><span class="si">}</span><span class="s2">; ++column)</span>
-<span class="s2">                </span><span class="se">{{</span><span class="s2"></span>
+<span class="s2">                </span><span class="se">{{</span>
 <span class="s2">                    int16_t deviation =</span>
 <span class="s2">                        </span><span class="si">{</span><span class="n">parameters</span><span class="o">.</span><span class="n">homeostasis_target</span><span class="si">}</span><span class="s2"> - all_spikes[column];</span>
 <span class="s2">                    update[column] =</span>
 <span class="s2">                        deviation * </span><span class="si">{</span><span class="n">parameters</span><span class="o">.</span><span class="n">homeostasis_rate</span><span class="si">}</span><span class="s2">;</span>
-<span class="s2">                </span><span class="se">}}</span><span class="s2"></span>
+<span class="s2">                </span><span class="se">}}</span>
 
-<span class="s2">                for (size_t row = 0; row &lt; synapses[0].rows.size(); ++row) </span><span class="se">{{</span><span class="s2"></span>
+<span class="s2">                for (size_t row = 0; row &lt; synapses[0].rows.size(); ++row) </span><span class="se">{{</span>
 <span class="s2">                    VectorRowMod8 weights = synapses[0].get_weights(row);</span>
 <span class="s2">                    VectorRowFracSat8 new_weights =</span>
 <span class="s2">                        static_cast&lt;VectorRowFracSat8&gt;(weights) + update;</span>
@@ -730,16 +734,16 @@ below the cell.</p>
 <span class="s2">                    weights = static_cast&lt;VectorRowMod8&gt;(new_weights);</span>
 
 <span class="s2">                    synapses[0].set_weights(weights, row);</span>
-<span class="s2">                </span><span class="se">}}</span><span class="s2"></span>
+<span class="s2">                </span><span class="se">}}</span>
 
 <span class="s2">                // reset row counter and spike accumulators</span>
 <span class="s2">                current_row = 0;</span>
 <span class="s2">                for (size_t i = 0; i &lt; </span><span class="si">{</span><span class="n">parameters</span><span class="o">.</span><span class="n">n_outputs</span><span class="si">}</span><span class="s2">; ++i)</span>
 <span class="s2">                    all_spikes[i] = 0;</span>
-<span class="s2">            </span><span class="se">}}</span><span class="s2"></span>
+<span class="s2">            </span><span class="se">}}</span>
 <span class="s2">            else</span>
 <span class="s2">                current_row++;</span>
-<span class="s2">        </span><span class="se">}}</span><span class="s2"></span>
+<span class="s2">        </span><span class="se">}}</span>
 <span class="s2">        &quot;&quot;&quot;</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">ppucode</span>
