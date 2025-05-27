@@ -16,8 +16,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="calix.spiking.correlation.auto" href="calix.spiking.correlation.auto.html" />
-    <link rel="prev" title="calix.spiking.correlation.Enum" href="calix.spiking.correlation.Enum.html" /> 
+    <link rel="next" title="calix.spiking.correlation_measurement" href="calix.spiking.correlation_measurement.html" />
+    <link rel="prev" title="calix.spiking.correlation.CorrelationCalibTarget" href="calix.spiking.correlation.CorrelationCalibTarget.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -97,7 +97,7 @@
 <h1>calix.spiking.correlation.TimeConstantCalib<a class="headerlink" href="#calix-spiking-correlation-timeconstantcalib" title="Permalink to this headline"></a></h1>
 <dl class="py class">
 <dt id="calix.spiking.correlation.TimeConstantCalib">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">calix.spiking.correlation.</span></code><code class="sig-name descname"><span class="pre">TimeConstantCalib</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">target:</span> <span class="pre">Optional[quantities.quantity.Quantity</span></em>, <em class="sig-param"><span class="pre">None]</span> <span class="pre">=</span> <span class="pre">array(5.)</span> <span class="pre">*</span> <span class="pre">us</span></em>, <em class="sig-param"><span class="pre">*</span></em>, <em class="sig-param"><span class="pre">branches:</span> <span class="pre">calix.spiking.correlation.CorrelationBranches</span> <span class="pre">=</span> <span class="pre">&lt;CorrelationBranches.CAUSAL:</span> <span class="pre">1&gt;</span></em>, <em class="sig-param"><span class="pre">amp_calib:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">0</span></em>, <em class="sig-param"><span class="pre">time_calib:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.spiking.correlation.TimeConstantCalib" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">calix.spiking.correlation.</span></code><code class="sig-name descname"><span class="pre">TimeConstantCalib</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">target:</span> <span class="pre">Optional[quantities.quantity.Quantity</span></em>, <em class="sig-param"><span class="pre">None]</span> <span class="pre">=</span> <span class="pre">array(5.)</span> <span class="pre">*</span> <span class="pre">us</span></em>, <em class="sig-param"><span class="pre">*</span></em>, <em class="sig-param"><span class="pre">branches:</span> <span class="pre">pyccalix.CorrelationCalibOptions.Branches</span> <span class="pre">=</span> <span class="pre">&lt;Branches.CAUSAL:</span> <span class="pre">0&gt;</span></em>, <em class="sig-param"><span class="pre">amp_calib:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">0</span></em>, <em class="sig-param"><span class="pre">time_calib:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.spiking.correlation.TimeConstantCalib" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="calix.common.base.Calib.html#calix.common.base.Calib" title="calix.common.base.Calib"><code class="xref py py-class docutils literal notranslate"><span class="pre">calix.common.base.Calib</span></code></a></p>
 <p>Calibrate the correlation time constant.</p>
 <p>Correlation traces are measured in a few quads in all CapMem
@@ -124,7 +124,7 @@ acausal or both, using the Enum CorrelationBranches.</p></li>
 </dl>
 <dl class="py method">
 <dt id="calix.spiking.correlation.TimeConstantCalib.__init__">
-<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">target:</span> <span class="pre">Optional[quantities.quantity.Quantity</span></em>, <em class="sig-param"><span class="pre">None]</span> <span class="pre">=</span> <span class="pre">array(5.)</span> <span class="pre">*</span> <span class="pre">us</span></em>, <em class="sig-param"><span class="pre">*</span></em>, <em class="sig-param"><span class="pre">branches:</span> <span class="pre">calix.spiking.correlation.CorrelationBranches</span> <span class="pre">=</span> <span class="pre">&lt;CorrelationBranches.CAUSAL:</span> <span class="pre">1&gt;</span></em>, <em class="sig-param"><span class="pre">amp_calib:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">0</span></em>, <em class="sig-param"><span class="pre">time_calib:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.spiking.correlation.TimeConstantCalib.__init__" title="Permalink to this definition"></a></dt>
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">target:</span> <span class="pre">Optional[quantities.quantity.Quantity</span></em>, <em class="sig-param"><span class="pre">None]</span> <span class="pre">=</span> <span class="pre">array(5.)</span> <span class="pre">*</span> <span class="pre">us</span></em>, <em class="sig-param"><span class="pre">*</span></em>, <em class="sig-param"><span class="pre">branches:</span> <span class="pre">pyccalix.CorrelationCalibOptions.Branches</span> <span class="pre">=</span> <span class="pre">&lt;Branches.CAUSAL:</span> <span class="pre">0&gt;</span></em>, <em class="sig-param"><span class="pre">amp_calib:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">0</span></em>, <em class="sig-param"><span class="pre">time_calib:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.spiking.correlation.TimeConstantCalib.__init__" title="Permalink to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -218,8 +218,8 @@ quadrant.</p></li>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="calix.spiking.correlation.Enum.html" class="btn btn-neutral float-left" title="calix.spiking.correlation.Enum" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="calix.spiking.correlation.auto.html" class="btn btn-neutral float-right" title="calix.spiking.correlation.auto" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="calix.spiking.correlation.CorrelationCalibTarget.html" class="btn btn-neutral float-left" title="calix.spiking.correlation.CorrelationCalibTarget" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="calix.spiking.correlation_measurement.html" class="btn btn-neutral float-right" title="calix.spiking.correlation_measurement" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -162,12 +162,6 @@ to avoid saturation when using larger synaptic time constants.</p></li>
 <tr class="row-odd"><td><p><a class="reference internal" href="#calix.hagen.neuron.NeuronCalibTarget.__init__" title="calix.hagen.neuron.NeuronCalibTarget.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([target_leak_read, tau_mem, …])</p></td>
 <td><p>Initialize self.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#calix.hagen.neuron.NeuronCalibTarget.check_types" title="calix.hagen.neuron.NeuronCalibTarget.check_types"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_types</span></code></a>()</p></td>
-<td><p>Check whether the correct types are given.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#calix.hagen.neuron.NeuronCalibTarget.check_values" title="calix.hagen.neuron.NeuronCalibTarget.check_values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_values</span></code></a>()</p></td>
-<td><p>Check whether calibration targets are feasible.</p></td>
-</tr>
 </tbody>
 </table>
 <p class="rubric">Attributes</p>
@@ -177,55 +171,20 @@ to avoid saturation when using larger synaptic time constants.</p></li>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#calix.hagen.neuron.NeuronCalibTarget.feasible_ranges" title="calix.hagen.neuron.NeuronCalibTarget.feasible_ranges"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feasible_ranges</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.hagen.neuron.NeuronCalibTarget.i_synin_gm" title="calix.hagen.neuron.NeuronCalibTarget.i_synin_gm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">i_synin_gm</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#calix.hagen.neuron.NeuronCalibTarget.i_synin_gm" title="calix.hagen.neuron.NeuronCalibTarget.i_synin_gm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">i_synin_gm</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#calix.hagen.neuron.NeuronCalibTarget.synapse_dac_bias" title="calix.hagen.neuron.NeuronCalibTarget.synapse_dac_bias"><code class="xref py py-obj docutils literal notranslate"><span class="pre">synapse_dac_bias</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#calix.hagen.neuron.NeuronCalibTarget.synapse_dac_bias" title="calix.hagen.neuron.NeuronCalibTarget.synapse_dac_bias"><code class="xref py py-obj docutils literal notranslate"><span class="pre">synapse_dac_bias</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.hagen.neuron.NeuronCalibTarget.target_leak_read" title="calix.hagen.neuron.NeuronCalibTarget.target_leak_read"><code class="xref py py-obj docutils literal notranslate"><span class="pre">target_leak_read</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#calix.hagen.neuron.NeuronCalibTarget.target_leak_read" title="calix.hagen.neuron.NeuronCalibTarget.target_leak_read"><code class="xref py py-obj docutils literal notranslate"><span class="pre">target_leak_read</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#calix.hagen.neuron.NeuronCalibTarget.target_noise" title="calix.hagen.neuron.NeuronCalibTarget.target_noise"><code class="xref py py-obj docutils literal notranslate"><span class="pre">target_noise</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#calix.hagen.neuron.NeuronCalibTarget.target_noise" title="calix.hagen.neuron.NeuronCalibTarget.target_noise"><code class="xref py py-obj docutils literal notranslate"><span class="pre">target_noise</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
 </table>
-<dl class="py method">
-<dt id="calix.hagen.neuron.NeuronCalibTarget.check_types">
-<code class="sig-name descname"><span class="pre">check_types</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#calix.hagen.neuron.NeuronCalibTarget.check_types" title="Permalink to this definition"></a></dt>
-<dd><p>Check whether the correct types are given.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Raises</dt>
-<dd class="field-odd"><p><strong>TypeError</strong> – If time constants are not given with a unit
-from the <cite>quantities</cite> package.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="calix.hagen.neuron.NeuronCalibTarget.check_values">
-<code class="sig-name descname"><span class="pre">check_values</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#calix.hagen.neuron.NeuronCalibTarget.check_values" title="Permalink to this definition"></a></dt>
-<dd><p>Check whether calibration targets are feasible.</p>
-<p>Log warnings if the parameters are out of the typical range
-which can be calibrated and raise an error if the time constants
-exceed the range which can be handled by the calibration routine.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Raises</dt>
-<dd class="field-odd"><p><strong>ValueError</strong> – If target parameters are outside the allowed
-range for hagen neuron calibration.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt id="calix.hagen.neuron.NeuronCalibTarget.feasible_ranges">
-<code class="sig-name descname"><span class="pre">feasible_ranges</span></code><em class="property"><span class="pre">:</span> <span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="calix.common.base.ParameterRange.html#calix.common.base.ParameterRange" title="calix.common.base.ParameterRange"><span class="pre">calix.common.base.ParameterRange</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{'i_synin_gm':</span> <span class="pre">ParameterRange(lower=30,</span> <span class="pre">upper=600),</span> <span class="pre">'synapse_dac_bias':</span> <span class="pre">ParameterRange(lower=30,</span> <span class="pre">upper=1022),</span> <span class="pre">'target_leak_read':</span> <span class="pre">ParameterRange(lower=100,</span> <span class="pre">upper=140),</span> <span class="pre">'target_noise':</span> <span class="pre">ParameterRange(lower=1.0,</span> <span class="pre">upper=2.5),</span> <span class="pre">'tau_mem':</span> <span class="pre">ParameterRange(lower=array(20.)</span> <span class="pre">*</span> <span class="pre">us,</span> <span class="pre">upper=array(100.)</span> <span class="pre">*</span> <span class="pre">us),</span> <span class="pre">'tau_syn':</span> <span class="pre">ParameterRange(lower=array(0.3)</span> <span class="pre">*</span> <span class="pre">us,</span> <span class="pre">upper=array(20.)</span> <span class="pre">*</span> <span class="pre">us)}</span></em><a class="headerlink" href="#calix.hagen.neuron.NeuronCalibTarget.feasible_ranges" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
 <dl class="py attribute">
 <dt id="calix.hagen.neuron.NeuronCalibTarget.i_synin_gm">
 <code class="sig-name descname"><span class="pre">i_synin_gm</span></code><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><em class="property"> <span class="pre">=</span> <span class="pre">450</span></em><a class="headerlink" href="#calix.hagen.neuron.NeuronCalibTarget.i_synin_gm" title="Permalink to this definition"></a></dt>

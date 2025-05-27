@@ -97,32 +97,16 @@
 <h1>calix.hagen.neuron_dataclasses.NeuronCalibOptions<a class="headerlink" href="#calix-hagen-neuron-dataclasses-neuroncaliboptions" title="Permalink to this headline"></a></h1>
 <dl class="py class">
 <dt id="calix.hagen.neuron_dataclasses.NeuronCalibOptions">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">calix.hagen.neuron_dataclasses.</span></code><code class="sig-name descname"><span class="pre">NeuronCalibOptions</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">readout_neuron</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">pyhalco_hicann_dls_vx_v3.AtomicNeuronOnDLS</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_configuration</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">pyhxcomm_vx.ConnectionHandle</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.hagen.neuron_dataclasses.NeuronCalibOptions" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="calix.common.base.CalibOptions.html#calix.common.base.CalibOptions" title="calix.common.base.CalibOptions"><code class="xref py py-class docutils literal notranslate"><span class="pre">calix.common.base.CalibOptions</span></code></a></p>
-<p>Further options for the neuron calibration.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Variables</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><a class="reference internal" href="#calix.hagen.neuron_dataclasses.NeuronCalibOptions.readout_neuron" title="calix.hagen.neuron_dataclasses.NeuronCalibOptions.readout_neuron"><strong>readout_neuron</strong></a> – Coordinate of the neuron to be connected to
-a readout pad, i.e. can be observed using an oscilloscope.
-The selected neuron is connected to the upper pad (channel 0),
-the lower pad (channel 1) always shows the CADC ramp of quadrant 0.
-The pads are connected via
-halco.SourceMultiplexerOnReadoutSourceSelection(0) for the neuron
-and mux 1 for the CADC ramps. When using the internal MADC
-for recording, these multiplexers can be selected directly.
-If None is given, the readout is not configured.</p></li>
-<li><p><a class="reference internal" href="#calix.hagen.neuron_dataclasses.NeuronCalibOptions.initial_configuration" title="calix.hagen.neuron_dataclasses.NeuronCalibOptions.initial_configuration"><strong>initial_configuration</strong></a> – Additional function which is called before
-starting the calibration. Called with <cite>connection</cite>, such that the
-hardware is available within the function.
-If None (default), no additional configuration gets applied.</p></li>
-</ul>
-</dd>
-</dl>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">calix.hagen.neuron_dataclasses.</span></code><code class="sig-name descname"><span class="pre">NeuronCalibOptions</span></code><a class="headerlink" href="#calix.hagen.neuron_dataclasses.NeuronCalibOptions" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pyccalix.CalibOptions</span></code></p>
 <dl class="py method">
 <dt id="calix.hagen.neuron_dataclasses.NeuronCalibOptions.__init__">
-<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">readout_neuron</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">pyhalco_hicann_dls_vx_v3.AtomicNeuronOnDLS</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_configuration</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">pyhxcomm_vx.ConnectionHandle</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#calix.hagen.neuron_dataclasses.NeuronCalibOptions.__init__" title="Permalink to this definition"></a></dt>
-<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.hagen.neuron_dataclasses.NeuronCalibOptions.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Overloaded function.</p>
+<ol class="arabic simple">
+<li><p>__init__(self: pyccalix.NeuronCalibOptions) -&gt; None</p></li>
+<li><p>__init__(self: pyccalix.NeuronCalibOptions, arg0: pyccalix.NeuronCalibOptions) -&gt; None</p></li>
+</ol>
 </dd></dl>
 
 <p class="rubric">Methods</p>
@@ -132,8 +116,8 @@ If None (default), no additional configuration gets applied.</p></li>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#calix.hagen.neuron_dataclasses.NeuronCalibOptions.__init__" title="calix.hagen.neuron_dataclasses.NeuronCalibOptions.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([readout_neuron, initial_configuration])</p></td>
-<td><p>Initialize self.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.hagen.neuron_dataclasses.NeuronCalibOptions.__init__" title="calix.hagen.neuron_dataclasses.NeuronCalibOptions.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Overloaded function.</p></td>
 </tr>
 </tbody>
 </table>
@@ -144,22 +128,14 @@ If None (default), no additional configuration gets applied.</p></li>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#calix.hagen.neuron_dataclasses.NeuronCalibOptions.initial_configuration" title="calix.hagen.neuron_dataclasses.NeuronCalibOptions.initial_configuration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">initial_configuration</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#calix.hagen.neuron_dataclasses.NeuronCalibOptions.readout_neuron" title="calix.hagen.neuron_dataclasses.NeuronCalibOptions.readout_neuron"><code class="xref py py-obj docutils literal notranslate"><span class="pre">readout_neuron</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.hagen.neuron_dataclasses.NeuronCalibOptions.readout_neuron" title="calix.hagen.neuron_dataclasses.NeuronCalibOptions.readout_neuron"><code class="xref py py-obj docutils literal notranslate"><span class="pre">readout_neuron</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
 </table>
-<dl class="py attribute">
-<dt id="calix.hagen.neuron_dataclasses.NeuronCalibOptions.initial_configuration">
-<code class="sig-name descname"><span class="pre">initial_configuration</span></code><em class="property"><span class="pre">:</span> <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">pyhxcomm_vx.ConnectionHandle</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#calix.hagen.neuron_dataclasses.NeuronCalibOptions.initial_configuration" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
+<dl class="py method">
 <dt id="calix.hagen.neuron_dataclasses.NeuronCalibOptions.readout_neuron">
-<code class="sig-name descname"><span class="pre">readout_neuron</span></code><em class="property"><span class="pre">:</span> <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">pyhalco_hicann_dls_vx_v3.AtomicNeuronOnDLS</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#calix.hagen.neuron_dataclasses.NeuronCalibOptions.readout_neuron" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">readout_neuron</span></code><a class="headerlink" href="#calix.hagen.neuron_dataclasses.NeuronCalibOptions.readout_neuron" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>

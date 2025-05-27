@@ -97,27 +97,16 @@
 <h1>hxtorch.spiking.execution_instance.SpikingCalibOptions<a class="headerlink" href="#hxtorch-spiking-execution-instance-spikingcaliboptions" title="Permalink to this headline"></a></h1>
 <dl class="py class">
 <dt id="hxtorch.spiking.execution_instance.SpikingCalibOptions">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.execution_instance.</span></code><code class="sig-name descname"><span class="pre">SpikingCalibOptions</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">cadc_options:</span> <span class="pre">calix.common.cadc.CADCCalibOptions</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></em>, <em class="sig-param"><span class="pre">neuron_options:</span> <span class="pre">calix.spiking.neuron.NeuronCalibOptions</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></em>, <em class="sig-param"><span class="pre">correlation_options:</span> <span class="pre">calix.spiking.correlation.CorrelationCalibOptions</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></em>, <em class="sig-param"><span class="pre">stp_options:</span> <span class="pre">calix.spiking.synapse_driver.STPCalibOptions</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></em>, <em class="sig-param"><span class="pre">refine_potentials:</span> <span class="pre">Optional[bool</span></em>, <em class="sig-param"><span class="pre">None]</span> <span class="pre">=</span> <span class="pre">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.execution_instance.SpikingCalibOptions" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="calix.common.base.CalibOptions.html#calix.common.base.CalibOptions" title="calix.common.base.CalibOptions"><code class="xref py py-class docutils literal notranslate"><span class="pre">calix.common.base.CalibOptions</span></code></a></p>
-<p>Data class containing further options for spiking calibration.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Variables</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><a class="reference internal" href="#hxtorch.spiking.execution_instance.SpikingCalibOptions.cadc_options" title="hxtorch.spiking.execution_instance.SpikingCalibOptions.cadc_options"><strong>cadc_options</strong></a> – Further options for CADC calibration.</p></li>
-<li><p><a class="reference internal" href="#hxtorch.spiking.execution_instance.SpikingCalibOptions.neuron_options" title="hxtorch.spiking.execution_instance.SpikingCalibOptions.neuron_options"><strong>neuron_options</strong></a> – Further options for neuron calibration.</p></li>
-<li><p><a class="reference internal" href="#hxtorch.spiking.execution_instance.SpikingCalibOptions.correlation_options" title="hxtorch.spiking.execution_instance.SpikingCalibOptions.correlation_options"><strong>correlation_options</strong></a> – Further options for correlation calibration.</p></li>
-<li><p><a class="reference internal" href="#hxtorch.spiking.execution_instance.SpikingCalibOptions.stp_options" title="hxtorch.spiking.execution_instance.SpikingCalibOptions.stp_options"><strong>stp_options</strong></a> – Further options for STP calibration.</p></li>
-<li><p><a class="reference internal" href="#hxtorch.spiking.execution_instance.SpikingCalibOptions.refine_potentials" title="hxtorch.spiking.execution_instance.SpikingCalibOptions.refine_potentials"><strong>refine_potentials</strong></a> – Switch whether after the neuron calibration,
-the CADCs and neuron potentials are calibrated again. This mitigates
-CapMem crosstalk effects. By default, refinement is only performed
-if COBA mode is disabled.</p></li>
-</ul>
-</dd>
-</dl>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.execution_instance.</span></code><code class="sig-name descname"><span class="pre">SpikingCalibOptions</span></code><a class="headerlink" href="#hxtorch.spiking.execution_instance.SpikingCalibOptions" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pyccalix.CalibOptions</span></code></p>
 <dl class="py method">
 <dt id="hxtorch.spiking.execution_instance.SpikingCalibOptions.__init__">
-<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">cadc_options:</span> <span class="pre">calix.common.cadc.CADCCalibOptions</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></em>, <em class="sig-param"><span class="pre">neuron_options:</span> <span class="pre">calix.spiking.neuron.NeuronCalibOptions</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></em>, <em class="sig-param"><span class="pre">correlation_options:</span> <span class="pre">calix.spiking.correlation.CorrelationCalibOptions</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></em>, <em class="sig-param"><span class="pre">stp_options:</span> <span class="pre">calix.spiking.synapse_driver.STPCalibOptions</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></em>, <em class="sig-param"><span class="pre">refine_potentials:</span> <span class="pre">Optional[bool</span></em>, <em class="sig-param"><span class="pre">None]</span> <span class="pre">=</span> <span class="pre">None</span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.execution_instance.SpikingCalibOptions.__init__" title="Permalink to this definition"></a></dt>
-<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.execution_instance.SpikingCalibOptions.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Overloaded function.</p>
+<ol class="arabic simple">
+<li><p>__init__(self: pyccalix.SpikingCalibOptions, cadc_options: pyccalix.CADCCalibOptions = CADCCalibOptions(1), neuron_options: pyccalix.NeuronCalibOptions = CADCCalibOptions(readout_neuron: None), correlation_options: pyccalix.CorrelationCalibOptions = CorrelationCalibOptions(BOTH, PotentialInVolt(0.9), PotentialInVolt(1.85), time_constant_priority: 0.3, default_amp_calib: AmpCalib(0), TimeCalib(0)), stp_options: pyccalix.STPCalibOptions = STPCalibOptions([Value(600), Value(600), Value(600), Value(600)], [Value(180), Value(180), Value(180), Value(180)]), refine_potentials: Optional[bool] = None) -&gt; None</p></li>
+<li><p>__init__(self: pyccalix.SpikingCalibOptions, arg0: pyccalix.SpikingCalibOptions) -&gt; None</p></li>
+</ol>
 </dd></dl>
 
 <p class="rubric">Methods</p>
@@ -127,8 +116,8 @@ if COBA mode is disabled.</p></li>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.execution_instance.SpikingCalibOptions.__init__" title="hxtorch.spiking.execution_instance.SpikingCalibOptions.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([cadc_options, neuron_options, …])</p></td>
-<td><p>Initialize self.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.execution_instance.SpikingCalibOptions.__init__" title="hxtorch.spiking.execution_instance.SpikingCalibOptions.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Overloaded function.</p></td>
 </tr>
 </tbody>
 </table>
@@ -139,34 +128,46 @@ if COBA mode is disabled.</p></li>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.execution_instance.SpikingCalibOptions.refine_potentials" title="hxtorch.spiking.execution_instance.SpikingCalibOptions.refine_potentials"><code class="xref py py-obj docutils literal notranslate"><span class="pre">refine_potentials</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.execution_instance.SpikingCalibOptions.cadc_options" title="hxtorch.spiking.execution_instance.SpikingCalibOptions.cadc_options"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cadc_options</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.execution_instance.SpikingCalibOptions.correlation_options" title="hxtorch.spiking.execution_instance.SpikingCalibOptions.correlation_options"><code class="xref py py-obj docutils literal notranslate"><span class="pre">correlation_options</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.execution_instance.SpikingCalibOptions.neuron_options" title="hxtorch.spiking.execution_instance.SpikingCalibOptions.neuron_options"><code class="xref py py-obj docutils literal notranslate"><span class="pre">neuron_options</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.execution_instance.SpikingCalibOptions.refine_potentials" title="hxtorch.spiking.execution_instance.SpikingCalibOptions.refine_potentials"><code class="xref py py-obj docutils literal notranslate"><span class="pre">refine_potentials</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.execution_instance.SpikingCalibOptions.stp_options" title="hxtorch.spiking.execution_instance.SpikingCalibOptions.stp_options"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stp_options</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
 </table>
-<dl class="py attribute">
+<dl class="py method">
 <dt id="hxtorch.spiking.execution_instance.SpikingCalibOptions.cadc_options">
-<code class="sig-name descname"><span class="pre">cadc_options</span></code><em class="property"><span class="pre">:</span> <a class="reference internal" href="calix.common.cadc.CADCCalibOptions.html#calix.common.cadc.CADCCalibOptions" title="calix.common.cadc.CADCCalibOptions"><span class="pre">calix.common.cadc.CADCCalibOptions</span></a></em><a class="headerlink" href="#hxtorch.spiking.execution_instance.SpikingCalibOptions.cadc_options" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">cadc_options</span></code><a class="headerlink" href="#hxtorch.spiking.execution_instance.SpikingCalibOptions.cadc_options" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
-<dl class="py attribute">
+<dl class="py method">
 <dt id="hxtorch.spiking.execution_instance.SpikingCalibOptions.correlation_options">
-<code class="sig-name descname"><span class="pre">correlation_options</span></code><em class="property"><span class="pre">:</span> <a class="reference internal" href="calix.spiking.correlation.CorrelationCalibOptions.html#calix.spiking.correlation.CorrelationCalibOptions" title="calix.spiking.correlation.CorrelationCalibOptions"><span class="pre">calix.spiking.correlation.CorrelationCalibOptions</span></a></em><a class="headerlink" href="#hxtorch.spiking.execution_instance.SpikingCalibOptions.correlation_options" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">correlation_options</span></code><a class="headerlink" href="#hxtorch.spiking.execution_instance.SpikingCalibOptions.correlation_options" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
-<dl class="py attribute">
+<dl class="py method">
 <dt id="hxtorch.spiking.execution_instance.SpikingCalibOptions.neuron_options">
-<code class="sig-name descname"><span class="pre">neuron_options</span></code><em class="property"><span class="pre">:</span> <a class="reference internal" href="calix.spiking.neuron.NeuronCalibOptions.html#calix.spiking.neuron.NeuronCalibOptions" title="calix.spiking.neuron.NeuronCalibOptions"><span class="pre">calix.spiking.neuron.NeuronCalibOptions</span></a></em><a class="headerlink" href="#hxtorch.spiking.execution_instance.SpikingCalibOptions.neuron_options" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">neuron_options</span></code><a class="headerlink" href="#hxtorch.spiking.execution_instance.SpikingCalibOptions.neuron_options" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
-<dl class="py attribute">
+<dl class="py method">
 <dt id="hxtorch.spiking.execution_instance.SpikingCalibOptions.refine_potentials">
-<code class="sig-name descname"><span class="pre">refine_potentials</span></code><em class="property"><span class="pre">:</span> <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#hxtorch.spiking.execution_instance.SpikingCalibOptions.refine_potentials" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">refine_potentials</span></code><a class="headerlink" href="#hxtorch.spiking.execution_instance.SpikingCalibOptions.refine_potentials" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
-<dl class="py attribute">
+<dl class="py method">
 <dt id="hxtorch.spiking.execution_instance.SpikingCalibOptions.stp_options">
-<code class="sig-name descname"><span class="pre">stp_options</span></code><em class="property"><span class="pre">:</span> <a class="reference internal" href="calix.spiking.synapse_driver.STPCalibOptions.html#calix.spiking.synapse_driver.STPCalibOptions" title="calix.spiking.synapse_driver.STPCalibOptions"><span class="pre">calix.spiking.synapse_driver.STPCalibOptions</span></a></em><a class="headerlink" href="#hxtorch.spiking.execution_instance.SpikingCalibOptions.stp_options" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">stp_options</span></code><a class="headerlink" href="#hxtorch.spiking.execution_instance.SpikingCalibOptions.stp_options" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>

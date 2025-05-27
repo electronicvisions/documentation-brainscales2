@@ -111,8 +111,8 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="calix.common.base.Calib.html#calix.common.base.Calib" title="calix.common.base.Calib"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Calib</span></code></a>(parameter_range, n_instances, …)</p></td>
 <td><p>Base class for calibration applications.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="calix.common.base.CalibOptions.html#calix.common.base.CalibOptions" title="calix.common.base.CalibOptions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CalibOptions</span></code></a>()</p></td>
-<td><p>Data structure for collecting other configuration parameters for higher-level calibration functions.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="calix.common.base.CalibOptions.html#calix.common.base.CalibOptions" title="calix.common.base.CalibOptions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CalibOptions</span></code></a></p></td>
+<td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="calix.common.base.CalibResult.html#calix.common.base.CalibResult" title="calix.common.base.CalibResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CalibResult</span></code></a>(target, None], options, None])</p></td>
 <td><p>Data structure for higher-level calibration results, that combine multiple parameters into a logal unit.</p></td>
@@ -182,6 +182,26 @@ are inserted.</p></li>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>BoundaryCheckResult, containing parameters within boundaries,
 error mask and optional error messages.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="calix.common.base.check_values">
+<code class="sig-prename descclassname"><span class="pre">calix.common.base.</span></code><code class="sig-name descname"><span class="pre">check_values</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feasible_range</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="calix.common.base.ParameterRange.html#calix.common.base.ParameterRange" title="calix.common.base.ParameterRange"><span class="pre">calix.common.base.ParameterRange</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.common.base.check_values" title="Permalink to this definition"></a></dt>
+<dd><p>Check whether the provided target parameters are feasible
+for calibration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – Name of parameter used in logging</p></li>
+<li><p><strong>value</strong> – Value to check</p></li>
+<li><p><strong>feasible_ranges</strong> – Dict of feasible ranges for each parameter.
+These values have been determined experimentally. Some setups
+might support larger ranges but in general subpar calibrations
+are expected outside this range.
+Warnings will be logged in case they are exceeded.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>

@@ -98,24 +98,15 @@
 <dl class="py class">
 <dt id="calix.spiking.synapse_driver.STPCalibOptions">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">calix.spiking.synapse_driver.</span></code><code class="sig-name descname"><span class="pre">STPCalibOptions</span></code><a class="headerlink" href="#calix.spiking.synapse_driver.STPCalibOptions" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="calix.common.base.CalibOptions.html#calix.common.base.CalibOptions" title="calix.common.base.CalibOptions"><code class="xref py py-class docutils literal notranslate"><span class="pre">calix.common.base.CalibOptions</span></code></a></p>
-<p>Set bias parameters for the STP circuitry.</p>
-<p>All parameters can be configured per quadrant.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>i_ramp</strong> – Ramp current for STP pulse width modulation,
-in CapMem LSB.</p></li>
-<li><p><strong>v_stp</strong> – Voltage (STP state) where all drivers’ amplitudes are
-equalized at, in CapMem LSB. Should be chosen between
-v_charge and v_recover.</p></li>
-</ul>
-</dd>
-</dl>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pyccalix.CalibOptions</span></code></p>
 <dl class="py method">
 <dt id="calix.spiking.synapse_driver.STPCalibOptions.__init__">
-<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#calix.spiking.synapse_driver.STPCalibOptions.__init__" title="Permalink to this definition"></a></dt>
-<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.spiking.synapse_driver.STPCalibOptions.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Overloaded function.</p>
+<ol class="arabic simple">
+<li><p>__init__(self: pyccalix.STPCalibOptions) -&gt; None</p></li>
+<li><p>__init__(self: pyccalix.STPCalibOptions, arg0: pyccalix.STPCalibOptions) -&gt; None</p></li>
+</ol>
 </dd></dl>
 
 <p class="rubric">Methods</p>
@@ -125,8 +116,8 @@ v_charge and v_recover.</p></li>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#calix.spiking.synapse_driver.STPCalibOptions.__init__" title="calix.spiking.synapse_driver.STPCalibOptions.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>()</p></td>
-<td><p>Initialize self.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.spiking.synapse_driver.STPCalibOptions.__init__" title="calix.spiking.synapse_driver.STPCalibOptions.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Overloaded function.</p></td>
 </tr>
 </tbody>
 </table>
@@ -146,13 +137,19 @@ v_charge and v_recover.</p></li>
 </tbody>
 </table>
 <dl class="py attribute">
+<dt id="calix.spiking.synapse_driver.STPCalibOptions.ValuePerQuadrant">
+<code class="sig-name descname"><span class="pre">ValuePerQuadrant</span></code><a class="headerlink" href="#calix.spiking.synapse_driver.STPCalibOptions.ValuePerQuadrant" title="Permalink to this definition"></a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">pyccalix.typed_array_haldls_vx_CapMemCell_halco_hicann_dls_vx_v3_Coordinates_Value_halco_hicann_dls_vx_CapMemBlockOnDLS_</span></code></p>
+</dd></dl>
+
+<dl class="py method">
 <dt id="calix.spiking.synapse_driver.STPCalibOptions.i_ramp">
-<code class="sig-name descname"><span class="pre">i_ramp</span></code><em class="property"> <span class="pre">=</span> <span class="pre">600</span></em><a class="headerlink" href="#calix.spiking.synapse_driver.STPCalibOptions.i_ramp" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">i_ramp</span></code><a class="headerlink" href="#calix.spiking.synapse_driver.STPCalibOptions.i_ramp" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
-<dl class="py attribute">
+<dl class="py method">
 <dt id="calix.spiking.synapse_driver.STPCalibOptions.v_stp">
-<code class="sig-name descname"><span class="pre">v_stp</span></code><em class="property"> <span class="pre">=</span> <span class="pre">180</span></em><a class="headerlink" href="#calix.spiking.synapse_driver.STPCalibOptions.v_stp" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">v_stp</span></code><a class="headerlink" href="#calix.spiking.synapse_driver.STPCalibOptions.v_stp" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>

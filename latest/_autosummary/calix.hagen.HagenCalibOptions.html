@@ -96,29 +96,16 @@
 <h1>calix.hagen.HagenCalibOptions<a class="headerlink" href="#calix-hagen-hagencaliboptions" title="Permalink to this headline"></a></h1>
 <dl class="py class">
 <dt id="calix.hagen.HagenCalibOptions">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">calix.hagen.</span></code><code class="sig-name descname"><span class="pre">HagenCalibOptions</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">cadc_options:</span> <span class="pre">calix.common.cadc.CADCCalibOptions</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></em>, <em class="sig-param"><span class="pre">neuron_options:</span> <span class="pre">calix.hagen.neuron_dataclasses.NeuronCalibOptions</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></em>, <em class="sig-param"><span class="pre">neuron_disable_leakage:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True</span></em>, <em class="sig-param"><span class="pre">synapse_driver_options:</span> <span class="pre">calix.hagen.synapse_driver.SynapseDriverCalibOptions</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.hagen.HagenCalibOptions" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="calix.common.base.CalibOptions.html#calix.common.base.CalibOptions" title="calix.common.base.CalibOptions"><code class="xref py py-class docutils literal notranslate"><span class="pre">calix.common.base.CalibOptions</span></code></a></p>
-<p>Dataclass collecting further options for Hagen-mode calibrations with
-integration on membranes.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Variables</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><a class="reference internal" href="#calix.hagen.HagenCalibOptions.cadc_options" title="calix.hagen.HagenCalibOptions.cadc_options"><strong>cadc_options</strong></a> – Further options for CADC calibration.</p></li>
-<li><p><a class="reference internal" href="#calix.hagen.HagenCalibOptions.neuron_options" title="calix.hagen.HagenCalibOptions.neuron_options"><strong>neuron_options</strong></a> – Further options for neuron calibration.</p></li>
-<li><p><a class="reference internal" href="#calix.hagen.HagenCalibOptions.neuron_disable_leakage" title="calix.hagen.HagenCalibOptions.neuron_disable_leakage"><strong>neuron_disable_leakage</strong></a> – Decide whether the neuron leak bias
-currents are set to zero after calibration. This is done
-by default, which disables leakage entirely. Note that even
-if the leak bias is set to zero, some pseudo-leakage may occur
-through the synaptic input OTAs.</p></li>
-<li><p><a class="reference internal" href="#calix.hagen.HagenCalibOptions.synapse_driver_options" title="calix.hagen.HagenCalibOptions.synapse_driver_options"><strong>synapse_driver_options</strong></a> – Further options for synapse driver
-calibration.</p></li>
-</ul>
-</dd>
-</dl>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">calix.hagen.</span></code><code class="sig-name descname"><span class="pre">HagenCalibOptions</span></code><a class="headerlink" href="#calix.hagen.HagenCalibOptions" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pyccalix.CalibOptions</span></code></p>
 <dl class="py method">
 <dt id="calix.hagen.HagenCalibOptions.__init__">
-<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">cadc_options:</span> <span class="pre">calix.common.cadc.CADCCalibOptions</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></em>, <em class="sig-param"><span class="pre">neuron_options:</span> <span class="pre">calix.hagen.neuron_dataclasses.NeuronCalibOptions</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></em>, <em class="sig-param"><span class="pre">neuron_disable_leakage:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True</span></em>, <em class="sig-param"><span class="pre">synapse_driver_options:</span> <span class="pre">calix.hagen.synapse_driver.SynapseDriverCalibOptions</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#calix.hagen.HagenCalibOptions.__init__" title="Permalink to this definition"></a></dt>
-<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.hagen.HagenCalibOptions.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Overloaded function.</p>
+<ol class="arabic simple">
+<li><p>__init__(self: pyccalix.HagenCalibOptions) -&gt; None</p></li>
+<li><p>__init__(self: pyccalix.HagenCalibOptions, arg0: pyccalix.HagenCalibOptions) -&gt; None</p></li>
+</ol>
 </dd></dl>
 
 <p class="rubric">Methods</p>
@@ -128,8 +115,8 @@ calibration.</p></li>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#calix.hagen.HagenCalibOptions.__init__" title="calix.hagen.HagenCalibOptions.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([cadc_options, neuron_options, …])</p></td>
-<td><p>Initialize self.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.hagen.HagenCalibOptions.__init__" title="calix.hagen.HagenCalibOptions.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Overloaded function.</p></td>
 </tr>
 </tbody>
 </table>
@@ -140,29 +127,38 @@ calibration.</p></li>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#calix.hagen.HagenCalibOptions.neuron_disable_leakage" title="calix.hagen.HagenCalibOptions.neuron_disable_leakage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">neuron_disable_leakage</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.hagen.HagenCalibOptions.cadc_options" title="calix.hagen.HagenCalibOptions.cadc_options"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cadc_options</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#calix.hagen.HagenCalibOptions.neuron_disable_leakage" title="calix.hagen.HagenCalibOptions.neuron_disable_leakage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">neuron_disable_leakage</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.hagen.HagenCalibOptions.neuron_options" title="calix.hagen.HagenCalibOptions.neuron_options"><code class="xref py py-obj docutils literal notranslate"><span class="pre">neuron_options</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#calix.hagen.HagenCalibOptions.synapse_driver_options" title="calix.hagen.HagenCalibOptions.synapse_driver_options"><code class="xref py py-obj docutils literal notranslate"><span class="pre">synapse_driver_options</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
 </table>
-<dl class="py attribute">
+<dl class="py method">
 <dt id="calix.hagen.HagenCalibOptions.cadc_options">
-<code class="sig-name descname"><span class="pre">cadc_options</span></code><em class="property"><span class="pre">:</span> <a class="reference internal" href="calix.common.cadc.CADCCalibOptions.html#calix.common.cadc.CADCCalibOptions" title="calix.common.cadc.CADCCalibOptions"><span class="pre">calix.common.cadc.CADCCalibOptions</span></a></em><a class="headerlink" href="#calix.hagen.HagenCalibOptions.cadc_options" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">cadc_options</span></code><a class="headerlink" href="#calix.hagen.HagenCalibOptions.cadc_options" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
-<dl class="py attribute">
+<dl class="py method">
 <dt id="calix.hagen.HagenCalibOptions.neuron_disable_leakage">
-<code class="sig-name descname"><span class="pre">neuron_disable_leakage</span></code><em class="property"><span class="pre">:</span> <span class="pre">bool</span></em><em class="property"> <span class="pre">=</span> <span class="pre">True</span></em><a class="headerlink" href="#calix.hagen.HagenCalibOptions.neuron_disable_leakage" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">neuron_disable_leakage</span></code><a class="headerlink" href="#calix.hagen.HagenCalibOptions.neuron_disable_leakage" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
-<dl class="py attribute">
+<dl class="py method">
 <dt id="calix.hagen.HagenCalibOptions.neuron_options">
-<code class="sig-name descname"><span class="pre">neuron_options</span></code><em class="property"><span class="pre">:</span> <a class="reference internal" href="calix.hagen.neuron_dataclasses.NeuronCalibOptions.html#calix.hagen.neuron_dataclasses.NeuronCalibOptions" title="calix.hagen.neuron_dataclasses.NeuronCalibOptions"><span class="pre">calix.hagen.neuron_dataclasses.NeuronCalibOptions</span></a></em><a class="headerlink" href="#calix.hagen.HagenCalibOptions.neuron_options" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">neuron_options</span></code><a class="headerlink" href="#calix.hagen.HagenCalibOptions.neuron_options" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
-<dl class="py attribute">
+<dl class="py method">
 <dt id="calix.hagen.HagenCalibOptions.synapse_driver_options">
-<code class="sig-name descname"><span class="pre">synapse_driver_options</span></code><em class="property"><span class="pre">:</span> <a class="reference internal" href="calix.hagen.synapse_driver.SynapseDriverCalibOptions.html#calix.hagen.synapse_driver.SynapseDriverCalibOptions" title="calix.hagen.synapse_driver.SynapseDriverCalibOptions"><span class="pre">calix.hagen.synapse_driver.SynapseDriverCalibOptions</span></a></em><a class="headerlink" href="#calix.hagen.HagenCalibOptions.synapse_driver_options" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">synapse_driver_options</span></code><a class="headerlink" href="#calix.hagen.HagenCalibOptions.synapse_driver_options" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>

@@ -17,7 +17,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="calix.spiking.correlation.CorrelationCalibResult" href="calix.spiking.correlation.CorrelationCalibResult.html" />
-    <link rel="prev" title="calix.spiking.correlation.CorrelationBranches" href="calix.spiking.correlation.CorrelationBranches.html" /> 
+    <link rel="prev" title="calix.spiking.correlation.AmplitudeCalib" href="calix.spiking.correlation.AmplitudeCalib.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -97,51 +97,16 @@
 <h1>calix.spiking.correlation.CorrelationCalibOptions<a class="headerlink" href="#calix-spiking-correlation-correlationcaliboptions" title="Permalink to this headline"></a></h1>
 <dl class="py class">
 <dt id="calix.spiking.correlation.CorrelationCalibOptions">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">calix.spiking.correlation.</span></code><code class="sig-name descname"><span class="pre">CorrelationCalibOptions</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">branches:</span> <span class="pre">calix.spiking.correlation.CorrelationBranches</span> <span class="pre">=</span> <span class="pre">&lt;CorrelationBranches.BOTH:</span> <span class="pre">3&gt;</span></em>, <em class="sig-param"><span class="pre">v_res_meas:</span> <span class="pre">quantities.quantity.Quantity</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></em>, <em class="sig-param"><span class="pre">v_reset:</span> <span class="pre">quantities.quantity.Quantity</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></em>, <em class="sig-param"><span class="pre">calibrate_synapses:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></em>, <em class="sig-param"><span class="pre">time_constant_priority:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">0.3</span></em>, <em class="sig-param"><span class="pre">default_amp_calib:</span> <span class="pre">Optional[int</span></em>, <em class="sig-param"><span class="pre">None]</span> <span class="pre">=</span> <span class="pre">None</span></em>, <em class="sig-param"><span class="pre">default_time_calib:</span> <span class="pre">Optional[int</span></em>, <em class="sig-param"><span class="pre">None]</span> <span class="pre">=</span> <span class="pre">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.spiking.correlation.CorrelationCalibOptions" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="calix.common.base.CalibOptions.html#calix.common.base.CalibOptions" title="calix.common.base.CalibOptions"><code class="xref py py-class docutils literal notranslate"><span class="pre">calix.common.base.CalibOptions</span></code></a></p>
-<p>Further options for correlation calibration.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Variables</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><a class="reference internal" href="#calix.spiking.correlation.CorrelationCalibOptions.calibrate_synapses" title="calix.spiking.correlation.CorrelationCalibOptions.calibrate_synapses"><strong>calibrate_synapses</strong></a> – Decide whether individual synapses’
-calibration bits shall be calibrated. This requires hours
-of runtime and may not improve the usability singificantly.</p></li>
-<li><p><a class="reference internal" href="#calix.spiking.correlation.CorrelationCalibOptions.time_constant_priority" title="calix.spiking.correlation.CorrelationCalibOptions.time_constant_priority"><strong>time_constant_priority</strong></a> – Priority given to time constant during
-individual calibration of synapses. Has to be in the range from
-0 to 1, the remaining priority is given to the amplitude.</p></li>
-<li><p><a class="reference internal" href="#calix.spiking.correlation.CorrelationCalibOptions.branches" title="calix.spiking.correlation.CorrelationCalibOptions.branches"><strong>branches</strong></a> – Correlation traces to consider during calibration.
-Use the Enum type CorrelationBranches to select from causal,
-acausal or both.</p></li>
-<li><p><a class="reference internal" href="#calix.spiking.correlation.CorrelationCalibOptions.v_res_meas" title="calix.spiking.correlation.CorrelationCalibOptions.v_res_meas"><strong>v_res_meas</strong></a> – Reset voltage for the measurement capacitors.
-Affects the achievable amplitudes: In case your desired amplitudes
-cannot be reached at sensible CapMem currents, consider increasing
-v_res_meas. However, this also increases problems observed on some
-synapses, like traces no longer behaving exponentially. Generally,
-you should set this as low as possible - we recommend some 0.9 V.</p></li>
-<li><p><a class="reference internal" href="#calix.spiking.correlation.CorrelationCalibOptions.v_reset" title="calix.spiking.correlation.CorrelationCalibOptions.v_reset"><strong>v_reset</strong></a> – Reset voltage for the accumulation capacitors in
-each synapse. Controls the baseline measurement when the sensors’
-accumulation capacitors were reset and no correlated events
-were recorded. The baseline read should be near the upper end
-of the reliable range of the CADC, which is the case when
-v_reset is set to some 1.85 V. (There’s a source follower circuit
-in the correlation readout.)</p></li>
-<li><p><a class="reference internal" href="#calix.spiking.correlation.CorrelationCalibOptions.default_amp_calib" title="calix.spiking.correlation.CorrelationCalibOptions.default_amp_calib"><strong>default_amp_calib</strong></a> – Amplitude calibration setting used for
-all synapses when calibrating CapMem bias currents. Should
-allow headroom for adjusting amplitudes in both directions
-if individual synapses are to be calibrated. Otherwise, a
-value of 0 is recommended. Set sensibly by default.</p></li>
-<li><p><a class="reference internal" href="#calix.spiking.correlation.CorrelationCalibOptions.default_time_calib" title="calix.spiking.correlation.CorrelationCalibOptions.default_time_calib"><strong>default_time_calib</strong></a> – Time constant calibration setting used
-for all synapses when calibrating CapMem bias currents. Should
-allow headroom for adjusting amplitudes in both directions
-if individual synapses are to be calibrated. Set sensibly
-by default.</p></li>
-</ul>
-</dd>
-</dl>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">calix.spiking.correlation.</span></code><code class="sig-name descname"><span class="pre">CorrelationCalibOptions</span></code><a class="headerlink" href="#calix.spiking.correlation.CorrelationCalibOptions" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pyccalix.CalibOptions</span></code></p>
 <dl class="py method">
 <dt id="calix.spiking.correlation.CorrelationCalibOptions.__init__">
-<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">branches:</span> <span class="pre">calix.spiking.correlation.CorrelationBranches</span> <span class="pre">=</span> <span class="pre">&lt;CorrelationBranches.BOTH:</span> <span class="pre">3&gt;</span></em>, <em class="sig-param"><span class="pre">v_res_meas:</span> <span class="pre">quantities.quantity.Quantity</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></em>, <em class="sig-param"><span class="pre">v_reset:</span> <span class="pre">quantities.quantity.Quantity</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></em>, <em class="sig-param"><span class="pre">calibrate_synapses:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></em>, <em class="sig-param"><span class="pre">time_constant_priority:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">0.3</span></em>, <em class="sig-param"><span class="pre">default_amp_calib:</span> <span class="pre">Optional[int</span></em>, <em class="sig-param"><span class="pre">None]</span> <span class="pre">=</span> <span class="pre">None</span></em>, <em class="sig-param"><span class="pre">default_time_calib:</span> <span class="pre">Optional[int</span></em>, <em class="sig-param"><span class="pre">None]</span> <span class="pre">=</span> <span class="pre">None</span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#calix.spiking.correlation.CorrelationCalibOptions.__init__" title="Permalink to this definition"></a></dt>
-<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.spiking.correlation.CorrelationCalibOptions.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Overloaded function.</p>
+<ol class="arabic simple">
+<li><p>__init__(self: pyccalix.CorrelationCalibOptions) -&gt; None</p></li>
+<li><p>__init__(self: pyccalix.CorrelationCalibOptions, arg0: pyccalix.CorrelationCalibOptions) -&gt; None</p></li>
+</ol>
 </dd></dl>
 
 <p class="rubric">Methods</p>
@@ -151,10 +116,10 @@ by default.</p></li>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#calix.spiking.correlation.CorrelationCalibOptions.__init__" title="calix.spiking.correlation.CorrelationCalibOptions.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([branches, v_res_meas, v_reset, …])</p></td>
-<td><p>Initialize self.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.spiking.correlation.CorrelationCalibOptions.__init__" title="calix.spiking.correlation.CorrelationCalibOptions.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Overloaded function.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#calix.spiking.correlation.CorrelationCalibOptions.check" title="calix.spiking.correlation.CorrelationCalibOptions.check"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#calix.spiking.correlation.CorrelationCalibOptions.check" title="calix.spiking.correlation.CorrelationCalibOptions.check"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check</span></code></a>(self)</p></td>
 <td><p>Check if given parameters are in a valid range.</p></td>
 </tr>
 </tbody>
@@ -181,47 +146,88 @@ by default.</p></li>
 <tr class="row-odd"><td><p><a class="reference internal" href="#calix.spiking.correlation.CorrelationCalibOptions.time_constant_priority" title="calix.spiking.correlation.CorrelationCalibOptions.time_constant_priority"><code class="xref py py-obj docutils literal notranslate"><span class="pre">time_constant_priority</span></code></a></p></td>
 <td><p></p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#calix.spiking.correlation.CorrelationCalibOptions.v_res_meas" title="calix.spiking.correlation.CorrelationCalibOptions.v_res_meas"><code class="xref py py-obj docutils literal notranslate"><span class="pre">v_res_meas</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.spiking.correlation.CorrelationCalibOptions.v_reset" title="calix.spiking.correlation.CorrelationCalibOptions.v_reset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">v_reset</span></code></a></p></td>
+<td><p></p></td>
+</tr>
 </tbody>
 </table>
+<dl class="py class">
+<dt id="calix.spiking.correlation.CorrelationCalibOptions.Branches">
+<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">Branches</span></code><a class="headerlink" href="#calix.spiking.correlation.CorrelationCalibOptions.Branches" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_builtins.pybind11_object</span></code></p>
+<p>Members:</p>
+<p>CAUSAL</p>
+<p>ACAUSAL</p>
+<p>BOTH</p>
 <dl class="py attribute">
-<dt id="calix.spiking.correlation.CorrelationCalibOptions.branches">
-<code class="sig-name descname"><span class="pre">branches</span></code><em class="property"><span class="pre">:</span> <a class="reference internal" href="calix.spiking.correlation.CorrelationBranches.html#calix.spiking.correlation.CorrelationBranches" title="calix.spiking.correlation.CorrelationBranches"><span class="pre">calix.spiking.correlation.CorrelationBranches</span></a></em><em class="property"> <span class="pre">=</span> <span class="pre">3</span></em><a class="headerlink" href="#calix.spiking.correlation.CorrelationCalibOptions.branches" title="Permalink to this definition"></a></dt>
+<dt id="calix.spiking.correlation.CorrelationCalibOptions.Branches.ACAUSAL">
+<code class="sig-name descname"><span class="pre">ACAUSAL</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;Branches.ACAUSAL:</span> <span class="pre">1&gt;</span></em><a class="headerlink" href="#calix.spiking.correlation.CorrelationCalibOptions.Branches.ACAUSAL" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
+<dt id="calix.spiking.correlation.CorrelationCalibOptions.Branches.BOTH">
+<code class="sig-name descname"><span class="pre">BOTH</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;Branches.BOTH:</span> <span class="pre">2&gt;</span></em><a class="headerlink" href="#calix.spiking.correlation.CorrelationCalibOptions.Branches.BOTH" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="calix.spiking.correlation.CorrelationCalibOptions.Branches.CAUSAL">
+<code class="sig-name descname"><span class="pre">CAUSAL</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;Branches.CAUSAL:</span> <span class="pre">0&gt;</span></em><a class="headerlink" href="#calix.spiking.correlation.CorrelationCalibOptions.Branches.CAUSAL" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="calix.spiking.correlation.CorrelationCalibOptions.Branches.name">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">name</span></code><a class="headerlink" href="#calix.spiking.correlation.CorrelationCalibOptions.Branches.name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="calix.spiking.correlation.CorrelationCalibOptions.Branches.value">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">value</span></code><a class="headerlink" href="#calix.spiking.correlation.CorrelationCalibOptions.Branches.value" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt id="calix.spiking.correlation.CorrelationCalibOptions.branches">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">branches</span></code><a class="headerlink" href="#calix.spiking.correlation.CorrelationCalibOptions.branches" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt id="calix.spiking.correlation.CorrelationCalibOptions.calibrate_synapses">
-<code class="sig-name descname"><span class="pre">calibrate_synapses</span></code><em class="property"><span class="pre">:</span> <span class="pre">bool</span></em><em class="property"> <span class="pre">=</span> <span class="pre">False</span></em><a class="headerlink" href="#calix.spiking.correlation.CorrelationCalibOptions.calibrate_synapses" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">calibrate_synapses</span></code><a class="headerlink" href="#calix.spiking.correlation.CorrelationCalibOptions.calibrate_synapses" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="calix.spiking.correlation.CorrelationCalibOptions.check">
-<code class="sig-name descname"><span class="pre">check</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#calix.spiking.correlation.CorrelationCalibOptions.check" title="Permalink to this definition"></a></dt>
+<code class="sig-name descname"><span class="pre">check</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyccalix.CorrelationCalibOptions</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#calix.spiking.correlation.CorrelationCalibOptions.check" title="Permalink to this definition"></a></dt>
 <dd><p>Check if given parameters are in a valid range.</p>
 </dd></dl>
 
-<dl class="py attribute">
+<dl class="py method">
 <dt id="calix.spiking.correlation.CorrelationCalibOptions.default_amp_calib">
-<code class="sig-name descname"><span class="pre">default_amp_calib</span></code><em class="property"><span class="pre">:</span> <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#calix.spiking.correlation.CorrelationCalibOptions.default_amp_calib" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">default_amp_calib</span></code><a class="headerlink" href="#calix.spiking.correlation.CorrelationCalibOptions.default_amp_calib" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
-<dl class="py attribute">
+<dl class="py method">
 <dt id="calix.spiking.correlation.CorrelationCalibOptions.default_time_calib">
-<code class="sig-name descname"><span class="pre">default_time_calib</span></code><em class="property"><span class="pre">:</span> <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#calix.spiking.correlation.CorrelationCalibOptions.default_time_calib" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">default_time_calib</span></code><a class="headerlink" href="#calix.spiking.correlation.CorrelationCalibOptions.default_time_calib" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
-<dl class="py attribute">
+<dl class="py method">
 <dt id="calix.spiking.correlation.CorrelationCalibOptions.time_constant_priority">
-<code class="sig-name descname"><span class="pre">time_constant_priority</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><em class="property"> <span class="pre">=</span> <span class="pre">0.3</span></em><a class="headerlink" href="#calix.spiking.correlation.CorrelationCalibOptions.time_constant_priority" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">time_constant_priority</span></code><a class="headerlink" href="#calix.spiking.correlation.CorrelationCalibOptions.time_constant_priority" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
-<dl class="py attribute">
+<dl class="py method">
 <dt id="calix.spiking.correlation.CorrelationCalibOptions.v_res_meas">
-<code class="sig-name descname"><span class="pre">v_res_meas</span></code><em class="property"><span class="pre">:</span> <span class="pre">quantities.quantity.Quantity</span></em><a class="headerlink" href="#calix.spiking.correlation.CorrelationCalibOptions.v_res_meas" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">v_res_meas</span></code><a class="headerlink" href="#calix.spiking.correlation.CorrelationCalibOptions.v_res_meas" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
-<dl class="py attribute">
+<dl class="py method">
 <dt id="calix.spiking.correlation.CorrelationCalibOptions.v_reset">
-<code class="sig-name descname"><span class="pre">v_reset</span></code><em class="property"><span class="pre">:</span> <span class="pre">quantities.quantity.Quantity</span></em><a class="headerlink" href="#calix.spiking.correlation.CorrelationCalibOptions.v_reset" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">v_reset</span></code><a class="headerlink" href="#calix.spiking.correlation.CorrelationCalibOptions.v_reset" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -232,7 +238,7 @@ by default.</p></li>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="calix.spiking.correlation.CorrelationBranches.html" class="btn btn-neutral float-left" title="calix.spiking.correlation.CorrelationBranches" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="calix.spiking.correlation.AmplitudeCalib.html" class="btn btn-neutral float-left" title="calix.spiking.correlation.AmplitudeCalib" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="calix.spiking.correlation.CorrelationCalibResult.html" class="btn btn-neutral float-right" title="calix.spiking.correlation.CorrelationCalibResult" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
