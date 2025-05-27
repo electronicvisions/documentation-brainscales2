@@ -47,7 +47,9 @@
 <li class="toctree-l2"><a class="reference internal" href="girlsday.html">Wie verarbeitet unser Gehirn Informationen?</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="fortgeschrittenen_praktikum.html">Welcome to the Advanced Physics Lab for Physicists by the Electronic Vision(s) Group</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Biological background</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#computational-neuroscience">Computational neuroscience</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#neurons-in-biological-systems">Neurons in Biological Systems</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mathematical-formulation-of-neuronal-behavior">Mathematical Formulation of Neuronal Behavior</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modeling-neuronal-behavior">Modeling Neuronal Behavior</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="fp_neuromorphic-computing.html">Neuromorphic computing</a></li>
@@ -96,82 +98,98 @@
   <div class="section" id="biological-background">
 <h1>Biological background<a class="headerlink" href="#biological-background" title="Permalink to this headline"></a></h1>
 <a class="reference internal image-reference" href="../_images/cajal_cortex_drawings.png"><img alt="../_images/cajal_cortex_drawings.png" class="align-center" src="../_images/cajal_cortex_drawings.png" style="width: 40%;" /></a>
-<div class="section" id="computational-neuroscience">
-<h2>Computational neuroscience<a class="headerlink" href="#computational-neuroscience" title="Permalink to this headline"></a></h2>
-<p>The central neural system is highly complex and responsible for many functions in diverse life forms.
-From processing sensorial data, coordinating movement or having “thoughts”, all this is managed by this system.
-One building block of this system is the neuron.
-In this work we will only dip our toes in the deep water of neuromorphic engineering, limiting ourselves to a few models of neurons and synapses, learning behaviors of simple models and even dive a little deeper in the end.</p>
-<p>We start with a model of an ideal spiking neuron (<a class="reference external" href="https://courses.edx.org/c4x/EPFLx/BIO465x/asset/nd_ch1.pdf">Gerstner (2014)</a>); the name will become obvious after the introduction of its basic behaviors.</p>
-<div class="section" id="neurons-in-biology">
-<h3>Neurons in biology<a class="headerlink" href="#neurons-in-biology" title="Permalink to this headline"></a></h3>
-<p>A neuron can be separated into three major parts which serve different purposes:
-The central unit of the cell is called soma, that receives ‘input’ from the dendritic tree, basically branched out wires extending around the soma.
-The ‘input’ arrives at synapses in the form of (chemical) neurotransmitters that are released following activity of a presynaptic neuron.
-The activity arrives in the form of so-called action potentials or spikes, (electrical) signals that are emitted at a soma and travel through the third part of a neuron, the axon.
-The neurotransmitters lead to voltage differences at the dendrites, again an electrical signal, which in turn affect the soma that can send out spikes via its axon when a sufficient amount of input has accumulated.</p>
-<p>Let’s take a closer look at the physical behavior of a cell, especially the membrane potential of the soma.
-In the absence of any stimulation, we observe a negative resting voltage of approximately <span class="math notranslate nohighlight">\(-65\)</span> mV, a strongly negative polarized state.
+<p>Before digging into the field of neuromorphic computing, it is essential to understand concepts from the central nervous system, the source of inspiration behind this field.
+The central nervous system is a highly complex system responsible for many functions in diverse life forms.
+These functions include thinking, processing sensory data, and coordinating movements.
+The field of neuroscience has explored the nervous system from different perspectives, including anatomy, behavior, and modeling.
+In this section, we highlight the major components in the nervous system, and we mathematically describe their behavior.
+Specifically, we deal with the concept of an ideal spiking neuron (<a class="reference external" href="https://courses.edx.org/c4x/EPFLx/BIO465x/asset/nd_ch1.pdf">Gerstner (2014)</a>); the name will become clear after the introduction of its basic behavior.
+Then, we present models from literature that mimic the neural behavior of interest.</p>
+<div class="section" id="neurons-in-biological-systems">
+<h2>Neurons in Biological Systems<a class="headerlink" href="#neurons-in-biological-systems" title="Permalink to this headline"></a></h2>
+<p>The major building blocks of the nervous system are neurons.
+Neurons come in a variety of morphologies or anatomical structures, but the basic structure can be described as consisting of three major parts which serve different functions.
+The cell body of the neuron is called the soma, which is the central processing unit of the neuron.
+The dendrites are extensions from the soma that carry input signals to the neuron.
+The axon is also an extension from the soma that carries output signals to other neurons.
+Neurons are connected through synapses, where transmission of signals takes place from a presynaptic neuron to a postsynaptic neuron.
+Most synapses are chemical, in which signalling molecules called neurotransmitters are released by the presynaptic neuron.</p>
+<p>The electrical signal of interest in the nervous system is the difference in the electrical potential between the interior of the neuron and the exterior of the neuron, referred to as the membrane potential.
+This physical quantity is used to describe the state of a single neuron and the communication between neurons.
+Originally, a presynaptic neuron receives inputs from synapses through the neurotransmitters.
+These neurotransmitters can alter the membrane potential of the neuron either by increasing the potential (excitatory) or decreasing the potential (inhibitory).
+Depending on the type and strength of the inputs, the membrane potential exceeds a threshold, and the neuron generates a signal.
+This signal is referred to as an “action potential” or a “spike”.
+A spike travels along the axon of the presynaptic neuron until it reaches the axon terminals where neurotransmitters are released to different synapses.
+These neurotransmitters initiate specific biophysical mechanisms that induce postsynaptic currents in the postsynaptic neurons.
+The postsynaptic currents can thus alter the membrane potential of the postsynaptic neurons.
+The resulting signals influencing the membrane potential of the postsynaptic neurons are referred to as postsynaptic potentials.</p>
+</div>
+<div class="section" id="mathematical-formulation-of-neuronal-behavior">
+<h2>Mathematical Formulation of Neuronal Behavior<a class="headerlink" href="#mathematical-formulation-of-neuronal-behavior" title="Permalink to this headline"></a></h2>
+<p>We are interested in mathematically formulating the state of a single neuron and the communication between neurons.
+For that, let’s have a closer look at the physical behavior of a neuron, especially at the membrane potential of the soma.
+In the absence of any stimulation, we observe a negative resting membrane potential of approximately <span class="math notranslate nohighlight">\(-65\)</span> mV, a strongly negative polarized state.
 A stimulation happening through the dendrites changes the membrane potential.
 This can be formalized as follows:
 At a given time <span class="math notranslate nohighlight">\(t\)</span> the membrane potential of neuron <span class="math notranslate nohighlight">\(i\)</span> is <span class="math notranslate nohighlight">\(u_i(t)\)</span>.
-When the neuron is not stimulated, for all times smaller <span class="math notranslate nohighlight">\(0\)</span>, the potential is <span class="math notranslate nohighlight">\(u_i(t&lt;0) = u_\text{rest}\)</span>.
-At <span class="math notranslate nohighlight">\(t=0\)</span> a stimulation occurs in form of a spike  which is triggered by a presynaptic cell.
-We define</p>
+When the neuron is not stimulated, for all times smaller than <span class="math notranslate nohighlight">\(0\)</span>, the potential is <span class="math notranslate nohighlight">\(u_i(t&lt;0) = u_\text{rest}\)</span>.
+At <span class="math notranslate nohighlight">\(t=0\)</span>, a stimulation is triggered by a presynaptic neuron <span class="math notranslate nohighlight">\(j\)</span>.
+We define the postsynaptic potential (PSP) as</p>
 <div class="math notranslate nohighlight">
-\[\epsilon_{ij}(t) := u_i(t) - u_\text{rest}\]</div>
-<p>as the postsynaptic potential (PSP).
-To indicate the direction of change we define further</p>
+\[\epsilon_{ij}(t) := u_i(t) - u_\text{rest}.\]</div>
+<p>To indicate the direction of change we define further</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\epsilon_{ij} = u_i(t) - u_\text{rest}
 \begin{cases}
 &gt;0 &amp; \quad \text{excitatory PSP} \\
-&lt;0 &amp; \quad \text{inhibitory PSP}
+&lt;0 &amp; \quad \text{inhibitory PSP}.
 \end{cases}\end{split}\]</div>
-<p>Typically, the potential of the membrane does not stay at the same level, it decays towards the resting potential <span class="math notranslate nohighlight">\(u_\text{rest}\)</span>.</p>
-<p>Now let’s assume there are 2 presynaptic neurons <span class="math notranslate nohighlight">\(j=1,2\)</span>.
-These neurons emit signals at respective times <span class="math notranslate nohighlight">\(t_j^{(m)}\)</span> where <span class="math notranslate nohighlight">\(m\)</span> states the <span class="math notranslate nohighlight">\(m\)</span>-th signal peak coming from that neuron.
+<p>Typically, the membrane potential <span class="math notranslate nohighlight">\(u_i(t)\)</span> does not stay at the same level.
+In the absence of a stimulation, it decays to the resting potential <span class="math notranslate nohighlight">\(u_\text{rest}\)</span>.</p>
+<p>Now let’s assume there are 2 presynaptic neurons <span class="math notranslate nohighlight">\(j=1,2\)</span> to the postsynaptic neuron <span class="math notranslate nohighlight">\(i\)</span>.
+The presynaptic neurons stimulate the postsynaptic neuron, and PSPs are induced in the postsynaptic neuron at respective times <span class="math notranslate nohighlight">\(t_j^{(m)}\)</span>, where <span class="math notranslate nohighlight">\(m\)</span> states the <span class="math notranslate nohighlight">\(m\)</span>-th signal peak coming from the <span class="math notranslate nohighlight">\(j\)</span>-th neuron.
 At each incoming signal peak, charges are deposited at the membrane and the potential rises.
-When many excitatory inputs have arrived at the neuron, the membrane potential can reach a critical value, triggering the neuron to fire.
-A sharp rise of the membrane potential (reaching a voltage of about <span class="math notranslate nohighlight">\(+100 mV\)</span>) is observed and the potential propagates down the axon.
-The neuron is said to have ‘spiked’ and the pulse is referred to as a spike.</p>
-<p>After such a pulse, the membrane potential drops below the resting voltage and later it returns back.
-This is called hyperpolarization or spike-afterpotential.
-In that time the neuron can’t be stimulated.
+If many excitatory inputs arrive at neuron <span class="math notranslate nohighlight">\(i\)</span>, the membrane potential <span class="math notranslate nohighlight">\(u_i\)</span> can reach a critical value, triggering the neuron to fire.
+A sharp rise of the membrane potential (reaching a voltage of about <span class="math notranslate nohighlight">\(+100 mV\)</span>) is observed, and the potential rise propagates down the axon.
+The pulse is referred to as a “spike” and the neuron is said to have “spiked”.</p>
+<p>After such a pulse, the membrane potential drops below the resting potential, and later it returns to the resting state.
+This final phase is called hyperpolarization or spike-afterpotential.
+During the hyperpolarization, the neuron can hardly be stimulated.
 The trajectory of such an event can be observed in following image.</p>
 <a class="reference internal image-reference" href="../_images/fp_introduction_psp_staking.png"><img alt="../_images/fp_introduction_psp_staking.png" class="align-center" src="../_images/fp_introduction_psp_staking.png" style="width: 40%;" /></a>
-<p>On the x axis is the time while on the y axis is the membrane potential.
+<p>On the x-axis is the time while on the y-axis is the membrane potential.
 At given times <span class="math notranslate nohighlight">\(t_i^{(n)}\)</span> the <span class="math notranslate nohighlight">\(n\text{th}\)</span> spike from neuron <span class="math notranslate nohighlight">\(i\)</span> arrives at our observed neuron.
 Each spike leads to a rise of the membrane potential <span class="math notranslate nohighlight">\(u\)</span>.
-The dotted line indicates the assumed path if there wouldn’t be a change in current.
-In this instance <span class="math notranslate nohighlight">\(t_2^{(2)}\)</span> is enough to cross <span class="math notranslate nohighlight">\(\vartheta\)</span> (threshold) and the neuron by itself fires.
-In the case where the threshold is not reached, i.e., when only a few, weak spikes appear, the voltage behaves as the sum of the individual PSPs:</p>
+The dotted line indicates the assumed path if there hasn’t been a change in current.
+At the instance <span class="math notranslate nohighlight">\(t_2^{(2)}\)</span>, stimulation from incoming spikes is enough for <span class="math notranslate nohighlight">\(u\)</span> to cross <span class="math notranslate nohighlight">\(\vartheta\)</span> (threshold), and the neuron by itself fires.
+In case the threshold is not reached, i.e., when only a few presynaptic spikes occur, the membrane potential behaves as the sum of the individual PSPs:</p>
 <div class="math notranslate nohighlight" id="equation-eq-psp-stacking">
 <span class="eqno">(1)<a class="headerlink" href="#equation-eq-psp-stacking" title="Permalink to this equation"></a></span>\[u_i(t) \approx \left[
 \sum_j \sum_f \epsilon_{ij} \left(t - t_j^{(f)}\right)
 \right] + u_\text{rest}\]</div>
-<p>This is also called PSP-Staking (Image was taken from <a class="reference external" href="ttps://courses.edx.org/c4x/EPFLx/BIO465x/asset/nd_ch1.pdf">Gerstner et al. 2014, Chapter 1.2</a>)</p>
-<p>In the next step we want to find a way to make the model, i.e., the equations, more concrete, so it is easy to implement it on a neuromorphic substrate.</p>
+<p>This is also called PSP-Stacking (Image was taken from <a class="reference external" href="ttps://courses.edx.org/c4x/EPFLx/BIO465x/asset/nd_ch1.pdf">Gerstner et al. 2014, Chapter 1.2</a>).</p>
+<p>In the next step, we want to use the equations to derive a concrete model of the neuron, so that it is possible to implement on a neuromorphic substrate.</p>
 </div>
-<div class="section" id="modelling-neuronal-behaviour">
-<h3>Modelling neuronal behaviour<a class="headerlink" href="#modelling-neuronal-behaviour" title="Permalink to this headline"></a></h3>
-<div class="section" id="leaky-integrate-and-fire-lif-model">
-<h4>Leaky integrate-and-fire (LIF) model<a class="headerlink" href="#leaky-integrate-and-fire-lif-model" title="Permalink to this headline"></a></h4>
+<div class="section" id="modeling-neuronal-behavior">
+<h2>Modeling Neuronal Behavior<a class="headerlink" href="#modeling-neuronal-behavior" title="Permalink to this headline"></a></h2>
 <p>The neuron is driven by biochemical and bioelectrical principles, involving various interactions (for a short overview see <a class="reference external" href="http://www.scholarpedia.org/article/Neuroscience">Purves (2009)</a>).
 We aim to find a suitable model that describes the basic behavior of neurons without necessarily incorporating all biological aspects.
-The goal is to obtain a somewhat similar behavior as described in the previous section.
-The following constraints are applied:
-The spikes always have to have the same shape, i.e., the shape does not contain any information.
+The goal is to obtain a somewhat similar behavior as described in the previous section.</p>
+<div class="section" id="leaky-integrate-and-fire-lif-model">
+<h3>Leaky integrate-and-fire (LIF) model<a class="headerlink" href="#leaky-integrate-and-fire-lif-model" title="Permalink to this headline"></a></h3>
+<p>In this model, the following constraints are applied.
+First, the spikes always have the same shape, i.e., the shape does not contain any information.
 Instead, all information will be coded in the timings of the spikes.
-Further, membrane potential processes the information.
-Another feature, that needs to be modelled is when <span class="math notranslate nohighlight">\(u_i(t)\)</span> reaches a critical voltage threshold <span class="math notranslate nohighlight">\(\vartheta\)</span>, a spike has to be initialized, causing this neuron “to fire” at this time <span class="math notranslate nohighlight">\(t_i^{(m)}\)</span>.
+Second, the membrane potential processes the information.
+Another feature that needs to be modeled is when <span class="math notranslate nohighlight">\(u_i(t)\)</span> reaches a critical voltage threshold <span class="math notranslate nohighlight">\(\vartheta\)</span>, a spike has to be initiated, causing this neuron “to fire” at this time <span class="math notranslate nohighlight">\(t_i^{(m)}\)</span>.
 Such a model was proposed by <a class="reference external" href="https://link.springer.com/article/10.1007/s00422-007-0189-6">Lapique (1907)</a> and is called leaky fire-and-integrate (LIF).</p>
-<p>Essentially, a cell membrane acts as a good insulator.
+<p>Essentially, the cell membrane acts as a good insulator.
 When a current <span class="math notranslate nohighlight">\(I(t)\)</span> arrives at the membrane, additional charge is deposited.
-This behavior is similar to a capacitor and therefore we abstract a cell membrane by it with a certain capacitance <span class="math notranslate nohighlight">\(C\)</span>.
-As previously discussed, the membrane potential decreases over time; therefore, the charge leaks.
-This can be emulated with a resistance <span class="math notranslate nohighlight">\(R\)</span>.
-In addition we require a source to define a resting potential.
+This behavior is similar to that of a capacitor, so we abstract a cell membrane by a capacitor with capacitance <span class="math notranslate nohighlight">\(C\)</span>.
+As previously discussed, the membrane potential decays over time; therefore, the charge leaks.
+This can be modeled by a resistance <span class="math notranslate nohighlight">\(R\)</span>.
+In addition, we require a source to define the resting potential.
 This completes the basic circuitry for a neuron model:</p>
 <a class="reference internal image-reference" href="../_images/fp_circuit.png"><img alt="../_images/fp_circuit.png" class="align-center" src="../_images/fp_circuit.png" style="width: 30%;" /></a>
 <p>If we analyze the electrical circuit, we can find a differential equation describing the behavior of the capacitor voltage:</p>
@@ -179,19 +197,19 @@ This completes the basic circuitry for a neuron model:</p>
 <span class="eqno">(2)<a class="headerlink" href="#equation-eq-lif" title="Permalink to this equation"></a></span>\[\tau_m \frac{\mathrm{d} u_i(t)}{\mathrm{d} t} = - \left[u_i(t) -u_\text{rest} \right] + R \cdot I(t)\]</div>
 <p>Here, <span class="math notranslate nohighlight">\(\tau_m = R \cdot C\)</span> is also called the <em>membrane time constant</em>, and the index <span class="math notranslate nohighlight">\(i\)</span> refers to the i-th neuron.
 <span class="math notranslate nohighlight">\(I(t)\)</span> in this equation represents a time dependent current flow onto (excitatory) or away from (inhibitory) the membrane.
-In neuroscience this equation, which describes a leaky integrator, is the equation of a passive neuron.
+In neuroscience, this equation, which describes a leaky integrator, is the equation of a passive neuron.
 Currently, it fulfills the requirement of integrating incoming spikes (see equation <a class="reference internal" href="#equation-eq-psp-stacking">(1)</a>), but it lacks an active part in the form of a spiking mechanism.
 For the basic model, we define a threshold value <span class="math notranslate nohighlight">\(\vartheta\)</span>.
 When this value is crossed from below, an additional circuit emits a voltage spike that propagates to all connected neurons.
 At the same time, the potential of the capacitance is clamped to a defined value <span class="math notranslate nohighlight">\(u_\text{reset}\)</span> and kept at this level for the <em>refractory period</em> <span class="math notranslate nohighlight">\(\tau_\text{r}\)</span>.</p>
 </div>
 <div class="section" id="adaptive-exponential-adex-model">
-<h4>Adaptive exponential (AdEx) model<a class="headerlink" href="#adaptive-exponential-adex-model" title="Permalink to this headline"></a></h4>
+<h3>Adaptive exponential (AdEx) model<a class="headerlink" href="#adaptive-exponential-adex-model" title="Permalink to this headline"></a></h3>
 <p>The LIF-model captures only some basic dynamics of a real neuron.
-Various models aim to enhance this understanding.
-In <a class="reference external" href="https://journals.physiology.org/doi/full/10.1152/jn.00686.2005">Brette (2005)</a> an improved LIF-model is presented.
+Therefore, various models were proposed to include more interesting dynamics.
+<a class="reference external" href="https://journals.physiology.org/doi/full/10.1152/jn.00686.2005">Brette (2005)</a> presented an improved LIF-model.
 The main additions are an exponential and an adaptation term.
-This is required to process high frequent synaptic input and model the spike initiation accurately.
+These terms are required to process high frequent synaptic input and model the spike initiation accurately.
 Further, a recovery variable is introduced to capture adaptation and resonance properties.</p>
 <div class="math notranslate nohighlight" id="equation-eq-adex">
 \begin{align}
@@ -203,19 +221,18 @@ As new terms are introduced:
 <span class="math notranslate nohighlight">\(\Delta_\text{T}\)</span> is the threshold slope factor,
 <span class="math notranslate nohighlight">\(u_\text{T}\)</span> is the effective threshold potential.
 Further, a second equation is introduced to describe the dynamics of the adaptation.
-For this, a conductance <span class="math notranslate nohighlight">\(a\)</span> and the time constant for the adaptation current <span class="math notranslate nohighlight">\(\tau_w\)</span> is required.
+For the adaptation term, a conductance <span class="math notranslate nohighlight">\(a\)</span> and a time constant for the adaptation current <span class="math notranslate nohighlight">\(\tau_w\)</span> are required.
 Another modification is the reset condition.
-While previously only the neuron was set to a reset potential, now the adaptation has to be modified as well.
-The action is now</p>
+While previously only the membrane potential was set to a reset potential, now the adaptation current has to be modified as well.
+The action of a spike is now described as</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\text{if } u_i&gt;\vartheta \text{ then } \begin{cases}
     u_i \rightarrow u_\text{reset} \\
-    I_\text{ad} \rightarrow I_\text{ad} + b
+    I_\text{ad} \rightarrow I_\text{ad} + b.
 \end{cases}\end{split}\]</div>
-<p>Here, an additional variable is used,  the spike triggered adaptation <span class="math notranslate nohighlight">\(b\)</span>.</p>
-<p>This model is called AdEx due to the exponential term.
-Depending on the parametrisation, it can describe different neuron types and model more sophisticated behaviors.</p>
-</div>
+<p>Here, an additional variable is used, the spike-triggered adaptation <span class="math notranslate nohighlight">\(b\)</span>.</p>
+<p>This model is called AdEx due to the adaptation and exponential terms.
+Depending on the parametrization, it can describe different neuron types and model more sophisticated behaviors observed in biological neurons.</p>
 </div>
 </div>
 </div>
