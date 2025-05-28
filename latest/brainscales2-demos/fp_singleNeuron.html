@@ -213,7 +213,7 @@ The instantaneous firing rate provides a moment-by-moment measure of the neuron�
 </div>
 <div class="section" id="recording-the-f-i-curve-of-a-silicon-neuron">
 <h3>Recording the f-I curve of a silicon neuron<a class="headerlink" href="#recording-the-f-i-curve-of-a-silicon-neuron" title="Permalink to this headline"></a></h3>
-<p>Next, we want to study the behavior of neurons with a current source.
+<p>Next, we want to study the behavior of a single neuron stimulated with a current source.
 For this, we introduce a new parameter for our neuron model.
 This will allow to enable/disable a constant current source and observe the impact.</p>
 <ul class="simple">
@@ -239,17 +239,24 @@ This will allow to enable/disable a constant current source and observe the impa
 </div>
 <div class="section" id="synaptic-stimuli-and-psp-stacking">
 <h3>Synaptic stimuli and PSP stacking<a class="headerlink" href="#synaptic-stimuli-and-psp-stacking" title="Permalink to this headline"></a></h3>
-<p>We now confirmed a normal behavior of the neuron.
-In this task we want to look at the responses of the neuron to stimulations of incoming spikes.
-Your goal will be to recreate the image of PSP-Staking from the introduction.
-You might take a look into pynn_introduction again</p>
+<p>In the previous tasks, we analyzed the spiking dynamics of an isolated neuron.
+In this task, we want to look at the membrane response of the neuron to stimulations of incoming spikes.
+Your goal is to reproduce the image of PSP-Stacking (summation) from the introduction.
+For this, you might find it helpful to look into pynn_introduction again.</p>
 <p>Steps:</p>
 <ul class="simple">
-<li><p>Set up a population of one neuron to record its membrane potential</p></li>
-<li><p>Create a population of at least one <cite>SpikeSourceArray</cite> as a stimulating population</p></li>
-<li><p>Connect the stimulating population to the neuron population</p></li>
-<li><p>Find a suitable spike pattern to recreate the plot (you might require multiple spikes)</p></li>
+<li><p>Set up a population of one neuron with the default neuron parameters to record its membrane potential.</p></li>
+<li><p>Create a population of one <cite>SpikeSourceArray</cite> as a stimulating population.</p></li>
+<li><p>Connect the stimulating population to the neuron population.</p></li>
+<li><p>Find a suitable spike pattern to recreate the plot (you might require multiple spikes).</p></li>
+<li><p>Can the neuron spike with the current neuron configuration?
+Explain.</p></li>
+<li><p>Suggest and implement changes in the configuration so that the neuron spikes.
+Try to apply one change at a time.
+Explain your choices.</p></li>
+<li><p>Can you tell which changes can be theoretically equivalent?</p></li>
 </ul>
+<p><em>Hint</em>: Changes can be related to neuron parameters, projection, or population.</p>
 </div>
 </div>
 </div>
