@@ -310,6 +310,11 @@ the other.</p>
 <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+<div class="test html-display-none highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># assert spikes are recorded</span>
+<span class="n">total_spikes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">spikes</span><span class="p">)</span> <span class="k">for</span> <span class="n">spikes</span> <span class="ow">in</span> <span class="n">spiketrains</span><span class="p">])</span>
+<span class="k">assert</span> <span class="n">total_spikes</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;No spikes recorded&quot;</span>
+</pre></div>
+</div>
 <p>We see a replicated version of the original image encoded in the time evolution of
 the neurons’ firing rates.</p>
 <a class="solution reference internal image-reference" href="../_images/plasticity_rate_coding.png"><img alt="../_images/plasticity_rate_coding.png" class="solution align-center" src="../_images/plasticity_rate_coding.png" style="width: 50%;" /></a>
