@@ -134,7 +134,7 @@ beneficial for the calculated gradient’s precision.</p>
 <tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.ExecutionInstance.generate_playback_hooks" title="hxtorch.spiking.ExecutionInstance.generate_playback_hooks"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_playback_hooks</span></code></a>()</p></td>
 <td><p>Handle config injected into grenade (not supported yet).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.ExecutionInstance.load_calib" title="hxtorch.spiking.ExecutionInstance.load_calib"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_calib</span></code></a>([calib_path])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.ExecutionInstance.load_calib" title="hxtorch.spiking.ExecutionInstance.load_calib"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_calib</span></code></a>(calib_path)</p></td>
 <td><p>Load a calibration from path <code class="docutils literal notranslate"><span class="pre">calib_path</span></code> and apply to the experiment’s chip object.</p></td>
 </tr>
 </tbody>
@@ -185,14 +185,12 @@ injected into <code class="docutils literal notranslate"><span class="pre">grena
 
 <dl class="py method">
 <dt id="hxtorch.spiking.ExecutionInstance.load_calib">
-<code class="sig-name descname"><span class="pre">load_calib</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">calib_path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">pathlib.Path</span><span class="p"><span class="pre">,</span> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.ExecutionInstance.load_calib" title="Permalink to this definition"></a></dt>
+<code class="sig-name descname"><span class="pre">load_calib</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">calib_path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">pathlib.Path</span><span class="p"><span class="pre">,</span> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.ExecutionInstance.load_calib" title="Permalink to this definition"></a></dt>
 <dd><p>Load a calibration from path <code class="docutils literal notranslate"><span class="pre">calib_path</span></code> and apply to the
-experiment’s chip object. If no path is specified a nightly calib is
-applied.</p>
+experiment’s chip object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>calib_path</strong> – The path to the calibration. It None, the nightly
-calib is loaded.</p>
+<dd class="field-odd"><p><strong>calib_path</strong> – The path to the calibration</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Returns the chip object for the given calibration.</p>
