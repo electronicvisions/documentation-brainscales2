@@ -314,10 +314,6 @@ through <cite>leastsq</cite>. Note that this algorithm can only deal with
 unconstrained problems.</p>
 <p>Box constraints can be handled by methods ‘trf’ and ‘dogbox’. Refer to
 the docstring of <cite>least_squares</cite> for more information.</p>
-<p>Parameters to be fitted must have similar scale. Differences of multiple
-orders of magnitude can lead to incorrect results. For the ‘trf’ and
-‘dogbox’ methods, the <cite>x_scale</cite> keyword argument can be used to scale
-the parameters.</p>
 <dl class="simple">
 <dt>[1] K. Vugrin et al. Confidence region estimation techniques for nonlinear</dt><dd><p>regression in groundwater flow: Three case studies. Water Resources
 Research, Vol. 43, W03423, <a href="#id3"><span class="problematic" id="id4">:doi:`10.1029/2005WR004804`</span></a></p>
@@ -374,9 +370,9 @@ overparameterized, calculate the condition number of the covariance matrix:</p>
 </div>
 <p>The value is small, so it does not raise much concern. If, however, we were
 to add a fourth parameter <code class="docutils literal notranslate"><span class="pre">d</span></code> to <cite>func</cite> with the same effect as <code class="docutils literal notranslate"><span class="pre">a</span></code>:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">func2</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">d</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">c</span>  <span class="c1"># a and d are redundant</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">popt</span><span class="p">,</span> <span class="n">pcov</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">func2</span><span class="p">,</span> <span class="n">xdata</span><span class="p">,</span> <span class="n">ydata</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">popt</span><span class="p">,</span> <span class="n">pcov</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">xdata</span><span class="p">,</span> <span class="n">ydata</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">cond</span><span class="p">(</span><span class="n">pcov</span><span class="p">)</span>
 <span class="go">1.13250718925596e+32  # may vary</span>
 </pre></div>
@@ -391,26 +387,6 @@ information:</p>
 <p>Note that the first and last terms are much larger than the other elements,
 suggesting that the optimal values of these parameters are ambiguous and
 that only one of these parameters is needed in the model.</p>
-<p>If the optimal parameters of <cite>f</cite> differ by multiple orders of magnitude, the
-resulting fit can be inaccurate. Sometimes, <cite>curve_fit</cite> can fail to find any
-results:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ydata</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="mi">500000</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">try</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="n">popt</span><span class="p">,</span> <span class="n">pcov</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">xdata</span><span class="p">,</span> <span class="n">ydata</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;trf&#39;</span><span class="p">)</span>
-<span class="gp">... </span><span class="k">except</span> <span class="ne">RuntimeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-<span class="go">Optimal parameters not found: The maximum number of function evaluations is</span>
-<span class="go">exceeded.</span>
-</pre></div>
-</div>
-<p>If parameter scale is roughly known beforehand, it can be defined in
-<cite>x_scale</cite> argument:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">popt</span><span class="p">,</span> <span class="n">pcov</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">xdata</span><span class="p">,</span> <span class="n">ydata</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;trf&#39;</span><span class="p">,</span>
-<span class="gp">... </span>                       <span class="n">x_scale</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">popt</span>
-<span class="go">array([5.00000000e+05, 1.00000000e-02, 1.49999999e+01])</span>
-</pre></div>
-</div>
 </dd></dl>
 
 </div>
