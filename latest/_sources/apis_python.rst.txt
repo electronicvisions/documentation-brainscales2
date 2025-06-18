@@ -14,6 +14,14 @@ BrainScaleS-2 API Documentation
    :template: custom-module-template.rst
    :recursive:
 
+   jaxsnn
+
+
+.. autosummary::
+   :toctree: _autosummary
+   :template: custom-module-template.rst
+   :recursive:
+
    hxtorch
 
 
