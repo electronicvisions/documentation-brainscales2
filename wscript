@@ -1,6 +1,4 @@
 #!/usr/bin/env python
-from os.path import join
-from waflib.extras.symwaf2ic import get_toplevel_path
 
 def depends(ctx):
     # config for doxygen
