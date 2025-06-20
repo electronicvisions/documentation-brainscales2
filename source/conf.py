@@ -74,7 +74,7 @@ breathe_projects = {
     'grenade': '../../build/grenade/doc/xml',
     'calix': '../../build/calix/doc/xml',
     'hate': '../../build/hate/doc/xml',
-    'jaxsnn': '../../build/jaxsnn/doc/xml',
+    'jaxsnn': '../../build/pyjaxsnn/doc/xml',
 }
 
 # Display todos by setting to True

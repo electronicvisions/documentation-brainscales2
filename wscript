@@ -9,6 +9,9 @@ def depends(ctx):
     # Demos/Tutorial depends on everything
     ctx('much-demos-such-wow')
 
+    # .. except jaxsnn
+    ctx('jax-snn')
+
 
 def options(opt):
     opt.load('doxygen')
@@ -38,7 +41,7 @@ def build(bld):
             'haldls', 'lola', 'stadls', 'fisch', 'hxcomm', 'hate', 'hxtorch',
             'grenade', 'calix']],
         use = ['pynn_brainscales2', 'pygrenade_vx', 'hxtorch', 'calix_pylib',
-               'pyjaxsnn'],
+               'jaxsnn'],
     )
 
 
