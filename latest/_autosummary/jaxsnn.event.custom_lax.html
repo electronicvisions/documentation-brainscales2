@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>jaxsnn.event.custom_lax &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="jaxsnn.event.encode" href="jaxsnn.event.encode.html" />
+    <link rel="prev" title="jaxsnn.event.construct.WeightRecurrent" href="jaxsnn.event.construct.WeightRecurrent.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            BrainScaleS-2 Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../brainscales2-demos/index.html">Demos &amp; Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software_components.html">Software Components</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../apis.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../apis_python.html">Python API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="pynn_brainscales.brainscales2.html">pynn_brainscales.brainscales2</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="jaxsnn.html">jaxsnn</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="jaxsnn.base.html">jaxsnn.base</a></li>
+<li class="toctree-l4"><a class="reference internal" href="jaxsnn.discrete.html">jaxsnn.discrete</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="jaxsnn.event.html">jaxsnn.event</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="hxtorch.html">hxtorch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pygrenade_vx.html">pygrenade_vx</a></li>
+<li class="toctree-l3"><a class="reference internal" href="calix.html">calix</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../apis_cpp.html">C++ API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BrainScaleS-2 Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../apis.html">BrainScaleS-2 API Documentation</a></li>
+          <li class="breadcrumb-item"><a href="../apis_python.html">BrainScaleS-2 API Documentation</a></li>
+          <li class="breadcrumb-item"><a href="jaxsnn.html">jaxsnn</a></li>
+          <li class="breadcrumb-item"><a href="jaxsnn.event.html">jaxsnn.event</a></li>
+      <li class="breadcrumb-item active">jaxsnn.event.custom_lax</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_autosummary/jaxsnn.event.custom_lax.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="module-jaxsnn.event.custom_lax">
+<span id="jaxsnn-event-custom-lax"></span><h1>jaxsnn.event.custom_lax<a class="headerlink" href="#module-jaxsnn.event.custom_lax" title="Permalink to this headline"></a></h1>
+<p>Implement functionality of lax for easier debugging</p>
+<p class="rubric">Functions</p>
+<dl class="py function">
+<dt id="jaxsnn.event.custom_lax.cond">
+<code class="sig-prename descclassname"><span class="pre">jaxsnn.event.custom_lax.</span></code><code class="sig-name descname"><span class="pre">cond</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pred</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">true_fun</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">false_fun</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">operands</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jaxsnn.event.custom_lax.cond" title="Permalink to this definition"></a></dt>
+<dd><p>Call both function to evaluate compiled behaviour of <cite>jax.lax.scan</cite></p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="jaxsnn.event.custom_lax.scan">
+<code class="sig-prename descclassname"><span class="pre">jaxsnn.event.custom_lax.</span></code><code class="sig-name descname"><span class="pre">scan</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inner_fn</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">length</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reverse</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jaxsnn.event.custom_lax.scan" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="jaxsnn.event.custom_lax.tree_flatten">
+<code class="sig-prename descclassname"><span class="pre">jaxsnn.event.custom_lax.</span></code><code class="sig-name descname"><span class="pre">tree_flatten</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tree</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_leaf</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">jaxlib.xla_extension.pytree.PyTreeDef</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#jaxsnn.event.custom_lax.tree_flatten" title="Permalink to this definition"></a></dt>
+<dd><p>Flattens a pytree.</p>
+<p>The flattening order (i.e. the order of elements in the output list)
+is deterministic, corresponding to a left-to-right depth-first tree
+traversal.</p>
+<dl>
+<dt>Args:</dt><dd><p>tree: a pytree to flatten.
+is_leaf: an optionally specified function that will be called at each</p>
+<blockquote>
+<div><p>flattening step. It should return a boolean, with true stopping the
+traversal and the whole subtree being treated as a leaf, and false
+indicating the flattening should traverse the current object.</p>
+</div></blockquote>
+</dd>
+<dt>Returns:</dt><dd><p>A pair where the first element is a list of leaf values and the second
+element is a treedef representing the structure of the flattened tree.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="jaxsnn.event.custom_lax.tree_map">
+<code class="sig-prename descclassname"><span class="pre">jaxsnn.event.custom_lax.</span></code><code class="sig-name descname"><span class="pre">tree_map</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">…</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tree</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">rest</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_leaf</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Any</span><a class="headerlink" href="#jaxsnn.event.custom_lax.tree_map" title="Permalink to this definition"></a></dt>
+<dd><p>Maps a multi-input function over pytree args to produce a new pytree.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>f: function that takes <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">+</span> <span class="pre">len(rest)</span></code> arguments, to be applied at the</dt><dd><p>corresponding leaves of the pytrees.</p>
+</dd>
+<dt>tree: a pytree to be mapped over, with each leaf providing the first</dt><dd><p>positional argument to <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p>
+</dd>
+<dt>rest: a tuple of pytrees, each of which has the same structure as <code class="docutils literal notranslate"><span class="pre">tree</span></code></dt><dd><p>or has <code class="docutils literal notranslate"><span class="pre">tree</span></code> as a prefix.</p>
+</dd>
+<dt>is_leaf: an optionally specified function that will be called at each</dt><dd><p>flattening step. It should return a boolean, which indicates whether
+the flattening should traverse the current object, or if it should be
+stopped immediately, with the whole subtree being treated as a leaf.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><p>A new pytree with the same structure as <code class="docutils literal notranslate"><span class="pre">tree</span></code> but with the value at each
+leaf given by <code class="docutils literal notranslate"><span class="pre">f(x,</span> <span class="pre">*xs)</span></code> where <code class="docutils literal notranslate"><span class="pre">x</span></code> is the value at the corresponding
+leaf in <code class="docutils literal notranslate"><span class="pre">tree</span></code> and <code class="docutils literal notranslate"><span class="pre">xs</span></code> is the tuple of values at corresponding nodes in
+<code class="docutils literal notranslate"><span class="pre">rest</span></code>.</p>
+</dd>
+</dl>
+<p>Examples:</p>
+<blockquote>
+<div><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">jax.tree_util</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">jax</span><span class="o">.</span><span class="n">tree_util</span><span class="o">.</span><span class="n">tree_map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="mi">42</span><span class="p">})</span>
+<span class="go">{&#39;x&#39;: 8, &#39;y&#39;: 43}</span>
+</pre></div>
+</div>
+<p>If multiple inputs are passed, the structure of the tree is taken from the
+first input; subsequent inputs need only have <code class="docutils literal notranslate"><span class="pre">tree</span></code> as a prefix:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">jax</span><span class="o">.</span><span class="n">tree_util</span><span class="o">.</span><span class="n">tree_map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
+<span class="go">[[5, 7, 9], [6, 1, 2]]</span>
+</pre></div>
+</div>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt id="jaxsnn.event.custom_lax.tree_unflatten">
+<code class="sig-prename descclassname"><span class="pre">jaxsnn.event.custom_lax.</span></code><code class="sig-name descname"><span class="pre">tree_unflatten</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">treedef</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">jaxlib.xla_extension.pytree.PyTreeDef</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">leaves</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Any</span><a class="headerlink" href="#jaxsnn.event.custom_lax.tree_unflatten" title="Permalink to this definition"></a></dt>
+<dd><p>Reconstructs a pytree from the treedef and the leaves.</p>
+<p>The inverse of <a class="reference internal" href="#jaxsnn.event.custom_lax.tree_flatten" title="jaxsnn.event.custom_lax.tree_flatten"><code class="xref py py-func docutils literal notranslate"><span class="pre">tree_flatten()</span></code></a>.</p>
+<dl>
+<dt>Args:</dt><dd><p>treedef: the treedef to reconstruct
+leaves: the iterable of leaves to use for reconstruction. The iterable</p>
+<blockquote>
+<div><p>must match the leaves of the treedef.</p>
+</div></blockquote>
+</dd>
+<dt>Returns:</dt><dd><p>The reconstructed pytree, containing the <code class="docutils literal notranslate"><span class="pre">leaves</span></code> placed in the structure
+described by <code class="docutils literal notranslate"><span class="pre">treedef</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="jaxsnn.event.construct.WeightRecurrent.html" class="btn btn-neutral float-left" title="jaxsnn.event.construct.WeightRecurrent" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="jaxsnn.event.encode.html" class="btn btn-neutral float-right" title="jaxsnn.event.encode" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Electronic Vision(s).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
