@@ -104,9 +104,6 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="jaxsnn.event.root.next_finder.LIFState.html#jaxsnn.event.root.next_finder.LIFState" title="jaxsnn.event.root.next_finder.LIFState"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LIFState</span></code></a>(V, I)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="jaxsnn.event.root.next_finder.Spike.html#jaxsnn.event.root.next_finder.Spike" title="jaxsnn.event.root.next_finder.Spike"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Spike</span></code></a>(time, idx)</p></td>
-<td><p></p></td>
-</tr>
 </tbody>
 </table>
 <p class="rubric">Functions</p>
@@ -121,26 +118,6 @@ time (float): Current time
 t_max (float): Maximum time of the simulation</p>
 </dd>
 <dt>Returns:</dt><dd><p>Spike: Spike which will occur next</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="jaxsnn.event.root.next_finder.next_queue">
-<code class="sig-prename descclassname"><span class="pre">jaxsnn.event.root.next_finder.</span></code><code class="sig-name descname"><span class="pre">next_queue</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">known_spikes</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="jaxsnn.event.types.Spike.html#jaxsnn.event.types.Spike" title="jaxsnn.event.types.Spike"><span class="pre">jaxsnn.event.types.Spike</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">layer_start</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">neuron_state</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="jaxsnn.event.types.LIFState.html#jaxsnn.event.types.LIFState" title="jaxsnn.event.types.LIFState"><span class="pre">jaxsnn.event.types.LIFState</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_max</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="jaxsnn.event.types.Spike.html#jaxsnn.event.types.Spike" title="jaxsnn.event.types.Spike"><span class="pre">jaxsnn.event.types.Spike</span></a><a class="headerlink" href="#jaxsnn.event.root.next_finder.next_queue" title="Permalink to this definition"></a></dt>
-<dd><p>Return the upcoming spike when training with hardware-in-the-loop.</p>
-<p>When working with the BSS-2 system, we have all the spikes in advance
-and need to find the index and time of the next event. When the hardware
-spikes are bound to this function with <cite>functools.partial</cite>, it has the
-same API as <cite>next_event</cite>.</p>
-<dl class="simple">
-<dt>Args:</dt><dd><p>known_spikes (Spike): All spikes from BSS-2
-layer_start (int): Start index of the current layer
-neuron_state (LIFState): The state of the neurons
-time (float): Current time
-t_max (float): max time</p>
-</dd>
-<dt>Returns:</dt><dd><p>Spike: Spike which will occur next in the layer</p>
 </dd>
 </dl>
 </dd></dl>

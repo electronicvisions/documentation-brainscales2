@@ -112,16 +112,19 @@
 <tr class="row-even"><td><p><a class="reference internal" href="jaxsnn.event.adjoint_lif.LIFState.html#jaxsnn.event.adjoint_lif.LIFState" title="jaxsnn.event.adjoint_lif.LIFState"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LIFState</span></code></a>(V, I)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="jaxsnn.event.adjoint_lif.StepState.html#jaxsnn.event.adjoint_lif.StepState" title="jaxsnn.event.adjoint_lif.StepState"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StepState</span></code></a>(neuron_state, spike_times, …)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="jaxsnn.event.adjoint_lif.Spike.html#jaxsnn.event.adjoint_lif.Spike" title="jaxsnn.event.adjoint_lif.Spike"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Spike</span></code></a>(time, idx)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="jaxsnn.event.adjoint_lif.WeightInput.html#jaxsnn.event.adjoint_lif.WeightInput" title="jaxsnn.event.adjoint_lif.WeightInput"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WeightInput</span></code></a>(input,)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="jaxsnn.event.adjoint_lif.StepState.html#jaxsnn.event.adjoint_lif.StepState" title="jaxsnn.event.adjoint_lif.StepState"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StepState</span></code></a>(neuron_state, spike_times, …)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="jaxsnn.event.adjoint_lif.WeightRecurrent.html#jaxsnn.event.adjoint_lif.WeightRecurrent" title="jaxsnn.event.adjoint_lif.WeightRecurrent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WeightRecurrent</span></code></a>(input, recurrent)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="jaxsnn.event.adjoint_lif.WeightInput.html#jaxsnn.event.adjoint_lif.WeightInput" title="jaxsnn.event.adjoint_lif.WeightInput"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WeightInput</span></code></a>(input,)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="jaxsnn.event.adjoint_lif.partial.html#jaxsnn.event.adjoint_lif.partial" title="jaxsnn.event.adjoint_lif.partial"><code class="xref py py-obj docutils literal notranslate"><span class="pre">partial</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="jaxsnn.event.adjoint_lif.WeightRecurrent.html#jaxsnn.event.adjoint_lif.WeightRecurrent" title="jaxsnn.event.adjoint_lif.WeightRecurrent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WeightRecurrent</span></code></a>(input, recurrent)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="jaxsnn.event.adjoint_lif.partial.html#jaxsnn.event.adjoint_lif.partial" title="jaxsnn.event.adjoint_lif.partial"><code class="xref py py-obj docutils literal notranslate"><span class="pre">partial</span></code></a></p></td>
 <td><p>partial(func, <a href="#id1"><span class="problematic" id="id2">*</span></a>args, <a href="#id3"><span class="problematic" id="id4">**</span></a>keywords) - new function with partial application of the given arguments and keywords.</p></td>
 </tr>
 </tbody>
@@ -162,26 +165,6 @@
 <code class="sig-prename descclassname"><span class="pre">jaxsnn.event.adjoint_lif.</span></code><code class="sig-name descname"><span class="pre">filter_spikes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_spikes</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="jaxsnn.event.types.EventPropSpike.html#jaxsnn.event.types.EventPropSpike" title="jaxsnn.event.types.EventPropSpike"><span class="pre">jaxsnn.event.types.EventPropSpike</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">prev_layer_start</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="jaxsnn.event.types.EventPropSpike.html#jaxsnn.event.types.EventPropSpike" title="jaxsnn.event.types.EventPropSpike"><span class="pre">jaxsnn.event.types.EventPropSpike</span></a><a class="headerlink" href="#jaxsnn.event.adjoint_lif.filter_spikes" title="Permalink to this definition"></a></dt>
 <dd><p>Filters the input spikes by ensuring only the spikes from the previous
 layer are kept.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="jaxsnn.event.adjoint_lif.next_queue">
-<code class="sig-prename descclassname"><span class="pre">jaxsnn.event.adjoint_lif.</span></code><code class="sig-name descname"><span class="pre">next_queue</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">known_spikes</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="jaxsnn.event.types.Spike.html#jaxsnn.event.types.Spike" title="jaxsnn.event.types.Spike"><span class="pre">jaxsnn.event.types.Spike</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">layer_start</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">neuron_state</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="jaxsnn.event.types.LIFState.html#jaxsnn.event.types.LIFState" title="jaxsnn.event.types.LIFState"><span class="pre">jaxsnn.event.types.LIFState</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_max</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="jaxsnn.event.types.Spike.html#jaxsnn.event.types.Spike" title="jaxsnn.event.types.Spike"><span class="pre">jaxsnn.event.types.Spike</span></a><a class="headerlink" href="#jaxsnn.event.adjoint_lif.next_queue" title="Permalink to this definition"></a></dt>
-<dd><p>Return the upcoming spike when training with hardware-in-the-loop.</p>
-<p>When working with the BSS-2 system, we have all the spikes in advance
-and need to find the index and time of the next event. When the hardware
-spikes are bound to this function with <cite>functools.partial</cite>, it has the
-same API as <cite>next_event</cite>.</p>
-<dl class="simple">
-<dt>Args:</dt><dd><p>known_spikes (Spike): All spikes from BSS-2
-layer_start (int): Start index of the current layer
-neuron_state (LIFState): The state of the neurons
-time (float): Current time
-t_max (float): max time</p>
-</dd>
-<dt>Returns:</dt><dd><p>Spike: Spike which will occur next in the layer</p>
-</dd>
-</dl>
 </dd></dl>
 
 <dl class="py function">
