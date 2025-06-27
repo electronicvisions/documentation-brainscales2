@@ -100,12 +100,11 @@
 <dt id="calix.hagen.neuron_potentials.ResetPotentialCalib">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">calix.hagen.neuron_potentials.</span></code><code class="sig-name descname"><span class="pre">ResetPotentialCalib</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">highnoise</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.hagen.neuron_potentials.ResetPotentialCalib" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="calix.common.base.Calib.html#calix.common.base.Calib" title="calix.common.base.Calib"><code class="xref py py-class docutils literal notranslate"><span class="pre">calix.common.base.Calib</span></code></a></p>
-<p>Calibrate the neurons’ reset target voltage such that it matches
-the leak potential.</p>
+<p>Calibrate the neurons’ reset target voltage.</p>
 <p>The refractory time is extended in order to measure the membrane
-potentials while the neuron is at reset potential. The CapMem
-settings which yield CADC reads which match the potential without reset
-are searched.</p>
+potentials while the neuron is at reset potential. If no target
+is given, the leak potential is measured during prelude and taken
+as a target.</p>
 <p>Requirements:
 * Neuron membrane readout is connected to the CADCs (causal and acausal).
 * Reset bias current is set not too low, such that a resting potential</p>
