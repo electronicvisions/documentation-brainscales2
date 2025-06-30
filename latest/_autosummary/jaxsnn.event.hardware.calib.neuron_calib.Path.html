@@ -120,7 +120,7 @@ but cannot instantiate a WindowsPath on a POSIX system or vice versa.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#jaxsnn.event.hardware.calib.neuron_calib.Path.absolute" title="jaxsnn.event.hardware.calib.neuron_calib.Path.absolute"><code class="xref py py-obj docutils literal notranslate"><span class="pre">absolute</span></code></a>()</p></td>
-<td><p>Return an absolute version of this path.</p></td>
+<td><p>Return an absolute version of this path by prepending the current working directory.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#jaxsnn.event.hardware.calib.neuron_calib.Path.chmod" title="jaxsnn.event.hardware.calib.neuron_calib.Path.chmod"><code class="xref py py-obj docutils literal notranslate"><span class="pre">chmod</span></code></a>(mode, *[, follow_symlinks])</p></td>
 <td><p>Change the permissions of the path, like os.chmod().</p></td>
@@ -207,7 +207,7 @@ but cannot instantiate a WindowsPath on a POSIX system or vice versa.</p>
 <td><p>Rename this path to the target path, overwriting if that path exists.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#jaxsnn.event.hardware.calib.neuron_calib.Path.resolve" title="jaxsnn.event.hardware.calib.neuron_calib.Path.resolve"><code class="xref py py-obj docutils literal notranslate"><span class="pre">resolve</span></code></a>([strict])</p></td>
-<td><p>Make the path absolute, resolving all symlinks on the way and also normalizing it (for example turning slashes into backslashes under Windows).</p></td>
+<td><p>Make the path absolute, resolving all symlinks on the way and also normalizing it.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#jaxsnn.event.hardware.calib.neuron_calib.Path.rglob" title="jaxsnn.event.hardware.calib.neuron_calib.Path.rglob"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rglob</span></code></a>(pattern)</p></td>
 <td><p>Recursively yield all existing files (of any kind, including directories) matching the given relative pattern, anywhere in this subtree.</p></td>
@@ -250,10 +250,9 @@ but cannot instantiate a WindowsPath on a POSIX system or vice versa.</p>
 <dl class="py method">
 <dt id="jaxsnn.event.hardware.calib.neuron_calib.Path.absolute">
 <code class="sig-name descname"><span class="pre">absolute</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jaxsnn.event.hardware.calib.neuron_calib.Path.absolute" title="Permalink to this definition"></a></dt>
-<dd><p>Return an absolute version of this path.  This function works
-even if the path doesn’t point to anything.</p>
-<p>No normalization is done, i.e. all ‘.’ and ‘..’ will be kept along.
-Use resolve() to get the canonical path to a file.</p>
+<dd><p>Return an absolute version of this path by prepending the current
+working directory. No normalization or symlink resolution is performed.</p>
+<p>Use resolve() to get the canonical path to a file.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -452,8 +451,7 @@ directory of the Path object.</p>
 <dt id="jaxsnn.event.hardware.calib.neuron_calib.Path.resolve">
 <code class="sig-name descname"><span class="pre">resolve</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">strict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jaxsnn.event.hardware.calib.neuron_calib.Path.resolve" title="Permalink to this definition"></a></dt>
 <dd><p>Make the path absolute, resolving all symlinks on the way and also
-normalizing it (for example turning slashes into backslashes under
-Windows).</p>
+normalizing it.</p>
 </dd></dl>
 
 <dl class="py method">

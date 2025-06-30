@@ -135,8 +135,8 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="pynn_brainscales.brainscales2.recording_data.Enum.html#pynn_brainscales.brainscales2.recording_data.Enum" title="pynn_brainscales.brainscales2.recording_data.Enum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Enum</span></code></a>(value)</p></td>
-<td><p>Generic enumeration.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pynn_brainscales.brainscales2.recording_data.Enum.html#pynn_brainscales.brainscales2.recording_data.Enum" title="pynn_brainscales.brainscales2.recording_data.Enum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Enum</span></code></a>(value[, names, module, qualname, type, …])</p></td>
+<td><p>Create a collection of name/value pairs.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pynn_brainscales.brainscales2.recording_data.GrenadeRecId.html#pynn_brainscales.brainscales2.recording_data.GrenadeRecId" title="pynn_brainscales.brainscales2.recording_data.GrenadeRecId"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GrenadeRecId</span></code></a>(population, …)</p></td>
 <td><p></p></td>
@@ -159,10 +159,10 @@
 <tr class="row-even"><td><p><a class="reference internal" href="pynn_brainscales.brainscales2.recording_data.RecordingSite.html#pynn_brainscales.brainscales2.recording_data.RecordingSite" title="pynn_brainscales.brainscales2.recording_data.RecordingSite"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RecordingSite</span></code></a>(cell_id, comp_id)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pynn_brainscales.brainscales2.recording_data.RecordingType.html#pynn_brainscales.brainscales2.recording_data.RecordingType" title="pynn_brainscales.brainscales2.recording_data.RecordingType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RecordingType</span></code></a>(value)</p></td>
-<td><p>An enumeration.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pynn_brainscales.brainscales2.recording_data.RecordingType.html#pynn_brainscales.brainscales2.recording_data.RecordingType" title="pynn_brainscales.brainscales2.recording_data.RecordingType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RecordingType</span></code></a>(value[, names, module, …])</p></td>
+<td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pynn_brainscales.brainscales2.recording_data.auto.html#pynn_brainscales.brainscales2.recording_data.auto" title="pynn_brainscales.brainscales2.recording_data.auto"><code class="xref py py-obj docutils literal notranslate"><span class="pre">auto</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pynn_brainscales.brainscales2.recording_data.auto.html#pynn_brainscales.brainscales2.recording_data.auto" title="pynn_brainscales.brainscales2.recording_data.auto"><code class="xref py py-obj docutils literal notranslate"><span class="pre">auto</span></code></a>([value])</p></td>
 <td><p>Instances are replaced with an appropriate value in Enum class suites.</p></td>
 </tr>
 </tbody>
@@ -172,7 +172,7 @@
 <dt id="pynn_brainscales.brainscales2.recording_data.NamedTuple">
 <code class="sig-prename descclassname"><span class="pre">pynn_brainscales.brainscales2.recording_data.</span></code><code class="sig-name descname"><span class="pre">NamedTuple</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">typename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fields</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.recording_data.NamedTuple" title="Permalink to this definition"></a></dt>
 <dd><p>Typed version of namedtuple.</p>
-<p>Usage in Python versions &gt;= 3.6:</p>
+<p>Usage:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Employee</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
     <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
     <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span>
@@ -185,11 +185,7 @@
 <p>The resulting class has an extra __annotations__ attribute, giving a
 dict that maps field names to types.  (The field names are also in
 the _fields attribute, which is part of the namedtuple API.)
-Alternative equivalent keyword syntax is also accepted:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Employee</span> <span class="o">=</span> <span class="n">NamedTuple</span><span class="p">(</span><span class="s1">&#39;Employee&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>In Python versions &lt;= 3.5 use:</p>
+An alternative equivalent functional syntax is also accepted:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Employee</span> <span class="o">=</span> <span class="n">NamedTuple</span><span class="p">(</span><span class="s1">&#39;Employee&#39;</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="nb">int</span><span class="p">)])</span>
 </pre></div>
 </div>

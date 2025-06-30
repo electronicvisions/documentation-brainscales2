@@ -198,8 +198,8 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="pynn_brainscales.brainscales2.DistanceDependentProbabilityConnector.html#pynn_brainscales.brainscales2.DistanceDependentProbabilityConnector" title="pynn_brainscales.brainscales2.DistanceDependentProbabilityConnector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DistanceDependentProbabilityConnector</span></code></a>(…[, …])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pynn_brainscales.brainscales2.Enum.html#pynn_brainscales.brainscales2.Enum" title="pynn_brainscales.brainscales2.Enum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Enum</span></code></a>(value)</p></td>
-<td><p>Generic enumeration.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pynn_brainscales.brainscales2.Enum.html#pynn_brainscales.brainscales2.Enum" title="pynn_brainscales.brainscales2.Enum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Enum</span></code></a>(value[, names, module, qualname, type, …])</p></td>
+<td><p>Create a collection of name/value pairs.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pynn_brainscales.brainscales2.FixedNumberPostConnector.html#pynn_brainscales.brainscales2.FixedNumberPostConnector" title="pynn_brainscales.brainscales2.FixedNumberPostConnector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FixedNumberPostConnector</span></code></a>(n[, …])</p></td>
 <td><p></p></td>
@@ -243,7 +243,7 @@
 <tr class="row-even"><td><p><a class="reference internal" href="pynn_brainscales.brainscales2.Projection.html#pynn_brainscales.brainscales2.Projection" title="pynn_brainscales.brainscales2.Projection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Projection</span></code></a>(presynaptic_neurons, …[, …])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pynn_brainscales.brainscales2.RunCommand.html#pynn_brainscales.brainscales2.RunCommand" title="pynn_brainscales.brainscales2.RunCommand"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RunCommand</span></code></a>(value)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pynn_brainscales.brainscales2.RunCommand.html#pynn_brainscales.brainscales2.RunCommand" title="pynn_brainscales.brainscales2.RunCommand"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RunCommand</span></code></a>(value[, names, module, qualname, …])</p></td>
 <td><p>Command specifying the type of run to be performed in pynn.run()</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pynn_brainscales.brainscales2.SmallWorldConnector.html#pynn_brainscales.brainscales2.SmallWorldConnector" title="pynn_brainscales.brainscales2.SmallWorldConnector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SmallWorldConnector</span></code></a>(degree, rewiring[, …])</p></td>
@@ -258,7 +258,7 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="pynn_brainscales.brainscales2.Timer.html#pynn_brainscales.brainscales2.Timer" title="pynn_brainscales.brainscales2.Timer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Timer</span></code></a>(**parameters)</p></td>
 <td><p>Periodic timer information for plasticity rule execution.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pynn_brainscales.brainscales2.auto.html#pynn_brainscales.brainscales2.auto" title="pynn_brainscales.brainscales2.auto"><code class="xref py py-obj docutils literal notranslate"><span class="pre">auto</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pynn_brainscales.brainscales2.auto.html#pynn_brainscales.brainscales2.auto" title="pynn_brainscales.brainscales2.auto"><code class="xref py py-obj docutils literal notranslate"><span class="pre">auto</span></code></a>([value])</p></td>
 <td><p>Instances are replaced with an appropriate value in Enum class suites.</p></td>
 </tr>
 </tbody>
@@ -278,18 +278,17 @@
 
 <dl class="py function">
 <dt id="pynn_brainscales.brainscales2.dataclass">
-<code class="sig-prename descclassname"><span class="pre">pynn_brainscales.brainscales2.</span></code><code class="sig-name descname"><span class="pre">dataclass</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">repr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unsafe_hash</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frozen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">match_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kw_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slots</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.dataclass" title="Permalink to this definition"></a></dt>
-<dd><p>Returns the same class as was passed in, with dunder methods
-added based on the fields defined in the class.</p>
+<code class="sig-prename descclassname"><span class="pre">pynn_brainscales.brainscales2.</span></code><code class="sig-name descname"><span class="pre">dataclass</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">repr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unsafe_hash</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frozen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">match_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kw_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slots</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weakref_slot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.dataclass" title="Permalink to this definition"></a></dt>
+<dd><p>Add dunder methods based on the fields defined in the class.</p>
 <p>Examines PEP 526 __annotations__ to determine fields.</p>
-<p>If init is true, an __init__() method is added to the class. If
-repr is true, a __repr__() method is added. If order is true, rich
+<p>If init is true, an __init__() method is added to the class. If repr
+is true, a __repr__() method is added. If order is true, rich
 comparison dunder methods are added. If unsafe_hash is true, a
-__hash__() method function is added. If frozen is true, fields may
-not be assigned to after instance creation. If match_args is true,
-the __match_args__ tuple is added. If kw_only is true, then by
-default all fields are keyword-only. If slots is true, an
-__slots__ attribute is added.</p>
+__hash__() method is added. If frozen is true, fields may not be
+assigned to after instance creation. If match_args is true, the
+__match_args__ tuple is added. If kw_only is true, then by default
+all fields are keyword-only. If slots is true, a new class with a
+__slots__ attribute is returned.</p>
 </dd></dl>
 
 <dl class="py function">

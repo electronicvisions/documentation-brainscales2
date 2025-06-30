@@ -123,7 +123,7 @@
 <dt id="jaxsnn.event.hardware.calib.NamedTuple">
 <code class="sig-prename descclassname"><span class="pre">jaxsnn.event.hardware.calib.</span></code><code class="sig-name descname"><span class="pre">NamedTuple</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">typename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fields</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jaxsnn.event.hardware.calib.NamedTuple" title="Permalink to this definition"></a></dt>
 <dd><p>Typed version of namedtuple.</p>
-<p>Usage in Python versions &gt;= 3.6:</p>
+<p>Usage:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Employee</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
     <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
     <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span>
@@ -136,11 +136,7 @@
 <p>The resulting class has an extra __annotations__ attribute, giving a
 dict that maps field names to types.  (The field names are also in
 the _fields attribute, which is part of the namedtuple API.)
-Alternative equivalent keyword syntax is also accepted:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Employee</span> <span class="o">=</span> <span class="n">NamedTuple</span><span class="p">(</span><span class="s1">&#39;Employee&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>In Python versions &lt;= 3.5 use:</p>
+An alternative equivalent functional syntax is also accepted:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Employee</span> <span class="o">=</span> <span class="n">NamedTuple</span><span class="p">(</span><span class="s1">&#39;Employee&#39;</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="nb">int</span><span class="p">)])</span>
 </pre></div>
 </div>
