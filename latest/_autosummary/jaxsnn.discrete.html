@@ -105,76 +105,15 @@
 <tr class="row-even"><td><p><a class="reference internal" href="jaxsnn.discrete.encode.html#module-jaxsnn.discrete.encode" title="jaxsnn.discrete.encode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jaxsnn.discrete.encode</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="jaxsnn.discrete.leaky_integrate.html#module-jaxsnn.discrete.leaky_integrate" title="jaxsnn.discrete.leaky_integrate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jaxsnn.discrete.leaky_integrate</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="jaxsnn.discrete.leaky_integrate_and_fire.html#module-jaxsnn.discrete.leaky_integrate_and_fire" title="jaxsnn.discrete.leaky_integrate_and_fire"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jaxsnn.discrete.leaky_integrate_and_fire</span></code></a></p></td>
-<td><p></p></td>
-</tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="jaxsnn.discrete.loss.html#module-jaxsnn.discrete.loss" title="jaxsnn.discrete.loss"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jaxsnn.discrete.loss</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="jaxsnn.discrete.threshold.html#module-jaxsnn.discrete.threshold" title="jaxsnn.discrete.threshold"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jaxsnn.discrete.threshold</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="jaxsnn.discrete.modules.html#module-jaxsnn.discrete.modules" title="jaxsnn.discrete.modules"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jaxsnn.discrete.modules</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
 </table>
-<span class="target" id="module-jaxsnn.discrete"></span><p class="rubric">Functions</p>
-<dl class="py function">
-<dt id="jaxsnn.discrete.LI">
-<code class="sig-prename descclassname"><span class="pre">jaxsnn.discrete.</span></code><code class="sig-name descname"><span class="pre">LI</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">out_dim</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale_in</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jaxsnn.discrete.LI" title="Permalink to this definition"></a></dt>
-<dd><p>Layer constructor function for a li (leaky-integrated) layer.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="jaxsnn.discrete.LIF">
-<code class="sig-prename descclassname"><span class="pre">jaxsnn.discrete.</span></code><code class="sig-name descname"><span class="pre">LIF</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">out_dim</span></em>, <em class="sig-param"><span class="pre">method=&lt;jax._src.custom_derivatives.custom_vjp</span> <span class="pre">object&gt;</span></em>, <em class="sig-param"><span class="pre">scale_in=0.7</span></em>, <em class="sig-param"><span class="pre">scale_rec=0.2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#jaxsnn.discrete.LIF" title="Permalink to this definition"></a></dt>
-<dd><p>Layer constructor function for a lif (leaky-integrated-fire) layer.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="jaxsnn.discrete.acc_and_loss">
-<code class="sig-prename descclassname"><span class="pre">jaxsnn.discrete.</span></code><code class="sig-name descname"><span class="pre">acc_and_loss</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">snn_apply</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decoder</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jaxsnn.discrete.acc_and_loss" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt id="jaxsnn.discrete.max_over_time_decode">
-<code class="sig-prename descclassname"><span class="pre">jaxsnn.discrete.</span></code><code class="sig-name descname"><span class="pre">max_over_time_decode</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jaxsnn.discrete.max_over_time_decode" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt id="jaxsnn.discrete.nll_loss">
-<code class="sig-prename descclassname"><span class="pre">jaxsnn.discrete.</span></code><code class="sig-name descname"><span class="pre">nll_loss</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">snn_apply</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decoder</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expected_spikes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rho</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0001</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span> </span><span class="pre">jax.Array</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#jaxsnn.discrete.nll_loss" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt id="jaxsnn.discrete.spatio_temporal_encode">
-<code class="sig-prename descclassname"><span class="pre">jaxsnn.discrete.</span></code><code class="sig-name descname"><span class="pre">spatio_temporal_encode</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_values</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">jax.Array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seq_length</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_late</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jaxsnn.discrete.spatio_temporal_encode" title="Permalink to this definition"></a></dt>
-<dd><p>Encodes n-dimensional input coordinates with range [0, 1], and simulates
-the spikes that occur during a number of timesteps/iterations (seq_length).</p>
-<dl>
-<dt>Example:</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">16</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">seq_length</span> <span class="o">=</span> <span class="mi">2</span> <span class="c1"># Simulate two iterations</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">spatio_temporal_encode</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">seq_length</span><span class="p">)</span>
-<span class="go"> # Spikes for each iteration</span>
-<span class="go"> DeviceArray([[0., 0., 0., 1.],</span>
-<span class="go">         [0., 0., 1., 1.]]))</span>
-</pre></div>
-</div>
-</dd>
-<dt>Parameters:</dt><dd><p>input_values (torch.Tensor): The input tensor, representing 2d points
-seq_length (int): The number of iterations to simulate
-t_early (float): Earliest time at which coordinates may be encoded
-t_late (float): Latest time at which coordinates may be encoded
-dt (float): Time delta between simulation steps</p>
-</dd>
-<dt>Returns:</dt><dd><p>A tensor with an extra dimension of size <cite>seq_length</cite> containing
-spikes (1) or no spikes (0).</p>
-</dd>
-</dl>
-</dd></dl>
-
-</div>
+<span class="target" id="module-jaxsnn.discrete"></span></div>
 
 
            </div>
