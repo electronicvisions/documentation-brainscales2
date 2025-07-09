@@ -265,3 +265,13 @@ $ env | grep -E "^(|LD_LIBRARY_|PYTHON)PATH=" | tee .env
 
 Add `lib/` to `PYTHONPATH` and `LD_LIBRARY_PATH`, as well as `bin/` to `PATH` (e.g. by using `module load localdir`), then start the IDE locally within the container.
 PyCharm also supports running the interpreter remotely, see [here](https://www.jetbrains.com/help/pycharm/configuring-remote-interpreters-via-ssh.html).
+
+
+### Misc
+
+#### SSHFS on Windows
+
+SSHFS is a tool to make a directory from a remote ssh server accessible on your local machine. To get SSHFS to work on a windows machine, execute following steps:
+* Install WinFsp and SSHFS-Win by following this [installation guide](https://github.com/winfsp/sshfs-win?tab=readme-ov-file#installation).
+* To set up a link to a directory on your remote inside the Windows Explorer, follow this [setup guide] (https://github.com/winfsp/sshfs-win?tab=readme-ov-file#basic-usage). Alternatively you can also do it in the shell by following the guide right below. In order to map to your home directory on hel, you need to specify `\\sshfs\USERNAME@brainscales-r.kip.uni-heidelberg.de!11022` for the SSHFS path during the setup procedure. As described in the setup guide, it should be possible to amend this SSHFS path by the path of the target directory on hel in order to map to somewhere else than your home directory, but this fails (state 9th July 2025).
+If it complains about wrong credentials it's most likely because of an error in the provided SSHFS path.
