@@ -16,7 +16,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="jaxsnn.event.utils.Any" href="jaxsnn.event.utils.Any.html" />
+    <link rel="next" title="jaxsnn.event.utils.filter" href="jaxsnn.event.utils.filter.html" />
     <link rel="prev" title="jaxsnn.event.types.WeightRecurrent" href="jaxsnn.event.types.WeightRecurrent.html" /> 
 </head>
 
@@ -91,9 +91,24 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="module-jaxsnn.event.utils">
-<span id="jaxsnn-event-utils"></span><h1>jaxsnn.event.utils<a class="headerlink" href="#module-jaxsnn.event.utils" title="Permalink to this headline"></a></h1>
-<p class="rubric">Classes</p>
+  <div class="section" id="jaxsnn-event-utils">
+<h1>jaxsnn.event.utils<a class="headerlink" href="#jaxsnn-event-utils" title="Permalink to this headline"></a></h1>
+<p class="rubric">Modules</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="jaxsnn.event.utils.filter.html#module-jaxsnn.event.utils.filter" title="jaxsnn.event.utils.filter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jaxsnn.event.utils.filter</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="jaxsnn.event.utils.training.html#module-jaxsnn.event.utils.training" title="jaxsnn.event.utils.training"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jaxsnn.event.utils.training</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<span class="target" id="module-jaxsnn.event.utils"></span><p class="rubric">Classes</p>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -103,13 +118,16 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="jaxsnn.event.utils.Any.html#jaxsnn.event.utils.Any" title="jaxsnn.event.utils.Any"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Any</span></code></a>(*args, **kwargs)</p></td>
 <td><p>Special type indicating an unconstrained type.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="jaxsnn.event.utils.Spike.html#jaxsnn.event.utils.Spike" title="jaxsnn.event.utils.Spike"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Spike</span></code></a>(time, idx)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="jaxsnn.event.utils.EventPropSpike.html#jaxsnn.event.utils.EventPropSpike" title="jaxsnn.event.utils.EventPropSpike"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EventPropSpike</span></code></a>(time, idx, current)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="jaxsnn.event.utils.WeightInput.html#jaxsnn.event.utils.WeightInput" title="jaxsnn.event.utils.WeightInput"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WeightInput</span></code></a>(input,)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="jaxsnn.event.utils.Spike.html#jaxsnn.event.utils.Spike" title="jaxsnn.event.utils.Spike"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Spike</span></code></a>(time, idx)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="jaxsnn.event.utils.WeightRecurrent.html#jaxsnn.event.utils.WeightRecurrent" title="jaxsnn.event.utils.WeightRecurrent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WeightRecurrent</span></code></a>(input, recurrent)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="jaxsnn.event.utils.WeightInput.html#jaxsnn.event.utils.WeightInput" title="jaxsnn.event.utils.WeightInput"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WeightInput</span></code></a>(input,)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="jaxsnn.event.utils.WeightRecurrent.html#jaxsnn.event.utils.WeightRecurrent" title="jaxsnn.event.utils.WeightRecurrent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WeightRecurrent</span></code></a>(input, recurrent)</p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -124,6 +142,13 @@
 <dt id="jaxsnn.event.utils.clip_gradient">
 <code class="sig-prename descclassname"><span class="pre">jaxsnn.event.utils.</span></code><code class="sig-name descname"><span class="pre">clip_gradient</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">grads</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="jaxsnn.event.types.WeightInput.html#jaxsnn.event.types.WeightInput" title="jaxsnn.event.types.WeightInput"><span class="pre">jaxsnn.event.types.WeightInput</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="jaxsnn.event.types.WeightInput.html#jaxsnn.event.types.WeightInput" title="jaxsnn.event.types.WeightInput"><span class="pre">jaxsnn.event.types.WeightInput</span></a><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#jaxsnn.event.utils.clip_gradient" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
+
+<dl class="py function">
+<dt id="jaxsnn.event.utils.filter_spikes">
+<code class="sig-prename descclassname"><span class="pre">jaxsnn.event.utils.</span></code><code class="sig-name descname"><span class="pre">filter_spikes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_spikes</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="jaxsnn.event.types.EventPropSpike.html#jaxsnn.event.types.EventPropSpike" title="jaxsnn.event.types.EventPropSpike"><span class="pre">jaxsnn.event.types.EventPropSpike</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">prev_layer_start</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="jaxsnn.event.types.EventPropSpike.html#jaxsnn.event.types.EventPropSpike" title="jaxsnn.event.types.EventPropSpike"><span class="pre">jaxsnn.event.types.EventPropSpike</span></a><a class="headerlink" href="#jaxsnn.event.utils.filter_spikes" title="Permalink to this definition"></a></dt>
+<dd><p>Filters the input spikes by ensuring only the spikes from the previous
+layer are kept.</p>
+</dd></dl>
 
 <dl class="py function">
 <dt id="jaxsnn.event.utils.get_index_trainset">
@@ -162,7 +187,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="jaxsnn.event.types.WeightRecurrent.html" class="btn btn-neutral float-left" title="jaxsnn.event.types.WeightRecurrent" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="jaxsnn.event.utils.Any.html" class="btn btn-neutral float-right" title="jaxsnn.event.utils.Any" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="jaxsnn.event.utils.filter.html" class="btn btn-neutral float-right" title="jaxsnn.event.utils.filter" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
