@@ -116,7 +116,7 @@
 <dd><p>Encodes input currents as fixed (constant) voltage currents, and simulates
 the spikes that occur during a number of timesteps/iterations (seq_length).</p>
 <dl>
-<dt>Example:</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">16</span><span class="p">])</span>
+<dt>Example:</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">16</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">seq_length</span> <span class="o">=</span> <span class="mi">2</span> <span class="c1"># Simulate two iterations</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">constant_current_lif_encode</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">seq_length</span><span class="p">)</span>
 <span class="go"> # State in terms of membrane voltage</span>
@@ -168,7 +168,7 @@ dt (float): Integration timestep to use</p>
 <dd><p>Encodes n-dimensional input coordinates with range [0, 1], and simulates
 the spikes that occur during a number of timesteps/iterations (seq_length).</p>
 <dl>
-<dt>Example:</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">16</span><span class="p">])</span>
+<dt>Example:</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">16</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">seq_length</span> <span class="o">=</span> <span class="mi">2</span> <span class="c1"># Simulate two iterations</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">spatio_temporal_encode</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">seq_length</span><span class="p">)</span>
 <span class="go"> # Spikes for each iteration</span>
