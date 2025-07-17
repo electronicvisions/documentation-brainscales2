@@ -50,6 +50,7 @@
 <li class="toctree-l4"><a class="reference internal" href="jaxsnn.base.html">jaxsnn.base</a></li>
 <li class="toctree-l4"><a class="reference internal" href="jaxsnn.discrete.html">jaxsnn.discrete</a></li>
 <li class="toctree-l4"><a class="reference internal" href="jaxsnn.event.html">jaxsnn.event</a></li>
+<li class="toctree-l4"><a class="reference internal" href="jaxsnn.ConversionConfig.html">jaxsnn.ConversionConfig</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="hxtorch.html">hxtorch</a></li>
@@ -109,7 +110,36 @@
 </tr>
 </tbody>
 </table>
-<span class="target" id="module-jaxsnn"></span><p class="rubric">Functions</p>
+<span class="target" id="module-jaxsnn"></span><p class="rubric">Classes</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="jaxsnn.ConversionConfig.html#jaxsnn.ConversionConfig" title="jaxsnn.ConversionConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ConversionConfig</span></code></a>(t_max, n_spikes, int], …)</p></td>
+<td><p>Configuration for the conversion from NIR to jaxsnn.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Functions</p>
+<dl class="py function">
+<dt id="jaxsnn.from_nir">
+<code class="sig-prename descclassname"><span class="pre">jaxsnn.</span></code><code class="sig-name descname"><span class="pre">from_nir</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">nir.ir.graph.NIRGraph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="jaxsnn.event.from_nir.ConversionConfig.html#jaxsnn.event.from_nir.ConversionConfig" title="jaxsnn.event.from_nir.ConversionConfig"><span class="pre">jaxsnn.event.from_nir.ConversionConfig</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jaxsnn.from_nir" title="Permalink to this definition"></a></dt>
+<dd><p>Convert NIRGraph to jax-snn representation (init_fn, apply_fn)</p>
+<p>Restrictions for NIRGraph:
+- Only linear feed-forward SNNs are supported
+- CubaLIF and Linear layers are supported
+- Affine layers with bias==0 are currently supported
+- In terms of parameters, only homogeneous layers are supported</p>
+<p>Example:
+<code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">nir_graph</span> <span class="pre">=</span> <span class="pre">nir.NIRGraph(...)</span>
+<span class="pre">cfg</span> <span class="pre">=</span> <span class="pre">jaxsnn.ConversionConfig(...)</span>
+<span class="pre">init,</span> <span class="pre">apply</span> <span class="pre">=</span> <span class="pre">jaxsnn.from_nir(nir_graph,</span> <span class="pre">cfg)</span>
+<span class="pre">`</span></code></p>
+</dd></dl>
+
 <dl class="py function">
 <dt id="jaxsnn.get_logger">
 <code class="sig-prename descclassname"><span class="pre">jaxsnn.</span></code><code class="sig-name descname"><span class="pre">get_logger</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jaxsnn.get_logger" title="Permalink to this definition"></a></dt>
