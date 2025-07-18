@@ -255,6 +255,10 @@ This scaffold can be used to investigate the behaviour of a synfire chain and an
     <span class="k">return</span> <span class="n">spike_collector</span><span class="p">,</span> <span class="n">mem_v</span>
 </pre></div>
 </div>
+<p>For this task, you will use the oscilloscope to visualize the membrane potential trace of the first neuron from the first excitatory population of your defined network on the BrainScaleS-2 chip.
+This is achieved by connecting its voltage to an external pad and connecting the oscilloscope to the pad.
+Our system offers two pads for the readout.
+We already set the experiment up such that the voltage is available at pad 0 (<cite>pop1exc[[0]].record(‘v’, device=’pad_0_buffered’)</cite> from above), and connected this pad (named <code class="docutils literal notranslate"><span class="pre">ANA0</span></code> on the printed circuit board) to the oscilloscope for you.</p>
 </div>
 <div class="section" id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline"></a></h2>
@@ -264,8 +268,11 @@ This scaffold can be used to investigate the behaviour of a synfire chain and an
 <li><p>Tune the weights below to obtain a synfire chain behavior as seen in the figure above.</p></li>
 <li><p>Which connection is the most sensitive one?</p></li>
 <li><p>What happens if you disable inhibition?</p></li>
-<li><p>Make comments in your lab book.</p></li>
+<li><p>Visualize the membrane potential of the neuron using the oscilloscope.
+Include a picture of the obtained pulse in your protocol.
+<em>Hint</em>: You might find it useful to use the <code class="docutils literal notranslate"><span class="pre">normal</span></code> mode of the oscilloscope and assign a trigger to detect your pulse.</p></li>
 </ul>
+<p>Make comments in your lab book.</p>
 <p>After executing the cells above, you can execute this cell as oft as you want.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">synapse_weights</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
     <span class="n">stim_exc</span><span class="o">=...</span><span class="p">,</span>  <span class="c1"># int in range 0 - 63</span>
@@ -284,10 +291,12 @@ This scaffold can be used to investigate the behaviour of a synfire chain and an
 </div>
 <div class="section" id="adjusting-the-number-of-neurons-per-population">
 <h3>Adjusting the number of neurons per population<a class="headerlink" href="#adjusting-the-number-of-neurons-per-population" title="Permalink to this headline"></a></h3>
-<p>Reduce the number of neurons in each population and use the free neurons to increase the chain size.
-Which hardware feature limits the minimal number of neurons in each population?
-What is the maximal chain length that you can produce?
-Make comments in your lab book.</p>
+<p>Reduce the number of neurons in each population and use the free neurons to increase the chain size.</p>
+<ul class="simple">
+<li><p>Which hardware feature limits the minimal number of neurons in each population?</p></li>
+<li><p>What is the maximal chain length that you can produce?</p></li>
+</ul>
+<p>Make comments in your lab book.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">projs</span><span class="p">,</span> <span class="n">pops</span> <span class="o">=</span> <span class="n">setup_network</span><span class="p">(</span>
     <span class="n">numb_pops</span><span class="o">=...</span><span class="p">,</span>                       <span class="c1"># chain length</span>
     <span class="n">pop_sizes</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;exc&#39;</span><span class="p">:</span> <span class="o">...</span><span class="p">,</span> <span class="s1">&#39;inh&#39;</span><span class="p">:</span> <span class="o">...</span><span class="p">})</span>  <span class="c1"># size of each chain link</span>
@@ -303,9 +312,12 @@ Make comments in your lab book.</p>
 </div>
 <div class="section" id="closing-the-loop">
 <h3>Closing the loop<a class="headerlink" href="#closing-the-loop" title="Permalink to this headline"></a></h3>
-<p>Close the loop from the last to the first population.
-Do the neurons still fire after the software has completed?
-Make comments in your lab book.</p>
+<p>Close the loop from the last to the first population.</p>
+<ul class="simple">
+<li><p>Visualize the membrane potential on the oscilloscope. Do the neurons still fire after the software has completed?</p></li>
+<li><p>Note the change over time in the membrane potential trace, and include pictures of these changes.</p></li>
+</ul>
+<p>Make comments in your lab book.</p>
 <p>Hint: For this part it might be easier to switch to a smaller chain with larger populations.</p>
 <p>Hint: Take a look into the code above.
 The closed loop is already implemented and just needs to be activated.</p>
