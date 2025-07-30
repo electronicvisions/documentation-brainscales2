@@ -17,7 +17,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="hxtorch.spiking.modules.Projection" href="hxtorch.spiking.modules.Projection.html" />
-    <link rel="prev" title="hxtorch.spiking.modules.Neuron" href="hxtorch.spiking.modules.Neuron.html" /> 
+    <link rel="prev" title="hxtorch.spiking.modules.NeuronExp" href="hxtorch.spiking.modules.NeuronExp.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -140,10 +140,16 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.Population.extra_repr" title="hxtorch.spiking.modules.Population.extra_repr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">extra_repr</span></code></a>()</p></td>
 <td><p>Add additional information</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.Population.params_dict" title="hxtorch.spiking.modules.Population.params_dict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">params_dict</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.Population.has_trainable_params" title="hxtorch.spiking.modules.Population.has_trainable_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">has_trainable_params</span></code></a>()</p></td>
+<td><p>Check whether population has trainable parameters.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.Population.params_dict" title="hxtorch.spiking.modules.Population.params_dict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">params_dict</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.Population.params_from_calibration" title="hxtorch.spiking.modules.Population.params_from_calibration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">params_from_calibration</span></code></a>(targets, neurons)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.Population.params_from_calibration" title="hxtorch.spiking.modules.Population.params_from_calibration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">params_from_calibration</span></code></a>(targets, neurons)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.Population.set_trainable_params" title="hxtorch.spiking.modules.Population.set_trainable_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_trainable_params</span></code></a>(chip)</p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -185,6 +191,12 @@ neuron populations registered in the self.experiment instance.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt id="hxtorch.spiking.modules.Population.has_trainable_params">
+<code class="sig-name descname"><span class="pre">has_trainable_params</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#hxtorch.spiking.modules.Population.has_trainable_params" title="Permalink to this definition"></a></dt>
+<dd><p>Check whether population has trainable parameters.</p>
+</dd></dl>
+
+<dl class="py method">
 <dt id="hxtorch.spiking.modules.Population.params_dict">
 <code class="sig-name descname"><span class="pre">params_dict</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">Dict</span><a class="headerlink" href="#hxtorch.spiking.modules.Population.params_dict" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
@@ -192,6 +204,11 @@ neuron populations registered in the self.experiment instance.</p>
 <dl class="py method">
 <dt id="hxtorch.spiking.modules.Population.params_from_calibration">
 <code class="sig-name descname"><span class="pre">params_from_calibration</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">SpikingCalibTarget</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">neurons</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.modules.Population.params_from_calibration" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="hxtorch.spiking.modules.Population.set_trainable_params">
+<code class="sig-name descname"><span class="pre">set_trainable_params</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chip</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.modules.Population.set_trainable_params" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -207,7 +224,7 @@ neuron populations registered in the self.experiment instance.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="hxtorch.spiking.modules.Neuron.html" class="btn btn-neutral float-left" title="hxtorch.spiking.modules.Neuron" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="hxtorch.spiking.modules.NeuronExp.html" class="btn btn-neutral float-left" title="hxtorch.spiking.modules.NeuronExp" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="hxtorch.spiking.modules.Projection.html" class="btn btn-neutral float-right" title="hxtorch.spiking.modules.Projection" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

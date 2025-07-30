@@ -99,11 +99,11 @@
 <dl class="py class">
 <dt id="hxtorch.spiking.parameter.HXBaseParameter">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.parameter.</span></code><code class="sig-name descname"><span class="pre">HXBaseParameter</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hardware_value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.parameter.HXBaseParameter" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">torch.nn.modules.module.Module</span></code></p>
 <dl class="py method">
 <dt id="hxtorch.spiking.parameter.HXBaseParameter.__init__">
 <code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hardware_value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.parameter.HXBaseParameter.__init__" title="Permalink to this definition"></a></dt>
-<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+<dd><p>Initialize internal Module state, shared by both nn.Module and ScriptModule.</p>
 </dd></dl>
 
 <p class="rubric">Methods</p>
@@ -114,7 +114,19 @@
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.parameter.HXBaseParameter.__init__" title="hxtorch.spiking.parameter.HXBaseParameter.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(hardware_value, model_value)</p></td>
-<td><p>Initialize self.</p></td>
+<td><p>Initialize internal Module state, shared by both nn.Module and ScriptModule.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.parameter.HXBaseParameter.forward" title="hxtorch.spiking.parameter.HXBaseParameter.forward"><code class="xref py py-obj docutils literal notranslate"><span class="pre">forward</span></code></a>()</p></td>
+<td><p>Define the computation performed at every call.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.parameter.HXBaseParameter.is_trainable" title="hxtorch.spiking.parameter.HXBaseParameter.is_trainable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_trainable</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.parameter.HXBaseParameter.make_trainable" title="hxtorch.spiking.parameter.HXBaseParameter.make_trainable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_trainable</span></code></a>([set_on_chip_func])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.parameter.HXBaseParameter.set_on_chip" title="hxtorch.spiking.parameter.HXBaseParameter.set_on_chip"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_on_chip</span></code></a>(chip, neuron_coordinates)</p></td>
+<td><p></p></td>
 </tr>
 </tbody>
 </table>
@@ -134,13 +146,42 @@
 </tbody>
 </table>
 <dl class="py method">
+<dt id="hxtorch.spiking.parameter.HXBaseParameter.forward">
+<code class="sig-name descname"><span class="pre">forward</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.parameter.HXBaseParameter.forward" title="Permalink to this definition"></a></dt>
+<dd><p>Define the computation performed at every call.</p>
+<p>Should be overridden by all subclasses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the recipe for forward pass needs to be defined within
+this function, one should call the <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code> instance afterwards
+instead of this since the former takes care of running the
+registered hooks while the latter silently ignores them.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
 <dt id="hxtorch.spiking.parameter.HXBaseParameter.hardware_value">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">hardware_value</span></code><a class="headerlink" href="#hxtorch.spiking.parameter.HXBaseParameter.hardware_value" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
+<dt id="hxtorch.spiking.parameter.HXBaseParameter.is_trainable">
+<code class="sig-name descname"><span class="pre">is_trainable</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.parameter.HXBaseParameter.is_trainable" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="hxtorch.spiking.parameter.HXBaseParameter.make_trainable">
+<code class="sig-name descname"><span class="pre">make_trainable</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">set_on_chip_func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.parameter.HXBaseParameter.make_trainable" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt id="hxtorch.spiking.parameter.HXBaseParameter.model_value">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">model_value</span></code><a class="headerlink" href="#hxtorch.spiking.parameter.HXBaseParameter.model_value" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="hxtorch.spiking.parameter.HXBaseParameter.set_on_chip">
+<code class="sig-name descname"><span class="pre">set_on_chip</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chip</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">neuron_coordinates</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.parameter.HXBaseParameter.set_on_chip" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>

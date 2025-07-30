@@ -140,6 +140,40 @@ the order (None, membrane_cadc, membrane_madc).</p></li>
 </dl>
 </dd></dl>
 
+<dl class="py function">
+<dt id="hxtorch.spiking.functional.li.exp_cuba_li_integration">
+<code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.functional.li.</span></code><code class="sig-name descname"><span class="pre">exp_cuba_li_integration</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">leak</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau_syn_exp</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau_mem_exp</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hw_data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">torch.Tensor</span><a class="headerlink" href="#hxtorch.spiking.functional.li.exp_cuba_li_integration" title="Permalink to this definition"></a></dt>
+<dd><p>Leaky-integrate neuron integration for realization of readout neurons
+with exponential synapses.
+Integrates according to:</p>
+<blockquote>
+<div><p>v^{t+1} = tau_mem_exp * v^t + (1 - tau_mem_exp) * i^t
+i^{t+1} = tau_mem_exp * i^t + x^t</p>
+</div></blockquote>
+<p>Assumes i^0, v^0 = 0.
+:note: One <cite>dt</cite> synaptic delay between input and output
+:param input: Input spikes in shape (time, batch, neurons).
+:param leak: The leak voltage as torch.Tensor.
+:param tau_syn_exp: The synaptic time constant as e^(-dt /  au_{syn})</p>
+<blockquote>
+<div><p>as torch.Tensor.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tau_mem_exp</strong> – The membrane time constant as e^(-dt /  au_{mem})
+as torch.Tensor.</p></li>
+<li><p><strong>hw_data</strong> – An optional tuple holding optional hardware observables in
+the order (None, membrane_cadc, membrane_madc).</p></li>
+<li><p><strong>dt</strong> – Integration step width</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Returns the membrane trace in shape (batch, time, neurons).</p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 
 
