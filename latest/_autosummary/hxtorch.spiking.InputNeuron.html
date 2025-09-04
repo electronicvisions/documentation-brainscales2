@@ -16,8 +16,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="hxtorch.spiking.MixedHXModelParameter" href="hxtorch.spiking.MixedHXModelParameter.html" />
-    <link rel="prev" title="hxtorch.spiking.IAFNeuron" href="hxtorch.spiking.IAFNeuron.html" /> 
+    <link rel="next" title="hxtorch.spiking.LI" href="hxtorch.spiking.LI.html" />
+    <link rel="prev" title="hxtorch.spiking.Handle" href="hxtorch.spiking.Handle.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -158,7 +158,7 @@ This module performs an identity mapping when <cite>forward</cite> is called.</p
 </table>
 <dl class="py method">
 <dt id="hxtorch.spiking.InputNeuron.add_to_input_generator">
-<code class="sig-name descname"><span class="pre">add_to_input_generator</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="hxtorch.spiking.handle.NeuronHandle.html#hxtorch.spiking.handle.NeuronHandle" title="hxtorch.spiking.handle.NeuronHandle"><span class="pre">hxtorch.spiking.handle.NeuronHandle</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">builder</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network.InputGenerator</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.InputNeuron.add_to_input_generator" title="Permalink to this definition"></a></dt>
+<code class="sig-name descname"><span class="pre">add_to_input_generator</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">types.Handle_current_membrane_cadc_membrane_madc_spikes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">builder</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network.InputGenerator</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.InputNeuron.add_to_input_generator" title="Permalink to this definition"></a></dt>
 <dd><p>Add the neurons events represented by this instance to grenades input
 generator.</p>
 <dl class="field-list simple">
@@ -188,13 +188,13 @@ to spike times. TODO: Allow sparse tensors.</p></li>
 
 <dl class="py method">
 <dt id="hxtorch.spiking.InputNeuron.forward_func">
-<code class="sig-name descname"><span class="pre">forward_func</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="hxtorch.spiking.handle.NeuronHandle.html#hxtorch.spiking.handle.NeuronHandle" title="hxtorch.spiking.handle.NeuronHandle"><span class="pre">hxtorch.spiking.handle.NeuronHandle</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">hw_data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="hxtorch.spiking.handle.NeuronHandle.html#hxtorch.spiking.handle.NeuronHandle" title="hxtorch.spiking.handle.NeuronHandle"><span class="pre">hxtorch.spiking.handle.NeuronHandle</span></a><a class="headerlink" href="#hxtorch.spiking.InputNeuron.forward_func" title="Permalink to this definition"></a></dt>
+<code class="sig-name descname"><span class="pre">forward_func</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">types.Handle_current_membrane_cadc_membrane_madc_spikes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hw_data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">types.Handle_current_membrane_cadc_membrane_madc_spikes</span><a class="headerlink" href="#hxtorch.spiking.InputNeuron.forward_func" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt id="hxtorch.spiking.InputNeuron.output_type">
 <code class="sig-name descname"><span class="pre">output_type</span></code><a class="headerlink" href="#hxtorch.spiking.InputNeuron.output_type" title="Permalink to this definition"></a></dt>
-<dd><p>alias of <a class="reference internal" href="hxtorch.spiking.handle.NeuronHandle.html#hxtorch.spiking.handle.NeuronHandle" title="hxtorch.spiking.handle.NeuronHandle"><code class="xref py py-class docutils literal notranslate"><span class="pre">hxtorch.spiking.handle.NeuronHandle</span></code></a></p>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">types.Handle_current_membrane_cadc_membrane_madc_spikes</span></code></p>
 </dd></dl>
 
 <dl class="py method">
@@ -234,8 +234,8 @@ torch.Tensors are required here to enable gradient flow.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="hxtorch.spiking.IAFNeuron.html" class="btn btn-neutral float-left" title="hxtorch.spiking.IAFNeuron" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="hxtorch.spiking.MixedHXModelParameter.html" class="btn btn-neutral float-right" title="hxtorch.spiking.MixedHXModelParameter" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="hxtorch.spiking.Handle.html" class="btn btn-neutral float-left" title="hxtorch.spiking.Handle" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="hxtorch.spiking.LI.html" class="btn btn-neutral float-right" title="hxtorch.spiking.LI" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

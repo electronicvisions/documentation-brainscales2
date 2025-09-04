@@ -17,7 +17,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="hxtorch.spiking.functional.li.Unterjubel" href="hxtorch.spiking.functional.li.Unterjubel.html" />
-    <link rel="prev" title="hxtorch.spiking.functional.iaf.Unterjubel" href="hxtorch.spiking.functional.iaf.Unterjubel.html" /> 
+    <link rel="prev" title="hxtorch.spiking.functional.eventprop.EventPropSynapseFunction" href="hxtorch.spiking.functional.eventprop.EventPropSynapseFunction.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -111,67 +111,14 @@
 </table>
 <p class="rubric">Functions</p>
 <dl class="py function">
-<dt id="hxtorch.spiking.functional.li.cuba_li_integration">
-<code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.functional.li.</span></code><code class="sig-name descname"><span class="pre">cuba_li_integration</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">leak</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau_syn</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau_mem</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hw_data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1e-06</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">torch.Tensor</span><a class="headerlink" href="#hxtorch.spiking.functional.li.cuba_li_integration" title="Permalink to this definition"></a></dt>
-<dd><p>Leaky-integrate neuron integration for realization of readout neurons
-with exponential synapses.
-Integrates according to:</p>
-<blockquote>
-<div><p>v^{t+1} = dt /  au_{mem} * (v_l - v^t + i^t) + v^t
-i^{t+1} = i^t * (1 - dt /       au_{syn}) + x^t</p>
-</div></blockquote>
-<p>Assumes i^0, v^0 = 0.
-:note: One <cite>dt</cite> synaptic delay between input and output</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>input</strong> – Input graded spike tensor of shape (batch, time, neurons).</p></li>
-<li><p><strong>leak</strong> – The leak voltage as torch.Tensor.</p></li>
-<li><p><strong>tau_syn</strong> – The synaptic time constant as torch.Tensor.</p></li>
-<li><p><strong>tau_mem</strong> – The membrane time constant as torch.Tensor.</p></li>
-<li><p><strong>hw_data</strong> – An optional tuple holding optional hardware observables in
-the order (None, membrane_cadc, membrane_madc).</p></li>
-<li><p><strong>dt</strong> – Integration step width</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Returns the membrane trace in shape (batch, time, neurons).</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
 <dt id="hxtorch.spiking.functional.li.exp_cuba_li_integration">
 <code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.functional.li.</span></code><code class="sig-name descname"><span class="pre">exp_cuba_li_integration</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">leak</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau_syn_exp</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau_mem_exp</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hw_data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">torch.Tensor</span><a class="headerlink" href="#hxtorch.spiking.functional.li.exp_cuba_li_integration" title="Permalink to this definition"></a></dt>
-<dd><p>Leaky-integrate neuron integration for realization of readout neurons
-with exponential synapses.
-Integrates according to:</p>
-<blockquote>
-<div><p>v^{t+1} = tau_mem_exp * v^t + (1 - tau_mem_exp) * i^t
-i^{t+1} = tau_mem_exp * i^t + x^t</p>
-</div></blockquote>
-<p>Assumes i^0, v^0 = 0.
-:note: One <cite>dt</cite> synaptic delay between input and output
-:param input: Input spikes in shape (time, batch, neurons).
-:param leak: The leak voltage as torch.Tensor.
-:param tau_syn_exp: The synaptic time constant as e^(-dt /  au_{syn})</p>
-<blockquote>
-<div><p>as torch.Tensor.</p>
-</div></blockquote>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>tau_mem_exp</strong> – The membrane time constant as e^(-dt /  au_{mem})
-as torch.Tensor.</p></li>
-<li><p><strong>hw_data</strong> – An optional tuple holding optional hardware observables in
-the order (None, membrane_cadc, membrane_madc).</p></li>
-<li><p><strong>dt</strong> – Integration step width</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Returns the membrane trace in shape (batch, time, neurons).</p>
-</dd>
-</dl>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="hxtorch.spiking.functional.li.warn">
+<code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.functional.li.</span></code><code class="sig-name descname"><span class="pre">warn</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stacklevel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.functional.li.warn" title="Permalink to this definition"></a></dt>
+<dd><p>Issue a warning, or maybe ignore it or raise an exception.</p>
 </dd></dl>
 
 </div>
@@ -180,7 +127,7 @@ the order (None, membrane_cadc, membrane_madc).</p></li>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="hxtorch.spiking.functional.iaf.Unterjubel.html" class="btn btn-neutral float-left" title="hxtorch.spiking.functional.iaf.Unterjubel" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="hxtorch.spiking.functional.eventprop.EventPropSynapseFunction.html" class="btn btn-neutral float-left" title="hxtorch.spiking.functional.eventprop.EventPropSynapseFunction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="hxtorch.spiking.functional.li.Unterjubel.html" class="btn btn-neutral float-right" title="hxtorch.spiking.functional.li.Unterjubel" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

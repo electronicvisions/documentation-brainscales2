@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>hxtorch.spiking.LIF &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="hxtorch.spiking.LIFObservables" href="hxtorch.spiking.LIFObservables.html" />
+    <link rel="prev" title="hxtorch.spiking.LI" href="hxtorch.spiking.LI.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            BrainScaleS-2 Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../brainscales2-demos/index.html">Demos &amp; Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software_components.html">Software Components</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../apis.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../apis_python.html">Python API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="pynn_brainscales.brainscales2.html">pynn_brainscales.brainscales2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jaxsnn.html">jaxsnn</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="hxtorch.html">hxtorch</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="hxtorch.examples.html">hxtorch.examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hxtorch.perceptron.html">hxtorch.perceptron</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="hxtorch.spiking.html">hxtorch.spiking</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hxtorch.CalibrationPath.html">hxtorch.CalibrationPath</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hxtorch.HWDBPath.html">hxtorch.HWDBPath</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pygrenade_vx.html">pygrenade_vx</a></li>
+<li class="toctree-l3"><a class="reference internal" href="calix.html">calix</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../apis_cpp.html">C++ API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BrainScaleS-2 Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../apis.html">BrainScaleS-2 API Documentation</a></li>
+          <li class="breadcrumb-item"><a href="../apis_python.html">BrainScaleS-2 API Documentation</a></li>
+          <li class="breadcrumb-item"><a href="hxtorch.html">hxtorch</a></li>
+          <li class="breadcrumb-item"><a href="hxtorch.spiking.html">hxtorch.spiking</a></li>
+      <li class="breadcrumb-item active">hxtorch.spiking.LIF</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_autosummary/hxtorch.spiking.LIF.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="hxtorch-spiking-lif">
+<h1>hxtorch.spiking.LIF<a class="headerlink" href="#hxtorch-spiking-lif" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt id="hxtorch.spiking.LIF">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.</span></code><code class="sig-name descname"><span class="pre">LIF</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">experiment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="hxtorch.spiking.Experiment.html#hxtorch.spiking.Experiment" title="hxtorch.spiking.Experiment"><span class="pre">Experiment</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">leak</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">ModuleParameterType</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">80</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reset</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">ModuleParameterType</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">80</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">ModuleParameterType</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">125</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau_mem</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">ModuleParameterType</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1e-05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau_syn</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">ModuleParameterType</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1e-05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i_synin_gm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">ModuleParameterType</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">500</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">membrane_capacitance</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">ModuleParameterType</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">HXTransformedModelParameter()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">refractory_time</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">ModuleParameterType</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1e-06</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">synapse_dac_bias</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">ModuleParameterType</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">600</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">holdoff_time</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">ModuleParameterType</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'superspike'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">50.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">execution_instance</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="hxtorch.spiking.ExecutionInstance.html#hxtorch.spiking.ExecutionInstance" title="hxtorch.spiking.ExecutionInstance"><span class="pre">ExecutionInstance</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enable_spike_recording</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enable_cadc_recording</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enable_cadc_recording_placement_in_dram</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enable_madc_recording</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">record_neuron_id</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">placement_constraint</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">halco.LogicalNeuronOnDLS</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trace_offset</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">halco.AtomicNeuronOnDLS</span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trace_scale</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">halco.AtomicNeuronOnDLS</span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cadc_time_shift</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shift_cadc_to_first</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interpolation_mode</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'linear'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">neuron_structure</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Morphology</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">extra_params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.LIF" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="hxtorch.spiking.modules.neuron.AELIF.html#hxtorch.spiking.modules.neuron.AELIF" title="hxtorch.spiking.modules.neuron.AELIF"><code class="xref py py-class docutils literal notranslate"><span class="pre">hxtorch.spiking.modules.neuron.AELIF</span></code></a></p>
+<p>Layer of leaky integrate-and-fire neurons.</p>
+<p>Caveat:
+For execution on hardware, this module can only be used in conjunction with
+a preceding Synapse module.</p>
+<dl class="py method">
+<dt id="hxtorch.spiking.LIF.__init__">
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">experiment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="hxtorch.spiking.Experiment.html#hxtorch.spiking.Experiment" title="hxtorch.spiking.Experiment"><span class="pre">Experiment</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">leak</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">ModuleParameterType</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">80</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reset</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">ModuleParameterType</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">80</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">ModuleParameterType</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">125</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau_mem</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">ModuleParameterType</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1e-05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau_syn</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">ModuleParameterType</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1e-05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i_synin_gm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">ModuleParameterType</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">500</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">membrane_capacitance</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">ModuleParameterType</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">HXTransformedModelParameter()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">refractory_time</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">ModuleParameterType</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1e-06</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">synapse_dac_bias</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">ModuleParameterType</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">600</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">holdoff_time</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">ModuleParameterType</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'superspike'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">50.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">execution_instance</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="hxtorch.spiking.ExecutionInstance.html#hxtorch.spiking.ExecutionInstance" title="hxtorch.spiking.ExecutionInstance"><span class="pre">ExecutionInstance</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enable_spike_recording</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enable_cadc_recording</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enable_cadc_recording_placement_in_dram</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enable_madc_recording</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">record_neuron_id</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">placement_constraint</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">halco.LogicalNeuronOnDLS</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trace_offset</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">halco.AtomicNeuronOnDLS</span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trace_scale</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">halco.AtomicNeuronOnDLS</span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cadc_time_shift</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shift_cadc_to_first</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interpolation_mode</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'linear'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">neuron_structure</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Morphology</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">extra_params</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.LIF.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Initialize a layer of leaky integrate-and-fire neurons.
+This module creates a population of spiking neurons of size <cite>size</cite>
+and has an internal spiking mask, which allows to disable the
+event output and spike recordings of specific neurons within the
+layer. This is particularly useful for dropout.</p>
+<p>The readout neuron is parameterized by the <a href="#id1"><span class="problematic" id="id2">`</span></a>ModuleParameterType`d
+parameters:</p>
+<blockquote>
+<div><p>leak, reset, threshold, tau_mem, tau_syn, i_synin_gm,
+membrane_capacitance, refractory_time, synapse_dac_bias,
+holdoff_time.</p>
+</div></blockquote>
+<p>More infos to the respective parameters on BSS-2 can be found in
+<cite>calix.spiking.neuron.NeuronCalibTarget</cite>. If the parameters are not
+given as <cite>ParameterType</cite>, they are implicitly converted to
+<cite>HXParameter</cite> which provides the same value to the BSS-2 calibration
+(<cite>param.hardware_value</cite>) (and thus the hardware operation state) as to
+the numerical model (<cite>param.model_value</cite>) defined in <cite>forward_func</cite>.
+<cite>MixedHXModelParameter</cite> and <cite>HXTransformedModelParameter</cite> allow using
+different values on BSS-2 and in the numerics. This is useful if the
+dynamic range on hardware and in the numerical model  differ. If so,
+the trace and weight scaling parameters need to be set accordingly in
+order to translate the weights to their corresponding hardware value
+and the hardware measurements into the dynamic range used in the
+numerics.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>size</strong> – Size of the population.</p></li>
+<li><p><strong>experiment</strong> – Experiment to append layer to.</p></li>
+<li><p><strong>leak</strong> – The leak potential. Defaults to HXParameter(80).</p></li>
+<li><p><strong>reset</strong> – The reset potential. Defaults to HXParameter(80).</p></li>
+<li><p><strong>threshold</strong> – The threshold potential. Defaults to
+HXParameter(125).</p></li>
+<li><p><strong>tau_syn</strong> – The synaptic time constant in s. Defaults to
+HXParameter(10e-6).</p></li>
+<li><p><strong>tau_mem</strong> – The membrane time constant in s. Defaults to
+HXParameter(10e-6).</p></li>
+<li><p><strong>i_synin_gm</strong> – A hardware parameter adjusting the hardware neuron
+-specific synaptic efficacy. Defaults to HXParameter(500).</p></li>
+<li><p><strong>membrane_capacitance</strong> – The capacitance of the membrane. The
+available range is 0 to approximately 2.2 pF, represented as 0 to
+63 LSB.</p></li>
+<li><p><strong>refractory_time</strong> – The refractory time constant in s. Defaults to
+HXParameter(1e-6).</p></li>
+<li><p><strong>synapse_dac_bias</strong> – Synapse DAC bias current that is desired. Can
+be lowered in order to reduce the amplitude of a spike at the input
+of the synaptic input OTA. This can be useful to avoid saturation
+when using larger synaptic time constants. Defaults to
+HXParameter(600).</p></li>
+<li><p><strong>holdoff_time</strong> – Target length of the holdoff period in s. The
+holdoff period is the time at the end of the refractory period in
+which the clamping to the reset voltage is already released but new
+spikes can still not be generated. Defaults to HXParameter(0e-6).</p></li>
+<li><p><strong>execution_instance</strong> – Execution instance to place to.</p></li>
+<li><p><strong>enable_spike_recording</strong> – Boolean flag to enable or disable spike
+recording. Note, this does not disable the event out put of
+neurons. The event output has to be disabled via <cite>mask</cite>.</p></li>
+<li><p><strong>enable_cadc_recording</strong> – Enables or disables parallel sampling of
+the populations membrane trace via the CADC. A maximum sample rate
+of 1.7us is possible.</p></li>
+<li><p><strong>enable_cadc_recording_placement_in_dram</strong> – Whether to place CADC
+recording data into DRAM (period ~6us) or SRAM (period ~2us).</p></li>
+<li><p><strong>enable_madc_recording</strong> – Enables or disables the recording of the
+neurons <cite>record_neuron_id</cite> membrane trace via the MADC. Only a
+single neuron can be recorded. This membrane traces is samples with
+a significant higher resolution as with the CADC.</p></li>
+<li><p><strong>record_neuron_id</strong> – The in-population neuron index of the neuron
+to be recorded with the MADC. This has only an effect when
+<cite>enable_madc_recording</cite> is enabled.</p></li>
+<li><p><strong>placement_constraint</strong> – An optional list of logical neurons
+defining where to place the module`s neurons on hardware.</p></li>
+<li><p><strong>trace_offset</strong> – The value by which the measured CADC traces are
+shifted before the scaling is applied. If this offset is given as
+float the same value is applied to all neuron traces in this
+population. One can also provide a torch tensor holding one offset
+for each individual neuron in this population. The corresponding
+tensor has to be of size <cite>size</cite>. Further, the offsets can be
+supplied in a dictionary where the keys are the logical neuron
+coordinates and the values are the offsets, i.e.
+Dict[LogicalNeuronOnDLS, float]. The dictionary has to provide one
+coordinate for each hardware neuron represented by this population,
+but might also hold neuron coordinates that do not correspond to
+this layer. The layer-specific offsets are then picked and applied
+implicitly.</p></li>
+<li><p><strong>trace_scale</strong> – The value by which the measured CADC traces are
+scaled after the offset is applied. If this scale is given as
+float all neuron traces are scaled with the same value population.
+One can also provide a torch tensor holding one scale for each
+individual neuron in this population. The corresponding tensor has
+to be of size <cite>size</cite>. Further, the scales can be supplied in a
+dictionary where the keys are the logical neuron coordinates and
+the values are the scales, i.e. Dict[LogicalNeuronOnDLS, float].
+The dictionary has to provide one coordinate for each hardware
+neuron represented by this population, but might also hold neuron
+coordinates that do not correspond to this layer. The layer-
+specific scales are then picked and applied implicitly.</p></li>
+<li><p><strong>cadc_time_shift</strong> – An integer indicating by how many time steps
+the CADC values are shifted in time. A positive value shifts later
+CADC samples to earlier times and vice versa for a negative value.</p></li>
+<li><p><strong>shift_cadc_to_first</strong> – A boolean indicating that the first
+measured CADC value is used as an offset. Note, this disables the
+param <cite>trace_offset</cite>.</p></li>
+<li><p><strong>interpolation_mode</strong> – The method used to interpolate the measured
+CADC traces onto the given time grid.</p></li>
+<li><p><strong>neuron_structure</strong> – Structure of the neuron. If not supplied a
+single neuron circuit is used.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.LIF.__init__" title="hxtorch.spiking.LIF.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(size, experiment[, leak, reset, …])</p></td>
+<td><p>Initialize a layer of leaky integrate-and-fire neurons.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+</tbody>
+</table>
+<dl class="py attribute">
+<dt id="hxtorch.spiking.LIF.output_type">
+<code class="sig-name descname"><span class="pre">output_type</span></code><a class="headerlink" href="#hxtorch.spiking.LIF.output_type" title="Permalink to this definition"></a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">types.Handle_current_membrane_cadc_membrane_madc_spikes</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="hxtorch.spiking.LI.html" class="btn btn-neutral float-left" title="hxtorch.spiking.LI" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="hxtorch.spiking.LIFObservables.html" class="btn btn-neutral float-right" title="hxtorch.spiking.LIFObservables" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Electronic Vision(s).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

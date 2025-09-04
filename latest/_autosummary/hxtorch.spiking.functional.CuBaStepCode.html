@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>hxtorch.spiking.functional.CuBaStepCode &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="hxtorch.spiking.functional.EventPropLIFFunction" href="hxtorch.spiking.functional.EventPropLIFFunction.html" />
+    <link rel="prev" title="hxtorch.spiking.functional.unterjubel.Unterjubel" href="hxtorch.spiking.functional.unterjubel.Unterjubel.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            BrainScaleS-2 Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../brainscales2-demos/index.html">Demos &amp; Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software_components.html">Software Components</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../apis.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../apis_python.html">Python API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="pynn_brainscales.brainscales2.html">pynn_brainscales.brainscales2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jaxsnn.html">jaxsnn</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="hxtorch.html">hxtorch</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="hxtorch.examples.html">hxtorch.examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hxtorch.perceptron.html">hxtorch.perceptron</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="hxtorch.spiking.html">hxtorch.spiking</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hxtorch.CalibrationPath.html">hxtorch.CalibrationPath</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hxtorch.HWDBPath.html">hxtorch.HWDBPath</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pygrenade_vx.html">pygrenade_vx</a></li>
+<li class="toctree-l3"><a class="reference internal" href="calix.html">calix</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../apis_cpp.html">C++ API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BrainScaleS-2 Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../apis.html">BrainScaleS-2 API Documentation</a></li>
+          <li class="breadcrumb-item"><a href="../apis_python.html">BrainScaleS-2 API Documentation</a></li>
+          <li class="breadcrumb-item"><a href="hxtorch.html">hxtorch</a></li>
+          <li class="breadcrumb-item"><a href="hxtorch.spiking.html">hxtorch.spiking</a></li>
+          <li class="breadcrumb-item"><a href="hxtorch.spiking.functional.html">hxtorch.spiking.functional</a></li>
+      <li class="breadcrumb-item active">hxtorch.spiking.functional.CuBaStepCode</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_autosummary/hxtorch.spiking.functional.CuBaStepCode.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="hxtorch-spiking-functional-cubastepcode">
+<h1>hxtorch.spiking.functional.CuBaStepCode<a class="headerlink" href="#hxtorch-spiking-functional-cubastepcode" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt id="hxtorch.spiking.functional.CuBaStepCode">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.functional.</span></code><code class="sig-name descname"><span class="pre">CuBaStepCode</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">leaky</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fire</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">refractory</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exponential</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subthreshold_adaptation</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spike_triggered_adaptation</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hw_voltage_trace_available</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hw_spikes_available</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.functional.CuBaStepCode" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="hxtorch.spiking.functional.CuBaStepCode.__init__">
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">leaky</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fire</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">refractory</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exponential</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subthreshold_adaptation</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spike_triggered_adaptation</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hw_voltage_trace_available</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hw_spikes_available</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.functional.CuBaStepCode.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Initialize a code factory that can generate the necessary
+code for executing one integration step in simulation of the forward
+pass.
+Based on the passed arguments, subparts of the AdEx differential
+equations are picked to be simulated. However, the least complex
+version still includes all terms necessary to simulate a leaky
+integrator (LI).
+Per default, the leaky-integrate-and-fire model (LIF) is simulated.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>leaky</strong> – Flag that enables / disables the leak term when set
+to true / false</p></li>
+<li><p><strong>fire</strong> – Flag that enables / disables firing behaviour when set
+to true / false.</p></li>
+<li><p><strong>refractory</strong> – Flag that is used to omit the execution of the
+refractory update in case the refractory time is set to zero.</p></li>
+<li><p><strong>exponential</strong> – Flag that enables / disables the exponential term
+in the differential equation for the membrane potential when set
+to true / false.</p></li>
+<li><p><strong>subthreshold_adaptation</strong> – Flag that enables / disables the
+subthreshold adaptation term in the differential equation of the
+adaptation when set to true / false.</p></li>
+<li><p><strong>spike_triggered_adaptation</strong> – Flag that enables / disables
+spike-triggered adaptation when set to true / false.</p></li>
+</ul>
+</dd>
+</dl>
+<p>If neither <cite>subthreshold_adaptation</cite> nor <cite>spike_triggered_adaptation</cite>
+are enabled, the adaptation won’t be simulated at all.</p>
+</dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.functional.CuBaStepCode.__init__" title="hxtorch.spiking.functional.CuBaStepCode.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([leaky, fire, refractory, …])</p></td>
+<td><p>Initialize a code factory that can generate the necessary code for executing one integration step in simulation of the forward pass.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.functional.CuBaStepCode.generate" title="hxtorch.spiking.functional.CuBaStepCode.generate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.functional.CuBaStepCode.adaptation_code_adaptation_dgl" title="hxtorch.spiking.functional.CuBaStepCode.adaptation_code_adaptation_dgl"><code class="xref py py-obj docutils literal notranslate"><span class="pre">adaptation_code_adaptation_dgl</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.functional.CuBaStepCode.adaptation_code_v_dgl" title="hxtorch.spiking.functional.CuBaStepCode.adaptation_code_v_dgl"><code class="xref py py-obj docutils literal notranslate"><span class="pre">adaptation_code_v_dgl</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.functional.CuBaStepCode.base_code" title="hxtorch.spiking.functional.CuBaStepCode.base_code"><code class="xref py py-obj docutils literal notranslate"><span class="pre">base_code</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.functional.CuBaStepCode.exponential_code" title="hxtorch.spiking.functional.CuBaStepCode.exponential_code"><code class="xref py py-obj docutils literal notranslate"><span class="pre">exponential_code</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.functional.CuBaStepCode.leak_term_code" title="hxtorch.spiking.functional.CuBaStepCode.leak_term_code"><code class="xref py py-obj docutils literal notranslate"><span class="pre">leak_term_code</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.functional.CuBaStepCode.non_unterjubel_reset_code" title="hxtorch.spiking.functional.CuBaStepCode.non_unterjubel_reset_code"><code class="xref py py-obj docutils literal notranslate"><span class="pre">non_unterjubel_reset_code</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.functional.CuBaStepCode.non_unterjubel_v_code" title="hxtorch.spiking.functional.CuBaStepCode.non_unterjubel_v_code"><code class="xref py py-obj docutils literal notranslate"><span class="pre">non_unterjubel_v_code</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.functional.CuBaStepCode.non_unterjubel_z_code" title="hxtorch.spiking.functional.CuBaStepCode.non_unterjubel_z_code"><code class="xref py py-obj docutils literal notranslate"><span class="pre">non_unterjubel_z_code</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.functional.CuBaStepCode.refractory_update" title="hxtorch.spiking.functional.CuBaStepCode.refractory_update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">refractory_update</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.functional.CuBaStepCode.spike_code" title="hxtorch.spiking.functional.CuBaStepCode.spike_code"><code class="xref py py-obj docutils literal notranslate"><span class="pre">spike_code</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.functional.CuBaStepCode.spike_triggered_adaptation_code" title="hxtorch.spiking.functional.CuBaStepCode.spike_triggered_adaptation_code"><code class="xref py py-obj docutils literal notranslate"><span class="pre">spike_triggered_adaptation_code</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.functional.CuBaStepCode.subthreshold_adaptation_code" title="hxtorch.spiking.functional.CuBaStepCode.subthreshold_adaptation_code"><code class="xref py py-obj docutils literal notranslate"><span class="pre">subthreshold_adaptation_code</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.functional.CuBaStepCode.unterjubel_v_code" title="hxtorch.spiking.functional.CuBaStepCode.unterjubel_v_code"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unterjubel_v_code</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.functional.CuBaStepCode.unterjubel_z_code" title="hxtorch.spiking.functional.CuBaStepCode.unterjubel_z_code"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unterjubel_z_code</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py attribute">
+<dt id="hxtorch.spiking.functional.CuBaStepCode.adaptation_code_adaptation_dgl">
+<code class="sig-name descname"><span class="pre">adaptation_code_adaptation_dgl</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'adaptation</span> <span class="pre">=</span> <span class="pre">adaptation</span> <span class="pre">*</span> <span class="pre">(1</span> <span class="pre">-</span> <span class="pre">dt</span> <span class="pre">/</span> <span class="pre">tau_adaptation)'</span></em><a class="headerlink" href="#hxtorch.spiking.functional.CuBaStepCode.adaptation_code_adaptation_dgl" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="hxtorch.spiking.functional.CuBaStepCode.adaptation_code_v_dgl">
+<code class="sig-name descname"><span class="pre">adaptation_code_v_dgl</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'</span> <span class="pre">-</span> <span class="pre">adaptation'</span></em><a class="headerlink" href="#hxtorch.spiking.functional.CuBaStepCode.adaptation_code_v_dgl" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="hxtorch.spiking.functional.CuBaStepCode.base_code">
+<code class="sig-name descname"><span class="pre">base_code</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'\n#</span> <span class="pre">Membrane</span> <span class="pre">increment\ndv</span> <span class="pre">=</span> <span class="pre">dt</span> <span class="pre">/</span> <span class="pre">c</span> <span class="pre">*</span> <span class="pre">(i{leak_term}{exponential_term}{adaptation_v_dgl})\n\n#</span> <span class="pre">Current\ni</span> <span class="pre">=</span> <span class="pre">i</span> <span class="pre">*</span> <span class="pre">(1</span> <span class="pre">-</span> <span class="pre">dt</span> <span class="pre">/</span> <span class="pre">tau_syn)</span> <span class="pre">+</span> <span class="pre">input[ts]\n\n#</span> <span class="pre">Apply</span> <span class="pre">integration</span> <span class="pre">step\n{unterjubel_voltage}\n\n#</span> <span class="pre">Spikes\n{spike}\n{unterjubel_spike}\n\n#</span> <span class="pre">Adaptation\n{adaptation_adaptation_dgl}{subthreshold_adaptation}</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">{spike_triggered_adaptation}\n\n#</span> <span class="pre">Reset\n{non_unterjubel_reset}\n\n#</span> <span class="pre">Refractory</span> <span class="pre">update\n{refractory_update}\n'</span></em><a class="headerlink" href="#hxtorch.spiking.functional.CuBaStepCode.base_code" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="hxtorch.spiking.functional.CuBaStepCode.exponential_code">
+<code class="sig-name descname"><span class="pre">exponential_code</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'</span> <span class="pre">+</span> <span class="pre">g_l</span> <span class="pre">*</span> <span class="pre">exp_slope</span> <span class="pre">*</span> <span class="pre">exp((v</span> <span class="pre">-</span> <span class="pre">exp_threshold)</span> <span class="pre">/</span> <span class="pre">exp_slope)'</span></em><a class="headerlink" href="#hxtorch.spiking.functional.CuBaStepCode.exponential_code" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="hxtorch.spiking.functional.CuBaStepCode.generate">
+<code class="sig-name descname"><span class="pre">generate</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="headerlink" href="#hxtorch.spiking.functional.CuBaStepCode.generate" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="hxtorch.spiking.functional.CuBaStepCode.leak_term_code">
+<code class="sig-name descname"><span class="pre">leak_term_code</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'</span> <span class="pre">+</span> <span class="pre">g_l</span> <span class="pre">*</span> <span class="pre">(leak</span> <span class="pre">-</span> <span class="pre">v)'</span></em><a class="headerlink" href="#hxtorch.spiking.functional.CuBaStepCode.leak_term_code" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="hxtorch.spiking.functional.CuBaStepCode.non_unterjubel_reset_code">
+<code class="sig-name descname"><span class="pre">non_unterjubel_reset_code</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'v</span> <span class="pre">=</span> <span class="pre">(1</span> <span class="pre">-</span> <span class="pre">z.detach())</span> <span class="pre">*</span> <span class="pre">v</span> <span class="pre">+</span> <span class="pre">z.detach()</span> <span class="pre">*</span> <span class="pre">reset'</span></em><a class="headerlink" href="#hxtorch.spiking.functional.CuBaStepCode.non_unterjubel_reset_code" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="hxtorch.spiking.functional.CuBaStepCode.non_unterjubel_v_code">
+<code class="sig-name descname"><span class="pre">non_unterjubel_v_code</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'v</span> <span class="pre">=</span> <span class="pre">v</span> <span class="pre">+</span> <span class="pre">dv'</span></em><a class="headerlink" href="#hxtorch.spiking.functional.CuBaStepCode.non_unterjubel_v_code" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="hxtorch.spiking.functional.CuBaStepCode.non_unterjubel_z_code">
+<code class="sig-name descname"><span class="pre">non_unterjubel_z_code</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'z</span> <span class="pre">=</span> <span class="pre">spike'</span></em><a class="headerlink" href="#hxtorch.spiking.functional.CuBaStepCode.non_unterjubel_z_code" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="hxtorch.spiking.functional.CuBaStepCode.refractory_update">
+<code class="sig-name descname"><span class="pre">refractory_update</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'z,</span> <span class="pre">v,</span> <span class="pre">ref_state</span> <span class="pre">=</span> <span class="pre">refractory_update(\n</span>&#160;&#160;&#160; <span class="pre">z,</span> <span class="pre">v,</span> <span class="pre">ref_state,</span> <span class="pre">spikes_hw[ts],</span> <span class="pre">membrane_hw[ts],\n</span>&#160;&#160;&#160; <span class="pre">refractory_time=refractory_time,</span> <span class="pre">reset=reset,</span> <span class="pre">dt=dt)'</span></em><a class="headerlink" href="#hxtorch.spiking.functional.CuBaStepCode.refractory_update" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="hxtorch.spiking.functional.CuBaStepCode.spike_code">
+<code class="sig-name descname"><span class="pre">spike_code</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'spike</span> <span class="pre">=</span> <span class="pre">spiking_threshold(v</span> <span class="pre">-</span> <span class="pre">threshold,</span> <span class="pre">method,</span> <span class="pre">alpha)'</span></em><a class="headerlink" href="#hxtorch.spiking.functional.CuBaStepCode.spike_code" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="hxtorch.spiking.functional.CuBaStepCode.spike_triggered_adaptation_code">
+<code class="sig-name descname"><span class="pre">spike_triggered_adaptation_code</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'</span> <span class="pre">+</span> <span class="pre">b</span> <span class="pre">*</span> <span class="pre">z'</span></em><a class="headerlink" href="#hxtorch.spiking.functional.CuBaStepCode.spike_triggered_adaptation_code" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="hxtorch.spiking.functional.CuBaStepCode.subthreshold_adaptation_code">
+<code class="sig-name descname"><span class="pre">subthreshold_adaptation_code</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'</span> <span class="pre">+</span> <span class="pre">dt</span> <span class="pre">/</span> <span class="pre">tau_adaptation</span> <span class="pre">*</span> <span class="pre">a</span> <span class="pre">*</span> <span class="pre">(v</span> <span class="pre">-</span> <span class="pre">leak)'</span></em><a class="headerlink" href="#hxtorch.spiking.functional.CuBaStepCode.subthreshold_adaptation_code" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="hxtorch.spiking.functional.CuBaStepCode.unterjubel_v_code">
+<code class="sig-name descname"><span class="pre">unterjubel_v_code</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'v</span> <span class="pre">=</span> <span class="pre">Unterjubel.apply(dv</span> <span class="pre">+</span> <span class="pre">v,</span> <span class="pre">membrane_hw[ts])'</span></em><a class="headerlink" href="#hxtorch.spiking.functional.CuBaStepCode.unterjubel_v_code" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="hxtorch.spiking.functional.CuBaStepCode.unterjubel_z_code">
+<code class="sig-name descname"><span class="pre">unterjubel_z_code</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'z</span> <span class="pre">=</span> <span class="pre">Unterjubel.apply(spike,</span> <span class="pre">spikes_hw[ts])'</span></em><a class="headerlink" href="#hxtorch.spiking.functional.CuBaStepCode.unterjubel_z_code" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="hxtorch.spiking.functional.unterjubel.Unterjubel.html" class="btn btn-neutral float-left" title="hxtorch.spiking.functional.unterjubel.Unterjubel" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="hxtorch.spiking.functional.EventPropLIFFunction.html" class="btn btn-neutral float-right" title="hxtorch.spiking.functional.EventPropLIFFunction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Electronic Vision(s).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

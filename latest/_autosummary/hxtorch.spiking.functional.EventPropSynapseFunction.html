@@ -17,7 +17,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="hxtorch.spiking.functional.SuperSpike" href="hxtorch.spiking.functional.SuperSpike.html" />
-    <link rel="prev" title="hxtorch.spiking.functional.EventPropNeuronFunction" href="hxtorch.spiking.functional.EventPropNeuronFunction.html" /> 
+    <link rel="prev" title="hxtorch.spiking.functional.EventPropLIFFunction" href="hxtorch.spiking.functional.EventPropLIFFunction.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -100,7 +100,7 @@
 <dt id="hxtorch.spiking.functional.EventPropSynapseFunction">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.functional.</span></code><code class="sig-name descname"><span class="pre">EventPropSynapseFunction</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.functional.EventPropSynapseFunction" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">torch.autograd.function.Function</span></code></p>
-<p>Synapse function for proper gradient transport when using EventPropNeuron.</p>
+<p>Synapse function for proper gradient transport when using EventPropLIF.</p>
 <dl class="py method">
 <dt id="hxtorch.spiking.functional.EventPropSynapseFunction.__init__">
 <code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.functional.EventPropSynapseFunction.__init__" title="Permalink to this definition"></a></dt>
@@ -115,10 +115,10 @@
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.functional.EventPropSynapseFunction.backward" title="hxtorch.spiking.functional.EventPropSynapseFunction.backward"><code class="xref py py-obj docutils literal notranslate"><span class="pre">backward</span></code></a>(ctx, grad_output)</p></td>
-<td><p>Split gradient_output coming from EventPropNeuron and return Input gradient and weight gradient (adjoint at spike times):     W (lambda_{v} - lambda_{i})     - tau_{s} lambda_{i} z</p></td>
+<td><p>Split gradient_output coming from EventPropLIF and return Input gradient and weight gradient (adjoint at spike times):     W (lambda_{v} - lambda_{i})     - tau_{s} lambda_{i} z</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.functional.EventPropSynapseFunction.forward" title="hxtorch.spiking.functional.EventPropSynapseFunction.forward"><code class="xref py py-obj docutils literal notranslate"><span class="pre">forward</span></code></a>(ctx, input, weight[, _])</p></td>
-<td><p>This should be used in combination with EventPropNeuron.</p></td>
+<td><p>This should be used in combination with EventPropLIF.</p></td>
 </tr>
 </tbody>
 </table>
@@ -134,7 +134,7 @@
 <dl class="py method">
 <dt id="hxtorch.spiking.functional.EventPropSynapseFunction.backward">
 <em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">backward</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grad_output</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#hxtorch.spiking.functional.EventPropSynapseFunction.backward" title="Permalink to this definition"></a></dt>
-<dd><p>Split gradient_output coming from EventPropNeuron and return
+<dd><p>Split gradient_output coming from EventPropLIF and return
 Input gradient and weight gradient (adjoint at spike times):</p>
 <blockquote>
 <div><p>W (lambda_{v} - lambda_{i})
@@ -156,7 +156,7 @@ neuron layer.</p>
 <dl class="py method">
 <dt id="hxtorch.spiking.functional.EventPropSynapseFunction.forward">
 <em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">forward</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">torch.Tensor</span><a class="headerlink" href="#hxtorch.spiking.functional.EventPropSynapseFunction.forward" title="Permalink to this definition"></a></dt>
-<dd><p>This should be used in combination with EventPropNeuron. Apply linear
+<dd><p>This should be used in combination with EventPropLIF. Apply linear
 to input using weight and use a stacked output in order to be able to
 return correct terms according to EventProp to previous layer and
 weights.</p>
@@ -183,7 +183,7 @@ tensor with zeros but same shape.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="hxtorch.spiking.functional.EventPropNeuronFunction.html" class="btn btn-neutral float-left" title="hxtorch.spiking.functional.EventPropNeuronFunction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="hxtorch.spiking.functional.EventPropLIFFunction.html" class="btn btn-neutral float-left" title="hxtorch.spiking.functional.EventPropLIFFunction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="hxtorch.spiking.functional.SuperSpike.html" class="btn btn-neutral float-right" title="hxtorch.spiking.functional.SuperSpike" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

@@ -16,7 +16,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="hxtorch.spiking.handle.Handle" href="hxtorch.spiking.handle.Handle.html" />
+    <link rel="next" title="hxtorch.spiking.handle.ABC" href="hxtorch.spiking.handle.ABC.html" />
     <link rel="prev" title="hxtorch.spiking.functional.SuperSpike" href="hxtorch.spiking.functional.SuperSpike.html" /> 
 </head>
 
@@ -104,29 +104,103 @@ after hardware data acquisition</p>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.handle.Handle.html#hxtorch.spiking.handle.Handle" title="hxtorch.spiking.handle.Handle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Handle</span></code></a>()</p></td>
-<td><p>Base class for HX tensor handles.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.handle.ABC.html#hxtorch.spiking.handle.ABC" title="hxtorch.spiking.handle.ABC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ABC</span></code></a>()</p></td>
+<td><p>Helper class that provides a standard way to create an ABC using inheritance.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.handle.HandleMeta.html#hxtorch.spiking.handle.HandleMeta" title="hxtorch.spiking.handle.HandleMeta"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HandleMeta</span></code></a>(clsname, bases, dict_)</p></td>
-<td><p>Meta class to create Handle types with properties</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.handle.Handle.html#hxtorch.spiking.handle.Handle" title="hxtorch.spiking.handle.Handle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Handle</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Factory for classes which are to be used as custom handles for observable data, depending on the specific observables a module deals with.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.handle.NeuronHandle.html#hxtorch.spiking.handle.NeuronHandle" title="hxtorch.spiking.handle.NeuronHandle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NeuronHandle</span></code></a>(spikes, None] = None, …)</p></td>
-<td><p>Specialization for HX neuron observables</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.handle.LIFObservables.html#hxtorch.spiking.handle.LIFObservables" title="hxtorch.spiking.handle.LIFObservables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LIFObservables</span></code></a></p></td>
+<td><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">types.Handle_current_membrane_cadc_membrane_madc_spikes</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.handle.OrderedDict.html#hxtorch.spiking.handle.OrderedDict" title="hxtorch.spiking.handle.OrderedDict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OrderedDict</span></code></a></p></td>
-<td><p>Dictionary that remembers insertion order</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.handle.LIObservables.html#hxtorch.spiking.handle.LIObservables" title="hxtorch.spiking.handle.LIObservables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LIObservables</span></code></a></p></td>
+<td><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">types.Handle_current_membrane_cadc_membrane_madc</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.handle.ReadoutNeuronHandle.html#hxtorch.spiking.handle.ReadoutNeuronHandle" title="hxtorch.spiking.handle.ReadoutNeuronHandle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ReadoutNeuronHandle</span></code></a>(membrane_cadc, …)</p></td>
-<td><p>Specialization for HX neuron observables</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.handle.SynapseHandle.html#hxtorch.spiking.handle.SynapseHandle" title="hxtorch.spiking.handle.SynapseHandle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SynapseHandle</span></code></a></p></td>
+<td><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">types.Handle_graded_spikes</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.handle.SynapseHandle.html#hxtorch.spiking.handle.SynapseHandle" title="hxtorch.spiking.handle.SynapseHandle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SynapseHandle</span></code></a>(graded_spikes, None] = None)</p></td>
-<td><p>Specialization for HX synapses</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.handle.TensorHandle.html#hxtorch.spiking.handle.TensorHandle" title="hxtorch.spiking.handle.TensorHandle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TensorHandle</span></code></a>(tensor, None] = None)</p></td>
-<td><p>Specialization for single tensor, mostly for testing</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.handle.TensorHandle.html#hxtorch.spiking.handle.TensorHandle" title="hxtorch.spiking.handle.TensorHandle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TensorHandle</span></code></a></p></td>
+<td><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">types.Handle_tensor</span></code></p></td>
 </tr>
 </tbody>
 </table>
+<p class="rubric">Functions</p>
+<dl class="py function">
+<dt id="hxtorch.spiking.handle.astuple">
+<code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.handle.</span></code><code class="sig-name descname"><span class="pre">astuple</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obj</span></em>, <em class="sig-param"><span class="pre">*</span></em>, <em class="sig-param"><span class="pre">tuple_factory=&lt;class</span> <span class="pre">'tuple'&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.handle.astuple" title="Permalink to this definition"></a></dt>
+<dd><p>Return the fields of a dataclass instance as a new tuple of field values.</p>
+<p>Example usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">C</span><span class="p">:</span>
+    <span class="n">x</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">y</span><span class="p">:</span> <span class="nb">int</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">C</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">astuple</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If given, ‘tuple_factory’ will be used instead of built-in tuple.
+The function applies recursively to field values that are
+dataclass instances. This will also look into built-in containers:
+tuples, lists, and dicts.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="hxtorch.spiking.handle.field">
+<code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.handle.</span></code><code class="sig-name descname"><span class="pre">field</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">*</span></em>, <em class="sig-param"><span class="pre">default=&lt;dataclasses._MISSING_TYPE</span> <span class="pre">object&gt;</span></em>, <em class="sig-param"><span class="pre">default_factory=&lt;dataclasses._MISSING_TYPE</span> <span class="pre">object&gt;</span></em>, <em class="sig-param"><span class="pre">init=True</span></em>, <em class="sig-param"><span class="pre">repr=True</span></em>, <em class="sig-param"><span class="pre">hash=None</span></em>, <em class="sig-param"><span class="pre">compare=True</span></em>, <em class="sig-param"><span class="pre">metadata=None</span></em>, <em class="sig-param"><span class="pre">kw_only=&lt;dataclasses._MISSING_TYPE</span> <span class="pre">object&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.handle.field" title="Permalink to this definition"></a></dt>
+<dd><p>Return an object to identify dataclass fields.</p>
+<p>default is the default value of the field.  default_factory is a
+0-argument function called to initialize a field’s value.  If init
+is true, the field will be a parameter to the class’s __init__()
+function.  If repr is true, the field will be included in the
+object’s repr().  If hash is true, the field will be included in the
+object’s hash().  If compare is true, the field will be used in
+comparison functions.  metadata, if specified, must be a mapping
+which is stored but not otherwise examined by dataclass.  If kw_only
+is true, the field will become a keyword-only parameter to
+__init__().</p>
+<p>It is an error to specify both default and default_factory.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="hxtorch.spiking.handle.fields">
+<code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.handle.</span></code><code class="sig-name descname"><span class="pre">fields</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">class_or_instance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.handle.fields" title="Permalink to this definition"></a></dt>
+<dd><p>Return a tuple describing the fields of this dataclass.</p>
+<p>Accepts a dataclass or an instance of one. Tuple elements are of
+type Field.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="hxtorch.spiking.handle.is_dataclass">
+<code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.handle.</span></code><code class="sig-name descname"><span class="pre">is_dataclass</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.handle.is_dataclass" title="Permalink to this definition"></a></dt>
+<dd><p>Returns True if obj is a dataclass or an instance of a
+dataclass.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="hxtorch.spiking.handle.make_dataclass">
+<code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.handle.</span></code><code class="sig-name descname"><span class="pre">make_dataclass</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fields</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bases</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">namespace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">repr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unsafe_hash</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frozen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">match_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kw_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slots</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weakref_slot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.handle.make_dataclass" title="Permalink to this definition"></a></dt>
+<dd><p>Return a new dynamically created dataclass.</p>
+<p>The dataclass name will be ‘cls_name’.  ‘fields’ is an iterable
+of either (name), (name, type) or (name, type, Field) objects. If type is
+omitted, use the string ‘typing.Any’.  Field objects are created by
+the equivalent of calling ‘field(name, type [, Field-info])’.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="n">make_dataclass</span><span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="nb">int</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">))],</span> <span class="n">bases</span><span class="o">=</span><span class="p">(</span><span class="n">Base</span><span class="p">,))</span>
+</pre></div>
+</div>
+<p>is equivalent to:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">:</span> <span class="s1">&#39;typing.Any&#39;</span>
+    <span class="n">y</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">z</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For the bases and namespace parameters, see the builtin type() function.</p>
+<p>The parameters init, repr, eq, order, unsafe_hash, and frozen are passed to
+dataclass().</p>
+</dd></dl>
+
 </div>
 
 
@@ -134,7 +208,7 @@ after hardware data acquisition</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="hxtorch.spiking.functional.SuperSpike.html" class="btn btn-neutral float-left" title="hxtorch.spiking.functional.SuperSpike" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="hxtorch.spiking.handle.Handle.html" class="btn btn-neutral float-right" title="hxtorch.spiking.handle.Handle" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="hxtorch.spiking.handle.ABC.html" class="btn btn-neutral float-right" title="hxtorch.spiking.handle.ABC" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

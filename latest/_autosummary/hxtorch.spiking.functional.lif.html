@@ -111,160 +111,9 @@
 </table>
 <p class="rubric">Functions</p>
 <dl class="py function">
-<dt id="hxtorch.spiking.functional.lif.cuba_lif_integration">
-<code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.functional.lif.</span></code><code class="sig-name descname"><span class="pre">cuba_lif_integration</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">leak</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reset</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau_syn</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau_mem</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hw_data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1e-06</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">,</span> </span><span class="p"><span class="pre">…</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#hxtorch.spiking.functional.lif.cuba_lif_integration" title="Permalink to this definition"></a></dt>
-<dd><p>Leaky-integrate and fire neuron integration for realization of simple
-spiking neurons with exponential synapses.
-Integrates according to:</p>
-<blockquote>
-<div><p>i^{t+1} = i^t * (1 - dt /       au_{syn}) + x^t
-v^{t+1} = dt /  au_{men} * (v_l - v^t + i^t) + v^t
-z^{t+1} = 1 if v^{t+1} &gt; params.threshold
-v^{t+1} = params.reset if z^{t+1} == 1</p>
-</div></blockquote>
-<p>Assumes i^0, v^0 = 0, v_leak
-:note: One <cite>dt</cite> synaptic delay between input and output</p>
-<p>TODO: Issue 3992</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>input</strong> – Tensor holding ‘graded_spikes’ in shape (batch, time,
-neurons).</p></li>
-<li><p><strong>leak</strong> – The leak voltage as torch.Tensor.</p></li>
-<li><p><strong>reset</strong> – The reset voltage as torch.Tensor.</p></li>
-<li><p><strong>threshold</strong> – The threshold voltage as torch.Tensor.</p></li>
-<li><p><strong>tau_syn</strong> – The synaptic time constant as torch.Tensor.</p></li>
-<li><p><strong>tau_mem</strong> – The membrane time constant as torch.Tensor.</p></li>
-<li><p><strong>method</strong> – The method used for the surrogate gradient, e.g.,
-‘superspike’.</p></li>
-<li><p><strong>alpha</strong> – The slope of the surrogate gradient in case of ‘superspike’.</p></li>
-<li><p><strong>hw_data</strong> – An optional tuple holding optional hardware observables in
-the order (spikes, membrane_cadc, membrane_madc).</p></li>
-<li><p><strong>dt</strong> – Integration step width.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Returns tuple holding tensors with membrane traces, spikes
-and synaptic current. Tensors are of shape (batch, time, neurons).</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="hxtorch.spiking.functional.lif.cuba_lif_step">
-<code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.functional.lif.</span></code><code class="sig-name descname"><span class="pre">cuba_lif_step</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spikes_hw</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">membrane_hw</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">leak</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reset</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau_syn</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau_mem</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1e-06</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">,</span> </span><span class="p"><span class="pre">…</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#hxtorch.spiking.functional.lif.cuba_lif_step" title="Permalink to this definition"></a></dt>
-<dd><p>Integrate the membrane of a neurons one time step further according to the
-Leaky-integrate and fire dynamics.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>z</strong> – The spike tensor at time step t.</p></li>
-<li><p><strong>v</strong> – The membrane tensor at time step t.</p></li>
-<li><p><strong>i</strong> – The current tensor at time step t.</p></li>
-<li><p><strong>input</strong> – The input tensor at time step t (graded spikes).</p></li>
-<li><p><strong>spikes_hw</strong> – The hardware spikes corresponding to the current time
-step. In case this is None, no HW spikes will be injected.</p></li>
-<li><p><strong>membrane_hw</strong> – The hardware CADC traces corresponding to the current
-time step. In case this is None, no HW CADC values will be injected.</p></li>
-<li><p><strong>leak</strong> – The leak voltage as torch.Tensor.</p></li>
-<li><p><strong>reset</strong> – The reset voltage as torch.Tensor.</p></li>
-<li><p><strong>threshold</strong> – The threshold voltage as torch.Tensor.</p></li>
-<li><p><strong>tau_syn</strong> – The synaptic time constant as torch.Tensor.</p></li>
-<li><p><strong>tau_mem</strong> – The membrane time constant as torch.Tensor.</p></li>
-<li><p><strong>method</strong> – The method used for the surrogate gradient, e.g.,
-‘superspike’.</p></li>
-<li><p><strong>alpha</strong> – The slope of the surrogate gradient in case of ‘superspike’.</p></li>
-<li><p><strong>dt</strong> – Integration step width.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Returns a tuple (z, v, i) holding the tensors of time step t + 1.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="hxtorch.spiking.functional.lif.cuba_refractory_lif_integration">
-<code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.functional.lif.</span></code><code class="sig-name descname"><span class="pre">cuba_refractory_lif_integration</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">leak</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reset</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau_syn</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau_mem</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">refractory_time</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hw_data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1e-06</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">,</span> </span><span class="p"><span class="pre">…</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#hxtorch.spiking.functional.lif.cuba_refractory_lif_integration" title="Permalink to this definition"></a></dt>
-<dd><p>Leaky-integrate and fire neuron integration for realization of simple
-spiking neurons with exponential synapses and refractory period.</p>
-<dl class="simple">
-<dt>Integrates according to:</dt><dd><p>i^{t+1} = i^t * (1 - dt /       au_{syn}) + x^t
-v^{t+1} = dt /  au_{men} * (v_l - v^t + i^{t+1}) + v^t
-z^{t+1} = 1 if v^{t+1} &gt; params.v_th
-v^{t+1} = params.v_reset if z^{t+1} == 1 or ref^{t+1} &gt; 0
-ref^{t+1} = params.tau_ref
-ref^{t+1} -= 1</p>
-</dd>
-</dl>
-<p>Assumes i^0, v^0 = 0.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>input</strong> – Tensor holding ‘graded_spikes’ in shape (batch, time,
-neurons).</p></li>
-<li><p><strong>leak</strong> – The leak voltage as torch.Tensor.</p></li>
-<li><p><strong>reset</strong> – The reset voltage as torch.Tensor.</p></li>
-<li><p><strong>threshold</strong> – The threshold voltage as torch.Tensor.</p></li>
-<li><p><strong>tau_syn</strong> – The synaptic time constant as torch.Tensor.</p></li>
-<li><p><strong>tau_mem</strong> – The membrane time constant as torch.Tensor.</p></li>
-<li><p><strong>refractory_time</strong> – The refractory time constant as torch.Tensor.</p></li>
-<li><p><strong>method</strong> – The method used for the surrogate gradient, e.g.,
-‘superspike’.</p></li>
-<li><p><strong>alpha</strong> – The slope of the surrogate gradient in case of ‘superspike’.</p></li>
-<li><p><strong>hw_data</strong> – An optional tuple holding optional hardware observables in
-the order (spikes, membrane_cadc, membrane_madc).</p></li>
-<li><p><strong>dt</strong> – Integration step width.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Returns tuple holding tensors with membrane traces, spikes
-and synaptic current. Tensors are of shape (batch, time, neurons).</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
 <dt id="hxtorch.spiking.functional.lif.exp_cuba_lif_integration">
 <code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.functional.lif.</span></code><code class="sig-name descname"><span class="pre">exp_cuba_lif_integration</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">leak</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reset</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau_syn_exp</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau_mem_exp</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hw_data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">,</span> </span><span class="p"><span class="pre">…</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#hxtorch.spiking.functional.lif.exp_cuba_lif_integration" title="Permalink to this definition"></a></dt>
-<dd><p>Leaky-integrate and fire neuron integration for realization of simple
-spiking neurons with exponential synapses.
-Integrates according to:
-Integrates according to:</p>
-<blockquote>
-<div><p>v^{t+1} = tau_mem_exp * v^t + (1 - tau_mem_exp) * i^t
-i^{t+1} = tau_syn_exp * i^t + x^t
-z^{t+1} = 1 if v^{t+1} &gt; params.v_th
-v^{t+1} = params.v_reset if z^{t+1} == 1</p>
-</div></blockquote>
-<p>Assumes i^0, v^0 = 0, v_leak
-:note: One <cite>dt</cite> synaptic delay between input and output</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>input</strong> – Tensor holding ‘graded_spikes’ in shape (batch, time,
-neurons).</p></li>
-<li><p><strong>leak</strong> – The leak voltage as torch.Tensor.</p></li>
-<li><p><strong>reset</strong> – The reset voltage as torch.Tensor.</p></li>
-<li><p><strong>threshold</strong> – The threshold voltage as torch.Tensor.</p></li>
-<li><p><strong>tau_syn_exp</strong> – The synaptic time constant as e^(-dt /  au_{syn})
-as torch.Tensor.</p></li>
-<li><p><strong>tau_mem_exp</strong> – The membrane time constant as e^(-dt /  au_{mem})
-as torch.Tensor.</p></li>
-<li><p><strong>method</strong> – The method used for the surrogate gradient, e.g.,
-‘superspike’.</p></li>
-<li><p><strong>alpha</strong> – The slope of the surrogate gradient in case of ‘superspike’.</p></li>
-<li><p><strong>hw_data</strong> – An optional tuple holding optional hardware observables in
-the order (spikes, membrane_cadc, membrane_madc).</p></li>
-<li><p><strong>dt</strong> – Integration step width.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Returns tuple holding tensors with membrane traces, spikes
-and synaptic current. Tensors are of shape (batch, time, neurons).</p>
-</dd>
-</dl>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="py function">
 <dt id="hxtorch.spiking.functional.lif.refractory_update">
@@ -313,6 +162,12 @@ derivative in case of ‘superspike’.</p>
 <dd class="field-even"><p>Returns the tensor of the threshold function.</p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="hxtorch.spiking.functional.lif.warn">
+<code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.functional.lif.</span></code><code class="sig-name descname"><span class="pre">warn</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stacklevel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.functional.lif.warn" title="Permalink to this definition"></a></dt>
+<dd><p>Issue a warning, or maybe ignore it or raise an exception.</p>
 </dd></dl>
 
 </div>

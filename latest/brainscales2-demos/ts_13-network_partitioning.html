@@ -339,9 +339,9 @@ This approach prevents weight over-saturation and helps maintain consistency bet
         <span class="bp">self</span><span class="o">.</span><span class="n">weight_exp_rolloff</span> <span class="o">=</span> <span class="n">weight_exp_rolloff</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">use_quantization</span> <span class="o">=</span> <span class="n">use_quantization</span>
 
-    <span class="k">def</span> <span class="nf">forward_func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">NeuronHandle</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">SynapseHandle</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">forward_func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">LIFObservables</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">SynapseHandle</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">SynapseHandle</span><span class="p">(</span>
-            <span class="n">F</span><span class="o">.</span><span class="n">linear_exponential_clamp</span><span class="p">(</span>
+            <span class="n">graded_spikes</span><span class="o">=</span><span class="n">F</span><span class="o">.</span><span class="n">linear_exponential_clamp</span><span class="p">(</span>
                 <span class="n">inputs</span><span class="o">.</span><span class="n">spikes</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">weight</span><span class="p">,</span> <span class="n">cap</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cap</span><span class="p">,</span> <span class="n">start_weight</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">weight_exp_rolloff</span><span class="p">,</span>
                 <span class="n">quantize</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">use_quantization</span><span class="p">))</span>
 
@@ -424,7 +424,7 @@ This approach prevents weight over-saturation and helps maintain consistency bet
             <span class="bp">self</span><span class="o">.</span><span class="n">linear_hidden</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">linear</span><span class="p">)</span>
             <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;linear_hidden_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">linear</span><span class="p">)</span>
 
-            <span class="n">neuron</span> <span class="o">=</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">Neuron</span><span class="p">(</span>
+            <span class="n">neuron</span> <span class="o">=</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">LIF</span><span class="p">(</span>
                 <span class="n">size</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span>
                 <span class="o">**</span><span class="n">lif_params</span><span class="p">,</span>
                 <span class="n">experiment</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">exp</span><span class="p">,</span>
@@ -457,7 +457,7 @@ This approach prevents weight over-saturation and helps maintain consistency bet
             <span class="bp">self</span><span class="o">.</span><span class="n">linear_output</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">linear</span><span class="p">)</span>
             <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;linear_output_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">linear</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">neuron_output</span> <span class="o">=</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">ReadoutNeuron</span><span class="p">(</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">neuron_output</span> <span class="o">=</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">LI</span><span class="p">(</span>
             <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
             <span class="o">**</span><span class="n">li_params</span><span class="p">,</span>
             <span class="n">experiment</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">exp</span><span class="p">,</span>
@@ -488,7 +488,7 @@ This approach prevents weight over-saturation and helps maintain consistency bet
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Perform a forward path.</span>
 
-<span class="sd">        :param spikes: NeuronHandle holding spikes as input.</span>
+<span class="sd">        :param spikes: LIFObservables holding spikes as input.</span>
 
 <span class="sd">        :return: Returns the output of the network, i.e. membrane traces of</span>
 <span class="sd">            the readout neurons.</span>
@@ -501,13 +501,13 @@ This approach prevents weight over-saturation and helps maintain consistency bet
         <span class="n">inputs</span> <span class="o">=</span> <span class="n">spikes</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">spikes</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">spikes</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 
         <span class="c1"># Input -&gt; hidden</span>
-        <span class="n">g1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">linear_hidden_0</span><span class="p">(</span><span class="n">hxsnn</span><span class="o">.</span><span class="n">NeuronHandle</span><span class="p">(</span><span class="n">inputs</span><span class="p">))</span>
+        <span class="n">g1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">linear_hidden_0</span><span class="p">(</span><span class="n">hxsnn</span><span class="o">.</span><span class="n">LIFObservables</span><span class="p">(</span><span class="n">spikes</span><span class="o">=</span><span class="n">inputs</span><span class="p">))</span>
         <span class="n">s1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">neuron_hidden_0</span><span class="p">(</span><span class="n">g1</span><span class="p">)</span>
-        <span class="n">g2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">linear_hidden_1</span><span class="p">(</span><span class="n">hxsnn</span><span class="o">.</span><span class="n">NeuronHandle</span><span class="p">(</span><span class="n">inputs</span><span class="p">))</span>
+        <span class="n">g2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">linear_hidden_1</span><span class="p">(</span><span class="n">hxsnn</span><span class="o">.</span><span class="n">LIFObservables</span><span class="p">(</span><span class="n">spikes</span><span class="o">=</span><span class="n">inputs</span><span class="p">))</span>
         <span class="n">s2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">neuron_hidden_1</span><span class="p">(</span><span class="n">g2</span><span class="p">)</span>
-        <span class="n">g3</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">linear_hidden_2</span><span class="p">(</span><span class="n">hxsnn</span><span class="o">.</span><span class="n">NeuronHandle</span><span class="p">(</span><span class="n">inputs</span><span class="p">))</span>
+        <span class="n">g3</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">linear_hidden_2</span><span class="p">(</span><span class="n">hxsnn</span><span class="o">.</span><span class="n">LIFObservables</span><span class="p">(</span><span class="n">spikes</span><span class="o">=</span><span class="n">inputs</span><span class="p">))</span>
         <span class="n">s3</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">neuron_hidden_2</span><span class="p">(</span><span class="n">g3</span><span class="p">)</span>
-        <span class="n">g4</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">linear_hidden_3</span><span class="p">(</span><span class="n">hxsnn</span><span class="o">.</span><span class="n">NeuronHandle</span><span class="p">(</span><span class="n">inputs</span><span class="p">))</span>
+        <span class="n">g4</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">linear_hidden_3</span><span class="p">(</span><span class="n">hxsnn</span><span class="o">.</span><span class="n">LIFObservables</span><span class="p">(</span><span class="n">spikes</span><span class="o">=</span><span class="n">inputs</span><span class="p">))</span>
         <span class="n">s4</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">neuron_hidden_3</span><span class="p">(</span><span class="n">g4</span><span class="p">)</span>
 
         <span class="c1"># Hidden -&gt; output</span>

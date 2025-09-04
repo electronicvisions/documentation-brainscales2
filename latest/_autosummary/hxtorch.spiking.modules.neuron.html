@@ -16,8 +16,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="hxtorch.spiking.modules.neuron.EventPropNeuron" href="hxtorch.spiking.modules.neuron.EventPropNeuron.html" />
-    <link rel="prev" title="hxtorch.spiking.modules.input_neuron.NeuronHandle" href="hxtorch.spiking.modules.input_neuron.NeuronHandle.html" /> 
+    <link rel="next" title="hxtorch.spiking.modules.neuron.AELIF" href="hxtorch.spiking.modules.neuron.AELIF.html" />
+    <link rel="prev" title="hxtorch.spiking.modules.input_neuron.LIFObservables" href="hxtorch.spiking.modules.input_neuron.LIFObservables.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -104,40 +104,65 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.modules.neuron.EventPropNeuron.html#hxtorch.spiking.modules.neuron.EventPropNeuron" title="hxtorch.spiking.modules.neuron.EventPropNeuron"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EventPropNeuron</span></code></a>(size, experiment, leak, …)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.modules.neuron.AELIF.html#hxtorch.spiking.modules.neuron.AELIF" title="hxtorch.spiking.modules.neuron.AELIF"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AELIF</span></code></a>(size, experiment, leak, reset, …)</p></td>
+<td><p>Layer of neurons with configurable dynamics up to adaptive exponential leaky integrate-and-fire complexity.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.modules.neuron.EventPropLIF.html#hxtorch.spiking.modules.neuron.EventPropLIF" title="hxtorch.spiking.modules.neuron.EventPropLIF"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EventPropLIF</span></code></a>(size, experiment, leak, reset, …)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.modules.neuron.Morphology.html#hxtorch.spiking.modules.neuron.Morphology" title="hxtorch.spiking.modules.neuron.Morphology"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Morphology</span></code></a>()</p></td>
-<td><p>Represents the internal structure of a neuron.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.modules.neuron.HXTransformedModelParameter.html#hxtorch.spiking.modules.neuron.HXTransformedModelParameter" title="hxtorch.spiking.modules.neuron.HXTransformedModelParameter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HXTransformedModelParameter</span></code></a>(model_value, …)</p></td>
+<td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.modules.neuron.Neuron.html#hxtorch.spiking.modules.neuron.Neuron" title="hxtorch.spiking.modules.neuron.Neuron"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Neuron</span></code></a>(size, experiment, leak, reset, …)</p></td>
-<td><p>Neuron layer</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.modules.neuron.Handle.html#hxtorch.spiking.modules.neuron.Handle" title="hxtorch.spiking.modules.neuron.Handle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Handle</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Factory for classes which are to be used as custom handles for observable data, depending on the specific observables a module deals with.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.modules.neuron.LI.html#hxtorch.spiking.modules.neuron.LI" title="hxtorch.spiking.modules.neuron.LI"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LI</span></code></a>(size, experiment, leak, tau_mem, tau_syn, …)</p></td>
+<td><p>Layer of leaky integrator neurons</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.modules.neuron.LIF.html#hxtorch.spiking.modules.neuron.LIF" title="hxtorch.spiking.modules.neuron.LIF"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LIF</span></code></a>(size, experiment, leak, reset, …)</p></td>
+<td><p>Layer of leaky integrate-and-fire neurons.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.modules.neuron.LIFObservables.html#hxtorch.spiking.modules.neuron.LIFObservables" title="hxtorch.spiking.modules.neuron.LIFObservables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LIFObservables</span></code></a></p></td>
+<td><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">types.Handle_current_membrane_cadc_membrane_madc_spikes</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.modules.neuron.LIObservables.html#hxtorch.spiking.modules.neuron.LIObservables" title="hxtorch.spiking.modules.neuron.LIObservables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LIObservables</span></code></a></p></td>
+<td><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">types.Handle_current_membrane_cadc_membrane_madc</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.modules.neuron.Morphology.html#hxtorch.spiking.modules.neuron.Morphology" title="hxtorch.spiking.modules.neuron.Morphology"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Morphology</span></code></a>()</p></td>
+<td><p>Represents the internal structure of a neuron.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.modules.neuron.NeuronExp.html#hxtorch.spiking.modules.neuron.NeuronExp" title="hxtorch.spiking.modules.neuron.NeuronExp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NeuronExp</span></code></a>(size, experiment, leak, reset, …)</p></td>
 <td><p>Neuron layer with exponential Euler intergration scheme.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.modules.neuron.NeuronHandle.html#hxtorch.spiking.modules.neuron.NeuronHandle" title="hxtorch.spiking.modules.neuron.NeuronHandle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NeuronHandle</span></code></a>(spikes, None] = None, …)</p></td>
-<td><p>Specialization for HX neuron observables</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.modules.neuron.Population.html#hxtorch.spiking.modules.neuron.Population" title="hxtorch.spiking.modules.neuron.Population"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Population</span></code></a>(size, experiment, …)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.modules.neuron.Population.html#hxtorch.spiking.modules.neuron.Population" title="hxtorch.spiking.modules.neuron.Population"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Population</span></code></a>(size, experiment, …)</p></td>
 <td><p>Base class for on-chip populations on BSS-2</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.modules.neuron.ReadoutNeuronExp.html#hxtorch.spiking.modules.neuron.ReadoutNeuronExp" title="hxtorch.spiking.modules.neuron.ReadoutNeuronExp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ReadoutNeuronExp</span></code></a>(size, experiment, leak, …)</p></td>
+<td><p>Neuron layer with exponential Euler intergration scheme.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.modules.neuron.SingleCompartmentNeuron.html#hxtorch.spiking.modules.neuron.SingleCompartmentNeuron" title="hxtorch.spiking.modules.neuron.SingleCompartmentNeuron"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SingleCompartmentNeuron</span></code></a>(size, …)</p></td>
 <td><p>Neuron with a single iso-potential compartment.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.modules.neuron.SynapseHandle.html#hxtorch.spiking.modules.neuron.SynapseHandle" title="hxtorch.spiking.modules.neuron.SynapseHandle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SynapseHandle</span></code></a>(graded_spikes, None] = None)</p></td>
-<td><p>Specialization for HX synapses</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.modules.neuron.SynapseHandle.html#hxtorch.spiking.modules.neuron.SynapseHandle" title="hxtorch.spiking.modules.neuron.SynapseHandle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SynapseHandle</span></code></a></p></td>
+<td><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">types.Handle_graded_spikes</span></code></p></td>
 </tr>
 </tbody>
 </table>
+<p class="rubric">Functions</p>
+<dl class="py function">
+<dt id="hxtorch.spiking.modules.neuron.warn">
+<code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.modules.neuron.</span></code><code class="sig-name descname"><span class="pre">warn</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stacklevel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.modules.neuron.warn" title="Permalink to this definition"></a></dt>
+<dd><p>Issue a warning, or maybe ignore it or raise an exception.</p>
+</dd></dl>
+
 </div>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="hxtorch.spiking.modules.input_neuron.NeuronHandle.html" class="btn btn-neutral float-left" title="hxtorch.spiking.modules.input_neuron.NeuronHandle" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="hxtorch.spiking.modules.neuron.EventPropNeuron.html" class="btn btn-neutral float-right" title="hxtorch.spiking.modules.neuron.EventPropNeuron" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="hxtorch.spiking.modules.input_neuron.LIFObservables.html" class="btn btn-neutral float-left" title="hxtorch.spiking.modules.input_neuron.LIFObservables" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="hxtorch.spiking.modules.neuron.AELIF.html" class="btn btn-neutral float-right" title="hxtorch.spiking.modules.neuron.AELIF" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

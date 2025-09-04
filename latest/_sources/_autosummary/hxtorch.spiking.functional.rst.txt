@@ -10,14 +10,15 @@ hxtorch.spiking.functional
    :template: custom-module-template.rst
    :recursive:
 
+   hxtorch.spiking.functional.aelif
    hxtorch.spiking.functional.dropout
    hxtorch.spiking.functional.eventprop
-   hxtorch.spiking.functional.iaf
    hxtorch.spiking.functional.li
    hxtorch.spiking.functional.lif
    hxtorch.spiking.functional.linear
    hxtorch.spiking.functional.refractory
    hxtorch.spiking.functional.spike_source
+   hxtorch.spiking.functional.step_integration_code_factory
    hxtorch.spiking.functional.superspike
    hxtorch.spiking.functional.threshold
    hxtorch.spiking.functional.unterjubel
@@ -34,7 +35,8 @@ hxtorch.spiking.functional
       :toctree:
       :template: custom-class-template.rst
    
-      EventPropNeuronFunction
+      CuBaStepCode
+      EventPropLIFFunction
       EventPropSynapseFunction
       SuperSpike
    
@@ -54,11 +56,7 @@ hxtorch.spiking.functional
 
    
    .. autofunction:: batch_dropout
-   .. autofunction:: cuba_iaf_integration
-   .. autofunction:: cuba_li_integration
-   .. autofunction:: cuba_lif_integration
-   .. autofunction:: cuba_refractory_iaf_integration
-   .. autofunction:: cuba_refractory_lif_integration
+   .. autofunction:: cuba_aelif_integration
    .. autofunction:: exp_cuba_li_integration
    .. autofunction:: exp_cuba_lif_integration
    .. autofunction:: input_neuron

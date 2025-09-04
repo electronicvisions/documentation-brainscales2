@@ -16,8 +16,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="hxtorch.spiking.handle.HandleMeta" href="hxtorch.spiking.handle.HandleMeta.html" />
-    <link rel="prev" title="hxtorch.spiking.handle" href="hxtorch.spiking.handle.html" /> 
+    <link rel="next" title="hxtorch.spiking.handle.LIFObservables" href="hxtorch.spiking.handle.LIFObservables.html" />
+    <link rel="prev" title="hxtorch.spiking.handle.ABC" href="hxtorch.spiking.handle.ABC.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -98,16 +98,14 @@
 <h1>hxtorch.spiking.handle.Handle<a class="headerlink" href="#hxtorch-spiking-handle-handle" title="Permalink to this headline"></a></h1>
 <dl class="py class">
 <dt id="hxtorch.spiking.handle.Handle">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.handle.</span></code><code class="sig-name descname"><span class="pre">Handle</span></code><a class="headerlink" href="#hxtorch.spiking.handle.Handle" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Base class for HX tensor handles. New tensor handles have to be derived
-from this class. The name of tensors the tensor handle ‘carries’ has to be
-indicated in the class member ‘_carries’. For all elements in this list a
-property is created implicitly.</p>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.handle.</span></code><code class="sig-name descname"><span class="pre">Handle</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.handle.Handle" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<p>Factory for classes which are to be used as custom handles for observable
+data, depending on the specific observables a module deals with.</p>
 <dl class="py method">
 <dt id="hxtorch.spiking.handle.Handle.__init__">
-<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.handle.Handle.__init__" title="Permalink to this definition"></a></dt>
-<dd><p>Instantiate a new HX handle holding references to torch tensors.</p>
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.handle.Handle.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
 <p class="rubric">Methods</p>
@@ -117,78 +115,8 @@ property is created implicitly.</p>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.handle.Handle.__init__" title="hxtorch.spiking.handle.Handle.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>()</p></td>
-<td><p>Instantiate a new HX handle holding references to torch tensors.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.handle.Handle.clear" title="hxtorch.spiking.handle.Handle.clear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear</span></code></a>()</p></td>
-<td><p>Set all data in handle to ‘None’.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.handle.Handle.clone" title="hxtorch.spiking.handle.Handle.clone"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clone</span></code></a>(handle)</p></td>
-<td><p>Copy contents for <cite>handle</cite> to <cite>this</cite> handle.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.handle.Handle.holds" title="hxtorch.spiking.handle.Handle.holds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">holds</span></code></a>(name)</p></td>
-<td><p>Checks whether the tensor handle already holds a tensor with key <cite>name</cite>.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.handle.Handle.put" title="hxtorch.spiking.handle.Handle.put"><code class="xref py py-obj docutils literal notranslate"><span class="pre">put</span></code></a>(*tensors, **kwargs)</p></td>
-<td><p>Fill the tensor handle with actual data given by tensors or kwargs.</p></td>
-</tr>
 </tbody>
 </table>
-<dl class="py method">
-<dt id="hxtorch.spiking.handle.Handle.clear">
-<code class="sig-name descname"><span class="pre">clear</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.handle.Handle.clear" title="Permalink to this definition"></a></dt>
-<dd><p>Set all data in handle to ‘None’.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="hxtorch.spiking.handle.Handle.clone">
-<code class="sig-name descname"><span class="pre">clone</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">handle</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#hxtorch.spiking.handle.Handle" title="hxtorch.spiking.handle.Handle"><span class="pre">hxtorch.spiking.handle.Handle</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.handle.Handle.clone" title="Permalink to this definition"></a></dt>
-<dd><p>Copy contents for <cite>handle</cite> to <cite>this</cite> handle. <cite>This</cite> handle must contain
-a data field for each data field in <cite>handle</cite>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>handle</strong> – The handle to clone.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="hxtorch.spiking.handle.Handle.holds">
-<code class="sig-name descname"><span class="pre">holds</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#hxtorch.spiking.handle.Handle.holds" title="Permalink to this definition"></a></dt>
-<dd><p>Checks whether the tensor handle already holds a tensor with key
-<cite>name</cite>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>name</strong> – Key of reference to tensor.</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Returns a bool indicating whether the data present at key
-<cite>name</cite> is not None.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="hxtorch.spiking.handle.Handle.put">
-<code class="sig-name descname"><span class="pre">put</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">tensors</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.handle.Handle.put" title="Permalink to this definition"></a></dt>
-<dd><p>Fill the tensor handle with actual data given by tensors or kwargs. If
-tensors are given as positional arguments the tensors are assigned in
-the order given by class member ‘_carries’. Keyword arguments are
-assigned to the corresponding key. Therefore, the key has to be in
-‘_carries.’</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>tensors</strong> – Tensors which are assigned to the tensor handle. The
-given tensors are associated with the elements in ‘_carries’ in
-successive order.</p></li>
-<li><p><strong>kwargs</strong> (<em>param</em>) – Assigns the items in kwargs to the elements in
-the tensor handle associated with the corresponding kwargs keys.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
 </dd></dl>
 
 </div>
@@ -197,8 +125,8 @@ the tensor handle associated with the corresponding kwargs keys.</p></li>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="hxtorch.spiking.handle.html" class="btn btn-neutral float-left" title="hxtorch.spiking.handle" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="hxtorch.spiking.handle.HandleMeta.html" class="btn btn-neutral float-right" title="hxtorch.spiking.handle.HandleMeta" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="hxtorch.spiking.handle.ABC.html" class="btn btn-neutral float-left" title="hxtorch.spiking.handle.ABC" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="hxtorch.spiking.handle.LIFObservables.html" class="btn btn-neutral float-right" title="hxtorch.spiking.handle.LIFObservables" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
