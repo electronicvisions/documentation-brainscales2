@@ -114,7 +114,7 @@
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="jaxsnn.event.root.ttfs.html#module-jaxsnn.event.root.ttfs" title="jaxsnn.event.root.ttfs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jaxsnn.event.root.ttfs</span></code></a></p></td>
-<td><p>Analytically find the time of the next spike for a LIF neuron for the special case of $       au_mem = 2 *    au_syn$.</p></td>
+<td><p>Analytically find the time of the next spike for a LIF neuron for the special cases of $      au_mem =        au_syn$ and $   au_mem = 2 *    au_syn$.</p></td>
 </tr>
 </tbody>
 </table>
@@ -137,15 +137,17 @@
 
 <dl class="py function">
 <dt id="jaxsnn.event.root.ttfs_solver">
-<code class="sig-prename descclassname"><span class="pre">jaxsnn.event.root.</span></code><code class="sig-name descname"><span class="pre">ttfs_solver</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tau_mem</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_th</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="jaxsnn.event.types.LIFState.html#jaxsnn.event.types.LIFState" title="jaxsnn.event.types.LIFState"><span class="pre">jaxsnn.event.types.LIFState</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_max</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jaxsnn.event.root.ttfs_solver" title="Permalink to this definition"></a></dt>
-<dd><p>Find the next spike time for special case $     au_mem = 2 *    au_syn$</p>
+<code class="sig-prename descclassname"><span class="pre">jaxsnn.event.root.</span></code><code class="sig-name descname"><span class="pre">ttfs_solver</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tau_mem</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau_syn</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_th</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="jaxsnn.event.types.LIFState.html#jaxsnn.event.types.LIFState" title="jaxsnn.event.types.LIFState"><span class="pre">jaxsnn.event.types.LIFState</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_max</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jaxsnn.event.root.ttfs_solver" title="Permalink to this definition"></a></dt>
+<dd><p>Find the next spike time for special cases $    au_mem =        au_syn$ and
+$   au_mem = 2 *    au_syn$</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>tau_mem float (float): Membrane time constant
-v_th float (float): Treshold Voltage
+<dt>Args:</dt><dd><p>tau_mem (float): Membrane time constant
+tau_syn (float): Synaptic time constant
+v_th (float): Threshold Voltage
 state (LIFState): State of the neuron (voltage, current)
-t_max (float): maximum time which is to be searched</p>
+t_max (float): Maximum time which is to be searched</p>
 </dd>
-<dt>Returns:</dt><dd><p>float: Time of next threshhold crossing or t_max if no crossing</p>
+<dt>Returns:</dt><dd><p>float: Time of next threshold crossing or t_max if no crossing</p>
 </dd>
 </dl>
 </dd></dl>
