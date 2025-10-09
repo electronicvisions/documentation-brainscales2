@@ -135,7 +135,7 @@ The effective time length is given by seq_length * dt.</p></li>
 <td><p>Construct a coordinates-to-spikes converter.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.transforms.encode.CoordinatesToSpikes.forward" title="hxtorch.spiking.transforms.encode.CoordinatesToSpikes.forward"><code class="xref py py-obj docutils literal notranslate"><span class="pre">forward</span></code></a>(coordinate_values)</p></td>
-<td><p>Convert coordinate values of to dense spike tensor of zeros and ones.</p></td>
+<td><p>Convert coordinate values to dense spike tensor of zeros and ones.</p></td>
 </tr>
 </tbody>
 </table>
@@ -151,14 +151,14 @@ The effective time length is given by seq_length * dt.</p></li>
 <dl class="py method">
 <dt id="hxtorch.spiking.transforms.encode.CoordinatesToSpikes.forward">
 <code class="sig-name descname"><span class="pre">forward</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coordinate_values</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">torch.Tensor</span><a class="headerlink" href="#hxtorch.spiking.transforms.encode.CoordinatesToSpikes.forward" title="Permalink to this definition"></a></dt>
-<dd><p>Convert coordinate values of to dense spike tensor of zeros and ones.</p>
+<dd><p>Convert coordinate values to dense spike tensor of zeros and ones.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>coordinate_values</strong> – Tensor with values in [0, 1], shaped
 (batch_size, num_channels)</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Returns a dense tensor of shape (batch_size, seq_length,
+<dd class="field-even"><p>Returns a dense tensor of shape (seq_length, batch_size,
 num_channels)</p>
 </dd>
 </dl>
