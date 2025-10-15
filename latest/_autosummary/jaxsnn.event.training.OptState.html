@@ -97,8 +97,24 @@
 <h1>jaxsnn.event.training.OptState<a class="headerlink" href="#jaxsnn-event-training-optstate" title="Permalink to this headline"></a></h1>
 <dl class="py class">
 <dt id="jaxsnn.event.training.OptState">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">jaxsnn.event.training.</span></code><code class="sig-name descname"><span class="pre">OptState</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">opt_state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jaxsnn.event.training.OptState" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">jaxsnn.event.training.</span></code><code class="sig-name descname"><span class="pre">OptState</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">opt_state</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">optax.OptState</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Weight</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rng</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">jax.random.KeyArray</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jaxsnn.event.training.OptState" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code></p>
+<p>Container for the optimizer/training state across steps.</p>
+<p>This immutable state groups the underlying optimizer’s internal state,
+the current set of model weights, and the JAX PRNG key used for
+stochastic operations (e.g., sampling).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>opt_state</strong> – Optimizer-specific internal state to carry across updates
+(e.g., from optax.init/optax.update).</p></li>
+<li><p><strong>weights</strong> – Ordered collection of learnable model parameters to be
+optimized.</p></li>
+<li><p><strong>rng</strong> – JAX PRNG key used for randomized computations; should be split
+and updated between steps.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="py method">
 <dt id="jaxsnn.event.training.OptState.__init__">
 <code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jaxsnn.event.training.OptState.__init__" title="Permalink to this definition"></a></dt>
@@ -124,7 +140,10 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#jaxsnn.event.training.OptState.opt_state" title="jaxsnn.event.training.OptState.opt_state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">opt_state</span></code></a></p></td>
 <td><p>Alias for field number 0</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#jaxsnn.event.training.OptState.weights" title="jaxsnn.event.training.OptState.weights"><code class="xref py py-obj docutils literal notranslate"><span class="pre">weights</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#jaxsnn.event.training.OptState.rng" title="jaxsnn.event.training.OptState.rng"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rng</span></code></a></p></td>
+<td><p>Alias for field number 2</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#jaxsnn.event.training.OptState.weights" title="jaxsnn.event.training.OptState.weights"><code class="xref py py-obj docutils literal notranslate"><span class="pre">weights</span></code></a></p></td>
 <td><p>Alias for field number 1</p></td>
 </tr>
 </tbody>
@@ -133,6 +152,12 @@
 <dt id="jaxsnn.event.training.OptState.opt_state">
 <code class="sig-name descname"><span class="pre">opt_state</span></code><em class="property"><span class="pre">:</span> <span class="pre">optax.OptState</span></em><a class="headerlink" href="#jaxsnn.event.training.OptState.opt_state" title="Permalink to this definition"></a></dt>
 <dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="jaxsnn.event.training.OptState.rng">
+<code class="sig-name descname"><span class="pre">rng</span></code><em class="property"><span class="pre">:</span> <span class="pre">jax.random.KeyArray</span></em><a class="headerlink" href="#jaxsnn.event.training.OptState.rng" title="Permalink to this definition"></a></dt>
+<dd><p>Alias for field number 2</p>
 </dd></dl>
 
 <dl class="py attribute">
