@@ -230,6 +230,14 @@ Similarly, environment modules are also unsupported by `vscode`, we use `.env` f
   hel $ env | grep ^LD_LIBRARY_PATH
   LD_LIBRARY_PATH=/opt/spack_views/visionary-dls/lib:/opt/spack_views/visionary-dls/lib64:/scif/apps/dls/lib::/.singularity.d/libs
   ```
+* Within the containerized environment (e.g., terminal in vscode), you can access the cluster after loading the respective modules, e.g.:
+  ```
+  Apptainer $ . /opt/init/modules.sh
+  Apptainer $ module use /wang/environment/modules
+  Apptainer $ module load slurm-singularity
+  Apptainer $ module load waf
+  Apptainer $ srun -p batch -c 32 --mem 200G -- waf build
+  ```
 
 To enable Python-related functionality in `vscode` the `Python` extension needs to be installed on the remote site (`hel-vscode`).
 See [here](https://code.visualstudio.com/docs/languages/python) for details (please note that some plugins can be installed per site (local vs. remote), while others are global).
