@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>jaxsnn.event.hardware &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <title>jaxsnn.event.from_nir_data &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -16,8 +16,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="jaxsnn.event.hardware.calib" href="jaxsnn.event.hardware.calib.html" />
-    <link rel="prev" title="jaxsnn.event.from_nir_data.TimeGriddedData" href="jaxsnn.event.from_nir_data.TimeGriddedData.html" /> 
+    <link rel="next" title="jaxsnn.event.from_nir_data.EventPropSpike" href="jaxsnn.event.from_nir_data.EventPropSpike.html" />
+    <link rel="prev" title="jaxsnn.event.from_nir.WeightInput" href="jaxsnn.event.from_nir.WeightInput.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -82,9 +82,9 @@
           <li class="breadcrumb-item"><a href="../apis_python.html">BrainScaleS-2 API Documentation</a></li>
           <li class="breadcrumb-item"><a href="jaxsnn.html">jaxsnn</a></li>
           <li class="breadcrumb-item"><a href="jaxsnn.event.html">jaxsnn.event</a></li>
-      <li class="breadcrumb-item active">jaxsnn.event.hardware</li>
+      <li class="breadcrumb-item active">jaxsnn.event.from_nir_data</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/_autosummary/jaxsnn.event.hardware.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/_autosummary/jaxsnn.event.from_nir_data.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -92,46 +92,47 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="jaxsnn-event-hardware">
-<h1>jaxsnn.event.hardware<a class="headerlink" href="#jaxsnn-event-hardware" title="Permalink to this headline"></a></h1>
-<p class="rubric">Modules</p>
+  <div class="section" id="module-jaxsnn.event.from_nir_data">
+<span id="jaxsnn-event-from-nir-data"></span><h1>jaxsnn.event.from_nir_data<a class="headerlink" href="#module-jaxsnn.event.from_nir_data" title="Permalink to this headline"></a></h1>
+<p>Translate NIRGraphData to a jaxsnn-compatible spike representation.</p>
+<p class="rubric">Classes</p>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="jaxsnn.event.hardware.calib.html#module-jaxsnn.event.hardware.calib" title="jaxsnn.event.hardware.calib"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jaxsnn.event.hardware.calib</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="jaxsnn.event.from_nir_data.EventPropSpike.html#jaxsnn.event.from_nir_data.EventPropSpike" title="jaxsnn.event.from_nir_data.EventPropSpike"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EventPropSpike</span></code></a>(time, idx, current)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="jaxsnn.event.hardware.experiment.html#module-jaxsnn.event.hardware.experiment" title="jaxsnn.event.hardware.experiment"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jaxsnn.event.hardware.experiment</span></code></a></p></td>
-<td><p>Defining basic types to create hw-executable instances</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="jaxsnn.event.from_nir_data.NIRGraphData.html#jaxsnn.event.from_nir_data.NIRGraphData" title="jaxsnn.event.from_nir_data.NIRGraphData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NIRGraphData</span></code></a>(nodes, …)</p></td>
+<td><p>Dictionary of NIRNodeData where each entry represents a NIRNode of a corresponding NIRGraph with its observables.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="jaxsnn.event.hardware.input_neuron.html#module-jaxsnn.event.hardware.input_neuron" title="jaxsnn.event.hardware.input_neuron"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jaxsnn.event.hardware.input_neuron</span></code></a></p></td>
-<td><p></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="jaxsnn.event.from_nir_data.NIRNodeData.html#jaxsnn.event.from_nir_data.NIRNodeData" title="jaxsnn.event.from_nir_data.NIRNodeData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NIRNodeData</span></code></a>(observables)</p></td>
+<td><p>Dictionary of EventData or TimeGriddedData where each entry represents an observable (e.g., spikes, voltages) of a corresponding NIRNode</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="jaxsnn.event.hardware.module.html#module-jaxsnn.event.hardware.module" title="jaxsnn.event.hardware.module"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jaxsnn.event.hardware.module</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="jaxsnn.event.hardware.neuron.html#module-jaxsnn.event.hardware.neuron" title="jaxsnn.event.hardware.neuron"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jaxsnn.event.hardware.neuron</span></code></a></p></td>
-<td><p>Implementing SNN modules</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="jaxsnn.event.hardware.synapse.html#module-jaxsnn.event.hardware.synapse" title="jaxsnn.event.hardware.synapse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jaxsnn.event.hardware.synapse</span></code></a></p></td>
-<td><p>Implementing SNN modules</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="jaxsnn.event.hardware.utils.html#module-jaxsnn.event.hardware.utils" title="jaxsnn.event.hardware.utils"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jaxsnn.event.hardware.utils</span></code></a></p></td>
-<td><p></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="jaxsnn.event.from_nir_data.TimeGriddedData.html#jaxsnn.event.from_nir_data.TimeGriddedData" title="jaxsnn.event.from_nir_data.TimeGriddedData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TimeGriddedData</span></code></a>(data, dt)</p></td>
+<td><p>Time gridded data of shape (n_samples, n_time_steps, n_neurons) with binary entries (0 or 1) indicating whether a neuron spiked at a particular time step dt.</p></td>
 </tr>
 </tbody>
 </table>
-<span class="target" id="module-jaxsnn.event.hardware"></span></div>
+<p class="rubric">Functions</p>
+<dl class="py function">
+<dt id="jaxsnn.event.from_nir_data.from_nir_data">
+<code class="sig-prename descclassname"><span class="pre">jaxsnn.event.from_nir_data.</span></code><code class="sig-name descname"><span class="pre">from_nir_data</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nir_graph_data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">nir.data_ir.graph.NIRGraphData</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jaxsnn_model</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="jaxsnn.event.types.EventPropSpike.html#jaxsnn.event.types.EventPropSpike" title="jaxsnn.event.types.EventPropSpike"><span class="pre">jaxsnn.event.types.EventPropSpike</span></a><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#jaxsnn.event.from_nir_data.from_nir_data" title="Permalink to this definition"></a></dt>
+<dd><p>Convert NIRGraphData to a dict of EventPropSpikes (jax-snn representation)</p>
+<p>A linear noise is added on the spike times if the incoming data is
+time-gridded.</p>
+</dd></dl>
+
+</div>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="jaxsnn.event.from_nir_data.TimeGriddedData.html" class="btn btn-neutral float-left" title="jaxsnn.event.from_nir_data.TimeGriddedData" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="jaxsnn.event.hardware.calib.html" class="btn btn-neutral float-right" title="jaxsnn.event.hardware.calib" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="jaxsnn.event.from_nir.WeightInput.html" class="btn btn-neutral float-left" title="jaxsnn.event.from_nir.WeightInput" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="jaxsnn.event.from_nir_data.EventPropSpike.html" class="btn btn-neutral float-right" title="jaxsnn.event.from_nir_data.EventPropSpike" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

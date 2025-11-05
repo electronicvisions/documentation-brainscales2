@@ -142,9 +142,32 @@
 </dd></dl>
 
 <dl class="py function">
+<dt id="jaxsnn.from_nir_data">
+<code class="sig-prename descclassname"><span class="pre">jaxsnn.</span></code><code class="sig-name descname"><span class="pre">from_nir_data</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nir_graph_data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">nir.data_ir.graph.NIRGraphData</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jaxsnn_model</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="jaxsnn.event.types.EventPropSpike.html#jaxsnn.event.types.EventPropSpike" title="jaxsnn.event.types.EventPropSpike"><span class="pre">jaxsnn.event.types.EventPropSpike</span></a><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#jaxsnn.from_nir_data" title="Permalink to this definition"></a></dt>
+<dd><p>Convert NIRGraphData to a dict of EventPropSpikes (jax-snn representation)</p>
+<p>A linear noise is added on the spike times if the incoming data is
+time-gridded.</p>
+</dd></dl>
+
+<dl class="py function">
 <dt id="jaxsnn.get_logger">
 <code class="sig-prename descclassname"><span class="pre">jaxsnn.</span></code><code class="sig-name descname"><span class="pre">get_logger</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jaxsnn.get_logger" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
+
+<dl class="py function">
+<dt id="jaxsnn.to_nir_data">
+<code class="sig-prename descclassname"><span class="pre">jaxsnn.</span></code><code class="sig-name descname"><span class="pre">to_nir_data</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">jaxsnn_dict</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="jaxsnn.event.types.EventPropSpike.html#jaxsnn.event.types.EventPropSpike" title="jaxsnn.event.types.EventPropSpike"><span class="pre">jaxsnn.event.types.EventPropSpike</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jaxsnn_model</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">nir.data_ir.graph.NIRGraphData</span><a class="headerlink" href="#jaxsnn.to_nir_data" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>jaxsnn_dict</strong> – Dictionary of Spike objects where each entry represents
+the spikes for a corresponding input node of the jaxsnn_model. Empty
+events in jaxsnn are encoded by idx = -1 and time = np.inf.</p></li>
+<li><p><strong>jaxsnn_model</strong> – A tuple of (init_fn, apply_fn).</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 </div>
 
