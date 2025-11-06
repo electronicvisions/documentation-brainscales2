@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>hxtorch.spiking.utils.MixinHXModelMapper &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <title>hxtorch.spiking.utils.from_nir_data.NIRNodeData &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -16,8 +16,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="hxtorch.spiking.AELIF" href="hxtorch.spiking.AELIF.html" />
-    <link rel="prev" title="hxtorch.spiking.utils.to_nir_data.TimeGriddedData" href="hxtorch.spiking.utils.to_nir_data.TimeGriddedData.html" /> 
+    <link rel="next" title="hxtorch.spiking.utils.model_mapper" href="hxtorch.spiking.utils.model_mapper.html" />
+    <link rel="prev" title="hxtorch.spiking.utils.from_nir_data.NIRGraphData" href="hxtorch.spiking.utils.from_nir_data.NIRGraphData.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -84,9 +84,10 @@
           <li class="breadcrumb-item"><a href="hxtorch.html">hxtorch</a></li>
           <li class="breadcrumb-item"><a href="hxtorch.spiking.html">hxtorch.spiking</a></li>
           <li class="breadcrumb-item"><a href="hxtorch.spiking.utils.html">hxtorch.spiking.utils</a></li>
-      <li class="breadcrumb-item active">hxtorch.spiking.utils.MixinHXModelMapper</li>
+          <li class="breadcrumb-item"><a href="hxtorch.spiking.utils.from_nir_data.html">hxtorch.spiking.utils.from_nir_data</a></li>
+      <li class="breadcrumb-item active">hxtorch.spiking.utils.from_nir_data.NIRNodeData</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/_autosummary/hxtorch.spiking.utils.MixinHXModelMapper.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/_autosummary/hxtorch.spiking.utils.from_nir_data.NIRNodeData.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -94,16 +95,17 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="hxtorch-spiking-utils-mixinhxmodelmapper">
-<h1>hxtorch.spiking.utils.MixinHXModelMapper<a class="headerlink" href="#hxtorch-spiking-utils-mixinhxmodelmapper" title="Permalink to this headline"></a></h1>
+  <div class="section" id="hxtorch-spiking-utils-from-nir-data-nirnodedata">
+<h1>hxtorch.spiking.utils.from_nir_data.NIRNodeData<a class="headerlink" href="#hxtorch-spiking-utils-from-nir-data-nirnodedata" title="Permalink to this headline"></a></h1>
 <dl class="py class">
-<dt id="hxtorch.spiking.utils.MixinHXModelMapper">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.utils.</span></code><code class="sig-name descname"><span class="pre">MixinHXModelMapper</span></code><a class="headerlink" href="#hxtorch.spiking.utils.MixinHXModelMapper" title="Permalink to this definition"></a></dt>
+<dt id="hxtorch.spiking.utils.from_nir_data.NIRNodeData">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.utils.from_nir_data.</span></code><code class="sig-name descname"><span class="pre">NIRNodeData</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">observables</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.utils.from_nir_data.NIRNodeData" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Mapper mixin to map snn models to hxtorch.spiking models</p>
+<p>Dictionary of EventData or TimeGriddedData where each entry represents an
+observable (e.g., spikes, voltages) of a corresponding NIRNode</p>
 <dl class="py method">
-<dt id="hxtorch.spiking.utils.MixinHXModelMapper.__init__">
-<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.utils.MixinHXModelMapper.__init__" title="Permalink to this definition"></a></dt>
+<dt id="hxtorch.spiking.utils.from_nir_data.NIRNodeData.__init__">
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">observables</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.utils.from_nir_data.NIRNodeData.__init__" title="Permalink to this definition"></a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
@@ -114,29 +116,23 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.utils.MixinHXModelMapper.map_from" title="hxtorch.spiking.utils.MixinHXModelMapper.map_from"><code class="xref py py-obj docutils literal notranslate"><span class="pre">map_from</span></code></a>(state_dict, mapping[, map_all])</p></td>
-<td><p>Map an SNN model with state dict <cite>state_dict</cite> to this model. :param state_dict: The state dict used to map from. :param mapping: The mapping from the keys of this model’s state dict to     the keys in <cite>state_dict</cite>. :param map_all: A boolean value indicating if a state dict key is     looked up in <cite>state_dict</cite> if not present in <cite>mapping</cite>. This allows     to only define a mapping for some keys and load the others     implicitly if the key names match. Defaults to true.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.utils.from_nir_data.NIRNodeData.__init__" title="hxtorch.spiking.utils.from_nir_data.NIRNodeData.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(observables)</p></td>
+<td><p>Initialize self.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.utils.from_nir_data.NIRNodeData.check_observables" title="hxtorch.spiking.utils.from_nir_data.NIRNodeData.check_observables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_observables</span></code></a>()</p></td>
+<td><p></p></td>
 </tr>
 </tbody>
 </table>
 <dl class="py method">
-<dt id="hxtorch.spiking.utils.MixinHXModelMapper.map_from">
-<code class="sig-name descname"><span class="pre">map_from</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state_dict</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mapping</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map_all</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.utils.MixinHXModelMapper.map_from" title="Permalink to this definition"></a></dt>
-<dd><p>Map an SNN model with state dict <cite>state_dict</cite> to this model.
-:param state_dict: The state dict used to map from.
-:param mapping: The mapping from the keys of this model’s state dict to</p>
-<blockquote>
-<div><p>the keys in <cite>state_dict</cite>.</p>
-</div></blockquote>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>map_all</strong> – A boolean value indicating if a state dict key is
-looked up in <cite>state_dict</cite> if not present in <cite>mapping</cite>. This allows
-to only define a mapping for some keys and load the others
-implicitly if the key names match. Defaults to true.</p>
-</dd>
-</dl>
-</dd></dl>
+<dt id="hxtorch.spiking.utils.from_nir_data.NIRNodeData.check_observables">
+<code class="sig-name descname"><span class="pre">check_observables</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.utils.from_nir_data.NIRNodeData.check_observables" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="hxtorch.spiking.utils.from_nir_data.NIRNodeData.observables">
+<code class="sig-name descname"><span class="pre">observables</span></code><em class="property"><span class="pre">:</span> <span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">nir.data_ir.graph.EventData</span><span class="p"><span class="pre">,</span> </span><span class="pre">nir.data_ir.graph.TimeGriddedData</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#hxtorch.spiking.utils.from_nir_data.NIRNodeData.observables" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 
@@ -146,8 +142,8 @@ implicitly if the key names match. Defaults to true.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="hxtorch.spiking.utils.to_nir_data.TimeGriddedData.html" class="btn btn-neutral float-left" title="hxtorch.spiking.utils.to_nir_data.TimeGriddedData" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="hxtorch.spiking.AELIF.html" class="btn btn-neutral float-right" title="hxtorch.spiking.AELIF" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="hxtorch.spiking.utils.from_nir_data.NIRGraphData.html" class="btn btn-neutral float-left" title="hxtorch.spiking.utils.from_nir_data.NIRGraphData" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="hxtorch.spiking.utils.model_mapper.html" class="btn btn-neutral float-right" title="hxtorch.spiking.utils.model_mapper" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
