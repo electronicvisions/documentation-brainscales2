@@ -119,10 +119,17 @@
 <p class="rubric">Functions</p>
 <dl class="py function">
 <dt id="jaxsnn.event.from_nir_data.from_nir_data">
-<code class="sig-prename descclassname"><span class="pre">jaxsnn.event.from_nir_data.</span></code><code class="sig-name descname"><span class="pre">from_nir_data</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nir_graph_data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">nir.data_ir.graph.NIRGraphData</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jaxsnn_model</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="jaxsnn.event.types.EventPropSpike.html#jaxsnn.event.types.EventPropSpike" title="jaxsnn.event.types.EventPropSpike"><span class="pre">jaxsnn.event.types.EventPropSpike</span></a><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#jaxsnn.event.from_nir_data.from_nir_data" title="Permalink to this definition"></a></dt>
+<code class="sig-prename descclassname"><span class="pre">jaxsnn.event.from_nir_data.</span></code><code class="sig-name descname"><span class="pre">from_nir_data</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nir_graph_data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">nir.data_ir.graph.NIRGraphData</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jaxsnn_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">observables</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">('spikes')</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="jaxsnn.event.types.EventPropSpike.html#jaxsnn.event.types.EventPropSpike" title="jaxsnn.event.types.EventPropSpike"><span class="pre">jaxsnn.event.types.EventPropSpike</span></a><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#jaxsnn.event.from_nir_data.from_nir_data" title="Permalink to this definition"></a></dt>
 <dd><p>Convert NIRGraphData to a dict of EventPropSpikes (jax-snn representation)</p>
-<p>A linear noise is added on the spike times if the incoming data is
-time-gridded.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nir_graph_data</strong> – NIRGraphData to be converted.</p></li>
+<li><p><strong>jaxsnn_model</strong> – jaxsnn model tuple (init, apply).</p></li>
+<li><p><strong>observables</strong> – Observables to be converted, by default (‘spikes’,)</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 </div>

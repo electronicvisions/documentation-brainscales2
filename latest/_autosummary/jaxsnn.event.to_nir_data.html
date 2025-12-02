@@ -114,19 +114,26 @@
 <tr class="row-even"><td><p><a class="reference internal" href="jaxsnn.event.to_nir_data.NIRNodeData.html#jaxsnn.event.to_nir_data.NIRNodeData" title="jaxsnn.event.to_nir_data.NIRNodeData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NIRNodeData</span></code></a>(observables, …)</p></td>
 <td><p>Dictionary of EventData or TimeGriddedData where each entry represents an observable (e.g., spikes, voltages) of a corresponding NIRNode</p></td>
 </tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="jaxsnn.event.to_nir_data.ValuedEventData.html#jaxsnn.event.to_nir_data.ValuedEventData" title="jaxsnn.event.to_nir_data.ValuedEventData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ValuedEventData</span></code></a>(idx, time, n_neurons, t_max, …)</p></td>
+<td><p>Valued event-based data as a list of event indices, event times and event values.</p></td>
+</tr>
 </tbody>
 </table>
 <p class="rubric">Functions</p>
 <dl class="py function">
 <dt id="jaxsnn.event.to_nir_data.to_nir_data">
-<code class="sig-prename descclassname"><span class="pre">jaxsnn.event.to_nir_data.</span></code><code class="sig-name descname"><span class="pre">to_nir_data</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">jaxsnn_dict</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="jaxsnn.event.types.EventPropSpike.html#jaxsnn.event.types.EventPropSpike" title="jaxsnn.event.types.EventPropSpike"><span class="pre">jaxsnn.event.types.EventPropSpike</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jaxsnn_model</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">nir.data_ir.graph.NIRGraphData</span><a class="headerlink" href="#jaxsnn.event.to_nir_data.to_nir_data" title="Permalink to this definition"></a></dt>
-<dd><dl class="field-list simple">
+<code class="sig-prename descclassname"><span class="pre">jaxsnn.event.to_nir_data.</span></code><code class="sig-name descname"><span class="pre">to_nir_data</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">jaxsnn_dict</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="jaxsnn.event.types.EventPropSpike.html#jaxsnn.event.types.EventPropSpike" title="jaxsnn.event.types.EventPropSpike"><span class="pre">jaxsnn.event.types.EventPropSpike</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jaxsnn_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">observables</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">('spikes')</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">nir.data_ir.graph.NIRGraphData</span><a class="headerlink" href="#jaxsnn.event.to_nir_data.to_nir_data" title="Permalink to this definition"></a></dt>
+<dd><p>Convert a dict of EventPropSpikes (jax-snn representation) to NIRGraphData.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>jaxsnn_dict</strong> – Dictionary of Spike objects where each entry represents
-the spikes for a corresponding input node of the jaxsnn_model. Empty
-events in jaxsnn are encoded by idx = -1 and time = np.inf.</p></li>
-<li><p><strong>jaxsnn_model</strong> – A tuple of (init_fn, apply_fn).</p></li>
+<li><p><strong>jaxsnn_dict</strong> – Dictionary of Spike objects where each entry represents the spikes for
+a corresponding node of the jaxsnn_model. Empty events in jaxsnn
+are encoded by <cite>idx = -1</cite> and <cite>time = 2 * t_max</cite>.</p></li>
+<li><p><strong>jaxsnn_model</strong> – A tuple of (init_fn, apply_fn). For the apply function, the arguments
+apply.nodes (which holds the layer sizes) and apply.t_max (the
+simulation time) currently have to be defined manually.</p></li>
+<li><p><strong>observables</strong> – Observables to be converted, by default (‘spikes’,)</p></li>
 </ul>
 </dd>
 </dl>
