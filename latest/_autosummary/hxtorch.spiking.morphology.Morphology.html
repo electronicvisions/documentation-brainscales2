@@ -131,11 +131,26 @@ first neuron circuit of the first compartment.</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.morphology.Morphology.enable_madc_recording" title="hxtorch.spiking.morphology.Morphology.enable_madc_recording"><code class="xref py py-obj docutils literal notranslate"><span class="pre">enable_madc_recording</span></code></a>(coord, neuron_block, …)</p></td>
 <td><p>Configure neuron such that traces can be recorded with the MADC.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.morphology.Morphology.implement_morphology" title="hxtorch.spiking.morphology.Morphology.implement_morphology"><code class="xref py py-obj docutils literal notranslate"><span class="pre">implement_morphology</span></code></a>(coord, neuron_block)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.morphology.Morphology.format_to_CapMemCell_value" title="hxtorch.spiking.morphology.Morphology.format_to_CapMemCell_value"><code class="xref py py-obj docutils literal notranslate"><span class="pre">format_to_CapMemCell_value</span></code></a>(**kwargs)</p></td>
+<td><p>Helper function that can convert numbers (float or int) into hal.CapMemCell.Value type while issuing warnings, if bonds of the assignable value range are tried to surpass.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.morphology.Morphology.implement_morphology" title="hxtorch.spiking.morphology.Morphology.implement_morphology"><code class="xref py py-obj docutils literal notranslate"><span class="pre">implement_morphology</span></code></a>(coord, neuron_block)</p></td>
 <td><p>Configure the atomic neurons in the given neuron block to represent this morphology.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.morphology.Morphology.set_spike_recording" title="hxtorch.spiking.morphology.Morphology.set_spike_recording"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_spike_recording</span></code></a>(enable, coord, neuron_block)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.morphology.Morphology.set_adaptation_base_params" title="hxtorch.spiking.morphology.Morphology.set_adaptation_base_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_adaptation_base_params</span></code></a>(coord, …)</p></td>
+<td><p>Set all parameters related to the base of the adaptation term of the adaptive exponential leaky integrate-and-fire model (without subthreshold- or spike-triggered adaptation) on the given hw neuron.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.morphology.Morphology.set_exponential_params" title="hxtorch.spiking.morphology.Morphology.set_exponential_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_exponential_params</span></code></a>(coord, neuron_block, …)</p></td>
+<td><p>Set all parameters related to the exponential term of the adaptive exponential leaky integrate-and-fire model on the given hardware neuron.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.morphology.Morphology.set_spike_recording" title="hxtorch.spiking.morphology.Morphology.set_spike_recording"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_spike_recording</span></code></a>(enable, coord, neuron_block)</p></td>
 <td><p>Set whether spikes are forwarded digitally.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.morphology.Morphology.set_spike_triggered_adaptation_increment" title="hxtorch.spiking.morphology.Morphology.set_spike_triggered_adaptation_increment"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_spike_triggered_adaptation_increment</span></code></a>(…)</p></td>
+<td><p>Set the hardware parameter for the spike-triggered adaptation increment on the given hw neuron.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.morphology.Morphology.set_subthreshold_adaptation_strength" title="hxtorch.spiking.morphology.Morphology.set_subthreshold_adaptation_strength"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_subthreshold_adaptation_strength</span></code></a>(coord, …)</p></td>
+<td><p>Set the hardware parameter for the subthreshold adaptation strength on the given hw neuron.</p></td>
 </tr>
 </tbody>
 </table>
@@ -211,6 +226,24 @@ atomic neurons is changed.</p></li>
 </dd></dl>
 
 <dl class="py method">
+<dt id="hxtorch.spiking.morphology.Morphology.format_to_CapMemCell_value">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">format_to_CapMemCell_value</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">pyhaldls_vx_v3.CapMemCell.Value</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#hxtorch.spiking.morphology.Morphology.format_to_CapMemCell_value" title="Permalink to this definition"></a></dt>
+<dd><p>Helper function that can convert numbers (float or int) into
+hal.CapMemCell.Value type while issuing warnings, if bonds of the
+assignable value range are tried to surpass.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>kwargs</strong> – Dictionary that holds the values that are to be
+converted and their respective variable names (used for warnings)</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Tuple that holds the according hal.CapMemCell.Value for each
+passed value via kwargs</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt id="hxtorch.spiking.morphology.Morphology.implement_morphology">
 <code class="sig-name descname"><span class="pre">implement_morphology</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coord</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhalco_hicann_dls_vx_v3.LogicalNeuronOnDLS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">neuron_block</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pylola_vx_v3.NeuronBlock</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.morphology.Morphology.implement_morphology" title="Permalink to this definition"></a></dt>
 <dd><p>Configure the atomic neurons in the given neuron block to represent
@@ -238,6 +271,48 @@ implemented.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt id="hxtorch.spiking.morphology.Morphology.set_adaptation_base_params">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">set_adaptation_base_params</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coord</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhalco_hicann_dls_vx_v3.LogicalNeuronOnDLS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">neuron_block</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pylola_vx_v3.NeuronBlock</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau_adap</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.morphology.Morphology.set_adaptation_base_params" title="Permalink to this definition"></a></dt>
+<dd><p>Set all parameters related to the base of the adaptation term of the
+adaptive exponential leaky integrate-and-fire model (without
+subthreshold- or spike-triggered adaptation) on the given hw neuron.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>coord</strong> – Coordinate of the logical neuron for which the parameters
+are to be set.</p></li>
+<li><p><strong>neuron_block</strong> – Neuron block in which the configuration of the
+atomic neurons is changed.</p></li>
+<li><p><strong>tau_adap</strong> – Parameter value to be set for the adaptation time
+constant.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="hxtorch.spiking.morphology.Morphology.set_exponential_params">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">set_exponential_params</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coord</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhalco_hicann_dls_vx_v3.LogicalNeuronOnDLS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">neuron_block</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pylola_vx_v3.NeuronBlock</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exponential_threshold</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exponential_slope</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.morphology.Morphology.set_exponential_params" title="Permalink to this definition"></a></dt>
+<dd><p>Set all parameters related to the exponential term of the adaptive
+exponential leaky integrate-and-fire model on the given hardware
+neuron.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>coord</strong> – Coordinate of the logical neuron for which the parameters
+are to be set.</p></li>
+<li><p><strong>neuron_block</strong> – Neuron block in which the configuration of the
+atomic neurons is changed.</p></li>
+<li><p><strong>exponential_threshold</strong> – Parameter value to be set for the
+exponential threshold.</p></li>
+<li><p><strong>exponential_slope</strong> – Parameter value to be set for the
+exponential slope.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt id="hxtorch.spiking.morphology.Morphology.set_spike_recording">
 <em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">set_spike_recording</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">enable</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coord</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhalco_hicann_dls_vx_v3.LogicalNeuronOnDLS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">neuron_block</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pylola_vx_v3.NeuronBlock</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.morphology.Morphology.set_spike_recording" title="Permalink to this definition"></a></dt>
 <dd><p>Set whether spikes are forwarded digitally.</p>
@@ -249,6 +324,47 @@ implemented.</p>
 is enabled.</p></li>
 <li><p><strong>neuron_block</strong> – Neuron block in which the configuration of the
 atomic neurons is changed.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="hxtorch.spiking.morphology.Morphology.set_spike_triggered_adaptation_increment">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">set_spike_triggered_adaptation_increment</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coord</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhalco_hicann_dls_vx_v3.LogicalNeuronOnDLS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">neuron_block</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pylola_vx_v3.NeuronBlock</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spike_triggered_adaptation_increment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clock_scale_adaptation_pulse</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">(5,</span> <span class="pre">5)</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.morphology.Morphology.set_spike_triggered_adaptation_increment" title="Permalink to this definition"></a></dt>
+<dd><p>Set the hardware parameter for the spike-triggered adaptation increment
+on the given hw neuron.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>coord</strong> – Coordinate of the logical neuron for which the parameters
+are to be set.</p></li>
+<li><p><strong>neuron_block</strong> – Neuron block in which the configuration of the
+atomic neurons is changed.</p></li>
+<li><p><strong>spike_triggered_adaptation_increment</strong> – Parameter value to be set
+for the spike-triggered adaptation increment.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="hxtorch.spiking.morphology.Morphology.set_subthreshold_adaptation_strength">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">set_subthreshold_adaptation_strength</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coord</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhalco_hicann_dls_vx_v3.LogicalNeuronOnDLS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">neuron_block</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pylola_vx_v3.NeuronBlock</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subthreshold_adaptation_strength</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">leak_adaptation</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.morphology.Morphology.set_subthreshold_adaptation_strength" title="Permalink to this definition"></a></dt>
+<dd><p>Set the hardware parameter for the subthreshold adaptation strength
+on the given hw neuron.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>coord</strong> – Coordinate of the logical neuron for which the parameters
+are to be set.</p></li>
+<li><p><strong>neuron_block</strong> – Neuron block in which the configuration of the
+atomic neurons is changed.</p></li>
+<li><p><strong>subthreshold_adaptation_strength</strong> – Parameter value to be set for
+the subthreshold adaptation strength.</p></li>
+<li><p><strong>leak_adaptation</strong> – Parameter value to be set for the leak
+potential from the membrane taken into account by the
+subthreshold adaptation mechanism on hardware.</p></li>
 </ul>
 </dd>
 </dl>
