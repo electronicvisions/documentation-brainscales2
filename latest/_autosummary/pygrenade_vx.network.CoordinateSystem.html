@@ -121,8 +121,14 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.network.CoordinateSystem.assign_compartment_adjacent" title="pygrenade_vx.network.CoordinateSystem.assign_compartment_adjacent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">assign_compartment_adjacent</span></code></a>(self, x, y, …)</p></td>
 <td><p>Assign Compartment ID to connected(via switches) neuron-circuits.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.CoordinateSystem.clear_empty_connections" title="pygrenade_vx.network.CoordinateSystem.clear_empty_connections"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear_empty_connections</span></code></a>(self, x_max)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.CoordinateSystem.clear" title="pygrenade_vx.network.CoordinateSystem.clear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear</span></code></a>(self)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.network.CoordinateSystem.clear_empty_connections" title="pygrenade_vx.network.CoordinateSystem.clear_empty_connections"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear_empty_connections</span></code></a>(self, x_max)</p></td>
 <td><p>Clear connections with open ends.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.CoordinateSystem.clear_invalid_connections" title="pygrenade_vx.network.CoordinateSystem.clear_invalid_connections"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear_invalid_connections</span></code></a>(self, x_max)</p></td>
+<td><p>Clear empty and double connections in given part of coordinate system.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.network.CoordinateSystem.connected" title="pygrenade_vx.network.CoordinateSystem.connected"><code class="xref py py-obj docutils literal notranslate"><span class="pre">connected</span></code></a>(self, x, y)</p></td>
 <td><p>Check for any connection to neuron-circuit at (x,y).</p></td>
@@ -138,6 +144,12 @@
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.network.CoordinateSystem.connected_right_shared" title="pygrenade_vx.network.CoordinateSystem.connected_right_shared"><code class="xref py py-obj docutils literal notranslate"><span class="pre">connected_right_shared</span></code></a>(self, x, y)</p></td>
 <td><p>Check for connection to right neighbor via conductance.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.CoordinateSystem.connected_shared_conductance" title="pygrenade_vx.network.CoordinateSystem.connected_shared_conductance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">connected_shared_conductance</span></code></a>(self, x, y)</p></td>
+<td><p>Return coordinates of all neuron circuits connected to the given one via the shared line.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.network.CoordinateSystem.connected_shared_short" title="pygrenade_vx.network.CoordinateSystem.connected_shared_short"><code class="xref py py-obj docutils literal notranslate"><span class="pre">connected_shared_short</span></code></a>(self, x, y)</p></td>
+<td><p>Return coordinates of all neuron circuits directly connected to the given one via the shared line.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.CoordinateSystem.connected_top_bottom" title="pygrenade_vx.network.CoordinateSystem.connected_top_bottom"><code class="xref py py-obj docutils literal notranslate"><span class="pre">connected_top_bottom</span></code></a>(self, x, y)</p></td>
 <td><p>Check for direct connection to neighbor in opposite row.</p></td>
@@ -193,9 +205,20 @@
 </dd></dl>
 
 <dl class="py method">
+<dt id="pygrenade_vx.network.CoordinateSystem.clear">
+<code class="sig-name descname"><span class="pre">clear</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network.CoordinateSystem</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#pygrenade_vx.network.CoordinateSystem.clear" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt id="pygrenade_vx.network.CoordinateSystem.clear_empty_connections">
 <code class="sig-name descname"><span class="pre">clear_empty_connections</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network.CoordinateSystem</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_max</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#pygrenade_vx.network.CoordinateSystem.clear_empty_connections" title="Permalink to this definition"></a></dt>
 <dd><p>Clear connections with open ends.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.CoordinateSystem.clear_invalid_connections">
+<code class="sig-name descname"><span class="pre">clear_invalid_connections</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network.CoordinateSystem</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_max</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#pygrenade_vx.network.CoordinateSystem.clear_invalid_connections" title="Permalink to this definition"></a></dt>
+<dd><p>Clear empty and double connections in given part of coordinate system. Double connections occur if a neuron circuit connects to the shared line directly and via a resistor at the same time. Both connections are deleted then.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -226,6 +249,18 @@
 <dt id="pygrenade_vx.network.CoordinateSystem.connected_right_shared">
 <code class="sig-name descname"><span class="pre">connected_right_shared</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network.CoordinateSystem</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#pygrenade_vx.network.CoordinateSystem.connected_right_shared" title="Permalink to this definition"></a></dt>
 <dd><p>Check for connection to right neighbor via conductance.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.CoordinateSystem.connected_shared_conductance">
+<code class="sig-name descname"><span class="pre">connected_shared_conductance</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network.CoordinateSystem</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#pygrenade_vx.network.CoordinateSystem.connected_shared_conductance" title="Permalink to this definition"></a></dt>
+<dd><p>Return coordinates of all neuron circuits connected to the given one via the shared line. The check only includes those connections starting from the given neuron circuit with a direct connection to the shared line and ending at another neuron circuit with a resistor.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.CoordinateSystem.connected_shared_short">
+<code class="sig-name descname"><span class="pre">connected_shared_short</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network.CoordinateSystem</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#pygrenade_vx.network.CoordinateSystem.connected_shared_short" title="Permalink to this definition"></a></dt>
+<dd><p>Return coordinates of all neuron circuits directly connected to the given one via the shared line.</p>
 </dd></dl>
 
 <dl class="py method">

@@ -121,14 +121,20 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.network.ResourceManager.add_config" title="pygrenade_vx.network.ResourceManager.add_config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_config</span></code></a>(*args, **kwargs)</p></td>
 <td><p>Overloaded function.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.ResourceManager.get_config" title="pygrenade_vx.network.ResourceManager.get_config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_config</span></code></a>(self, compartment)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.ResourceManager.get_compartments" title="pygrenade_vx.network.ResourceManager.get_compartments"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_compartments</span></code></a>(self)</p></td>
+<td><p>Returns all compartments for which resource requirements are stored.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.network.ResourceManager.get_config" title="pygrenade_vx.network.ResourceManager.get_config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_config</span></code></a>(self, compartment)</p></td>
 <td><p>Return the configuration for a compartment in the resource maanger.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.network.ResourceManager.get_total" title="pygrenade_vx.network.ResourceManager.get_total"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_total</span></code></a>(self)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.ResourceManager.get_total" title="pygrenade_vx.network.ResourceManager.get_total"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_total</span></code></a>(self)</p></td>
 <td><p>Return the total resource requirements of all compartments inside the resource manager.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.ResourceManager.remove_config" title="pygrenade_vx.network.ResourceManager.remove_config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_config</span></code></a>(self, compartment)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.network.ResourceManager.remove_config" title="pygrenade_vx.network.ResourceManager.remove_config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_config</span></code></a>(self, compartment)</p></td>
 <td><p>Removes the configuration of a compartment from the resource manager.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.ResourceManager.write_graphviz" title="pygrenade_vx.network.ResourceManager.write_graphviz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_graphviz</span></code></a>(self, file, neuron, name)</p></td>
+<td><p>Writes neuron topology in graphviz format.</p></td>
 </tr>
 </tbody>
 </table>
@@ -147,6 +153,12 @@
 </dd></dl>
 
 <dl class="py method">
+<dt id="pygrenade_vx.network.ResourceManager.get_compartments">
+<code class="sig-name descname"><span class="pre">get_compartments</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network.ResourceManager</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">_pygrenade_vx_network.CompartmentOnNeuron</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#pygrenade_vx.network.ResourceManager.get_compartments" title="Permalink to this definition"></a></dt>
+<dd><p>Returns all compartments for which resource requirements are stored.</p>
+</dd></dl>
+
+<dl class="py method">
 <dt id="pygrenade_vx.network.ResourceManager.get_config">
 <code class="sig-name descname"><span class="pre">get_config</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network.ResourceManager</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compartment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network.CompartmentOnNeuron</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">_pygrenade_vx_network.NumberTopBottom</span><a class="headerlink" href="#pygrenade_vx.network.ResourceManager.get_config" title="Permalink to this definition"></a></dt>
 <dd><p>Return the configuration for a compartment in the resource maanger.</p>
@@ -162,6 +174,12 @@
 <dt id="pygrenade_vx.network.ResourceManager.remove_config">
 <code class="sig-name descname"><span class="pre">remove_config</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network.ResourceManager</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compartment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network.CompartmentOnNeuron</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#pygrenade_vx.network.ResourceManager.remove_config" title="Permalink to this definition"></a></dt>
 <dd><p>Removes the configuration of a compartment from the resource manager.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.ResourceManager.write_graphviz">
+<code class="sig-name descname"><span class="pre">write_graphviz</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self:</span> <span class="pre">_pygrenade_vx_network.ResourceManager</span></em>, <em class="sig-param"><span class="pre">file:</span> <span class="pre">std::ostream</span></em>, <em class="sig-param"><span class="pre">neuron:</span> <span class="pre">_pygrenade_vx_network.Neuron</span></em>, <em class="sig-param"><span class="pre">name:</span> <span class="pre">str</span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#pygrenade_vx.network.ResourceManager.write_graphviz" title="Permalink to this definition"></a></dt>
+<dd><p>Writes neuron topology in graphviz format. Contains information about the resources required by each compartment of the neuron.</p>
 </dd></dl>
 
 </dd></dl>
