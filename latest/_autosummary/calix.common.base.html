@@ -189,7 +189,7 @@ error mask and optional error messages.</p>
 
 <dl class="py function">
 <dt id="calix.common.base.check_values">
-<code class="sig-prename descclassname"><span class="pre">calix.common.base.</span></code><code class="sig-name descname"><span class="pre">check_values</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feasible_range</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="calix.common.base.ParameterRange.html#calix.common.base.ParameterRange" title="calix.common.base.ParameterRange"><span class="pre">calix.common.base.ParameterRange</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.common.base.check_values" title="Permalink to this definition"></a></dt>
+<code class="sig-prename descclassname"><span class="pre">calix.common.base.</span></code><code class="sig-name descname"><span class="pre">check_values</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feasible_range</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="calix.common.parameter_range.ParameterRange.html#calix.common.parameter_range.ParameterRange" title="calix.common.parameter_range.ParameterRange"><span class="pre">calix.common.parameter_range.ParameterRange</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.common.base.check_values" title="Permalink to this definition"></a></dt>
 <dd><p>Check whether the provided target parameters are feasible
 for calibration.</p>
 <dl class="field-list simple">
@@ -220,32 +220,6 @@ assigned to after instance creation. If match_args is true, the
 __match_args__ tuple is added. If kw_only is true, then by default
 all fields are keyword-only. If slots is true, a new class with a
 __slots__ attribute is returned.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="calix.common.base.namedtuple">
-<code class="sig-prename descclassname"><span class="pre">calix.common.base.</span></code><code class="sig-name descname"><span class="pre">namedtuple</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">typename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field_names</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">defaults</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.common.base.namedtuple" title="Permalink to this definition"></a></dt>
-<dd><p>Returns a new subclass of tuple with named fields.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Point</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;Point&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">Point</span><span class="o">.</span><span class="vm">__doc__</span>                   <span class="c1"># docstring for the new class</span>
-<span class="go">&#39;Point(x, y)&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">22</span><span class="p">)</span>             <span class="c1"># instantiate with positional args or keywords</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>                     <span class="c1"># indexable like a plain tuple</span>
-<span class="go">33</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">p</span>                        <span class="c1"># unpack like a regular tuple</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span>
-<span class="go">(11, 22)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">p</span><span class="o">.</span><span class="n">y</span>                       <span class="c1"># fields also accessible by name</span>
-<span class="go">33</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">_asdict</span><span class="p">()</span>                 <span class="c1"># convert to a dictionary</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span>
-<span class="go">11</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">Point</span><span class="p">(</span><span class="o">**</span><span class="n">d</span><span class="p">)</span>                      <span class="c1"># convert from a dictionary</span>
-<span class="go">Point(x=11, y=22)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">_replace</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>               <span class="c1"># _replace() is like str.replace() but targets named fields</span>
-<span class="go">Point(x=100, y=22)</span>
-</pre></div>
-</div>
 </dd></dl>
 
 <dl class="py function">
