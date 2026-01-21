@@ -121,8 +121,17 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.network.Environment.add" title="pygrenade_vx.network.Environment.add"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add</span></code></a>(*args, **kwargs)</p></td>
 <td><p>Overloaded function.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.Environment.get" title="pygrenade_vx.network.Environment.get"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get</span></code></a>(self, compartment)</p></td>
-<td><p></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.Environment.add_recordable" title="pygrenade_vx.network.Environment.add_recordable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_recordable</span></code></a>(self, compartment_a, …)</p></td>
+<td><p>Add a pair of recordable compartments.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.network.Environment.get" title="pygrenade_vx.network.Environment.get"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get</span></code></a>(self, compartment)</p></td>
+<td><p>Get all synaptic inputs defined on a compartment.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.Environment.get_recordable" title="pygrenade_vx.network.Environment.get_recordable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_recordable</span></code></a>(self, compartment)</p></td>
+<td><p>Get list of all compartments that can be recorded together with the given compartment.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.network.Environment.get_recordable_pairs" title="pygrenade_vx.network.Environment.get_recordable_pairs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_recordable_pairs</span></code></a>(self)</p></td>
+<td><p>Get list of all compartment pairs that can be recorded.</p></td>
 </tr>
 </tbody>
 </table>
@@ -132,14 +141,37 @@
 <dd><p>Overloaded function.</p>
 <ol class="arabic simple">
 <li><p>add(self: _pygrenade_vx_network.Environment, compartment: _pygrenade_vx_network.CompartmentOnNeuron, synaptic_input: _pygrenade_vx_network.SynapticInputEnvironment) -&gt; None</p></li>
+</ol>
+<p>Add information about number of synaptic inputs on a neuron.</p>
+<ol class="arabic simple" start="2">
 <li><p>add(self: _pygrenade_vx_network.Environment, compartment: _pygrenade_vx_network.CompartmentOnNeuron, synaptic_inputs: list[dapr::PropertyHolder&lt;grenade::vx::network::abstract::SynapticInputEnvironment, std::unique_ptr&gt;]) -&gt; None</p></li>
 </ol>
+<p>Add information about number of synaptic inputs on a neuron.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.Environment.add_recordable">
+<code class="sig-name descname"><span class="pre">add_recordable</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network.Environment</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compartment_a</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network.CompartmentOnNeuron</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compartment_b</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network.CompartmentOnNeuron</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#pygrenade_vx.network.Environment.add_recordable" title="Permalink to this definition"></a></dt>
+<dd><p>Add a pair of recordable compartments.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="pygrenade_vx.network.Environment.get">
 <code class="sig-name descname"><span class="pre">get</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network.Environment</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compartment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network.CompartmentOnNeuron</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">list[dapr::PropertyHolder&lt;grenade::vx::network::abstract::SynapticInputEnvironment,</span> <span class="pre">std::unique_ptr&gt;]</span><a class="headerlink" href="#pygrenade_vx.network.Environment.get" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Get all synaptic inputs defined on a compartment.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.Environment.get_recordable">
+<code class="sig-name descname"><span class="pre">get_recordable</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network.Environment</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compartment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network.CompartmentOnNeuron</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">_pygrenade_vx_network.CompartmentOnNeuron</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#pygrenade_vx.network.Environment.get_recordable" title="Permalink to this definition"></a></dt>
+<dd><p>Get list of all compartments that can be recorded together with the given compartment.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.Environment.get_recordable_pairs">
+<code class="sig-name descname"><span class="pre">get_recordable_pairs</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network.Environment</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">set</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">_pygrenade_vx_network.CompartmentOnNeuron</span><span class="p"><span class="pre">,</span> </span><span class="pre">_pygrenade_vx_network.CompartmentOnNeuron</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#pygrenade_vx.network.Environment.get_recordable_pairs" title="Permalink to this definition"></a></dt>
+<dd><p>Get list of all compartment pairs that can be recorded.</p>
+</dd></dl>
 
 </dd></dl>
 

@@ -17,7 +17,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="pygrenade_vx.network.MechanismCapacitance" href="pygrenade_vx.network.MechanismCapacitance.html" />
-    <link rel="prev" title="pygrenade_vx.network.MADCRecording" href="pygrenade_vx.network.MADCRecording.html" /> 
+    <link rel="prev" title="pygrenade_vx.network.Map_grenade_vx_network_abstract_MechanismOnCompartment_grenade_vx_network_abstract_Mechanism_ParameterSpace_Parameterization_" href="pygrenade_vx.network.Map_grenade_vx_network_abstract_MechanismOnCompartment_grenade_vx_network_abstract_Mechanism_ParameterSpace_Parameterization_.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -117,14 +117,32 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.network.Mechanism.conflict" title="pygrenade_vx.network.Mechanism.conflict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">conflict</span></code></a>(self, other)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.Mechanism.get_hardware" title="pygrenade_vx.network.Mechanism.get_hardware"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_hardware</span></code></a>(self, compartment, environment)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.Mechanism.get_hardware" title="pygrenade_vx.network.Mechanism.get_hardware"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_hardware</span></code></a>(self, compartment, …)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.network.Mechanism.valid" title="pygrenade_vx.network.Mechanism.valid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">valid</span></code></a>(self)</p></td>
-<td><p></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.network.Mechanism.valid" title="pygrenade_vx.network.Mechanism.valid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">valid</span></code></a>(self, parameter_space)</p></td>
+<td><p>Check if the given paramter space is valid for the mechanism.</p></td>
 </tr>
 </tbody>
 </table>
+<dl class="py class">
+<dt id="pygrenade_vx.network.Mechanism.ParameterSpace">
+<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">ParameterSpace</span></code><a class="headerlink" href="#pygrenade_vx.network.Mechanism.ParameterSpace" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_builtins.pybind11_object</span></code></p>
+<dl class="py class">
+<dt id="pygrenade_vx.network.Mechanism.ParameterSpace.Parameterization">
+<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">Parameterization</span></code><a class="headerlink" href="#pygrenade_vx.network.Mechanism.ParameterSpace.Parameterization" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_builtins.pybind11_object</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.Mechanism.ParameterSpace.valid">
+<code class="sig-name descname"><span class="pre">valid</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network.Mechanism.ParameterSpace</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameterization</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network.Mechanism.ParameterSpace.Parameterization</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#pygrenade_vx.network.Mechanism.ParameterSpace.valid" title="Permalink to this definition"></a></dt>
+<dd><p>Check if the given parameterization is valid for the parameter space.</p>
+</dd></dl>
+
+</dd></dl>
+
 <dl class="py method">
 <dt id="pygrenade_vx.network.Mechanism.conflict">
 <code class="sig-name descname"><span class="pre">conflict</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network.Mechanism</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network.Mechanism</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#pygrenade_vx.network.Mechanism.conflict" title="Permalink to this definition"></a></dt>
@@ -132,13 +150,14 @@
 
 <dl class="py method">
 <dt id="pygrenade_vx.network.Mechanism.get_hardware">
-<code class="sig-name descname"><span class="pre">get_hardware</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self:</span> <span class="pre">_pygrenade_vx_network.Mechanism</span></em>, <em class="sig-param"><span class="pre">compartment:</span> <span class="pre">grenade::vx::network::abstract::CompartmentOnNeuron</span></em>, <em class="sig-param"><span class="pre">environment:</span> <span class="pre">grenade::vx::network::abstract::Environment</span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">grenade::vx::network::abstract::HardwareResourcesWithConstraints</span><a class="headerlink" href="#pygrenade_vx.network.Mechanism.get_hardware" title="Permalink to this definition"></a></dt>
+<code class="sig-name descname"><span class="pre">get_hardware</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self:</span> <span class="pre">_pygrenade_vx_network.Mechanism</span></em>, <em class="sig-param"><span class="pre">compartment:</span> <span class="pre">grenade::vx::network::abstract::CompartmentOnNeuron</span></em>, <em class="sig-param"><span class="pre">parameter_space:</span> <span class="pre">_pygrenade_vx_network.Mechanism.ParameterSpace</span></em>, <em class="sig-param"><span class="pre">environment:</span> <span class="pre">grenade::vx::network::abstract::Environment</span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">grenade::vx::network::abstract::HardwareResourcesWithConstraints</span><a class="headerlink" href="#pygrenade_vx.network.Mechanism.get_hardware" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="pygrenade_vx.network.Mechanism.valid">
-<code class="sig-name descname"><span class="pre">valid</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network.Mechanism</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#pygrenade_vx.network.Mechanism.valid" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<code class="sig-name descname"><span class="pre">valid</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network.Mechanism</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameter_space</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network.Mechanism.ParameterSpace</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#pygrenade_vx.network.Mechanism.valid" title="Permalink to this definition"></a></dt>
+<dd><p>Check if the given paramter space is valid for the mechanism.</p>
+</dd></dl>
 
 </dd></dl>
 
@@ -148,7 +167,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="pygrenade_vx.network.MADCRecording.html" class="btn btn-neutral float-left" title="pygrenade_vx.network.MADCRecording" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pygrenade_vx.network.Map_grenade_vx_network_abstract_MechanismOnCompartment_grenade_vx_network_abstract_Mechanism_ParameterSpace_Parameterization_.html" class="btn btn-neutral float-left" title="pygrenade_vx.network.Map_grenade_vx_network_abstract_MechanismOnCompartment_grenade_vx_network_abstract_Mechanism_ParameterSpace_Parameterization_" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="pygrenade_vx.network.MechanismCapacitance.html" class="btn btn-neutral float-right" title="pygrenade_vx.network.MechanismCapacitance" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
