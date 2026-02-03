@@ -98,16 +98,22 @@
 <h1>pygrenade_vx.network.multicompartment.morphology_builder.MorphologyBuilder<a class="headerlink" href="#pygrenade-vx-network-multicompartment-morphology-builder-morphologybuilder" title="Permalink to this headline"></a></h1>
 <dl class="py class">
 <dt id="pygrenade_vx.network.multicompartment.morphology_builder.MorphologyBuilder">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">pygrenade_vx.network.multicompartment.morphology_builder.</span></code><code class="sig-name descname"><span class="pre">MorphologyBuilder</span></code><a class="headerlink" href="#pygrenade_vx.network.multicompartment.morphology_builder.MorphologyBuilder" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">pygrenade_vx.network.multicompartment.morphology_builder.</span></code><code class="sig-name descname"><span class="pre">MorphologyBuilder</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">neuron_type=&lt;class</span> <span class="pre">'pygrenade_vx.network.multicompartment.neuron.Neuron'&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygrenade_vx.network.multicompartment.morphology_builder.MorphologyBuilder" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Construct a multicompartment neuron class.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>neuron_type</strong> – Base class from which the neuron created in the builder</p>
+</dd>
+</dl>
+<p>derives.</p>
 <p>Compartments can be added and interconnected. The builder supports
 cloning branches of interconnected compartments and connecting different
 branches to one neuron. The created neuron must be fully connnected and
 acyclic.</p>
 <dl class="py method">
 <dt id="pygrenade_vx.network.multicompartment.morphology_builder.MorphologyBuilder.__init__">
-<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pygrenade_vx.network.multicompartment.morphology_builder.MorphologyBuilder.__init__" title="Permalink to this definition"></a></dt>
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">neuron_type=&lt;class</span> <span class="pre">'pygrenade_vx.network.multicompartment.neuron.Neuron'&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygrenade_vx.network.multicompartment.morphology_builder.MorphologyBuilder.__init__" title="Permalink to this definition"></a></dt>
 <dd><p>Builder for multicompartment neuron classes.</p>
 <p>Structures the neuron during the building process in nodes that
 form a tree.</p>
@@ -120,22 +126,25 @@ form a tree.</p>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.multicompartment.morphology_builder.MorphologyBuilder.__init__" title="pygrenade_vx.network.multicompartment.morphology_builder.MorphologyBuilder.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.multicompartment.morphology_builder.MorphologyBuilder.__init__" title="pygrenade_vx.network.multicompartment.morphology_builder.MorphologyBuilder.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([neuron_type])</p></td>
 <td><p>Builder for multicompartment neuron classes.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.network.multicompartment.morphology_builder.MorphologyBuilder.add_compartment" title="pygrenade_vx.network.multicompartment.morphology_builder.MorphologyBuilder.add_compartment"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_compartment</span></code></a>(compartment[, label])</p></td>
 <td><p>Add a compartment to the builder.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.multicompartment.morphology_builder.MorphologyBuilder.clone" title="pygrenade_vx.network.multicompartment.morphology_builder.MorphologyBuilder.clone"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clone</span></code></a>(node[, label])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.multicompartment.morphology_builder.MorphologyBuilder.build_translation_and_default" title="pygrenade_vx.network.multicompartment.morphology_builder.MorphologyBuilder.build_translation_and_default"><code class="xref py py-obj docutils literal notranslate"><span class="pre">build_translation_and_default</span></code></a>(…)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.network.multicompartment.morphology_builder.MorphologyBuilder.clone" title="pygrenade_vx.network.multicompartment.morphology_builder.MorphologyBuilder.clone"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clone</span></code></a>(node[, label])</p></td>
 <td><p>Clone an existing node.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.network.multicompartment.morphology_builder.MorphologyBuilder.connect" title="pygrenade_vx.network.multicompartment.morphology_builder.MorphologyBuilder.connect"><code class="xref py py-obj docutils literal notranslate"><span class="pre">connect</span></code></a>(connections[, label])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.multicompartment.morphology_builder.MorphologyBuilder.connect" title="pygrenade_vx.network.multicompartment.morphology_builder.MorphologyBuilder.connect"><code class="xref py py-obj docutils literal notranslate"><span class="pre">connect</span></code></a>(connections[, label])</p></td>
 <td><p>Connect two compartments.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.multicompartment.morphology_builder.MorphologyBuilder.done" title="pygrenade_vx.network.multicompartment.morphology_builder.MorphologyBuilder.done"><code class="xref py py-obj docutils literal notranslate"><span class="pre">done</span></code></a>(name)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.network.multicompartment.morphology_builder.MorphologyBuilder.done" title="pygrenade_vx.network.multicompartment.morphology_builder.MorphologyBuilder.done"><code class="xref py py-obj docutils literal notranslate"><span class="pre">done</span></code></a>(name)</p></td>
 <td><p>Return a new neuron class that matches the topology defined in the builder.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.network.multicompartment.morphology_builder.MorphologyBuilder.get_ref_in_node" title="pygrenade_vx.network.multicompartment.morphology_builder.MorphologyBuilder.get_ref_in_node"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_ref_in_node</span></code></a>(target_tree, subnode)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.multicompartment.morphology_builder.MorphologyBuilder.get_ref_in_node" title="pygrenade_vx.network.multicompartment.morphology_builder.MorphologyBuilder.get_ref_in_node"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_ref_in_node</span></code></a>(target_tree, subnode)</p></td>
 <td><p>Return the reference to a node on a specific subtree.</p></td>
 </tr>
 </tbody>
@@ -158,6 +167,11 @@ form a tree.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt id="pygrenade_vx.network.multicompartment.morphology_builder.MorphologyBuilder.build_translation_and_default">
+<code class="sig-name descname"><span class="pre">build_translation_and_default</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">compartments_full_label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connections_full_label</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygrenade_vx.network.multicompartment.morphology_builder.MorphologyBuilder.build_translation_and_default" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt id="pygrenade_vx.network.multicompartment.morphology_builder.MorphologyBuilder.clone">
 <code class="sig-name descname"><span class="pre">clone</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="pygrenade_vx.network.multicompartment.tree.Node.html#pygrenade_vx.network.multicompartment.tree.Node" title="pygrenade_vx.network.multicompartment.tree.Node"><span class="pre">pygrenade_vx.network.multicompartment.tree.Node</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="pygrenade_vx.network.multicompartment.tree.Node.html#pygrenade_vx.network.multicompartment.tree.Node" title="pygrenade_vx.network.multicompartment.tree.Node"><span class="pre">pygrenade_vx.network.multicompartment.tree.Node</span></a><a class="headerlink" href="#pygrenade_vx.network.multicompartment.morphology_builder.MorphologyBuilder.clone" title="Permalink to this definition"></a></dt>
 <dd><p>Clone an existing node.</p>
@@ -176,7 +190,7 @@ form a tree.</p>
 
 <dl class="py method">
 <dt id="pygrenade_vx.network.multicompartment.morphology_builder.MorphologyBuilder.connect">
-<code class="sig-name descname"><span class="pre">connect</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connections</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="pygrenade_vx.network.multicompartment.tree.Node.html#pygrenade_vx.network.multicompartment.tree.Node" title="pygrenade_vx.network.multicompartment.tree.Node"><span class="pre">pygrenade_vx.network.multicompartment.tree.Node</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="pygrenade_vx.network.multicompartment.tree.Node.html#pygrenade_vx.network.multicompartment.tree.Node" title="pygrenade_vx.network.multicompartment.tree.Node"><span class="pre">pygrenade_vx.network.multicompartment.tree.Node</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="pygrenade_vx.network.multicompartment.tree.Node.html#pygrenade_vx.network.multicompartment.tree.Node" title="pygrenade_vx.network.multicompartment.tree.Node"><span class="pre">pygrenade_vx.network.multicompartment.tree.Node</span></a><a class="headerlink" href="#pygrenade_vx.network.multicompartment.morphology_builder.MorphologyBuilder.connect" title="Permalink to this definition"></a></dt>
+<code class="sig-name descname"><span class="pre">connect</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connections</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="pygrenade_vx.network.multicompartment.tree.Connection.html#pygrenade_vx.network.multicompartment.tree.Connection" title="pygrenade_vx.network.multicompartment.tree.Connection"><span class="pre">pygrenade_vx.network.multicompartment.tree.Connection</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="pygrenade_vx.network.multicompartment.tree.Node.html#pygrenade_vx.network.multicompartment.tree.Node" title="pygrenade_vx.network.multicompartment.tree.Node"><span class="pre">pygrenade_vx.network.multicompartment.tree.Node</span></a><a class="headerlink" href="#pygrenade_vx.network.multicompartment.morphology_builder.MorphologyBuilder.connect" title="Permalink to this definition"></a></dt>
 <dd><p>Connect two compartments.</p>
 <p>By connecting two compartments a node that contains the two subtrees,
 that contain the source and target compartment of the connection is
@@ -184,7 +198,8 @@ created.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>connections</strong> – List of source target tuples of compartments.</p></li>
+<li><p><strong>connections</strong> – List of connections.</p></li>
+<li><p><strong>conductances</strong> – List of conductances for connections.</p></li>
 <li><p><strong>label</strong> – Optional label for newly created subtree.</p></li>
 </ul>
 </dd>
@@ -197,7 +212,7 @@ created.</p>
 
 <dl class="py method">
 <dt id="pygrenade_vx.network.multicompartment.morphology_builder.MorphologyBuilder.done">
-<code class="sig-name descname"><span class="pre">done</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="pygrenade_vx.network.multicompartment.neuron.Neuron.html#pygrenade_vx.network.multicompartment.neuron.Neuron" title="pygrenade_vx.network.multicompartment.neuron.Neuron"><span class="pre">pygrenade_vx.network.multicompartment.neuron.Neuron</span></a><a class="headerlink" href="#pygrenade_vx.network.multicompartment.morphology_builder.MorphologyBuilder.done" title="Permalink to this definition"></a></dt>
+<code class="sig-name descname"><span class="pre">done</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygrenade_vx.network.multicompartment.morphology_builder.MorphologyBuilder.done" title="Permalink to this definition"></a></dt>
 <dd><p>Return a new neuron class that matches the topology defined in the
 builder.</p>
 <dl class="field-list simple">
