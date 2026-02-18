@@ -134,9 +134,7 @@
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">pynn_brainscales.brainscales2.recording_data.</span></code><code class="sig-name descname"><span class="pre">RecordingConfig</span></code><a class="headerlink" href="#pynn_brainscales.brainscales2.recording_data.RecordingConfig" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Save which observables are recorded with which “device”.</p>
-<p>Currently we only support MADC recordings but in future we want to support
-readout via the pads and via the CADC.
-This class saves which observables are recorded for which recording site
+<p>This class saves which observables are recorded for which recording site
 (recording site = neuron + compartment) and which device is used, where a
 device is the method of readout, i.e. MADC.</p>
 <dl class="py method">
@@ -155,16 +153,19 @@ device is the method of readout, i.e. MADC.</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.recording_data.RecordingConfig.__init__" title="pynn_brainscales.brainscales2.recording_data.RecordingConfig.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>()</p></td>
 <td><p>Initialize self.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.recording_data.RecordingConfig.add_madc_recording" title="pynn_brainscales.brainscales2.recording_data.RecordingConfig.add_madc_recording"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_madc_recording</span></code></a>(variables, recording_sites)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.recording_data.RecordingConfig.add_cadc_recording" title="pynn_brainscales.brainscales2.recording_data.RecordingConfig.add_cadc_recording"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_cadc_recording</span></code></a>(variables, recording_sites)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.recording_data.RecordingConfig.add_pad_readout" title="pynn_brainscales.brainscales2.recording_data.RecordingConfig.add_pad_readout"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_pad_readout</span></code></a>(variables, recording_sites, pad)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.recording_data.RecordingConfig.add_madc_recording" title="pynn_brainscales.brainscales2.recording_data.RecordingConfig.add_madc_recording"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_madc_recording</span></code></a>(variables, recording_sites)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.recording_data.RecordingConfig.add_to_network_graph" title="pynn_brainscales.brainscales2.recording_data.RecordingConfig.add_to_network_graph"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_to_network_graph</span></code></a>(network_builder)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.recording_data.RecordingConfig.add_pad_readout" title="pynn_brainscales.brainscales2.recording_data.RecordingConfig.add_pad_readout"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_pad_readout</span></code></a>(variables, recording_sites, pad)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.recording_data.RecordingConfig.remove" title="pynn_brainscales.brainscales2.recording_data.RecordingConfig.remove"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove</span></code></a>(recording_site)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.recording_data.RecordingConfig.add_to_network_graph" title="pynn_brainscales.brainscales2.recording_data.RecordingConfig.add_to_network_graph"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_to_network_graph</span></code></a>(network_builder)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.recording_data.RecordingConfig.remove" title="pynn_brainscales.brainscales2.recording_data.RecordingConfig.remove"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove</span></code></a>(recording_site)</p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -184,6 +185,11 @@ device is the method of readout, i.e. MADC.</p>
 </tr>
 </tbody>
 </table>
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.recording_data.RecordingConfig.add_cadc_recording">
+<code class="sig-name descname"><span class="pre">add_cadc_recording</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variables</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recording_sites</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="pynn_brainscales.brainscales2.recording_data.GrenadeRecId.html#pynn_brainscales.brainscales2.recording_data.GrenadeRecId" title="pynn_brainscales.brainscales2.recording_data.GrenadeRecId"><span class="pre">pynn_brainscales.brainscales2.recording_data.GrenadeRecId</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.recording_data.RecordingConfig.add_cadc_recording" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
 <dl class="py method">
 <dt id="pynn_brainscales.brainscales2.recording_data.RecordingConfig.add_madc_recording">
 <code class="sig-name descname"><span class="pre">add_madc_recording</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variables</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recording_sites</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="pynn_brainscales.brainscales2.recording_data.GrenadeRecId.html#pynn_brainscales.brainscales2.recording_data.GrenadeRecId" title="pynn_brainscales.brainscales2.recording_data.GrenadeRecId"><span class="pre">pynn_brainscales.brainscales2.recording_data.GrenadeRecId</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.recording_data.RecordingConfig.add_madc_recording" title="Permalink to this definition"></a></dt>
@@ -207,6 +213,11 @@ device is the method of readout, i.e. MADC.</p>
 <dl class="py attribute">
 <dt id="pynn_brainscales.brainscales2.recording_data.RecordingConfig.analog_observables">
 <code class="sig-name descname"><span class="pre">analog_observables</span></code><em class="property"><span class="pre">:</span> <span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="pynn_brainscales.brainscales2.recording_data.GrenadeRecId.html#pynn_brainscales.brainscales2.recording_data.GrenadeRecId" title="pynn_brainscales.brainscales2.recording_data.GrenadeRecId"><span class="pre">pynn_brainscales.brainscales2.recording_data.GrenadeRecId</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">pyhaldls_vx_v3.NeuronConfig.ReadoutSource</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#pynn_brainscales.brainscales2.recording_data.RecordingConfig.analog_observables" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pynn_brainscales.brainscales2.recording_data.RecordingConfig.cadc">
+<code class="sig-name descname"><span class="pre">cadc</span></code><em class="property"><span class="pre">:</span> <span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="pynn_brainscales.brainscales2.recording_data.GrenadeRecId.html#pynn_brainscales.brainscales2.recording_data.GrenadeRecId" title="pynn_brainscales.brainscales2.recording_data.GrenadeRecId"><span class="pre">pynn_brainscales.brainscales2.recording_data.GrenadeRecId</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#pynn_brainscales.brainscales2.recording_data.RecordingConfig.cadc" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">

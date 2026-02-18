@@ -159,6 +159,12 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.recording.Recorder.__init__" title="pynn_brainscales.brainscales2.recording.Recorder.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(population[, file])</p></td>
 <td><p>Create a recorder.</p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.recording.Recorder.add_recording" title="pynn_brainscales.brainscales2.recording.Recorder.add_recording"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_recording</span></code></a>(segment, snippet_idx, variable)</p></td>
+<td><p>Add the recorded samples to the segment.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.recording.Recorder.add_spike_trains" title="pynn_brainscales.brainscales2.recording.Recorder.add_spike_trains"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_spike_trains</span></code></a>(segment, snippet_idx, *[, …])</p></td>
+<td><p>Add the recorded spike trains to the segment.</p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.recording.Recorder.filter_recorded" title="pynn_brainscales.brainscales2.recording.Recorder.filter_recorded"><code class="xref py py-obj docutils literal notranslate"><span class="pre">filter_recorded</span></code></a>(variable, filter_ids)</p></td>
 <td><p></p></td>
 </tr>
@@ -179,6 +185,45 @@
 <tbody>
 </tbody>
 </table>
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.recording.Recorder.add_recording">
+<code class="sig-name descname"><span class="pre">add_recording</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">segment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">neo.core.segment.Segment</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">snippet_idx</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'madc'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_ids</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clear</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#pynn_brainscales.brainscales2.recording.Recorder.add_recording" title="Permalink to this definition"></a></dt>
+<dd><p>Add the recorded samples to the segment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>segment</strong> – Segment to which add the data.</p></li>
+<li><p><strong>snippet_idx</strong> – Snipped for from which to get the
+samples.</p></li>
+<li><p><strong>variable</strong> – Name of variable for which to get the data.</p></li>
+<li><p><strong>device</strong> – Device for which get the samples. I.e. CADC or
+MADC.</p></li>
+<li><p><strong>filter_ids</strong> – Ids of cells for which to get the data.
+If None, the samples of all cells are retrieved.</p></li>
+<li><p><strong>clear</strong> – Clear recorded data.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.recording.Recorder.add_spike_trains">
+<code class="sig-name descname"><span class="pre">add_spike_trains</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">segment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">neo.core.segment.Segment</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">snippet_idx</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_ids</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clear</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#pynn_brainscales.brainscales2.recording.Recorder.add_spike_trains" title="Permalink to this definition"></a></dt>
+<dd><p>Add the recorded spike trains to the segment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>segment</strong> – Segment to which to add the spike trains.</p></li>
+<li><p><strong>snippet_idx</strong> – Snipped for from which to get the
+spike trains.</p></li>
+<li><p><strong>filter_ids</strong> – Ids of cells for which to get the spike
+trains. If None, the spike trains of all cells are retrieved.</p></li>
+<li><p><strong>clear</strong> – Clear recorded data.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py method">
 <dt id="pynn_brainscales.brainscales2.recording.Recorder.filter_recorded">
 <code class="sig-name descname"><span class="pre">filter_recorded</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_ids</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.recording.Recorder.filter_recorded" title="Permalink to this definition"></a></dt>
