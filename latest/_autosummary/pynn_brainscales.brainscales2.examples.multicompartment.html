@@ -167,13 +167,32 @@ compartments and connections.</p>
 </dd></dl>
 
 <dl class="py function">
+<dt id="pynn_brainscales.brainscales2.examples.multicompartment.create_neuron_class">
+<code class="sig-prename descclassname"><span class="pre">pynn_brainscales.brainscales2.examples.multicompartment.</span></code><code class="sig-name descname"><span class="pre">create_neuron_class</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">length</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.examples.multicompartment.create_neuron_class" title="Permalink to this definition"></a></dt>
+<dd><p>Create a neuron class for a dendritic chain.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>length</strong> – Number of compartments in the chain.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt id="pynn_brainscales.brainscales2.examples.multicompartment.main">
-<code class="sig-prename descclassname"><span class="pre">pynn_brainscales.brainscales2.examples.multicompartment.</span></code><code class="sig-name descname"><span class="pre">main</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.examples.multicompartment.main" title="Permalink to this definition"></a></dt>
-<dd><p>Create a chain of compartments with three compartments.</p>
-<p>Record the membrane voltage in the first compartment while synaptic inputs
-are injected into it.
-A plot in which the membrane voltage and recorded spikes are displayed is
-saved to disk.</p>
+<code class="sig-prename descclassname"><span class="pre">pynn_brainscales.brainscales2.examples.multicompartment.</span></code><code class="sig-name descname"><span class="pre">main</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">length</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">runtime</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0.15</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.examples.multicompartment.main" title="Permalink to this definition"></a></dt>
+<dd><p>Create a chain of compartments.</p>
+<p>Record the membrane voltage in each compartment while inputs are injected
+in the different compartments.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>length</strong> – Length of the chain.</p></li>
+<li><p><strong>runtime</strong> – Experiment runtime in ms. Note that for runtimes over
+around 0.15 ms, samples from the CADC are lost, i.e. the data is
+not recorded of the whole experiment time.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 </div>
