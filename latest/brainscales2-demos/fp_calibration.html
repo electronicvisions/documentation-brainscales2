@@ -61,6 +61,7 @@
 <li class="toctree-l4"><a class="reference internal" href="fp_superspike.html">Learning with the SuperSpike rule</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="fortgeschrittenen_praktikum.html#glossary">Glossary</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="cns_00_overview.html">BrainScaleS-2 Computational Neuroscience Demo</a></li>
@@ -109,7 +110,7 @@ The interactive variant provides additional helpers.</p>
 <div class="section" id="characterizing-the-madc">
 <h2>Characterizing the MADC<a class="headerlink" href="#characterizing-the-madc" title="Permalink to this headline"></a></h2>
 <p>Before we continue our investigations of analog neurons, we need to characterize the readout chain used for the neurons’ signals. Since HICANN-X has digital communication interfaces, the analog voltage recordings of a neuron need to be digitized on chip.</p>
-<p>Characterizing the analog-to-digital-converter (ADC) means applying a known voltage externally and recording the value returned by the ADC. Later, we will reverse this relation in order to convert measured data back to SI units.</p>
+<p>Characterizing the analog-to-digital-converter (<a class="reference internal" href="fortgeschrittenen_praktikum.html#term-ADC"><span class="xref std std-term">ADC</span></a>) means applying a known voltage externally and recording the value returned by the <a class="reference internal" href="fortgeschrittenen_praktikum.html#term-ADC"><span class="xref std std-term">ADC</span></a>. Later, we will reverse this relation in order to convert measured data back to SI units.</p>
 <p>In the following, we define a function which applies an external voltage and returns samples from the MADC. Your task is to sweep the external voltage and analyze the returned reads. Plot the characteristic and perform a linear fit to a suitable range. You will use the parameters of your fit in the following notebooks.</p>
 <div class="section" id="low-level-hardware-access">
 <h3>Low Level Hardware Access<a class="headerlink" href="#low-level-hardware-access" title="Permalink to this headline"></a></h3>
@@ -132,7 +133,7 @@ The interactive variant provides additional helpers.</p>
 <div class="section" id="exercises">
 <h3>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline"></a></h3>
 <ul class="simple">
-<li><p>Measure the sampled value for voltages between 0 and 1.2 V. We recommend steps of 0.05 V. For each data point, save a mean ADC value. Hint: Use something like <code class="docutils literal notranslate"><span class="pre">result[&quot;value&quot;]</span></code> for calculating your mean ADC values. Complete the cell below to do so:</p></li>
+<li><p>Measure the sampled value for voltages between 0 and 1.2 V. We recommend steps of 0.05 V. For each data point, save a mean <a class="reference internal" href="fortgeschrittenen_praktikum.html#term-ADC"><span class="xref std std-term">ADC</span></a> value. Hint: Use something like <code class="docutils literal notranslate"><span class="pre">result[&quot;value&quot;]</span></code> for calculating your mean <a class="reference internal" href="fortgeschrittenen_praktikum.html#term-ADC"><span class="xref std std-term">ADC</span></a> values. Complete the cell below to do so:</p></li>
 </ul>
 <p>Hint: You can use the measure_voltage function.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -174,7 +175,7 @@ The interactive variant provides additional helpers.</p>
 </div>
 <ul class="simple">
 <li><p>Plot your linear fit and save the plot.</p></li>
-<li><p>Save the fit parameters for later, so you can convert ADC values to Volt.</p></li>
+<li><p>Save the fit parameters for later, so you can convert <a class="reference internal" href="fortgeschrittenen_praktikum.html#term-ADC"><span class="xref std std-term">ADC</span></a> values to Volt.</p></li>
 </ul>
 <p>You can use the fit parameters you obtained to implement a madc value to voltage conversion routine like so:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">madc_to_voltage_conversion</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
@@ -359,7 +360,7 @@ and for specific neuron ranges</p>
     <span class="n">y_measured</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="n">number_of_neurons</span><span class="p">,</span> <span class="n">sweep_range</span><span class="p">,</span> <span class="n">sweep_neuron_param</span><span class="p">,</span>
              <span class="n">filter_function</span><span class="p">,</span> <span class="n">neuron_params</span><span class="p">)</span>
 
-    <span class="c1">#</span>
+
     <span class="n">measured_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y_measured</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
     <span class="n">measured_err</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">y_measured</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">sweep_range</span><span class="p">,</span> <span class="n">y_measured</span><span class="p">,</span> <span class="n">measured_mean</span><span class="p">,</span> <span class="n">measured_err</span>
