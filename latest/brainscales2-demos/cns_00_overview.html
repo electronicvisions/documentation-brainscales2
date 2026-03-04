@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introduction to Computational Neuroscience with BrainScaleS-2 &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Parameters of a Leaky-Integrate-and-Fire Neuron Model" href="cns_01_lif_parameters.html" />
+    <link rel="prev" title="Learning with the SuperSpike rule" href="fp_superspike.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            BrainScaleS-2 Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Demos &amp; Examples</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html">Demos and Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="girlsday.html">Wie verarbeitet unser Gehirn Informationen?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fortgeschrittenen_praktikum.html">Welcome to the Advanced Physics Lab for Physicists by the Electronic Vision(s) Group</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">BrainScaleS-2 Computational Neuroscience Demo</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-execute-the-notebooks">How to Execute the Notebooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hardware-execution">Hardware Execution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exercise-overview">Exercise Overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#parameters-of-a-leaky-integrate-and-fire-neuron-model">1. Parameters of a Leaky-Integrate-and-Fire Neuron Model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-exponential-leaky-integrate-and-fire-neuron-model">3. The Exponential Leaky-Integrate-and-Fire Neuron Model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#table-of-contents">Table of Contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../software_components.html">Software Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../apis.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BrainScaleS-2 Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Welcome to the BrainScaleS-2 Demos &amp; Examples!</a></li>
+      <li class="breadcrumb-item active">Introduction to Computational Neuroscience with BrainScaleS-2</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/brainscales2-demos/cns_00_overview.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="introduction-to-computational-neuroscience-with-brainscales-2">
+<h1>Introduction to Computational Neuroscience with BrainScaleS-2<a class="headerlink" href="#introduction-to-computational-neuroscience-with-brainscales-2" title="Permalink to this headline"></a></h1>
+<p>In this collection of tutorial notebooks, we aim to introduce computational neuroscience together with the neuromorphic BrainScaleS-2 system.
+The exercises follow the book “Neuronal Dynamics” by Gerstner et al. and the accompanying Python exercises (<a class="reference external" href="https://neuronaldynamics.epfl.ch/">online version</a>).</p>
+<div class="section" id="how-to-execute-the-notebooks">
+<h2>How to Execute the Notebooks<a class="headerlink" href="#how-to-execute-the-notebooks" title="Permalink to this headline"></a></h2>
+<p>In order to execute the notebooks, you need access to the BrainScaleS-2 system.
+We provide this access via the <a class="reference external" href="https://wiki.ebrains.eu">EBRAINS Platform</a>.
+You can register there free of charge and create your own “collaboratory.”
+In this collaboratory, you can start a JupyterLab session and directly clone the notebooks from our <a class="reference external" href="https://github.com/electronicvisions/brainscales2-demos/tree/jupyter-notebooks-experimental">GitHub repository</a>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>!git<span class="w"> </span>clone<span class="w"> </span>https://github.com/electronicvisions/brainscales2-demos.git<span class="w"> </span>--branch<span class="w"> </span>jupyter-notebooks-experimental
+</pre></div>
+</div>
+</div>
+<div class="section" id="hardware-execution">
+<h2>Hardware Execution<a class="headerlink" href="#hardware-execution" title="Permalink to this headline"></a></h2>
+<p>In order to access BrainScaleS-2, we have to set up a connection to the hardware.
+To set up a connection to a shared BrainScaleS-2 system, we can execute the following command:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">_static.common.helpers</span> <span class="kn">import</span> <span class="n">setup_hardware_client</span>
+<span class="n">setup_hardware_client</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>We will include this command in each of the notebooks.</p>
+<p>Before we start with the tutorial, we want to make sure that the setup was successful:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pynn_brainscales.brainscales2</span> <span class="k">as</span> <span class="nn">pynn</span>
+
+<span class="n">pynn</span><span class="o">.</span><span class="n">setup</span><span class="p">()</span>
+<span class="n">neurons_1</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">pynn</span><span class="o">.</span><span class="n">cells</span><span class="o">.</span><span class="n">HXNeuron</span><span class="p">())</span>
+<span class="n">neurons_2</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">pynn</span><span class="o">.</span><span class="n">cells</span><span class="o">.</span><span class="n">HXNeuron</span><span class="p">())</span>
+<span class="n">pynn</span><span class="o">.</span><span class="n">Projection</span><span class="p">(</span><span class="n">neurons_1</span><span class="p">,</span> <span class="n">neurons_2</span><span class="p">,</span> <span class="n">pynn</span><span class="o">.</span><span class="n">AllToAllConnector</span><span class="p">())</span>
+<span class="n">pynn</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">pynn</span><span class="o">.</span><span class="n">end</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Everything is set! We are ready for the tutorials.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="exercise-overview">
+<h2>Exercise Overview<a class="headerlink" href="#exercise-overview" title="Permalink to this headline"></a></h2>
+<p>In the following, we give a quick overview of the different tutorial notebooks.</p>
+<div class="section" id="parameters-of-a-leaky-integrate-and-fire-neuron-model">
+<h3>1. Parameters of a Leaky-Integrate-and-Fire Neuron Model<a class="headerlink" href="#parameters-of-a-leaky-integrate-and-fire-neuron-model" title="Permalink to this headline"></a></h3>
+<p>In this tutorial, we introduce the leaky-integrate-and-fire (LIF) neuron model and explore how its parameters influence its dynamics.
+We start with a leaky integrator (a neuron that does not elicit action potentials) and stimulate it with a step current in order to explore the time scale on which it integrates information.
+Next, we enable the spiking mechanism and see how the different parameters influence the firing behavior of the neuron.
+Apart from the LIF neuron, this tutorial also shows how we define experiments for the BrainScaleS-2 system and how its parameters relate to the parameters of the model.</p>
+</div>
+<div class="section" id="the-exponential-leaky-integrate-and-fire-neuron-model">
+<h3>3. The Exponential Leaky-Integrate-and-Fire Neuron Model<a class="headerlink" href="#the-exponential-leaky-integrate-and-fire-neuron-model" title="Permalink to this headline"></a></h3>
+<p>In this notebook, we introduce an exponential term to our LIF model.
+In a so-called strength-duration curve, we illustrate how the strength and duration of a step current influence the spiking behavior of our neuron model.</p>
+</div>
+<div class="section" id="table-of-contents">
+<h3>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline"></a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cns_01_lif_parameters.html">Parameters of a Leaky-Integrate-and-Fire Neuron Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cns_03_exponential_lif.html">The Exponential Leaky-Integrate-and-Fire Neuron Model</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="fp_superspike.html" class="btn btn-neutral float-left" title="Learning with the SuperSpike rule" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="cns_01_lif_parameters.html" class="btn btn-neutral float-right" title="Parameters of a Leaky-Integrate-and-Fire Neuron Model" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Electronic Vision(s).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

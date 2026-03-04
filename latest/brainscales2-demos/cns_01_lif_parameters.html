@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parameters of a Leaky-Integrate-and-Fire Neuron Model &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="The Exponential Leaky-Integrate-and-Fire Neuron Model" href="cns_03_exponential_lif.html" />
+    <link rel="prev" title="Introduction to Computational Neuroscience with BrainScaleS-2" href="cns_00_overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            BrainScaleS-2 Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Demos &amp; Examples</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html">Demos and Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="girlsday.html">Wie verarbeitet unser Gehirn Informationen?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fortgeschrittenen_praktikum.html">Welcome to the Advanced Physics Lab for Physicists by the Electronic Vision(s) Group</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="cns_00_overview.html">BrainScaleS-2 Computational Neuroscience Demo</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="cns_00_overview.html#how-to-execute-the-notebooks">How to Execute the Notebooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cns_00_overview.html#hardware-execution">Hardware Execution</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="cns_00_overview.html#exercise-overview">Exercise Overview</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="cns_00_overview.html#parameters-of-a-leaky-integrate-and-fire-neuron-model">1. Parameters of a Leaky-Integrate-and-Fire Neuron Model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cns_00_overview.html#the-exponential-leaky-integrate-and-fire-neuron-model">3. The Exponential Leaky-Integrate-and-Fire Neuron Model</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="cns_00_overview.html#table-of-contents">Table of Contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../software_components.html">Software Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../apis.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BrainScaleS-2 Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Welcome to the BrainScaleS-2 Demos &amp; Examples!</a></li>
+          <li class="breadcrumb-item"><a href="cns_00_overview.html">Introduction to Computational Neuroscience with BrainScaleS-2</a></li>
+      <li class="breadcrumb-item active">Parameters of a Leaky-Integrate-and-Fire Neuron Model</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/brainscales2-demos/cns_01_lif_parameters.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="parameters-of-a-leaky-integrate-and-fire-neuron-model">
+<span id="lif-parameters"></span><h1>Parameters of a Leaky-Integrate-and-Fire Neuron Model<a class="headerlink" href="#parameters-of-a-leaky-integrate-and-fire-neuron-model" title="Permalink to this headline"></a></h1>
+<p>In this notebook, we explore the leaky-integrate-and-fire (LIF) neuron model.
+You will learn how to configure the model on BrainScaleS-2, how its parameters influence the neuronal dynamics, and how hardware parameters map to the abstract model parameters.</p>
+<p>We begin by disabling the spiking mechanism and studying a pure leaky integrator.
+This allows us to determine its membrane time constant and to establish a mapping between hardware parameters and model parameters.</p>
+<p>The dynamics of the LIF model are described by:</p>
+<div class="math notranslate nohighlight">
+ \begin{align}
+        C\frac{\operatorname{d} V}{\operatorname{d} t} &amp;= -g_\text{l} \left( V - E_\text{l} \right)
+                \,+\, I_\text{stim} \, ,
+ \end{align}</div><p>where <span class="math notranslate nohighlight">\(E_\text{l}\)</span> is the leak potential, <span class="math notranslate nohighlight">\(C\)</span> the membrane capacitance, and <span class="math notranslate nohighlight">\(g_\text{l}\)</span> the leak conductance.
+<span class="math notranslate nohighlight">\(I_\text{stim}\)</span> denotes an external input current.
+When the membrane voltage <span class="math notranslate nohighlight">\(V\)</span> reaches the threshold <span class="math notranslate nohighlight">\(V_\text{th}\)</span>, the neuron is reset to the reset potential <span class="math notranslate nohighlight">\(V_\text{r}\)</span> and remains there for the refractory period <span class="math notranslate nohighlight">\(\tau_\text{ref}\)</span>.
+For further details, see <a class="reference external" href="https://neuronaldynamics.epfl.ch/online/Ch1.S3.html">Chapter 1, Section 3 of Neuronal Dynamics</a>.</p>
+<div class="section" id="setting-everything-up">
+<h2>Setting Everything Up<a class="headerlink" href="#setting-everything-up" title="Permalink to this headline"></a></h2>
+<p>Before starting the experiments, we establish the connection to the BrainScaleS-2 system:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">_static.common.helpers</span> <span class="kn">import</span> <span class="n">setup_hardware_client</span>
+<span class="n">setup_hardware_client</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Next, we import useful Python packages and the PyNN interface, which we use to define and run our experiments.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">scipy</span>
+<span class="kn">import</span> <span class="nn">quantities</span> <span class="k">as</span> <span class="nn">pq</span>
+
+<span class="kn">import</span> <span class="nn">pynn_brainscales.brainscales2</span> <span class="k">as</span> <span class="nn">pynn</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="the-leak-potential">
+<span id="id1"></span><h2>The Leak Potential<a class="headerlink" href="#the-leak-potential" title="Permalink to this headline"></a></h2>
+<p>In this example, we demonstrate how to configure a leaky integrator neuron on BrainScaleS-2.
+Each experiment defined with PyNN starts with a call to <code class="docutils literal notranslate"><span class="pre">pynn.setup()</span></code>.
+After that, we can define neuron populations, set parameters, create connections, and specify what variables should be recorded.</p>
+<p>In the given tutorials, we use cells of type <code class="docutils literal notranslate"><span class="pre">HXNeuron</span></code> which represent neuron circuits on BrainScaleS-2.
+In the following we explore how its parameters are related to the parameters of the LIF model.
+By default, all parameters of the <code class="docutils literal notranslate"><span class="pre">HXNeuron</span></code> are initialized to zero.
+As a result, the spiking mechanism is initially disabled and we have to manually set the neuron parameters.</p>
+<p>We set the membrane capacitance, leak conductance, and leak potential, record the membrane voltage, and run the experiment for <code class="docutils literal notranslate"><span class="pre">0.1</span> <span class="pre">ms</span></code>.
+Although this appears short compared to biological time scales, BrainScaleS-2 operates at an accelerated speed.
+In these experiments, we use a speed-up factor of 1000, so time constants are in the range microseconds rather than milliseconds; and experiment runtimes in the range of milliseconds instead of seconds.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pynn</span><span class="o">.</span><span class="n">setup</span><span class="p">()</span>
+
+<span class="n">pop</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">pynn</span><span class="o">.</span><span class="n">cells</span><span class="o">.</span><span class="n">HXNeuron</span><span class="p">())</span>
+<span class="n">pop</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
+    <span class="c1"># Membrane capacitance, range 0-63</span>
+    <span class="n">membrane_capacitance_capacitance</span><span class="o">=</span><span class="mi">63</span><span class="p">,</span>
+    <span class="c1"># Leak potential, range: 0-1022</span>
+    <span class="n">leak_v_leak</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
+    <span class="c1"># Leak conductance:  0-1022</span>
+    <span class="n">leak_i_bias</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+<span class="n">pop</span><span class="o">.</span><span class="n">record</span><span class="p">(</span><span class="s1">&#39;v&#39;</span><span class="p">)</span>
+
+<span class="n">pynn</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>  <span class="c1"># time in ms</span>
+</pre></div>
+</div>
+<p>After execution, the recorded data can be retrieved from the population and plotted.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v_mem</span> <span class="o">=</span> <span class="n">pop</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">segments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">irregularlysampledsignals</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v_mem</span><span class="o">.</span><span class="n">times</span><span class="p">,</span> <span class="n">v_mem</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1022</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Time / ms&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;V / a.u.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The membrane voltage is measured using an analog-to-digital converter (ADC).
+For simplicity, we use the raw digital values in this tutorial and do not convert them to SI units.</p>
+<div class="section" id="exercises">
+<h3>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p><strong>Task 1:</strong>
+Modify the neuron parameters and observe how they influence the recorded membrane potential.
+Which parameters have the strongest effect?
+You may need to adjust the y-axis limits to better visualize the changes.</p></li>
+<li><p><strong>Task 2:</strong>
+Keep the capacitance at its maximum value and set the leak conductance to a medium value.
+Sweep <code class="docutils literal notranslate"><span class="pre">leak_v_leak</span></code> over ten values in the range 0–1022 and plot the recorded mean membrane potential against <code class="docutils literal notranslate"><span class="pre">leak_v_leak</span></code>.
+Refer to the note below for running multiple experiments in a loop.
+What relationship do you observe between <code class="docutils literal notranslate"><span class="pre">leak_v_leak</span></code> and the mean membrane potential?</p></li>
+</ul>
+</div>
+<div class="section" id="note-loops">
+<h3>Note: Loops<a class="headerlink" href="#note-loops" title="Permalink to this headline"></a></h3>
+<p>If you want to repeat experiments with the same network topology while changing only parameters, you can use <code class="docutils literal notranslate"><span class="pre">pynn.reset()</span></code> to reset the experiment time.
+Each call to <code class="docutils literal notranslate"><span class="pre">pynn.reset()</span></code> starts a new data segment.
+When calling <code class="docutils literal notranslate"><span class="pre">pynn.setup()</span></code>, <code class="docutils literal notranslate"><span class="pre">pynn.end()</span></code>, or retrieving data with <code class="docutils literal notranslate"><span class="pre">clear=True</span></code> in <code class="docutils literal notranslate"><span class="pre">Population.get_data()</span></code>, these segments are removed.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pynn</span><span class="o">.</span><span class="n">setup</span><span class="p">()</span>
+
+<span class="n">pop</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">pynn</span><span class="o">.</span><span class="n">cells</span><span class="o">.</span><span class="n">HXNeuron</span><span class="p">())</span>
+<span class="n">pop</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
+    <span class="n">membrane_capacitance_capacitance</span><span class="o">=</span><span class="mi">63</span><span class="p">,</span>
+    <span class="n">leak_v_leak</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
+    <span class="n">leak_i_bias</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+<span class="n">pop</span><span class="o">.</span><span class="n">record</span><span class="p">(</span><span class="s1">&#39;v&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="n">pynn</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+    <span class="n">pynn</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>  <span class="c1"># reset the experiment time and start a new segment</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">n_run</span><span class="p">,</span> <span class="n">seg</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">pop</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">segments</span><span class="p">):</span>
+    <span class="n">v_mem</span> <span class="o">=</span> <span class="n">seg</span><span class="o">.</span><span class="n">irregularlysampledsignals</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v_mem</span><span class="o">.</span><span class="n">times</span><span class="p">,</span> <span class="n">v_mem</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Run </span><span class="si">{</span><span class="n">n_run</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1022</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Time / ms&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;V / a.u.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="the-leak-conductance">
+<h2>The Leak Conductance<a class="headerlink" href="#the-leak-conductance" title="Permalink to this headline"></a></h2>
+<p>Next, we measure the membrane time constant <span class="math notranslate nohighlight">\(\tau_\text{mem} = C / g_\text{l}\)</span> as a function of the hardware parameter <code class="docutils literal notranslate"><span class="pre">leak_i_bias</span></code>.
+To do this, we inject a current step and fit an exponential to the decay of the membrane potential after the current is switched off.</p>
+<p>The following example demonstrates how to generate a current step on BrainScaleS-2:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pynn</span><span class="o">.</span><span class="n">setup</span><span class="p">()</span>
+
+<span class="n">pop</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">pynn</span><span class="o">.</span><span class="n">cells</span><span class="o">.</span><span class="n">HXNeuron</span><span class="p">())</span>
+<span class="n">pop</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
+    <span class="n">membrane_capacitance_capacitance</span><span class="o">=</span><span class="mi">63</span><span class="p">,</span>
+    <span class="n">leak_v_leak</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
+    <span class="n">leak_i_bias</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
+    <span class="c1"># Strength of current input, range: 0-1022</span>
+    <span class="n">constant_current_i_offset</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+<span class="n">pop</span><span class="o">.</span><span class="n">record</span><span class="p">(</span><span class="s1">&#39;v&#39;</span><span class="p">)</span>
+
+<span class="n">offset</span> <span class="o">=</span> <span class="mf">0.2</span>  <span class="c1"># ms, offset before/after current step</span>
+<span class="n">duration</span> <span class="o">=</span> <span class="mf">0.1</span>  <span class="c1"># ms, duration of current step</span>
+
+<span class="c1"># Disable/enable the current input at specific points in time</span>
+<span class="n">pop</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">constant_current_enable</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">pynn</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">offset</span><span class="p">,</span> <span class="n">pynn</span><span class="o">.</span><span class="n">RunCommand</span><span class="o">.</span><span class="n">APPEND</span><span class="p">)</span>
+<span class="n">pop</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">constant_current_enable</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">pynn</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">duration</span><span class="p">,</span> <span class="n">pynn</span><span class="o">.</span><span class="n">RunCommand</span><span class="o">.</span><span class="n">APPEND</span><span class="p">)</span>
+<span class="n">pop</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">constant_current_enable</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">pynn</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">offset</span><span class="p">,</span> <span class="n">pynn</span><span class="o">.</span><span class="n">RunCommand</span><span class="o">.</span><span class="n">EXECUTE</span><span class="p">)</span>
+
+<span class="n">signals</span> <span class="o">=</span> <span class="n">pop</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">segments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">irregularlysampledsignals</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">v_mem</span> <span class="ow">in</span> <span class="n">signals</span><span class="p">:</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v_mem</span><span class="o">.</span><span class="n">times</span><span class="p">,</span> <span class="n">v_mem</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1022</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Time / ms&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;V / a.u.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Using <code class="docutils literal notranslate"><span class="pre">pynn.run(...,</span> <span class="pre">pynn.RunCommand.APPEND)</span></code>, we advance the simulation time without executing it on the hardware.
+This allows us to enable or disable the current dynamically.
+The experiment is executed with <code class="docutils literal notranslate"><span class="pre">pynn.run(...,</span> <span class="pre">pynn.RunCommand.EXECUTE)</span></code>.
+Each part of the experiment is stored in separate signals, which is reflected by different colors in the plot.</p>
+<p>We can fit an exponential to the decay phase using <code class="docutils literal notranslate"><span class="pre">scipy.optimize.curve_fit()</span></code>:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">exponential</span><span class="p">(</span><span class="n">t</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+                <span class="n">amplitude</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+                <span class="n">offset</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+                <span class="n">tau</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Exponential decay.</span>
+
+<span class="sd">    :param t: Time t.</span>
+<span class="sd">    :param amplitude: Amplitude (A) of the exponential.</span>
+<span class="sd">    :param offset: Constant offset (C) of the value.</span>
+<span class="sd">    :param tau: Time constant (tau) of the decay.</span>
+<span class="sd">    :return:  A * exp(-t/tau) + C.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">amplitude</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span> <span class="n">t</span> <span class="o">/</span> <span class="n">tau</span><span class="p">)</span> <span class="o">+</span> <span class="n">offset</span>
+
+
+<span class="k">def</span> <span class="nf">fit_exponential</span><span class="p">(</span><span class="n">times</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">values</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Fit an exponential to the given data.</span>
+
+<span class="sd">    The exponential decay should start at the beginning of the recording.</span>
+
+<span class="sd">    :param times: Recording times.</span>
+<span class="sd">    :param values: Recorded values.</span>
+<span class="sd">    :return: Fit parameters: amplitude, offset, tau.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">norm_times</span> <span class="o">=</span> <span class="n">times</span> <span class="o">-</span> <span class="n">times</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="n">offset_p0</span> <span class="o">=</span> <span class="n">values</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">norm_values</span> <span class="o">=</span> <span class="n">values</span> <span class="o">-</span> <span class="n">offset_p0</span>
+
+    <span class="c1"># Estimate tau by taking two values</span>
+    <span class="n">idx_start</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">idx_stop</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">norm_times</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">norm_values</span><span class="p">[</span><span class="n">idx_stop</span><span class="p">]</span> <span class="o">-</span> <span class="n">norm_values</span><span class="p">[</span><span class="n">idx_start</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+        <span class="n">tau_p0</span> <span class="o">=</span> <span class="mf">0.1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">tau_p0</span> <span class="o">=</span> <span class="o">-</span> <span class="p">(</span><span class="n">norm_times</span><span class="p">[</span><span class="n">idx_stop</span><span class="p">]</span> <span class="o">-</span> <span class="n">norm_times</span><span class="p">[</span><span class="n">idx_start</span><span class="p">])</span> \
+            <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">norm_values</span><span class="p">[</span><span class="n">idx_stop</span><span class="p">]</span> <span class="o">/</span> <span class="n">norm_values</span><span class="p">[</span><span class="n">idx_start</span><span class="p">])</span>
+
+    <span class="n">p0</span> <span class="o">=</span> <span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">offset_p0</span><span class="p">,</span> <span class="n">offset_p0</span><span class="p">,</span> <span class="n">tau_p0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">scipy</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">curve_fit</span><span class="p">(</span><span class="n">exponential</span><span class="p">,</span>
+                                    <span class="n">norm_times</span><span class="p">,</span>
+                                    <span class="n">values</span><span class="p">,</span>
+                                    <span class="n">p0</span><span class="o">=</span><span class="n">p0</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+
+<span class="n">sig</span> <span class="o">=</span> <span class="n">signals</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="c1"># take the `magnitude` and `flatten` for easier processing</span>
+<span class="n">fit_params</span> <span class="o">=</span> <span class="n">fit_exponential</span><span class="p">(</span><span class="n">sig</span><span class="o">.</span><span class="n">times</span><span class="o">.</span><span class="n">magnitude</span><span class="p">,</span> <span class="n">sig</span><span class="o">.</span><span class="n">magnitude</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">v_mem</span> <span class="ow">in</span> <span class="n">signals</span><span class="p">:</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v_mem</span><span class="o">.</span><span class="n">times</span><span class="p">,</span> <span class="n">v_mem</span><span class="p">)</span>
+
+<span class="n">norm_times</span> <span class="o">=</span> <span class="n">sig</span><span class="o">.</span><span class="n">times</span><span class="o">.</span><span class="n">magnitude</span> <span class="o">-</span> <span class="n">sig</span><span class="o">.</span><span class="n">times</span><span class="o">.</span><span class="n">magnitude</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sig</span><span class="o">.</span><span class="n">times</span><span class="p">,</span> <span class="n">exponential</span><span class="p">(</span><span class="n">norm_times</span><span class="p">,</span> <span class="o">*</span><span class="n">fit_params</span><span class="p">),</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sig</span><span class="o">.</span><span class="n">times</span><span class="p">,</span> <span class="n">exponential</span><span class="p">(</span><span class="n">norm_times</span><span class="p">,</span> <span class="o">*</span><span class="n">fit_params</span><span class="p">),</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1022</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Time / ms&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;V / a.u.&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fitted time constant: </span><span class="si">{</span><span class="n">fit_params</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2"> ms&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="id2">
+<h3>Exercises<a class="headerlink" href="#id2" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p><strong>Task 1:</strong>
+Adjust <code class="docutils literal notranslate"><span class="pre">leak_v_leak</span></code> so that the membrane voltage is approximately 300 without current.
+Then choose <code class="docutils literal notranslate"><span class="pre">constant_current_i_offset</span></code> such that the voltage increases by about 100 during the current step.</p></li>
+<li><p><strong>Task 2:</strong>
+Measure the membrane time constant for ten values of <code class="docutils literal notranslate"><span class="pre">leak_i_bias</span></code> in the range 10–1022.
+What relationship do you expect?
+Try plotting the reciprocal time constant to better visualize the dependency.
+If the results deviate from your expectations, what might explain this?</p></li>
+<li><p><strong>Task 3:</strong>
+How does the maximum membrane voltage during the current step depend on the leak conductance?
+Derive your expectation from the model equation before performing the experiment.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="enabling-firing">
+<h2>Enabling Firing<a class="headerlink" href="#enabling-firing" title="Permalink to this headline"></a></h2>
+<p>Finally, we enable the spiking mechanism.
+On BrainScaleS-2, the reset is not instantaneous.
+Instead, when the membrane reaches the threshold <span class="math notranslate nohighlight">\(V_\text{th}\)</span>, it is connected to the reset potential <span class="math notranslate nohighlight">\(V_\text{r}\)</span> via a conductance <span class="math notranslate nohighlight">\(g_\text{r}\)</span>.
+For the following experiments, we set the reset conductance and refractory period to their maximum values.
+In addition to the membrane voltage, we now also record spikes.
+Once again, a spike train is generated for each part of the experiment.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pynn</span><span class="o">.</span><span class="n">setup</span><span class="p">()</span>
+
+<span class="n">pop</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">pynn</span><span class="o">.</span><span class="n">cells</span><span class="o">.</span><span class="n">HXNeuron</span><span class="p">())</span>
+<span class="n">pop</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
+    <span class="n">membrane_capacitance_capacitance</span><span class="o">=</span><span class="mi">63</span><span class="p">,</span>
+    <span class="n">leak_v_leak</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
+    <span class="n">leak_i_bias</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
+    <span class="n">constant_current_i_offset</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
+    <span class="n">threshold_enable</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="c1"># Threshold potential, range: 0-1022</span>
+    <span class="n">threshold_v_threshold</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span>
+    <span class="c1"># Reset potential, range: 0-1022</span>
+    <span class="n">reset_v_reset</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+    <span class="c1"># Reset conductance, range: 0-1022</span>
+    <span class="n">reset_i_bias</span><span class="o">=</span><span class="mi">1022</span><span class="p">,</span>
+    <span class="c1"># Increase reset conductance</span>
+    <span class="n">reset_enable_multiplication</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="c1"># Refractory time (counter), range: 10-255</span>
+    <span class="n">refractory_period_refractory_time</span><span class="o">=</span><span class="mi">255</span><span class="p">,</span>
+    <span class="p">)</span>
+<span class="n">pop</span><span class="o">.</span><span class="n">record</span><span class="p">([</span><span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="s1">&#39;spikes&#39;</span><span class="p">])</span>
+
+<span class="n">offset</span> <span class="o">=</span> <span class="mf">0.2</span>  <span class="c1"># ms, offset before/after current step</span>
+<span class="n">duration</span> <span class="o">=</span> <span class="mf">0.1</span>  <span class="c1"># ms, duration of current step</span>
+
+<span class="n">pop</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">constant_current_enable</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">pynn</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">offset</span><span class="p">,</span> <span class="n">pynn</span><span class="o">.</span><span class="n">RunCommand</span><span class="o">.</span><span class="n">APPEND</span><span class="p">)</span>
+<span class="n">pop</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">constant_current_enable</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">pynn</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">duration</span><span class="p">,</span> <span class="n">pynn</span><span class="o">.</span><span class="n">RunCommand</span><span class="o">.</span><span class="n">APPEND</span><span class="p">)</span>
+<span class="n">pop</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">constant_current_enable</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">pynn</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">offset</span><span class="p">,</span> <span class="n">pynn</span><span class="o">.</span><span class="n">RunCommand</span><span class="o">.</span><span class="n">EXECUTE</span><span class="p">)</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pop</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">segments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">signals</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">irregularlysampledsignals</span>
+<span class="n">spiketrains</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">spiketrains</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">v_mem</span> <span class="ow">in</span> <span class="n">signals</span><span class="p">:</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v_mem</span><span class="o">.</span><span class="n">times</span><span class="p">,</span> <span class="n">v_mem</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">spiketrain</span> <span class="ow">in</span> <span class="n">spiketrains</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">spike</span> <span class="ow">in</span> <span class="n">spiketrain</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">spike</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="mf">0.95</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1022</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Time / ms&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;V / a.u.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="id3">
+<h3>Exercises<a class="headerlink" href="#id3" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p><strong>Task 1:</strong>
+Adjust the parameters such that the membrane time constant is approximately <code class="docutils literal notranslate"><span class="pre">10</span> <span class="pre">us</span></code>.</p></li>
+<li><p><strong>Task 2:</strong>
+Decrease the threshold until spikes occur.
+How does the threshold affect the firing frequency?</p></li>
+<li><p><strong>Task 3:</strong>
+Modify the reset potential.
+How does it influence the firing frequency?</p></li>
+<li><p><strong>Task 4 (optional):</strong>
+As in Task 2 of <a class="reference internal" href="#the-leak-potential"><span class="std std-ref">The Leak Potential</span></a>, sweep <code class="docutils literal notranslate"><span class="pre">threshold_v_threshold</span></code> and <code class="docutils literal notranslate"><span class="pre">reset_v_reset</span></code> to determine how the hardware parameters map to the measured threshold and reset voltages.
+Ensure that the current input is sufficiently strong when testing high thresholds.
+Instead of fitting an exponential, extract the maximum or minimum voltage during the step to estimate the threshold or reset value.
+You may extend the duration of the current step to obtain multiple spikes per trial.</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="cns_00_overview.html" class="btn btn-neutral float-left" title="Introduction to Computational Neuroscience with BrainScaleS-2" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="cns_03_exponential_lif.html" class="btn btn-neutral float-right" title="The Exponential Leaky-Integrate-and-Fire Neuron Model" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Electronic Vision(s).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
