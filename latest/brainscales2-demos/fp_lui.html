@@ -51,6 +51,7 @@
 <li class="toctree-l3"><a class="reference internal" href="fp_brainscales.html">The BrainScaleS-2 system</a></li>
 <li class="toctree-l3"><a class="reference internal" href="fp_pynn_introduction.html">Introduction to PyNN</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Lu.i experiment</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#exercises">Exercises</a></li>
 </ul>
 </li>
@@ -97,13 +98,16 @@
              
   <div class="section" id="lu-i-experiment">
 <h1>Lu.i experiment<a class="headerlink" href="#lu-i-experiment" title="Permalink to this headline"></a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline"></a></h2>
 <p>To get accustomed to the concept of neuromorphic computation, you will work with <em>Lu.i</em>.
 Lu.i is an electronic neuron circuit mimicking and illustrating the basic dynamics of real, biological neurons.
 The printed circuit board (PCB) features a configurable, fully analog implementation of the leaky integrate-and-fire model and visualizes the internal state, the membrane potential, through a VU-meter-style chain of LEDs.
 The neuron emits a short pulse whenever the membrane potential crosses a predefined threshold voltage.
 Neurons communicate by exchanging these spikes because multiple boards can be connected via jumper wires to form networks.</p>
 <a class="reference internal image-reference" href="../_images/lui-with-coin_lq_cropped.jpeg"><img alt="../_images/lui-with-coin_lq_cropped.jpeg" class="align-center" src="../_images/lui-with-coin_lq_cropped.jpeg" style="width: 50%;" /></a>
-<p>You may find additional information including schematics on the project’s homepage, <a class="reference external" href="http://giantaxon.org">giantaxon.org</a>.</p>
+<p>You may find additional information including schematics in the <a class="reference external" href="https://doi.org/10.1016/j.tine.2025.100248">main paper</a> and on the project’s homepage, <a class="reference external" href="http://giantaxon.org">giantaxon.org</a>.</p>
+</div>
 <div class="section" id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline"></a></h2>
 <div class="section" id="getting-familiar-with-lu-i-s-parameters">
@@ -131,17 +135,22 @@ For this purpose, you will rely on a voltage-controlled current source.</p>
 <p>The output current of this circuit is governed by the following equation:</p>
 <div class="math notranslate nohighlight">
 \[I(U) = \frac{V_\text{CC}-U}{R_\text{sense}}\]</div>
-<p>In the present case, <span class="math notranslate nohighlight">\(R_\text{sense}\)</span> is 10 kΩ.</p>
+<p>In the present case, <span class="math notranslate nohighlight">\(R_\text{sense}\)</span> is 10 kΩ and the supply voltage of the voltage-controlled current source <span class="math notranslate nohighlight">\(V_\text{CC}\)</span> is 5V.
+Note that this supply voltage is different from that of the Lu.i. board, which is 3.3V, as indicated on its battery.</p>
 <p>Make sure that Lu.i’s membrane is connected to both the oscilloscope and the current source.
 A second set of cables allows you to read out the voltage at the lower node of <span class="math notranslate nohighlight">\(R_\text{sense}\)</span> at the same time such that you can calculate the voltage drop across the resistor and thus the current.</p>
 <ul class="simple">
-<li><p>Now measure about 20 firing frequencies as a function of the voltage drop in a range from <span class="math notranslate nohighlight">\(1.75V\)</span> to <span class="math notranslate nohighlight">\(5V\)</span> (here referring to the absolute potential).</p></li>
+<li><p>Set the leak potential at its minimum. Now measure about 20 firing frequencies as a function of the input current to Lu.i.’s membrane.
+Make sure that the controlling voltage drop <span class="math notranslate nohighlight">\(U\)</span> measured on the oscilloscope is in a range of <span class="math notranslate nohighlight">\(1.75V\)</span> to <span class="math notranslate nohighlight">\(5V\)</span>.</p></li>
 <li><p>Plot your results.</p></li>
-<li><p>Derive an equation for <span class="math notranslate nohighlight">\(f_\text{theo}(\vartheta, \tau_m, R, I)\)</span>.
+<li><p>Derive an equation for <span class="math notranslate nohighlight">\(f_\text{theo}(I)\)</span>.
+Your function should depend on the chosen parametrization of the <span class="xref std std-term">LIF</span> equation, namely <span class="math notranslate nohighlight">\(\vartheta\)</span>, <span class="math notranslate nohighlight">\(C_m\)</span>, <span class="math notranslate nohighlight">\(R\)</span>, and <span class="math notranslate nohighlight">\(\tau_\text{ref}\)</span>.
+Here <span class="math notranslate nohighlight">\(R\)</span> is the membrane resistance of the Lu.i. board, the inverse of the membrane conductance, and <span class="math notranslate nohighlight">\(C_m\)</span> is the membrane capacitance.
 You might need to define your integration limits.
 (Hint 1: Consult equation <a class="reference internal" href="fp_biological-background.html#equation-eq-lif">(2)</a> as a starting point;
 hint 2: You’ll find <span class="math notranslate nohighlight">\(R\cdot I &gt; \vartheta\)</span> as a condition)</p></li>
-<li><p>Fit the function to your measurements.</p></li>
+<li><p>Fit the function to your measurements.
+You might find it helpful to extract the membrane capacitance value from the <a class="reference external" href="https://github.com/giant-axon/lu.i-neuron-pcb/blob/master/README.md">circuit diagram</a>.</p></li>
 </ul>
 </div>
 </div>
