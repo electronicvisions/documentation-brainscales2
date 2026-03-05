@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spiking Characteristics of Leaky Integrate-and-Fire Models &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="The Exponential Leaky-Integrate-and-Fire Neuron Model" href="cns_03_exponential_lif.html" />
+    <link rel="prev" title="Parameters of a Leaky-Integrate-and-Fire Neuron Model" href="cns_01_lif_parameters.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            BrainScaleS-2 Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Demos &amp; Examples</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html">Demos and Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="girlsday.html">Wie verarbeitet unser Gehirn Informationen?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fortgeschrittenen_praktikum.html">Welcome to the Advanced Physics Lab for Physicists by the Electronic Vision(s) Group</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="cns_00_overview.html">BrainScaleS-2 Computational Neuroscience Demo</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="cns_00_overview.html#how-to-execute-the-notebooks">How to Execute the Notebooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cns_00_overview.html#hardware-execution">Hardware Execution</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="cns_00_overview.html#exercise-overview">Exercise Overview</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="cns_00_overview.html#parameters-of-a-leaky-integrate-and-fire-neuron-model">1. Parameters of a Leaky-Integrate-and-Fire Neuron Model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cns_00_overview.html#spiking-characteristics-of-leaky-integrate-and-fire-models">2. Spiking Characteristics of Leaky Integrate-and-Fire Models</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cns_00_overview.html#the-exponential-leaky-integrate-and-fire-neuron-model">3. The Exponential Leaky-Integrate-and-Fire Neuron Model</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="cns_00_overview.html#table-of-contents">Table of Contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../software_components.html">Software Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../apis.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BrainScaleS-2 Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Welcome to the BrainScaleS-2 Demos &amp; Examples!</a></li>
+          <li class="breadcrumb-item"><a href="cns_00_overview.html">Introduction to Computational Neuroscience with BrainScaleS-2</a></li>
+      <li class="breadcrumb-item active">Spiking Characteristics of Leaky Integrate-and-Fire Models</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/brainscales2-demos/cns_02_lif_fIcurve.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="spiking-characteristics-of-leaky-integrate-and-fire-models">
+<h1>Spiking Characteristics of Leaky Integrate-and-Fire Models<a class="headerlink" href="#spiking-characteristics-of-leaky-integrate-and-fire-models" title="Permalink to this headline"></a></h1>
+<p>In this exercise, we will investigate the steady-state firing dynamics of LIF neurons under constant current injection (see <a class="reference external" href="https://neuronaldynamics.epfl.ch/online/Ch1.S3.html">Chapter 1, Section 3</a> for more information about LIF neurons).
+The resulting input-output response is graphically represented using the frequency-current (f-I) curve.
+The f-I curve serves multiple purposes in both, experimental and computational neuroscience.
+It provides insights into how neurons encode input current to output spikes.</p>
+<p>The shape of the f-I curve also reflects the neuron’s type and its intrinsic properties.
+Specifically, type I neurons have continuous f-I curves whereas type II neurons have discontinuous f-I curves.
+This indicates that type I neurons can fire at low frequencies, while type II neurons cannot.
+For more information on neuron types, see <a class="reference external" href="https://neuronaldynamics.epfl.ch/online/Ch4.S4.html">Chapter 4, Section 4</a>.
+You can also refer to <a class="reference external" href="https://neuronaldynamics.epfl.ch/online/Ch2.S2.html">Chapter 2, Section 2</a> for f-I curves of the biophysical model of Hodgkin and Huxley.</p>
+<p>To realize this goal, we set up an experiment consisting of one neuron and inject a constant current onto its membrane.
+We will then investigate the effect of different neuron parameters on the shape of the f-I curve.
+Finally, we will determine the neuron type from the f-I curve and discuss models that yield different neuron types.</p>
+<div class="section" id="experiment-setup">
+<h2>Experiment Setup<a class="headerlink" href="#experiment-setup" title="Permalink to this headline"></a></h2>
+<p>To prepare for the execution of experiments on BrainScaleS-2, we establish the connection to the system and import the required packages.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">_static.common.helpers</span> <span class="kn">import</span> <span class="n">setup_hardware_client</span>
+<span class="n">setup_hardware_client</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">quantities</span> <span class="k">as</span> <span class="nn">pq</span>
+
+<span class="kn">import</span> <span class="nn">pynn_brainscales.brainscales2</span> <span class="k">as</span> <span class="nn">pynn</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="recording-the-f-i-curve">
+<h2>Recording the f-I Curve<a class="headerlink" href="#recording-the-f-i-curve" title="Permalink to this headline"></a></h2>
+<p>We deal here with a single neuron and inject a constant current onto its membrane.
+Neuron parameters in this exercise are in hardware units.
+To configure a constant current source, we use the following parameters in the neuron population definition:
+<code class="docutils literal notranslate"><span class="pre">constant_current_enable</span></code> (True) and <code class="docutils literal notranslate"><span class="pre">constant_current_i_offset</span></code> (range=0-1022).
+After running the experiment, we read-out the spikes and compute the firing rate.
+Finally, we visualize our results by plotting the firing rate versus the magnitude of injected current.</p>
+<div class="section" id="exercises">
+<h3>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p><strong>Task 1:</strong>
+For ease of reproducibility, write a function <code class="docutils literal notranslate"><span class="pre">fI_experiment</span></code> that takes as arguments the neuron refractory period, leak conductance, array of injected currents, and runtime duration of each experiment.
+The rest of the neuron parameters can be hard-coded in the function.
+Your function should sweep over the current values and run an experiment for each value.
+In each experiment, record the spikes and compute the firing rate.
+You can reuse code from <a class="reference internal" href="cns_01_lif_parameters.html#lif-parameters"><span class="std std-ref">Parameters of a Leaky-Integrate-and-Fire Neuron Model</span></a>.
+Your function should return the spike rate for plotting against the current range.</p></li>
+<li><p><strong>Task 2:</strong>
+Generate an f-I curve for a runtime duration of <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">ms</span></code>, current range over (0-1000) with a step_size of <code class="docutils literal notranslate"><span class="pre">20</span></code>, and refractory period of <code class="docutils literal notranslate"><span class="pre">10</span></code>.
+Choose your neuron parameters such that you obtain a mean resting potential of <code class="docutils literal notranslate"><span class="pre">300</span></code>, a membrane time constant of <code class="docutils literal notranslate"><span class="pre">10</span> <span class="pre">us</span></code>, and a threshold read of <code class="docutils literal notranslate"><span class="pre">350</span></code>.
+You may use the values you determined in <a class="reference internal" href="cns_01_lif_parameters.html#lif-parameters"><span class="std std-ref">Parameters of a Leaky-Integrate-and-Fire Neuron Model</span></a>.
+Observe the rheobase (current threshold for firing) and the slope of the f-I curve.</p></li>
+<li><p><strong>Task 3:</strong>
+Investigate the effect of the leak conductance on the f-I curve.
+Choose three values of the leak conductance with a difference of <code class="docutils literal notranslate"><span class="pre">100</span></code>.
+Can you qualitatively explain the effects?
+Note, the range of the leak conductance is <code class="docutils literal notranslate"><span class="pre">0-1022</span></code>.</p></li>
+<li><p><strong>Task 4:</strong>
+Investigate the effect of the refractory period on the f-I curve.
+Choose three values of the refractory period with minimal difference of <code class="docutils literal notranslate"><span class="pre">10</span></code>.
+What is the maximum theoretical firing rate?
+Make sure the refractory period is consistent with the duration of experiment for high refractory periods.
+Note, the range of the refractory period is <code class="docutils literal notranslate"><span class="pre">10-1022</span></code>.</p></li>
+<li><p><strong>Task 5:</strong>
+Examine the firing behavior of the neuron around the rheobase.
+Use your knowledge of the rheobase (current threshold) from task 2 to study the firing behavior of the neuron for a limited current range in the vicinity of the rheobase.
+For your f-I curve, sweep over a current range of (rheobase-20, rheobase+50) in a step-size of <code class="docutils literal notranslate"><span class="pre">1</span></code>, a refractory period of <code class="docutils literal notranslate"><span class="pre">10</span></code>, and an experiment duration of <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">ms</span></code>.
+Comment on the type of the neuron following the LIF dynamics.
+Can you spot any imperfections in the plot?
+Which neuron models can result in different f-I curves?</p></li>
+<li><p><strong>Task 6:</strong>
+Finally, let’s discuss the significance of the f-I curve.
+What does the slope of the f-I curve tell about the encoding behavior?
+Can you forsee an advantage of f-I curves in computational neuroscience?
+Compare the f-I curve of the LIF model to the rectified linear unit (ReLU) activation function in machine learning.</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="cns_01_lif_parameters.html" class="btn btn-neutral float-left" title="Parameters of a Leaky-Integrate-and-Fire Neuron Model" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="cns_03_exponential_lif.html" class="btn btn-neutral float-right" title="The Exponential Leaky-Integrate-and-Fire Neuron Model" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Electronic Vision(s).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
