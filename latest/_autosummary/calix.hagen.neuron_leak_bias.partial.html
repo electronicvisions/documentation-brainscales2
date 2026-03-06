@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>calix.hagen.neuron_potentials &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <title>calix.hagen.neuron_leak_bias.partial &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -16,8 +16,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="calix.hagen.neuron_potentials.BaselineCalib" href="calix.hagen.neuron_potentials.BaselineCalib.html" />
-    <link rel="prev" title="calix.hagen.neuron_leak_bias.partial" href="calix.hagen.neuron_leak_bias.partial.html" /> 
+    <link rel="next" title="calix.hagen.neuron_potentials" href="calix.hagen.neuron_potentials.html" />
+    <link rel="prev" title="calix.hagen.neuron_leak_bias.MembraneTimeConstCalibReset" href="calix.hagen.neuron_leak_bias.MembraneTimeConstCalibReset.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -83,9 +83,10 @@
           <li class="breadcrumb-item"><a href="../apis_python.html">BrainScaleS-2 API Documentation</a></li>
           <li class="breadcrumb-item"><a href="calix.html">calix</a></li>
           <li class="breadcrumb-item"><a href="calix.hagen.html">calix.hagen</a></li>
-      <li class="breadcrumb-item active">calix.hagen.neuron_potentials</li>
+          <li class="breadcrumb-item"><a href="calix.hagen.neuron_leak_bias.html">calix.hagen.neuron_leak_bias</a></li>
+      <li class="breadcrumb-item active">calix.hagen.neuron_leak_bias.partial</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/_autosummary/calix.hagen.neuron_potentials.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/_autosummary/calix.hagen.neuron_leak_bias.partial.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -93,35 +94,75 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="module-calix.hagen.neuron_potentials">
-<span id="calix-hagen-neuron-potentials"></span><h1>calix.hagen.neuron_potentials<a class="headerlink" href="#module-calix.hagen.neuron_potentials" title="Permalink to this headline"></a></h1>
-<p>Provides functions to calibrate leak and reset potential.</p>
-<p class="rubric">Classes</p>
+  <div class="section" id="calix-hagen-neuron-leak-bias-partial">
+<h1>calix.hagen.neuron_leak_bias.partial<a class="headerlink" href="#calix-hagen-neuron-leak-bias-partial" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt id="calix.hagen.neuron_leak_bias.partial">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">calix.hagen.neuron_leak_bias.</span></code><code class="sig-name descname"><span class="pre">partial</span></code><a class="headerlink" href="#calix.hagen.neuron_leak_bias.partial" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>partial(func, <a href="#id1"><span class="problematic" id="id2">*</span></a>args, <a href="#id3"><span class="problematic" id="id4">**</span></a>keywords) - new function with partial application
+of the given arguments and keywords.</p>
+<dl class="py method">
+<dt id="calix.hagen.neuron_leak_bias.partial.__init__">
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#calix.hagen.neuron_leak_bias.partial.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<p class="rubric">Methods</p>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="calix.hagen.neuron_potentials.BaselineCalib.html#calix.hagen.neuron_potentials.BaselineCalib" title="calix.hagen.neuron_potentials.BaselineCalib"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BaselineCalib</span></code></a>()</p></td>
-<td><p>Calibrate all CADC channels offsets such that the neurons read a given value shortly after reset.</p></td>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.hagen.neuron_leak_bias.partial.args" title="calix.hagen.neuron_leak_bias.partial.args"><code class="xref py py-obj docutils literal notranslate"><span class="pre">args</span></code></a></p></td>
+<td><p>tuple of arguments to future partial calls</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="calix.hagen.neuron_potentials.LeakPotentialCalib.html#calix.hagen.neuron_potentials.LeakPotentialCalib" title="calix.hagen.neuron_potentials.LeakPotentialCalib"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LeakPotentialCalib</span></code></a>(target, numpy.ndarray] = None)</p></td>
-<td><p>Calibrate the neurons’ leak potentials to match specified CADC reads.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#calix.hagen.neuron_leak_bias.partial.func" title="calix.hagen.neuron_leak_bias.partial.func"><code class="xref py py-obj docutils literal notranslate"><span class="pre">func</span></code></a></p></td>
+<td><p>function object to use in future partial calls</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="calix.hagen.neuron_potentials.ResetPotentialCalib.html#calix.hagen.neuron_potentials.ResetPotentialCalib" title="calix.hagen.neuron_potentials.ResetPotentialCalib"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ResetPotentialCalib</span></code></a>(target, …)</p></td>
-<td><p>Calibrate the neurons’ reset target voltage.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.hagen.neuron_leak_bias.partial.keywords" title="calix.hagen.neuron_leak_bias.partial.keywords"><code class="xref py py-obj docutils literal notranslate"><span class="pre">keywords</span></code></a></p></td>
+<td><p>dictionary of keyword arguments to future partial calls</p></td>
 </tr>
 </tbody>
 </table>
+<dl class="py attribute">
+<dt id="calix.hagen.neuron_leak_bias.partial.args">
+<code class="sig-name descname"><span class="pre">args</span></code><a class="headerlink" href="#calix.hagen.neuron_leak_bias.partial.args" title="Permalink to this definition"></a></dt>
+<dd><p>tuple of arguments to future partial calls</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="calix.hagen.neuron_leak_bias.partial.func">
+<code class="sig-name descname"><span class="pre">func</span></code><a class="headerlink" href="#calix.hagen.neuron_leak_bias.partial.func" title="Permalink to this definition"></a></dt>
+<dd><p>function object to use in future partial calls</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="calix.hagen.neuron_leak_bias.partial.keywords">
+<code class="sig-name descname"><span class="pre">keywords</span></code><a class="headerlink" href="#calix.hagen.neuron_leak_bias.partial.keywords" title="Permalink to this definition"></a></dt>
+<dd><p>dictionary of keyword arguments to future partial calls</p>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="calix.hagen.neuron_leak_bias.partial.html" class="btn btn-neutral float-left" title="calix.hagen.neuron_leak_bias.partial" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="calix.hagen.neuron_potentials.BaselineCalib.html" class="btn btn-neutral float-right" title="calix.hagen.neuron_potentials.BaselineCalib" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="calix.hagen.neuron_leak_bias.MembraneTimeConstCalibReset.html" class="btn btn-neutral float-left" title="calix.hagen.neuron_leak_bias.MembraneTimeConstCalibReset" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="calix.hagen.neuron_potentials.html" class="btn btn-neutral float-right" title="calix.hagen.neuron_potentials" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
