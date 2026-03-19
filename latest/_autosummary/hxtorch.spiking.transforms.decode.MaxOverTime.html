@@ -17,7 +17,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="hxtorch.spiking.transforms.decode.MeanOverTime" href="hxtorch.spiking.transforms.decode.MeanOverTime.html" />
-    <link rel="prev" title="hxtorch.spiking.transforms.decode" href="hxtorch.spiking.transforms.decode.html" /> 
+    <link rel="prev" title="hxtorch.spiking.transforms.decode.ExpSumOverTime" href="hxtorch.spiking.transforms.decode.ExpSumOverTime.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -116,7 +116,7 @@
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.transforms.decode.MaxOverTime.forward" title="hxtorch.spiking.transforms.decode.MaxOverTime.forward"><code class="xref py py-obj docutils literal notranslate"><span class="pre">forward</span></code></a>(input)</p></td>
-<td><p>Translate an <cite>input</cite> tensor of shape (batch_size, time_length, population_size) into a tensor of shape (batch_size, population_size), where the time dimension is discarded by picking the maximum value along the time.</p></td>
+<td><p>Translate an <cite>input</cite> tensor of shape (time_length, batch_size, population_size) into a tensor of shape (batch_size, population_size), where the time dimension is discarded by picking the maximum value along the time.</p></td>
 </tr>
 </tbody>
 </table>
@@ -132,14 +132,14 @@
 <dl class="py method">
 <dt id="hxtorch.spiking.transforms.decode.MaxOverTime.forward">
 <code class="sig-name descname"><span class="pre">forward</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">torch.Tensor</span><a class="headerlink" href="#hxtorch.spiking.transforms.decode.MaxOverTime.forward" title="Permalink to this definition"></a></dt>
-<dd><p>Translate an <cite>input</cite> tensor of shape (batch_size, time_length,
+<dd><p>Translate an <cite>input</cite> tensor of shape (time_length, batch_size,
 population_size) into a tensor of shape (batch_size, population_size),
 where the time dimension is discarded by picking the maximum value
 along the time. Hence this module performs a ‘max-over-time’ operation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>input</strong> – The input tensor to transform.
-expected shape: (batch_size, time_length, population_size)</p>
+expected shape: (time_length, batch_size, population_size)</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Returns the tensor holding the max-over-time values.</p>
@@ -155,7 +155,7 @@ expected shape: (batch_size, time_length, population_size)</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="hxtorch.spiking.transforms.decode.html" class="btn btn-neutral float-left" title="hxtorch.spiking.transforms.decode" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="hxtorch.spiking.transforms.decode.ExpSumOverTime.html" class="btn btn-neutral float-left" title="hxtorch.spiking.transforms.decode.ExpSumOverTime" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="hxtorch.spiking.transforms.decode.MeanOverTime.html" class="btn btn-neutral float-right" title="hxtorch.spiking.transforms.decode.MeanOverTime" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

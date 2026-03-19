@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>hxtorch.spiking.transforms.decode.MeanOverTime &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <title>hxtorch.spiking.transforms.decode.ExpSumOverTime &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -16,8 +16,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="hxtorch.spiking.transforms.decode.SumOverTime" href="hxtorch.spiking.transforms.decode.SumOverTime.html" />
-    <link rel="prev" title="hxtorch.spiking.transforms.decode.MaxOverTime" href="hxtorch.spiking.transforms.decode.MaxOverTime.html" /> 
+    <link rel="next" title="hxtorch.spiking.transforms.decode.MaxOverTime" href="hxtorch.spiking.transforms.decode.MaxOverTime.html" />
+    <link rel="prev" title="hxtorch.spiking.transforms.decode" href="hxtorch.spiking.transforms.decode.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -85,9 +85,9 @@
           <li class="breadcrumb-item"><a href="hxtorch.spiking.html">hxtorch.spiking</a></li>
           <li class="breadcrumb-item"><a href="hxtorch.spiking.transforms.html">hxtorch.spiking.transforms</a></li>
           <li class="breadcrumb-item"><a href="hxtorch.spiking.transforms.decode.html">hxtorch.spiking.transforms.decode</a></li>
-      <li class="breadcrumb-item active">hxtorch.spiking.transforms.decode.MeanOverTime</li>
+      <li class="breadcrumb-item active">hxtorch.spiking.transforms.decode.ExpSumOverTime</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/_autosummary/hxtorch.spiking.transforms.decode.MeanOverTime.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/_autosummary/hxtorch.spiking.transforms.decode.ExpSumOverTime.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -95,16 +95,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="hxtorch-spiking-transforms-decode-meanovertime">
-<h1>hxtorch.spiking.transforms.decode.MeanOverTime<a class="headerlink" href="#hxtorch-spiking-transforms-decode-meanovertime" title="Permalink to this headline"></a></h1>
+  <div class="section" id="hxtorch-spiking-transforms-decode-expsumovertime">
+<h1>hxtorch.spiking.transforms.decode.ExpSumOverTime<a class="headerlink" href="#hxtorch-spiking-transforms-decode-expsumovertime" title="Permalink to this headline"></a></h1>
 <dl class="py class">
-<dt id="hxtorch.spiking.transforms.decode.MeanOverTime">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.transforms.decode.</span></code><code class="sig-name descname"><span class="pre">MeanOverTime</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.transforms.decode.MeanOverTime" title="Permalink to this definition"></a></dt>
+<dt id="hxtorch.spiking.transforms.decode.ExpSumOverTime">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.transforms.decode.</span></code><code class="sig-name descname"><span class="pre">ExpSumOverTime</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.transforms.decode.ExpSumOverTime" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">torch.nn.modules.module.Module</span></code></p>
-<p>Simple mean-over-time decoding</p>
+<p>Exponential sum-over-time decoding</p>
 <dl class="py method">
-<dt id="hxtorch.spiking.transforms.decode.MeanOverTime.__init__">
-<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.transforms.decode.MeanOverTime.__init__" title="Permalink to this definition"></a></dt>
+<dt id="hxtorch.spiking.transforms.decode.ExpSumOverTime.__init__">
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.transforms.decode.ExpSumOverTime.__init__" title="Permalink to this definition"></a></dt>
 <dd><p>Initialize internal Module state, shared by both nn.Module and ScriptModule.</p>
 </dd></dl>
 
@@ -115,8 +115,8 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.transforms.decode.MeanOverTime.forward" title="hxtorch.spiking.transforms.decode.MeanOverTime.forward"><code class="xref py py-obj docutils literal notranslate"><span class="pre">forward</span></code></a>(input)</p></td>
-<td><p>Translate an <cite>input</cite> tensor of shape (time_length, batch_size, population_size) into a tensor of shape (batch_size, population_size), where the time dimension is discarded by computing the average value along the time.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.transforms.decode.ExpSumOverTime.forward" title="hxtorch.spiking.transforms.decode.ExpSumOverTime.forward"><code class="xref py py-obj docutils literal notranslate"><span class="pre">forward</span></code></a>(input)</p></td>
+<td><p>Translate an <cite>input</cite> tensor of shape (time_length, batch_size population_size) into a tensor of shape (batch_size, population_size), where the time dimension is discarded by computing the exponentially weighted sum along the time.</p></td>
 </tr>
 </tbody>
 </table>
@@ -130,20 +130,21 @@
 </tbody>
 </table>
 <dl class="py method">
-<dt id="hxtorch.spiking.transforms.decode.MeanOverTime.forward">
-<code class="sig-name descname"><span class="pre">forward</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">torch.Tensor</span><a class="headerlink" href="#hxtorch.spiking.transforms.decode.MeanOverTime.forward" title="Permalink to this definition"></a></dt>
-<dd><p>Translate an <cite>input</cite> tensor of shape (time_length, batch_size,
+<dt id="hxtorch.spiking.transforms.decode.ExpSumOverTime.forward">
+<code class="sig-name descname"><span class="pre">forward</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">torch.Tensor</span><a class="headerlink" href="#hxtorch.spiking.transforms.decode.ExpSumOverTime.forward" title="Permalink to this definition"></a></dt>
+<dd><p>Translate an <cite>input</cite> tensor of shape (time_length, batch_size
 population_size) into a tensor of shape (batch_size, population_size),
-where the time dimension is discarded by computing the average value
-along the time. Hence this module performs a ‘mean-over-time’
-operation.</p>
+where the time dimension is discarded by computing the exponentially
+weighted sum along the time.
+Hence this module performs a ‘sum-over-time’ operation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>input</strong> – The input tensor to transform.
 expected shape: (time_length, batch_size, population_size)</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Returns the tensor holding the mean-over-time values.</p>
+<dd class="field-even"><p>Returns the tensor holding the exponential sum-over-time
+values.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -156,8 +157,8 @@ expected shape: (time_length, batch_size, population_size)</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="hxtorch.spiking.transforms.decode.MaxOverTime.html" class="btn btn-neutral float-left" title="hxtorch.spiking.transforms.decode.MaxOverTime" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="hxtorch.spiking.transforms.decode.SumOverTime.html" class="btn btn-neutral float-right" title="hxtorch.spiking.transforms.decode.SumOverTime" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="hxtorch.spiking.transforms.decode.html" class="btn btn-neutral float-left" title="hxtorch.spiking.transforms.decode" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="hxtorch.spiking.transforms.decode.MaxOverTime.html" class="btn btn-neutral float-right" title="hxtorch.spiking.transforms.decode.MaxOverTime" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
