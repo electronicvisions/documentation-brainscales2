@@ -84,6 +84,6 @@ def measure_voltage(
 
     # run program
     program = builder.done()
-    sta.run(connection, program)
+    sta.run(connection, [program])
 
     return program.madc_samples.to_numpy()[120:]
