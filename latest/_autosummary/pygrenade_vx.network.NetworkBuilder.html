@@ -143,22 +143,26 @@
 </ol>
 <p>Add on-chip background spike source population.</p>
 <ol class="arabic simple" start="4">
+<li><p>add(self: _pygrenade_vx_network.NetworkBuilder, population: _pygrenade_vx_network.SpikeIOSourcePopulation, execution_instance: pygrenade_common.ExecutionInstanceID = ExecutionInstanceID(0)) -&gt; _pygrenade_vx_network.PopulationOnNetwork</p></li>
+</ol>
+<p>Add off Chip SpikeIO Source/ Rx Population</p>
+<ol class="arabic simple" start="5">
 <li><p>add(self: _pygrenade_vx_network.NetworkBuilder, projection: _pygrenade_vx_network.Projection, execution_instance: pygrenade_common.ExecutionInstanceID = ExecutionInstanceID(0)) -&gt; _pygrenade_vx_network.ProjectionOnNetwork</p></li>
 </ol>
 <p>Add projection between already added populations. The projection is expected to be free of single connections present in already added projections. A single connection is considered equal, if it connects the same pre- and post-synaptic neurons and features the same receptor type.</p>
-<ol class="arabic simple" start="5">
+<ol class="arabic simple" start="6">
 <li><p>add(self: _pygrenade_vx_network.NetworkBuilder, madc_recording: _pygrenade_vx_network.MADCRecording, execution_instance: pygrenade_common.ExecutionInstanceID = ExecutionInstanceID(0)) -&gt; None</p></li>
 </ol>
 <p>Add MADC recording of a single neuron. Only one MADC recording per network is allowed. If another recording is present at the recorded neuron, their source specification is required to match.</p>
-<ol class="arabic simple" start="6">
+<ol class="arabic simple" start="7">
 <li><p>add(self: _pygrenade_vx_network.NetworkBuilder, cadc_recording: _pygrenade_vx_network.CADCRecording, execution_instance: pygrenade_common.ExecutionInstanceID = ExecutionInstanceID(0)) -&gt; None</p></li>
 </ol>
 <p>Add CADC recording of a collection of neurons. Only one CADC recording per network is allowed. If another recording is present at a recorded neuron, their source specification is required to match.</p>
-<ol class="arabic simple" start="7">
+<ol class="arabic simple" start="8">
 <li><p>add(self: _pygrenade_vx_network.NetworkBuilder, pad_recording: _pygrenade_vx_network.PadRecording, execution_instance: pygrenade_common.ExecutionInstanceID = ExecutionInstanceID(0)) -&gt; None</p></li>
 </ol>
 <p>Add pad recording of a collection of neurons. Only one pad recording per network is allowed. If another recording is present at a recorded neuron, their source specification is required to match.</p>
-<ol class="arabic simple" start="8">
+<ol class="arabic simple" start="9">
 <li><p>add(self: _pygrenade_vx_network.NetworkBuilder, plasticity_rule: _pygrenade_vx_network.PlasticityRule, execution_instance: pygrenade_common.ExecutionInstanceID = ExecutionInstanceID(0)) -&gt; _pygrenade_vx_network.PlasticityRuleOnNetwork</p></li>
 <li><p>add(self: _pygrenade_vx_network.NetworkBuilder, projection: _pygrenade_vx_network.InterExecutionInstanceProjection) -&gt; _pygrenade_vx_network.InterExecutionInstanceProjectionOnNetwork</p></li>
 </ol>
