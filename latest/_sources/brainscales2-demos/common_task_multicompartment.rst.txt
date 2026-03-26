@@ -253,7 +253,7 @@ We will change the recording site in the x-axis and the injection site on the y-
                     xycoords='axes fraction', textcoords='offset points',
                     ha='center', va='center', rotation=270)
 
-        fig.show()
+        display(fig)
 
 Performing the Experiment
 -------------------------
