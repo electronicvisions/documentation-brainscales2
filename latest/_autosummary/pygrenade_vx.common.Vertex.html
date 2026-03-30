@@ -126,16 +126,19 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.common.Vertex.get_time_domain" title="pygrenade_vx.common.Vertex.get_time_domain"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_time_domain</span></code></a>(self)</p></td>
 <td><p>Get identifier of time domain of vertex.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.common.Vertex.valid_edge_from" title="pygrenade_vx.common.Vertex.valid_edge_from"><code class="xref py py-obj docutils literal notranslate"><span class="pre">valid_edge_from</span></code></a>(self, source, edge)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.common.Vertex.valid" title="pygrenade_vx.common.Vertex.valid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">valid</span></code></a>(self, time_domain_runtimes)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.common.Vertex.valid_edge_from" title="pygrenade_vx.common.Vertex.valid_edge_from"><code class="xref py py-obj docutils literal notranslate"><span class="pre">valid_edge_from</span></code></a>(self, source, edge)</p></td>
 <td><p>Get whether the edge from the source vertex to this vertex is valid.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.common.Vertex.valid_edge_to" title="pygrenade_vx.common.Vertex.valid_edge_to"><code class="xref py py-obj docutils literal notranslate"><span class="pre">valid_edge_to</span></code></a>(self, target, edge)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.common.Vertex.valid_edge_to" title="pygrenade_vx.common.Vertex.valid_edge_to"><code class="xref py py-obj docutils literal notranslate"><span class="pre">valid_edge_to</span></code></a>(self, target, edge)</p></td>
 <td><p>Get whether the edge to the target vertex from this vertex is valid.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.common.Vertex.valid_input_port_data" title="pygrenade_vx.common.Vertex.valid_input_port_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">valid_input_port_data</span></code></a>(self, …)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.common.Vertex.valid_input_port_data" title="pygrenade_vx.common.Vertex.valid_input_port_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">valid_input_port_data</span></code></a>(self, …)</p></td>
 <td><p>Get whether given data is valid for input port on vertex.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.common.Vertex.valid_output_port_data" title="pygrenade_vx.common.Vertex.valid_output_port_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">valid_output_port_data</span></code></a>(self, …)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.common.Vertex.valid_output_port_data" title="pygrenade_vx.common.Vertex.valid_output_port_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">valid_output_port_data</span></code></a>(self, …)</p></td>
 <td><p>Get whether given data is valid for output port on vertex.</p></td>
 </tr>
 </tbody>
@@ -322,6 +325,11 @@
 <code class="sig-name descname"><span class="pre">get_time_domain</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pygrenade_common.Vertex</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">pygrenade_common.TimeDomainOnTopology</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#pygrenade_vx.common.Vertex.get_time_domain" title="Permalink to this definition"></a></dt>
 <dd><p>Get identifier of time domain of vertex. All vertices onto the same time domain are expected to share the time dimension and are allowed to interact instantaneously with each other. If no time domain is returned, the vertices is offline without time dimension.</p>
 </dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.common.Vertex.valid">
+<code class="sig-name descname"><span class="pre">valid</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pygrenade_common.Vertex</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_domain_runtimes</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pygrenade_common.TimeDomainRuntimes</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#pygrenade_vx.common.Vertex.valid" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt id="pygrenade_vx.common.Vertex.valid_edge_from">
