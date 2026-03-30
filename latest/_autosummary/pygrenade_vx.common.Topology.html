@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pygrenade_vx.common.Topology &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pygrenade_vx.common.Vertex" href="pygrenade_vx.common.Vertex.html" />
+    <link rel="prev" title="pygrenade_vx.common.TimeDomainOnTopology" href="pygrenade_vx.common.TimeDomainOnTopology.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            BrainScaleS-2 Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../brainscales2-demos/index.html">Demos &amp; Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software_components.html">Software Components</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../apis.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../apis_python.html">Python API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="pynn_brainscales.brainscales2.html">pynn_brainscales.brainscales2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jaxsnn.html">jaxsnn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hxtorch.html">hxtorch</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="pygrenade_vx.html">pygrenade_vx</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="pygrenade_vx.common.html">pygrenade_vx.common</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygrenade_vx.execution.html">pygrenade_vx.execution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygrenade_vx.network.html">pygrenade_vx.network</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygrenade_vx.signal_flow.html">pygrenade_vx.signal_flow</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="calix.html">calix</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../apis_cpp.html">C++ API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BrainScaleS-2 Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../apis.html">BrainScaleS-2 API Documentation</a></li>
+          <li class="breadcrumb-item"><a href="../apis_python.html">BrainScaleS-2 API Documentation</a></li>
+          <li class="breadcrumb-item"><a href="pygrenade_vx.html">pygrenade_vx</a></li>
+          <li class="breadcrumb-item"><a href="pygrenade_vx.common.html">pygrenade_vx.common</a></li>
+      <li class="breadcrumb-item active">pygrenade_vx.common.Topology</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_autosummary/pygrenade_vx.common.Topology.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="pygrenade-vx-common-topology">
+<h1>pygrenade_vx.common.Topology<a class="headerlink" href="#pygrenade-vx-common-topology" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt id="pygrenade_vx.common.Topology">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">pygrenade_vx.common.</span></code><code class="sig-name descname"><span class="pre">Topology</span></code><a class="headerlink" href="#pygrenade_vx.common.Topology" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_builtins.pybind11_object</span></code></p>
+<dl class="py method">
+<dt id="pygrenade_vx.common.Topology.__init__">
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygrenade_vx.common.Topology.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Overloaded function.</p>
+<ol class="arabic simple">
+<li><p>__init__(self: pygrenade_common.Topology, arg0: pygrenade_common.Topology) -&gt; None</p></li>
+<li><p>__init__(self: pygrenade_common.Topology) -&gt; None</p></li>
+</ol>
+</dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.common.Topology.__init__" title="pygrenade_vx.common.Topology.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Overloaded function.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.common.Topology.add_edge" title="pygrenade_vx.common.Topology.add_edge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_edge</span></code></a>(self, source, target, edge)</p></td>
+<td><p>Add edge between vertices into network.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.common.Topology.add_vertex" title="pygrenade_vx.common.Topology.add_vertex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_vertex</span></code></a>(self, vertex)</p></td>
+<td><p>Add vertex into graph.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.common.Topology.clear" title="pygrenade_vx.common.Topology.clear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear</span></code></a>(self)</p></td>
+<td><p>Clear graph.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.common.Topology.clear_in_edges" title="pygrenade_vx.common.Topology.clear_in_edges"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear_in_edges</span></code></a>(self, descriptor)</p></td>
+<td><p>Remove all in-edges of a vertex.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.common.Topology.clear_out_edges" title="pygrenade_vx.common.Topology.clear_out_edges"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear_out_edges</span></code></a>(self, descriptor)</p></td>
+<td><p>Remove all out-edges of a vertex.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.common.Topology.clear_vertex" title="pygrenade_vx.common.Topology.clear_vertex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear_vertex</span></code></a>(self, descriptor)</p></td>
+<td><p>Remove all edges to and from a vertex.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.common.Topology.contains" title="pygrenade_vx.common.Topology.contains"><code class="xref py py-obj docutils literal notranslate"><span class="pre">contains</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Overloaded function.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.common.Topology.get" title="pygrenade_vx.common.Topology.get"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Overloaded function.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.common.Topology.get_vertex_index_map" title="pygrenade_vx.common.Topology.get_vertex_index_map"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_vertex_index_map</span></code></a>(self)</p></td>
+<td><p>Return Mapping of Vertex Descriptors to indices</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.common.Topology.in_degree" title="pygrenade_vx.common.Topology.in_degree"><code class="xref py py-obj docutils literal notranslate"><span class="pre">in_degree</span></code></a>(self, descriptor)</p></td>
+<td><p>Get in-degree of given vertex.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.common.Topology.in_edges" title="pygrenade_vx.common.Topology.in_edges"><code class="xref py py-obj docutils literal notranslate"><span class="pre">in_edges</span></code></a>(self, arg0)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.common.Topology.is_connected" title="pygrenade_vx.common.Topology.is_connected"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_connected</span></code></a>(self)</p></td>
+<td><p>Return if graph is fully connected</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.common.Topology.isomorphism" title="pygrenade_vx.common.Topology.isomorphism"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isomorphism</span></code></a>(self, other, grenade, grenade, …)</p></td>
+<td><p>Return one possible mapping of vertices of compared graphs.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.common.Topology.num_edges" title="pygrenade_vx.common.Topology.num_edges"><code class="xref py py-obj docutils literal notranslate"><span class="pre">num_edges</span></code></a>(self)</p></td>
+<td><p>Get number of edges in graph.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.common.Topology.num_vertices" title="pygrenade_vx.common.Topology.num_vertices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">num_vertices</span></code></a>(self)</p></td>
+<td><p>Get number of vertices in graph.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.common.Topology.out_degree" title="pygrenade_vx.common.Topology.out_degree"><code class="xref py py-obj docutils literal notranslate"><span class="pre">out_degree</span></code></a>(self, descriptor)</p></td>
+<td><p>Get out-degree of given vertex.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.common.Topology.remove_edge" title="pygrenade_vx.common.Topology.remove_edge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_edge</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Overloaded function.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.common.Topology.remove_vertex" title="pygrenade_vx.common.Topology.remove_vertex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_vertex</span></code></a>(self, descriptor)</p></td>
+<td><p>Remove vertex.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.common.Topology.set" title="pygrenade_vx.common.Topology.set"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Overloaded function.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.common.Topology.source" title="pygrenade_vx.common.Topology.source"><code class="xref py py-obj docutils literal notranslate"><span class="pre">source</span></code></a>(self, descriptor)</p></td>
+<td><p>Get source vertex of given edge.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.common.Topology.strong_components" title="pygrenade_vx.common.Topology.strong_components"><code class="xref py py-obj docutils literal notranslate"><span class="pre">strong_components</span></code></a>(self)</p></td>
+<td><p>Get strong components of graph.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.common.Topology.target" title="pygrenade_vx.common.Topology.target"><code class="xref py py-obj docutils literal notranslate"><span class="pre">target</span></code></a>(self, descriptor)</p></td>
+<td><p>Get target vertex of given edge.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.common.Topology.valid" title="pygrenade_vx.common.Topology.valid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">valid</span></code></a>(self)</p></td>
+<td><p>Check whether topology is valid.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.common.Topology.valid_strong_components" title="pygrenade_vx.common.Topology.valid_strong_components"><code class="xref py py-obj docutils literal notranslate"><span class="pre">valid_strong_components</span></code></a>(self)</p></td>
+<td><p>Check whether strong components of topology are valid.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.common.Topology.vertices" title="pygrenade_vx.common.Topology.vertices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vertices</span></code></a>(self)</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="pygrenade_vx.common.Topology.add_edge">
+<code class="sig-name descname"><span class="pre">add_edge</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pygrenade_common.Topology</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pygrenade_common.VertexOnTopology</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pygrenade_common.VertexOnTopology</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pygrenade_common.Edge</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">pygrenade_common.EdgeOnTopology</span><a class="headerlink" href="#pygrenade_vx.common.Topology.add_edge" title="Permalink to this definition"></a></dt>
+<dd><p>Add edge between vertices into network.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.common.Topology.add_vertex">
+<code class="sig-name descname"><span class="pre">add_vertex</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pygrenade_common.Topology</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertex</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pygrenade_common.Vertex</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">pygrenade_common.VertexOnTopology</span><a class="headerlink" href="#pygrenade_vx.common.Topology.add_vertex" title="Permalink to this definition"></a></dt>
+<dd><p>Add vertex into graph.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.common.Topology.clear">
+<code class="sig-name descname"><span class="pre">clear</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pygrenade_common.Topology</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#pygrenade_vx.common.Topology.clear" title="Permalink to this definition"></a></dt>
+<dd><p>Clear graph. Removes all edges and vertices of graph.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.common.Topology.clear_in_edges">
+<code class="sig-name descname"><span class="pre">clear_in_edges</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pygrenade_common.Topology</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">descriptor</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pygrenade_common.VertexOnTopology</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#pygrenade_vx.common.Topology.clear_in_edges" title="Permalink to this definition"></a></dt>
+<dd><p>Remove all in-edges of a vertex.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.common.Topology.clear_out_edges">
+<code class="sig-name descname"><span class="pre">clear_out_edges</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pygrenade_common.Topology</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">descriptor</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pygrenade_common.VertexOnTopology</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#pygrenade_vx.common.Topology.clear_out_edges" title="Permalink to this definition"></a></dt>
+<dd><p>Remove all out-edges of a vertex.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.common.Topology.clear_vertex">
+<code class="sig-name descname"><span class="pre">clear_vertex</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pygrenade_common.Topology</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">descriptor</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pygrenade_common.VertexOnTopology</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#pygrenade_vx.common.Topology.clear_vertex" title="Permalink to this definition"></a></dt>
+<dd><p>Remove all edges to and from a vertex.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.common.Topology.contains">
+<code class="sig-name descname"><span class="pre">contains</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygrenade_vx.common.Topology.contains" title="Permalink to this definition"></a></dt>
+<dd><p>Overloaded function.</p>
+<ol class="arabic simple">
+<li><p>contains(self: pygrenade_common.Topology, descriptor: pygrenade_common.VertexOnTopology) -&gt; bool</p></li>
+</ol>
+<p>Get whether graph contains given vertex.</p>
+<ol class="arabic simple" start="2">
+<li><p>contains(self: pygrenade_common.Topology, descriptor: pygrenade_common.EdgeOnTopology) -&gt; bool</p></li>
+</ol>
+<p>Get whether graph contains given edge.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.common.Topology.get">
+<code class="sig-name descname"><span class="pre">get</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygrenade_vx.common.Topology.get" title="Permalink to this definition"></a></dt>
+<dd><p>Overloaded function.</p>
+<ol class="arabic simple">
+<li><p>get(self: pygrenade_common.Topology, arg0: pygrenade_common.VertexOnTopology) -&gt; pygrenade_common.Vertex</p></li>
+<li><p>get(self: pygrenade_common.Topology, descriptor: pygrenade_common.EdgeOnTopology) -&gt; pygrenade_common.Edge</p></li>
+</ol>
+<p>Get edge property.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.common.Topology.get_vertex_index_map">
+<code class="sig-name descname"><span class="pre">get_vertex_index_map</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pygrenade_common.Topology</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">pygrenade_common.VertexOnTopology</span><span class="p"><span class="pre">,</span> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#pygrenade_vx.common.Topology.get_vertex_index_map" title="Permalink to this definition"></a></dt>
+<dd><p>Return Mapping of Vertex Descriptors to indices</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.common.Topology.in_degree">
+<code class="sig-name descname"><span class="pre">in_degree</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pygrenade_common.Topology</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">descriptor</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pygrenade_common.VertexOnTopology</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">int</span><a class="headerlink" href="#pygrenade_vx.common.Topology.in_degree" title="Permalink to this definition"></a></dt>
+<dd><p>Get in-degree of given vertex.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.common.Topology.in_edges">
+<code class="sig-name descname"><span class="pre">in_edges</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pygrenade_common.Topology</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg0</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pygrenade_common.VertexOnTopology</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">pygrenade_common.EdgeOnTopology</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#pygrenade_vx.common.Topology.in_edges" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.common.Topology.is_connected">
+<code class="sig-name descname"><span class="pre">is_connected</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pygrenade_common.Topology</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#pygrenade_vx.common.Topology.is_connected" title="Permalink to this definition"></a></dt>
+<dd><p>Return if graph is fully connected</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.common.Topology.isomorphism">
+<code class="sig-name descname"><span class="pre">isomorphism</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self:</span> <span class="pre">pygrenade_common.Topology</span></em>, <em class="sig-param"><span class="pre">other:</span> <span class="pre">grenade::common::Graph&lt;grenade::common::Topology</span></em>, <em class="sig-param"><span class="pre">boost::adjacency_list&lt;boost::multisetS</span></em>, <em class="sig-param"><span class="pre">boost::listS</span></em>, <em class="sig-param"><span class="pre">boost::bidirectionalS</span></em>, <em class="sig-param"><span class="pre">boost::no_property</span></em>, <em class="sig-param"><span class="pre">boost::no_property</span></em>, <em class="sig-param"><span class="pre">boost::no_property</span></em>, <em class="sig-param"><span class="pre">boost::listS&gt;</span></em>, <em class="sig-param"><span class="pre">grenade::common::Vertex</span></em>, <em class="sig-param"><span class="pre">grenade::common::Edge</span></em>, <em class="sig-param"><span class="pre">grenade::common::VertexOnTopology</span></em>, <em class="sig-param"><span class="pre">grenade::common::EdgeOnTopology</span></em>, <em class="sig-param"><span class="pre">std::shared_ptr&gt;</span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">pygrenade_common.VertexOnTopology</span><span class="p"><span class="pre">,</span> </span><span class="pre">pygrenade_common.VertexOnTopology</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#pygrenade_vx.common.Topology.isomorphism" title="Permalink to this definition"></a></dt>
+<dd><p>Return one possible mapping of vertices of compared graphs. If no mapping is possible an empty map is returned.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.common.Topology.num_edges">
+<code class="sig-name descname"><span class="pre">num_edges</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pygrenade_common.Topology</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">int</span><a class="headerlink" href="#pygrenade_vx.common.Topology.num_edges" title="Permalink to this definition"></a></dt>
+<dd><p>Get number of edges in graph.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.common.Topology.num_vertices">
+<code class="sig-name descname"><span class="pre">num_vertices</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pygrenade_common.Topology</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">int</span><a class="headerlink" href="#pygrenade_vx.common.Topology.num_vertices" title="Permalink to this definition"></a></dt>
+<dd><p>Get number of vertices in graph.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.common.Topology.out_degree">
+<code class="sig-name descname"><span class="pre">out_degree</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pygrenade_common.Topology</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">descriptor</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pygrenade_common.VertexOnTopology</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">int</span><a class="headerlink" href="#pygrenade_vx.common.Topology.out_degree" title="Permalink to this definition"></a></dt>
+<dd><p>Get out-degree of given vertex.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.common.Topology.remove_edge">
+<code class="sig-name descname"><span class="pre">remove_edge</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygrenade_vx.common.Topology.remove_edge" title="Permalink to this definition"></a></dt>
+<dd><p>Overloaded function.</p>
+<ol class="arabic simple">
+<li><p>remove_edge(self: pygrenade_common.Topology, source: pygrenade_common.VertexOnTopology, target: pygrenade_common.VertexOnTopology) -&gt; None</p></li>
+</ol>
+<p>Removes all edges between source and target vertex from graph.</p>
+<ol class="arabic simple" start="2">
+<li><p>remove_edge(self: pygrenade_common.Topology, descriptor: pygrenade_common.EdgeOnTopology) -&gt; None</p></li>
+</ol>
+<p>Remove edge from graph.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.common.Topology.remove_vertex">
+<code class="sig-name descname"><span class="pre">remove_vertex</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pygrenade_common.Topology</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">descriptor</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pygrenade_common.VertexOnTopology</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#pygrenade_vx.common.Topology.remove_vertex" title="Permalink to this definition"></a></dt>
+<dd><p>Remove vertex.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.common.Topology.set">
+<code class="sig-name descname"><span class="pre">set</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygrenade_vx.common.Topology.set" title="Permalink to this definition"></a></dt>
+<dd><p>Overloaded function.</p>
+<ol class="arabic simple">
+<li><p>set(self: pygrenade_common.Topology, descriptor: pygrenade_common.VertexOnTopology, vertex: pygrenade_common.Vertex) -&gt; None</p></li>
+</ol>
+<p>Set vertex property.</p>
+<ol class="arabic simple" start="2">
+<li><p>set(self: pygrenade_common.Topology, descriptor: pygrenade_common.EdgeOnTopology, edge: pygrenade_common.Edge) -&gt; None</p></li>
+</ol>
+<p>Set edge property.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.common.Topology.source">
+<code class="sig-name descname"><span class="pre">source</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pygrenade_common.Topology</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">descriptor</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pygrenade_common.EdgeOnTopology</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">pygrenade_common.VertexOnTopology</span><a class="headerlink" href="#pygrenade_vx.common.Topology.source" title="Permalink to this definition"></a></dt>
+<dd><p>Get source vertex of given edge.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.common.Topology.strong_components">
+<code class="sig-name descname"><span class="pre">strong_components</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pygrenade_common.Topology</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">pygrenade_common.VertexOnTopology</span><span class="p"><span class="pre">,</span> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#pygrenade_vx.common.Topology.strong_components" title="Permalink to this definition"></a></dt>
+<dd><p>Get strong components of graph. For each vertex, the component ID is returned.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.common.Topology.target">
+<code class="sig-name descname"><span class="pre">target</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pygrenade_common.Topology</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">descriptor</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pygrenade_common.EdgeOnTopology</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">pygrenade_common.VertexOnTopology</span><a class="headerlink" href="#pygrenade_vx.common.Topology.target" title="Permalink to this definition"></a></dt>
+<dd><p>Get target vertex of given edge.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.common.Topology.valid">
+<code class="sig-name descname"><span class="pre">valid</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pygrenade_common.Topology</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#pygrenade_vx.common.Topology.valid" title="Permalink to this definition"></a></dt>
+<dd><p>Check whether topology is valid. Only valid strong components need to be checked, since all else is checked on adding elements.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.common.Topology.valid_strong_components">
+<code class="sig-name descname"><span class="pre">valid_strong_components</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pygrenade_common.Topology</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#pygrenade_vx.common.Topology.valid_strong_components" title="Permalink to this definition"></a></dt>
+<dd><p>Check whether strong components of topology are valid. Ensures, that all strong components vertices feature a homogeneous invariant.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.common.Topology.vertices">
+<code class="sig-name descname"><span class="pre">vertices</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pygrenade_common.Topology</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">pygrenade_common.VertexOnTopology</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#pygrenade_vx.common.Topology.vertices" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="pygrenade_vx.common.TimeDomainOnTopology.html" class="btn btn-neutral float-left" title="pygrenade_vx.common.TimeDomainOnTopology" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pygrenade_vx.common.Vertex.html" class="btn btn-neutral float-right" title="pygrenade_vx.common.Vertex" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Electronic Vision(s).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
