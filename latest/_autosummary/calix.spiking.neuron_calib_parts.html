@@ -54,6 +54,7 @@
 <li class="toctree-l4"><a class="reference internal" href="calix.common.html">calix.common</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.constants.html">calix.constants</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.hagen.html">calix.hagen</a></li>
+<li class="toctree-l4"><a class="reference internal" href="calix.multicomp.html">calix.multicomp</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="calix.spiking.html">calix.spiking</a></li>
 </ul>
 </li>
@@ -109,7 +110,10 @@ you call them directly.</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="calix.spiking.neuron_calib_parts.COBAParameters.html#calix.spiking.neuron_calib_parts.COBAParameters" title="calix.spiking.neuron_calib_parts.COBAParameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">COBAParameters</span></code></a>(target)</p></td>
 <td><p>Collection of parameters for COBA synaptic input calibration.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="calix.spiking.neuron_calib_parts.SyninParameters.html#calix.spiking.neuron_calib_parts.SyninParameters" title="calix.spiking.neuron_calib_parts.SyninParameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SyninParameters</span></code></a>(target)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="calix.spiking.neuron_calib_parts.ICCMADCCalib.html#calix.spiking.neuron_calib_parts.ICCMADCCalib" title="calix.spiking.neuron_calib_parts.ICCMADCCalib"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ICCMADCCalib</span></code></a>(target, v_leak, neuron_configs, …)</p></td>
+<td><p>Calibrate the inter-compartment conductance time constant of all neurons to the provided target value.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="calix.spiking.neuron_calib_parts.SyninParameters.html#calix.spiking.neuron_calib_parts.SyninParameters" title="calix.spiking.neuron_calib_parts.SyninParameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SyninParameters</span></code></a>(target)</p></td>
 <td><p>Collection of parameters for synaptic input calibration.</p></td>
 </tr>
 </tbody>
@@ -179,6 +183,23 @@ enabled, i.e., set to the bias currents in the calib result.</p>
 <li><p><strong>target_cadc_reads</strong> – Target CADC reads, obtained at leak
 potential with synaptic inputs disabled.</p></li>
 <li><p><strong>calib_result</strong> – Result of neuron calibration.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="calix.spiking.neuron_calib_parts.calibrate_tau_icc">
+<code class="sig-prename descclassname"><span class="pre">calix.spiking.neuron_calib_parts.</span></code><code class="sig-name descname"><span class="pre">calibrate_tau_icc</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">hxcomm.ConnectionHandle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau_icc</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pq.Quantity</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calib_result</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">neuron._CalibResultInternal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.spiking.neuron_calib_parts.calibrate_tau_icc" title="Permalink to this definition"></a></dt>
+<dd><p>Calibrate inter-compartment conductance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>connection</strong> – Connection to chip to run on.</p></li>
+<li><p><strong>tau_icc</strong> – Target time constant of inter-compartment
+conductance. If NaN, the inter-compartment conductance
+is not calibrated.</p></li>
+<li><p><strong>calib_result</strong> – Calib result to store parameters in.</p></li>
 </ul>
 </dd>
 </dl>
