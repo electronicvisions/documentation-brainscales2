@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>calix.hagen.neuron_leak_bias &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <title>calix.measurement.intrinsic_capacitance &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -16,8 +16,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="calix.hagen.neuron_leak_bias.LeakBiasCalib" href="calix.hagen.neuron_leak_bias.LeakBiasCalib.html" />
-    <link rel="prev" title="calix.hagen.neuron_helpers.CADCReadNeurons" href="calix.hagen.neuron_helpers.CADCReadNeurons.html" /> 
+    <link rel="next" title="calix.multicomp" href="calix.multicomp.html" />
+    <link rel="prev" title="calix.measurement" href="calix.measurement.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -53,8 +53,8 @@
 <li class="toctree-l4"><a class="reference internal" href="calix.calib_cache.html">calix.calib_cache</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.common.html">calix.common</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.constants.html">calix.constants</a></li>
-<li class="toctree-l4 current"><a class="reference internal" href="calix.hagen.html">calix.hagen</a></li>
-<li class="toctree-l4"><a class="reference internal" href="calix.measurement.html">calix.measurement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="calix.hagen.html">calix.hagen</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="calix.measurement.html">calix.measurement</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.multicomp.html">calix.multicomp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="calix.spiking.html">calix.spiking</a></li>
 </ul>
@@ -84,10 +84,10 @@
           <li class="breadcrumb-item"><a href="../apis.html">BrainScaleS-2 API Documentation</a></li>
           <li class="breadcrumb-item"><a href="../apis_python.html">BrainScaleS-2 API Documentation</a></li>
           <li class="breadcrumb-item"><a href="calix.html">calix</a></li>
-          <li class="breadcrumb-item"><a href="calix.hagen.html">calix.hagen</a></li>
-      <li class="breadcrumb-item active">calix.hagen.neuron_leak_bias</li>
+          <li class="breadcrumb-item"><a href="calix.measurement.html">calix.measurement</a></li>
+      <li class="breadcrumb-item active">calix.measurement.intrinsic_capacitance</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/_autosummary/calix.hagen.neuron_leak_bias.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/_autosummary/calix.measurement.intrinsic_capacitance.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -95,44 +95,21 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="module-calix.hagen.neuron_leak_bias">
-<span id="calix-hagen-neuron-leak-bias"></span><h1>calix.hagen.neuron_leak_bias<a class="headerlink" href="#module-calix.hagen.neuron_leak_bias" title="Permalink to this headline"></a></h1>
-<p>Provides functions to set the neurons’ leak OTA bias currents
-for different purposes.</p>
-<p>The class MembraneTimeConstCalibCADC measures the membrane
-time constant and calibrates to set these equal.
-This is done before the calibration of synaptic input amplitudes.</p>
-<p>The class LeakBiasCalib is targeted at setting the leak OTA bias
-current as low as possible while keeping the noise under control.
-This is called after the synaptic inputs are calibrated.</p>
-<p class="rubric">Classes</p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="calix.hagen.neuron_leak_bias.LeakBiasCalib.html#calix.hagen.neuron_leak_bias.LeakBiasCalib" title="calix.hagen.neuron_leak_bias.LeakBiasCalib"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LeakBiasCalib</span></code></a>(target, numpy.ndarray] = 1.2, …)</p></td>
-<td><p>Set leak bias currents as low as possible while preventing the membrane voltage from floating and preventing too high membrane noise.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="calix.hagen.neuron_leak_bias.MembraneTimeConstCalibCADC.html#calix.hagen.neuron_leak_bias.MembraneTimeConstCalibCADC" title="calix.hagen.neuron_leak_bias.MembraneTimeConstCalibCADC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MembraneTimeConstCalibCADC</span></code></a>(…)</p></td>
-<td><p>Find the leak conductivity by resetting the neuron’s membrane to a potential significantly below the leak potential.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="calix.hagen.neuron_leak_bias.MembraneTimeConstCalibOffset.html#calix.hagen.neuron_leak_bias.MembraneTimeConstCalibOffset" title="calix.hagen.neuron_leak_bias.MembraneTimeConstCalibOffset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MembraneTimeConstCalibOffset</span></code></a>(target, …)</p></td>
-<td><p>Measure response to step current with MADC to calibrate the membrane time constant.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="calix.hagen.neuron_leak_bias.MembraneTimeConstCalibReset.html#calix.hagen.neuron_leak_bias.MembraneTimeConstCalibReset" title="calix.hagen.neuron_leak_bias.MembraneTimeConstCalibReset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MembraneTimeConstCalibReset</span></code></a>(target, …)</p></td>
-<td><p>Measure neuron reset with the MADC to calibrate the membrane time constant.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="calix.hagen.neuron_leak_bias.partial.html#calix.hagen.neuron_leak_bias.partial" title="calix.hagen.neuron_leak_bias.partial"><code class="xref py py-obj docutils literal notranslate"><span class="pre">partial</span></code></a></p></td>
-<td><p>partial(func, <a href="#id1"><span class="problematic" id="id2">*</span></a>args, <a href="#id3"><span class="problematic" id="id4">**</span></a>keywords) - new function with partial application of the given arguments and keywords.</p></td>
-</tr>
-</tbody>
-</table>
+  <div class="section" id="module-calix.measurement.intrinsic_capacitance">
+<span id="calix-measurement-intrinsic-capacitance"></span><h1>calix.measurement.intrinsic_capacitance<a class="headerlink" href="#module-calix.measurement.intrinsic_capacitance" title="Permalink to this headline"></a></h1>
+<p>Measure the intrinsic capacitance.</p>
+<p>Each neuron circuit has an intrinsic capacitance C_i. The total
+capacitance of the neuron circuit is given by the intrinsic capacitance
+and the adjustable capacitance C_a: C = C_a + C_i.</p>
+<p>We will measure the time constant tau at different values
+of the capacitance and perform a fit to determine the intrinsic
+capacitance:</p>
+<p>tau = (C_a + C_i) / g,</p>
+<p>where g is the leak conductance.</p>
 <p class="rubric">Functions</p>
 <dl class="py function">
-<dt id="calix.hagen.neuron_leak_bias.curve_fit">
-<code class="sig-prename descclassname"><span class="pre">calix.hagen.neuron_leak_bias.</span></code><code class="sig-name descname"><span class="pre">curve_fit</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">absolute_sigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_finite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bounds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(-</span> <span class="pre">inf,</span> <span class="pre">inf)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jac</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">full_output</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nan_policy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.hagen.neuron_leak_bias.curve_fit" title="Permalink to this definition"></a></dt>
+<dt id="calix.measurement.intrinsic_capacitance.curve_fit">
+<code class="sig-prename descclassname"><span class="pre">calix.measurement.intrinsic_capacitance.</span></code><code class="sig-name descname"><span class="pre">curve_fit</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">absolute_sigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_finite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bounds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(-</span> <span class="pre">inf,</span> <span class="pre">inf)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jac</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">full_output</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nan_policy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.measurement.intrinsic_capacitance.curve_fit" title="Permalink to this definition"></a></dt>
 <dd><p>Use non-linear least squares to fit a function, f, to data.</p>
 <p>Assumes <code class="docutils literal notranslate"><span class="pre">ydata</span> <span class="pre">=</span> <span class="pre">f(xdata,</span> <span class="pre">*params)</span> <span class="pre">+</span> <span class="pre">eps</span></code>.</p>
 <dl>
@@ -243,7 +220,7 @@ are present is implementation-dependent and may change.</p></li>
 <p><span class="versionmodified added">New in version 1.11.</span></p>
 </div>
 </dd>
-<dt><a href="#id5"><span class="problematic" id="id6">**</span></a>kwargs</dt><dd><p>Keyword arguments passed to <cite>leastsq</cite> for <code class="docutils literal notranslate"><span class="pre">method='lm'</span></code> or
+<dt><a href="#id1"><span class="problematic" id="id2">**</span></a>kwargs</dt><dd><p>Keyword arguments passed to <cite>leastsq</cite> for <code class="docutils literal notranslate"><span class="pre">method='lm'</span></code> or
 <cite>least_squares</cite> otherwise.</p>
 </dd>
 </dl>
@@ -336,7 +313,7 @@ unconstrained problems.</p>
 the docstring of <cite>least_squares</cite> for more information.</p>
 <dl class="simple">
 <dt>[1] K. Vugrin et al. Confidence region estimation techniques for nonlinear</dt><dd><p>regression in groundwater flow: Three case studies. Water Resources
-Research, Vol. 43, W03423, <a href="#id7"><span class="problematic" id="id8">:doi:`10.1029/2005WR004804`</span></a></p>
+Research, Vol. 43, W03423, <a href="#id3"><span class="problematic" id="id4">:doi:`10.1029/2005WR004804`</span></a></p>
 </dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -409,14 +386,97 @@ suggesting that the optimal values of these parameters are ambiguous and
 that only one of these parameters is needed in the model.</p>
 </dd></dl>
 
+<dl class="py function">
+<dt id="calix.measurement.intrinsic_capacitance.deepcopy">
+<code class="sig-prename descclassname"><span class="pre">calix.measurement.intrinsic_capacitance.</span></code><code class="sig-name descname"><span class="pre">deepcopy</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">memo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_nil</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.measurement.intrinsic_capacitance.deepcopy" title="Permalink to this definition"></a></dt>
+<dd><p>Deep copy operation on arbitrary Python objects.</p>
+<p>See the module’s __doc__ string for more info.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="calix.measurement.intrinsic_capacitance.fit">
+<code class="sig-prename descclassname"><span class="pre">calix.measurement.intrinsic_capacitance.</span></code><code class="sig-name descname"><span class="pre">fit</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">capacitances</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_constants</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">numpy.ndarray</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">List</span><a class="headerlink" href="#calix.measurement.intrinsic_capacitance.fit" title="Permalink to this definition"></a></dt>
+<dd><p>Determine the intrinsic capacitance with a linear fit.</p>
+<p>See module doc-string for more details.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>capacitances</strong> – Capacitance values at which the membrane time
+constants were recorded.</p></li>
+<li><p><strong>time_constants</strong> – Recorded time constants for each capacitance
+and each neuron. Should have shape (#capacitances, #neurons).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>List with a dictionary for each neuron. The dictionary
+contains the “parameters” of the fit as well as the “covariance”
+matirx.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="calix.measurement.intrinsic_capacitance.fit_function">
+<code class="sig-prename descclassname"><span class="pre">calix.measurement.intrinsic_capacitance.</span></code><code class="sig-name descname"><span class="pre">fit_function</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">set_capacitance</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">intrinsic_capacitance</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">leak_conductance</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">float</span><a class="headerlink" href="#calix.measurement.intrinsic_capacitance.fit_function" title="Permalink to this definition"></a></dt>
+<dd><p>Membrane time constant as a function of the capacitance and
+leak conductance.</p>
+<p>We assume that the total capacitance is given by a capacitance C_a
+which we can set and by an intrinsic capacitance C_i which is always
+present:</p>
+<p>tau = (C_a + C_i) / g,</p>
+<p>where g is the leak conductance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>set_capacitance</strong> – Capacitance which can be controlled C_a.</p></li>
+<li><p><strong>intrinsic_capacitance</strong> – Intrinsic capacitance which is always
+present.</p></li>
+<li><p><strong>leak_conductance</strong> – Leak conductance.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Membrane time constant.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="calix.measurement.intrinsic_capacitance.measure">
+<code class="sig-prename descclassname"><span class="pre">calix.measurement.intrinsic_capacitance.</span></code><code class="sig-name descname"><span class="pre">measure</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="calix.common.base.StatefulConnection.html#calix.common.base.StatefulConnection" title="calix.common.base.StatefulConnection"><span class="pre">calix.common.base.StatefulConnection</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau_mem</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">quantities.quantity.Quantity</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">array(100.)</span> <span class="pre">*</span> <span class="pre">us</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_leak_cap_mem</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">400</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_values</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_rep</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">numpy.ndarray</span><a class="headerlink" href="#calix.measurement.intrinsic_capacitance.measure" title="Permalink to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Measure the membrane time constant for each neuron at different</dt><dd><p>capacitance values.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>connection</strong> – Connection to chip to run on.</p></li>
+<li><p><strong>tau_mem</strong> – Membrane time constant at the maximum capacitance.
+This will be calibrated and should be chosen rather high since the
+time constant gets smaller when we decrease the capacitance.</p></li>
+<li><p><strong>v_leak_cap_mem</strong> – CapMem value of leak potential. The exact value
+of the leak potential is not important for the characterization
+but we want to ensure that the neurons are in a “good” state.</p></li>
+<li><p><strong>n_rep</strong> – how often to measure the membrane time constant at
+each capacitance setting. The measured values are averaged
+before the fit is performed.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Measured membrane time constant. The output is arranged as
+follows: (neuron, capacitance, repetition).</p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="calix.hagen.neuron_helpers.CADCReadNeurons.html" class="btn btn-neutral float-left" title="calix.hagen.neuron_helpers.CADCReadNeurons" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="calix.hagen.neuron_leak_bias.LeakBiasCalib.html" class="btn btn-neutral float-right" title="calix.hagen.neuron_leak_bias.LeakBiasCalib" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="calix.measurement.html" class="btn btn-neutral float-left" title="calix.measurement" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="calix.multicomp.html" class="btn btn-neutral float-right" title="calix.multicomp" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
