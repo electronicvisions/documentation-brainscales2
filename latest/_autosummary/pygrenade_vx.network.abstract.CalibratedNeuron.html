@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pygrenade_vx.network.abstract.CalibratedNeuron &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pygrenade_vx.network.abstract.ClockCycleTimeDomainRuntimes" href="pygrenade_vx.network.abstract.ClockCycleTimeDomainRuntimes.html" />
+    <link rel="prev" title="pygrenade_vx.network.abstract.AtomicNeuronOnCompartmentDimensionUnit" href="pygrenade_vx.network.abstract.AtomicNeuronOnCompartmentDimensionUnit.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            BrainScaleS-2 Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../brainscales2-demos/index.html">Demos &amp; Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software_components.html">Software Components</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../apis.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../apis_python.html">Python API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="pynn_brainscales.brainscales2.html">pynn_brainscales.brainscales2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jaxsnn.html">jaxsnn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hxtorch.html">hxtorch</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="pygrenade_vx.html">pygrenade_vx</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="pygrenade_vx.common.html">pygrenade_vx.common</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygrenade_vx.execution.html">pygrenade_vx.execution</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="pygrenade_vx.network.html">pygrenade_vx.network</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygrenade_vx.signal_flow.html">pygrenade_vx.signal_flow</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="calix.html">calix</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../apis_cpp.html">C++ API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BrainScaleS-2 Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../apis.html">BrainScaleS-2 API Documentation</a></li>
+          <li class="breadcrumb-item"><a href="../apis_python.html">BrainScaleS-2 API Documentation</a></li>
+          <li class="breadcrumb-item"><a href="pygrenade_vx.html">pygrenade_vx</a></li>
+          <li class="breadcrumb-item"><a href="pygrenade_vx.network.html">pygrenade_vx.network</a></li>
+          <li class="breadcrumb-item"><a href="pygrenade_vx.network.abstract.html">pygrenade_vx.network.abstract</a></li>
+      <li class="breadcrumb-item active">pygrenade_vx.network.abstract.CalibratedNeuron</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_autosummary/pygrenade_vx.network.abstract.CalibratedNeuron.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="pygrenade-vx-network-abstract-calibratedneuron">
+<h1>pygrenade_vx.network.abstract.CalibratedNeuron<a class="headerlink" href="#pygrenade-vx-network-abstract-calibratedneuron" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt id="pygrenade_vx.network.abstract.CalibratedNeuron">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">pygrenade_vx.network.abstract.</span></code><code class="sig-name descname"><span class="pre">CalibratedNeuron</span></code><a class="headerlink" href="#pygrenade_vx.network.abstract.CalibratedNeuron" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">_pygrenade_vx_network_abstract.LocallyPlacedNeuron</span></code></p>
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.CalibratedNeuron.__init__">
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygrenade_vx.network.abstract.CalibratedNeuron.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Overloaded function.</p>
+<ol class="arabic simple">
+<li><p>__init__(self: _pygrenade_vx_network_abstract.CalibratedNeuron, compartments: dict[pygrenade_common.CompartmentOnNeuron, _pygrenade_vx_network_abstract.LocallyPlacedNeuron.Compartment], shape: pyhalco_hicann_dls_vx_v3.LogicalNeuronCompartments) -&gt; None</p></li>
+<li><p>__init__(self: _pygrenade_vx_network_abstract.CalibratedNeuron, arg0: _pygrenade_vx_network_abstract.CalibratedNeuron) -&gt; None</p></li>
+</ol>
+</dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.CalibratedNeuron.__init__" title="pygrenade_vx.network.abstract.CalibratedNeuron.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Overloaded function.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.CalibratedNeuron.copy" title="pygrenade_vx.network.abstract.CalibratedNeuron.copy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy</span></code></a>(self)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.CalibratedNeuron.get_input_ports" title="pygrenade_vx.network.abstract.CalibratedNeuron.get_input_ports"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_input_ports</span></code></a>(self)</p></td>
+<td><p>Get input ports.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.CalibratedNeuron.move" title="pygrenade_vx.network.abstract.CalibratedNeuron.move"><code class="xref py py-obj docutils literal notranslate"><span class="pre">move</span></code></a>(self)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.CalibratedNeuron.valid" title="pygrenade_vx.network.abstract.CalibratedNeuron.valid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">valid</span></code></a>(self, parameter_space)</p></td>
+<td><p>Only CalibratedNeuron parameter space is valid.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+</tbody>
+</table>
+<dl class="py class">
+<dt id="pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace">
+<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">ParameterSpace</span></code><a class="headerlink" href="#pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pygrenade_common.Population.Cell.ParameterSpace</span></code></p>
+<dl class="py class">
+<dt id="pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget">
+<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">CalibrationTarget</span></code><a class="headerlink" href="#pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_builtins.pybind11_object</span></code></p>
+<dl class="py class">
+<dt id="pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.CobaSynapticInput">
+<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">CobaSynapticInput</span></code><a class="headerlink" href="#pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.CobaSynapticInput" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_builtins.pybind11_object</span></code></p>
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.CobaSynapticInput.e_reference">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">e_reference</span></code><a class="headerlink" href="#pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.CobaSynapticInput.e_reference" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.CobaSynapticInput.e_reversal">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">e_reversal</span></code><a class="headerlink" href="#pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.CobaSynapticInput.e_reversal" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.CobaSynapticInput.i_synin_gm">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">i_synin_gm</span></code><a class="headerlink" href="#pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.CobaSynapticInput.i_synin_gm" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.CobaSynapticInput.synapse_dac_bias">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">synapse_dac_bias</span></code><a class="headerlink" href="#pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.CobaSynapticInput.synapse_dac_bias" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.CobaSynapticInput.tau_syn">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">tau_syn</span></code><a class="headerlink" href="#pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.CobaSynapticInput.tau_syn" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.CubaSynapticInput">
+<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">CubaSynapticInput</span></code><a class="headerlink" href="#pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.CubaSynapticInput" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_builtins.pybind11_object</span></code></p>
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.CubaSynapticInput.i_synin_gm">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">i_synin_gm</span></code><a class="headerlink" href="#pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.CubaSynapticInput.i_synin_gm" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.CubaSynapticInput.synapse_dac_bias">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">synapse_dac_bias</span></code><a class="headerlink" href="#pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.CubaSynapticInput.synapse_dac_bias" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.CubaSynapticInput.tau_syn">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">tau_syn</span></code><a class="headerlink" href="#pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.CubaSynapticInput.tau_syn" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.DisabledSynapticInput">
+<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">DisabledSynapticInput</span></code><a class="headerlink" href="#pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.DisabledSynapticInput" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_builtins.pybind11_object</span></code></p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.InterAtomicNeuronConnectivity">
+<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">InterAtomicNeuronConnectivity</span></code><a class="headerlink" href="#pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.InterAtomicNeuronConnectivity" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_builtins.pybind11_object</span></code></p>
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.InterAtomicNeuronConnectivity.connect_right">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">connect_right</span></code><a class="headerlink" href="#pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.InterAtomicNeuronConnectivity.connect_right" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.InterAtomicNeuronConnectivity.connect_soma">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">connect_soma</span></code><a class="headerlink" href="#pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.InterAtomicNeuronConnectivity.connect_soma" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.InterAtomicNeuronConnectivity.connect_soma_right">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">connect_soma_right</span></code><a class="headerlink" href="#pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.InterAtomicNeuronConnectivity.connect_soma_right" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.InterAtomicNeuronConnectivity.connect_vertical">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">connect_vertical</span></code><a class="headerlink" href="#pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.InterAtomicNeuronConnectivity.connect_vertical" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.InterAtomicNeuronConnectivity.tau_icc">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">tau_icc</span></code><a class="headerlink" href="#pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.InterAtomicNeuronConnectivity.tau_icc" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.RefractoryPeriod">
+<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">RefractoryPeriod</span></code><a class="headerlink" href="#pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.RefractoryPeriod" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_builtins.pybind11_object</span></code></p>
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.RefractoryPeriod.holdoff_time">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">holdoff_time</span></code><a class="headerlink" href="#pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.RefractoryPeriod.holdoff_time" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.RefractoryPeriod.refractory_time">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">refractory_time</span></code><a class="headerlink" href="#pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.RefractoryPeriod.refractory_time" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.inter_atomic_neuron_connectivity">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">inter_atomic_neuron_connectivity</span></code><a class="headerlink" href="#pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.inter_atomic_neuron_connectivity" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.membrane_capacitance">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">membrane_capacitance</span></code><a class="headerlink" href="#pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.membrane_capacitance" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.membrane_capacitance_during_calibration">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">membrane_capacitance_during_calibration</span></code><a class="headerlink" href="#pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.membrane_capacitance_during_calibration" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.refractory_period">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">refractory_period</span></code><a class="headerlink" href="#pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.refractory_period" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.synaptic_input_excitatory">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">synaptic_input_excitatory</span></code><a class="headerlink" href="#pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.synaptic_input_excitatory" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.synaptic_input_inhibitory">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">synaptic_input_inhibitory</span></code><a class="headerlink" href="#pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.synaptic_input_inhibitory" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.tau_membrane">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">tau_membrane</span></code><a class="headerlink" href="#pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.tau_membrane" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.v_leak">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">v_leak</span></code><a class="headerlink" href="#pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.v_leak" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.v_reset">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">v_reset</span></code><a class="headerlink" href="#pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.v_reset" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.v_threshold">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">v_threshold</span></code><a class="headerlink" href="#pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget.v_threshold" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.Parameterization">
+<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">Parameterization</span></code><a class="headerlink" href="#pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.Parameterization" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pygrenade_common.Population.Cell.ParameterSpace.Parameterization</span></code></p>
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.Parameterization.calibration_targets">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">calibration_targets</span></code><a class="headerlink" href="#pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.Parameterization.calibration_targets" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.Parameterization.copy">
+<code class="sig-name descname"><span class="pre">copy</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.CalibratedNeuron.ParameterSpace.Parameterization</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">pygrenade_common.PortData</span><a class="headerlink" href="#pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.Parameterization.copy" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.Parameterization.get_section">
+<code class="sig-name descname"><span class="pre">get_section</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.CalibratedNeuron.ParameterSpace.Parameterization</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sequence</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pygrenade_common.MultiIndexSequence</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">pygrenade_common.Population.Cell.ParameterSpace.Parameterization</span><a class="headerlink" href="#pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.Parameterization.get_section" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.Parameterization.move">
+<code class="sig-name descname"><span class="pre">move</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.CalibratedNeuron.ParameterSpace.Parameterization</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">pygrenade_common.PortData</span><a class="headerlink" href="#pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.Parameterization.move" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.Parameterization.readout_sources">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">readout_sources</span></code><a class="headerlink" href="#pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.Parameterization.readout_sources" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.Parameterization.size">
+<code class="sig-name descname"><span class="pre">size</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.CalibratedNeuron.ParameterSpace.Parameterization</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">int</span><a class="headerlink" href="#pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.Parameterization.size" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.calibration_targets">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">calibration_targets</span></code><a class="headerlink" href="#pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.calibration_targets" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.copy">
+<code class="sig-name descname"><span class="pre">copy</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.CalibratedNeuron.ParameterSpace</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">pygrenade_common.Population.Cell.ParameterSpace</span><a class="headerlink" href="#pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.copy" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.get_section">
+<code class="sig-name descname"><span class="pre">get_section</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.CalibratedNeuron.ParameterSpace</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sequence</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pygrenade_common.MultiIndexSequence</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">pygrenade_common.Population.Cell.ParameterSpace</span><a class="headerlink" href="#pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.get_section" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.move">
+<code class="sig-name descname"><span class="pre">move</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.CalibratedNeuron.ParameterSpace</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">pygrenade_common.Population.Cell.ParameterSpace</span><a class="headerlink" href="#pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.move" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.size">
+<code class="sig-name descname"><span class="pre">size</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.CalibratedNeuron.ParameterSpace</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">int</span><a class="headerlink" href="#pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.size" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.valid">
+<code class="sig-name descname"><span class="pre">valid</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.CalibratedNeuron.ParameterSpace</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_port_on_cell</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameterization</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pygrenade_common.Population.Cell.ParameterSpace.Parameterization</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#pygrenade_vx.network.abstract.CalibratedNeuron.ParameterSpace.valid" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="pygrenade_vx.network.abstract.CalibratedNeuron.ParameterizationPortType">
+<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">ParameterizationPortType</span></code><a class="headerlink" href="#pygrenade_vx.network.abstract.CalibratedNeuron.ParameterizationPortType" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pygrenade_common.VertexPortType</span></code></p>
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.CalibratedNeuron.ParameterizationPortType.copy">
+<code class="sig-name descname"><span class="pre">copy</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.CalibratedNeuron.ParameterizationPortType</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">pygrenade_common.VertexPortType</span><a class="headerlink" href="#pygrenade_vx.network.abstract.CalibratedNeuron.ParameterizationPortType.copy" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.CalibratedNeuron.ParameterizationPortType.move">
+<code class="sig-name descname"><span class="pre">move</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.CalibratedNeuron.ParameterizationPortType</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">pygrenade_common.VertexPortType</span><a class="headerlink" href="#pygrenade_vx.network.abstract.CalibratedNeuron.ParameterizationPortType.move" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.CalibratedNeuron.copy">
+<code class="sig-name descname"><span class="pre">copy</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.CalibratedNeuron</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">pygrenade_common.Population.Cell</span><a class="headerlink" href="#pygrenade_vx.network.abstract.CalibratedNeuron.copy" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.CalibratedNeuron.get_input_ports">
+<code class="sig-name descname"><span class="pre">get_input_ports</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.CalibratedNeuron</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">pygrenade_common.Vertex.Port</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#pygrenade_vx.network.abstract.CalibratedNeuron.get_input_ports" title="Permalink to this definition"></a></dt>
+<dd><p>Get input ports. The CalibratedNeuron features the same input ports as the LocallyPlacedNeuron. Additionally, it features a port for parameterization (port index 1).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.CalibratedNeuron.move">
+<code class="sig-name descname"><span class="pre">move</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.CalibratedNeuron</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">pygrenade_common.Population.Cell</span><a class="headerlink" href="#pygrenade_vx.network.abstract.CalibratedNeuron.move" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.CalibratedNeuron.valid">
+<code class="sig-name descname"><span class="pre">valid</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.CalibratedNeuron</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameter_space</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pygrenade_common.Population.Cell.ParameterSpace</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#pygrenade_vx.network.abstract.CalibratedNeuron.valid" title="Permalink to this definition"></a></dt>
+<dd><p>Only CalibratedNeuron parameter space is valid.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="pygrenade_vx.network.abstract.AtomicNeuronOnCompartmentDimensionUnit.html" class="btn btn-neutral float-left" title="pygrenade_vx.network.abstract.AtomicNeuronOnCompartmentDimensionUnit" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pygrenade_vx.network.abstract.ClockCycleTimeDomainRuntimes.html" class="btn btn-neutral float-right" title="pygrenade_vx.network.abstract.ClockCycleTimeDomainRuntimes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Electronic Vision(s).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
