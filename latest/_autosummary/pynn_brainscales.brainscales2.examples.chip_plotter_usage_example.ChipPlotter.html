@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.StaticSynapse" href="pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.StaticSynapse.html" />
+    <link rel="prev" title="pynn_brainscales.brainscales2.examples.chip_plotter_usage_example" href="pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            BrainScaleS-2 Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../brainscales2-demos/index.html">Demos &amp; Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software_components.html">Software Components</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../apis.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../apis_python.html">Python API</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="pynn_brainscales.brainscales2.html">pynn_brainscales.brainscales2</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.connectors.html">pynn_brainscales.brainscales2.connectors</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="pynn_brainscales.brainscales2.examples.html">pynn_brainscales.brainscales2.examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.helper.html">pynn_brainscales.brainscales2.helper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.morphology.html">pynn_brainscales.brainscales2.morphology</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.plasticity_rules.html">pynn_brainscales.brainscales2.plasticity_rules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.populations.html">pynn_brainscales.brainscales2.populations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.projections.html">pynn_brainscales.brainscales2.projections</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.recording.html">pynn_brainscales.brainscales2.recording</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.recording_data.html">pynn_brainscales.brainscales2.recording_data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.simulator.html">pynn_brainscales.brainscales2.simulator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.standardmodels.html">pynn_brainscales.brainscales2.standardmodels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.AllToAllConnector.html">pynn_brainscales.brainscales2.AllToAllConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.ArrayConnector.html">pynn_brainscales.brainscales2.ArrayConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.Assembly.html">pynn_brainscales.brainscales2.Assembly</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.CSAConnector.html">pynn_brainscales.brainscales2.CSAConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.CloneConnector.html">pynn_brainscales.brainscales2.CloneConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.DisplacementDependentProbabilityConnector.html">pynn_brainscales.brainscales2.DisplacementDependentProbabilityConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.DistanceDependentProbabilityConnector.html">pynn_brainscales.brainscales2.DistanceDependentProbabilityConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.Enum.html">pynn_brainscales.brainscales2.Enum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.FixedNumberPostConnector.html">pynn_brainscales.brainscales2.FixedNumberPostConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.FixedNumberPreConnector.html">pynn_brainscales.brainscales2.FixedNumberPreConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.FixedProbabilityConnector.html">pynn_brainscales.brainscales2.FixedProbabilityConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.FixedTotalNumberConnector.html">pynn_brainscales.brainscales2.FixedTotalNumberConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.FromFileConnector.html">pynn_brainscales.brainscales2.FromFileConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.FromListConnector.html">pynn_brainscales.brainscales2.FromListConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.IndexBasedProbabilityConnector.html">pynn_brainscales.brainscales2.IndexBasedProbabilityConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.InjectedConfiguration.html">pynn_brainscales.brainscales2.InjectedConfiguration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.InjectedReadout.html">pynn_brainscales.brainscales2.InjectedReadout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.OneToOneConnector.html">pynn_brainscales.brainscales2.OneToOneConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.PlasticityRule.html">pynn_brainscales.brainscales2.PlasticityRule</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.Population.html">pynn_brainscales.brainscales2.Population</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.PopulationView.html">pynn_brainscales.brainscales2.PopulationView</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.Projection.html">pynn_brainscales.brainscales2.Projection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.RunCommand.html">pynn_brainscales.brainscales2.RunCommand</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.SmallWorldConnector.html">pynn_brainscales.brainscales2.SmallWorldConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.SpikingCalibOptions.html">pynn_brainscales.brainscales2.SpikingCalibOptions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.SpikingCalibTarget.html">pynn_brainscales.brainscales2.SpikingCalibTarget</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.Timer.html">pynn_brainscales.brainscales2.Timer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pynn_brainscales.brainscales2.auto.html">pynn_brainscales.brainscales2.auto</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="jaxsnn.html">jaxsnn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hxtorch.html">hxtorch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pygrenade_vx.html">pygrenade_vx</a></li>
+<li class="toctree-l3"><a class="reference internal" href="calix.html">calix</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../apis_cpp.html">C++ API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BrainScaleS-2 Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../apis.html">BrainScaleS-2 API Documentation</a></li>
+          <li class="breadcrumb-item"><a href="../apis_python.html">BrainScaleS-2 API Documentation</a></li>
+          <li class="breadcrumb-item"><a href="pynn_brainscales.brainscales2.html">pynn_brainscales.brainscales2</a></li>
+          <li class="breadcrumb-item"><a href="pynn_brainscales.brainscales2.examples.html">pynn_brainscales.brainscales2.examples</a></li>
+          <li class="breadcrumb-item"><a href="pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.html">pynn_brainscales.brainscales2.examples.chip_plotter_usage_example</a></li>
+      <li class="breadcrumb-item active">pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_autosummary/pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="pynn-brainscales-brainscales2-examples-chip-plotter-usage-example-chipplotter">
+<h1>pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter<a class="headerlink" href="#pynn-brainscales-brainscales2-examples-chip-plotter-usage-example-chipplotter" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt id="pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.</span></code><code class="sig-name descname"><span class="pre">ChipPlotter</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">do_label_synapses</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">has_grid</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color_is_source</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0.9</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">custom_title</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">population_contrast_groups</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>How to use:
+call __init__(<a href="#id1"><span class="problematic" id="id2">**</span></a>params)
+call add_plot_matrix(<a href="#id3"><span class="problematic" id="id4">**</span></a>params) or add_plot_chipmap(<a href="#id5"><span class="problematic" id="id6">**</span></a>params)</p>
+<blockquote>
+<div><p>to add plots to plot_list</p>
+</div></blockquote>
+<dl class="simple">
+<dt>call plot_all() or plot_by_id(id<span class="classifier">int) to plot plots from</span></dt><dd><p>plot_list</p>
+</dd>
+<dt>call save_all(<a href="#id7"><span class="problematic" id="id8">**</span></a>params) or save_by_id(<a href="#id9"><span class="problematic" id="id10">**</span></a>params) to save plots</dt><dd><p>from plot_list</p>
+</dd>
+<dt>plot_list syntax: [{“plot_type”: plot_type, “fig”:fig,</dt><dd><dl class="simple">
+<dt>“ax”:ax, “settings”:settings},</dt><dd><p>{“plot_type”: plot_type, “fig”:fig,</p>
+</dd>
+<dt>“ax”:ax, “settings”:settings},</dt><dd><p>…]</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.__init__">
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">do_label_synapses</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">has_grid</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color_is_source</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0.9</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">custom_title</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">population_contrast_groups</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Defaultsettings for when adding plots.
+Args:
+:param do_label_synapses: (bool) add labels for each</p>
+<blockquote>
+<div><p>projection in plot legend</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>has_grid</strong> – (bool) add grid to plot</p></li>
+<li><p><strong>color_is_source</strong> – (bool) color of synapses corresponds
+to color of presynaptic population</p></li>
+<li><p><strong>alpha</strong> – (float) opacity of data points on plot</p></li>
+<li><p><strong>custom_title</strong> – (string) set custom title for plot</p></li>
+<li><p><strong>population_contrast_groups</strong> – (list&lt;dict&lt;string:list&lt;int&gt;&gt;&gt;)
+separate population ids into different groups that show
+with contrasting colors on the plot</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.__init__" title="pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([do_label_synapses, has_grid, …])</p></td>
+<td><p>Defaultsettings for when adding plots. Args: :param do_label_synapses: (bool) add labels for each     projection in plot legend :param has_grid: (bool) add grid to plot :param color_is_source: (bool) color of synapses corresponds     to color of presynaptic population :param alpha: (float) opacity of data points on plot :param custom_title: (string) set custom title for plot :param population_contrast_groups: (list&lt;dict&lt;string:list&lt;int&gt;&gt;&gt;)     separate population ids into different groups that show     with contrasting colors on the plot.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.add_plot_chip_map" title="pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.add_plot_chip_map"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_plot_chip_map</span></code></a>([do_label_synapses, …])</p></td>
+<td><p>adds chipmap plot to plotlist default setting will be used if argument     not specified Args: :param do_label_synapses: (bool) add labels for     each projection in plot legend :param has_grid: (bool) add grid to plot :param color_is_source: (bool): color of synapses     corresponds to color of presynaptic population :param alpha: (float) opacity of data points on plot :param custom_title: (string) set custom title for plot :param population_contrast_groups:     (list&lt;dict&lt;string:list&lt;int&gt;&gt;&gt;) separate population :param ids: into different groups that show with     contrasting colors on the plot :param neuron_height: (int) height of neuron rows in units of synapse rows     on plot if separate view false :param center: (list&lt;int,int&gt;) center of plot if separate     view false :param sort_synapse_by_padi_bus: (bool) if false,     synapse y coordinate corresponds     to physical location. If true, synapse y     corresponds to location on padibus :param highlight_empty_rows: (bool) highlight unused     synapse rows in grey :param separate_view: (bool) plot neuron and synapse     placement in 2 subplots or together.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.add_plot_matrix" title="pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.add_plot_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_plot_matrix</span></code></a>([do_label_synapses, …])</p></td>
+<td><p>adds matrix plot to plotlist default setting will be used if argument not specified Args: :param do_label_synapses: (bool) add labels for each     projection in plot legend :param has_grid: (bool) add grid to plot :param color_is_source: (bool) color of synapses corresponds     to color of presynaptic population :param alpha: (float) opacity of data points on plot :param custom_title: (string) set custom title for plot :param population_contrast_groups: (list&lt;dict&lt;string:list&lt;int&gt;&gt;&gt;)     separate population ids into different groups that show     with contrasting colors on the plot :param plot_each_neuron: (bool) plot connections between each     individual neuron, or just populations</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.clear_all_plots" title="pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.clear_all_plots"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear_all_plots</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.clear_plot" title="pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.clear_plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear_plot</span></code></a>(plot_id)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.convert_synapse_y_to_padi_coord" title="pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.convert_synapse_y_to_padi_coord"><code class="xref py py-obj docutils literal notranslate"><span class="pre">convert_synapse_y_to_padi_coord</span></code></a>(y_coord)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.get_most_often_postneuron" title="pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.get_most_often_postneuron"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_most_often_postneuron</span></code></a>()</p></td>
+<td><p>returns index of pop of most targetted, neuron on neuron matrix, most targetted neuron on neuron matrix and how many times it is targetted</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.get_padibus_pop_counts" title="pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.get_padibus_pop_counts"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_padibus_pop_counts</span></code></a>()</p></td>
+<td><p>return: {‘external’[padibus0 external row count, padibus1…]:, ‘onChip’:[padibus0 internal row count, padibus1…]}</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.modify_plot" title="pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.modify_plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modify_plot</span></code></a>(plot_id, setting_name, …)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.plot_all" title="pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.plot_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_all</span></code></a>()</p></td>
+<td><p>plot all plots in plot_list</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.plot_by_id" title="pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.plot_by_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_by_id</span></code></a>(plot_id)</p></td>
+<td><p>plot plot_list[id]</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.remove_plot" title="pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.remove_plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_plot</span></code></a>(plot_id)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.retrieve_data" title="pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.retrieve_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">retrieve_data</span></code></a>(neuron_map, synapse_map, …)</p></td>
+<td><p>gathers data :param neuron_map: (bool) retrieve neuron map, syntax:     [[pop0 neuron0 pos, pop0 neuron1 pos,     pop0 neuron…], [pop1 neuron0 pos, pop1 neuron1 pos,     pop1 neuron…],[pop…]]     retrieve external pops list, syntax:     [[popindex, popsize,     neuroncount until this pop],…] :param synapse_map: (bool) retrieve synapse map, syntax:     [[[pop1,pop2],[synapse_x,synapse_y],     [synapse_x,synapse_y],…],…]</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.save_all" title="pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.save_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_all</span></code></a>([folder, name, formats, dpi])</p></td>
+<td><p>save all plots</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.save_by_id" title="pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.save_by_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_by_id</span></code></a>(plot_id[, folder, name, formats, …])</p></td>
+<td><p>saves one plot</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.add_plot_chip_map">
+<code class="sig-name descname"><span class="pre">add_plot_chip_map</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">do_label_synapses</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">has_grid</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color_is_source</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">custom_title</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">population_contrast_groups</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">neuron_height</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_synapse_by_padi_bus</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">highlight_empty_rows</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">separate_view</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.add_plot_chip_map" title="Permalink to this definition"></a></dt>
+<dd><p>adds chipmap plot to plotlist
+default setting will be used if argument</p>
+<blockquote>
+<div><p>not specified</p>
+</div></blockquote>
+<p>Args:
+:param do_label_synapses: (bool) add labels for</p>
+<blockquote>
+<div><p>each projection in plot legend</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>has_grid</strong> – (bool) add grid to plot</p></li>
+<li><p><strong>color_is_source</strong> – (bool): color of synapses
+corresponds to color of presynaptic population</p></li>
+<li><p><strong>alpha</strong> – (float) opacity of data points on plot</p></li>
+<li><p><strong>custom_title</strong> – (string) set custom title for plot</p></li>
+<li><p><strong>population_contrast_groups</strong> – (list&lt;dict&lt;string:list&lt;int&gt;&gt;&gt;) separate population</p></li>
+<li><p><strong>ids</strong> – into different groups that show with
+contrasting colors on the plot</p></li>
+<li><p><strong>neuron_height</strong> – (int) height of neuron rows in units of synapse rows
+on plot if separate view false</p></li>
+<li><p><strong>center</strong> – (list&lt;int,int&gt;) center of plot if separate
+view false</p></li>
+<li><p><strong>sort_synapse_by_padi_bus</strong> – (bool) if false,
+synapse y coordinate corresponds
+to physical location. If true, synapse y
+corresponds to location on padibus</p></li>
+<li><p><strong>highlight_empty_rows</strong> – (bool) highlight unused
+synapse rows in grey</p></li>
+<li><p><strong>separate_view</strong> – (bool) plot neuron and synapse
+placement in 2 subplots or together</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.add_plot_matrix">
+<code class="sig-name descname"><span class="pre">add_plot_matrix</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">do_label_synapses</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">has_grid</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color_is_source</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">custom_title</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">population_contrast_groups</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_each_neuron</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.add_plot_matrix" title="Permalink to this definition"></a></dt>
+<dd><p>adds matrix plot to plotlist
+default setting will be used if argument not specified
+Args:
+:param do_label_synapses: (bool) add labels for each</p>
+<blockquote>
+<div><p>projection in plot legend</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>has_grid</strong> – (bool) add grid to plot</p></li>
+<li><p><strong>color_is_source</strong> – (bool) color of synapses corresponds
+to color of presynaptic population</p></li>
+<li><p><strong>alpha</strong> – (float) opacity of data points on plot</p></li>
+<li><p><strong>custom_title</strong> – (string) set custom title for plot</p></li>
+<li><p><strong>population_contrast_groups</strong> – (list&lt;dict&lt;string:list&lt;int&gt;&gt;&gt;)
+separate population ids into different groups that show
+with contrasting colors on the plot</p></li>
+<li><p><strong>plot_each_neuron</strong> – (bool) plot connections between each
+individual neuron, or just populations</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.clear_all_plots">
+<code class="sig-name descname"><span class="pre">clear_all_plots</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.clear_all_plots" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.clear_plot">
+<code class="sig-name descname"><span class="pre">clear_plot</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plot_id</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.clear_plot" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.convert_synapse_y_to_padi_coord">
+<code class="sig-name descname"><span class="pre">convert_synapse_y_to_padi_coord</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_coord</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.convert_synapse_y_to_padi_coord" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.get_most_often_postneuron">
+<code class="sig-name descname"><span class="pre">get_most_often_postneuron</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.get_most_often_postneuron" title="Permalink to this definition"></a></dt>
+<dd><p>returns index of pop of most targetted,
+neuron on neuron matrix,
+most targetted neuron on neuron matrix
+and how many times it is targetted</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.get_padibus_pop_counts">
+<code class="sig-name descname"><span class="pre">get_padibus_pop_counts</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.get_padibus_pop_counts" title="Permalink to this definition"></a></dt>
+<dd><p>return: {‘external’[padibus0 external row count, padibus1…]:,
+‘onChip’:[padibus0 internal row count, padibus1…]}</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.modify_plot">
+<code class="sig-name descname"><span class="pre">modify_plot</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plot_id</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting_name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_setting_value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.modify_plot" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.plot_all">
+<code class="sig-name descname"><span class="pre">plot_all</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.plot_all" title="Permalink to this definition"></a></dt>
+<dd><p>plot all plots in plot_list</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.plot_by_id">
+<code class="sig-name descname"><span class="pre">plot_by_id</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plot_id</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.plot_by_id" title="Permalink to this definition"></a></dt>
+<dd><p>plot plot_list[id]</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.remove_plot">
+<code class="sig-name descname"><span class="pre">remove_plot</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plot_id</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.remove_plot" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.retrieve_data">
+<code class="sig-name descname"><span class="pre">retrieve_data</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">neuron_map</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">synapse_map</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pop_matrix</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">neuron_matrix</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="headerlink" href="#pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.retrieve_data" title="Permalink to this definition"></a></dt>
+<dd><p>gathers data
+:param neuron_map: (bool) retrieve neuron map, syntax:</p>
+<blockquote>
+<div><p>[[pop0 neuron0 pos, pop0 neuron1 pos,
+pop0 neuron…], [pop1 neuron0 pos, pop1 neuron1 pos,
+pop1 neuron…],[pop…]]
+retrieve external pops list, syntax:
+[[popindex, popsize,
+neuroncount until this pop],…]</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>synapse_map</strong> – (bool) retrieve synapse map, syntax:
+[[[pop1,pop2],[synapse_x,synapse_y],
+[synapse_x,synapse_y],…],…]</p></li>
+<li><p><strong>pop_matrix</strong> – (bool) retrieve population matrix,
+syntax: [[proj0,[pre0_index,post0_index]],
+[proj1,[pre1_index,post1_index]], …]</p></li>
+<li><p><strong>neuron_matrix</strong> – (bool) retrieve neuron matrix,
+syntax:
+[[proj0,[pre0_index,post0_index],[[neuron0,neuron1],
+[neuron1,neuron5]]], [proj1,[pre1_index,post1_index],
+[],[[neuron0,neuron1],[neuron1,neuron5],[neuron2,neuron5]]], …]</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.save_all">
+<code class="sig-name descname"><span class="pre">save_all</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">formats</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dpi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">900</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.save_all" title="Permalink to this definition"></a></dt>
+<dd><p>save all plots</p>
+<p>Args:
+:param folder: (string) folder
+:param name: (string) file name
+:param formats: (list&lt;string&gt;) formats to be saved as, e.g. [‘png’, ‘pdf’]
+:param dpi: (int) resolution for png or jpeg</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.save_by_id">
+<code class="sig-name descname"><span class="pre">save_by_id</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plot_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">formats</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dpi</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">900</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sub_name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.ChipPlotter.save_by_id" title="Permalink to this definition"></a></dt>
+<dd><p>saves one plot</p>
+<p>Args:
+:param plot_id: (int) id of plot in plot_list to be saved
+:param folder: (string) folder
+:param name: (string) file name
+:param sub_name: (string) optional name behind name
+:param formats: (list&lt;string&gt;) formats to be saved as, e.g. [‘png’, ‘pdf’]
+:param dpi: (int) resolution for png or jpeg</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.html" class="btn btn-neutral float-left" title="pynn_brainscales.brainscales2.examples.chip_plotter_usage_example" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.StaticSynapse.html" class="btn btn-neutral float-right" title="pynn_brainscales.brainscales2.examples.chip_plotter_usage_example.StaticSynapse" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Electronic Vision(s).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
