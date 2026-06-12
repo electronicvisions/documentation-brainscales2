@@ -130,24 +130,28 @@
 <h1>pynn_brainscales.brainscales2.SpikingCalibTarget<a class="headerlink" href="#pynn-brainscales-brainscales2-spikingcalibtarget" title="Permalink to this headline"></a></h1>
 <dl class="py class">
 <dt id="pynn_brainscales.brainscales2.SpikingCalibTarget">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">pynn_brainscales.brainscales2.</span></code><code class="sig-name descname"><span class="pre">SpikingCalibTarget</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">cadc_target:</span> <span class="pre">calix.common.cadc.CADCCalibTarget</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></em>, <em class="sig-param"><span class="pre">neuron_target:</span> <span class="pre">calix.spiking.neuron.NeuronCalibTarget</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></em>, <em class="sig-param"><span class="pre">correlation_target:</span> <span class="pre">Optional[calix.spiking.correlation.CorrelationCalibTarget</span></em>, <em class="sig-param"><span class="pre">None]</span> <span class="pre">=</span> <span class="pre">None</span></em>, <em class="sig-param"><span class="pre">stp_target:</span> <span class="pre">calix.spiking.synapse_driver.STPCalibTarget</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.SpikingCalibTarget" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="calix.common.base.TopLevelCalibTarget.html#calix.common.base.TopLevelCalibTarget" title="calix.common.base.TopLevelCalibTarget"><code class="xref py py-class docutils literal notranslate"><span class="pre">calix.common.base.TopLevelCalibTarget</span></code></a></p>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">pynn_brainscales.brainscales2.</span></code><code class="sig-name descname"><span class="pre">SpikingCalibTarget</span></code><a class="headerlink" href="#pynn_brainscales.brainscales2.SpikingCalibTarget" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="calix.common.base.TopLevelCalibTarget.html#calix.common.base.TopLevelCalibTarget" title="calix.common.base.TopLevelCalibTarget"><code class="xref py py-class docutils literal notranslate"><span class="pre">calix.common.base.TopLevelCalibTarget</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">pyccalix.SpikingCalibTarget</span></code></p>
 <p>Data class containing targets for spiking neuron calibration.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Variables</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><a class="reference internal" href="#pynn_brainscales.brainscales2.SpikingCalibTarget.cadc_target" title="pynn_brainscales.brainscales2.SpikingCalibTarget.cadc_target"><strong>cadc_target</strong></a> – Target parameters for CADC calibration.</p></li>
-<li><p><a class="reference internal" href="#pynn_brainscales.brainscales2.SpikingCalibTarget.neuron_target" title="pynn_brainscales.brainscales2.SpikingCalibTarget.neuron_target"><strong>neuron_target</strong></a> – Target parameters for neuron calibration.</p></li>
-<li><p><a class="reference internal" href="#pynn_brainscales.brainscales2.SpikingCalibTarget.correlation_target" title="pynn_brainscales.brainscales2.SpikingCalibTarget.correlation_target"><strong>correlation_target</strong></a> – Target parameters for calibration of
+<li><p><strong>cadc_target</strong> – Target parameters for CADC calibration.</p></li>
+<li><p><strong>neuron_target</strong> – Target parameters for neuron calibration.</p></li>
+<li><p><strong>correlation_target</strong> – Target parameters for calibration of
 correlation sensors. If None, they will not be calibrated.</p></li>
-<li><p><a class="reference internal" href="#pynn_brainscales.brainscales2.SpikingCalibTarget.stp_target" title="pynn_brainscales.brainscales2.SpikingCalibTarget.stp_target"><strong>stp_target</strong></a> – Target for STP calibration.</p></li>
+<li><p><strong>stp_target</strong> – Target for STP calibration.</p></li>
 </ul>
 </dd>
 </dl>
 <dl class="py method">
 <dt id="pynn_brainscales.brainscales2.SpikingCalibTarget.__init__">
-<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">cadc_target:</span> <span class="pre">calix.common.cadc.CADCCalibTarget</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></em>, <em class="sig-param"><span class="pre">neuron_target:</span> <span class="pre">calix.spiking.neuron.NeuronCalibTarget</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></em>, <em class="sig-param"><span class="pre">correlation_target:</span> <span class="pre">Optional[calix.spiking.correlation.CorrelationCalibTarget</span></em>, <em class="sig-param"><span class="pre">None]</span> <span class="pre">=</span> <span class="pre">None</span></em>, <em class="sig-param"><span class="pre">stp_target:</span> <span class="pre">calix.spiking.synapse_driver.STPCalibTarget</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#pynn_brainscales.brainscales2.SpikingCalibTarget.__init__" title="Permalink to this definition"></a></dt>
-<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.SpikingCalibTarget.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Overloaded function.</p>
+<ol class="arabic simple">
+<li><p>__init__(self: pyccalix.SpikingCalibTarget) -&gt; None</p></li>
+<li><p>__init__(self: pyccalix.SpikingCalibTarget, arg0: pyccalix.SpikingCalibTarget) -&gt; None</p></li>
+</ol>
 </dd></dl>
 
 <p class="rubric">Methods</p>
@@ -157,8 +161,8 @@ correlation sensors. If None, they will not be calibrated.</p></li>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.SpikingCalibTarget.__init__" title="pynn_brainscales.brainscales2.SpikingCalibTarget.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([cadc_target, neuron_target, …])</p></td>
-<td><p>Initialize self.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.SpikingCalibTarget.__init__" title="pynn_brainscales.brainscales2.SpikingCalibTarget.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Overloaded function.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.SpikingCalibTarget.calibrate" title="pynn_brainscales.brainscales2.SpikingCalibTarget.calibrate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calibrate</span></code></a>(connection[, options])</p></td>
 <td><p>Execute a calibration for this target.</p></td>
@@ -172,16 +176,8 @@ correlation sensors. If None, they will not be calibrated.</p></li>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.SpikingCalibTarget.correlation_target" title="pynn_brainscales.brainscales2.SpikingCalibTarget.correlation_target"><code class="xref py py-obj docutils literal notranslate"><span class="pre">correlation_target</span></code></a></p></td>
-<td><p></p></td>
-</tr>
 </tbody>
 </table>
-<dl class="py attribute">
-<dt id="pynn_brainscales.brainscales2.SpikingCalibTarget.cadc_target">
-<code class="sig-name descname"><span class="pre">cadc_target</span></code><em class="property"><span class="pre">:</span> <a class="reference internal" href="calix.common.cadc.CADCCalibTarget.html#calix.common.cadc.CADCCalibTarget" title="calix.common.cadc.CADCCalibTarget"><span class="pre">calix.common.cadc.CADCCalibTarget</span></a></em><a class="headerlink" href="#pynn_brainscales.brainscales2.SpikingCalibTarget.cadc_target" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
 <dl class="py method">
 <dt id="pynn_brainscales.brainscales2.SpikingCalibTarget.calibrate">
 <code class="sig-name descname"><span class="pre">calibrate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhxcomm_vx.ConnectionHandle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">pyccalix.SpikingCalibOptions</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="calix.spiking.SpikingCalibResult.html#calix.spiking.SpikingCalibResult" title="calix.spiking.SpikingCalibResult"><span class="pre">calix.spiking.SpikingCalibResult</span></a><a class="headerlink" href="#pynn_brainscales.brainscales2.SpikingCalibTarget.calibrate" title="Permalink to this definition"></a></dt>
@@ -198,21 +194,6 @@ correlation sensors. If None, they will not be calibrated.</p></li>
 </dd>
 </dl>
 </dd></dl>
-
-<dl class="py attribute">
-<dt id="pynn_brainscales.brainscales2.SpikingCalibTarget.correlation_target">
-<code class="sig-name descname"><span class="pre">correlation_target</span></code><em class="property"><span class="pre">:</span> <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="calix.spiking.correlation.CorrelationCalibTarget.html#calix.spiking.correlation.CorrelationCalibTarget" title="calix.spiking.correlation.CorrelationCalibTarget"><span class="pre">calix.spiking.correlation.CorrelationCalibTarget</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#pynn_brainscales.brainscales2.SpikingCalibTarget.correlation_target" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="pynn_brainscales.brainscales2.SpikingCalibTarget.neuron_target">
-<code class="sig-name descname"><span class="pre">neuron_target</span></code><em class="property"><span class="pre">:</span> <a class="reference internal" href="calix.spiking.neuron.NeuronCalibTarget.html#calix.spiking.neuron.NeuronCalibTarget" title="calix.spiking.neuron.NeuronCalibTarget"><span class="pre">calix.spiking.neuron.NeuronCalibTarget</span></a></em><a class="headerlink" href="#pynn_brainscales.brainscales2.SpikingCalibTarget.neuron_target" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="pynn_brainscales.brainscales2.SpikingCalibTarget.stp_target">
-<code class="sig-name descname"><span class="pre">stp_target</span></code><em class="property"><span class="pre">:</span> <a class="reference internal" href="calix.spiking.synapse_driver.STPCalibTarget.html#calix.spiking.synapse_driver.STPCalibTarget" title="calix.spiking.synapse_driver.STPCalibTarget"><span class="pre">calix.spiking.synapse_driver.STPCalibTarget</span></a></em><a class="headerlink" href="#pynn_brainscales.brainscales2.SpikingCalibTarget.stp_target" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
 
 </dd></dl>
 

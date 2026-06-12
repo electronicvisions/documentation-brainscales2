@@ -164,16 +164,17 @@ subthreshold adaptation strength.</p>
 </pre></div>
 </div>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyhalco_hicann_dls_vx_v3</span> <span class="k">as</span> <span class="nn">halco</span>
+<span class="kn">import</span> <span class="nn">pylola_vx_v3</span> <span class="k">as</span> <span class="nn">lola</span>
 
-<span class="k">def</span> <span class="nf">adjust_calibration</span><span class="p">():</span>
+<span class="k">def</span> <span class="nf">get_initial_config</span><span class="p">():</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="n">lola</span><span class="o">.</span><span class="n">Chip</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">halco</span><span class="o">.</span><span class="n">iter_all</span><span class="p">(</span><span class="n">halco</span><span class="o">.</span><span class="n">CommonNeuronBackendConfigOnDLS</span><span class="p">):</span>
-        <span class="n">pynn</span><span class="o">.</span><span class="n">simulator</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">grenade_chip_config</span><span class="o">.</span><span class="n">neuron_block</span><span class="o">.</span><span class="n">backends</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">enable_clocks</span> <span class="o">=</span> <span class="kc">True</span>
-        <span class="n">pynn</span><span class="o">.</span><span class="n">simulator</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">grenade_chip_config</span><span class="o">.</span><span class="n">neuron_block</span><span class="o">.</span><span class="n">backends</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">clock_scale_fast</span> <span class="o">=</span> <span class="mi">3</span>
-        <span class="n">pynn</span><span class="o">.</span><span class="n">simulator</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">grenade_chip_config</span><span class="o">.</span><span class="n">neuron_block</span><span class="o">.</span><span class="n">backends</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">clock_scale_slow</span> <span class="o">=</span> <span class="mi">3</span>
-        <span class="n">pynn</span><span class="o">.</span><span class="n">simulator</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">grenade_chip_config</span><span class="o">.</span><span class="n">neuron_block</span><span class="o">.</span><span class="n">backends</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span>\
-            <span class="n">clock_scale_adaptation_pulse</span> <span class="o">=</span> <span class="mi">7</span>
-        <span class="n">pynn</span><span class="o">.</span><span class="n">simulator</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">grenade_chip_config</span><span class="o">.</span><span class="n">neuron_block</span><span class="o">.</span><span class="n">backends</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span>\
-            <span class="n">clock_scale_post_pulse</span> <span class="o">=</span> <span class="mi">5</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">neuron_block</span><span class="o">.</span><span class="n">backends</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">enable_clocks</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">neuron_block</span><span class="o">.</span><span class="n">backends</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">clock_scale_fast</span> <span class="o">=</span> <span class="mi">3</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">neuron_block</span><span class="o">.</span><span class="n">backends</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">clock_scale_slow</span> <span class="o">=</span> <span class="mi">3</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">neuron_block</span><span class="o">.</span><span class="n">backends</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">clock_scale_adaptation_pulse</span> <span class="o">=</span> <span class="mi">7</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">neuron_block</span><span class="o">.</span><span class="n">backends</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">clock_scale_post_pulse</span> <span class="o">=</span> <span class="mi">5</span>
+    <span class="k">return</span> <span class="n">config</span>
 </pre></div>
 </div>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">experiment</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
@@ -182,7 +183,10 @@ subthreshold adaptation strength.</p>
 
     <span class="n">target_neuron</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;target_neuron&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
-    <span class="n">pynn</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="n">neuronPermutation</span><span class="o">=</span><span class="p">[</span><span class="n">target_neuron</span><span class="p">,</span> <span class="n">target_neuron</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="n">pynn</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span>
+        <span class="n">neuronPermutation</span><span class="o">=</span><span class="p">[</span><span class="n">target_neuron</span><span class="p">,</span> <span class="n">target_neuron</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span>
+        <span class="n">initial_config</span><span class="o">=</span><span class="n">get_initial_config</span><span class="p">()</span>
+    <span class="p">)</span>
 
     <span class="n">pop</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">pynn</span><span class="o">.</span><span class="n">cells</span><span class="o">.</span><span class="n">HXNeuron</span><span class="p">())</span>
 
@@ -229,8 +233,6 @@ subthreshold adaptation strength.</p>
 
     <span class="n">pop</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">record</span><span class="p">([</span><span class="s2">&quot;adaptation&quot;</span><span class="p">,</span> <span class="s2">&quot;spikes&quot;</span><span class="p">])</span>
     <span class="n">pop</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">record</span><span class="p">([</span><span class="s2">&quot;v&quot;</span><span class="p">])</span>
-
-    <span class="n">adjust_calibration</span><span class="p">()</span>
 
     <span class="c1"># schedule and execute hardware run</span>
     <span class="n">pop</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">constant_current_enable</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>

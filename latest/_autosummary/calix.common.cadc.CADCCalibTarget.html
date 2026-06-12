@@ -100,26 +100,16 @@
 <h1>calix.common.cadc.CADCCalibTarget<a class="headerlink" href="#calix-common-cadc-cadccalibtarget" title="Permalink to this headline"></a></h1>
 <dl class="py class">
 <dt id="calix.common.cadc.CADCCalibTarget">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">calix.common.cadc.</span></code><code class="sig-name descname"><span class="pre">CADCCalibTarget</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">dynamic_range:</span> <span class="pre">calix.common.parameter_range.ParameterRange</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></em>, <em class="sig-param"><span class="pre">read_range:</span> <span class="pre">calix.common.parameter_range.ParameterRange</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.common.cadc.CADCCalibTarget" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="calix.common.base.CalibTarget.html#calix.common.base.CalibTarget" title="calix.common.base.CalibTarget"><code class="xref py py-class docutils literal notranslate"><span class="pre">calix.common.base.CalibTarget</span></code></a></p>
-<p>Target parameters for the CADC calibration.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Variables</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><a class="reference internal" href="#calix.common.cadc.CADCCalibTarget.dynamic_range" title="calix.common.cadc.CADCCalibTarget.dynamic_range"><strong>dynamic_range</strong></a> – CapMem settings (LSB) at the minimum and maximum
-of the desired dynamic range. By default, the full dynamic range
-of the CADC is used, which corresponds to some 0.15 to 1.05 V.
-The voltages are configured as <cite>stp_v_charge_0</cite>, which gets
-connected to the CADCs via the CapMem debug readout.</p></li>
-<li><p><a class="reference internal" href="#calix.common.cadc.CADCCalibTarget.read_range" title="calix.common.cadc.CADCCalibTarget.read_range"><strong>read_range</strong></a> – Target CADC reads at the lower and upper end of
-the dynamic range.</p></li>
-</ul>
-</dd>
-</dl>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">calix.common.cadc.</span></code><code class="sig-name descname"><span class="pre">CADCCalibTarget</span></code><a class="headerlink" href="#calix.common.cadc.CADCCalibTarget" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pyccalix.CalibTarget</span></code></p>
 <dl class="py method">
 <dt id="calix.common.cadc.CADCCalibTarget.__init__">
-<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">dynamic_range:</span> <span class="pre">calix.common.parameter_range.ParameterRange</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></em>, <em class="sig-param"><span class="pre">read_range:</span> <span class="pre">calix.common.parameter_range.ParameterRange</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#calix.common.cadc.CADCCalibTarget.__init__" title="Permalink to this definition"></a></dt>
-<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.common.cadc.CADCCalibTarget.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Overloaded function.</p>
+<ol class="arabic simple">
+<li><p>__init__(self: pyccalix.CADCCalibTarget) -&gt; None</p></li>
+<li><p>__init__(self: pyccalix.CADCCalibTarget, arg0: pyccalix.CADCCalibTarget) -&gt; None</p></li>
+</ol>
 </dd></dl>
 
 <p class="rubric">Methods</p>
@@ -129,19 +119,46 @@ the dynamic range.</p></li>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#calix.common.cadc.CADCCalibTarget.__init__" title="calix.common.cadc.CADCCalibTarget.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([dynamic_range, read_range])</p></td>
-<td><p>Initialize self.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.common.cadc.CADCCalibTarget.__init__" title="calix.common.cadc.CADCCalibTarget.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Overloaded function.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.common.cadc.CADCCalibTarget.dynamic_range" title="calix.common.cadc.CADCCalibTarget.dynamic_range"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dynamic_range</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#calix.common.cadc.CADCCalibTarget.read_range" title="calix.common.cadc.CADCCalibTarget.read_range"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_range</span></code></a></p></td>
+<td><p></p></td>
 </tr>
 </tbody>
 </table>
 <dl class="py attribute">
-<dt id="calix.common.cadc.CADCCalibTarget.dynamic_range">
-<code class="sig-name descname"><span class="pre">dynamic_range</span></code><em class="property"><span class="pre">:</span> <a class="reference internal" href="calix.common.parameter_range.ParameterRange.html#calix.common.parameter_range.ParameterRange" title="calix.common.parameter_range.ParameterRange"><span class="pre">calix.common.parameter_range.ParameterRange</span></a></em><a class="headerlink" href="#calix.common.cadc.CADCCalibTarget.dynamic_range" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dt id="calix.common.cadc.CADCCalibTarget.DynamicRange">
+<code class="sig-name descname"><span class="pre">DynamicRange</span></code><a class="headerlink" href="#calix.common.cadc.CADCCalibTarget.DynamicRange" title="Permalink to this definition"></a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">pyccalix.Range_haldls_vx_CapMemCell_halco_hicann_dls_vx_v3_Coordinates_Value_</span></code></p>
+</dd></dl>
 
 <dl class="py attribute">
+<dt id="calix.common.cadc.CADCCalibTarget.ReadRange">
+<code class="sig-name descname"><span class="pre">ReadRange</span></code><a class="headerlink" href="#calix.common.cadc.CADCCalibTarget.ReadRange" title="Permalink to this definition"></a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">pyccalix.Range_haldls_vx_CADCSampleQuad_Value_</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calix.common.cadc.CADCCalibTarget.dynamic_range">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">dynamic_range</span></code><a class="headerlink" href="#calix.common.cadc.CADCCalibTarget.dynamic_range" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt id="calix.common.cadc.CADCCalibTarget.read_range">
-<code class="sig-name descname"><span class="pre">read_range</span></code><em class="property"><span class="pre">:</span> <a class="reference internal" href="calix.common.parameter_range.ParameterRange.html#calix.common.parameter_range.ParameterRange" title="calix.common.parameter_range.ParameterRange"><span class="pre">calix.common.parameter_range.ParameterRange</span></a></em><a class="headerlink" href="#calix.common.cadc.CADCCalibTarget.read_range" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">read_range</span></code><a class="headerlink" href="#calix.common.cadc.CADCCalibTarget.read_range" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>

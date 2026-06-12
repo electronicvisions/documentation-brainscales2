@@ -17,7 +17,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="hxtorch.spiking.modules.InputPopulation" href="hxtorch.spiking.modules.InputPopulation.html" />
-    <link rel="prev" title="hxtorch.spiking.modules.HXModuleWrapper" href="hxtorch.spiking.modules.HXModuleWrapper.html" /> 
+    <link rel="prev" title="hxtorch.spiking.modules.HXTorchBaseModule" href="hxtorch.spiking.modules.HXTorchBaseModule.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -48,6 +48,7 @@
 <li class="toctree-l3"><a class="reference internal" href="pynn_brainscales.brainscales2.html">pynn_brainscales.brainscales2</a></li>
 <li class="toctree-l3"><a class="reference internal" href="jaxsnn.html">jaxsnn</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="hxtorch.html">hxtorch</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="hxtorch.core.html">hxtorch.core</a></li>
 <li class="toctree-l4"><a class="reference internal" href="hxtorch.examples.html">hxtorch.examples</a></li>
 <li class="toctree-l4"><a class="reference internal" href="hxtorch.perceptron.html">hxtorch.perceptron</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="hxtorch.spiking.html">hxtorch.spiking</a></li>
@@ -98,27 +99,14 @@
 <h1>hxtorch.spiking.modules.InputNeuron<a class="headerlink" href="#hxtorch-spiking-modules-inputneuron" title="Permalink to this headline"></a></h1>
 <dl class="py class">
 <dt id="hxtorch.spiking.modules.InputNeuron">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.modules.</span></code><code class="sig-name descname"><span class="pre">InputNeuron</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">experiment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Experiment</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">execution_instance</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">ExecutionInstance</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chip_coordinate</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">grenade.common.ChipOnConnection</span><span class="p"><span class="pre">,</span> </span><span class="pre">grenade.common.ConnectionOnExecutor</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.modules.InputNeuron" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="hxtorch.spiking.modules.types.InputPopulation.html#hxtorch.spiking.modules.types.InputPopulation" title="hxtorch.spiking.modules.types.InputPopulation"><code class="xref py py-class docutils literal notranslate"><span class="pre">hxtorch.spiking.modules.types.InputPopulation</span></code></a></p>
-<p>Spike source generating spikes at the times [ms] given in the spike_times
-array.</p>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.modules.</span></code><code class="sig-name descname"><span class="pre">InputNeuron</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.modules.InputNeuron" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">hxtorch.spiking.modules.types.population.InputPopulation</span></code></p>
+<p>Spike source generating spikes at the times given in the dense spike_times
+array binned with the time step of the experiment.</p>
 <dl class="py method">
 <dt id="hxtorch.spiking.modules.InputNeuron.__init__">
-<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">experiment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Experiment</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">execution_instance</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">ExecutionInstance</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chip_coordinate</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">grenade.common.ChipOnConnection</span><span class="p"><span class="pre">,</span> </span><span class="pre">grenade.common.ConnectionOnExecutor</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.modules.InputNeuron.__init__" title="Permalink to this definition"></a></dt>
-<dd><p>Instantiate a InputNeuron. This module serves as an External
-Population for input injection and is created within <cite>experiment</cite>
-if not present in the considered model.
-This module performs an identity mapping when <cite>forward</cite> is called.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>size</strong> – Number of input neurons.</p></li>
-<li><p><strong>experiment</strong> – Experiment to which this module is assigned.</p></li>
-<li><p><strong>execution_instance</strong> – Execution instance to place to.</p></li>
-<li><p><strong>chip_coordinate</strong> – Chip coordinate this module is placed on.</p></li>
-</ul>
-</dd>
-</dl>
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.modules.InputNeuron.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Initialize internal Module state, shared by both nn.Module and ScriptModule.</p>
 </dd></dl>
 
 <p class="rubric">Methods</p>
@@ -128,23 +116,17 @@ This module performs an identity mapping when <cite>forward</cite> is called.</p
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.InputNeuron.__init__" title="hxtorch.spiking.modules.InputNeuron.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(size, experiment[, …])</p></td>
-<td><p>Instantiate a InputNeuron.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.InputNeuron.add_to_input_generator" title="hxtorch.spiking.modules.InputNeuron.add_to_input_generator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_to_input_generator</span></code></a>(input, builder)</p></td>
-<td><p>Add the neurons events represented by this instance to grenades input generator.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.InputNeuron.add_to_network_graph" title="hxtorch.spiking.modules.InputNeuron.add_to_network_graph"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_to_network_graph</span></code></a>(builder)</p></td>
-<td><p>Adds instance to grenade’s network builder.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.InputNeuron.__init__" title="hxtorch.spiking.modules.InputNeuron.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Initialize internal Module state, shared by both nn.Module and ScriptModule.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.InputNeuron.forward_func" title="hxtorch.spiking.modules.InputNeuron.forward_func"><code class="xref py py-obj docutils literal notranslate"><span class="pre">forward_func</span></code></a>(input[, hw_data])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.InputNeuron.post_process" title="hxtorch.spiking.modules.InputNeuron.post_process"><code class="xref py py-obj docutils literal notranslate"><span class="pre">post_process</span></code></a>(hw_data, runtime)</p></td>
-<td><p>This methods needs to be overridden for every derived module that demands hardware observables and is intended to translated hardware- affine datatypes returned by grenade into PyTorch tensors.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.InputNeuron.get_spike_times" title="hxtorch.spiking.modules.InputNeuron.get_spike_times"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_spike_times</span></code></a>()</p></td>
+<td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.InputNeuron.register_hw_entity" title="hxtorch.spiking.modules.InputNeuron.register_hw_entity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">register_hw_entity</span></code></a>()</p></td>
-<td><p>Register instance in member <cite>experiment</cite>.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.InputNeuron.post_process" title="hxtorch.spiking.modules.InputNeuron.post_process"><code class="xref py py-obj docutils literal notranslate"><span class="pre">post_process</span></code></a>(hw_data, runtime)</p></td>
+<td><p>This methods needs to be overridden for every derived module that demands hardware observables and is intended to translated hardware- affine datatypes returned by grenade into PyTorch tensors.</p></td>
 </tr>
 </tbody>
 </table>
@@ -155,41 +137,24 @@ This module performs an identity mapping when <cite>forward</cite> is called.</p
 <col style="width: 90%" />
 </colgroup>
 <tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.InputNeuron.changed_input_data" title="hxtorch.spiking.modules.InputNeuron.changed_input_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">changed_input_data</span></code></a></p></td>
+<td><p></p></td>
+</tr>
 </tbody>
 </table>
 <dl class="py method">
-<dt id="hxtorch.spiking.modules.InputNeuron.add_to_input_generator">
-<code class="sig-name descname"><span class="pre">add_to_input_generator</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">types.Handle_current_membrane_cadc_membrane_madc_spikes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">builder</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network.InputGenerator</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.modules.InputNeuron.add_to_input_generator" title="Permalink to this definition"></a></dt>
-<dd><p>Add the neurons events represented by this instance to grenades input
-generator.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>input</strong> – Dense spike tensor. These spikes are implicitly converted
-to spike times. TODO: Allow sparse tensors.</p></li>
-<li><p><strong>builder</strong> – Grenade’s input generator to append the events to.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="hxtorch.spiking.modules.InputNeuron.add_to_network_graph">
-<code class="sig-name descname"><span class="pre">add_to_network_graph</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">builder</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network.NetworkBuilder</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">_pygrenade_vx_network.PopulationOnNetwork</span><a class="headerlink" href="#hxtorch.spiking.modules.InputNeuron.add_to_network_graph" title="Permalink to this definition"></a></dt>
-<dd><p>Adds instance to grenade’s network builder.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>builder</strong> – Grenade network builder to add external population to.</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>External population descriptor.</p>
-</dd>
-</dl>
-</dd></dl>
+<dt id="hxtorch.spiking.modules.InputNeuron.changed_input_data">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">changed_input_data</span></code><a class="headerlink" href="#hxtorch.spiking.modules.InputNeuron.changed_input_data" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt id="hxtorch.spiking.modules.InputNeuron.forward_func">
 <code class="sig-name descname"><span class="pre">forward_func</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">types.Handle_current_membrane_cadc_membrane_madc_spikes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hw_data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">types.Handle_current_membrane_cadc_membrane_madc_spikes</span><a class="headerlink" href="#hxtorch.spiking.modules.InputNeuron.forward_func" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="hxtorch.spiking.modules.InputNeuron.get_spike_times">
+<code class="sig-name descname"><span class="pre">get_spike_times</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.modules.InputNeuron.get_spike_times" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -200,7 +165,7 @@ to spike times. TODO: Allow sparse tensors.</p></li>
 
 <dl class="py method">
 <dt id="hxtorch.spiking.modules.InputNeuron.post_process">
-<code class="sig-name descname"><span class="pre">post_process</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hw_data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">HardwareObservables</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">runtime</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="p"><span class="pre">…</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#hxtorch.spiking.modules.InputNeuron.post_process" title="Permalink to this definition"></a></dt>
+<code class="sig-name descname"><span class="pre">post_process</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hw_data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">HXTorchObservables</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">runtime</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="p"><span class="pre">…</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#hxtorch.spiking.modules.InputNeuron.post_process" title="Permalink to this definition"></a></dt>
 <dd><p>This methods needs to be overridden for every derived module that
 demands hardware observables and is intended to translated hardware-
 affine datatypes returned by grenade into PyTorch tensors.</p>
@@ -210,7 +175,7 @@ affine datatypes returned by grenade into PyTorch tensors.</p>
 <li><p><strong>hw_data</strong> – A <code class="docutils literal notranslate"><span class="pre">HardwareObservables</span></code> instance holding the hardware
 data assigned to this module.</p></li>
 <li><p><strong>runtime</strong> – The requested runtime of the experiment on hardware in
-s.</p></li>
+us.</p></li>
 <li><p><strong>dt</strong> – The expected temporal resolution in hxtorch.</p></li>
 </ul>
 </dd>
@@ -221,12 +186,6 @@ torch.Tensors are required here to enable gradient flow.</p>
 </dl>
 </dd></dl>
 
-<dl class="py method">
-<dt id="hxtorch.spiking.modules.InputNeuron.register_hw_entity">
-<code class="sig-name descname"><span class="pre">register_hw_entity</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.modules.InputNeuron.register_hw_entity" title="Permalink to this definition"></a></dt>
-<dd><p>Register instance in member <cite>experiment</cite>.</p>
-</dd></dl>
-
 </dd></dl>
 
 </div>
@@ -235,7 +194,7 @@ torch.Tensors are required here to enable gradient flow.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="hxtorch.spiking.modules.HXModuleWrapper.html" class="btn btn-neutral float-left" title="hxtorch.spiking.modules.HXModuleWrapper" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="hxtorch.spiking.modules.HXTorchBaseModule.html" class="btn btn-neutral float-left" title="hxtorch.spiking.modules.HXTorchBaseModule" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="hxtorch.spiking.modules.InputPopulation.html" class="btn btn-neutral float-right" title="hxtorch.spiking.modules.InputPopulation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

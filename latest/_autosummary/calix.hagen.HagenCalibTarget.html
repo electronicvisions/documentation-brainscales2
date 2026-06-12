@@ -16,7 +16,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="calix.hagen.HagenSyninCalibOptions" href="calix.hagen.HagenSyninCalibOptions.html" />
+    <link rel="next" title="calix.hagen.HagenCalibTargetBase" href="calix.hagen.HagenCalibTargetBase.html" />
     <link rel="prev" title="calix.hagen.HagenCalibResult" href="calix.hagen.HagenCalibResult.html" /> 
 </head>
 
@@ -99,22 +99,16 @@
 <h1>calix.hagen.HagenCalibTarget<a class="headerlink" href="#calix-hagen-hagencalibtarget" title="Permalink to this headline"></a></h1>
 <dl class="py class">
 <dt id="calix.hagen.HagenCalibTarget">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">calix.hagen.</span></code><code class="sig-name descname"><span class="pre">HagenCalibTarget</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">cadc_target:</span> <span class="pre">calix.common.cadc.CADCCalibTarget</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></em>, <em class="sig-param"><span class="pre">neuron_target:</span> <span class="pre">calix.hagen.neuron_dataclasses.NeuronCalibTarget</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.hagen.HagenCalibTarget" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="calix.common.base.TopLevelCalibTarget.html#calix.common.base.TopLevelCalibTarget" title="calix.common.base.TopLevelCalibTarget"><code class="xref py py-class docutils literal notranslate"><span class="pre">calix.common.base.TopLevelCalibTarget</span></code></a></p>
-<p>Dataclass collecting target parameters for Hagen-mode calibrations
-with integration on membranes.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Variables</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><a class="reference internal" href="#calix.hagen.HagenCalibTarget.cadc_target" title="calix.hagen.HagenCalibTarget.cadc_target"><strong>cadc_target</strong></a> – Target parameters for CADC calibration.</p></li>
-<li><p><a class="reference internal" href="#calix.hagen.HagenCalibTarget.neuron_target" title="calix.hagen.HagenCalibTarget.neuron_target"><strong>neuron_target</strong></a> – Target parameters for neuron calibration.</p></li>
-</ul>
-</dd>
-</dl>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">calix.hagen.</span></code><code class="sig-name descname"><span class="pre">HagenCalibTarget</span></code><a class="headerlink" href="#calix.hagen.HagenCalibTarget" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="calix.common.base.TopLevelCalibTarget.html#calix.common.base.TopLevelCalibTarget" title="calix.common.base.TopLevelCalibTarget"><code class="xref py py-class docutils literal notranslate"><span class="pre">calix.common.base.TopLevelCalibTarget</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">pyccalix.HagenCalibTarget</span></code></p>
 <dl class="py method">
 <dt id="calix.hagen.HagenCalibTarget.__init__">
-<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">cadc_target:</span> <span class="pre">calix.common.cadc.CADCCalibTarget</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></em>, <em class="sig-param"><span class="pre">neuron_target:</span> <span class="pre">calix.hagen.neuron_dataclasses.NeuronCalibTarget</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#calix.hagen.HagenCalibTarget.__init__" title="Permalink to this definition"></a></dt>
-<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.hagen.HagenCalibTarget.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Overloaded function.</p>
+<ol class="arabic simple">
+<li><p>__init__(self: pyccalix.HagenCalibTarget) -&gt; None</p></li>
+<li><p>__init__(self: pyccalix.HagenCalibTarget, arg0: pyccalix.HagenCalibTarget) -&gt; None</p></li>
+</ol>
 </dd></dl>
 
 <p class="rubric">Methods</p>
@@ -124,19 +118,23 @@ with integration on membranes.</p>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#calix.hagen.HagenCalibTarget.__init__" title="calix.hagen.HagenCalibTarget.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([cadc_target, neuron_target])</p></td>
-<td><p>Initialize self.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.hagen.HagenCalibTarget.__init__" title="calix.hagen.HagenCalibTarget.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Overloaded function.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#calix.hagen.HagenCalibTarget.calibrate" title="calix.hagen.HagenCalibTarget.calibrate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calibrate</span></code></a>(connection[, options])</p></td>
 <td><p>Execute a calibration for this target.</p></td>
 </tr>
 </tbody>
 </table>
-<dl class="py attribute">
-<dt id="calix.hagen.HagenCalibTarget.cadc_target">
-<code class="sig-name descname"><span class="pre">cadc_target</span></code><em class="property"><span class="pre">:</span> <a class="reference internal" href="calix.common.cadc.CADCCalibTarget.html#calix.common.cadc.CADCCalibTarget" title="calix.common.cadc.CADCCalibTarget"><span class="pre">calix.common.cadc.CADCCalibTarget</span></a></em><a class="headerlink" href="#calix.hagen.HagenCalibTarget.cadc_target" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
+<p class="rubric">Attributes</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+</tbody>
+</table>
 <dl class="py method">
 <dt id="calix.hagen.HagenCalibTarget.calibrate">
 <code class="sig-name descname"><span class="pre">calibrate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhxcomm_vx.ConnectionHandle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">pyccalix.HagenCalibOptions</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="calix.hagen.HagenCalibResult.html#calix.hagen.HagenCalibResult" title="calix.hagen.HagenCalibResult"><span class="pre">calix.hagen.HagenCalibResult</span></a><a class="headerlink" href="#calix.hagen.HagenCalibTarget.calibrate" title="Permalink to this definition"></a></dt>
@@ -154,11 +152,6 @@ with integration on membranes.</p>
 </dl>
 </dd></dl>
 
-<dl class="py attribute">
-<dt id="calix.hagen.HagenCalibTarget.neuron_target">
-<code class="sig-name descname"><span class="pre">neuron_target</span></code><em class="property"><span class="pre">:</span> <a class="reference internal" href="calix.hagen.neuron_dataclasses.NeuronCalibTarget.html#calix.hagen.neuron_dataclasses.NeuronCalibTarget" title="calix.hagen.neuron_dataclasses.NeuronCalibTarget"><span class="pre">calix.hagen.neuron_dataclasses.NeuronCalibTarget</span></a></em><a class="headerlink" href="#calix.hagen.HagenCalibTarget.neuron_target" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
 </dd></dl>
 
 </div>
@@ -168,7 +161,7 @@ with integration on membranes.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="calix.hagen.HagenCalibResult.html" class="btn btn-neutral float-left" title="calix.hagen.HagenCalibResult" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="calix.hagen.HagenSyninCalibOptions.html" class="btn btn-neutral float-right" title="calix.hagen.HagenSyninCalibOptions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="calix.hagen.HagenCalibTargetBase.html" class="btn btn-neutral float-right" title="calix.hagen.HagenCalibTargetBase" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

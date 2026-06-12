@@ -16,7 +16,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="hxtorch.spiking.modules.sparse_synapse.SparseSynapse" href="hxtorch.spiking.modules.sparse_synapse.SparseSynapse.html" />
+    <link rel="next" title="hxtorch.spiking.modules.sparse_synapse.ProjectionConnection" href="hxtorch.spiking.modules.sparse_synapse.ProjectionConnection.html" />
     <link rel="prev" title="hxtorch.spiking.modules.sparse_synapse.Parameter" href="hxtorch.spiking.modules.sparse_synapse.Parameter.html" /> 
 </head>
 
@@ -48,6 +48,7 @@
 <li class="toctree-l3"><a class="reference internal" href="pynn_brainscales.brainscales2.html">pynn_brainscales.brainscales2</a></li>
 <li class="toctree-l3"><a class="reference internal" href="jaxsnn.html">jaxsnn</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="hxtorch.html">hxtorch</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="hxtorch.core.html">hxtorch.core</a></li>
 <li class="toctree-l4"><a class="reference internal" href="hxtorch.examples.html">hxtorch.examples</a></li>
 <li class="toctree-l4"><a class="reference internal" href="hxtorch.perceptron.html">hxtorch.perceptron</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="hxtorch.spiking.html">hxtorch.spiking</a></li>
@@ -99,24 +100,13 @@
 <h1>hxtorch.spiking.modules.sparse_synapse.Projection<a class="headerlink" href="#hxtorch-spiking-modules-sparse-synapse-projection" title="Permalink to this headline"></a></h1>
 <dl class="py class">
 <dt id="hxtorch.spiking.modules.sparse_synapse.Projection">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.modules.sparse_synapse.</span></code><code class="sig-name descname"><span class="pre">Projection</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">in_features</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_features</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">experiment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Experiment</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">execution_instance</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">ExecutionInstance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chip_coordinate</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">grenade.common.ChipOnConnection</span><span class="p"><span class="pre">,</span> </span><span class="pre">grenade.common.ConnectionOnExecutor</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.modules.sparse_synapse.Projection" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="hxtorch.spiking.modules.hx_module.HXModule.html#hxtorch.spiking.modules.hx_module.HXModule" title="hxtorch.spiking.modules.hx_module.HXModule"><code class="xref py py-class docutils literal notranslate"><span class="pre">hxtorch.spiking.modules.hx_module.HXModule</span></code></a></p>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.modules.sparse_synapse.</span></code><code class="sig-name descname"><span class="pre">Projection</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">prj_args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">prj_kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.modules.sparse_synapse.Projection" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="hxtorch.spiking.modules.hx_module.HXTorchBaseModule.html#hxtorch.spiking.modules.hx_module.HXTorchBaseModule" title="hxtorch.spiking.modules.hx_module.HXTorchBaseModule"><code class="xref py py-class docutils literal notranslate"><span class="pre">hxtorch.spiking.modules.hx_module.HXTorchBaseModule</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">hxtorch.core.modules.projection.Projection</span></code></p>
 <p>Base class for projections on BSS-2</p>
 <dl class="py method">
 <dt id="hxtorch.spiking.modules.sparse_synapse.Projection.__init__">
-<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">in_features</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_features</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">experiment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Experiment</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">execution_instance</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">ExecutionInstance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chip_coordinate</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">grenade.common.ChipOnConnection</span><span class="p"><span class="pre">,</span> </span><span class="pre">grenade.common.ConnectionOnExecutor</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.modules.sparse_synapse.Projection.__init__" title="Permalink to this definition"></a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>experiment</strong> – Experiment to append layer to.</p></li>
-<li><p><strong>in_features</strong> – Size of input dimension.</p></li>
-<li><p><strong>out_features</strong> – Size of output dimension.</p></li>
-<li><p><strong>experiment</strong> – Experiment to append layer to.</p></li>
-<li><p><strong>execution_instance</strong> – Execution instance to place to.</p></li>
-<li><p><strong>chip_coordinate</strong> – Chip coordinate this module is placed on.</p></li>
-</ul>
-</dd>
-</dl>
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">prj_args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">prj_kwargs</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.modules.sparse_synapse.Projection.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Initialize internal Module state, shared by both nn.Module and ScriptModule.</p>
 </dd></dl>
 
 <p class="rubric">Methods</p>
@@ -126,16 +116,20 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.sparse_synapse.Projection.__init__" title="hxtorch.spiking.modules.sparse_synapse.Projection.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(in_features, out_features, …[, …])</p></td>
-<td><p><dl class="field-list simple">
-<dt class="field-odd">param experiment</dt>
-<dd class="field-odd"><p>Experiment to append layer to.</p>
-</dd>
-</dl>
-</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.sparse_synapse.Projection.__init__" title="hxtorch.spiking.modules.sparse_synapse.Projection.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(*prj_args, **prj_kwargs)</p></td>
+<td><p>Initialize internal Module state, shared by both nn.Module and ScriptModule.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.sparse_synapse.Projection.extra_repr" title="hxtorch.spiking.modules.sparse_synapse.Projection.extra_repr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">extra_repr</span></code></a>()</p></td>
 <td><p>Add additional information</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.sparse_synapse.Projection.post_process" title="hxtorch.spiking.modules.sparse_synapse.Projection.post_process"><code class="xref py py-obj docutils literal notranslate"><span class="pre">post_process</span></code></a>(*args, **kwargs)</p></td>
+<td><p>This methods needs to be overridden for every derived module that demands hardware observables and is intended to translated hardware- affine datatypes returned by grenade into PyTorch tensors.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.sparse_synapse.Projection.source_population" title="hxtorch.spiking.modules.sparse_synapse.Projection.source_population"><code class="xref py py-obj docutils literal notranslate"><span class="pre">source_population</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.sparse_synapse.Projection.target_population" title="hxtorch.spiking.modules.sparse_synapse.Projection.target_population"><code class="xref py py-obj docutils literal notranslate"><span class="pre">target_population</span></code></a>()</p></td>
+<td><p></p></td>
 </tr>
 </tbody>
 </table>
@@ -148,6 +142,16 @@
 <tbody>
 </tbody>
 </table>
+<dl class="py attribute">
+<dt id="hxtorch.spiking.modules.sparse_synapse.Projection.changed_input_data">
+<code class="sig-name descname"><span class="pre">changed_input_data</span></code><em class="property"><span class="pre">:</span> <span class="pre">bool</span></em><a class="headerlink" href="#hxtorch.spiking.modules.sparse_synapse.Projection.changed_input_data" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="hxtorch.spiking.modules.sparse_synapse.Projection.changed_topology">
+<code class="sig-name descname"><span class="pre">changed_topology</span></code><em class="property"><span class="pre">:</span> <span class="pre">bool</span></em><a class="headerlink" href="#hxtorch.spiking.modules.sparse_synapse.Projection.changed_topology" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
 <dl class="py method">
 <dt id="hxtorch.spiking.modules.sparse_synapse.Projection.extra_repr">
 <code class="sig-name descname"><span class="pre">extra_repr</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="headerlink" href="#hxtorch.spiking.modules.sparse_synapse.Projection.extra_repr" title="Permalink to this definition"></a></dt>
@@ -162,6 +166,45 @@
 <dl class="py attribute">
 <dt id="hxtorch.spiking.modules.sparse_synapse.Projection.out_features">
 <code class="sig-name descname"><span class="pre">out_features</span></code><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#hxtorch.spiking.modules.sparse_synapse.Projection.out_features" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="hxtorch.spiking.modules.sparse_synapse.Projection.output_type">
+<code class="sig-name descname"><span class="pre">output_type</span></code><a class="headerlink" href="#hxtorch.spiking.modules.sparse_synapse.Projection.output_type" title="Permalink to this definition"></a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">types.Handle_graded_spikes</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="hxtorch.spiking.modules.sparse_synapse.Projection.post_process">
+<code class="sig-name descname"><span class="pre">post_process</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.modules.sparse_synapse.Projection.post_process" title="Permalink to this definition"></a></dt>
+<dd><p>This methods needs to be overridden for every derived module that
+demands hardware observables and is intended to translated hardware-
+affine datatypes returned by grenade into PyTorch tensors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>hw_data</strong> – A <code class="docutils literal notranslate"><span class="pre">HardwareObservables</span></code> instance holding the hardware
+data assigned to this module.</p></li>
+<li><p><strong>runtime</strong> – The requested runtime of the experiment on hardware in
+us.</p></li>
+<li><p><strong>dt</strong> – The expected temporal resolution in hxtorch.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Hardware data represented as torch.Tensors. Note that
+torch.Tensors are required here to enable gradient flow.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="hxtorch.spiking.modules.sparse_synapse.Projection.source_population">
+<code class="sig-name descname"><span class="pre">source_population</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">BasePopulation</span><a class="headerlink" href="#hxtorch.spiking.modules.sparse_synapse.Projection.source_population" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="hxtorch.spiking.modules.sparse_synapse.Projection.target_population">
+<code class="sig-name descname"><span class="pre">target_population</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">BasePopulation</span><a class="headerlink" href="#hxtorch.spiking.modules.sparse_synapse.Projection.target_population" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -183,7 +226,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="hxtorch.spiking.modules.sparse_synapse.Parameter.html" class="btn btn-neutral float-left" title="hxtorch.spiking.modules.sparse_synapse.Parameter" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="hxtorch.spiking.modules.sparse_synapse.SparseSynapse.html" class="btn btn-neutral float-right" title="hxtorch.spiking.modules.sparse_synapse.SparseSynapse" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="hxtorch.spiking.modules.sparse_synapse.ProjectionConnection.html" class="btn btn-neutral float-right" title="hxtorch.spiking.modules.sparse_synapse.ProjectionConnection" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -138,26 +138,20 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="pynn_brainscales.brainscales2.simulator.ADCRecording.html#pynn_brainscales.brainscales2.simulator.ADCRecording" title="pynn_brainscales.brainscales2.simulator.ADCRecording"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ADCRecording</span></code></a>(times, values)</p></td>
 <td><p>Times and values of a ADC recording.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pynn_brainscales.brainscales2.simulator.Any.html#pynn_brainscales.brainscales2.simulator.Any" title="pynn_brainscales.brainscales2.simulator.Any"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Any</span></code></a>(*args, **kwargs)</p></td>
-<td><p>Special type indicating an unconstrained type.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pynn_brainscales.brainscales2.simulator.BackgroundSpikeSourcePlacement.html#pynn_brainscales.brainscales2.simulator.BackgroundSpikeSourcePlacement" title="pynn_brainscales.brainscales2.simulator.BackgroundSpikeSourcePlacement"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BackgroundSpikeSourcePlacement</span></code></a>(permutation)</p></td>
-<td><p>Tracks assignment of pyNN IDs of SpikeSourcePoissonOnChip based populations to the corresponding hardware entity, i.e. BackgroundSpikeSourceOnDLS.</p></td>
-</tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pynn_brainscales.brainscales2.simulator.BaseState.html#pynn_brainscales.brainscales2.simulator.BaseState" title="pynn_brainscales.brainscales2.simulator.BaseState"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BaseState</span></code></a>()</p></td>
 <td><p>Base class for simulator _State classes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pynn_brainscales.brainscales2.simulator.Connection.html#pynn_brainscales.brainscales2.simulator.Connection" title="pynn_brainscales.brainscales2.simulator.Connection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Connection</span></code></a>(connection_from_outside, None] = None)</p></td>
+<td><p>Wrapper for connection to hardware supporting both using a connection supplied by the user and constructing an executor from the environment.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pynn_brainscales.brainscales2.simulator.GrenadeExperiment.html#pynn_brainscales.brainscales2.simulator.GrenadeExperiment" title="pynn_brainscales.brainscales2.simulator.GrenadeExperiment"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GrenadeExperiment</span></code></a>(calibration, None] = None, …)</p></td>
+<td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pynn_brainscales.brainscales2.simulator.ID.html#pynn_brainscales.brainscales2.simulator.ID" title="pynn_brainscales.brainscales2.simulator.ID"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ID</span></code></a>(n)</p></td>
 <td><p>Instead of storing ids as integers, we store them as ID objects, which allows a syntax like:     p[3,4].tau_m = 20.0 where p is a Population object.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pynn_brainscales.brainscales2.simulator.IDMixin.html#pynn_brainscales.brainscales2.simulator.IDMixin" title="pynn_brainscales.brainscales2.simulator.IDMixin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IDMixin</span></code></a>()</p></td>
 <td><p>Instead of storing ids as integers, we store them as ID objects, which allows a syntax like:     p[3,4].tau_m = 20.0 where p is a Population object.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pynn_brainscales.brainscales2.simulator.NeuronCalibTarget.html#pynn_brainscales.brainscales2.simulator.NeuronCalibTarget" title="pynn_brainscales.brainscales2.simulator.NeuronCalibTarget"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NeuronCalibTarget</span></code></a>(leak, numpy.ndarray] = 80, …)</p></td>
-<td><p>Target parameters for the neuron calibration.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pynn_brainscales.brainscales2.simulator.NeuronPlacement.html#pynn_brainscales.brainscales2.simulator.NeuronPlacement" title="pynn_brainscales.brainscales2.simulator.NeuronPlacement"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NeuronPlacement</span></code></a>(permutation)</p></td>
-<td><p>Tracks the assignment of pyNN IDs to LogicalNeuronOnDLS.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pynn_brainscales.brainscales2.simulator.Population.html#pynn_brainscales.brainscales2.simulator.Population" title="pynn_brainscales.brainscales2.simulator.Population"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Population</span></code></a>(size, cellclass[, cellparams, …])</p></td>
 <td><p>A group of neurons all of the same type.</p></td>
@@ -195,39 +189,6 @@ An alternative equivalent functional syntax is also accepted:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Employee</span> <span class="o">=</span> <span class="n">NamedTuple</span><span class="p">(</span><span class="s1">&#39;Employee&#39;</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="nb">int</span><span class="p">)])</span>
 </pre></div>
 </div>
-</dd></dl>
-
-<dl class="py function">
-<dt id="pynn_brainscales.brainscales2.simulator.calibrate">
-<code class="sig-prename descclassname"><span class="pre">pynn_brainscales.brainscales2.simulator.</span></code><code class="sig-name descname"><span class="pre">calibrate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="calix.common.base.TopLevelCalibTarget.html#calix.common.base.TopLevelCalibTarget" title="calix.common.base.TopLevelCalibTarget"><span class="pre">calix.common.base.TopLevelCalibTarget</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">pyccalix.CalibOptions</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cache_paths</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">pathlib.Path</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cache_read_only</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="calix.common.base.CalibResult.html#calix.common.base.CalibResult" title="calix.common.base.CalibResult"><span class="pre">calix.common.base.CalibResult</span></a><a class="headerlink" href="#pynn_brainscales.brainscales2.simulator.calibrate" title="Permalink to this definition"></a></dt>
-<dd><p>Calibrate chip with cache functionality. Calibration function is deduced
-from target and options type. If cache_paths is not empty, searches for
-cached calibration result with same parameters in list order. If no cache
-is found executes calibration and caches in fist path with write access.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>target</strong> – Target values for calibration.</p></li>
-<li><p><strong>options</strong> – Options for calibration.</p></li>
-<li><p><strong>cache_paths</strong> – List of possible cache locations. If list is empty,
-caching is skipped. If None defaults are used. Defaults
-are read-only shared wang cache path followed by user
-home cache.</p></li>
-<li><p><strong>cache_read_only</strong> – Only read cache file, do not create cache file if
-one does not exist.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Calibration result</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="pynn_brainscales.brainscales2.simulator.copy">
-<code class="sig-prename descclassname"><span class="pre">pynn_brainscales.brainscales2.simulator.</span></code><code class="sig-name descname"><span class="pre">copy</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.simulator.copy" title="Permalink to this definition"></a></dt>
-<dd><p>Shallow copy operation on arbitrary Python objects.</p>
-<p>See the module’s __doc__ string for more info.</p>
 </dd></dl>
 
 <dl class="py function">

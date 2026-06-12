@@ -17,7 +17,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="pynn_brainscales.brainscales2.morphology.parameters" href="pynn_brainscales.brainscales2.morphology.parameters.html" />
-    <link rel="prev" title="pynn_brainscales.brainscales2.morphology.mc_neuron_base.RecordingSite" href="pynn_brainscales.brainscales2.morphology.mc_neuron_base.RecordingSite.html" /> 
+    <link rel="prev" title="pynn_brainscales.brainscales2.morphology.mc_neuron_base.Population" href="pynn_brainscales.brainscales2.morphology.mc_neuron_base.Population.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -151,11 +151,14 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.morphology.mc_neuron_base.StandardCellType.__init__" title="pynn_brainscales.brainscales2.morphology.mc_neuron_base.StandardCellType.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(**parameters)</p></td>
 <td><p>Initialize self.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.morphology.mc_neuron_base.StandardCellType.add_to_input_generator" title="pynn_brainscales.brainscales2.morphology.mc_neuron_base.StandardCellType.add_to_input_generator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_to_input_generator</span></code></a>(population, builder, …)</p></td>
-<td><p>Add external events to input generator.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.morphology.mc_neuron_base.StandardCellType.generate_input_data" title="pynn_brainscales.brainscales2.morphology.mc_neuron_base.StandardCellType.generate_input_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_input_data</span></code></a>(population, experiment, …)</p></td>
+<td><p>Generate input data for this population.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.morphology.mc_neuron_base.StandardCellType.add_to_network_graph" title="pynn_brainscales.brainscales2.morphology.mc_neuron_base.StandardCellType.add_to_network_graph"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_to_network_graph</span></code></a>(population, builder)</p></td>
-<td><p>Add population to network builder.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.morphology.mc_neuron_base.StandardCellType.generate_vertex" title="pynn_brainscales.brainscales2.morphology.mc_neuron_base.StandardCellType.generate_vertex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_vertex</span></code></a>(population)</p></td>
+<td><p>Generate vertex representation for this population.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.morphology.mc_neuron_base.StandardCellType.get_receptor" title="pynn_brainscales.brainscales2.morphology.mc_neuron_base.StandardCellType.get_receptor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_receptor</span></code></a>(name, compartment)</p></td>
+<td><p>Get receptor by name for compartment.</p></td>
 </tr>
 </tbody>
 </table>
@@ -169,20 +172,30 @@
 </tbody>
 </table>
 <dl class="py method">
-<dt id="pynn_brainscales.brainscales2.morphology.mc_neuron_base.StandardCellType.add_to_input_generator">
-<em class="property"><span class="pre">abstract</span> <span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">add_to_input_generator</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">population</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyNN.common.populations.Population</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">builder</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network.InputGenerator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">snippet_begin_time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">snippet_end_time</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.morphology.mc_neuron_base.StandardCellType.add_to_input_generator" title="Permalink to this definition"></a></dt>
-<dd><p>Add external events to input generator.
-:param population: Population to add featuring this cell’s celltype.
-:param builder: Input builder to add external events to.</p>
+<dt id="pynn_brainscales.brainscales2.morphology.mc_neuron_base.StandardCellType.generate_input_data">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">generate_input_data</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">population</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyNN.common.populations.Population</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">experiment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="pygrenade_vx.network.abstract.frontend.ExperimentSnippet.html#pygrenade_vx.network.abstract.frontend.ExperimentSnippet" title="pygrenade_vx.network.abstract.frontend.ExperimentSnippet"><span class="pre">pygrenade_vx.network.abstract.frontend.ExperimentSnippet</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">snippet_begin_time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">snippet_end_time</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">pygrenade_common.PortData</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#pynn_brainscales.brainscales2.morphology.mc_neuron_base.StandardCellType.generate_input_data" title="Permalink to this definition"></a></dt>
+<dd><p>Generate input data for this population.
+:param population: Population featuring this cell’s celltype
+:param experiment: Experiment snippet to generate data for
+:param snippet_begin_time: Begin time of snippet
+:param snippet_end_time: End time of snippet
+:return: Population input data</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="pynn_brainscales.brainscales2.morphology.mc_neuron_base.StandardCellType.add_to_network_graph">
-<em class="property"><span class="pre">abstract</span> <span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">add_to_network_graph</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">population</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyNN.common.populations.Population</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">builder</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network.NetworkBuilder</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">_pygrenade_vx_network.PopulationOnNetwork</span><a class="headerlink" href="#pynn_brainscales.brainscales2.morphology.mc_neuron_base.StandardCellType.add_to_network_graph" title="Permalink to this definition"></a></dt>
-<dd><p>Add population to network builder.
-:param population: Population to add featuring this cell’s celltype.
-:param builder: Network builder to add population to.
-:return: Descriptor of added population</p>
+<dt id="pynn_brainscales.brainscales2.morphology.mc_neuron_base.StandardCellType.generate_vertex">
+<em class="property"><span class="pre">abstract</span> <span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">generate_vertex</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">population</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyNN.common.populations.Population</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">pygrenade_common.Population</span><a class="headerlink" href="#pynn_brainscales.brainscales2.morphology.mc_neuron_base.StandardCellType.generate_vertex" title="Permalink to this definition"></a></dt>
+<dd><p>Generate vertex representation for this population.
+:param population: Population featuring this cell’s celltype
+:return: Population vertex</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.morphology.mc_neuron_base.StandardCellType.get_receptor">
+<code class="sig-name descname"><span class="pre">get_receptor</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compartment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pygrenade_common.CompartmentOnNeuron</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">pygrenade_common.MultiIndexSequence</span><a class="headerlink" href="#pynn_brainscales.brainscales2.morphology.mc_neuron_base.StandardCellType.get_receptor" title="Permalink to this definition"></a></dt>
+<dd><p>Get receptor by name for compartment.
+:param name: Name of receptor
+:param compartment: Compartment identifier</p>
 </dd></dl>
 
 </dd></dl>
@@ -193,7 +206,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="pynn_brainscales.brainscales2.morphology.mc_neuron_base.RecordingSite.html" class="btn btn-neutral float-left" title="pynn_brainscales.brainscales2.morphology.mc_neuron_base.RecordingSite" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pynn_brainscales.brainscales2.morphology.mc_neuron_base.Population.html" class="btn btn-neutral float-left" title="pynn_brainscales.brainscales2.morphology.mc_neuron_base.Population" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="pynn_brainscales.brainscales2.morphology.parameters.html" class="btn btn-neutral float-right" title="pynn_brainscales.brainscales2.morphology.parameters" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

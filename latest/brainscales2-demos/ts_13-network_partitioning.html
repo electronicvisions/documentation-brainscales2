@@ -403,19 +403,17 @@ This approach prevents weight over-saturation and helps maintain consistency bet
         <span class="bp">self</span><span class="o">.</span><span class="n">exp</span> <span class="o">=</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">Experiment</span><span class="p">(</span><span class="n">mock</span><span class="o">=</span><span class="n">mock</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="n">dt</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">exp</span><span class="o">.</span><span class="n">inter_batch_entry_wait</span> <span class="o">=</span> <span class="mi">125</span> <span class="o">*</span> <span class="mi">50</span>  <span class="c1"># 50 us</span>
 
-        <span class="n">morph_hidden</span> <span class="o">=</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">morphology</span><span class="o">.</span><span class="n">SingleCompartmentNeuron</span><span class="p">(</span>
+        <span class="n">morph_hidden</span> <span class="o">=</span> <span class="n">hxtorch</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">morphology</span><span class="o">.</span><span class="n">SingleCompartmentNeuron</span><span class="p">(</span>
             <span class="n">size</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">expand_horizontally</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
         <span class="c1"># Hidden Layers</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">hidden_size</span> <span class="o">=</span> <span class="mi">256</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">linear_hidden</span><span class="p">,</span> <span class="n">neurons_hidden</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
-            <span class="n">inst</span> <span class="o">=</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">ExecutionInstance</span><span class="p">()</span>
             <span class="n">linear</span> <span class="o">=</span> <span class="n">Synapse</span><span class="p">(</span>
                 <span class="n">in_features</span><span class="o">=</span><span class="mi">784</span><span class="p">,</span>
                 <span class="n">out_features</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span>
                 <span class="n">experiment</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">exp</span><span class="p">,</span>
-                <span class="n">execution_instance</span><span class="o">=</span><span class="n">inst</span><span class="p">,</span>
                 <span class="n">cap</span><span class="o">=</span><span class="mf">1.</span> <span class="k">if</span> <span class="n">mock</span> <span class="k">else</span> <span class="mf">63.</span> <span class="o">/</span> <span class="n">weight_scale_hidden</span><span class="p">,</span>
                 <span class="n">weight_exp_rolloff</span><span class="o">=</span><span class="n">weight_exp_rolloff</span><span class="p">,</span>
                 <span class="n">use_quantization</span><span class="o">=</span><span class="n">use_quantization</span><span class="p">,</span>
@@ -429,7 +427,6 @@ This approach prevents weight over-saturation and helps maintain consistency bet
                 <span class="n">size</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span>
                 <span class="o">**</span><span class="n">lif_params</span><span class="p">,</span>
                 <span class="n">experiment</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">exp</span><span class="p">,</span>
-                <span class="n">execution_instance</span><span class="o">=</span><span class="n">inst</span><span class="p">,</span>
                 <span class="n">trace_scale</span><span class="o">=</span><span class="n">trace_scale_hidden</span><span class="p">,</span>
                 <span class="n">cadc_time_shift</span><span class="o">=</span><span class="n">trace_shift_hidden</span><span class="p">,</span>
                 <span class="n">shift_cadc_to_first</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
@@ -438,16 +435,14 @@ This approach prevents weight over-saturation and helps maintain consistency bet
             <span class="n">neurons_hidden</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">neuron</span><span class="p">)</span>
 
         <span class="c1"># Output Layer</span>
-        <span class="n">morph_out</span> <span class="o">=</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">morphology</span><span class="o">.</span><span class="n">SingleCompartmentNeuron</span><span class="p">(</span>
+        <span class="n">morph_out</span> <span class="o">=</span> <span class="n">hxtorch</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">morphology</span><span class="o">.</span><span class="n">SingleCompartmentNeuron</span><span class="p">(</span>
             <span class="n">size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">expand_horizontally</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
 
-        <span class="n">inst</span> <span class="o">=</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">ExecutionInstance</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">linear_output</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
             <span class="n">linear</span> <span class="o">=</span> <span class="n">Synapse</span><span class="p">(</span>
                 <span class="n">in_features</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span>
                 <span class="n">out_features</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-                <span class="n">execution_instance</span><span class="o">=</span><span class="n">inst</span><span class="p">,</span>
                 <span class="n">experiment</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">exp</span><span class="p">,</span>
                 <span class="n">cap</span><span class="o">=</span><span class="mf">1.</span> <span class="k">if</span> <span class="n">mock</span> <span class="k">else</span> <span class="mf">63.</span> <span class="o">/</span> <span class="n">weight_scale_output</span><span class="p">,</span>
                 <span class="n">weight_exp_rolloff</span><span class="o">=</span><span class="n">weight_exp_rolloff</span><span class="p">,</span>
@@ -462,7 +457,6 @@ This approach prevents weight over-saturation and helps maintain consistency bet
             <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
             <span class="o">**</span><span class="n">li_params</span><span class="p">,</span>
             <span class="n">experiment</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">exp</span><span class="p">,</span>
-            <span class="n">execution_instance</span><span class="o">=</span><span class="n">inst</span><span class="p">,</span>
             <span class="n">trace_scale</span><span class="o">=</span><span class="n">trace_scale_output</span><span class="p">,</span>
             <span class="n">cadc_time_shift</span><span class="o">=</span><span class="n">trace_shift_out</span><span class="p">,</span>
             <span class="n">shift_cadc_to_first</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
@@ -782,21 +776,21 @@ The mapping between hardware dynamics and the dynamics assumed for computing gra
     <span class="c1"># Measure weight scaling SW - HW weight</span>
     <span class="n">weight_scale_hidden</span> <span class="o">=</span> <span class="n">get_weight_scaling</span><span class="p">(</span>
         <span class="n">lif_params</span><span class="p">,</span> <span class="n">weight_step</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-        <span class="n">neuron_structure</span><span class="o">=</span><span class="n">hxsnn</span><span class="o">.</span><span class="n">morphology</span><span class="o">.</span><span class="n">SingleCompartmentNeuron</span><span class="p">(</span>
+        <span class="n">neuron_structure</span><span class="o">=</span><span class="n">hxtorch</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">morphology</span><span class="o">.</span><span class="n">SingleCompartmentNeuron</span><span class="p">(</span>
             <span class="n">size</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">expand_horizontally</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
     <span class="n">weight_scale_output</span> <span class="o">=</span> <span class="n">get_weight_scaling</span><span class="p">(</span>
         <span class="n">lif_params</span><span class="p">,</span> <span class="n">weight_step</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-        <span class="n">neuron_structure</span><span class="o">=</span><span class="n">hxsnn</span><span class="o">.</span><span class="n">morphology</span><span class="o">.</span><span class="n">SingleCompartmentNeuron</span><span class="p">(</span>
+        <span class="n">neuron_structure</span><span class="o">=</span><span class="n">hxtorch</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">morphology</span><span class="o">.</span><span class="n">SingleCompartmentNeuron</span><span class="p">(</span>
             <span class="n">size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">expand_horizontally</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Weight scale hidden </span><span class="si">{</span><span class="n">weight_scale_hidden</span><span class="si">}</span><span class="s2">, &quot;</span>
         <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;weight scale out </span><span class="si">{</span><span class="n">weight_scale_output</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
 
     <span class="c1"># Measure trace scaling SW - HW</span>
     <span class="n">trace_scale_hidden</span> <span class="o">=</span> <span class="n">get_trace_scaling</span><span class="p">(</span>
-        <span class="n">lif_params</span><span class="p">,</span> <span class="n">neuron_structure</span><span class="o">=</span><span class="n">hxsnn</span><span class="o">.</span><span class="n">morphology</span><span class="o">.</span><span class="n">SingleCompartmentNeuron</span><span class="p">(</span>
+        <span class="n">lif_params</span><span class="p">,</span> <span class="n">neuron_structure</span><span class="o">=</span><span class="n">hxtorch</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">morphology</span><span class="o">.</span><span class="n">SingleCompartmentNeuron</span><span class="p">(</span>
             <span class="n">size</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">expand_horizontally</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
     <span class="n">trace_scale_output</span> <span class="o">=</span> <span class="n">get_trace_scaling</span><span class="p">(</span>
-        <span class="n">lif_params</span><span class="p">,</span> <span class="n">neuron_structure</span><span class="o">=</span><span class="n">hxsnn</span><span class="o">.</span><span class="n">morphology</span><span class="o">.</span><span class="n">SingleCompartmentNeuron</span><span class="p">(</span>
+        <span class="n">lif_params</span><span class="p">,</span> <span class="n">neuron_structure</span><span class="o">=</span><span class="n">hxtorch</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">morphology</span><span class="o">.</span><span class="n">SingleCompartmentNeuron</span><span class="p">(</span>
             <span class="n">size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">expand_horizontally</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Trace scale hidden </span><span class="si">{</span><span class="n">trace_scale_hidden</span><span class="si">}</span><span class="s2">, &quot;</span>
         <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;trace scale out </span><span class="si">{</span><span class="n">trace_scale_output</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>

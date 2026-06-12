@@ -101,34 +101,15 @@
 <dl class="py class">
 <dt id="calix.spiking.synapse_driver.STPCalibTarget">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">calix.spiking.synapse_driver.</span></code><code class="sig-name descname"><span class="pre">STPCalibTarget</span></code><a class="headerlink" href="#calix.spiking.synapse_driver.STPCalibTarget" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="calix.common.base.CalibTarget.html#calix.common.base.CalibTarget" title="calix.common.base.CalibTarget"><code class="xref py py-class docutils literal notranslate"><span class="pre">calix.common.base.CalibTarget</span></code></a></p>
-<p>Target for STP calibration.</p>
-<p>The STP voltages, which affect the dynamic range of the amplitudes,
-are set here. They are currently not calibrated, but can be set per
-quadrant.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>v_charge_0</strong> – STP v_charge (fully modulated state) for
-voltage set 0, in CapMem LSB. You can choose the two voltage
-sets to be, e.g., depressing and facilitating. By default, we
-select voltage set 0 to be facilitating and voltage set 1 to
-be depressing.</p></li>
-<li><p><strong>v_recover_0</strong> – STP v_recover (fully recovered state) for
-voltage set 0, in CapMem LSB. Note that a utilization of some
-0.2 happens before processing each event, so the voltage applied
-to the comparator never actually reaches v_recover.</p></li>
-<li><p><strong>v_charge_1</strong> – STP v_charge (fully modulated state) for
-voltage set 1, in CapMem LSB.</p></li>
-<li><p><strong>v_recover_1</strong> – STP v_recover (fully recovered state) for
-voltage set 1, in CapMem LSB.</p></li>
-</ul>
-</dd>
-</dl>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pyccalix.CalibTarget</span></code></p>
 <dl class="py method">
 <dt id="calix.spiking.synapse_driver.STPCalibTarget.__init__">
-<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#calix.spiking.synapse_driver.STPCalibTarget.__init__" title="Permalink to this definition"></a></dt>
-<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.spiking.synapse_driver.STPCalibTarget.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Overloaded function.</p>
+<ol class="arabic simple">
+<li><p>__init__(self: pyccalix.STPCalibTarget) -&gt; None</p></li>
+<li><p>__init__(self: pyccalix.STPCalibTarget, arg0: pyccalix.STPCalibTarget) -&gt; None</p></li>
+</ol>
 </dd></dl>
 
 <p class="rubric">Methods</p>
@@ -138,8 +119,8 @@ voltage set 1, in CapMem LSB.</p></li>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#calix.spiking.synapse_driver.STPCalibTarget.__init__" title="calix.spiking.synapse_driver.STPCalibTarget.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>()</p></td>
-<td><p>Initialize self.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.spiking.synapse_driver.STPCalibTarget.__init__" title="calix.spiking.synapse_driver.STPCalibTarget.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Overloaded function.</p></td>
 </tr>
 </tbody>
 </table>
@@ -165,23 +146,29 @@ voltage set 1, in CapMem LSB.</p></li>
 </tbody>
 </table>
 <dl class="py attribute">
+<dt id="calix.spiking.synapse_driver.STPCalibTarget.ValuePerQuadrant">
+<code class="sig-name descname"><span class="pre">ValuePerQuadrant</span></code><a class="headerlink" href="#calix.spiking.synapse_driver.STPCalibTarget.ValuePerQuadrant" title="Permalink to this definition"></a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">pyccalix.typed_array_haldls_vx_CapMemCell_halco_hicann_dls_vx_v3_Coordinates_Value_halco_hicann_dls_vx_CapMemBlockOnDLS_</span></code></p>
+</dd></dl>
+
+<dl class="py method">
 <dt id="calix.spiking.synapse_driver.STPCalibTarget.v_charge_0">
-<code class="sig-name descname"><span class="pre">v_charge_0</span></code><em class="property"> <span class="pre">=</span> <span class="pre">100</span></em><a class="headerlink" href="#calix.spiking.synapse_driver.STPCalibTarget.v_charge_0" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">v_charge_0</span></code><a class="headerlink" href="#calix.spiking.synapse_driver.STPCalibTarget.v_charge_0" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
-<dl class="py attribute">
+<dl class="py method">
 <dt id="calix.spiking.synapse_driver.STPCalibTarget.v_charge_1">
-<code class="sig-name descname"><span class="pre">v_charge_1</span></code><em class="property"> <span class="pre">=</span> <span class="pre">330</span></em><a class="headerlink" href="#calix.spiking.synapse_driver.STPCalibTarget.v_charge_1" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">v_charge_1</span></code><a class="headerlink" href="#calix.spiking.synapse_driver.STPCalibTarget.v_charge_1" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
-<dl class="py attribute">
+<dl class="py method">
 <dt id="calix.spiking.synapse_driver.STPCalibTarget.v_recover_0">
-<code class="sig-name descname"><span class="pre">v_recover_0</span></code><em class="property"> <span class="pre">=</span> <span class="pre">400</span></em><a class="headerlink" href="#calix.spiking.synapse_driver.STPCalibTarget.v_recover_0" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">v_recover_0</span></code><a class="headerlink" href="#calix.spiking.synapse_driver.STPCalibTarget.v_recover_0" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
-<dl class="py attribute">
+<dl class="py method">
 <dt id="calix.spiking.synapse_driver.STPCalibTarget.v_recover_1">
-<code class="sig-name descname"><span class="pre">v_recover_1</span></code><em class="property"> <span class="pre">=</span> <span class="pre">50</span></em><a class="headerlink" href="#calix.spiking.synapse_driver.STPCalibTarget.v_recover_1" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">v_recover_1</span></code><a class="headerlink" href="#calix.spiking.synapse_driver.STPCalibTarget.v_recover_1" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>

@@ -48,6 +48,7 @@
 <li class="toctree-l3"><a class="reference internal" href="pynn_brainscales.brainscales2.html">pynn_brainscales.brainscales2</a></li>
 <li class="toctree-l3"><a class="reference internal" href="jaxsnn.html">jaxsnn</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="hxtorch.html">hxtorch</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="hxtorch.core.html">hxtorch.core</a></li>
 <li class="toctree-l4"><a class="reference internal" href="hxtorch.examples.html">hxtorch.examples</a></li>
 <li class="toctree-l4"><a class="reference internal" href="hxtorch.perceptron.html">hxtorch.perceptron</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="hxtorch.spiking.html">hxtorch.spiking</a></li>
@@ -99,22 +100,12 @@
 <h1>hxtorch.spiking.modules.neuron.Population<a class="headerlink" href="#hxtorch-spiking-modules-neuron-population" title="Permalink to this headline"></a></h1>
 <dl class="py class">
 <dt id="hxtorch.spiking.modules.neuron.Population">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.modules.neuron.</span></code><code class="sig-name descname"><span class="pre">Population</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">experiment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Experiment</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">execution_instance</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">ExecutionInstance</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chip_coordinate</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">grenade.common.ChipOnConnection</span><span class="p"><span class="pre">,</span> </span><span class="pre">grenade.common.ConnectionOnExecutor</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">hxparams</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">ModuleParameterType</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.modules.neuron.Population" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="hxtorch.spiking.modules.types.BasePopulation.html#hxtorch.spiking.modules.types.BasePopulation" title="hxtorch.spiking.modules.types.BasePopulation"><code class="xref py py-class docutils literal notranslate"><span class="pre">hxtorch.spiking.modules.types.BasePopulation</span></code></a></p>
-<p>Base class for on-chip populations on BSS-2</p>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.modules.neuron.</span></code><code class="sig-name descname"><span class="pre">Population</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">pop_args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">pop_kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.modules.neuron.Population" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="hxtorch.spiking.modules.hx_module.HXTorchBaseModule.html#hxtorch.spiking.modules.hx_module.HXTorchBaseModule" title="hxtorch.spiking.modules.hx_module.HXTorchBaseModule"><code class="xref py py-class docutils literal notranslate"><span class="pre">hxtorch.spiking.modules.hx_module.HXTorchBaseModule</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">hxtorch.core.modules.population.Population</span></code></p>
 <dl class="py method">
 <dt id="hxtorch.spiking.modules.neuron.Population.__init__">
-<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">experiment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Experiment</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">execution_instance</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">ExecutionInstance</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chip_coordinate</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">grenade.common.ChipOnConnection</span><span class="p"><span class="pre">,</span> </span><span class="pre">grenade.common.ConnectionOnExecutor</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">hxparams</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">ModuleParameterType</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.modules.neuron.Population.__init__" title="Permalink to this definition"></a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>size</strong> – Number of input neurons.</p></li>
-<li><p><strong>experiment</strong> – Experiment to append layer to.</p></li>
-<li><p><strong>execution_instance</strong> – Execution instance to place to.</p></li>
-<li><p><strong>chip_coordinate</strong> – Chip coordinate this module is placed on.</p></li>
-</ul>
-</dd>
-</dl>
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">pop_args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">pop_kwargs</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.modules.neuron.Population.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Initialize internal Module state, shared by both nn.Module and ScriptModule.</p>
 </dd></dl>
 
 <p class="rubric">Methods</p>
@@ -124,33 +115,13 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.neuron.Population.__init__" title="hxtorch.spiking.modules.neuron.Population.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(size, experiment[, …])</p></td>
-<td><p><dl class="field-list simple">
-<dt class="field-odd">param size</dt>
-<dd class="field-odd"><p>Number of input neurons.</p>
-</dd>
-</dl>
-</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.neuron.Population.calib_changed_since_last_run" title="hxtorch.spiking.modules.neuron.Population.calib_changed_since_last_run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calib_changed_since_last_run</span></code></a>()</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.neuron.Population.calibration_from_params" title="hxtorch.spiking.modules.neuron.Population.calibration_from_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calibration_from_params</span></code></a>(targets, neurons)</p></td>
-<td><p>Add population specific calibration targets to the experiment-wide calibration target, which holds information for all populations.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.neuron.Population.__init__" title="hxtorch.spiking.modules.neuron.Population.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(*pop_args, **pop_kwargs)</p></td>
+<td><p>Initialize internal Module state, shared by both nn.Module and ScriptModule.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.neuron.Population.extra_repr" title="hxtorch.spiking.modules.neuron.Population.extra_repr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">extra_repr</span></code></a>()</p></td>
 <td><p>Add additional information</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.neuron.Population.has_trainable_params" title="hxtorch.spiking.modules.neuron.Population.has_trainable_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">has_trainable_params</span></code></a>()</p></td>
-<td><p>Check whether population has trainable parameters.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.neuron.Population.params_dict" title="hxtorch.spiking.modules.neuron.Population.params_dict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">params_dict</span></code></a>()</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.neuron.Population.params_from_calibration" title="hxtorch.spiking.modules.neuron.Population.params_from_calibration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">params_from_calibration</span></code></a>(targets, neurons)</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.neuron.Population.set_trainable_params" title="hxtorch.spiking.modules.neuron.Population.set_trainable_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_trainable_params</span></code></a>(chip)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.neuron.Population.resize_parameter_value" title="hxtorch.spiking.modules.neuron.Population.resize_parameter_value"><code class="xref py py-obj docutils literal notranslate"><span class="pre">resize_parameter_value</span></code></a>(neuron_id, size, param)</p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -165,61 +136,14 @@
 </tbody>
 </table>
 <dl class="py method">
-<dt id="hxtorch.spiking.modules.neuron.Population.calib_changed_since_last_run">
-<code class="sig-name descname"><span class="pre">calib_changed_since_last_run</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#hxtorch.spiking.modules.neuron.Population.calib_changed_since_last_run" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="hxtorch.spiking.modules.neuron.Population.calibration_from_params">
-<code class="sig-name descname"><span class="pre">calibration_from_params</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">SpikingCalibTarget</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">neurons</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">SpikingCalibTarget</span><a class="headerlink" href="#hxtorch.spiking.modules.neuron.Population.calibration_from_params" title="Permalink to this definition"></a></dt>
-<dd><p>Add population specific calibration targets to the experiment-wide
-calibration target, which holds information for all populations.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>spiking_calib_target</strong> – Calibration target parameters of all
-neuron populations registered in the self.experiment instance.</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>The chip_wide_calib_target with adjusted parameters.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
 <dt id="hxtorch.spiking.modules.neuron.Population.extra_repr">
 <code class="sig-name descname"><span class="pre">extra_repr</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="headerlink" href="#hxtorch.spiking.modules.neuron.Population.extra_repr" title="Permalink to this definition"></a></dt>
 <dd><p>Add additional information</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="hxtorch.spiking.modules.neuron.Population.has_trainable_params">
-<code class="sig-name descname"><span class="pre">has_trainable_params</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#hxtorch.spiking.modules.neuron.Population.has_trainable_params" title="Permalink to this definition"></a></dt>
-<dd><p>Check whether population has trainable parameters.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="hxtorch.spiking.modules.neuron.Population.params_dict">
-<code class="sig-name descname"><span class="pre">params_dict</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">Dict</span><a class="headerlink" href="#hxtorch.spiking.modules.neuron.Population.params_dict" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="hxtorch.spiking.modules.neuron.Population.params_from_calibration">
-<code class="sig-name descname"><span class="pre">params_from_calibration</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">SpikingCalibTarget</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">neurons</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.modules.neuron.Population.params_from_calibration" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="hxtorch.spiking.modules.neuron.Population.set_trainable_params">
-<code class="sig-name descname"><span class="pre">set_trainable_params</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chip</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.modules.neuron.Population.set_trainable_params" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="hxtorch.spiking.modules.neuron.Population.size">
-<code class="sig-name descname"><span class="pre">size</span></code><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#hxtorch.spiking.modules.neuron.Population.size" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="hxtorch.spiking.modules.neuron.Population.training">
-<code class="sig-name descname"><span class="pre">training</span></code><em class="property"><span class="pre">:</span> <span class="pre">bool</span></em><a class="headerlink" href="#hxtorch.spiking.modules.neuron.Population.training" title="Permalink to this definition"></a></dt>
+<dt id="hxtorch.spiking.modules.neuron.Population.resize_parameter_value">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">resize_parameter_value</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">neuron_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.modules.neuron.Population.resize_parameter_value" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>

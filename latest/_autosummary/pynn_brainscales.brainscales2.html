@@ -234,7 +234,7 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="pynn_brainscales.brainscales2.PlasticityRule.html#pynn_brainscales.brainscales2.PlasticityRule" title="pynn_brainscales.brainscales2.PlasticityRule"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PlasticityRule</span></code></a>(timer, observables, …)</p></td>
 <td><p>Plasticity rule base class.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pynn_brainscales.brainscales2.Population.html#pynn_brainscales.brainscales2.Population" title="pynn_brainscales.brainscales2.Population"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Population</span></code></a>(size, cellclass[, cellparams, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pynn_brainscales.brainscales2.Population.html#pynn_brainscales.brainscales2.Population" title="pynn_brainscales.brainscales2.Population"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Population</span></code></a>(*args, **kwargs)</p></td>
 <td><p>A group of neurons all of the same type.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pynn_brainscales.brainscales2.PopulationView.html#pynn_brainscales.brainscales2.PopulationView" title="pynn_brainscales.brainscales2.PopulationView"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PopulationView</span></code></a>(parent, selector[, label])</p></td>
@@ -252,7 +252,7 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="pynn_brainscales.brainscales2.SpikingCalibOptions.html#pynn_brainscales.brainscales2.SpikingCalibOptions" title="pynn_brainscales.brainscales2.SpikingCalibOptions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SpikingCalibOptions</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pynn_brainscales.brainscales2.SpikingCalibTarget.html#pynn_brainscales.brainscales2.SpikingCalibTarget" title="pynn_brainscales.brainscales2.SpikingCalibTarget"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SpikingCalibTarget</span></code></a>(cadc_target, …)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pynn_brainscales.brainscales2.SpikingCalibTarget.html#pynn_brainscales.brainscales2.SpikingCalibTarget" title="pynn_brainscales.brainscales2.SpikingCalibTarget"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SpikingCalibTarget</span></code></a>()</p></td>
 <td><p>Data class containing targets for spiking neuron calibration.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pynn_brainscales.brainscales2.Timer.html#pynn_brainscales.brainscales2.Timer" title="pynn_brainscales.brainscales2.Timer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Timer</span></code></a>(**parameters)</p></td>
@@ -316,7 +316,7 @@ __init__().</p>
 
 <dl class="py function">
 <dt id="pynn_brainscales.brainscales2.get_backend_statistics">
-<code class="sig-prename descclassname"><span class="pre">pynn_brainscales.brainscales2.</span></code><code class="sig-name descname"><span class="pre">get_backend_statistics</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">_pygrenade_vx_network.NetworkGraphStatistics</span><a class="headerlink" href="#pynn_brainscales.brainscales2.get_backend_statistics" title="Permalink to this definition"></a></dt>
+<code class="sig-prename descclassname"><span class="pre">pynn_brainscales.brainscales2.</span></code><code class="sig-name descname"><span class="pre">get_backend_statistics</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">_pygrenade_vx_network.MappedTopologyStatistics</span><a class="headerlink" href="#pynn_brainscales.brainscales2.get_backend_statistics" title="Permalink to this definition"></a></dt>
 <dd><p>Get statistics of placement and routing like amount of time spent and
 number of hardware entities used.
 :raises RuntimeError: If the simulator is not active, i.e. pynn.setup()</p>
@@ -341,28 +341,9 @@ performed, i.e. pynn.run() was not called.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="pynn_brainscales.brainscales2.get_execution_health_info">
-<code class="sig-prename descclassname"><span class="pre">pynn_brainscales.brainscales2.</span></code><code class="sig-name descname"><span class="pre">get_execution_health_info</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">_pygrenade_vx_signal_flow.ExecutionHealthInfo</span><a class="headerlink" href="#pynn_brainscales.brainscales2.get_execution_health_info" title="Permalink to this definition"></a></dt>
-<dd><p>Get health information of last execution.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Raises</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>RuntimeError</strong> – If the simulator is not active, i.e. pynn.setup()
-was not called.</p></li>
-<li><p><strong>RuntimeError</strong> – If no info is available, i.e. pynn.run() was not
-called.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Health info object.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="pynn_brainscales.brainscales2.get_execution_time_info">
-<code class="sig-prename descclassname"><span class="pre">pynn_brainscales.brainscales2.</span></code><code class="sig-name descname"><span class="pre">get_execution_time_info</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">_pygrenade_vx_signal_flow.ExecutionTimeInfo</span><a class="headerlink" href="#pynn_brainscales.brainscales2.get_execution_time_info" title="Permalink to this definition"></a></dt>
-<dd><p>Get time information of last execution.
+<dt id="pynn_brainscales.brainscales2.get_execution_instance_data">
+<code class="sig-prename descclassname"><span class="pre">pynn_brainscales.brainscales2.</span></code><code class="sig-name descname"><span class="pre">get_execution_instance_data</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">pygrenade_common.Map_grenade_common_ExecutionInstanceOnExecutor_grenade_common_OutputData_ExecutionInstance_</span><a class="headerlink" href="#pynn_brainscales.brainscales2.get_execution_instance_data" title="Permalink to this definition"></a></dt>
+<dd><p>Get execution instance data.
 :raises RuntimeError: If the simulator is not active, i.e. pynn.setup()</p>
 <blockquote>
 <div><p>was not called.</p>
@@ -373,7 +354,7 @@ called.</p></li>
 called.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Time info object.</p>
+<dd class="field-even"><p>Execution instance data object.</p>
 </dd>
 </dl>
 </dd></dl>

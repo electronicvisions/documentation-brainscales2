@@ -131,7 +131,7 @@
 <dl class="py class">
 <dt id="pynn_brainscales.brainscales2.Projection">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">pynn_brainscales.brainscales2.</span></code><code class="sig-name descname"><span class="pre">Projection</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">presynaptic_neurons</span></em>, <em class="sig-param"><span class="pre">postsynaptic_neurons</span></em>, <em class="sig-param"><span class="pre">connector</span></em>, <em class="sig-param"><span class="pre">synapse_type=None</span></em>, <em class="sig-param"><span class="pre">source=None</span></em>, <em class="sig-param"><span class="pre">receptor_type=None</span></em>, <em class="sig-param"><span class="pre">space=&lt;pyNN.space.Space</span> <span class="pre">object&gt;</span></em>, <em class="sig-param"><span class="pre">label=None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.Projection" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pyNN.common.projections.Projection</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pyNN.common.projections.Projection</span></code>, <a class="reference internal" href="pygrenade_vx.network.abstract.frontend.ExperimentElement.html#pygrenade_vx.network.abstract.frontend.ExperimentElement" title="pygrenade_vx.network.abstract.frontend.ExperimentElement"><code class="xref py py-class docutils literal notranslate"><span class="pre">pygrenade_vx.network.abstract.frontend.ExperimentElement</span></code></a></p>
 <dl class="py method">
 <dt id="pynn_brainscales.brainscales2.Projection.__init__">
 <code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">presynaptic_neurons</span></em>, <em class="sig-param"><span class="pre">postsynaptic_neurons</span></em>, <em class="sig-param"><span class="pre">connector</span></em>, <em class="sig-param"><span class="pre">synapse_type=None</span></em>, <em class="sig-param"><span class="pre">source=None</span></em>, <em class="sig-param"><span class="pre">receptor_type=None</span></em>, <em class="sig-param"><span class="pre">space=&lt;pyNN.space.Space</span> <span class="pre">object&gt;</span></em>, <em class="sig-param"><span class="pre">label=None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.Projection.__init__" title="Permalink to this definition"></a></dt>
@@ -183,8 +183,14 @@ defaults to None</p></li>
 <tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.Projection.__init__" title="pynn_brainscales.brainscales2.Projection.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(presynaptic_neurons, …[, …])</p></td>
 <td><p>Create a new projection, connecting the pre- and post-synaptic neurons.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.Projection.add_to_network_graph" title="pynn_brainscales.brainscales2.Projection.add_to_network_graph"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_to_network_graph</span></code></a>(populations, …)</p></td>
-<td><p></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.Projection.add_to_input_data" title="pynn_brainscales.brainscales2.Projection.add_to_input_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_to_input_data</span></code></a>(experiment, …)</p></td>
+<td><p>Add element to experiment snippet’s input data.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.Projection.add_to_topology" title="pynn_brainscales.brainscales2.Projection.add_to_topology"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_to_topology</span></code></a>(experiment)</p></td>
+<td><p>Add element to experiment snippet’s topology.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.Projection.extract_output_data" title="pynn_brainscales.brainscales2.Projection.extract_output_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">extract_output_data</span></code></a>(experiment)</p></td>
+<td><p>Extract output data of element from experiment snippet.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.Projection.get_data" title="pynn_brainscales.brainscales2.Projection.get_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_data</span></code></a>(observable)</p></td>
 <td><p>Get data for an observable per synapse.</p></td>
@@ -204,9 +210,62 @@ defaults to None</p></li>
 </tbody>
 </table>
 <dl class="py method">
-<dt id="pynn_brainscales.brainscales2.Projection.add_to_network_graph">
-<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">add_to_network_graph</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">populations</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">pyNN.common.populations.Population</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">projection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="pynn_brainscales.brainscales2.projections.Projection.html#pynn_brainscales.brainscales2.projections.Projection" title="pynn_brainscales.brainscales2.projections.Projection"><span class="pre">pynn_brainscales.brainscales2.projections.Projection</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">builder</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network.NetworkBuilder</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">_pygrenade_vx_network.ProjectionOnNetwork</span><a class="headerlink" href="#pynn_brainscales.brainscales2.Projection.add_to_network_graph" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dt id="pynn_brainscales.brainscales2.Projection.add_to_input_data">
+<code class="sig-name descname"><span class="pre">add_to_input_data</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">experiment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="pygrenade_vx.network.abstract.frontend.ExperimentSnippet.html#pygrenade_vx.network.abstract.frontend.ExperimentSnippet" title="pygrenade_vx.network.abstract.frontend.ExperimentSnippet"><span class="pre">pygrenade_vx.network.abstract.frontend.ExperimentSnippet</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">snippet_begin_time</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">snippet_end_time</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.Projection.add_to_input_data" title="Permalink to this definition"></a></dt>
+<dd><p>Add element to experiment snippet’s input data.</p>
+<p>If the snippet doesn’t contain the element yet, it is added.
+If it is already contained it is updated, if changed_input_data
+is True.
+The method is called after mapping is available.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>experiment</strong> – Experiment snippet for which to add this element
+into the snippet’s input data</p></li>
+<li><p><strong>snippet_begin_time</strong> – Time at which the snippet begins</p></li>
+<li><p><strong>snippet_end_time</strong> – Time at which the snippet ends</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.Projection.add_to_topology">
+<code class="sig-name descname"><span class="pre">add_to_topology</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">experiment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="pygrenade_vx.network.abstract.frontend.ExperimentSnippet.html#pygrenade_vx.network.abstract.frontend.ExperimentSnippet" title="pygrenade_vx.network.abstract.frontend.ExperimentSnippet"><span class="pre">pygrenade_vx.network.abstract.frontend.ExperimentSnippet</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.Projection.add_to_topology" title="Permalink to this definition"></a></dt>
+<dd><p>Add element to experiment snippet’s topology.</p>
+<p>If the snippet doesn’t contain the element yet, it is added.
+If it is already contained it is updated, if changed_topology
+is True.
+This method is called before the potential mapping operation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>experiment</strong> – Experiment snippet for which to add this element
+into the snippet’s topology</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Whether the element was added to the topology. The
+experiment doesn’t track interdependencies defining the
+order in which the elements can be added to the topology.
+Therefore this method is expected to perform the check
+whether the element can be added or updated, in which case
+the return value is expected to be True.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.Projection.extract_output_data">
+<code class="sig-name descname"><span class="pre">extract_output_data</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">experiment</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.Projection.extract_output_data" title="Permalink to this definition"></a></dt>
+<dd><p>Extract output data of element from experiment snippet.
+This method is called after execution of the experiment.
+Storage in the front end format is to be performed by the front end.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>experiment</strong> – Experiment snippet from which to extract this
+element’s output data</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt id="pynn_brainscales.brainscales2.Projection.get_data">

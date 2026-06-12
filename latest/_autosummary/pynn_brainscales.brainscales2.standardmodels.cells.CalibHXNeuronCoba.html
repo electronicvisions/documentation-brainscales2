@@ -192,8 +192,14 @@ synaptic time constants. Value range [30, 1022].</p></li>
 <tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.standardmodels.cells.CalibHXNeuronCoba.__init__" title="pynn_brainscales.brainscales2.standardmodels.cells.CalibHXNeuronCoba.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([plasticity_rule, v_rest, v_reset, …])</p></td>
 <td><p>Set initial neuron parameters.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.standardmodels.cells.CalibHXNeuronCoba.add_calib_params" title="pynn_brainscales.brainscales2.standardmodels.cells.CalibHXNeuronCoba.add_calib_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_calib_params</span></code></a>(calib_params, cell_ids)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.standardmodels.cells.CalibHXNeuronCoba.generate_calibration_targets" title="pynn_brainscales.brainscales2.standardmodels.cells.CalibHXNeuronCoba.generate_calibration_targets"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_calibration_targets</span></code></a>(population)</p></td>
 <td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.standardmodels.cells.CalibHXNeuronCoba.generate_input_data" title="pynn_brainscales.brainscales2.standardmodels.cells.CalibHXNeuronCoba.generate_input_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_input_data</span></code></a>(population, experiment, …)</p></td>
+<td><p>Generate input data for this population.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.standardmodels.cells.CalibHXNeuronCoba.generate_vertex" title="pynn_brainscales.brainscales2.standardmodels.cells.CalibHXNeuronCoba.generate_vertex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_vertex</span></code></a>(population)</p></td>
+<td><p>Generate vertex representation for this population.</p></td>
 </tr>
 </tbody>
 </table>
@@ -221,11 +227,6 @@ synaptic time constants. Value range [30, 1022].</p></li>
 </tr>
 </tbody>
 </table>
-<dl class="py method">
-<dt id="pynn_brainscales.brainscales2.standardmodels.cells.CalibHXNeuronCoba.add_calib_params">
-<code class="sig-name descname"><span class="pre">add_calib_params</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">calib_params</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cell_ids</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Dict</span><a class="headerlink" href="#pynn_brainscales.brainscales2.standardmodels.cells.CalibHXNeuronCoba.add_calib_params" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
 <dl class="py attribute">
 <dt id="pynn_brainscales.brainscales2.standardmodels.cells.CalibHXNeuronCoba.conductance_based">
 <code class="sig-name descname"><span class="pre">conductance_based</span></code><em class="property"><span class="pre">:</span> <span class="pre">Final</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">True</span></em><a class="headerlink" href="#pynn_brainscales.brainscales2.standardmodels.cells.CalibHXNeuronCoba.conductance_based" title="Permalink to this definition"></a></dt>
@@ -235,6 +236,30 @@ synaptic time constants. Value range [30, 1022].</p></li>
 <dt id="pynn_brainscales.brainscales2.standardmodels.cells.CalibHXNeuronCoba.default_parameters">
 <code class="sig-name descname"><span class="pre">default_parameters</span></code><em class="property"><span class="pre">:</span> <span class="pre">Final</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{'cm':</span> <span class="pre">63,</span> <span class="pre">'e_rev_E':</span> <span class="pre">300.0,</span> <span class="pre">'e_rev_I':</span> <span class="pre">30.0,</span> <span class="pre">'i_synin_gm_E':</span> <span class="pre">180,</span> <span class="pre">'i_synin_gm_I':</span> <span class="pre">250,</span> <span class="pre">'plasticity_rule_enable_readout_source':</span> <span class="pre">False,</span> <span class="pre">'plasticity_rule_readout_source':</span> <span class="pre">0.0,</span> <span class="pre">'synapse_dac_bias':</span> <span class="pre">400,</span> <span class="pre">'tau_m':</span> <span class="pre">10.0,</span> <span class="pre">'tau_refrac':</span> <span class="pre">2.0,</span> <span class="pre">'tau_syn_E':</span> <span class="pre">10.0,</span> <span class="pre">'tau_syn_I':</span> <span class="pre">10.0,</span> <span class="pre">'v_reset':</span> <span class="pre">100.0,</span> <span class="pre">'v_rest':</span> <span class="pre">110.0,</span> <span class="pre">'v_thresh':</span> <span class="pre">160.0}</span></em><a class="headerlink" href="#pynn_brainscales.brainscales2.standardmodels.cells.CalibHXNeuronCoba.default_parameters" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.standardmodels.cells.CalibHXNeuronCoba.generate_calibration_targets">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">generate_calibration_targets</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">population</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyNN.common.populations.Population</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">pygrenade_common.CompartmentOnNeuron</span><span class="p"><span class="pre">,</span> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">_pygrenade_vx_network_abstract.CalibratedNeuron.ParameterSpace.CalibrationTarget</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#pynn_brainscales.brainscales2.standardmodels.cells.CalibHXNeuronCoba.generate_calibration_targets" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.standardmodels.cells.CalibHXNeuronCoba.generate_input_data">
+<code class="sig-name descname"><span class="pre">generate_input_data</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">population</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyNN.common.populations.Population</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">experiment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="pygrenade_vx.network.abstract.frontend.ExperimentSnippet.html#pygrenade_vx.network.abstract.frontend.ExperimentSnippet" title="pygrenade_vx.network.abstract.frontend.ExperimentSnippet"><span class="pre">pygrenade_vx.network.abstract.frontend.ExperimentSnippet</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">snippet_begin_time</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">snippet_end_time</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">pygrenade_common.PortData</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#pynn_brainscales.brainscales2.standardmodels.cells.CalibHXNeuronCoba.generate_input_data" title="Permalink to this definition"></a></dt>
+<dd><p>Generate input data for this population.
+:param population: Population featuring this cell’s celltype
+:param experiment: Experiment snippet to generate data for
+:param snippet_begin_time: Begin time of snippet
+:param snippet_end_time: End time of snippet
+:return: Population input data</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.standardmodels.cells.CalibHXNeuronCoba.generate_vertex">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">generate_vertex</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">population</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyNN.common.populations.Population</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">pygrenade_common.Population</span><a class="headerlink" href="#pynn_brainscales.brainscales2.standardmodels.cells.CalibHXNeuronCoba.generate_vertex" title="Permalink to this definition"></a></dt>
+<dd><p>Generate vertex representation for this population.
+:param population: Population featuring this cell’s celltype
+:return: Population vertex</p>
+</dd></dl>
 
 <dl class="py attribute">
 <dt id="pynn_brainscales.brainscales2.standardmodels.cells.CalibHXNeuronCoba.param_trans">

@@ -151,14 +151,14 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.standardmodels.cells.SpikeSourcePoissonOnChip.__init__" title="pynn_brainscales.brainscales2.standardmodels.cells.SpikeSourcePoissonOnChip.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(rate, seed)</p></td>
 <td><p>Initialize self.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.standardmodels.cells.SpikeSourcePoissonOnChip.add_to_input_generator" title="pynn_brainscales.brainscales2.standardmodels.cells.SpikeSourcePoissonOnChip.add_to_input_generator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_to_input_generator</span></code></a>(population, builder, …)</p></td>
-<td><p>Add external events to input generator.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.standardmodels.cells.SpikeSourcePoissonOnChip.add_to_network_graph" title="pynn_brainscales.brainscales2.standardmodels.cells.SpikeSourcePoissonOnChip.add_to_network_graph"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_to_network_graph</span></code></a>(population, builder)</p></td>
-<td><p>Add population to network builder.</p></td>
-</tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.standardmodels.cells.SpikeSourcePoissonOnChip.can_record" title="pynn_brainscales.brainscales2.standardmodels.cells.SpikeSourcePoissonOnChip.can_record"><code class="xref py py-obj docutils literal notranslate"><span class="pre">can_record</span></code></a>(variable[, location])</p></td>
 <td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.standardmodels.cells.SpikeSourcePoissonOnChip.generate_input_data" title="pynn_brainscales.brainscales2.standardmodels.cells.SpikeSourcePoissonOnChip.generate_input_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_input_data</span></code></a>(population, experiment, …)</p></td>
+<td><p>Generate input data for this population.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.standardmodels.cells.SpikeSourcePoissonOnChip.generate_vertex" title="pynn_brainscales.brainscales2.standardmodels.cells.SpikeSourcePoissonOnChip.generate_vertex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_vertex</span></code></a>(population)</p></td>
+<td><p>Generate vertex representation for this population.</p></td>
 </tr>
 </tbody>
 </table>
@@ -180,23 +180,6 @@
 </tr>
 </tbody>
 </table>
-<dl class="py method">
-<dt id="pynn_brainscales.brainscales2.standardmodels.cells.SpikeSourcePoissonOnChip.add_to_input_generator">
-<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">add_to_input_generator</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">population</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyNN.common.populations.Population</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">builder</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network.InputGenerator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">snippet_begin_time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">snippet_end_time</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.standardmodels.cells.SpikeSourcePoissonOnChip.add_to_input_generator" title="Permalink to this definition"></a></dt>
-<dd><p>Add external events to input generator.
-:param population: Population to add featuring this cell’s celltype.
-:param builder: Input builder to add external events to.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="pynn_brainscales.brainscales2.standardmodels.cells.SpikeSourcePoissonOnChip.add_to_network_graph">
-<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">add_to_network_graph</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">population</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyNN.common.populations.Population</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">builder</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network.NetworkBuilder</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">_pygrenade_vx_network.PopulationOnNetwork</span><a class="headerlink" href="#pynn_brainscales.brainscales2.standardmodels.cells.SpikeSourcePoissonOnChip.add_to_network_graph" title="Permalink to this definition"></a></dt>
-<dd><p>Add population to network builder.
-:param population: Population to add featuring this cell’s celltype.
-:param builder: Network builder to add population to.
-:return: Descriptor of added population</p>
-</dd></dl>
-
 <dl class="py attribute">
 <dt id="pynn_brainscales.brainscales2.standardmodels.cells.SpikeSourcePoissonOnChip.background_source_clock_freq">
 <code class="sig-name descname"><span class="pre">background_source_clock_freq</span></code><em class="property"><span class="pre">:</span> <span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">250000000.0</span></em><a class="headerlink" href="#pynn_brainscales.brainscales2.standardmodels.cells.SpikeSourcePoissonOnChip.background_source_clock_freq" title="Permalink to this definition"></a></dt>
@@ -206,6 +189,25 @@
 <dt id="pynn_brainscales.brainscales2.standardmodels.cells.SpikeSourcePoissonOnChip.can_record">
 <code class="sig-name descname"><span class="pre">can_record</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variable</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#pynn_brainscales.brainscales2.standardmodels.cells.SpikeSourcePoissonOnChip.can_record" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.standardmodels.cells.SpikeSourcePoissonOnChip.generate_input_data">
+<code class="sig-name descname"><span class="pre">generate_input_data</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">population</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyNN.common.populations.Population</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">experiment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="pygrenade_vx.network.abstract.frontend.ExperimentSnippet.html#pygrenade_vx.network.abstract.frontend.ExperimentSnippet" title="pygrenade_vx.network.abstract.frontend.ExperimentSnippet"><span class="pre">pygrenade_vx.network.abstract.frontend.ExperimentSnippet</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">snippet_begin_time</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">snippet_end_time</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">pygrenade_common.PortData</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#pynn_brainscales.brainscales2.standardmodels.cells.SpikeSourcePoissonOnChip.generate_input_data" title="Permalink to this definition"></a></dt>
+<dd><p>Generate input data for this population.
+:param population: Population featuring this cell’s celltype
+:param experiment: Experiment snippet to generate data for
+:param snippet_begin_time: Begin time of snippet
+:param snippet_end_time: End time of snippet
+:return: Population input data</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.standardmodels.cells.SpikeSourcePoissonOnChip.generate_vertex">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">generate_vertex</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">population</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyNN.common.populations.Population</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">pygrenade_common.Population</span><a class="headerlink" href="#pynn_brainscales.brainscales2.standardmodels.cells.SpikeSourcePoissonOnChip.generate_vertex" title="Permalink to this definition"></a></dt>
+<dd><p>Generate vertex representation for this population.
+:param population: Population featuring this cell’s celltype
+:return: Population vertex</p>
+</dd></dl>
 
 <dl class="py attribute">
 <dt id="pynn_brainscales.brainscales2.standardmodels.cells.SpikeSourcePoissonOnChip.recordable">

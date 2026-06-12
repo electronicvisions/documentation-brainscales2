@@ -48,6 +48,7 @@
 <li class="toctree-l3"><a class="reference internal" href="pynn_brainscales.brainscales2.html">pynn_brainscales.brainscales2</a></li>
 <li class="toctree-l3"><a class="reference internal" href="jaxsnn.html">jaxsnn</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="hxtorch.html">hxtorch</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="hxtorch.core.html">hxtorch.core</a></li>
 <li class="toctree-l4"><a class="reference internal" href="hxtorch.examples.html">hxtorch.examples</a></li>
 <li class="toctree-l4"><a class="reference internal" href="hxtorch.perceptron.html">hxtorch.perceptron</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="hxtorch.spiking.html">hxtorch.spiking</a></li>
@@ -99,25 +100,13 @@
 <h1>hxtorch.spiking.utils.from_nir.Experiment<a class="headerlink" href="#hxtorch-spiking-utils-from-nir-experiment" title="Permalink to this headline"></a></h1>
 <dl class="py class">
 <dt id="hxtorch.spiking.utils.from_nir.Experiment">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.utils.from_nir.</span></code><code class="sig-name descname"><span class="pre">Experiment</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">mock:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></em>, <em class="sig-param"><span class="pre">dt:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">1e-06</span></em>, <em class="sig-param"><span class="pre">hw_routing_func=&lt;_pygrenade_vx_network_routing.PortfolioRouter</span> <span class="pre">object&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.utils.from_nir.Experiment" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="hxtorch.spiking.experiment.BaseExperiment.html#hxtorch.spiking.experiment.BaseExperiment" title="hxtorch.spiking.experiment.BaseExperiment"><code class="xref py py-class docutils literal notranslate"><span class="pre">hxtorch.spiking.experiment.BaseExperiment</span></code></a></p>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.utils.from_nir.</span></code><code class="sig-name descname"><span class="pre">Experiment</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mock</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1e-06</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inter_batch_entry_wait</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.utils.from_nir.Experiment" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="hxtorch.core.experiment.BaseExperiment.html#hxtorch.core.experiment.BaseExperiment" title="hxtorch.core.experiment.BaseExperiment"><code class="xref py py-class docutils literal notranslate"><span class="pre">hxtorch.core.experiment.BaseExperiment</span></code></a></p>
 <p>Experiment class for describing experiments on hardware</p>
 <dl class="py method">
 <dt id="hxtorch.spiking.utils.from_nir.Experiment.__init__">
-<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">mock:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></em>, <em class="sig-param"><span class="pre">dt:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">1e-06</span></em>, <em class="sig-param"><span class="pre">hw_routing_func=&lt;_pygrenade_vx_network_routing.PortfolioRouter</span> <span class="pre">object&gt;</span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.utils.from_nir.Experiment.__init__" title="Permalink to this definition"></a></dt>
-<dd><p>Instantiate a new experiment, representing an experiment on hardware
-and/or in software.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>mock</strong> – Indicating whether module is executed on hardware (False)
-or simulated in software (True).</p></li>
-<li><p><strong>input_loopback</strong> – Record input spikes and use them for gradient
-calculation. Depending on link congestion, this may or may not be
-beneficial for the calculated gradient’s precision.</p></li>
-</ul>
-</dd>
-</dl>
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mock</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1e-06</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inter_batch_entry_wait</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.utils.from_nir.Experiment.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
 <p class="rubric">Methods</p>
@@ -127,26 +116,23 @@ beneficial for the calculated gradient’s precision.</p></li>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.utils.from_nir.Experiment.__init__" title="hxtorch.spiking.utils.from_nir.Experiment.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([mock, dt, hw_routing_func])</p></td>
-<td><p>Instantiate a new experiment, representing an experiment on hardware and/or in software.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.utils.from_nir.Experiment.__init__" title="hxtorch.spiking.utils.from_nir.Experiment.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(*args[, mock, dt, …])</p></td>
+<td><p>Initialize self.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.utils.from_nir.Experiment.clear" title="hxtorch.spiking.utils.from_nir.Experiment.clear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear</span></code></a>()</p></td>
-<td><p>Reset the experiments’s state.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.utils.from_nir.Experiment.connect" title="hxtorch.spiking.utils.from_nir.Experiment.connect"><code class="xref py py-obj docutils literal notranslate"><span class="pre">connect</span></code></a>(module, input_handles, output_handle)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.utils.from_nir.Experiment.connect" title="hxtorch.spiking.utils.from_nir.Experiment.connect"><code class="xref py py-obj docutils literal notranslate"><span class="pre">connect</span></code></a>(module, input_handles, output_handle)</p></td>
 <td><p>Add an module to the experiment and connect it to other experiment modules via input and output handles.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.utils.from_nir.Experiment.connect_wrapper" title="hxtorch.spiking.utils.from_nir.Experiment.connect_wrapper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">connect_wrapper</span></code></a>(wrapper)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.utils.from_nir.Experiment.connect_wrapper" title="hxtorch.spiking.utils.from_nir.Experiment.connect_wrapper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">connect_wrapper</span></code></a>(wrapper)</p></td>
 <td><p>Add a wrapper module to the experiment and assign it to the experiments modules.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.utils.from_nir.Experiment.get_hw_results" title="hxtorch.spiking.utils.from_nir.Experiment.get_hw_results"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_hw_results</span></code></a>(runtime)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.utils.from_nir.Experiment.get_source_handle" title="hxtorch.spiking.utils.from_nir.Experiment.get_source_handle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_source_handle</span></code></a>(module)</p></td>
+<td><p>Generate external input events</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.utils.from_nir.Experiment.post_mapping_hook" title="hxtorch.spiking.utils.from_nir.Experiment.post_mapping_hook"><code class="xref py py-obj docutils literal notranslate"><span class="pre">post_mapping_hook</span></code></a>()</p></td>
+<td><p>Hook to be executed after mapping, but before execution.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.utils.from_nir.Experiment.run" title="hxtorch.spiking.utils.from_nir.Experiment.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>(runtime)</p></td>
 <td><p>Executes the experiment in mock or on hardware using the information added to the experiment for a time given by <cite>runtime</cite> and returns a dict of hardware data represented as PyTorch data types.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.utils.from_nir.Experiment.register_population" title="hxtorch.spiking.utils.from_nir.Experiment.register_population"><code class="xref py py-obj docutils literal notranslate"><span class="pre">register_population</span></code></a>(module)</p></td>
-<td><p>Register a module as population.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.utils.from_nir.Experiment.register_projection" title="hxtorch.spiking.utils.from_nir.Experiment.register_projection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">register_projection</span></code></a>(module)</p></td>
-<td><p>Register a module as projection.</p></td>
 </tr>
 </tbody>
 </table>
@@ -157,8 +143,8 @@ beneficial for the calculated gradient’s precision.</p></li>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.utils.from_nir.Experiment.default_execution_instance" title="hxtorch.spiking.utils.from_nir.Experiment.default_execution_instance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">default_execution_instance</span></code></a></p></td>
-<td><p>Getter for the default <code class="docutils literal notranslate"><span class="pre">ExecutionInstance</span></code> object.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.utils.from_nir.Experiment.batch_size" title="hxtorch.spiking.utils.from_nir.Experiment.batch_size"><code class="xref py py-obj docutils literal notranslate"><span class="pre">batch_size</span></code></a></p></td>
+<td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.utils.from_nir.Experiment.last_run_chip_configs" title="hxtorch.spiking.utils.from_nir.Experiment.last_run_chip_configs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">last_run_chip_configs</span></code></a></p></td>
 <td><p></p></td>
@@ -166,15 +152,13 @@ beneficial for the calculated gradient’s precision.</p></li>
 </tbody>
 </table>
 <dl class="py method">
-<dt id="hxtorch.spiking.utils.from_nir.Experiment.clear">
-<code class="sig-name descname"><span class="pre">clear</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.utils.from_nir.Experiment.clear" title="Permalink to this definition"></a></dt>
-<dd><p>Reset the experiments’s state. Corresponds to creating a new Experiment
-instance.</p>
-</dd></dl>
+<dt id="hxtorch.spiking.utils.from_nir.Experiment.batch_size">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">batch_size</span></code><a class="headerlink" href="#hxtorch.spiking.utils.from_nir.Experiment.batch_size" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt id="hxtorch.spiking.utils.from_nir.Experiment.connect">
-<code class="sig-name descname"><span class="pre">connect</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.nn.modules.module.Module</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_handles</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">types.Handle_tensor</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_handle</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">types.Handle_tensor</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.utils.from_nir.Experiment.connect" title="Permalink to this definition"></a></dt>
+<code class="sig-name descname"><span class="pre">connect</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">HXBaseModule</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_handles</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Handle</span><span class="p"><span class="pre">,</span> </span><span class="p"><span class="pre">…</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_handle</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Handle</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Handle</span><a class="headerlink" href="#hxtorch.spiking.utils.from_nir.Experiment.connect" title="Permalink to this definition"></a></dt>
 <dd><p>Add an module to the experiment and connect it to other experiment
 modules via input and output handles.</p>
 <dl class="field-list simple">
@@ -192,7 +176,7 @@ serving as input to subsequent HXModules.</p></li>
 
 <dl class="py method">
 <dt id="hxtorch.spiking.utils.from_nir.Experiment.connect_wrapper">
-<code class="sig-name descname"><span class="pre">connect_wrapper</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wrapper</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="hxtorch.spiking.modules.hx_module_wrapper.HXModuleWrapper.html#hxtorch.spiking.modules.hx_module_wrapper.HXModuleWrapper" title="hxtorch.spiking.modules.hx_module_wrapper.HXModuleWrapper"><span class="pre">hxtorch.spiking.modules.hx_module_wrapper.HXModuleWrapper</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.utils.from_nir.Experiment.connect_wrapper" title="Permalink to this definition"></a></dt>
+<code class="sig-name descname"><span class="pre">connect_wrapper</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wrapper</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">HXModuleWrapper</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.utils.from_nir.Experiment.connect_wrapper" title="Permalink to this definition"></a></dt>
 <dd><p>Add a wrapper module to the experiment and assign it to the experiments
 modules. In the PyTorch graph the individual module functions assigned
 to the wrapper are then bypassed and only the wrapper’s <cite>forward_func</cite>
@@ -207,22 +191,26 @@ represented by one PyTorch function.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="hxtorch.spiking.utils.from_nir.Experiment.default_execution_instance">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">default_execution_instance</span></code><a class="headerlink" href="#hxtorch.spiking.utils.from_nir.Experiment.default_execution_instance" title="Permalink to this definition"></a></dt>
-<dd><p>Getter for the default <code class="docutils literal notranslate"><span class="pre">ExecutionInstance</span></code> object. All modules that
-have the same <code class="docutils literal notranslate"><span class="pre">Experiment</span></code> instance assigned and do not hold an
-explicit <code class="docutils literal notranslate"><span class="pre">ExecutionInstance</span></code> are assigned to this default execution
-instance.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The default execution instance</p>
-</dd>
-</dl>
+<dt id="hxtorch.spiking.utils.from_nir.Experiment.get_source_handle">
+<code class="sig-name descname"><span class="pre">get_source_handle</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.utils.from_nir.Experiment.get_source_handle" title="Permalink to this definition"></a></dt>
+<dd><p>Generate external input events</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="hxtorch.spiking.utils.from_nir.Experiment.get_hw_results">
-<code class="sig-name descname"><span class="pre">get_hw_results</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">runtime</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">_pygrenade_vx_network.PopulationOnNetwork</span><span class="p"><span class="pre">,</span> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="p"><span class="pre">…</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#hxtorch.spiking.utils.from_nir.Experiment.get_hw_results" title="Permalink to this definition"></a></dt>
+<dt id="hxtorch.spiking.utils.from_nir.Experiment.last_run_chip_configs">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">last_run_chip_configs</span></code><a class="headerlink" href="#hxtorch.spiking.utils.from_nir.Experiment.last_run_chip_configs" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="hxtorch.spiking.utils.from_nir.Experiment.post_mapping_hook">
+<code class="sig-name descname"><span class="pre">post_mapping_hook</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.utils.from_nir.Experiment.post_mapping_hook" title="Permalink to this definition"></a></dt>
+<dd><p>Hook to be executed after mapping, but before execution. Can be used to
+set hardware parameters that depend on the mapping.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="hxtorch.spiking.utils.from_nir.Experiment.run">
+<code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">runtime</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span> <span class="p"><span class="pre">|</span></span> <span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.utils.from_nir.Experiment.run" title="Permalink to this definition"></a></dt>
 <dd><p>Executes the experiment in mock or on hardware using the information
 added to the experiment for a time given by <cite>runtime</cite> and returns a
 dict of hardware data represented as PyTorch data types.</p>
@@ -234,33 +222,6 @@ dict of hardware data represented as PyTorch data types.</p>
 <dd class="field-even"><p>Returns the data map as dict, where the keys are the
 population descriptors and values are tuples of values returned by
 the corresponding module’s <cite>post_process</cite> method.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="hxtorch.spiking.utils.from_nir.Experiment.last_run_chip_configs">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">last_run_chip_configs</span></code><a class="headerlink" href="#hxtorch.spiking.utils.from_nir.Experiment.last_run_chip_configs" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="hxtorch.spiking.utils.from_nir.Experiment.register_population">
-<code class="sig-name descname"><span class="pre">register_population</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="hxtorch.spiking.modules.hx_module.HXModule.html#hxtorch.spiking.modules.hx_module.HXModule" title="hxtorch.spiking.modules.hx_module.HXModule"><span class="pre">hxtorch.spiking.modules.hx_module.HXModule</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.utils.from_nir.Experiment.register_population" title="Permalink to this definition"></a></dt>
-<dd><p>Register a module as population.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>module</strong> – The module to register as population.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="hxtorch.spiking.utils.from_nir.Experiment.register_projection">
-<code class="sig-name descname"><span class="pre">register_projection</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="hxtorch.spiking.modules.hx_module.HXModule.html#hxtorch.spiking.modules.hx_module.HXModule" title="hxtorch.spiking.modules.hx_module.HXModule"><span class="pre">hxtorch.spiking.modules.hx_module.HXModule</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.utils.from_nir.Experiment.register_projection" title="Permalink to this definition"></a></dt>
-<dd><p>Register a module as projection.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>module</strong> – The module to register as projection.</p>
 </dd>
 </dl>
 </dd></dl>

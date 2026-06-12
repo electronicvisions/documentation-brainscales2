@@ -16,7 +16,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="hxtorch.examples" href="hxtorch.examples.html" />
+    <link rel="next" title="hxtorch.core" href="hxtorch.core.html" />
     <link rel="prev" title="jaxsnn.ConversionConfig" href="jaxsnn.ConversionConfig.html" /> 
 </head>
 
@@ -48,6 +48,7 @@
 <li class="toctree-l3"><a class="reference internal" href="pynn_brainscales.brainscales2.html">pynn_brainscales.brainscales2</a></li>
 <li class="toctree-l3"><a class="reference internal" href="jaxsnn.html">jaxsnn</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">hxtorch</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hxtorch.core.html">hxtorch.core</a></li>
 <li class="toctree-l4"><a class="reference internal" href="hxtorch.examples.html">hxtorch.examples</a></li>
 <li class="toctree-l4"><a class="reference internal" href="hxtorch.perceptron.html">hxtorch.perceptron</a></li>
 <li class="toctree-l4"><a class="reference internal" href="hxtorch.spiking.html">hxtorch.spiking</a></li>
@@ -100,13 +101,16 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.examples.html#module-hxtorch.examples" title="hxtorch.examples"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hxtorch.examples</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.core.html#module-hxtorch.core" title="hxtorch.core"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hxtorch.core</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.perceptron.html#module-hxtorch.perceptron" title="hxtorch.perceptron"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hxtorch.perceptron</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.examples.html#module-hxtorch.examples" title="hxtorch.examples"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hxtorch.examples</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.html#module-hxtorch.spiking" title="hxtorch.spiking"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hxtorch.spiking</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.perceptron.html#module-hxtorch.perceptron" title="hxtorch.perceptron"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hxtorch.perceptron</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.html#module-hxtorch.spiking" title="hxtorch.spiking"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hxtorch.spiking</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -129,12 +133,17 @@
 <p class="rubric">Functions</p>
 <dl class="py function">
 <dt id="hxtorch.dense_spikes_to_list">
-<code class="sig-prename descclassname"><span class="pre">hxtorch.</span></code><code class="sig-name descname"><span class="pre">dense_spikes_to_list</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spikes</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.int32</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float32</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_size</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#hxtorch.dense_spikes_to_list" title="Permalink to this definition"></a></dt>
+<code class="sig-prename descclassname"><span class="pre">hxtorch.</span></code><code class="sig-name descname"><span class="pre">dense_spikes_to_list</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spikes</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.int32</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float32</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_size</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">_pygrenade_vx_common.Time</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#hxtorch.dense_spikes_to_list" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="hxtorch.extract_n_madc">
+<code class="sig-prename descclassname"><span class="pre">hxtorch.</span></code><code class="sig-name descname"><span class="pre">extract_n_madc</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">samples</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">_pygrenade_vx_common.Time</span><span class="p"><span class="pre">,</span> </span><span class="pre">pyhaldls_vx_v3.MADCSampleFromChip.Value</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_samples</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.int32</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.int32</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#hxtorch.extract_n_madc" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt id="hxtorch.extract_n_spikes">
-<code class="sig-prename descclassname"><span class="pre">hxtorch.</span></code><code class="sig-name descname"><span class="pre">extract_n_spikes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_signal_flow.OutputData</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">network_graph</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network.NetworkGraph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">runtime</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_spikes</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">_pygrenade_vx_network.PopulationOnNetwork</span><span class="p"><span class="pre">,</span> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">_pygrenade_vx_network.PopulationOnNetwork</span><span class="p"><span class="pre">,</span> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.int32</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float32</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#hxtorch.extract_n_spikes" title="Permalink to this definition"></a></dt>
+<code class="sig-prename descclassname"><span class="pre">hxtorch.</span></code><code class="sig-name descname"><span class="pre">extract_n_spikes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spike_times</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">_pygrenade_vx_common.Time</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_events</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_spikes</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.int32</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float32</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#hxtorch.extract_n_spikes" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
@@ -173,16 +182,6 @@ without any calibration.</p>
 <dd><p>Release hardware resource</p>
 </dd></dl>
 
-<dl class="py function">
-<dt id="hxtorch.weight_to_connection">
-<code class="sig-prename descclassname"><span class="pre">hxtorch.</span></code><code class="sig-name descname"><span class="pre">weight_to_connection</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.weight_to_connection" title="Permalink to this definition"></a></dt>
-<dd><p>Overloaded function.</p>
-<ol class="arabic simple">
-<li><p>weight_to_connection(weight: numpy.ndarray[numpy.int32]) -&gt; list[_pygrenade_vx_network.Projection.Connection]</p></li>
-<li><p>weight_to_connection(weight: numpy.ndarray[numpy.int32], connections: list[list[int]]) -&gt; list[_pygrenade_vx_network.Projection.Connection]</p></li>
-</ol>
-</dd></dl>
-
 </div>
 
 
@@ -190,7 +189,7 @@ without any calibration.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="jaxsnn.ConversionConfig.html" class="btn btn-neutral float-left" title="jaxsnn.ConversionConfig" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="hxtorch.examples.html" class="btn btn-neutral float-right" title="hxtorch.examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="hxtorch.core.html" class="btn btn-neutral float-right" title="hxtorch.core" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

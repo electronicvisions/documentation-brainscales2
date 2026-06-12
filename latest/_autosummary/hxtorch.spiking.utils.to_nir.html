@@ -17,7 +17,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="hxtorch.spiking.utils.to_nir.AELIF" href="hxtorch.spiking.utils.to_nir.AELIF.html" />
-    <link rel="prev" title="hxtorch.spiking.utils.readout_source.ReadoutSource" href="hxtorch.spiking.utils.readout_source.ReadoutSource.html" /> 
+    <link rel="prev" title="hxtorch.spiking.utils.model_mapper.MixinHXModelMapper" href="hxtorch.spiking.utils.model_mapper.MixinHXModelMapper.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -48,6 +48,7 @@
 <li class="toctree-l3"><a class="reference internal" href="pynn_brainscales.brainscales2.html">pynn_brainscales.brainscales2</a></li>
 <li class="toctree-l3"><a class="reference internal" href="jaxsnn.html">jaxsnn</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="hxtorch.html">hxtorch</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="hxtorch.core.html">hxtorch.core</a></li>
 <li class="toctree-l4"><a class="reference internal" href="hxtorch.examples.html">hxtorch.examples</a></li>
 <li class="toctree-l4"><a class="reference internal" href="hxtorch.perceptron.html">hxtorch.perceptron</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="hxtorch.spiking.html">hxtorch.spiking</a></li>
@@ -107,7 +108,7 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.utils.to_nir.AELIF.html#hxtorch.spiking.utils.to_nir.AELIF" title="hxtorch.spiking.utils.to_nir.AELIF"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AELIF</span></code></a>(size, experiment, leak, reset, …)</p></td>
 <td><p>Layer of neurons with configurable dynamics up to adaptive exponential leaky integrate-and-fire complexity.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.utils.to_nir.Experiment.html#hxtorch.spiking.utils.to_nir.Experiment" title="hxtorch.spiking.utils.to_nir.Experiment"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment</span></code></a>(mock, dt[, hw_routing_func])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.utils.to_nir.Experiment.html#hxtorch.spiking.utils.to_nir.Experiment" title="hxtorch.spiking.utils.to_nir.Experiment"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment</span></code></a>(*args, mock, dt, …)</p></td>
 <td><p>Experiment class for describing experiments on hardware</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.utils.to_nir.SNN.html#hxtorch.spiking.utils.to_nir.SNN" title="hxtorch.spiking.utils.to_nir.SNN"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SNN</span></code></a>(dt, mock, device)</p></td>
@@ -121,7 +122,7 @@
 <p class="rubric">Functions</p>
 <dl class="py function">
 <dt id="hxtorch.spiking.utils.to_nir.run">
-<code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.utils.to_nir.</span></code><code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">experiment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="hxtorch.spiking.experiment.Experiment.html#hxtorch.spiking.experiment.Experiment" title="hxtorch.spiking.experiment.Experiment"><span class="pre">hxtorch.spiking.experiment.Experiment</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">runtime</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="hxtorch.spiking.execution_info.ExecutionInfo.html#hxtorch.spiking.execution_info.ExecutionInfo" title="hxtorch.spiking.execution_info.ExecutionInfo"><span class="pre">hxtorch.spiking.execution_info.ExecutionInfo</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#hxtorch.spiking.utils.to_nir.run" title="Permalink to this definition"></a></dt>
+<code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.utils.to_nir.</span></code><code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">experiment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="hxtorch.spiking.experiment.Experiment.html#hxtorch.spiking.experiment.Experiment" title="hxtorch.spiking.experiment.Experiment"><span class="pre">hxtorch.spiking.experiment.Experiment</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">runtime</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Optional</span><a class="headerlink" href="#hxtorch.spiking.utils.to_nir.run" title="Permalink to this definition"></a></dt>
 <dd><p>Execute the given experiment.</p>
 <p>TODO: Why is this a standalone function?</p>
 <dl class="field-list simple">
@@ -158,7 +159,7 @@ NIR (e.g. Synapse, AELIF).</p></li>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="hxtorch.spiking.utils.readout_source.ReadoutSource.html" class="btn btn-neutral float-left" title="hxtorch.spiking.utils.readout_source.ReadoutSource" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="hxtorch.spiking.utils.model_mapper.MixinHXModelMapper.html" class="btn btn-neutral float-left" title="hxtorch.spiking.utils.model_mapper.MixinHXModelMapper" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="hxtorch.spiking.utils.to_nir.AELIF.html" class="btn btn-neutral float-right" title="hxtorch.spiking.utils.to_nir.AELIF" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

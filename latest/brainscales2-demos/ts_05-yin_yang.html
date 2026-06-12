@@ -223,6 +223,7 @@ a hardware calibration which might take a long time.</p>
 <span class="kn">import</span> <span class="nn">hxtorch</span>
 <span class="kn">import</span> <span class="nn">hxtorch.snn</span> <span class="k">as</span> <span class="nn">hxsnn</span>
 <span class="kn">import</span> <span class="nn">hxtorch.snn.functional</span> <span class="k">as</span> <span class="nn">F</span>
+<span class="kn">from</span> <span class="nn">hxtorch.core.utils</span> <span class="kn">import</span> <span class="n">calib_helper</span>
 <span class="kn">from</span> <span class="nn">hxtorch.snn.transforms</span> <span class="kn">import</span> <span class="n">weight_transforms</span>
 <span class="kn">from</span> <span class="nn">dlens_vx_v3</span> <span class="kn">import</span> <span class="n">halco</span>
 
@@ -292,9 +293,9 @@ a hardware calibration which might take a long time.</p>
         <span class="c1"># To avoid time-consuming implicit calibration from given parameters</span>
         <span class="c1"># we load a prepared calibration. Note, that changing &quot;Neuron&quot;</span>
         <span class="c1"># hardware parameters become ineffective</span>
-        <span class="n">save_nightly_calibration</span><span class="p">(</span><span class="s1">&#39;spiking2_calix-native.pkl&#39;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">experiment</span><span class="o">.</span><span class="n">default_execution_instance</span><span class="o">.</span><span class="n">load_calib</span><span class="p">(</span>
-            <span class="s2">&quot;spiking2_calix-native.pkl&quot;</span><span class="p">)</span>
+        <span class="c1">#save_nightly_calibration(&#39;spiking2_calix-native.pkl&#39;)</span>
+        <span class="c1">#experiment.calibration = calib_helper.fixture_calibration_from_file(</span>
+        <span class="c1">#    &quot;spiking2_calix-native.pkl&quot;)</span>
 
         <span class="c1"># Repeat input</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">input_repetitions</span> <span class="o">=</span> <span class="n">input_repetitions</span>
@@ -350,7 +351,7 @@ a hardware calibration which might take a long time.</p>
             <span class="n">shift_cadc_to_first</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
             <span class="n">placement_constraint</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span>
                 <span class="n">halco</span><span class="o">.</span><span class="n">LogicalNeuronOnDLS</span><span class="p">(</span>
-                    <span class="n">hxsnn</span><span class="o">.</span><span class="n">morphology</span><span class="o">.</span><span class="n">SingleCompartmentNeuron</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">compartments</span><span class="p">,</span>
+                    <span class="n">hxtorch</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">morphology</span><span class="o">.</span><span class="n">SingleCompartmentNeuron</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">compartments</span><span class="p">,</span>
                     <span class="n">halco</span><span class="o">.</span><span class="n">AtomicNeuronOnDLS</span><span class="p">(</span>
                         <span class="n">halco</span><span class="o">.</span><span class="n">NeuronRowOnDLS</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">halco</span><span class="o">.</span><span class="n">NeuronColumnOnDLS</span><span class="p">(</span><span class="n">nrn</span><span class="p">)))</span>
                 <span class="k">for</span> <span class="n">nrn</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_out</span><span class="p">)))</span>
@@ -1034,19 +1035,89 @@ and one for the <code class="docutils literal notranslate"><span class="pre">Syn
             <span class="n">spikes</span><span class="o">=</span><span class="n">spikes</span><span class="p">,</span> <span class="n">membrane_cadc</span><span class="o">=</span><span class="n">membrane_cadc</span><span class="p">,</span> <span class="n">current</span><span class="o">=</span><span class="n">current</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">EventPropSNN</span><span class="p">(</span><span class="n">SNN</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">EventPropSNN</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; SNN with one hidden LIF layer and one readout LI layer &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">n_in</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+            <span class="n">n_hidden</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+            <span class="n">n_out</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+            <span class="n">mock</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
+            <span class="n">dt</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+            <span class="n">tau_mem</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+            <span class="n">tau_syn</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+            <span class="n">alpha</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+            <span class="n">trace_shift_hidden</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+            <span class="n">trace_shift_out</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+            <span class="n">weight_init_hidden</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">],</span>
+            <span class="n">weight_init_output</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">],</span>
+            <span class="n">weight_scale</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+            <span class="n">trace_scale</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+            <span class="n">input_repetitions</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+            <span class="n">device</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param n_in: Number of input units.</span>
+<span class="sd">        :param n_hidden: Number of hidden units.</span>
+<span class="sd">        :param n_out: Number of output units.</span>
+<span class="sd">        :param mock: Indicating whether to train in software or on hardware.</span>
+<span class="sd">        :param dt: Time-binning width.</span>
+<span class="sd">        :param tau_mem: Membrane time constant.</span>
+<span class="sd">        :param tau_syn: Synaptic time constant.</span>
+<span class="sd">        :param trace_shift_hidden: Indicates how many indices the membrane</span>
+<span class="sd">            trace of hidden layer is shifted to left along time axis.</span>
+<span class="sd">        :param trace_shift_out: Indicates how many indices the membrane</span>
+<span class="sd">            trace of readout layer is shifted to left along time axis.</span>
+<span class="sd">        :param weight_init_hidden: Hidden layer weight initialization mean</span>
+<span class="sd">            and std value.</span>
+<span class="sd">        :param weight_init_output: Output layer weight initialization mean</span>
+<span class="sd">            and std value.</span>
+<span class="sd">        :param weight_scale: The factor with which the software weights are</span>
+<span class="sd">            scaled when mapped to hardware.</span>
+<span class="sd">        :param input_repetitions: Number of times to repeat input channels.</span>
+<span class="sd">        :param device: The used PyTorch device used for tensor operations in</span>
+<span class="sd">            software.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">dt</span> <span class="o">=</span> <span class="n">dt</span>
+
+        <span class="c1"># Instance to work on</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_in</span> <span class="o">=</span> <span class="n">n_in</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_hidden</span> <span class="o">=</span> <span class="n">n_hidden</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tau_mem</span> <span class="o">=</span> <span class="n">tau_mem</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tau_syn</span> <span class="o">=</span> <span class="n">tau_syn</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">input_repetitions</span> <span class="o">=</span> <span class="n">input_repetitions</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">weight_scale</span> <span class="o">=</span> <span class="n">weight_scale</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">trace_scale</span> <span class="o">=</span> <span class="n">trace_scale</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">trace_shift_hidden</span> <span class="o">=</span> <span class="n">trace_shift_hidden</span>
+
+        <span class="c1"># Experiment instance</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">experiment</span> <span class="o">=</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">Experiment</span><span class="p">(</span><span class="n">mock</span><span class="o">=</span><span class="n">mock</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="n">dt</span><span class="p">)</span>
+        <span class="c1"># To avoid time-consuming implicit calibration from given parameters</span>
+        <span class="c1"># we load a prepared calibration. Note, that changing &quot;Neuron&quot;</span>
+        <span class="c1"># hardware parameters become ineffective</span>
+        <span class="c1">#save_nightly_calibration(&#39;spiking2_calix-native.pkl&#39;)</span>
+        <span class="c1">#experiment.calibration = calib_helper.fixture_calibration_from_file(</span>
+        <span class="c1">#    &quot;spiking2_calix-native.pkl&quot;)</span>
+
+        <span class="c1"># Repeat input</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">input_repetitions</span> <span class="o">=</span> <span class="n">input_repetitions</span>
+
         <span class="c1"># use EventProp in hidden (spiking) LIF layer</span>
-        <span class="n">weight</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">linear_h</span><span class="o">.</span><span class="n">weight</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">linear_h</span> <span class="o">=</span> <span class="n">EventPropSynapse</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">n_in</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">input_repetitions</span><span class="p">,</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">n_hidden</span><span class="p">,</span>
             <span class="n">experiment</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">experiment</span><span class="p">,</span>
             <span class="n">transform</span><span class="o">=</span><span class="n">partial</span><span class="p">(</span>
                 <span class="n">weight_transforms</span><span class="o">.</span><span class="n">linear_saturating</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">weight_scale</span><span class="p">))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">linear_h</span><span class="o">.</span><span class="n">weight</span> <span class="o">=</span> <span class="n">weight</span>
+
+        <span class="c1"># Initialize weights</span>
+        <span class="k">if</span> <span class="n">weight_init_hidden</span><span class="p">:</span>
+            <span class="n">w</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_hidden</span><span class="p">,</span> <span class="n">n_in</span><span class="p">)</span>
+            <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">init</span><span class="o">.</span><span class="n">normal_</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="o">*</span><span class="n">weight_init_hidden</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">linear_h</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">input_repetitions</span><span class="p">)</span>
+
         <span class="c1"># Hidden layer</span>
         <span class="c1"># trace information is not used in EventProp -&gt;  disable cadc recording</span>
         <span class="c1"># of hidden layer</span>
@@ -1064,6 +1135,66 @@ and one for the <code class="docutils literal notranslate"><span class="pre">Syn
             <span class="n">enable_cadc_recording</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
             <span class="n">cadc_time_shift</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">trace_shift_hidden</span><span class="p">,</span>
             <span class="n">shift_cadc_to_first</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="c1"># Output projection</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">linear_o</span> <span class="o">=</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">Synapse</span><span class="p">(</span>
+            <span class="n">n_hidden</span><span class="p">,</span>
+            <span class="n">n_out</span><span class="p">,</span>
+            <span class="n">experiment</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">experiment</span><span class="p">,</span>
+            <span class="n">transform</span><span class="o">=</span><span class="n">partial</span><span class="p">(</span>
+                <span class="n">weight_transforms</span><span class="o">.</span><span class="n">linear_saturating</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">weight_scale</span><span class="p">))</span>
+
+        <span class="c1"># Readout layer</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">li_readout</span> <span class="o">=</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">LI</span><span class="p">(</span>
+            <span class="n">n_out</span><span class="p">,</span>
+            <span class="n">experiment</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">experiment</span><span class="p">,</span>
+            <span class="n">tau_mem</span><span class="o">=</span><span class="n">tau_mem</span><span class="p">,</span>
+            <span class="n">tau_syn</span><span class="o">=</span><span class="n">tau_syn</span><span class="p">,</span>
+            <span class="n">leak</span><span class="o">=</span><span class="n">hxsnn</span><span class="o">.</span><span class="n">MixedHXModelParameter</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mi">80</span><span class="p">),</span>
+            <span class="n">i_synin_gm</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
+            <span class="n">synapse_dac_bias</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+            <span class="n">trace_scale</span><span class="o">=</span><span class="n">trace_scale</span><span class="p">,</span>
+            <span class="n">cadc_time_shift</span><span class="o">=</span><span class="n">trace_shift_out</span><span class="p">,</span>
+            <span class="n">shift_cadc_to_first</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">placement_constraint</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span>
+                <span class="n">halco</span><span class="o">.</span><span class="n">LogicalNeuronOnDLS</span><span class="p">(</span>
+                    <span class="n">hxtorch</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">morphology</span><span class="o">.</span><span class="n">SingleCompartmentNeuron</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">compartments</span><span class="p">,</span>
+                    <span class="n">halco</span><span class="o">.</span><span class="n">AtomicNeuronOnDLS</span><span class="p">(</span>
+                        <span class="n">halco</span><span class="o">.</span><span class="n">NeuronRowOnDLS</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">halco</span><span class="o">.</span><span class="n">NeuronColumnOnDLS</span><span class="p">(</span><span class="n">nrn</span><span class="p">)))</span>
+                <span class="k">for</span> <span class="n">nrn</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_out</span><span class="p">)))</span>
+
+        <span class="c1"># Initialize weights</span>
+        <span class="k">if</span> <span class="n">weight_init_output</span><span class="p">:</span>
+            <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">init</span><span class="o">.</span><span class="n">normal_</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">linear_o</span><span class="o">.</span><span class="n">weight</span><span class="p">,</span> <span class="o">*</span><span class="n">weight_init_output</span><span class="p">)</span>
+
+        <span class="c1"># Device</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="n">device</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spikes</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Perform a forward path.</span>
+<span class="sd">        :param spikes: LIFObservables holding spikes as input.</span>
+<span class="sd">        :return: Returns the output of the network, i.e. membrane traces of the</span>
+<span class="sd">        readout neurons.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Remember input spikes for plotting</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">s_in</span> <span class="o">=</span> <span class="n">spikes</span>
+        <span class="c1"># Increase synapse strength by repeating each input</span>
+        <span class="n">spikes</span> <span class="o">=</span> <span class="n">spikes</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">input_repetitions</span><span class="p">)</span>
+        <span class="c1"># Spike input handle</span>
+        <span class="n">spikes_handle</span> <span class="o">=</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">LIFObservables</span><span class="p">(</span><span class="n">spikes</span><span class="o">=</span><span class="n">spikes</span><span class="p">)</span>
+
+        <span class="c1"># Forward</span>
+        <span class="n">c_h</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">linear_h</span><span class="p">(</span><span class="n">spikes_handle</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">s_h</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lif_h</span><span class="p">(</span><span class="n">c_h</span><span class="p">)</span>  <span class="c1"># Keep spikes for fire reg.</span>
+        <span class="n">c_o</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">linear_o</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">s_h</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y_o</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">li_readout</span><span class="p">(</span><span class="n">c_o</span><span class="p">)</span>
+
+        <span class="c1"># Execute on hardware</span>
+        <span class="n">hxtorch</span><span class="o">.</span><span class="n">snn</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">experiment</span><span class="p">,</span> <span class="n">spikes</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_o</span><span class="o">.</span><span class="n">membrane_cadc</span>
 </pre></div>
 </div>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N_HIDDEN</span>      <span class="o">=</span> <span class="mi">120</span>

@@ -48,6 +48,7 @@
 <li class="toctree-l3"><a class="reference internal" href="pynn_brainscales.brainscales2.html">pynn_brainscales.brainscales2</a></li>
 <li class="toctree-l3"><a class="reference internal" href="jaxsnn.html">jaxsnn</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="hxtorch.html">hxtorch</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="hxtorch.core.html">hxtorch.core</a></li>
 <li class="toctree-l4"><a class="reference internal" href="hxtorch.examples.html">hxtorch.examples</a></li>
 <li class="toctree-l4"><a class="reference internal" href="hxtorch.perceptron.html">hxtorch.perceptron</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="hxtorch.spiking.html">hxtorch.spiking</a></li>
@@ -99,27 +100,31 @@
 <h1>hxtorch.spiking.utils.to_nir.Synapse<a class="headerlink" href="#hxtorch-spiking-utils-to-nir-synapse" title="Permalink to this headline"></a></h1>
 <dl class="py class">
 <dt id="hxtorch.spiking.utils.to_nir.Synapse">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.utils.to_nir.</span></code><code class="sig-name descname"><span class="pre">Synapse</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">in_features:</span> <span class="pre">int</span></em>, <em class="sig-param"><span class="pre">out_features:</span> <span class="pre">int</span></em>, <em class="sig-param"><span class="pre">experiment:</span> <span class="pre">Experiment</span></em>, <em class="sig-param"><span class="pre">execution_instance:</span> <span class="pre">Optional[ExecutionInstance]</span> <span class="pre">=</span> <span class="pre">None</span></em>, <em class="sig-param"><span class="pre">chip_coordinate:</span> <span class="pre">Optional[Tuple[grenade.common.ChipOnConnection</span></em>, <em class="sig-param"><span class="pre">grenade.common.ConnectionOnExecutor]]</span> <span class="pre">=</span> <span class="pre">None</span></em>, <em class="sig-param"><span class="pre">device:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">None</span></em>, <em class="sig-param"><span class="pre">dtype:</span> <span class="pre">Type</span> <span class="pre">=</span> <span class="pre">None</span></em>, <em class="sig-param"><span class="pre">transform:</span> <span class="pre">Callable</span> <span class="pre">=</span> <span class="pre">&lt;function</span> <span class="pre">linear_saturating&gt;</span></em>, <em class="sig-param"><span class="pre">plasticity_rule:</span> <span class="pre">Optional[grenade.network.PlasticityRule]</span> <span class="pre">=</span> <span class="pre">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.utils.to_nir.Synapse" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="hxtorch.spiking.modules.types.Projection.html#hxtorch.spiking.modules.types.Projection" title="hxtorch.spiking.modules.types.Projection"><code class="xref py py-class docutils literal notranslate"><span class="pre">hxtorch.spiking.modules.types.Projection</span></code></a></p>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.utils.to_nir.</span></code><code class="sig-name descname"><span class="pre">Synapse</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">in_features:</span> <span class="pre">int</span></em>, <em class="sig-param"><span class="pre">out_features:</span> <span class="pre">int</span></em>, <em class="sig-param"><span class="pre">experiment:</span> <span class="pre">Experiment</span></em>, <em class="sig-param"><span class="pre">chip_coordinate:</span> <span class="pre">Optional[Tuple[grenade.common.ChipOnConnection</span></em>, <em class="sig-param"><span class="pre">grenade.common.ConnectionOnExecutor]]</span> <span class="pre">=</span> <span class="pre">None</span></em>, <em class="sig-param"><span class="pre">device:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">None</span></em>, <em class="sig-param"><span class="pre">dtype:</span> <span class="pre">Type</span> <span class="pre">=</span> <span class="pre">None</span></em>, <em class="sig-param"><span class="pre">transform:</span> <span class="pre">Callable</span> <span class="pre">=</span> <span class="pre">&lt;function</span> <span class="pre">linear_saturating&gt;</span></em>, <em class="sig-param"><span class="pre">plasticity_rule:</span> <span class="pre">PlasticityRule</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></em>, <em class="sig-param"><span class="pre">receptor:</span> <span class="pre">Literal['excitatory'</span></em>, <em class="sig-param"><span class="pre">'inhibitory']</span> <span class="pre">|</span> <span class="pre">List[str]</span> <span class="pre">|</span> <span class="pre">Tuple[str</span></em>, <em class="sig-param"><span class="pre">...]</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.utils.to_nir.Synapse" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">hxtorch.spiking.modules.types.projection.Projection</span></code></p>
 <p>Synapse layer</p>
 <p>Caveat:
 For execution on hardware, this module can only be used in conjunction with
 a subsequent Neuron module.</p>
 <dl class="py method">
 <dt id="hxtorch.spiking.utils.to_nir.Synapse.__init__">
-<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">in_features:</span> <span class="pre">int</span></em>, <em class="sig-param"><span class="pre">out_features:</span> <span class="pre">int</span></em>, <em class="sig-param"><span class="pre">experiment:</span> <span class="pre">Experiment</span></em>, <em class="sig-param"><span class="pre">execution_instance:</span> <span class="pre">Optional[ExecutionInstance]</span> <span class="pre">=</span> <span class="pre">None</span></em>, <em class="sig-param"><span class="pre">chip_coordinate:</span> <span class="pre">Optional[Tuple[grenade.common.ChipOnConnection</span></em>, <em class="sig-param"><span class="pre">grenade.common.ConnectionOnExecutor]]</span> <span class="pre">=</span> <span class="pre">None</span></em>, <em class="sig-param"><span class="pre">device:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">None</span></em>, <em class="sig-param"><span class="pre">dtype:</span> <span class="pre">Type</span> <span class="pre">=</span> <span class="pre">None</span></em>, <em class="sig-param"><span class="pre">transform:</span> <span class="pre">Callable</span> <span class="pre">=</span> <span class="pre">&lt;function</span> <span class="pre">linear_saturating&gt;</span></em>, <em class="sig-param"><span class="pre">plasticity_rule:</span> <span class="pre">Optional[grenade.network.PlasticityRule]</span> <span class="pre">=</span> <span class="pre">None</span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.utils.to_nir.Synapse.__init__" title="Permalink to this definition"></a></dt>
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">in_features:</span> <span class="pre">int</span></em>, <em class="sig-param"><span class="pre">out_features:</span> <span class="pre">int</span></em>, <em class="sig-param"><span class="pre">experiment:</span> <span class="pre">Experiment</span></em>, <em class="sig-param"><span class="pre">chip_coordinate:</span> <span class="pre">Optional[Tuple[grenade.common.ChipOnConnection</span></em>, <em class="sig-param"><span class="pre">grenade.common.ConnectionOnExecutor]]</span> <span class="pre">=</span> <span class="pre">None</span></em>, <em class="sig-param"><span class="pre">device:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">None</span></em>, <em class="sig-param"><span class="pre">dtype:</span> <span class="pre">Type</span> <span class="pre">=</span> <span class="pre">None</span></em>, <em class="sig-param"><span class="pre">transform:</span> <span class="pre">Callable</span> <span class="pre">=</span> <span class="pre">&lt;function</span> <span class="pre">linear_saturating&gt;</span></em>, <em class="sig-param"><span class="pre">plasticity_rule:</span> <span class="pre">PlasticityRule</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></em>, <em class="sig-param"><span class="pre">receptor:</span> <span class="pre">Literal['excitatory'</span></em>, <em class="sig-param"><span class="pre">'inhibitory']</span> <span class="pre">|</span> <span class="pre">List[str]</span> <span class="pre">|</span> <span class="pre">Tuple[str</span></em>, <em class="sig-param"><span class="pre">...]</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.utils.to_nir.Synapse.__init__" title="Permalink to this definition"></a></dt>
 <dd><p>TODO: Think about what to do with device here.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>in_features</strong> – Size of input dimension.</p></li>
 <li><p><strong>out_features</strong> – Size of output dimension.</p></li>
+<li><p><strong>experiment</strong> – Experiment to append layer to.</p></li>
+<li><p><strong>chip_coordinate</strong> – Chip coordinate this module is placed on.</p></li>
 <li><p><strong>device</strong> – Device to execute on. Only considered in mock-mode.</p></li>
 <li><p><strong>dtype</strong> – Data type of weight tensor.</p></li>
-<li><p><strong>experiment</strong> – Experiment to append layer to.</p></li>
-<li><p><strong>execution_instance</strong> – Execution instance to place to.</p></li>
-<li><p><strong>chip_coordinate</strong> – Chip coordinate this module is placed on.</p></li>
+<li><p><strong>plasticity_rule</strong> – Plasticity rule adjusting this synapse.</p></li>
 </ul>
+</dd>
+<dt class="field-even">Param</dt>
+<dd class="field-even"><p>receptor: Receptor type of the synapse. Can be ‘excitatory’,
+‘inhibitory’ or (‘excitatory’, inhibitory’) for a signed synapse.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -134,17 +139,11 @@ a subsequent Neuron module.</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.utils.to_nir.Synapse.__init__" title="hxtorch.spiking.utils.to_nir.Synapse.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(in_features, out_features, experiment)</p></td>
 <td><p>TODO: Think about what to do with device here.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.utils.to_nir.Synapse.add_to_network_graph" title="hxtorch.spiking.utils.to_nir.Synapse.add_to_network_graph"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_to_network_graph</span></code></a>(pre, post, builder)</p></td>
-<td><p>Adds the projection to a grenade network builder by providing the population descriptor of the corresponding pre and post population.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.utils.to_nir.Synapse.forward_func" title="hxtorch.spiking.utils.to_nir.Synapse.forward_func"><code class="xref py py-obj docutils literal notranslate"><span class="pre">forward_func</span></code></a>(input)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.utils.to_nir.Synapse.forward_func" title="hxtorch.spiking.utils.to_nir.Synapse.forward_func"><code class="xref py py-obj docutils literal notranslate"><span class="pre">forward_func</span></code></a>(input)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.utils.to_nir.Synapse.register_hw_entity" title="hxtorch.spiking.utils.to_nir.Synapse.register_hw_entity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">register_hw_entity</span></code></a>()</p></td>
-<td><p>Add the synapse layer to the experiment’s projections.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.utils.to_nir.Synapse.reset_changed_since_last_run" title="hxtorch.spiking.utils.to_nir.Synapse.reset_changed_since_last_run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset_changed_since_last_run</span></code></a>()</p></td>
-<td><p>Reset changed_since_last_run.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.utils.to_nir.Synapse.get_connections" title="hxtorch.spiking.utils.to_nir.Synapse.get_connections"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_connections</span></code></a>()</p></td>
+<td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.utils.to_nir.Synapse.reset_parameters" title="hxtorch.spiking.utils.to_nir.Synapse.reset_parameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset_parameters</span></code></a>()</p></td>
 <td><p>Resets the synapses weights by reinitialization using <cite>torch.nn.kaiming_uniform_</cite>.</p></td>
@@ -158,36 +157,14 @@ a subsequent Neuron module.</p>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.utils.to_nir.Synapse.changed_since_last_run" title="hxtorch.spiking.utils.to_nir.Synapse.changed_since_last_run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">changed_since_last_run</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.utils.to_nir.Synapse.changed_input_data" title="hxtorch.spiking.utils.to_nir.Synapse.changed_input_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">changed_input_data</span></code></a></p></td>
 <td><p>Getter for changed_since_last_run.</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="py method">
-<dt id="hxtorch.spiking.utils.to_nir.Synapse.add_to_network_graph">
-<code class="sig-name descname"><span class="pre">add_to_network_graph</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pre</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network.PopulationOnNetwork</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">post</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network.PopulationOnNetwork</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">builder</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network.NetworkBuilder</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">_pygrenade_vx_network.ProjectionOnNetwork</span><span class="p"><span class="pre">,</span> </span><span class="p"><span class="pre">…</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#hxtorch.spiking.utils.to_nir.Synapse.add_to_network_graph" title="Permalink to this definition"></a></dt>
-<dd><p>Adds the projection to a grenade network builder by providing the
-population descriptor of the corresponding pre and post population.
-Note: This creates one inhibitory and one excitatory projection on
-hardware in order to represent signed hardware weights.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>pre</strong> – Population descriptor of pre-population.</p></li>
-<li><p><strong>post</strong> – Population descriptor of post-population.</p></li>
-<li><p><strong>builder</strong> – Grenade network builder to add projection to.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>A tuple of grenade ProjectionOnNetworks holding the
-descriptors for the excitatory and inhibitory projection.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="hxtorch.spiking.utils.to_nir.Synapse.changed_since_last_run">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">changed_since_last_run</span></code><a class="headerlink" href="#hxtorch.spiking.utils.to_nir.Synapse.changed_since_last_run" title="Permalink to this definition"></a></dt>
+<dt id="hxtorch.spiking.utils.to_nir.Synapse.changed_input_data">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">changed_input_data</span></code><a class="headerlink" href="#hxtorch.spiking.utils.to_nir.Synapse.changed_input_data" title="Permalink to this definition"></a></dt>
 <dd><p>Getter for changed_since_last_run.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -201,22 +178,15 @@ descriptors for the excitatory and inhibitory projection.</p>
 <code class="sig-name descname"><span class="pre">forward_func</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">types.Handle_current_membrane_cadc_membrane_madc_spikes</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">types.Handle_graded_spikes</span><a class="headerlink" href="#hxtorch.spiking.utils.to_nir.Synapse.forward_func" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
+<dl class="py method">
+<dt id="hxtorch.spiking.utils.to_nir.Synapse.get_connections">
+<code class="sig-name descname"><span class="pre">get_connections</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#hxtorch.spiking.utils.to_nir.Synapse.get_connections" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
 <dl class="py attribute">
 <dt id="hxtorch.spiking.utils.to_nir.Synapse.output_type">
 <code class="sig-name descname"><span class="pre">output_type</span></code><a class="headerlink" href="#hxtorch.spiking.utils.to_nir.Synapse.output_type" title="Permalink to this definition"></a></dt>
 <dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">types.Handle_graded_spikes</span></code></p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="hxtorch.spiking.utils.to_nir.Synapse.register_hw_entity">
-<code class="sig-name descname"><span class="pre">register_hw_entity</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.utils.to_nir.Synapse.register_hw_entity" title="Permalink to this definition"></a></dt>
-<dd><p>Add the synapse layer to the experiment’s projections.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="hxtorch.spiking.utils.to_nir.Synapse.reset_changed_since_last_run">
-<code class="sig-name descname"><span class="pre">reset_changed_since_last_run</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#hxtorch.spiking.utils.to_nir.Synapse.reset_changed_since_last_run" title="Permalink to this definition"></a></dt>
-<dd><p>Reset changed_since_last_run. Sets the corresponding flag to false.</p>
 </dd></dl>
 
 <dl class="py method">
