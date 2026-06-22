@@ -15281,6 +15281,22 @@
 </dd></dl>
 
 <dl class="cpp function">
+<dt id="_CPPv4N7grenade2vx7network8abstract16CoordinateSystem25assign_compartment_directE6size_t6size_tRK19CompartmentOnNeuron">
+<span id="_CPPv3N7grenade2vx7network8abstract16CoordinateSystem25assign_compartment_directE6size_t6size_tRK19CompartmentOnNeuron"></span><span id="_CPPv2N7grenade2vx7network8abstract16CoordinateSystem25assign_compartment_directE6size_t6size_tRK19CompartmentOnNeuron"></span><span id="grenade::vx::network::abstract::CoordinateSystem::assign_compartment_direct__s.s.CompartmentOnNeuronCR"></span><span class="target" id="a02570_1a190469e786a52276f6193e19b608a839"></span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract15NumberTopBottomE" title="grenade::vx::network::abstract::NumberTopBottom"><span class="pre">NumberTopBottom</span></a> <code class="sig-name descname"><span class="pre">assign_compartment_direct</span></code><span class="sig-paren">(</span><span class="pre">size_t</span> <em><span class="pre">x</span></em>, <span class="pre">size_t</span> <em><span class="pre">y</span></em>, <a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract19CompartmentOnNeuronE" title="grenade::vx::network::abstract::CompartmentOnNeuron"><span class="pre">CompartmentOnNeuron</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">compartment</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7grenade2vx7network8abstract16CoordinateSystem25assign_compartment_directE6size_t6size_tRK19CompartmentOnNeuron" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Assign compartment descriptor to the neuron circuit and to all directly connected neuron circuits. </p>
+<p>Also via shared line. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – x coordinate of the neuron circuit. </p></li>
+<li><p><strong>y</strong> – y coordinate of the neuron circuit. </p></li>
+<li><p><strong>compartment</strong> – <a class="reference internal" href="api_haldls.html#a02322"><span class="std std-ref">Compartment</span></a> descriptor. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
 <dt id="_CPPv4N7grenade2vx7network8abstract16CoordinateSystem5clearEv">
 <span id="_CPPv3N7grenade2vx7network8abstract16CoordinateSystem5clearEv"></span><span id="_CPPv2N7grenade2vx7network8abstract16CoordinateSystem5clearEv"></span><span id="grenade::vx::network::abstract::CoordinateSystem::clear"></span><span class="target" id="a02570_1a6d7e5c69c3f5230a613ce68eb0a45cdf"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">clear</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7grenade2vx7network8abstract16CoordinateSystem5clearEv" title="Permalink to this definition"></a><br /></dt>
 <dd></dd></dl>
@@ -15418,6 +15434,21 @@
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>x</strong> – X-coordinate of the neuron circuit to check for connections. </p></li>
 <li><p><strong>y</strong> – Y-coordinate of the neuron circuit to check for connections. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK7grenade2vx7network8abstract16CoordinateSystem24connected_to_shared_lineE6size_t6size_t">
+<span id="_CPPv3NK7grenade2vx7network8abstract16CoordinateSystem24connected_to_shared_lineE6size_t6size_t"></span><span id="_CPPv2NK7grenade2vx7network8abstract16CoordinateSystem24connected_to_shared_lineE6size_t6size_t"></span><span id="grenade::vx::network::abstract::CoordinateSystem::connected_to_shared_line__s.sC"></span><span class="target" id="a02570_1abe5ec0a24938d1d627bfe3b07b5d9532"></span><span class="pre">bool</span> <code class="sig-name descname"><span class="pre">connected_to_shared_line</span></code><span class="sig-paren">(</span><span class="pre">size_t</span> <em><span class="pre">x</span></em>, <span class="pre">size_t</span> <em><span class="pre">y</span></em><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK7grenade2vx7network8abstract16CoordinateSystem24connected_to_shared_lineE6size_t6size_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Check if the given neuron circuit is connected to the shared line. </p>
+<p>Either directly or via the resistor. Here, we only consider connections starting from the neuron circuit at (x, y). I.e. we do not consider connections form (x+1, y) even if the two neuron circuits are connected to each other. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – x coordinate of the neuron circuit. </p></li>
+<li><p><strong>y</strong> – y coordinate of the neuron circuit. </p></li>
 </ul>
 </dd>
 </dl>
@@ -19349,6 +19380,7 @@
 <dt id="_CPPv4NK7grenade2vx7network8abstract6Neuron8is_chainERK19CompartmentOnNeuronRNSt3setI19CompartmentOnNeuronEE">
 <span id="_CPPv3NK7grenade2vx7network8abstract6Neuron8is_chainERK19CompartmentOnNeuronRNSt3setI19CompartmentOnNeuronEE"></span><span id="_CPPv2NK7grenade2vx7network8abstract6Neuron8is_chainERK19CompartmentOnNeuronRNSt3setI19CompartmentOnNeuronEE"></span><span id="grenade::vx::network::abstract::Neuron::is_chain__CompartmentOnNeuronCR.std::set:CompartmentOnNeuron:RC"></span><span class="target" id="a02514_1a1469e5f1920c2e39f480fd38811e1ce1"></span><span class="pre">bool</span> <code class="sig-name descname"><span class="pre">is_chain</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract19CompartmentOnNeuronE" title="grenade::vx::network::abstract::CompartmentOnNeuron"><span class="pre">CompartmentOnNeuron</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">compartment</span></em>, <a class="reference internal" href="api_calix.html#_CPPv4St" title="std"><span class="pre">std</span></a><span class="pre">::</span><span class="pre">set</span><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract19CompartmentOnNeuronE" title="grenade::vx::network::abstract::CompartmentOnNeuron"><span class="pre">CompartmentOnNeuron</span></a><span class="pre">&gt;</span> <span class="pre">&amp;</span><em><span class="pre">marked_compartments</span></em><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK7grenade2vx7network8abstract6Neuron8is_chainERK19CompartmentOnNeuronRNSt3setI19CompartmentOnNeuronEE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Distinguishes chains from branches. </p>
+<p>We include linear branches with singular leafs as a chain since these structures can be mapped to a single row on the hardware.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -21428,18 +21460,6 @@
 <dd></dd></dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset25PlacementAlgorithmRulesetEb">
-<span id="_CPPv3N7grenade2vx7network8abstract25PlacementAlgorithmRuleset25PlacementAlgorithmRulesetEb"></span><span id="_CPPv2N7grenade2vx7network8abstract25PlacementAlgorithmRuleset25PlacementAlgorithmRulesetEb"></span><span id="grenade::vx::network::abstract::PlacementAlgorithmRuleset::PlacementAlgorithmRuleset__b"></span><span class="target" id="a02558_1aa015a0ffc28936c6a13d22ca45d3305e"></span><code class="sig-name descname"><span class="pre">PlacementAlgorithmRuleset</span></code><span class="sig-paren">(</span><span class="pre">bool</span> <em><span class="pre">depth_search_first</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset25PlacementAlgorithmRulesetEb" title="Permalink to this definition"></a><br /></dt>
-<dd><p>Constructs Placement-Algorithm with specified placement pattern. </p>
-<p>For depth_search_first enabled the neuron is placed in depth first starting from the largest compartment. Elsewise the neuron is placed in breadth first. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>depth_search_first</strong> – Wether the neuron should be placed in depth first. </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
 <dt id="_CPPv4NK7grenade2vx7network8abstract25PlacementAlgorithmRuleset5cloneEv">
 <span id="_CPPv3NK7grenade2vx7network8abstract25PlacementAlgorithmRuleset5cloneEv"></span><span id="_CPPv2NK7grenade2vx7network8abstract25PlacementAlgorithmRuleset5cloneEv"></span><span id="grenade::vx::network::abstract::PlacementAlgorithmRuleset::cloneC"></span><span class="target" id="a02558_1a3cad45d038c3ef12e2b247d351573e33"></span><em class="property"><span class="pre">virtual</span></em> <a class="reference internal" href="api_calix.html#_CPPv4St" title="std"><span class="pre">std</span></a><span class="pre">::</span><span class="pre">unique_ptr</span><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract18PlacementAlgorithmE" title="grenade::vx::network::abstract::PlacementAlgorithm"><span class="pre">PlacementAlgorithm</span></a><span class="pre">&gt;</span> <code class="sig-name descname"><span class="pre">clone</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK7grenade2vx7network8abstract25PlacementAlgorithmRuleset5cloneEv" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Clone the algorithm. </p>
@@ -21561,46 +21581,20 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-functions">Private Functions</p>
 <dl class="cpp function">
-<dt id="_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset16connect_adjacentER16CoordinateSystemRK6NeuronRK19CompartmentOnNeuronRK19CompartmentOnNeuron">
-<span id="_CPPv3N7grenade2vx7network8abstract25PlacementAlgorithmRuleset16connect_adjacentER16CoordinateSystemRK6NeuronRK19CompartmentOnNeuronRK19CompartmentOnNeuron"></span><span id="_CPPv2N7grenade2vx7network8abstract25PlacementAlgorithmRuleset16connect_adjacentER16CoordinateSystemRK6NeuronRK19CompartmentOnNeuronRK19CompartmentOnNeuron"></span><span id="grenade::vx::network::abstract::PlacementAlgorithmRuleset::connect_adjacent__CoordinateSystemR.NeuronCR.CompartmentOnNeuronCR.CompartmentOnNeuronCR"></span><span class="target" id="a02558_1a17cc64ee1b1b8fdfd58190be61b36a14"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">connect_adjacent</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract16CoordinateSystemE" title="grenade::vx::network::abstract::CoordinateSystem"><span class="pre">CoordinateSystem</span></a> <span class="pre">&amp;</span><em><span class="pre">coordinates</span></em>, <a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract6NeuronE" title="grenade::vx::network::abstract::Neuron"><span class="pre">Neuron</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">neuron</span></em>, <a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract19CompartmentOnNeuronE" title="grenade::vx::network::abstract::CompartmentOnNeuron"><span class="pre">CompartmentOnNeuron</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">compartment_a</span></em>, <a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract19CompartmentOnNeuronE" title="grenade::vx::network::abstract::CompartmentOnNeuron"><span class="pre">CompartmentOnNeuron</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">compartment_b</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset16connect_adjacentER16CoordinateSystemRK6NeuronRK19CompartmentOnNeuronRK19CompartmentOnNeuron" title="Permalink to this definition"></a><br /></dt>
-<dd><p>Connect two compartments that are directly adjacent. </p>
+<dt id="_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset10add_bridgeER16CoordinateSystemRK19CompartmentOnNeuronRKNSt3setI19CompartmentOnNeuronEE">
+<span id="_CPPv3N7grenade2vx7network8abstract25PlacementAlgorithmRuleset10add_bridgeER16CoordinateSystemRK19CompartmentOnNeuronRKNSt3setI19CompartmentOnNeuronEE"></span><span id="_CPPv2N7grenade2vx7network8abstract25PlacementAlgorithmRuleset10add_bridgeER16CoordinateSystemRK19CompartmentOnNeuronRKNSt3setI19CompartmentOnNeuronEE"></span><span id="grenade::vx::network::abstract::PlacementAlgorithmRuleset::add_bridge__CoordinateSystemR.CompartmentOnNeuronCR.std::set:CompartmentOnNeuron:CR"></span><span class="target" id="a02558_1a80eb5a8b10f56610cece3919640f10fc"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">add_bridge</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract16CoordinateSystemE" title="grenade::vx::network::abstract::CoordinateSystem"><span class="pre">CoordinateSystem</span></a> <span class="pre">&amp;</span><em><span class="pre">coordinates</span></em>, <a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract19CompartmentOnNeuronE" title="grenade::vx::network::abstract::CompartmentOnNeuron"><span class="pre">CompartmentOnNeuron</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">compartment</span></em>, <a class="reference internal" href="api_calix.html#_CPPv4St" title="std"><span class="pre">std</span></a><span class="pre">::</span><span class="pre">set</span><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract19CompartmentOnNeuronE" title="grenade::vx::network::abstract::CompartmentOnNeuron"><span class="pre">CompartmentOnNeuron</span></a><span class="pre">&gt;</span> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">children</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset10add_bridgeER16CoordinateSystemRK19CompartmentOnNeuronRKNSt3setI19CompartmentOnNeuronEE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Expand the compartment with a bridge. </p>
+<p>A bridge expands a compartment via the shared line. This allows additional compartments to be placed. Let’s consider the example of a compartment A with several chains attached. Let’s assume, the shared line is blocked to the left. Then, placing a bridge after placing the first chain (B, C) increases the number of possible connections from one to two in this step:</p>
+<p>blocked - ———-&amp;#8212; $ | | A&amp;#8212;A A | | | A&amp;#8212;A B&amp;#8212;B C A | | $ | $ blocked &amp;#8212; -&amp;#8212; -&amp;#8212;</p>
+<p>Here “-” and “|” represent direct connections and “$” connections via a resistor. The bridge is the structure:</p>
+<p>
+ | | …&amp;#8212;A A | | …&amp;#8212;A A</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>coordinates</strong> – Current configuration. </p></li>
-<li><p><strong>neuron</strong> – <a class="reference internal" href="api_haldls.html#a02514"><span class="std std-ref">Neuron</span></a> to be placed. </p></li>
-<li><p><strong>compartment_a</strong> – One compartment to be connected. </p></li>
-<li><p><strong>compartment_b</strong> – Other compartment to be connected. </p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset15connect_distantER16CoordinateSystemRK6NeuronRK19CompartmentOnNeuronRK19CompartmentOnNeuron">
-<span id="_CPPv3N7grenade2vx7network8abstract25PlacementAlgorithmRuleset15connect_distantER16CoordinateSystemRK6NeuronRK19CompartmentOnNeuronRK19CompartmentOnNeuron"></span><span id="_CPPv2N7grenade2vx7network8abstract25PlacementAlgorithmRuleset15connect_distantER16CoordinateSystemRK6NeuronRK19CompartmentOnNeuronRK19CompartmentOnNeuron"></span><span id="grenade::vx::network::abstract::PlacementAlgorithmRuleset::connect_distant__CoordinateSystemR.NeuronCR.CompartmentOnNeuronCR.CompartmentOnNeuronCR"></span><span class="target" id="a02558_1ab7697b1beae5a585b44e5ad0f9873beb"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">connect_distant</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract16CoordinateSystemE" title="grenade::vx::network::abstract::CoordinateSystem"><span class="pre">CoordinateSystem</span></a> <span class="pre">&amp;</span><em><span class="pre">coordinates</span></em>, <a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract6NeuronE" title="grenade::vx::network::abstract::Neuron"><span class="pre">Neuron</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">neuron</span></em>, <a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract19CompartmentOnNeuronE" title="grenade::vx::network::abstract::CompartmentOnNeuron"><span class="pre">CompartmentOnNeuron</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">compartment_a</span></em>, <a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract19CompartmentOnNeuronE" title="grenade::vx::network::abstract::CompartmentOnNeuron"><span class="pre">CompartmentOnNeuron</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">compartment_b</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset15connect_distantER16CoordinateSystemRK6NeuronRK19CompartmentOnNeuronRK19CompartmentOnNeuron" title="Permalink to this definition"></a><br /></dt>
-<dd><p>Connect two compartment that are not directly adjacent. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>coordinates</strong> – Current configuration. </p></li>
-<li><p><strong>neuron</strong> – <a class="reference internal" href="api_haldls.html#a02514"><span class="std std-ref">Neuron</span></a> to be placed. </p></li>
-<li><p><strong>compartment_a</strong> – One compartment to be connected. </p></li>
-<li><p><strong>comaprmtent_b</strong> – Other compartment to be connected. </p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset14connect_placedER16CoordinateSystemRK6Neuron">
-<span id="_CPPv3N7grenade2vx7network8abstract25PlacementAlgorithmRuleset14connect_placedER16CoordinateSystemRK6Neuron"></span><span id="_CPPv2N7grenade2vx7network8abstract25PlacementAlgorithmRuleset14connect_placedER16CoordinateSystemRK6Neuron"></span><span id="grenade::vx::network::abstract::PlacementAlgorithmRuleset::connect_placed__CoordinateSystemR.NeuronCR"></span><span class="target" id="a02558_1ab0bee516172317a01425d5a0759b204c"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">connect_placed</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract16CoordinateSystemE" title="grenade::vx::network::abstract::CoordinateSystem"><span class="pre">CoordinateSystem</span></a> <span class="pre">&amp;</span><em><span class="pre">coordinates</span></em>, <a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract6NeuronE" title="grenade::vx::network::abstract::Neuron"><span class="pre">Neuron</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">neuron</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset14connect_placedER16CoordinateSystemRK6Neuron" title="Permalink to this definition"></a><br /></dt>
-<dd><p>Connect all compartments placed in this step to all placed neighbours. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>coordinates</strong> – Current configuration. </p></li>
-<li><p><strong>neuron</strong> – <a class="reference internal" href="api_haldls.html#a02514"><span class="std std-ref">Neuron</span></a> to be placed. </p></li>
+<li><p><strong>coordinates</strong> – Current configuration. (Or empty for virtual placement) </p></li>
+<li><p><strong>compartment</strong> – <a class="reference internal" href="api_haldls.html#a02322"><span class="std std-ref">Compartment</span></a> to which a bridge should be added </p></li>
+<li><p><strong>children</strong> – Children of the compartment for which a bridge should be added </p></li>
 </ul>
 </dd>
 </dl>
@@ -21621,22 +21615,24 @@
 </dd></dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset15find_free_spotsERK16CoordinateSystemRK19CompartmentOnNeuron">
-<span id="_CPPv3N7grenade2vx7network8abstract25PlacementAlgorithmRuleset15find_free_spotsERK16CoordinateSystemRK19CompartmentOnNeuron"></span><span id="_CPPv2N7grenade2vx7network8abstract25PlacementAlgorithmRuleset15find_free_spotsERK16CoordinateSystemRK19CompartmentOnNeuron"></span><span id="grenade::vx::network::abstract::PlacementAlgorithmRuleset::find_free_spots__CoordinateSystemCR.CompartmentOnNeuronCR"></span><span class="target" id="a02558_1a1c4e0d0b6245829bde1ec5551b0881bd"></span><a class="reference internal" href="api_calix.html#_CPPv4St" title="std"><span class="pre">std</span></a><span class="pre">::</span><span class="pre">vector</span><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract13PlacementSpotE" title="grenade::vx::network::abstract::PlacementSpot"><span class="pre">PlacementSpot</span></a><span class="pre">&gt;</span> <code class="sig-name descname"><span class="pre">find_free_spots</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract16CoordinateSystemE" title="grenade::vx::network::abstract::CoordinateSystem"><span class="pre">CoordinateSystem</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">coordinates</span></em>, <a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract19CompartmentOnNeuronE" title="grenade::vx::network::abstract::CompartmentOnNeuron"><span class="pre">CompartmentOnNeuron</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">compartment</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset15find_free_spotsERK16CoordinateSystemRK19CompartmentOnNeuron" title="Permalink to this definition"></a><br /></dt>
+<dt id="_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset15find_free_spotsERK16CoordinateSystemRK19CompartmentOnNeuronRKNSt3setI19CompartmentOnNeuronEEb">
+<span id="_CPPv3N7grenade2vx7network8abstract25PlacementAlgorithmRuleset15find_free_spotsERK16CoordinateSystemRK19CompartmentOnNeuronRKNSt3setI19CompartmentOnNeuronEEb"></span><span id="_CPPv2N7grenade2vx7network8abstract25PlacementAlgorithmRuleset15find_free_spotsERK16CoordinateSystemRK19CompartmentOnNeuronRKNSt3setI19CompartmentOnNeuronEEb"></span><span id="grenade::vx::network::abstract::PlacementAlgorithmRuleset::find_free_spots__CoordinateSystemCR.CompartmentOnNeuronCR.std::set:CompartmentOnNeuron:CR.b"></span><span class="target" id="a02558_1a1221a0334bdc834a435038a40d5288ca"></span><a class="reference internal" href="api_calix.html#_CPPv4St" title="std"><span class="pre">std</span></a><span class="pre">::</span><span class="pre">vector</span><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract13PlacementSpotE" title="grenade::vx::network::abstract::PlacementSpot"><span class="pre">PlacementSpot</span></a><span class="pre">&gt;</span> <code class="sig-name descname"><span class="pre">find_free_spots</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract16CoordinateSystemE" title="grenade::vx::network::abstract::CoordinateSystem"><span class="pre">CoordinateSystem</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">coordinates</span></em>, <a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract19CompartmentOnNeuronE" title="grenade::vx::network::abstract::CompartmentOnNeuron"><span class="pre">CompartmentOnNeuron</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">compartment</span></em>, <a class="reference internal" href="api_calix.html#_CPPv4St" title="std"><span class="pre">std</span></a><span class="pre">::</span><span class="pre">set</span><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract19CompartmentOnNeuronE" title="grenade::vx::network::abstract::CompartmentOnNeuron"><span class="pre">CompartmentOnNeuron</span></a><span class="pre">&gt;</span> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">neighbours</span></em>, <span class="pre">bool</span> <em><span class="pre">search_block</span></em> <span class="pre">=</span> <span class="pre">false</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset15find_free_spotsERK16CoordinateSystemRK19CompartmentOnNeuronRKNSt3setI19CompartmentOnNeuronEEb" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Finds all free spots next to a placed compartment. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>coordiantes</strong> – Current configuration. </p></li>
 <li><p><strong>compartment</strong> – <a class="reference internal" href="api_haldls.html#a02322"><span class="std std-ref">Compartment</span></a> to search free spots next to. </p></li>
+<li><p><strong>neighbours</strong> – Neighbours of <code class="docutils literal notranslate"><span class="pre">compartment</span></code>. </p></li>
+<li><p><strong>search_block</strong> – If a block should be searched, i.e. only spots where the top and bottom are free are returned. </p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset15find_free_spotsERK16CoordinateSystem6size_t6size_ti">
-<span id="_CPPv3N7grenade2vx7network8abstract25PlacementAlgorithmRuleset15find_free_spotsERK16CoordinateSystem6size_t6size_ti"></span><span id="_CPPv2N7grenade2vx7network8abstract25PlacementAlgorithmRuleset15find_free_spotsERK16CoordinateSystem6size_t6size_ti"></span><span id="grenade::vx::network::abstract::PlacementAlgorithmRuleset::find_free_spots__CoordinateSystemCR.s.s.i"></span><span class="target" id="a02558_1ab8b390ba093291ed1e53f6af2d729a1b"></span><a class="reference internal" href="api_calix.html#_CPPv4St" title="std"><span class="pre">std</span></a><span class="pre">::</span><span class="pre">vector</span><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract13PlacementSpotE" title="grenade::vx::network::abstract::PlacementSpot"><span class="pre">PlacementSpot</span></a><span class="pre">&gt;</span> <code class="sig-name descname"><span class="pre">find_free_spots</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract16CoordinateSystemE" title="grenade::vx::network::abstract::CoordinateSystem"><span class="pre">CoordinateSystem</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">coordinates</span></em>, <span class="pre">size_t</span> <em><span class="pre">x_start</span></em>, <span class="pre">size_t</span> <em><span class="pre">y</span></em>, <span class="pre">int</span> <em><span class="pre">direction</span></em> <span class="pre">=</span> <span class="pre">1</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset15find_free_spotsERK16CoordinateSystem6size_t6size_ti" title="Permalink to this definition"></a><br /></dt>
+<dt id="_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset15find_free_spotsERK16CoordinateSystem6size_t6size_tRKNSt3setI19CompartmentOnNeuronEEib">
+<span id="_CPPv3N7grenade2vx7network8abstract25PlacementAlgorithmRuleset15find_free_spotsERK16CoordinateSystem6size_t6size_tRKNSt3setI19CompartmentOnNeuronEEib"></span><span id="_CPPv2N7grenade2vx7network8abstract25PlacementAlgorithmRuleset15find_free_spotsERK16CoordinateSystem6size_t6size_tRKNSt3setI19CompartmentOnNeuronEEib"></span><span id="grenade::vx::network::abstract::PlacementAlgorithmRuleset::find_free_spots__CoordinateSystemCR.s.s.std::set:CompartmentOnNeuron:CR.i.b"></span><span class="target" id="a02558_1a61402e7202206d8eb9cde12412e2d7d5"></span><a class="reference internal" href="api_calix.html#_CPPv4St" title="std"><span class="pre">std</span></a><span class="pre">::</span><span class="pre">vector</span><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract13PlacementSpotE" title="grenade::vx::network::abstract::PlacementSpot"><span class="pre">PlacementSpot</span></a><span class="pre">&gt;</span> <code class="sig-name descname"><span class="pre">find_free_spots</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract16CoordinateSystemE" title="grenade::vx::network::abstract::CoordinateSystem"><span class="pre">CoordinateSystem</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">coordinates</span></em>, <span class="pre">size_t</span> <em><span class="pre">x_start</span></em>, <span class="pre">size_t</span> <em><span class="pre">y</span></em>, <a class="reference internal" href="api_calix.html#_CPPv4St" title="std"><span class="pre">std</span></a><span class="pre">::</span><span class="pre">set</span><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract19CompartmentOnNeuronE" title="grenade::vx::network::abstract::CompartmentOnNeuron"><span class="pre">CompartmentOnNeuron</span></a><span class="pre">&gt;</span> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">neighbours</span></em>, <span class="pre">int</span> <em><span class="pre">direction</span></em> <span class="pre">=</span> <span class="pre">1</span>, <span class="pre">bool</span> <em><span class="pre">search_block</span></em> <span class="pre">=</span> <span class="pre">false</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset15find_free_spotsERK16CoordinateSystem6size_t6size_tRKNSt3setI19CompartmentOnNeuronEEib" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Finds all free spots. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -21644,7 +21640,9 @@
 <li><p><strong>coordiantes</strong> – Current configuration. </p></li>
 <li><p><strong>x_start</strong> – Column to start search at. </p></li>
 <li><p><strong>y</strong> – Row to search in. </p></li>
+<li><p><strong>neighbours</strong> – Neighbours of the compartment from which a connection is searched. </p></li>
 <li><p><strong>direction</strong> – Direction to search in. </p></li>
+<li><p><strong>search_block</strong> – If a block should be searched, i.e. only spots where the top and bottom are free are returned. </p></li>
 </ul>
 </dd>
 </dl>
@@ -21676,6 +21674,39 @@
 </dd></dl>
 
 <dl class="cpp function">
+<dt id="_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset24get_available_directionsER16CoordinateSystemRK19CompartmentOnNeuronRKNSt3setI19CompartmentOnNeuronEE">
+<span id="_CPPv3N7grenade2vx7network8abstract25PlacementAlgorithmRuleset24get_available_directionsER16CoordinateSystemRK19CompartmentOnNeuronRKNSt3setI19CompartmentOnNeuronEE"></span><span id="_CPPv2N7grenade2vx7network8abstract25PlacementAlgorithmRuleset24get_available_directionsER16CoordinateSystemRK19CompartmentOnNeuronRKNSt3setI19CompartmentOnNeuronEE"></span><span id="grenade::vx::network::abstract::PlacementAlgorithmRuleset::get_available_directions__CoordinateSystemR.CompartmentOnNeuronCR.std::set:CompartmentOnNeuron:CR"></span><span class="target" id="a02558_1afd595d495a40887f8d5a7b15969b7297"></span><span class="pre">size_t</span> <code class="sig-name descname"><span class="pre">get_available_directions</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract16CoordinateSystemE" title="grenade::vx::network::abstract::CoordinateSystem"><span class="pre">CoordinateSystem</span></a> <span class="pre">&amp;</span><em><span class="pre">coordinates</span></em>, <a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract19CompartmentOnNeuronE" title="grenade::vx::network::abstract::CompartmentOnNeuron"><span class="pre">CompartmentOnNeuron</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">compartment</span></em>, <a class="reference internal" href="api_calix.html#_CPPv4St" title="std"><span class="pre">std</span></a><span class="pre">::</span><span class="pre">set</span><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract19CompartmentOnNeuronE" title="grenade::vx::network::abstract::CompartmentOnNeuron"><span class="pre">CompartmentOnNeuron</span></a><span class="pre">&gt;</span> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">neighbours</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset24get_available_directionsER16CoordinateSystemRK19CompartmentOnNeuronRKNSt3setI19CompartmentOnNeuronEE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Determine in how many directions (top left, top right, bottom left, bottom right) connections are still possible. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>coordinates</strong> – Current configuration. (Or empty for virtual placement) </p></li>
+<li><p><strong>compartment</strong> – <a class="reference internal" href="api_haldls.html#a02322"><span class="std std-ref">Compartment</span></a> for which to check available connections. </p></li>
+<li><p><strong>neighbours</strong> – Neighbours of the compartment from which a connection is searched. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Number of directions in which connections are possible. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset15get_chain_spaceERK6NeuronRK15ResourceManagerRKNSt6vectorI19CompartmentOnNeuronEE">
+<span id="_CPPv3N7grenade2vx7network8abstract25PlacementAlgorithmRuleset15get_chain_spaceERK6NeuronRK15ResourceManagerRKNSt6vectorI19CompartmentOnNeuronEE"></span><span id="_CPPv2N7grenade2vx7network8abstract25PlacementAlgorithmRuleset15get_chain_spaceERK6NeuronRK15ResourceManagerRKNSt6vectorI19CompartmentOnNeuronEE"></span><span id="grenade::vx::network::abstract::PlacementAlgorithmRuleset::get_chain_space__NeuronCR.ResourceManagerCR.std::vector:CompartmentOnNeuron:CR"></span><span class="target" id="a02558_1a2e8f95d2f994f12bf64c9615c3396b81"></span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract15NumberTopBottomE" title="grenade::vx::network::abstract::NumberTopBottom"><span class="pre">NumberTopBottom</span></a> <code class="sig-name descname"><span class="pre">get_chain_space</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract6NeuronE" title="grenade::vx::network::abstract::Neuron"><span class="pre">Neuron</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">neuron</span></em>, <a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract15ResourceManagerE" title="grenade::vx::network::abstract::ResourceManager"><span class="pre">ResourceManager</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">resources</span></em>, <a class="reference internal" href="api_calix.html#_CPPv4St" title="std"><span class="pre">std</span></a><span class="pre">::</span><span class="pre">vector</span><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract19CompartmentOnNeuronE" title="grenade::vx::network::abstract::CompartmentOnNeuron"><span class="pre">CompartmentOnNeuron</span></a><span class="pre">&gt;</span> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">chain</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset15get_chain_spaceERK6NeuronRK15ResourceManagerRKNSt6vectorI19CompartmentOnNeuronEE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Determine how many resources placing the given chain requires. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>neuron</strong> – <a class="reference internal" href="api_haldls.html#a02514"><span class="std std-ref">Neuron</span></a> to be placed. </p></li>
+<li><p><strong>resources</strong> – Resources required by compartments of neuron. </p></li>
+<li><p><strong>chain</strong> – List of chain compartments. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
 <dt id="_CPPv4NK7grenade2vx7network8abstract25PlacementAlgorithmRuleset13output_placedERK16CoordinateSystemRK19CompartmentOnNeuron">
 <span id="_CPPv3NK7grenade2vx7network8abstract25PlacementAlgorithmRuleset13output_placedERK16CoordinateSystemRK19CompartmentOnNeuron"></span><span id="_CPPv2NK7grenade2vx7network8abstract25PlacementAlgorithmRuleset13output_placedERK16CoordinateSystemRK19CompartmentOnNeuron"></span><span id="grenade::vx::network::abstract::PlacementAlgorithmRuleset::output_placed__CoordinateSystemCR.CompartmentOnNeuronCRC"></span><span class="target" id="a02558_1a70fc022f0d23dc9efc8aefc0392e8e8d"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">output_placed</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract16CoordinateSystemE" title="grenade::vx::network::abstract::CoordinateSystem"><span class="pre">CoordinateSystem</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">coordinates</span></em>, <a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract19CompartmentOnNeuronE" title="grenade::vx::network::abstract::CompartmentOnNeuron"><span class="pre">CompartmentOnNeuron</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">compartment</span></em><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK7grenade2vx7network8abstract25PlacementAlgorithmRuleset13output_placedERK16CoordinateSystemRK19CompartmentOnNeuron" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Logs information about latest placement. </p>
@@ -21690,105 +21721,25 @@
 </dd></dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset12place_branchER16CoordinateSystemRK6NeuronRK15ResourceManagerRK19CompartmentOnNeuronRKNSt6vectorI19CompartmentOnNeuronEE">
-<span id="_CPPv3N7grenade2vx7network8abstract25PlacementAlgorithmRuleset12place_branchER16CoordinateSystemRK6NeuronRK15ResourceManagerRK19CompartmentOnNeuronRKNSt6vectorI19CompartmentOnNeuronEE"></span><span id="_CPPv2N7grenade2vx7network8abstract25PlacementAlgorithmRuleset12place_branchER16CoordinateSystemRK6NeuronRK15ResourceManagerRK19CompartmentOnNeuronRKNSt6vectorI19CompartmentOnNeuronEE"></span><span id="grenade::vx::network::abstract::PlacementAlgorithmRuleset::place_branch__CoordinateSystemR.NeuronCR.ResourceManagerCR.CompartmentOnNeuronCR.std::vector:CompartmentOnNeuron:CR"></span><span class="target" id="a02558_1a1103f71ce125649490eccb42ce722885"></span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract15NumberTopBottomE" title="grenade::vx::network::abstract::NumberTopBottom"><span class="pre">NumberTopBottom</span></a> <code class="sig-name descname"><span class="pre">place_branch</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract16CoordinateSystemE" title="grenade::vx::network::abstract::CoordinateSystem"><span class="pre">CoordinateSystem</span></a> <span class="pre">&amp;</span><em><span class="pre">coordinates</span></em>, <a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract6NeuronE" title="grenade::vx::network::abstract::Neuron"><span class="pre">Neuron</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">neuron</span></em>, <a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract15ResourceManagerE" title="grenade::vx::network::abstract::ResourceManager"><span class="pre">ResourceManager</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">resources</span></em>, <a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract19CompartmentOnNeuronE" title="grenade::vx::network::abstract::CompartmentOnNeuron"><span class="pre">CompartmentOnNeuron</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">search_start</span></em>, <a class="reference internal" href="api_calix.html#_CPPv4St" title="std"><span class="pre">std</span></a><span class="pre">::</span><span class="pre">vector</span><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract19CompartmentOnNeuronE" title="grenade::vx::network::abstract::CompartmentOnNeuron"><span class="pre">CompartmentOnNeuron</span></a><span class="pre">&gt;</span> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">branch</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset12place_branchER16CoordinateSystemRK6NeuronRK15ResourceManagerRK19CompartmentOnNeuronRKNSt6vectorI19CompartmentOnNeuronEE" title="Permalink to this definition"></a><br /></dt>
-<dd><p>Place a branch of compartments. </p>
-<p>This can include simple placements and bridge placements. </p>
+<dt id="_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset27place_branching_compartmentER16CoordinateSystemRK6NeuronRK15ResourceManagerRK19CompartmentOnNeuronRK19CompartmentOnNeuron">
+<span id="_CPPv3N7grenade2vx7network8abstract25PlacementAlgorithmRuleset27place_branching_compartmentER16CoordinateSystemRK6NeuronRK15ResourceManagerRK19CompartmentOnNeuronRK19CompartmentOnNeuron"></span><span id="_CPPv2N7grenade2vx7network8abstract25PlacementAlgorithmRuleset27place_branching_compartmentER16CoordinateSystemRK6NeuronRK15ResourceManagerRK19CompartmentOnNeuronRK19CompartmentOnNeuron"></span><span id="grenade::vx::network::abstract::PlacementAlgorithmRuleset::place_branching_compartment__CoordinateSystemR.NeuronCR.ResourceManagerCR.CompartmentOnNeuronCR.CompartmentOnNeuronCR"></span><span class="target" id="a02558_1aa8be26ccfac02c337a331acc3a446502"></span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract15NumberTopBottomE" title="grenade::vx::network::abstract::NumberTopBottom"><span class="pre">NumberTopBottom</span></a> <code class="sig-name descname"><span class="pre">place_branching_compartment</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract16CoordinateSystemE" title="grenade::vx::network::abstract::CoordinateSystem"><span class="pre">CoordinateSystem</span></a> <span class="pre">&amp;</span><em><span class="pre">coordinates</span></em>, <a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract6NeuronE" title="grenade::vx::network::abstract::Neuron"><span class="pre">Neuron</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">neuron</span></em>, <a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract15ResourceManagerE" title="grenade::vx::network::abstract::ResourceManager"><span class="pre">ResourceManager</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">resources</span></em>, <a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract19CompartmentOnNeuronE" title="grenade::vx::network::abstract::CompartmentOnNeuron"><span class="pre">CompartmentOnNeuron</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">compartment</span></em>, <a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract19CompartmentOnNeuronE" title="grenade::vx::network::abstract::CompartmentOnNeuron"><span class="pre">CompartmentOnNeuron</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">parent</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset27place_branching_compartmentER16CoordinateSystemRK6NeuronRK15ResourceManagerRK19CompartmentOnNeuronRK19CompartmentOnNeuron" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Place a single compartment from which the morphology branches. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>coordinates</strong> – Current configuration. (Or empty for virtual placement) </p></li>
 <li><p><strong>neuron</strong> – <a class="reference internal" href="api_haldls.html#a02514"><span class="std std-ref">Neuron</span></a> to be placed. </p></li>
 <li><p><strong>resources</strong> – Resources required by compartments of neuron. </p></li>
-<li><p><strong>search_start</strong> – Adjacent compartment from where on free space is searched. </p></li>
-<li><p><strong>branch</strong> – List of compartments which should be placed. The compartments have to form a branch for the algorithm to work </p></li>
+<li><p><strong>compartment</strong> – <a class="reference internal" href="api_haldls.html#a02322"><span class="std std-ref">Compartment</span></a> which should be placed. </p></li>
+<li><p><strong>parent</strong> – Adjacent compartment which has already been placed and from which a connection to <code class="docutils literal notranslate"><span class="pre">compartment</span></code> is established. </p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset12place_bridgeER16CoordinateSystemRK6NeuronRK15ResourceManager6size_tRK19CompartmentOnNeuronib">
-<span id="_CPPv3N7grenade2vx7network8abstract25PlacementAlgorithmRuleset12place_bridgeER16CoordinateSystemRK6NeuronRK15ResourceManager6size_tRK19CompartmentOnNeuronib"></span><span id="_CPPv2N7grenade2vx7network8abstract25PlacementAlgorithmRuleset12place_bridgeER16CoordinateSystemRK6NeuronRK15ResourceManager6size_tRK19CompartmentOnNeuronib"></span><span id="grenade::vx::network::abstract::PlacementAlgorithmRuleset::place_bridge__CoordinateSystemR.NeuronCR.ResourceManagerCR.s.CompartmentOnNeuronCR.i.b"></span><span class="target" id="a02558_1aa9c211f70ede63aec6b87183c0834e41"></span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract15NumberTopBottomE" title="grenade::vx::network::abstract::NumberTopBottom"><span class="pre">NumberTopBottom</span></a> <code class="sig-name descname"><span class="pre">place_bridge</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract16CoordinateSystemE" title="grenade::vx::network::abstract::CoordinateSystem"><span class="pre">CoordinateSystem</span></a> <span class="pre">&amp;</span><em><span class="pre">coordinates</span></em>, <a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract6NeuronE" title="grenade::vx::network::abstract::Neuron"><span class="pre">Neuron</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">neuron</span></em>, <a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract15ResourceManagerE" title="grenade::vx::network::abstract::ResourceManager"><span class="pre">ResourceManager</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">resources</span></em>, <span class="pre">size_t</span> <em><span class="pre">x_start</span></em>, <a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract19CompartmentOnNeuronE" title="grenade::vx::network::abstract::CompartmentOnNeuron"><span class="pre">CompartmentOnNeuron</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">compartment</span></em>, <span class="pre">int</span> <em><span class="pre">direction</span></em> <span class="pre">=</span> <span class="pre">1</span>, <span class="pre">bool</span> <em><span class="pre">virtually</span></em> <span class="pre">=</span> <span class="pre">false</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset12place_bridgeER16CoordinateSystemRK6NeuronRK15ResourceManager6size_tRK19CompartmentOnNeuronib" title="Permalink to this definition"></a><br /></dt>
-<dd><p>Place a bridge like structure which can interconnect a large number of compartments. </p>
-<p>At the given x-coordinate neuron circuits are assigned in the top row. At the left-most and right-most circuits neuron circuits in the bottom row are also assigned. This resembles a bridge like structure. For example:</p>
-<p>top x-x-x-x-x-x bottom x x </p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>coordinates</strong> – Current configuration. (Or empty for virutal placement) </p></li>
-<li><p><strong>neuron</strong> – <a class="reference internal" href="api_haldls.html#a02514"><span class="std std-ref">Neuron</span></a> to be placed. </p></li>
-<li><p><strong>resources</strong> – Required resources by compartments of neuron. </p></li>
-<li><p><strong>x_start</strong> – Column to start placement from. </p></li>
-<li><p><strong>compartment</strong> – <a class="reference internal" href="api_haldls.html#a02322"><span class="std std-ref">Compartment</span></a> to be placed as a bridge. </p></li>
-<li><p><strong>direction</strong> – Direction of placement. </p></li>
-<li><p><strong>virtually</strong> – Dummy placement to determine required spot size. </p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Number of allocated neuron circuits. </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset17place_bridge_leftER16CoordinateSystemRK6NeuronRK15ResourceManager6size_tRK19CompartmentOnNeuronb">
-<span id="_CPPv3N7grenade2vx7network8abstract25PlacementAlgorithmRuleset17place_bridge_leftER16CoordinateSystemRK6NeuronRK15ResourceManager6size_tRK19CompartmentOnNeuronb"></span><span id="_CPPv2N7grenade2vx7network8abstract25PlacementAlgorithmRuleset17place_bridge_leftER16CoordinateSystemRK6NeuronRK15ResourceManager6size_tRK19CompartmentOnNeuronb"></span><span id="grenade::vx::network::abstract::PlacementAlgorithmRuleset::place_bridge_left__CoordinateSystemR.NeuronCR.ResourceManagerCR.s.CompartmentOnNeuronCR.b"></span><span class="target" id="a02558_1afb18055f1de266ad356ceaeeb450b899"></span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract15NumberTopBottomE" title="grenade::vx::network::abstract::NumberTopBottom"><span class="pre">NumberTopBottom</span></a> <code class="sig-name descname"><span class="pre">place_bridge_left</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract16CoordinateSystemE" title="grenade::vx::network::abstract::CoordinateSystem"><span class="pre">CoordinateSystem</span></a> <span class="pre">&amp;</span><em><span class="pre">coordinates</span></em>, <a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract6NeuronE" title="grenade::vx::network::abstract::Neuron"><span class="pre">Neuron</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">neuron</span></em>, <a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract15ResourceManagerE" title="grenade::vx::network::abstract::ResourceManager"><span class="pre">ResourceManager</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">resources</span></em>, <span class="pre">size_t</span> <em><span class="pre">x_start</span></em>, <a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract19CompartmentOnNeuronE" title="grenade::vx::network::abstract::CompartmentOnNeuron"><span class="pre">CompartmentOnNeuron</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">compartment</span></em>, <span class="pre">bool</span> <em><span class="pre">virtually</span></em> <span class="pre">=</span> <span class="pre">false</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset17place_bridge_leftER16CoordinateSystemRK6NeuronRK15ResourceManager6size_tRK19CompartmentOnNeuronb" title="Permalink to this definition"></a><br /></dt>
-<dd><p>Place a bridge structure to the left. </p>
-<p>See place_bridge for more information. </p>
-</dd></dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset18place_bridge_rightER16CoordinateSystemRK6NeuronRK15ResourceManager6size_tRK19CompartmentOnNeuronb">
-<span id="_CPPv3N7grenade2vx7network8abstract25PlacementAlgorithmRuleset18place_bridge_rightER16CoordinateSystemRK6NeuronRK15ResourceManager6size_tRK19CompartmentOnNeuronb"></span><span id="_CPPv2N7grenade2vx7network8abstract25PlacementAlgorithmRuleset18place_bridge_rightER16CoordinateSystemRK6NeuronRK15ResourceManager6size_tRK19CompartmentOnNeuronb"></span><span id="grenade::vx::network::abstract::PlacementAlgorithmRuleset::place_bridge_right__CoordinateSystemR.NeuronCR.ResourceManagerCR.s.CompartmentOnNeuronCR.b"></span><span class="target" id="a02558_1a3e58cefc4876bbaf94a0a4a79836d35a"></span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract15NumberTopBottomE" title="grenade::vx::network::abstract::NumberTopBottom"><span class="pre">NumberTopBottom</span></a> <code class="sig-name descname"><span class="pre">place_bridge_right</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract16CoordinateSystemE" title="grenade::vx::network::abstract::CoordinateSystem"><span class="pre">CoordinateSystem</span></a> <span class="pre">&amp;</span><em><span class="pre">coordinates</span></em>, <a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract6NeuronE" title="grenade::vx::network::abstract::Neuron"><span class="pre">Neuron</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">neuron</span></em>, <a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract15ResourceManagerE" title="grenade::vx::network::abstract::ResourceManager"><span class="pre">ResourceManager</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">resources</span></em>, <span class="pre">size_t</span> <em><span class="pre">x_start</span></em>, <a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract19CompartmentOnNeuronE" title="grenade::vx::network::abstract::CompartmentOnNeuron"><span class="pre">CompartmentOnNeuron</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">compartment</span></em>, <span class="pre">bool</span> <em><span class="pre">virtually</span></em> <span class="pre">=</span> <span class="pre">false</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset18place_bridge_rightER16CoordinateSystemRK6NeuronRK15ResourceManager6size_tRK19CompartmentOnNeuronb" title="Permalink to this definition"></a><br /></dt>
-<dd><p>Place a bridge structure to the right. </p>
-<p>See place_bridge for more information. </p>
-</dd></dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset11place_chainER16CoordinateSystemRK6NeuronRK15ResourceManager6size_t6size_tRKNSt6vectorI19CompartmentOnNeuronEEib">
-<span id="_CPPv3N7grenade2vx7network8abstract25PlacementAlgorithmRuleset11place_chainER16CoordinateSystemRK6NeuronRK15ResourceManager6size_t6size_tRKNSt6vectorI19CompartmentOnNeuronEEib"></span><span id="_CPPv2N7grenade2vx7network8abstract25PlacementAlgorithmRuleset11place_chainER16CoordinateSystemRK6NeuronRK15ResourceManager6size_t6size_tRKNSt6vectorI19CompartmentOnNeuronEEib"></span><span id="grenade::vx::network::abstract::PlacementAlgorithmRuleset::place_chain__CoordinateSystemR.NeuronCR.ResourceManagerCR.s.s.std::vector:CompartmentOnNeuron:CR.i.b"></span><span class="target" id="a02558_1a20c0d3d083ee37f54dd658759f68058b"></span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract15NumberTopBottomE" title="grenade::vx::network::abstract::NumberTopBottom"><span class="pre">NumberTopBottom</span></a> <code class="sig-name descname"><span class="pre">place_chain</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract16CoordinateSystemE" title="grenade::vx::network::abstract::CoordinateSystem"><span class="pre">CoordinateSystem</span></a> <span class="pre">&amp;</span><em><span class="pre">coordinates</span></em>, <a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract6NeuronE" title="grenade::vx::network::abstract::Neuron"><span class="pre">Neuron</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">neuron</span></em>, <a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract15ResourceManagerE" title="grenade::vx::network::abstract::ResourceManager"><span class="pre">ResourceManager</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">resources</span></em>, <span class="pre">size_t</span> <em><span class="pre">x</span></em>, <span class="pre">size_t</span> <em><span class="pre">y</span></em>, <a class="reference internal" href="api_calix.html#_CPPv4St" title="std"><span class="pre">std</span></a><span class="pre">::</span><span class="pre">vector</span><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract19CompartmentOnNeuronE" title="grenade::vx::network::abstract::CompartmentOnNeuron"><span class="pre">CompartmentOnNeuron</span></a><span class="pre">&gt;</span> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">chain</span></em>, <span class="pre">int</span> <em><span class="pre">direction</span></em> <span class="pre">=</span> <span class="pre">1</span>, <span class="pre">bool</span> <em><span class="pre">virtually</span></em> <span class="pre">=</span> <span class="pre">false</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset11place_chainER16CoordinateSystemRK6NeuronRK15ResourceManager6size_t6size_tRKNSt6vectorI19CompartmentOnNeuronEEib" title="Permalink to this definition"></a><br /></dt>
-<dd><p>Place multiple compartment that are connected as a chain. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>coordinates</strong> – Current configuration. (Or empty for virtual placement) </p></li>
-<li><p><strong>neuron</strong> – <a class="reference internal" href="api_haldls.html#a02514"><span class="std std-ref">Neuron</span></a> to be placed. </p></li>
-<li><p><strong>resources</strong> – Resources required by compartments of neuron. </p></li>
-<li><p><strong>x</strong> – Column to start placement from. </p></li>
-<li><p><strong>y</strong> – Row to start placement from. </p></li>
-<li><p><strong>chain</strong> – List of chain compartments. </p></li>
-<li><p><strong>direction</strong> – Direction of placement. </p></li>
-<li><p><strong>virtually</strong> – Dummy placement to determine required spot size. </p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset11place_leafsER16CoordinateSystemRK6NeuronRK15ResourceManager6size_t6size_t19CompartmentOnNeuronRKNSt6vectorI19CompartmentOnNeuronEEib">
-<span id="_CPPv3N7grenade2vx7network8abstract25PlacementAlgorithmRuleset11place_leafsER16CoordinateSystemRK6NeuronRK15ResourceManager6size_t6size_t19CompartmentOnNeuronRKNSt6vectorI19CompartmentOnNeuronEEib"></span><span id="_CPPv2N7grenade2vx7network8abstract25PlacementAlgorithmRuleset11place_leafsER16CoordinateSystemRK6NeuronRK15ResourceManager6size_t6size_t19CompartmentOnNeuronRKNSt6vectorI19CompartmentOnNeuronEEib"></span><span id="grenade::vx::network::abstract::PlacementAlgorithmRuleset::place_leafs__CoordinateSystemR.NeuronCR.ResourceManagerCR.s.s.CompartmentOnNeuron.std::vector:CompartmentOnNeuron:CR.i.b"></span><span class="target" id="a02558_1a0e6b17e1fed88fb54b06841e5cec40ac"></span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract15NumberTopBottomE" title="grenade::vx::network::abstract::NumberTopBottom"><span class="pre">NumberTopBottom</span></a> <code class="sig-name descname"><span class="pre">place_leafs</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract16CoordinateSystemE" title="grenade::vx::network::abstract::CoordinateSystem"><span class="pre">CoordinateSystem</span></a> <span class="pre">&amp;</span><em><span class="pre">coordinates</span></em>, <a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract6NeuronE" title="grenade::vx::network::abstract::Neuron"><span class="pre">Neuron</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">neuron</span></em>, <a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract15ResourceManagerE" title="grenade::vx::network::abstract::ResourceManager"><span class="pre">ResourceManager</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">resources</span></em>, <span class="pre">size_t</span> <em><span class="pre">x</span></em>, <span class="pre">size_t</span> <em><span class="pre">y</span></em>, <a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract19CompartmentOnNeuronE" title="grenade::vx::network::abstract::CompartmentOnNeuron"><span class="pre">CompartmentOnNeuron</span></a> <em><span class="pre">compartment</span></em>, <a class="reference internal" href="api_calix.html#_CPPv4St" title="std"><span class="pre">std</span></a><span class="pre">::</span><span class="pre">vector</span><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract19CompartmentOnNeuronE" title="grenade::vx::network::abstract::CompartmentOnNeuron"><span class="pre">CompartmentOnNeuron</span></a><span class="pre">&gt;</span> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">leafs</span></em>, <span class="pre">int</span> <em><span class="pre">direction</span></em> <span class="pre">=</span> <span class="pre">1</span>, <span class="pre">bool</span> <em><span class="pre">virtually</span></em> <span class="pre">=</span> <span class="pre">false</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset11place_leafsER16CoordinateSystemRK6NeuronRK15ResourceManager6size_t6size_t19CompartmentOnNeuronRKNSt6vectorI19CompartmentOnNeuronEEib" title="Permalink to this definition"></a><br /></dt>
-<dd><p>Place multiple leafs. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>coordinates</strong> – Current configuration. (Or empty for virutal placement) </p></li>
-<li><p><strong>neuron</strong> – <a class="reference internal" href="api_haldls.html#a02514"><span class="std std-ref">Neuron</span></a> to be placed. </p></li>
-<li><p><strong>resources</strong> – Resources required by comaprtment of neuron. </p></li>
-<li><p><strong>x</strong> – Column to start placement. </p></li>
-<li><p><strong>y</strong> – Row to start placement. </p></li>
-<li><p><strong>compartment</strong> – <a class="reference internal" href="api_haldls.html#a02322"><span class="std std-ref">Compartment</span></a> whichs leafs are placed. </p></li>
-<li><p><strong>leafs</strong> – List of leaf compartments. </p></li>
-<li><p><strong>direction</strong> – Direction of placement. </p></li>
-<li><p><strong>virtually</strong> – Dummy placement to determine required spot size. </p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset12place_simpleER16CoordinateSystemRK6NeuronRK15ResourceManager6size_t6size_tRK19CompartmentOnNeuronib">
-<span id="_CPPv3N7grenade2vx7network8abstract25PlacementAlgorithmRuleset12place_simpleER16CoordinateSystemRK6NeuronRK15ResourceManager6size_t6size_tRK19CompartmentOnNeuronib"></span><span id="_CPPv2N7grenade2vx7network8abstract25PlacementAlgorithmRuleset12place_simpleER16CoordinateSystemRK6NeuronRK15ResourceManager6size_t6size_tRK19CompartmentOnNeuronib"></span><span id="grenade::vx::network::abstract::PlacementAlgorithmRuleset::place_simple__CoordinateSystemR.NeuronCR.ResourceManagerCR.s.s.CompartmentOnNeuronCR.i.b"></span><span class="target" id="a02558_1abf26eb29eaea91cbf409b78ef248044f"></span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract15NumberTopBottomE" title="grenade::vx::network::abstract::NumberTopBottom"><span class="pre">NumberTopBottom</span></a> <code class="sig-name descname"><span class="pre">place_simple</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract16CoordinateSystemE" title="grenade::vx::network::abstract::CoordinateSystem"><span class="pre">CoordinateSystem</span></a> <span class="pre">&amp;</span><em><span class="pre">coordinates</span></em>, <a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract6NeuronE" title="grenade::vx::network::abstract::Neuron"><span class="pre">Neuron</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">neuron</span></em>, <a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract15ResourceManagerE" title="grenade::vx::network::abstract::ResourceManager"><span class="pre">ResourceManager</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">resources</span></em>, <span class="pre">size_t</span> <em><span class="pre">x_start</span></em>, <span class="pre">size_t</span> <em><span class="pre">y</span></em>, <a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract19CompartmentOnNeuronE" title="grenade::vx::network::abstract::CompartmentOnNeuron"><span class="pre">CompartmentOnNeuron</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">compartment</span></em>, <span class="pre">int</span> <em><span class="pre">direction</span></em> <span class="pre">=</span> <span class="pre">1</span>, <span class="pre">bool</span> <em><span class="pre">virtually</span></em> <span class="pre">=</span> <span class="pre">false</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset12place_simpleER16CoordinateSystemRK6NeuronRK15ResourceManager6size_t6size_tRK19CompartmentOnNeuronib" title="Permalink to this definition"></a><br /></dt>
+<dt id="_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset12place_simpleER16CoordinateSystemRK6Neuron15NumberTopBottom6size_t6size_tRK19CompartmentOnNeuronib">
+<span id="_CPPv3N7grenade2vx7network8abstract25PlacementAlgorithmRuleset12place_simpleER16CoordinateSystemRK6Neuron15NumberTopBottom6size_t6size_tRK19CompartmentOnNeuronib"></span><span id="_CPPv2N7grenade2vx7network8abstract25PlacementAlgorithmRuleset12place_simpleER16CoordinateSystemRK6Neuron15NumberTopBottom6size_t6size_tRK19CompartmentOnNeuronib"></span><span id="grenade::vx::network::abstract::PlacementAlgorithmRuleset::place_simple__CoordinateSystemR.NeuronCR.NumberTopBottom.s.s.CompartmentOnNeuronCR.i.b"></span><span class="target" id="a02558_1a4a16fa923b70627923403d6bc20ba3d7"></span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract15NumberTopBottomE" title="grenade::vx::network::abstract::NumberTopBottom"><span class="pre">NumberTopBottom</span></a> <code class="sig-name descname"><span class="pre">place_simple</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract16CoordinateSystemE" title="grenade::vx::network::abstract::CoordinateSystem"><span class="pre">CoordinateSystem</span></a> <span class="pre">&amp;</span><em><span class="pre">coordinates</span></em>, <a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract6NeuronE" title="grenade::vx::network::abstract::Neuron"><span class="pre">Neuron</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">neuron</span></em>, <a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract15NumberTopBottomE" title="grenade::vx::network::abstract::NumberTopBottom"><span class="pre">NumberTopBottom</span></a> <em><span class="pre">required_resources</span></em>, <span class="pre">size_t</span> <em><span class="pre">x_start</span></em>, <span class="pre">size_t</span> <em><span class="pre">y</span></em>, <a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract19CompartmentOnNeuronE" title="grenade::vx::network::abstract::CompartmentOnNeuron"><span class="pre">CompartmentOnNeuron</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">compartment</span></em>, <span class="pre">int</span> <em><span class="pre">direction</span></em> <span class="pre">=</span> <span class="pre">1</span>, <span class="pre">bool</span> <em><span class="pre">virtually</span></em> <span class="pre">=</span> <span class="pre">false</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset12place_simpleER16CoordinateSystemRK6Neuron15NumberTopBottom6size_t6size_tRK19CompartmentOnNeuronib" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Simple placement. </p>
 <p>Place in one row if other row is not explicitly requested. </p>
 <dl class="field-list simple">
@@ -21811,15 +21762,15 @@
 </dd></dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset17place_simple_leftER16CoordinateSystemRK6NeuronRK15ResourceManager6size_t6size_tRK19CompartmentOnNeuronb">
-<span id="_CPPv3N7grenade2vx7network8abstract25PlacementAlgorithmRuleset17place_simple_leftER16CoordinateSystemRK6NeuronRK15ResourceManager6size_t6size_tRK19CompartmentOnNeuronb"></span><span id="_CPPv2N7grenade2vx7network8abstract25PlacementAlgorithmRuleset17place_simple_leftER16CoordinateSystemRK6NeuronRK15ResourceManager6size_t6size_tRK19CompartmentOnNeuronb"></span><span id="grenade::vx::network::abstract::PlacementAlgorithmRuleset::place_simple_left__CoordinateSystemR.NeuronCR.ResourceManagerCR.s.s.CompartmentOnNeuronCR.b"></span><span class="target" id="a02558_1a49f581026a5c087b53d312c229ff8c40"></span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract15NumberTopBottomE" title="grenade::vx::network::abstract::NumberTopBottom"><span class="pre">NumberTopBottom</span></a> <code class="sig-name descname"><span class="pre">place_simple_left</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract16CoordinateSystemE" title="grenade::vx::network::abstract::CoordinateSystem"><span class="pre">CoordinateSystem</span></a> <span class="pre">&amp;</span><em><span class="pre">coordinates</span></em>, <a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract6NeuronE" title="grenade::vx::network::abstract::Neuron"><span class="pre">Neuron</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">neuron</span></em>, <a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract15ResourceManagerE" title="grenade::vx::network::abstract::ResourceManager"><span class="pre">ResourceManager</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">resources</span></em>, <span class="pre">size_t</span> <em><span class="pre">x_start</span></em>, <span class="pre">size_t</span> <em><span class="pre">y</span></em>, <a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract19CompartmentOnNeuronE" title="grenade::vx::network::abstract::CompartmentOnNeuron"><span class="pre">CompartmentOnNeuron</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">compartment</span></em>, <span class="pre">bool</span> <em><span class="pre">virtually</span></em> <span class="pre">=</span> <span class="pre">false</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset17place_simple_leftER16CoordinateSystemRK6NeuronRK15ResourceManager6size_t6size_tRK19CompartmentOnNeuronb" title="Permalink to this definition"></a><br /></dt>
+<dt id="_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset17place_simple_leftER16CoordinateSystemRK6Neuron15NumberTopBottom6size_t6size_tRK19CompartmentOnNeuronb">
+<span id="_CPPv3N7grenade2vx7network8abstract25PlacementAlgorithmRuleset17place_simple_leftER16CoordinateSystemRK6Neuron15NumberTopBottom6size_t6size_tRK19CompartmentOnNeuronb"></span><span id="_CPPv2N7grenade2vx7network8abstract25PlacementAlgorithmRuleset17place_simple_leftER16CoordinateSystemRK6Neuron15NumberTopBottom6size_t6size_tRK19CompartmentOnNeuronb"></span><span id="grenade::vx::network::abstract::PlacementAlgorithmRuleset::place_simple_left__CoordinateSystemR.NeuronCR.NumberTopBottom.s.s.CompartmentOnNeuronCR.b"></span><span class="target" id="a02558_1a14494a928a3e9471497746f1872f515f"></span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract15NumberTopBottomE" title="grenade::vx::network::abstract::NumberTopBottom"><span class="pre">NumberTopBottom</span></a> <code class="sig-name descname"><span class="pre">place_simple_left</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract16CoordinateSystemE" title="grenade::vx::network::abstract::CoordinateSystem"><span class="pre">CoordinateSystem</span></a> <span class="pre">&amp;</span><em><span class="pre">coordinates</span></em>, <a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract6NeuronE" title="grenade::vx::network::abstract::Neuron"><span class="pre">Neuron</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">neuron</span></em>, <a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract15NumberTopBottomE" title="grenade::vx::network::abstract::NumberTopBottom"><span class="pre">NumberTopBottom</span></a> <em><span class="pre">required_resources</span></em>, <span class="pre">size_t</span> <em><span class="pre">x_start</span></em>, <span class="pre">size_t</span> <em><span class="pre">y</span></em>, <a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract19CompartmentOnNeuronE" title="grenade::vx::network::abstract::CompartmentOnNeuron"><span class="pre">CompartmentOnNeuron</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">compartment</span></em>, <span class="pre">bool</span> <em><span class="pre">virtually</span></em> <span class="pre">=</span> <span class="pre">false</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset17place_simple_leftER16CoordinateSystemRK6Neuron15NumberTopBottom6size_t6size_tRK19CompartmentOnNeuronb" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Use simple placement to place compartment to the left. </p>
 <p>See place_right for more information. </p>
 </dd></dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset18place_simple_rightER16CoordinateSystemRK6NeuronRK15ResourceManager6size_t6size_tRK19CompartmentOnNeuronb">
-<span id="_CPPv3N7grenade2vx7network8abstract25PlacementAlgorithmRuleset18place_simple_rightER16CoordinateSystemRK6NeuronRK15ResourceManager6size_t6size_tRK19CompartmentOnNeuronb"></span><span id="_CPPv2N7grenade2vx7network8abstract25PlacementAlgorithmRuleset18place_simple_rightER16CoordinateSystemRK6NeuronRK15ResourceManager6size_t6size_tRK19CompartmentOnNeuronb"></span><span id="grenade::vx::network::abstract::PlacementAlgorithmRuleset::place_simple_right__CoordinateSystemR.NeuronCR.ResourceManagerCR.s.s.CompartmentOnNeuronCR.b"></span><span class="target" id="a02558_1ad4c784254d6a68afec12bec8bb115cff"></span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract15NumberTopBottomE" title="grenade::vx::network::abstract::NumberTopBottom"><span class="pre">NumberTopBottom</span></a> <code class="sig-name descname"><span class="pre">place_simple_right</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract16CoordinateSystemE" title="grenade::vx::network::abstract::CoordinateSystem"><span class="pre">CoordinateSystem</span></a> <span class="pre">&amp;</span><em><span class="pre">coordinates</span></em>, <a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract6NeuronE" title="grenade::vx::network::abstract::Neuron"><span class="pre">Neuron</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">neuron</span></em>, <a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract15ResourceManagerE" title="grenade::vx::network::abstract::ResourceManager"><span class="pre">ResourceManager</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">resources</span></em>, <span class="pre">size_t</span> <em><span class="pre">x_start</span></em>, <span class="pre">size_t</span> <em><span class="pre">y</span></em>, <a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract19CompartmentOnNeuronE" title="grenade::vx::network::abstract::CompartmentOnNeuron"><span class="pre">CompartmentOnNeuron</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">compartment</span></em>, <span class="pre">bool</span> <em><span class="pre">virtually</span></em> <span class="pre">=</span> <span class="pre">false</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset18place_simple_rightER16CoordinateSystemRK6NeuronRK15ResourceManager6size_t6size_tRK19CompartmentOnNeuronb" title="Permalink to this definition"></a><br /></dt>
+<dt id="_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset18place_simple_rightER16CoordinateSystemRK6Neuron15NumberTopBottom6size_t6size_tRK19CompartmentOnNeuronb">
+<span id="_CPPv3N7grenade2vx7network8abstract25PlacementAlgorithmRuleset18place_simple_rightER16CoordinateSystemRK6Neuron15NumberTopBottom6size_t6size_tRK19CompartmentOnNeuronb"></span><span id="_CPPv2N7grenade2vx7network8abstract25PlacementAlgorithmRuleset18place_simple_rightER16CoordinateSystemRK6Neuron15NumberTopBottom6size_t6size_tRK19CompartmentOnNeuronb"></span><span id="grenade::vx::network::abstract::PlacementAlgorithmRuleset::place_simple_right__CoordinateSystemR.NeuronCR.NumberTopBottom.s.s.CompartmentOnNeuronCR.b"></span><span class="target" id="a02558_1a061c49cd142521148977f316c746d94b"></span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract15NumberTopBottomE" title="grenade::vx::network::abstract::NumberTopBottom"><span class="pre">NumberTopBottom</span></a> <code class="sig-name descname"><span class="pre">place_simple_right</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract16CoordinateSystemE" title="grenade::vx::network::abstract::CoordinateSystem"><span class="pre">CoordinateSystem</span></a> <span class="pre">&amp;</span><em><span class="pre">coordinates</span></em>, <a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract6NeuronE" title="grenade::vx::network::abstract::Neuron"><span class="pre">Neuron</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">neuron</span></em>, <a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract15NumberTopBottomE" title="grenade::vx::network::abstract::NumberTopBottom"><span class="pre">NumberTopBottom</span></a> <em><span class="pre">required_resources</span></em>, <span class="pre">size_t</span> <em><span class="pre">x_start</span></em>, <span class="pre">size_t</span> <em><span class="pre">y</span></em>, <a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract19CompartmentOnNeuronE" title="grenade::vx::network::abstract::CompartmentOnNeuron"><span class="pre">CompartmentOnNeuron</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">compartment</span></em>, <span class="pre">bool</span> <em><span class="pre">virtually</span></em> <span class="pre">=</span> <span class="pre">false</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset18place_simple_rightER16CoordinateSystemRK6Neuron15NumberTopBottom6size_t6size_tRK19CompartmentOnNeuronb" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Use simple placement to place compartment to the right. </p>
 <p>See place_right for more information. </p>
 </dd></dl>
@@ -21842,34 +21793,17 @@
 </dd></dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset16select_free_spotENSt6vectorI13PlacementSpotEERK15NumberTopBottombbb">
-<span id="_CPPv3N7grenade2vx7network8abstract25PlacementAlgorithmRuleset16select_free_spotENSt6vectorI13PlacementSpotEERK15NumberTopBottombbb"></span><span id="_CPPv2N7grenade2vx7network8abstract25PlacementAlgorithmRuleset16select_free_spotENSt6vectorI13PlacementSpotEERK15NumberTopBottombbb"></span><span id="grenade::vx::network::abstract::PlacementAlgorithmRuleset::select_free_spot__std::vector:PlacementSpot:.NumberTopBottomCR.b.b.b"></span><span class="target" id="a02558_1a5333176731f234cb06b23713009654e2"></span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract13PlacementSpotE" title="grenade::vx::network::abstract::PlacementSpot"><span class="pre">PlacementSpot</span></a> <code class="sig-name descname"><span class="pre">select_free_spot</span></code><span class="sig-paren">(</span><a class="reference internal" href="api_calix.html#_CPPv4St" title="std"><span class="pre">std</span></a><span class="pre">::</span><span class="pre">vector</span><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract13PlacementSpotE" title="grenade::vx::network::abstract::PlacementSpot"><span class="pre">PlacementSpot</span></a><span class="pre">&gt;</span> <em><span class="pre">spots</span></em>, <a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract15NumberTopBottomE" title="grenade::vx::network::abstract::NumberTopBottom"><span class="pre">NumberTopBottom</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">min_spot_size</span></em>, <span class="pre">bool</span> <em><span class="pre">closest</span></em> <span class="pre">=</span> <span class="pre">true</span>, <span class="pre">bool</span> <em><span class="pre">largest</span></em> <span class="pre">=</span> <span class="pre">false</span>, <span class="pre">bool</span> <em><span class="pre">block</span></em> <span class="pre">=</span> <span class="pre">false</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset16select_free_spotENSt6vectorI13PlacementSpotEERK15NumberTopBottombbb" title="Permalink to this definition"></a><br /></dt>
+<dt id="_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset16select_free_spotENSt6vectorI13PlacementSpotEERK15NumberTopBottomR16CoordinateSystemRK19CompartmentOnNeuron">
+<span id="_CPPv3N7grenade2vx7network8abstract25PlacementAlgorithmRuleset16select_free_spotENSt6vectorI13PlacementSpotEERK15NumberTopBottomR16CoordinateSystemRK19CompartmentOnNeuron"></span><span id="_CPPv2N7grenade2vx7network8abstract25PlacementAlgorithmRuleset16select_free_spotENSt6vectorI13PlacementSpotEERK15NumberTopBottomR16CoordinateSystemRK19CompartmentOnNeuron"></span><span id="grenade::vx::network::abstract::PlacementAlgorithmRuleset::select_free_spot__std::vector:PlacementSpot:.NumberTopBottomCR.CoordinateSystemR.CompartmentOnNeuronCR"></span><span class="target" id="a02558_1a752814daba41988f0452f9b4205a2cbc"></span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract13PlacementSpotE" title="grenade::vx::network::abstract::PlacementSpot"><span class="pre">PlacementSpot</span></a> <code class="sig-name descname"><span class="pre">select_free_spot</span></code><span class="sig-paren">(</span><a class="reference internal" href="api_calix.html#_CPPv4St" title="std"><span class="pre">std</span></a><span class="pre">::</span><span class="pre">vector</span><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract13PlacementSpotE" title="grenade::vx::network::abstract::PlacementSpot"><span class="pre">PlacementSpot</span></a><span class="pre">&gt;</span> <em><span class="pre">spots</span></em>, <a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract15NumberTopBottomE" title="grenade::vx::network::abstract::NumberTopBottom"><span class="pre">NumberTopBottom</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">min_spot_size</span></em>, <a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract16CoordinateSystemE" title="grenade::vx::network::abstract::CoordinateSystem"><span class="pre">CoordinateSystem</span></a> <span class="pre">&amp;</span><em><span class="pre">coordinates</span></em>, <a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract19CompartmentOnNeuronE" title="grenade::vx::network::abstract::CompartmentOnNeuron"><span class="pre">CompartmentOnNeuron</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">parent_compartment</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset16select_free_spotENSt6vectorI13PlacementSpotEERK15NumberTopBottomR16CoordinateSystemRK19CompartmentOnNeuron" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Select a sufficiently large free spot. </p>
+<p>First, spots which are too small are disregarded. We first order spots based on the y coordinate. Here, we count the number of connections of the parent compartment to the shared line and prefer the row in which more connections are placed. This aims to only block one shared line (for later placements) if possible. On equal number of connections to the shared line, we order the spots by distance to the parent compartment (we prefer shorter distances) and next by the available space (we prefer bigger spaces). </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>spots</strong> – Free spots. </p></li>
 <li><p><strong>min_spot_size</strong> – Spot size required. </p></li>
-<li><p><strong>closest</strong> – Prioritize closer spots. </p></li>
-<li><p><strong>largest</strong> – Prioritize larger spots. </p></li>
-<li><p><strong>block</strong> – Only consider rectangluar spots. </p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset18try_connect_sharedER16CoordinateSystem6size_t6size_t6size_t">
-<span id="_CPPv3N7grenade2vx7network8abstract25PlacementAlgorithmRuleset18try_connect_sharedER16CoordinateSystem6size_t6size_t6size_t"></span><span id="_CPPv2N7grenade2vx7network8abstract25PlacementAlgorithmRuleset18try_connect_sharedER16CoordinateSystem6size_t6size_t6size_t"></span><span id="grenade::vx::network::abstract::PlacementAlgorithmRuleset::try_connect_shared__CoordinateSystemR.s.s.s"></span><span class="target" id="a02558_1a32025950610b4ecf7ac94d3e4adfa52b"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">try_connect_shared</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract16CoordinateSystemE" title="grenade::vx::network::abstract::CoordinateSystem"><span class="pre">CoordinateSystem</span></a> <span class="pre">&amp;</span><em><span class="pre">coordiantes</span></em>, <span class="pre">size_t</span> <em><span class="pre">x_left</span></em>, <span class="pre">size_t</span> <em><span class="pre">x_right</span></em>, <span class="pre">size_t</span> <em><span class="pre">y</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset18try_connect_sharedER16CoordinateSystem6size_t6size_t6size_t" title="Permalink to this definition"></a><br /></dt>
-<dd><p>Helper function for trying to connect and catching the error. </p>
-<p>This makes a runtime error out of a logic error raised by the coordinate system. The error type is important for automatic placement testing, as only runtime errors are caught. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>coordinates</strong> – Coordiante system to place the connection on. </p></li>
-<li><p><strong>x_first</strong> – First circuits x-coordinate. </p></li>
-<li><p><strong>x_second</strong> – Second circuits x-coordiante. </p></li>
-<li><p><strong>y</strong> – Y-Coordinate for connection. </p></li>
+<li><p><strong>coordinates</strong> – Current state of the coordinate system. </p></li>
+<li><p><strong>parent_compartment</strong> – Parent of the compartment for which a free spot is selected. </p></li>
 </ul>
 </dd>
 </dl>
@@ -21893,11 +21827,6 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
 <dl class="cpp var">
-<dt id="_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset20m_depth_search_firstE">
-<span id="_CPPv3N7grenade2vx7network8abstract25PlacementAlgorithmRuleset20m_depth_search_firstE"></span><span id="_CPPv2N7grenade2vx7network8abstract25PlacementAlgorithmRuleset20m_depth_search_firstE"></span><span id="grenade::vx::network::abstract::PlacementAlgorithmRuleset::m_depth_search_first__b"></span><span class="target" id="a02558_1a7f777283954798037e090fac8a47f8dd"></span><span class="pre">bool</span> <code class="sig-name descname"><span class="pre">m_depth_search_first</span></code> <span class="pre">=</span> <span class="pre">false</span><a class="headerlink" href="#_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset20m_depth_search_firstE" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp var">
 <dt id="_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset8m_loggerE">
 <span id="_CPPv3N7grenade2vx7network8abstract25PlacementAlgorithmRuleset8m_loggerE"></span><span id="_CPPv2N7grenade2vx7network8abstract25PlacementAlgorithmRuleset8m_loggerE"></span><span id="grenade::vx::network::abstract::PlacementAlgorithmRuleset::m_logger__log4cxx::LoggerPtr"></span><span class="target" id="a02558_1a789dec4848f33c7ea6903e3f47ac43d0"></span><a class="reference internal" href="#_CPPv47log4cxx" title="log4cxx"><span class="pre">log4cxx</span></a><span class="pre">::</span><a class="reference internal" href="#_CPPv4N7log4cxx9LoggerPtrE" title="log4cxx::LoggerPtr"><span class="pre">LoggerPtr</span></a> <code class="sig-name descname"><span class="pre">m_logger</span></code><a class="headerlink" href="#_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset8m_loggerE" title="Permalink to this definition"></a><br /></dt>
 <dd></dd></dl>
@@ -21905,11 +21834,6 @@
 <dl class="cpp var">
 <dt id="_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset21m_placed_compartmentsE">
 <span id="_CPPv3N7grenade2vx7network8abstract25PlacementAlgorithmRuleset21m_placed_compartmentsE"></span><span id="_CPPv2N7grenade2vx7network8abstract25PlacementAlgorithmRuleset21m_placed_compartmentsE"></span><span id="grenade::vx::network::abstract::PlacementAlgorithmRuleset::m_placed_compartments__std::vector:CompartmentOnNeuron:"></span><span class="target" id="a02558_1ac8f2b0d0ef10c071a5e6291e6e18e425"></span><a class="reference internal" href="api_calix.html#_CPPv4St" title="std"><span class="pre">std</span></a><span class="pre">::</span><span class="pre">vector</span><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract19CompartmentOnNeuronE" title="grenade::vx::network::abstract::CompartmentOnNeuron"><span class="pre">CompartmentOnNeuron</span></a><span class="pre">&gt;</span> <code class="sig-name descname"><span class="pre">m_placed_compartments</span></code><a class="headerlink" href="#_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset21m_placed_compartmentsE" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp var">
-<dt id="_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset20m_placed_connectionsE">
-<span id="_CPPv3N7grenade2vx7network8abstract25PlacementAlgorithmRuleset20m_placed_connectionsE"></span><span id="_CPPv2N7grenade2vx7network8abstract25PlacementAlgorithmRuleset20m_placed_connectionsE"></span><span id="grenade::vx::network::abstract::PlacementAlgorithmRuleset::m_placed_connections__std::set:std::pair:CompartmentOnNeuron.CompartmentOnNeuron::"></span><span class="target" id="a02558_1aff9c1ca780db1df190ff6ed8bf23c6b9"></span><a class="reference internal" href="api_calix.html#_CPPv4St" title="std"><span class="pre">std</span></a><span class="pre">::</span><span class="pre">set</span><span class="pre">&lt;</span><a class="reference internal" href="api_calix.html#_CPPv4St" title="std"><span class="pre">std</span></a><span class="pre">::</span><span class="pre">pair</span><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract19CompartmentOnNeuronE" title="grenade::vx::network::abstract::CompartmentOnNeuron"><span class="pre">CompartmentOnNeuron</span></a><span class="pre">,</span> <a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract19CompartmentOnNeuronE" title="grenade::vx::network::abstract::CompartmentOnNeuron"><span class="pre">CompartmentOnNeuron</span></a><span class="pre">&gt;</span><span class="pre">&gt;</span> <code class="sig-name descname"><span class="pre">m_placed_connections</span></code><a class="headerlink" href="#_CPPv4N7grenade2vx7network8abstract25PlacementAlgorithmRuleset20m_placed_connectionsE" title="Permalink to this definition"></a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp var">
@@ -22055,6 +21979,11 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
+<dt id="_CPPv4NK7grenade2vx7network8abstract13PlacementSpot8distanceEv">
+<span id="_CPPv3NK7grenade2vx7network8abstract13PlacementSpot8distanceEv"></span><span id="_CPPv2NK7grenade2vx7network8abstract13PlacementSpot8distanceEv"></span><span id="grenade::vx::network::abstract::PlacementSpot::distanceC"></span><span class="target" id="a02574_1a8118ce44bb45764eefb904005dc01e49"></span><span class="pre">size_t</span> <code class="sig-name descname"><span class="pre">distance</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK7grenade2vx7network8abstract13PlacementSpot8distanceEv" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
 <dt id="_CPPv4NK7grenade2vx7network8abstract13PlacementSpot20get_free_block_spaceEv">
 <span id="_CPPv3NK7grenade2vx7network8abstract13PlacementSpot20get_free_block_spaceEv"></span><span id="_CPPv2NK7grenade2vx7network8abstract13PlacementSpot20get_free_block_spaceEv"></span><span id="grenade::vx::network::abstract::PlacementSpot::get_free_block_spaceC"></span><span class="target" id="a02574_1ab0390c51be6a4b20bc30685029748891"></span><a class="reference internal" href="api_calix.html#_CPPv4St" title="std"><span class="pre">std</span></a><span class="pre">::</span><span class="pre">pair</span><span class="pre">&lt;</span><span class="pre">size_t</span><span class="pre">,</span> <a class="reference internal" href="#_CPPv4N7grenade2vx7network8abstract15NumberTopBottomE" title="grenade::vx::network::abstract::NumberTopBottom"><span class="pre">NumberTopBottom</span></a><span class="pre">&gt;</span> <code class="sig-name descname"><span class="pre">get_free_block_space</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK7grenade2vx7network8abstract13PlacementSpot20get_free_block_spaceEv" title="Permalink to this definition"></a><br /></dt>
 <dd></dd></dl>
@@ -22065,11 +21994,6 @@
 <dl class="cpp var">
 <dt id="_CPPv4N7grenade2vx7network8abstract13PlacementSpot9directionE">
 <span id="_CPPv3N7grenade2vx7network8abstract13PlacementSpot9directionE"></span><span id="_CPPv2N7grenade2vx7network8abstract13PlacementSpot9directionE"></span><span id="grenade::vx::network::abstract::PlacementSpot::direction__i"></span><span class="target" id="a02574_1a7e98e61300474e85586657aa0ff9ad9f"></span><span class="pre">int</span> <code class="sig-name descname"><span class="pre">direction</span></code> <span class="pre">=</span> <span class="pre">0</span><a class="headerlink" href="#_CPPv4N7grenade2vx7network8abstract13PlacementSpot9directionE" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp var">
-<dt id="_CPPv4N7grenade2vx7network8abstract13PlacementSpot8distanceE">
-<span id="_CPPv3N7grenade2vx7network8abstract13PlacementSpot8distanceE"></span><span id="_CPPv2N7grenade2vx7network8abstract13PlacementSpot8distanceE"></span><span id="grenade::vx::network::abstract::PlacementSpot::distance__s"></span><span class="target" id="a02574_1a6bb267b65cfc5c109088cbd6112f8b88"></span><span class="pre">size_t</span> <code class="sig-name descname"><span class="pre">distance</span></code> <span class="pre">=</span> <span class="pre">256</span><a class="headerlink" href="#_CPPv4N7grenade2vx7network8abstract13PlacementSpot8distanceE" title="Permalink to this definition"></a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp var">
@@ -22090,6 +22014,11 @@
 <dl class="cpp var">
 <dt id="_CPPv4N7grenade2vx7network8abstract13PlacementSpot10x_oppositeE">
 <span id="_CPPv3N7grenade2vx7network8abstract13PlacementSpot10x_oppositeE"></span><span id="_CPPv2N7grenade2vx7network8abstract13PlacementSpot10x_oppositeE"></span><span id="grenade::vx::network::abstract::PlacementSpot::x_opposite__s"></span><span class="target" id="a02574_1a24404c7429383b7bb70def73dc5fb32d"></span><span class="pre">size_t</span> <code class="sig-name descname"><span class="pre">x_opposite</span></code> <span class="pre">=</span> <span class="pre">256</span><a class="headerlink" href="#_CPPv4N7grenade2vx7network8abstract13PlacementSpot10x_oppositeE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt id="_CPPv4N7grenade2vx7network8abstract13PlacementSpot8x_parentE">
+<span id="_CPPv3N7grenade2vx7network8abstract13PlacementSpot8x_parentE"></span><span id="_CPPv2N7grenade2vx7network8abstract13PlacementSpot8x_parentE"></span><span id="grenade::vx::network::abstract::PlacementSpot::x_parent__s"></span><span class="target" id="a02574_1addced3ff00248b863b41acadc50e2e8d"></span><span class="pre">size_t</span> <code class="sig-name descname"><span class="pre">x_parent</span></code> <span class="pre">=</span> <span class="pre">256</span><a class="headerlink" href="#_CPPv4N7grenade2vx7network8abstract13PlacementSpot8x_parentE" title="Permalink to this definition"></a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp var">
@@ -45418,297 +45347,297 @@
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_21bdb280ec3f91c7a889668790955033"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczODQ.x/grenade/include/grenade/vx/network/abstract</span></code></dt>
+<span class="target" id="dir_21bdb280ec3f91c7a889668790955033"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczOTU.x/grenade/include/grenade/vx/network/abstract</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_778486d31bf091c26f7071ed35266ac3"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczODQ.x/grenade/include/grenade/vx/execution/backend</span></code></dt>
+<span class="target" id="dir_778486d31bf091c26f7071ed35266ac3"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczOTU.x/grenade/include/grenade/vx/execution/backend</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_634ef2a20188c2fc6e64f7d0d74900de"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczODQ.x/grenade/include/grenade/vx/network/abstract/calibration</span></code></dt>
+<span class="target" id="dir_634ef2a20188c2fc6e64f7d0d74900de"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczOTU.x/grenade/include/grenade/vx/network/abstract/calibration</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_373e4fb484312a2397b1551f55fd6a36"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczODQ.x/grenade/include/grenade/common</span></code></dt>
+<span class="target" id="dir_373e4fb484312a2397b1551f55fd6a36"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczOTU.x/grenade/include/grenade/common</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_9a660cbb57a76273ad91db0929efc377"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczODQ.x/grenade/include/grenade/vx/common</span></code></dt>
+<span class="target" id="dir_9a660cbb57a76273ad91db0929efc377"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczOTU.x/grenade/include/grenade/vx/common</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_da854a4777179638b4712c945eec43e1"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczODQ.x/grenade/include/grenade/vx/network/abstract/multicompartment/compartment_connection</span></code></dt>
+<span class="target" id="dir_da854a4777179638b4712c945eec43e1"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczOTU.x/grenade/include/grenade/vx/network/abstract/multicompartment/compartment_connection</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_1ac7e241185f0150318b4cc8e534b4d3"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczODQ.x/grenade/include/grenade/vx/compute</span></code></dt>
+<span class="target" id="dir_1ac7e241185f0150318b4cc8e534b4d3"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczOTU.x/grenade/include/grenade/vx/compute</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_a81d0d9cd2d288ff502a77c98765e532"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczODQ.x/grenade/include/grenade/vx/network/routing/csp</span></code></dt>
+<span class="target" id="dir_a81d0d9cd2d288ff502a77c98765e532"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczOTU.x/grenade/include/grenade/vx/network/routing/csp</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_d90ffa37a49bf2ff2b29bf601154378d"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczODQ.x/grenade/include/grenade/common/detail</span></code></dt>
+<span class="target" id="dir_d90ffa37a49bf2ff2b29bf601154378d"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczOTU.x/grenade/include/grenade/common/detail</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_96dc9f885ffb71aa11682a40e2d80d4f"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczODQ.x/grenade/include/grenade/vx/compute/detail</span></code></dt>
+<span class="target" id="dir_96dc9f885ffb71aa11682a40e2d80d4f"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczOTU.x/grenade/include/grenade/vx/compute/detail</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_5919adbf1478f736d43b7f5e73403692"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczODQ.x/grenade/include/grenade/vx/execution/backend/detail</span></code></dt>
+<span class="target" id="dir_5919adbf1478f736d43b7f5e73403692"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczOTU.x/grenade/include/grenade/vx/execution/backend/detail</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_6754b27a7b2efcc9081571301a0f0372"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczODQ.x/grenade/include/grenade/vx/execution/detail</span></code></dt>
+<span class="target" id="dir_6754b27a7b2efcc9081571301a0f0372"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczOTU.x/grenade/include/grenade/vx/execution/detail</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_334d4299a204ec829703707d7c8375db"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczODQ.x/grenade/include/grenade/vx/network/routing/greedy/detail</span></code></dt>
+<span class="target" id="dir_334d4299a204ec829703707d7c8375db"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczOTU.x/grenade/include/grenade/vx/network/routing/greedy/detail</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_4690d373baff6d985722dbc347eb53a7"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczODQ.x/grenade/include/grenade/vx/ppu/detail</span></code></dt>
+<span class="target" id="dir_4690d373baff6d985722dbc347eb53a7"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczOTU.x/grenade/include/grenade/vx/ppu/detail</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_4648fed6ad1e9a8cc9b90b069d72ea92"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczODQ.x/grenade/include/grenade/vx/network/abstract/multicompartment/evolutionary</span></code></dt>
+<span class="target" id="dir_4648fed6ad1e9a8cc9b90b069d72ea92"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczOTU.x/grenade/include/grenade/vx/network/abstract/multicompartment/evolutionary</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_9c0a36ba82b7508428f7a8eec06fea13"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczODQ.x/grenade/include/grenade/vx/execution</span></code></dt>
+<span class="target" id="dir_9c0a36ba82b7508428f7a8eec06fea13"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczOTU.x/grenade/include/grenade/vx/execution</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_61c748b67305815aa7d5a176ad91a1e2"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczODQ.x/grenade/include/grenade/vx/network/routing/csp/factory</span></code></dt>
+<span class="target" id="dir_61c748b67305815aa7d5a176ad91a1e2"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczOTU.x/grenade/include/grenade/vx/network/routing/csp/factory</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_d46d86ae2478f4a31b6f2156b268fb29"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczODQ.x/grenade/include/grenade/vx/execution/detail/generator</span></code></dt>
+<span class="target" id="dir_d46d86ae2478f4a31b6f2156b268fb29"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczOTU.x/grenade/include/grenade/vx/execution/detail/generator</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_db52d3a4f67cdd1eb67eef9a9e50ca30"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczODQ.x/grenade/include/grenade/vx/network/routing/greedy</span></code></dt>
+<span class="target" id="dir_db52d3a4f67cdd1eb67eef9a9e50ca30"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczOTU.x/grenade/include/grenade/vx/network/routing/greedy</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_a5863ad2b325c070247dfd1c98662392"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczODQ.x/grenade</span></code></dt>
+<span class="target" id="dir_a5863ad2b325c070247dfd1c98662392"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczOTU.x/grenade</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_133bbee386b6b6de7fdadc42621c0139"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczODQ.x/grenade/include/grenade</span></code></dt>
+<span class="target" id="dir_133bbee386b6b6de7fdadc42621c0139"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczOTU.x/grenade/include/grenade</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_3642b678cb0f44c4ffff8ac1c02e3bcb"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczODQ.x/grenade/include/grenade/vx/network/abstract/multicompartment/hardware_resource</span></code></dt>
+<span class="target" id="dir_3642b678cb0f44c4ffff8ac1c02e3bcb"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczOTU.x/grenade/include/grenade/vx/network/abstract/multicompartment/hardware_resource</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_e7563ca8a547d9908f754c849dcc65bb"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczODQ.x/grenade/include/grenade/vx/network/routing/csp/helper</span></code></dt>
+<span class="target" id="dir_e7563ca8a547d9908f754c849dcc65bb"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczOTU.x/grenade/include/grenade/vx/network/routing/csp/helper</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_d9c6754bf7c46c2099f7d49796c93d79"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczODQ.x/grenade/include</span></code></dt>
+<span class="target" id="dir_d9c6754bf7c46c2099f7d49796c93d79"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczOTU.x/grenade/include</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_7173b60dd59328cff5a75fb58493f1ad"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczODQ.x/grenade/include/grenade/common/inter_topology_hyper_edge</span></code></dt>
+<span class="target" id="dir_7173b60dd59328cff5a75fb58493f1ad"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczOTU.x/grenade/include/grenade/common/inter_topology_hyper_edge</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_4e2147622cb9daae5ad5f9685635ed01"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczODQ.x/grenade/include/grenade/vx/network/abstract/mapped_topology_rewrite</span></code></dt>
+<span class="target" id="dir_4e2147622cb9daae5ad5f9685635ed01"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczOTU.x/grenade/include/grenade/vx/network/abstract/mapped_topology_rewrite</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_6a39a49fb4a09d49468d7b917daf9dba"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczODQ.x/grenade/include/grenade/vx/network/abstract/mapper</span></code></dt>
+<span class="target" id="dir_6a39a49fb4a09d49468d7b917daf9dba"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczOTU.x/grenade/include/grenade/vx/network/abstract/mapper</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_0c46a96463021e46948b853e6130d5c1"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczODQ.x/grenade/include/grenade/vx/network/abstract/mapping</span></code></dt>
+<span class="target" id="dir_0c46a96463021e46948b853e6130d5c1"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczOTU.x/grenade/include/grenade/vx/network/abstract/mapping</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_bb18b0d655d9ce0a4cc2aa18a442b6b5"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczODQ.x/grenade/include/grenade/vx/network/abstract/multicompartment/mechanism</span></code></dt>
+<span class="target" id="dir_bb18b0d655d9ce0a4cc2aa18a442b6b5"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczOTU.x/grenade/include/grenade/vx/network/abstract/multicompartment/mechanism</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_6710d47db9fa3bc4b3783aeac736e116"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczODQ.x/grenade/include/grenade/common/multi_index_sequence</span></code></dt>
+<span class="target" id="dir_6710d47db9fa3bc4b3783aeac736e116"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczOTU.x/grenade/include/grenade/common/multi_index_sequence</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_b71158045328df9b64a621e2c36410f9"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczODQ.x/grenade/include/grenade/common/multi_index_sequence_dimension_unit</span></code></dt>
+<span class="target" id="dir_b71158045328df9b64a621e2c36410f9"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczOTU.x/grenade/include/grenade/common/multi_index_sequence_dimension_unit</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_e812b66008a63396ecf349ed32eb00c5"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczODQ.x/grenade/include/grenade/vx/network/abstract/multi_index_sequence_dimension_unit</span></code></dt>
+<span class="target" id="dir_e812b66008a63396ecf349ed32eb00c5"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczOTU.x/grenade/include/grenade/vx/network/abstract/multi_index_sequence_dimension_unit</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_087318d326b43619142272e25c71d546"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczODQ.x/grenade/include/grenade/vx/network/abstract/multicompartment</span></code></dt>
+<span class="target" id="dir_087318d326b43619142272e25c71d546"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczOTU.x/grenade/include/grenade/vx/network/abstract/multicompartment</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_bfa6133a02601d0a223fd7ae8e0d15dd"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczODQ.x/grenade/include/grenade/vx/network</span></code></dt>
+<span class="target" id="dir_bfa6133a02601d0a223fd7ae8e0d15dd"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczOTU.x/grenade/include/grenade/vx/network</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_f734d0485d3f90ab58e584bc007ba568"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczODQ.x/grenade/include/grenade/vx/network/abstract/multicompartment/placement</span></code></dt>
+<span class="target" id="dir_f734d0485d3f90ab58e584bc007ba568"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczOTU.x/grenade/include/grenade/vx/network/abstract/multicompartment/placement</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_abddabcd6e8ce6721986cf4e4a6d5366"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczODQ.x/grenade/include/grenade/vx/network/abstract/placement</span></code></dt>
+<span class="target" id="dir_abddabcd6e8ce6721986cf4e4a6d5366"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczOTU.x/grenade/include/grenade/vx/network/abstract/placement</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_b83fcb4cd04ccf17e85ba79a3625bcbb"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczODQ.x/grenade/include/grenade/vx/signal_flow/vertex/plasticity_rule</span></code></dt>
+<span class="target" id="dir_b83fcb4cd04ccf17e85ba79a3625bcbb"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczOTU.x/grenade/include/grenade/vx/signal_flow/vertex/plasticity_rule</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_428ded4df1892eb6bc2e41283a29ad59"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczODQ.x/grenade/include/grenade/vx/network/abstract/population_cell</span></code></dt>
+<span class="target" id="dir_428ded4df1892eb6bc2e41283a29ad59"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczOTU.x/grenade/include/grenade/vx/network/abstract/population_cell</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_feaa14b7fb359e85dbf3aa10849515f0"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczODQ.x/grenade/include/grenade/common/port_data</span></code></dt>
+<span class="target" id="dir_feaa14b7fb359e85dbf3aa10849515f0"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczOTU.x/grenade/include/grenade/common/port_data</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_3097d8b353a7d1aa60876e76a6f027c2"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczODQ.x/grenade/include/grenade/vx/ppu</span></code></dt>
+<span class="target" id="dir_3097d8b353a7d1aa60876e76a6f027c2"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczOTU.x/grenade/include/grenade/vx/ppu</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_c3757032ca62c135b7dcff0de1a0da76"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczODQ.x/grenade/include/grenade/common/projection_connector</span></code></dt>
+<span class="target" id="dir_c3757032ca62c135b7dcff0de1a0da76"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczOTU.x/grenade/include/grenade/common/projection_connector</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_edd303772db66d8ffeb81ef2d19e99d5"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczODQ.x/grenade/include/grenade/vx/network/abstract/projection_synapse</span></code></dt>
+<span class="target" id="dir_edd303772db66d8ffeb81ef2d19e99d5"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczOTU.x/grenade/include/grenade/vx/network/abstract/projection_synapse</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_83e07442b6eac7fdb880b873a38a48b0"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczODQ.x/grenade/include/grenade/vx/network/routing/csp/propagator</span></code></dt>
+<span class="target" id="dir_83e07442b6eac7fdb880b873a38a48b0"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczOTU.x/grenade/include/grenade/vx/network/routing/csp/propagator</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_113e8376c97f1aa90615803d4cbf6287"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczODQ.x/grenade/include/grenade/vx/network/abstract/recorder</span></code></dt>
+<span class="target" id="dir_113e8376c97f1aa90615803d4cbf6287"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczOTU.x/grenade/include/grenade/vx/network/abstract/recorder</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_fc7c3cc1ddd6780887aa8eda87a08a06"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczODQ.x/grenade/include/grenade/vx/network/abstract/resource_estimator</span></code></dt>
+<span class="target" id="dir_fc7c3cc1ddd6780887aa8eda87a08a06"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczOTU.x/grenade/include/grenade/vx/network/abstract/resource_estimator</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_dfd2ff11a5652ab13bcb662e71a32462"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczODQ.x/grenade/include/grenade/vx/network/routing</span></code></dt>
+<span class="target" id="dir_dfd2ff11a5652ab13bcb662e71a32462"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczOTU.x/grenade/include/grenade/vx/network/routing</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_3993dcfe658a60c28dab0073d2da3705"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczODQ.x/grenade/include/grenade/vx/network/routing/csp/routing_structures</span></code></dt>
+<span class="target" id="dir_3993dcfe658a60c28dab0073d2da3705"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczOTU.x/grenade/include/grenade/vx/network/routing/csp/routing_structures</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_845c03aef02a7036a49286559f54f238"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczODQ.x/grenade/include/grenade/vx/signal_flow</span></code></dt>
+<span class="target" id="dir_845c03aef02a7036a49286559f54f238"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczOTU.x/grenade/include/grenade/vx/signal_flow</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_11b383e2bbf6e085acd2c0ca697e83db"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczODQ.x/grenade/include/grenade/vx/network/abstract/multicompartment/synaptic_input_environment</span></code></dt>
+<span class="target" id="dir_11b383e2bbf6e085acd2c0ca697e83db"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczOTU.x/grenade/include/grenade/vx/network/abstract/multicompartment/synaptic_input_environment</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_e9f7bc8c104694c2bae80cc661fe4800"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczODQ.x/grenade/include/grenade/common/topology_rewrite</span></code></dt>
+<span class="target" id="dir_e9f7bc8c104694c2bae80cc661fe4800"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczOTU.x/grenade/include/grenade/common/topology_rewrite</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_58e731e3406af724cdd0ab9a308553f4"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczODQ.x/grenade/include/grenade/vx/network/abstract/topology_rewrite</span></code></dt>
+<span class="target" id="dir_58e731e3406af724cdd0ab9a308553f4"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczOTU.x/grenade/include/grenade/vx/network/abstract/topology_rewrite</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_910aabfecc1d74310e6ede471adabee8"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczODQ.x/grenade/include/grenade/vx/network/vertex/transformation</span></code></dt>
+<span class="target" id="dir_910aabfecc1d74310e6ede471adabee8"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczOTU.x/grenade/include/grenade/vx/network/vertex/transformation</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_752a008c84c3d66322c63bb9b38eb221"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczODQ.x/grenade/include/grenade/vx/signal_flow/vertex/transformation</span></code></dt>
+<span class="target" id="dir_752a008c84c3d66322c63bb9b38eb221"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczOTU.x/grenade/include/grenade/vx/signal_flow/vertex/transformation</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_19eae2aeec1009138582ebe18fca1f61"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczODQ.x/grenade/include/grenade/vx/network/routing/csp/vertex</span></code></dt>
+<span class="target" id="dir_19eae2aeec1009138582ebe18fca1f61"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczOTU.x/grenade/include/grenade/vx/network/routing/csp/vertex</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_c1724158575b0b484c4c3756ae520846"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczODQ.x/grenade/include/grenade/vx/network/vertex</span></code></dt>
+<span class="target" id="dir_c1724158575b0b484c4c3756ae520846"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczOTU.x/grenade/include/grenade/vx/network/vertex</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_28372d0a04eeef6a73effb59b7d7393e"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczODQ.x/grenade/include/grenade/vx/signal_flow/vertex</span></code></dt>
+<span class="target" id="dir_28372d0a04eeef6a73effb59b7d7393e"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczOTU.x/grenade/include/grenade/vx/signal_flow/vertex</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_c3f8d91ad750674e84a23da26b75a139"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczODQ.x/grenade/include/grenade/common/vertex_port_type</span></code></dt>
+<span class="target" id="dir_c3f8d91ad750674e84a23da26b75a139"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczOTU.x/grenade/include/grenade/common/vertex_port_type</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_4ef0845b64e3353701a2ce20d852a8c5"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczODQ.x/grenade/include/grenade/vx/network/abstract/vertex_port_type</span></code></dt>
+<span class="target" id="dir_4ef0845b64e3353701a2ce20d852a8c5"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczOTU.x/grenade/include/grenade/vx/network/abstract/vertex_port_type</span></code></dt>
 <dd></dd></dl>
 
 <dl class="dir">
 <dt>
-<span class="target" id="dir_dbba170be18c42486bff7d5646482ad5"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczODQ.x/grenade/include/grenade/vx</span></code></dt>
+<span class="target" id="dir_dbba170be18c42486bff7d5646482ad5"></span><em><span class="pre">dir</span></em> <code class="sig-name descname"><span class="pre">/jenkins/jenlib_workspaces_f9/doc_gerrit_documentation-brainscales2-dependencies.ZG9jX2dlcnJpdF9kb2N1bWVudGF0aW9uLWJyYWluc2NhbGVzMi1kZXBlbmRlbmNpZXMjMTczOTU.x/grenade/include/grenade/vx</span></code></dt>
 <dd></dd></dl>
 
 </div>
