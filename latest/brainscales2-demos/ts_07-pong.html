@@ -772,25 +772,24 @@ training.</p>
 * load a calibration for neurons and correlation sensors
 * create populations and projections
 * create input spiketrains handling multiple desired epochs in one run</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## download latest calibration</span>
-<span class="c1">#save_nightly_calibration(filename=&quot;correlation_calix-native.pkl&quot;)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># download latest calibration</span>
+<span class="n">save_nightly_calibration</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;correlation_calix-native.pkl&quot;</span><span class="p">)</span>
 
-<span class="c1">## load calibration</span>
-<span class="c1">#with open(&quot;correlation_calix-native.pkl&quot;, &quot;rb&quot;) as calibfile:</span>
-<span class="c1">#    calib_result = pickle.load(calibfile)</span>
+<span class="c1"># load calibration</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;correlation_calix-native.pkl&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">calibfile</span><span class="p">:</span>
+    <span class="n">calib_result</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">calibfile</span><span class="p">)</span>
 
-<span class="c1">## The correlation voltages are set on the board and therefore</span>
-<span class="c1">## are not contained in lola.Chip(), so we inject them as a builder</span>
+<span class="c1"># The correlation voltages are set on the board and therefore</span>
+<span class="c1"># are not contained in lola.Chip(), so we inject them as a builder</span>
 <span class="n">injected_config</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">InjectedConfiguration</span><span class="p">()</span>
-<span class="c1">#calib_builder = sta.PlaybackProgramBuilder()</span>
-<span class="c1">#calib_result.apply(calib_builder)</span>
-<span class="c1">#injected_config.pre_static_config = calib_builder</span>
+<span class="n">calib_builder</span> <span class="o">=</span> <span class="n">sta</span><span class="o">.</span><span class="n">PlaybackProgramBuilder</span><span class="p">()</span>
+<span class="n">calib_result</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">calib_builder</span><span class="p">)</span>
+<span class="n">injected_config</span><span class="o">.</span><span class="n">pre_static_config</span> <span class="o">=</span> <span class="n">calib_builder</span>
 
-<span class="c1">#calib_dumper = sta.PlaybackProgramBuilderDumper()</span>
-<span class="c1">#calib_result.apply(calib_dumper)</span>
-<span class="c1">#calib_dumper = calib_dumper.done()</span>
-<span class="c1">#calib = sta.convert_to_chip(calib_dumper, lola.Chip())</span>
-<span class="n">calib</span> <span class="o">=</span> <span class="n">lola</span><span class="o">.</span><span class="n">Chip</span><span class="p">()</span>
+<span class="n">calib_dumper</span> <span class="o">=</span> <span class="n">sta</span><span class="o">.</span><span class="n">PlaybackProgramBuilderDumper</span><span class="p">()</span>
+<span class="n">calib_result</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">calib_dumper</span><span class="p">)</span>
+<span class="n">calib_dumper</span> <span class="o">=</span> <span class="n">calib_dumper</span><span class="o">.</span><span class="n">done</span><span class="p">()</span>
+<span class="n">calib</span> <span class="o">=</span> <span class="n">sta</span><span class="o">.</span><span class="n">convert_to_chip</span><span class="p">(</span><span class="n">calib_dumper</span><span class="p">,</span> <span class="n">lola</span><span class="o">.</span><span class="n">Chip</span><span class="p">())</span>
 
 <span class="c1"># disable neuron readout to CADC (observe correlation instead)</span>
 <span class="k">for</span> <span class="n">cadc_config</span> <span class="ow">in</span> <span class="n">calib</span><span class="o">.</span><span class="n">cadc_readout_chains</span><span class="p">:</span>

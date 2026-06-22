@@ -136,15 +136,15 @@ While the first allows sampling all neuron potentials on the chip in parallel, t
 The units are CADC / MADC Values, which in principle are translatable to mV (which will be implemented in the future).
 When modules are called to infere the networks topology, they return <code class="docutils literal notranslate"><span class="pre">Handles</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">g</span></code>, <code class="docutils literal notranslate"><span class="pre">z</span></code>) which act as promises to future hardware data which get filled after the hardware experiment is run.
 Note that in <code class="docutils literal notranslate"><span class="pre">hxtorch</span></code> the returned hardware data is mapped to a dense time grid of shape <code class="docutils literal notranslate"><span class="pre">(batch_size,</span> <span class="pre">time_steps,</span> <span class="pre">population_size)</span></code> of resolution <code class="docutils literal notranslate"><span class="pre">dt</span></code>.</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">save_nightly_calibration</span><span class="p">(</span><span class="s1">&#39;spiking_calix-native.pkl&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">save_nightly_calibration</span><span class="p">(</span><span class="s1">&#39;spiking_cocolist.pbin&#39;</span><span class="p">)</span>
 
 <span class="n">hxtorch</span><span class="o">.</span><span class="n">init_hardware</span><span class="p">()</span>
 
 <span class="c1"># Experiment</span>
 <span class="n">exp</span> <span class="o">=</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">Experiment</span><span class="p">(</span><span class="n">dt</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">)</span>
 <span class="c1"># To avoid time consuming implict calibration we load a prepared calibration</span>
-<span class="c1">#exp.calibration = calib_helper.fixture_calibration_from_file(</span>
-<span class="c1">#    &quot;spiking_calix-native.pkl&quot;)</span>
+<span class="n">exp</span><span class="o">.</span><span class="n">calibration</span> <span class="o">=</span> <span class="n">calib_helper</span><span class="o">.</span><span class="n">fixture_calibration_from_file</span><span class="p">(</span>
+    <span class="s2">&quot;spiking_cocolist.pbin&quot;</span><span class="p">)</span>
 
 <span class="c1"># Modules</span>
 <span class="n">syn</span> <span class="o">=</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">Synapse</span><span class="p">(</span>
@@ -244,8 +244,8 @@ For this, we assume <code class="docutils literal notranslate"><span class="pre"
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_runs</span><span class="p">):</span>
         <span class="c1"># Experiment</span>
         <span class="n">exp</span> <span class="o">=</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">Experiment</span><span class="p">(</span><span class="n">dt</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">mock</span><span class="o">=</span><span class="n">mock</span><span class="p">)</span>
-        <span class="c1">#exp.calibration = calib_helper.fixture_calibration_from_file(</span>
-        <span class="c1">#    &quot;spiking_calix-native.pkl&quot;)</span>
+        <span class="n">exp</span><span class="o">.</span><span class="n">calibration</span> <span class="o">=</span> <span class="n">calib_helper</span><span class="o">.</span><span class="n">fixture_calibration_from_file</span><span class="p">(</span>
+            <span class="s2">&quot;spiking_cocolist.pbin&quot;</span><span class="p">)</span>
 
         <span class="c1"># Modules</span>
         <span class="n">syn</span> <span class="o">=</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">Synapse</span><span class="p">(</span>
@@ -335,8 +335,8 @@ LI neuron layers are created by using <code class="docutils literal notranslate"
 <span class="n">EPOCHS</span> <span class="o">=</span> <span class="mi">200</span>
 
 <span class="n">exp</span> <span class="o">=</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">Experiment</span><span class="p">(</span><span class="n">mock</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="c1">#exp.calibration = calib_helper.fixture_calibration_from_file(</span>
-<span class="c1">#    &quot;spiking_calix-native.pkl&quot;)</span>
+<span class="n">exp</span><span class="o">.</span><span class="n">calibration</span> <span class="o">=</span> <span class="n">calib_helper</span><span class="o">.</span><span class="n">fixture_calibration_from_file</span><span class="p">(</span>
+    <span class="s2">&quot;spiking_cocolist.pbin&quot;</span><span class="p">)</span>
 
 <span class="n">lin1</span> <span class="o">=</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">Synapse</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">exp</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">partial</span><span class="p">(</span>
             <span class="n">linear_saturating</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">55</span><span class="p">))</span>
