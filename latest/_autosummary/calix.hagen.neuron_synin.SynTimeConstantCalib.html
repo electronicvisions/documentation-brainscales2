@@ -168,10 +168,13 @@ hagen-mode default neuron config is used.</p></li>
 <tr class="row-odd"><td><p><a class="reference internal" href="#calix.hagen.neuron_synin.SynTimeConstantCalib.neuron_config_readout" title="calix.hagen.neuron_synin.SynTimeConstantCalib.neuron_config_readout"><code class="xref py py-obj docutils literal notranslate"><span class="pre">neuron_config_readout</span></code></a>(neuron_coord)</p></td>
 <td><p>Return a neuron config with readout enabled.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#calix.hagen.neuron_synin.SynTimeConstantCalib.prelude" title="calix.hagen.neuron_synin.SynTimeConstantCalib.prelude"><code class="xref py py-obj docutils literal notranslate"><span class="pre">prelude</span></code></a>(connection)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#calix.hagen.neuron_synin.SynTimeConstantCalib.postlude" title="calix.hagen.neuron_synin.SynTimeConstantCalib.postlude"><code class="xref py py-obj docutils literal notranslate"><span class="pre">postlude</span></code></a>(connection)</p></td>
+<td><p>Restore original readout configuration.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#calix.hagen.neuron_synin.SynTimeConstantCalib.prelude" title="calix.hagen.neuron_synin.SynTimeConstantCalib.prelude"><code class="xref py py-obj docutils literal notranslate"><span class="pre">prelude</span></code></a>(connection)</p></td>
 <td><p>Prepares chip for calibration.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#calix.hagen.neuron_synin.SynTimeConstantCalib.stimulate" title="calix.hagen.neuron_synin.SynTimeConstantCalib.stimulate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stimulate</span></code></a>(builder, neuron_coord, …)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#calix.hagen.neuron_synin.SynTimeConstantCalib.stimulate" title="calix.hagen.neuron_synin.SynTimeConstantCalib.stimulate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stimulate</span></code></a>(builder, neuron_coord, …)</p></td>
 <td><p>Send some PADI events to the synaptic input in order to drop the potential.</p></td>
 </tr>
 </tbody>
@@ -235,6 +238,20 @@ which is done during the prelude.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>Neuron config with readout enabled.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calix.hagen.neuron_synin.SynTimeConstantCalib.postlude">
+<code class="sig-name descname"><span class="pre">postlude</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pyhxcomm_vx.ConnectionHandle</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calix.hagen.neuron_synin.SynTimeConstantCalib.postlude" title="Permalink to this definition"></a></dt>
+<dd><p>Restore original readout configuration.</p>
+<p>The base class postlude is overwritten to _not_ restore
+the original neuron configuration, as high_resistance
+may be altered by this routine.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>connection</strong> – Connection to the chip to calibrate.</p>
 </dd>
 </dl>
 </dd></dl>
