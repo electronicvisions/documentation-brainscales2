@@ -50,7 +50,6 @@
 <li class="toctree-l4"><a class="reference internal" href="jaxsnn.base.html">jaxsnn.base</a></li>
 <li class="toctree-l4"><a class="reference internal" href="jaxsnn.discrete.html">jaxsnn.discrete</a></li>
 <li class="toctree-l4"><a class="reference internal" href="jaxsnn.event.html">jaxsnn.event</a></li>
-<li class="toctree-l4"><a class="reference internal" href="jaxsnn.ConversionConfig.html">jaxsnn.ConversionConfig</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="hxtorch.html">hxtorch</a></li>
@@ -110,74 +109,38 @@
 </tr>
 </tbody>
 </table>
-<span class="target" id="module-jaxsnn"></span><p class="rubric">Classes</p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="jaxsnn.ConversionConfig.html#jaxsnn.ConversionConfig" title="jaxsnn.ConversionConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ConversionConfig</span></code></a>(t_max, n_spikes, int], …)</p></td>
-<td><p>Configuration for the conversion from NIR to jaxsnn.</p></td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Functions</p>
-<dl class="py function">
-<dt id="jaxsnn.from_nir">
-<code class="sig-prename descclassname"><span class="pre">jaxsnn.</span></code><code class="sig-name descname"><span class="pre">from_nir</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">nir.ir.graph.NIRGraph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="jaxsnn.event.from_nir.ConversionConfig.html#jaxsnn.event.from_nir.ConversionConfig" title="jaxsnn.event.from_nir.ConversionConfig"><span class="pre">jaxsnn.event.from_nir.ConversionConfig</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jaxsnn.from_nir" title="Permalink to this definition"></a></dt>
-<dd><p>Convert NIRGraph to jax-snn representation (init_fn, apply_fn)</p>
-<p>Restrictions for NIRGraph:
-- Only linear feed-forward SNNs are supported
-- CubaLIF and Linear layers are supported
-- Affine layers with bias==0 are currently supported
-- In terms of parameters, only homogeneous layers are supported
-- The analytical solver is only supported for non-external inputs</p>
-<p>Example:
-<code class="docutils literal notranslate"><span class="pre">`python</span>
-<span class="pre">nir_graph</span> <span class="pre">=</span> <span class="pre">nir.NIRGraph(...)</span>
-<span class="pre">cfg</span> <span class="pre">=</span> <span class="pre">jaxsnn.ConversionConfig(...)</span>
-<span class="pre">init,</span> <span class="pre">apply</span> <span class="pre">=</span> <span class="pre">jaxsnn.from_nir(nir_graph,</span> <span class="pre">cfg)</span>
-<span class="pre">`</span></code></p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="jaxsnn.from_nir_data">
-<code class="sig-prename descclassname"><span class="pre">jaxsnn.</span></code><code class="sig-name descname"><span class="pre">from_nir_data</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nir_graph_data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">nir.data_ir.graph.NIRGraphData</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jaxsnn_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">observables</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">('spikes')</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="jaxsnn.event.types.EventPropSpike.html#jaxsnn.event.types.EventPropSpike" title="jaxsnn.event.types.EventPropSpike"><span class="pre">jaxsnn.event.types.EventPropSpike</span></a><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#jaxsnn.from_nir_data" title="Permalink to this definition"></a></dt>
-<dd><p>Convert NIRGraphData to a dict of EventPropSpikes (jax-snn representation)</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>nir_graph_data</strong> – NIRGraphData to be converted.</p></li>
-<li><p><strong>jaxsnn_model</strong> – jaxsnn model tuple (init, apply).</p></li>
-<li><p><strong>observables</strong> – Observables to be converted, by default (‘spikes’,)</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
+<span class="target" id="module-jaxsnn"></span><p class="rubric">Functions</p>
 <dl class="py function">
 <dt id="jaxsnn.get_logger">
 <code class="sig-prename descclassname"><span class="pre">jaxsnn.</span></code><code class="sig-name descname"><span class="pre">get_logger</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jaxsnn.get_logger" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="jaxsnn.to_nir_data">
-<code class="sig-prename descclassname"><span class="pre">jaxsnn.</span></code><code class="sig-name descname"><span class="pre">to_nir_data</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">jaxsnn_dict</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="jaxsnn.event.types.EventPropSpike.html#jaxsnn.event.types.EventPropSpike" title="jaxsnn.event.types.EventPropSpike"><span class="pre">jaxsnn.event.types.EventPropSpike</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jaxsnn_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">observables</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">('spikes')</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">nir.data_ir.graph.NIRGraphData</span><a class="headerlink" href="#jaxsnn.to_nir_data" title="Permalink to this definition"></a></dt>
-<dd><p>Convert a dict of EventPropSpikes (jax-snn representation) to NIRGraphData.</p>
+<dt id="jaxsnn.init_hardware">
+<code class="sig-prename descclassname"><span class="pre">jaxsnn.</span></code><code class="sig-name descname"><span class="pre">init_hardware</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">_hxtorch_core.HWDBPath</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ann</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jaxsnn.init_hardware" title="Permalink to this definition"></a></dt>
+<dd><p>Initialize the hardware automatically from the environment.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>jaxsnn_dict</strong> – Dictionary of Spike objects where each entry represents the spikes for
-a corresponding node of the jaxsnn_model. Empty events in jaxsnn
-are encoded by <cite>idx = -1</cite> and <cite>time = 2 * t_max</cite>.</p></li>
-<li><p><strong>jaxsnn_model</strong> – A tuple of (init_fn, apply_fn). For the apply function, the arguments
-apply.nodes (which holds the layer sizes) and apply.t_max (the
-simulation time) currently have to be defined manually.</p></li>
-<li><p><strong>observables</strong> – Observables to be converted, by default (‘spikes’,)</p></li>
+<li><p><strong>path</strong> – Optional path to the hwdb to use.</p></li>
+<li><p><strong>ann</strong> – Boolean flag indicating whether non-spiking or spiking
+calibration is loaded.</p></li>
 </ul>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="jaxsnn.init_hardware_minimal">
+<code class="sig-prename descclassname"><span class="pre">jaxsnn.</span></code><code class="sig-name descname"><span class="pre">init_hardware_minimal</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jaxsnn.init_hardware_minimal" title="Permalink to this definition"></a></dt>
+<dd><p>Initialize automatically from the environment without ExperimentInit and
+without any calibration.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="jaxsnn.release_hardware">
+<code class="sig-prename descclassname"><span class="pre">jaxsnn.</span></code><code class="sig-name descname"><span class="pre">release_hardware</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jaxsnn.release_hardware" title="Permalink to this definition"></a></dt>
+<dd><p>Release hardware resource</p>
 </dd></dl>
 
 </div>

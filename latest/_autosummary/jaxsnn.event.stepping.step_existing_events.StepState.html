@@ -16,8 +16,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="jaxsnn.event.stepping.types" href="jaxsnn.event.stepping.types.html" />
-    <link rel="prev" title="jaxsnn.event.stepping.step_existing_events.EventPropSpike" href="jaxsnn.event.stepping.step_existing_events.EventPropSpike.html" /> 
+    <link rel="next" title="jaxsnn.event.stepping.step_multi_layer" href="jaxsnn.event.stepping.step_multi_layer.html" />
+    <link rel="prev" title="jaxsnn.event.stepping.step_existing_events.Step" href="jaxsnn.event.stepping.step_existing_events.Step.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -50,7 +50,6 @@
 <li class="toctree-l4"><a class="reference internal" href="jaxsnn.base.html">jaxsnn.base</a></li>
 <li class="toctree-l4"><a class="reference internal" href="jaxsnn.discrete.html">jaxsnn.discrete</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="jaxsnn.event.html">jaxsnn.event</a></li>
-<li class="toctree-l4"><a class="reference internal" href="jaxsnn.ConversionConfig.html">jaxsnn.ConversionConfig</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="hxtorch.html">hxtorch</a></li>
@@ -98,11 +97,11 @@
 <h1>jaxsnn.event.stepping.step_existing_events.StepState<a class="headerlink" href="#jaxsnn-event-stepping-step-existing-events-stepstate" title="Permalink to this headline"></a></h1>
 <dl class="py class">
 <dt id="jaxsnn.event.stepping.step_existing_events.StepState">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">jaxsnn.event.stepping.step_existing_events.</span></code><code class="sig-name descname"><span class="pre">StepState</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">neuron_state</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">State</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spike_times</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">jax.Array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spike_mask</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">jax.Array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_queue</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">InputQueue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jaxsnn.event.stepping.step_existing_events.StepState" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">jaxsnn.event.types.State</span></code>]</p>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">jaxsnn.event.stepping.step_existing_events.</span></code><code class="sig-name descname"><span class="pre">StepState</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">neuron_state</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">StateT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">jax.Array</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jaxsnn.event.stepping.step_existing_events.StepState" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">jaxsnn.base.types.StateT</span></code>]</p>
 <dl class="py method">
 <dt id="jaxsnn.event.stepping.step_existing_events.StepState.__init__">
-<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">neuron_state</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">State</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spike_times</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">jax.Array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spike_mask</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">jax.Array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_queue</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="jaxsnn.event.types.InputQueue.html#jaxsnn.event.types.InputQueue" title="jaxsnn.event.types.InputQueue"><span class="pre">jaxsnn.event.types.InputQueue</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#jaxsnn.event.stepping.step_existing_events.StepState.__init__" title="Permalink to this definition"></a></dt>
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">neuron_state</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">StateT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">jax.Array</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#jaxsnn.event.stepping.step_existing_events.StepState.__init__" title="Permalink to this definition"></a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
@@ -113,7 +112,7 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#jaxsnn.event.stepping.step_existing_events.StepState.__init__" title="jaxsnn.event.stepping.step_existing_events.StepState.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(neuron_state, spike_times, …)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#jaxsnn.event.stepping.step_existing_events.StepState.__init__" title="jaxsnn.event.stepping.step_existing_events.StepState.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(neuron_state, time)</p></td>
 <td><p>Initialize self.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#jaxsnn.event.stepping.step_existing_events.StepState.asdict" title="jaxsnn.event.stepping.step_existing_events.StepState.asdict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">asdict</span></code></a>()</p></td>
@@ -175,8 +174,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="jaxsnn.event.stepping.step_existing_events.EventPropSpike.html" class="btn btn-neutral float-left" title="jaxsnn.event.stepping.step_existing_events.EventPropSpike" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="jaxsnn.event.stepping.types.html" class="btn btn-neutral float-right" title="jaxsnn.event.stepping.types" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="jaxsnn.event.stepping.step_existing_events.Step.html" class="btn btn-neutral float-left" title="jaxsnn.event.stepping.step_existing_events.Step" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="jaxsnn.event.stepping.step_multi_layer.html" class="btn btn-neutral float-right" title="jaxsnn.event.stepping.step_multi_layer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

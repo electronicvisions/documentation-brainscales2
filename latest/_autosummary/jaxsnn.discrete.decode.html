@@ -16,7 +16,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="jaxsnn.discrete.encode" href="jaxsnn.discrete.encode.html" />
+    <link rel="next" title="jaxsnn.discrete.decode.DenseData" href="jaxsnn.discrete.decode.DenseData.html" />
     <link rel="prev" title="jaxsnn.discrete" href="jaxsnn.discrete.html" /> 
 </head>
 
@@ -50,7 +50,6 @@
 <li class="toctree-l4"><a class="reference internal" href="jaxsnn.base.html">jaxsnn.base</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="jaxsnn.discrete.html">jaxsnn.discrete</a></li>
 <li class="toctree-l4"><a class="reference internal" href="jaxsnn.event.html">jaxsnn.event</a></li>
-<li class="toctree-l4"><a class="reference internal" href="jaxsnn.ConversionConfig.html">jaxsnn.ConversionConfig</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="hxtorch.html">hxtorch</a></li>
@@ -94,11 +93,35 @@
              
   <div class="section" id="module-jaxsnn.discrete.decode">
 <span id="jaxsnn-discrete-decode"></span><h1>jaxsnn.discrete.decode<a class="headerlink" href="#module-jaxsnn.discrete.decode" title="Permalink to this headline"></a></h1>
+<p class="rubric">Classes</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="jaxsnn.discrete.decode.DenseData.html#jaxsnn.discrete.decode.DenseData" title="jaxsnn.discrete.decode.DenseData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DenseData</span></code></a></p></td>
+<td><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">jax.Array</span></code></p></td>
+</tr>
+</tbody>
+</table>
 <p class="rubric">Functions</p>
 <dl class="py function">
 <dt id="jaxsnn.discrete.decode.max_over_time_decode">
-<code class="sig-prename descclassname"><span class="pre">jaxsnn.discrete.decode.</span></code><code class="sig-name descname"><span class="pre">max_over_time_decode</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jaxsnn.discrete.decode.max_over_time_decode" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<code class="sig-prename descclassname"><span class="pre">jaxsnn.discrete.decode.</span></code><code class="sig-name descname"><span class="pre">max_over_time_decode</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">jax.Array</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">jax.Array</span><a class="headerlink" href="#jaxsnn.discrete.decode.max_over_time_decode" title="Permalink to this definition"></a></dt>
+<dd><p>Decode the output of a jaxsnn model by taking the maximum over time and
+applying a log softmax.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Params inputs</dt>
+<dd class="field-odd"><p>DenseData of shape (n_batch_size, n_time_steps, n_neurons)
+representing the output of a jaxsnn model.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>jnp.ndarray of shape (n_batch_size, n_neurons) representing the
+decoded output.</p>
+</dd>
+</dl>
+</dd></dl>
 
 </div>
 
@@ -107,7 +130,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="jaxsnn.discrete.html" class="btn btn-neutral float-left" title="jaxsnn.discrete" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="jaxsnn.discrete.encode.html" class="btn btn-neutral float-right" title="jaxsnn.discrete.encode" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="jaxsnn.discrete.decode.DenseData.html" class="btn btn-neutral float-right" title="jaxsnn.discrete.decode.DenseData" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

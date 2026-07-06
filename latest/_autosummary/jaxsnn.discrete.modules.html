@@ -16,7 +16,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="jaxsnn.discrete.modules.leaky_integrate" href="jaxsnn.discrete.modules.leaky_integrate.html" />
+    <link rel="next" title="jaxsnn.discrete.modules.input" href="jaxsnn.discrete.modules.input.html" />
     <link rel="prev" title="jaxsnn.discrete.loss" href="jaxsnn.discrete.loss.html" /> 
 </head>
 
@@ -50,7 +50,6 @@
 <li class="toctree-l4"><a class="reference internal" href="jaxsnn.base.html">jaxsnn.base</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="jaxsnn.discrete.html">jaxsnn.discrete</a></li>
 <li class="toctree-l4"><a class="reference internal" href="jaxsnn.event.html">jaxsnn.event</a></li>
-<li class="toctree-l4"><a class="reference internal" href="jaxsnn.ConversionConfig.html">jaxsnn.ConversionConfig</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="hxtorch.html">hxtorch</a></li>
@@ -101,25 +100,95 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="jaxsnn.discrete.modules.leaky_integrate.html#module-jaxsnn.discrete.modules.leaky_integrate" title="jaxsnn.discrete.modules.leaky_integrate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jaxsnn.discrete.modules.leaky_integrate</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="jaxsnn.discrete.modules.input.html#module-jaxsnn.discrete.modules.input" title="jaxsnn.discrete.modules.input"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jaxsnn.discrete.modules.input</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="jaxsnn.discrete.modules.leaky_integrate_and_fire.html#module-jaxsnn.discrete.modules.leaky_integrate_and_fire" title="jaxsnn.discrete.modules.leaky_integrate_and_fire"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jaxsnn.discrete.modules.leaky_integrate_and_fire</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="jaxsnn.discrete.modules.li.html#module-jaxsnn.discrete.modules.li" title="jaxsnn.discrete.modules.li"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jaxsnn.discrete.modules.li</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="jaxsnn.discrete.modules.lif.html#module-jaxsnn.discrete.modules.lif" title="jaxsnn.discrete.modules.lif"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jaxsnn.discrete.modules.lif</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="jaxsnn.discrete.modules.linear.html#module-jaxsnn.discrete.modules.linear" title="jaxsnn.discrete.modules.linear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jaxsnn.discrete.modules.linear</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
 </table>
 <span class="target" id="module-jaxsnn.discrete.modules"></span><p class="rubric">Functions</p>
 <dl class="py function">
+<dt id="jaxsnn.discrete.modules.Input">
+<code class="sig-prename descclassname"><span class="pre">jaxsnn.discrete.modules.</span></code><code class="sig-name descname"><span class="pre">Input</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="jaxsnn.discrete.types.SourcePopulation.html#jaxsnn.discrete.types.SourcePopulation" title="jaxsnn.discrete.types.SourcePopulation"><span class="pre">jaxsnn.discrete.types.SourcePopulation</span></a><a class="headerlink" href="#jaxsnn.discrete.modules.Input" title="Permalink to this definition"></a></dt>
+<dd><p>Create an input layer descriptor.</p>
+<p>It returns None for the generator because it’s is not needed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>size</strong> – Number of neurons in the input layer.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A SourcePopulation instance representing the input layer.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt id="jaxsnn.discrete.modules.LI">
-<code class="sig-prename descclassname"><span class="pre">jaxsnn.discrete.modules.</span></code><code class="sig-name descname"><span class="pre">LI</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">out_dim</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale_in</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jaxsnn.discrete.modules.LI" title="Permalink to this definition"></a></dt>
-<dd><p>Layer constructor function for a li (leaky-integrated) layer.</p>
+<code class="sig-prename descclassname"><span class="pre">jaxsnn.discrete.modules.</span></code><code class="sig-name descname"><span class="pre">LI</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="jaxsnn.discrete.functional.li.LIParameters.html#jaxsnn.discrete.functional.li.LIParameters" title="jaxsnn.discrete.functional.li.LIParameters"><span class="pre">jaxsnn.discrete.functional.li.LIParameters</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">LIParameters(tau_syn=0.005,</span> <span class="pre">tau_mem=0.01,</span> <span class="pre">v_leak=0.0)</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="jaxsnn.discrete.types.Population.html#jaxsnn.discrete.types.Population" title="jaxsnn.discrete.types.Population"><span class="pre">jaxsnn.discrete.types.Population</span></a><a class="headerlink" href="#jaxsnn.discrete.modules.LI" title="Permalink to this definition"></a></dt>
+<dd><p>Layer constructor function for a leaky-integrator layer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>size</strong> – Number of neurons in the layer.</p></li>
+<li><p><strong>params</strong> – Parameters for the LI neuron model.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A Population object containing the layer definition.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt id="jaxsnn.discrete.modules.LIF">
-<code class="sig-prename descclassname"><span class="pre">jaxsnn.discrete.modules.</span></code><code class="sig-name descname"><span class="pre">LIF</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">out_dim</span></em>, <em class="sig-param"><span class="pre">method=&lt;jax._src.custom_derivatives.custom_vjp</span> <span class="pre">object&gt;</span></em>, <em class="sig-param"><span class="pre">scale_in=0.7</span></em>, <em class="sig-param"><span class="pre">scale_rec=0.2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#jaxsnn.discrete.modules.LIF" title="Permalink to this definition"></a></dt>
-<dd><p>Layer constructor function for a lif (leaky-integrated-fire) layer.</p>
+<code class="sig-prename descclassname"><span class="pre">jaxsnn.discrete.modules.</span></code><code class="sig-name descname"><span class="pre">LIF</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">size</span></em>, <em class="sig-param"><span class="pre">params:</span> <span class="pre">jaxsnn.discrete.functional.lif.LIFParameters</span> <span class="pre">=</span> <span class="pre">LIFParameters(tau_syn=0.005</span></em>, <em class="sig-param"><span class="pre">tau_mem=0.01</span></em>, <em class="sig-param"><span class="pre">v_th=0.6</span></em>, <em class="sig-param"><span class="pre">v_leak=0.0</span></em>, <em class="sig-param"><span class="pre">v_reset=0.0)</span></em>, <em class="sig-param"><span class="pre">method:</span> <span class="pre">Callable</span> <span class="pre">=</span> <span class="pre">&lt;jax._src.custom_derivatives.custom_vjp</span> <span class="pre">object&gt;</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="jaxsnn.discrete.types.Population.html#jaxsnn.discrete.types.Population" title="jaxsnn.discrete.types.Population"><span class="pre">jaxsnn.discrete.types.Population</span></a><a class="headerlink" href="#jaxsnn.discrete.modules.LIF" title="Permalink to this definition"></a></dt>
+<dd><p>Layer constructor function for a leaky-integrate and fire layer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>size</strong> – Number of neurons in the layer.</p></li>
+<li><p><strong>params</strong> – Parameters for the LIF neuron model.</p></li>
+<li><p><strong>method</strong> – Surrogate gradient method for the threshold function.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A Population object containing the layer definition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="jaxsnn.discrete.modules.Linear">
+<code class="sig-prename descclassname"><span class="pre">jaxsnn.discrete.modules.</span></code><code class="sig-name descname"><span class="pre">Linear</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mean</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">2.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pre_weights</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">jax.Array</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="jaxsnn.discrete.types.Projection.html#jaxsnn.discrete.types.Projection" title="jaxsnn.discrete.types.Projection"><span class="pre">jaxsnn.discrete.types.Projection</span></a><a class="headerlink" href="#jaxsnn.discrete.modules.Linear" title="Permalink to this definition"></a></dt>
+<dd><p>Creates a linear projection layer</p>
+<dl class="simple">
+<dt>Either:</dt><dd><ul class="simple">
+<li><p>initialize weights from a Gaussian (mean, std), or</p></li>
+<li><p>provide a concrete weight array.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mean</strong> – Mean value for weight initialization.</p></li>
+<li><p><strong>std</strong> – Standard deviation for weight initialization.</p></li>
+<li><p><strong>pre_weights</strong> – Optional weight array. If provided, mean and std are
+ignored.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A Projection object containing the layer definition.</p>
+</dd>
+</dl>
 </dd></dl>
 
 </div>
@@ -129,7 +198,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="jaxsnn.discrete.loss.html" class="btn btn-neutral float-left" title="jaxsnn.discrete.loss" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="jaxsnn.discrete.modules.leaky_integrate.html" class="btn btn-neutral float-right" title="jaxsnn.discrete.modules.leaky_integrate" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="jaxsnn.discrete.modules.input.html" class="btn btn-neutral float-right" title="jaxsnn.discrete.modules.input" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

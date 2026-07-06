@@ -16,8 +16,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="jaxsnn.event.utils.filter" href="jaxsnn.event.utils.filter.html" />
-    <link rel="prev" title="jaxsnn.event.types.WeightRecurrent" href="jaxsnn.event.types.WeightRecurrent.html" /> 
+    <link rel="next" title="jaxsnn.event.utils.from_nir" href="jaxsnn.event.utils.from_nir.html" />
+    <link rel="prev" title="jaxsnn.event.types.TypeVar" href="jaxsnn.event.types.TypeVar.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -50,7 +50,6 @@
 <li class="toctree-l4"><a class="reference internal" href="jaxsnn.base.html">jaxsnn.base</a></li>
 <li class="toctree-l4"><a class="reference internal" href="jaxsnn.discrete.html">jaxsnn.discrete</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="jaxsnn.event.html">jaxsnn.event</a></li>
-<li class="toctree-l4"><a class="reference internal" href="jaxsnn.ConversionConfig.html">jaxsnn.ConversionConfig</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="hxtorch.html">hxtorch</a></li>
@@ -101,34 +100,21 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="jaxsnn.event.utils.filter.html#module-jaxsnn.event.utils.filter" title="jaxsnn.event.utils.filter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jaxsnn.event.utils.filter</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="jaxsnn.event.utils.from_nir.html#module-jaxsnn.event.utils.from_nir" title="jaxsnn.event.utils.from_nir"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jaxsnn.event.utils.from_nir</span></code></a></p></td>
+<td><p>Conversion of a NIR graph to jaxsnn-model</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="jaxsnn.event.utils.from_nir_data.html#module-jaxsnn.event.utils.from_nir_data" title="jaxsnn.event.utils.from_nir_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jaxsnn.event.utils.from_nir_data</span></code></a></p></td>
+<td><p>Translate NIRGraphData to a jaxsnn-compatible spike representation.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="jaxsnn.event.utils.time_it.html#module-jaxsnn.event.utils.time_it" title="jaxsnn.event.utils.time_it"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jaxsnn.event.utils.time_it</span></code></a>(timed_function, *args)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="jaxsnn.event.utils.time_it.html#module-jaxsnn.event.utils.time_it" title="jaxsnn.event.utils.time_it"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jaxsnn.event.utils.time_it</span></code></a>(timed_function, *args)</p></td>
-<td><p></p></td>
-</tr>
-</tbody>
-</table>
-<span class="target" id="module-jaxsnn.event.utils"></span><p class="rubric">Classes</p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="jaxsnn.event.utils.EventPropSpike.html#jaxsnn.event.utils.EventPropSpike" title="jaxsnn.event.utils.EventPropSpike"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EventPropSpike</span></code></a>(time, idx, current)</p></td>
-<td><p></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="jaxsnn.event.utils.to_nir_data.html#module-jaxsnn.event.utils.to_nir_data" title="jaxsnn.event.utils.to_nir_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jaxsnn.event.utils.to_nir_data</span></code></a></p></td>
+<td><p>Translate spikes from a jaxsnn spike representation to NIRGraphData.</p></td>
 </tr>
 </tbody>
 </table>
-<p class="rubric">Functions</p>
-<dl class="py function">
-<dt id="jaxsnn.event.utils.filter_spikes">
-<code class="sig-prename descclassname"><span class="pre">jaxsnn.event.utils.</span></code><code class="sig-name descname"><span class="pre">filter_spikes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_spikes</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="jaxsnn.event.types.EventPropSpike.html#jaxsnn.event.types.EventPropSpike" title="jaxsnn.event.types.EventPropSpike"><span class="pre">jaxsnn.event.types.EventPropSpike</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">prev_layer_start</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="jaxsnn.event.types.EventPropSpike.html#jaxsnn.event.types.EventPropSpike" title="jaxsnn.event.types.EventPropSpike"><span class="pre">jaxsnn.event.types.EventPropSpike</span></a><a class="headerlink" href="#jaxsnn.event.utils.filter_spikes" title="Permalink to this definition"></a></dt>
-<dd><p>Filters the input spikes by ensuring only the spikes from the previous
-layer are kept.</p>
-</dd></dl>
-
+<span class="target" id="module-jaxsnn.event.utils"></span><p class="rubric">Functions</p>
 <dl class="py function">
 <dt id="jaxsnn.event.utils.time_it">
 <code class="sig-prename descclassname"><span class="pre">jaxsnn.event.utils.</span></code><code class="sig-name descname"><span class="pre">time_it</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timed_function</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#jaxsnn.event.utils.time_it" title="Permalink to this definition"></a></dt>
@@ -140,8 +126,8 @@ layer are kept.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="jaxsnn.event.types.WeightRecurrent.html" class="btn btn-neutral float-left" title="jaxsnn.event.types.WeightRecurrent" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="jaxsnn.event.utils.filter.html" class="btn btn-neutral float-right" title="jaxsnn.event.utils.filter" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="jaxsnn.event.types.TypeVar.html" class="btn btn-neutral float-left" title="jaxsnn.event.types.TypeVar" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="jaxsnn.event.utils.from_nir.html" class="btn btn-neutral float-right" title="jaxsnn.event.utils.from_nir" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

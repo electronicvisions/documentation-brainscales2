@@ -18,7 +18,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="jaxsnn.discrete.encode.LIFParameters" href="jaxsnn.discrete.encode.LIFParameters.html" />
-    <link rel="prev" title="jaxsnn.discrete.decode" href="jaxsnn.discrete.decode.html" /> 
+    <link rel="prev" title="jaxsnn.discrete.decode.DenseData" href="jaxsnn.discrete.decode.DenseData.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -51,7 +51,6 @@
 <li class="toctree-l4"><a class="reference internal" href="jaxsnn.base.html">jaxsnn.base</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="jaxsnn.discrete.html">jaxsnn.discrete</a></li>
 <li class="toctree-l4"><a class="reference internal" href="jaxsnn.event.html">jaxsnn.event</a></li>
-<li class="toctree-l4"><a class="reference internal" href="jaxsnn.ConversionConfig.html">jaxsnn.ConversionConfig</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="hxtorch.html">hxtorch</a></li>
@@ -140,7 +139,7 @@ spikes (1) or no spikes (0).</p>
 
 <dl class="py function">
 <dt id="jaxsnn.discrete.encode.lif_current_encoder">
-<code class="sig-prename descclassname"><span class="pre">jaxsnn.discrete.encode.</span></code><code class="sig-name descname"><span class="pre">lif_current_encoder</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">voltage</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_current</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">jax.Array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="jaxsnn.base.params.LIFParameters.html#jaxsnn.base.params.LIFParameters" title="jaxsnn.base.params.LIFParameters"><span class="pre">jaxsnn.base.params.LIFParameters</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">LIFParameters(tau_syn=0.005,</span> <span class="pre">tau_mem=0.01,</span> <span class="pre">v_th=0.6,</span> <span class="pre">v_leak=0.0,</span> <span class="pre">v_reset=0.0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0.001</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">jax.Array</span><span class="p"><span class="pre">,</span> </span><span class="pre">jax.Array</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#jaxsnn.discrete.encode.lif_current_encoder" title="Permalink to this definition"></a></dt>
+<code class="sig-prename descclassname"><span class="pre">jaxsnn.discrete.encode.</span></code><code class="sig-name descname"><span class="pre">lif_current_encoder</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">voltage</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_current</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">jax.Array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="jaxsnn.discrete.functional.lif.LIFParameters.html#jaxsnn.discrete.functional.lif.LIFParameters" title="jaxsnn.discrete.functional.lif.LIFParameters"><span class="pre">jaxsnn.discrete.functional.lif.LIFParameters</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">LIFParameters(tau_syn=0.005,</span> <span class="pre">tau_mem=0.01,</span> <span class="pre">v_th=0.6,</span> <span class="pre">v_leak=0.0,</span> <span class="pre">v_reset=0.0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0.001</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">jax.Array</span><span class="p"><span class="pre">,</span> </span><span class="pre">jax.Array</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#jaxsnn.discrete.encode.lif_current_encoder" title="Permalink to this definition"></a></dt>
 <dd><p>Computes a single euler-integration step of a leaky integrator. More
 specifically it implements one integration step of the following ODE</p>
 <div class="math notranslate nohighlight">
@@ -196,7 +195,7 @@ spikes (1) or no spikes (0).</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="jaxsnn.discrete.decode.html" class="btn btn-neutral float-left" title="jaxsnn.discrete.decode" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="jaxsnn.discrete.decode.DenseData.html" class="btn btn-neutral float-left" title="jaxsnn.discrete.decode.DenseData" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="jaxsnn.discrete.encode.LIFParameters.html" class="btn btn-neutral float-right" title="jaxsnn.discrete.encode.LIFParameters" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

@@ -16,8 +16,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="jaxsnn.event.types.Spike" href="jaxsnn.event.types.Spike.html" />
-    <link rel="prev" title="jaxsnn.event.types.LIFState" href="jaxsnn.event.types.LIFState.html" /> 
+    <link rel="next" title="jaxsnn.event.types.Population" href="jaxsnn.event.types.Population.html" />
+    <link rel="prev" title="jaxsnn.event.types.LayeredEventT" href="jaxsnn.event.types.LayeredEventT.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -50,7 +50,6 @@
 <li class="toctree-l4"><a class="reference internal" href="jaxsnn.base.html">jaxsnn.base</a></li>
 <li class="toctree-l4"><a class="reference internal" href="jaxsnn.discrete.html">jaxsnn.discrete</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="jaxsnn.event.html">jaxsnn.event</a></li>
-<li class="toctree-l4"><a class="reference internal" href="jaxsnn.ConversionConfig.html">jaxsnn.ConversionConfig</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="hxtorch.html">hxtorch</a></li>
@@ -97,18 +96,18 @@
 <h1>jaxsnn.event.types.OptState<a class="headerlink" href="#jaxsnn-event-types-optstate" title="Permalink to this headline"></a></h1>
 <dl class="py class">
 <dt id="jaxsnn.event.types.OptState">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">jaxsnn.event.types.</span></code><code class="sig-name descname"><span class="pre">OptState</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">opt_state</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">optax.OptState</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Weight</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rng</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">jax.random.KeyArray</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jaxsnn.event.types.OptState" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">jaxsnn.event.types.</span></code><code class="sig-name descname"><span class="pre">OptState</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">opt_state</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">optax.OptState</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">jax.Array</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rng</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">jax.Array</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jaxsnn.event.types.OptState" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="jaxsnn.event.types.html#jaxsnn.event.types.NamedTuple" title="jaxsnn.event.types.NamedTuple"><code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code></a></p>
 <p>Container for the optimizer/training state across steps.</p>
 <p>This immutable state groups the underlying optimizer’s internal state,
-the current set of model weights, and the JAX PRNG key used for
+the current set of model params, and the JAX PRNG key used for
 stochastic operations (e.g., sampling).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>opt_state</strong> – Optimizer-specific internal state to carry across updates
 (e.g., from optax.init/optax.update).</p></li>
-<li><p><strong>weights</strong> – Ordered collection of learnable model parameters to be
+<li><p><strong>params</strong> – Ordered collection of learnable model parameters to be
 optimized.</p></li>
 <li><p><strong>rng</strong> – JAX PRNG key used for randomized computations; should be split
 and updated between steps.</p></li>
@@ -140,11 +139,11 @@ and updated between steps.</p></li>
 <tr class="row-odd"><td><p><a class="reference internal" href="#jaxsnn.event.types.OptState.opt_state" title="jaxsnn.event.types.OptState.opt_state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">opt_state</span></code></a></p></td>
 <td><p>Alias for field number 0</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#jaxsnn.event.types.OptState.rng" title="jaxsnn.event.types.OptState.rng"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rng</span></code></a></p></td>
-<td><p>Alias for field number 2</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#jaxsnn.event.types.OptState.weights" title="jaxsnn.event.types.OptState.weights"><code class="xref py py-obj docutils literal notranslate"><span class="pre">weights</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#jaxsnn.event.types.OptState.params" title="jaxsnn.event.types.OptState.params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">params</span></code></a></p></td>
 <td><p>Alias for field number 1</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#jaxsnn.event.types.OptState.rng" title="jaxsnn.event.types.OptState.rng"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rng</span></code></a></p></td>
+<td><p>Alias for field number 2</p></td>
 </tr>
 </tbody>
 </table>
@@ -155,15 +154,15 @@ and updated between steps.</p></li>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="jaxsnn.event.types.OptState.rng">
-<code class="sig-name descname"><span class="pre">rng</span></code><em class="property"><span class="pre">:</span> <span class="pre">jax.random.KeyArray</span></em><a class="headerlink" href="#jaxsnn.event.types.OptState.rng" title="Permalink to this definition"></a></dt>
-<dd><p>Alias for field number 2</p>
+<dt id="jaxsnn.event.types.OptState.params">
+<code class="sig-name descname"><span class="pre">params</span></code><em class="property"><span class="pre">:</span> <span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">jax.Array</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#jaxsnn.event.types.OptState.params" title="Permalink to this definition"></a></dt>
+<dd><p>Alias for field number 1</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="jaxsnn.event.types.OptState.weights">
-<code class="sig-name descname"><span class="pre">weights</span></code><em class="property"><span class="pre">:</span> <span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Weight</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#jaxsnn.event.types.OptState.weights" title="Permalink to this definition"></a></dt>
-<dd><p>Alias for field number 1</p>
+<dt id="jaxsnn.event.types.OptState.rng">
+<code class="sig-name descname"><span class="pre">rng</span></code><em class="property"><span class="pre">:</span> <span class="pre">jax.Array</span></em><a class="headerlink" href="#jaxsnn.event.types.OptState.rng" title="Permalink to this definition"></a></dt>
+<dd><p>Alias for field number 2</p>
 </dd></dl>
 
 </dd></dl>
@@ -174,8 +173,8 @@ and updated between steps.</p></li>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="jaxsnn.event.types.LIFState.html" class="btn btn-neutral float-left" title="jaxsnn.event.types.LIFState" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="jaxsnn.event.types.Spike.html" class="btn btn-neutral float-right" title="jaxsnn.event.types.Spike" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="jaxsnn.event.types.LayeredEventT.html" class="btn btn-neutral float-left" title="jaxsnn.event.types.LayeredEventT" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="jaxsnn.event.types.Population.html" class="btn btn-neutral float-right" title="jaxsnn.event.types.Population" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -16,8 +16,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="jaxsnn.event.modules.leaky_integrate" href="jaxsnn.event.modules.leaky_integrate.html" />
-    <link rel="prev" title="jaxsnn.event.loss.LIFState" href="jaxsnn.event.loss.LIFState.html" /> 
+    <link rel="next" title="jaxsnn.event.modules.hx" href="jaxsnn.event.modules.hx.html" />
+    <link rel="prev" title="jaxsnn.event.loss.Spike" href="jaxsnn.event.loss.Spike.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -50,7 +50,6 @@
 <li class="toctree-l4"><a class="reference internal" href="jaxsnn.base.html">jaxsnn.base</a></li>
 <li class="toctree-l4"><a class="reference internal" href="jaxsnn.discrete.html">jaxsnn.discrete</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="jaxsnn.event.html">jaxsnn.event</a></li>
-<li class="toctree-l4"><a class="reference internal" href="jaxsnn.ConversionConfig.html">jaxsnn.ConversionConfig</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="hxtorch.html">hxtorch</a></li>
@@ -101,22 +100,107 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="jaxsnn.event.modules.leaky_integrate.html#module-jaxsnn.event.modules.leaky_integrate" title="jaxsnn.event.modules.leaky_integrate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jaxsnn.event.modules.leaky_integrate</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="jaxsnn.event.modules.hx.html#module-jaxsnn.event.modules.hx" title="jaxsnn.event.modules.hx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jaxsnn.event.modules.hx</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="jaxsnn.event.modules.leaky_integrate_and_fire.html#module-jaxsnn.event.modules.leaky_integrate_and_fire" title="jaxsnn.event.modules.leaky_integrate_and_fire"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jaxsnn.event.modules.leaky_integrate_and_fire</span></code></a></p></td>
-<td><p>Implement different LIF layers, which can be concatenated</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="jaxsnn.event.modules.lif.html#module-jaxsnn.event.modules.lif" title="jaxsnn.event.modules.lif"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jaxsnn.event.modules.lif</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="jaxsnn.event.modules.linear.html#module-jaxsnn.event.modules.linear" title="jaxsnn.event.modules.linear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jaxsnn.event.modules.linear</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="jaxsnn.event.modules.source.html#module-jaxsnn.event.modules.source" title="jaxsnn.event.modules.source"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jaxsnn.event.modules.source</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="jaxsnn.event.modules.synapse.html#module-jaxsnn.event.modules.synapse" title="jaxsnn.event.modules.synapse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jaxsnn.event.modules.synapse</span></code></a></p></td>
+<td><p></p></td>
 </tr>
 </tbody>
 </table>
-<span class="target" id="module-jaxsnn.event.modules"></span></div>
+<span class="target" id="module-jaxsnn.event.modules"></span><p class="rubric">Classes</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="jaxsnn.event.modules.LIFParameters.html#jaxsnn.event.modules.LIFParameters" title="jaxsnn.event.modules.LIFParameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LIFParameters</span></code></a>(tau_syn, tau_mem, v_th, …)</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Functions</p>
+<dl class="py function">
+<dt id="jaxsnn.event.modules.LIF">
+<code class="sig-prename descclassname"><span class="pre">jaxsnn.event.modules.</span></code><code class="sig-name descname"><span class="pre">LIF</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_steps</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="jaxsnn.event.modules.lif.parameters.LIFParameters.html#jaxsnn.event.modules.lif.parameters.LIFParameters" title="jaxsnn.event.modules.lif.parameters.LIFParameters"><span class="pre">jaxsnn.event.modules.lif.parameters.LIFParameters</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="jaxsnn.event.types.Population.html#jaxsnn.event.types.Population" title="jaxsnn.event.types.Population"><span class="pre">jaxsnn.event.types.Population</span></a><a class="headerlink" href="#jaxsnn.event.modules.LIF" title="Permalink to this definition"></a></dt>
+<dd><p>Creates a LIF layer for event-based simulation and backpropagation.
+Returns a generator function that builds the layer based on input
+connections, delays, and chosen backpropagation strategy. Supports
+both forward-only simulation and custom backward passes (eventprop).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>size</strong> – Number of neurons in the layer.</p></li>
+<li><p><strong>n_steps</strong> – Number of event steps in the simulation.</p></li>
+<li><p><strong>params</strong> – Parameters for the LIF neuron dynamics.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A Population object containing the generator and parameters.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="jaxsnn.event.modules.Linear">
+<code class="sig-prename descclassname"><span class="pre">jaxsnn.event.modules.</span></code><code class="sig-name descname"><span class="pre">Linear</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mean</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">2.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_delay</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pre_weights</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">jax.Array</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="jaxsnn.event.types.Projection.html#jaxsnn.event.types.Projection" title="jaxsnn.event.types.Projection"><span class="pre">jaxsnn.event.types.Projection</span></a><a class="headerlink" href="#jaxsnn.event.modules.Linear" title="Permalink to this definition"></a></dt>
+<dd><p>Creates a Linear projection layer</p>
+<dl class="simple">
+<dt>Either:</dt><dd><ul class="simple">
+<li><p>initialize weights from a Gaussian (mean, std), or</p></li>
+<li><p>provide a concrete weight array.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mean</strong> – Mean of the Gaussian distribution for weight initialization.</p></li>
+<li><p><strong>std</strong> – Standard deviation of the Gaussian distribution.</p></li>
+<li><p><strong>min_delay</strong> – Minimum delay associated with this projection.</p></li>
+<li><p><strong>pre_weights</strong> – Optional weight array. If provided, mean and std are
+ignored.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A Projection object containing the generator and parameters.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="jaxsnn.event.modules.Source">
+<code class="sig-prename descclassname"><span class="pre">jaxsnn.event.modules.</span></code><code class="sig-name descname"><span class="pre">Source</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="jaxsnn.event.types.SourcePopulation.html#jaxsnn.event.types.SourcePopulation" title="jaxsnn.event.types.SourcePopulation"><span class="pre">jaxsnn.event.types.SourcePopulation</span></a><a class="headerlink" href="#jaxsnn.event.modules.Source" title="Permalink to this definition"></a></dt>
+<dd><p>Creates a Source population layer representing external input.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>size</strong> – Number of neurons/channels in the source layer.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A SourcePopulation object containing the generator and
+parameters.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="jaxsnn.event.loss.LIFState.html" class="btn btn-neutral float-left" title="jaxsnn.event.loss.LIFState" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="jaxsnn.event.modules.leaky_integrate.html" class="btn btn-neutral float-right" title="jaxsnn.event.modules.leaky_integrate" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="jaxsnn.event.loss.Spike.html" class="btn btn-neutral float-left" title="jaxsnn.event.loss.Spike" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="jaxsnn.event.modules.hx.html" class="btn btn-neutral float-right" title="jaxsnn.event.modules.hx" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

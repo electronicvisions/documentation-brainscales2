@@ -17,7 +17,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="jaxsnn.event.stepping.step" href="jaxsnn.event.stepping.step.html" />
-    <link rel="prev" title="jaxsnn.event.root.ttfs.partial" href="jaxsnn.event.root.ttfs.partial.html" /> 
+    <link rel="prev" title="jaxsnn.event.states.LIFState" href="jaxsnn.event.states.LIFState.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -50,7 +50,6 @@
 <li class="toctree-l4"><a class="reference internal" href="jaxsnn.base.html">jaxsnn.base</a></li>
 <li class="toctree-l4"><a class="reference internal" href="jaxsnn.discrete.html">jaxsnn.discrete</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="jaxsnn.event.html">jaxsnn.event</a></li>
-<li class="toctree-l4"><a class="reference internal" href="jaxsnn.ConversionConfig.html">jaxsnn.ConversionConfig</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="hxtorch.html">hxtorch</a></li>
@@ -101,50 +100,131 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="jaxsnn.event.stepping.step.html#module-jaxsnn.event.stepping.step" title="jaxsnn.event.stepping.step"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jaxsnn.event.stepping.step</span></code></a>(dynamics, …)</p></td>
-<td><p>Find next spike (external or internal), and simulate to that point.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="jaxsnn.event.stepping.step.html#module-jaxsnn.event.stepping.step" title="jaxsnn.event.stepping.step"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jaxsnn.event.stepping.step</span></code></a>(next_input_fn, …)</p></td>
+<td><p>Find the next spike (external or internal), and evolve state to that point.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="jaxsnn.event.stepping.step_existing_events.html#module-jaxsnn.event.stepping.step_existing_events" title="jaxsnn.event.stepping.step_existing_events"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jaxsnn.event.stepping.step_existing_events</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="jaxsnn.event.stepping.types.html#module-jaxsnn.event.stepping.types" title="jaxsnn.event.stepping.types"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jaxsnn.event.stepping.types</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="jaxsnn.event.stepping.step_multi_layer.html#module-jaxsnn.event.stepping.step_multi_layer" title="jaxsnn.event.stepping.step_multi_layer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jaxsnn.event.stepping.step_multi_layer</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
 </table>
 <span class="target" id="module-jaxsnn.event.stepping"></span><p class="rubric">Functions</p>
 <dl class="py function">
-<dt id="jaxsnn.event.stepping.step">
-<code class="sig-prename descclassname"><span class="pre">jaxsnn.event.stepping.</span></code><code class="sig-name descname"><span class="pre">step</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dynamics</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tr_dynamics</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_max</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solver</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="jaxsnn.base.types.LIState.html#jaxsnn.base.types.LIState" title="jaxsnn.base.types.LIState"><span class="pre">jaxsnn.base.types.LIState</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="jaxsnn.event.types.Spike.html#jaxsnn.event.types.Spike" title="jaxsnn.event.types.Spike"><span class="pre">jaxsnn.event.types.Spike</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step_input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="jaxsnn.event.types.StepState.html#jaxsnn.event.types.StepState" title="jaxsnn.event.types.StepState"><span class="pre">jaxsnn.event.types.StepState</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="jaxsnn.event.types.WeightInput.html#jaxsnn.event.types.WeightInput" title="jaxsnn.event.types.WeightInput"><span class="pre">jaxsnn.event.types.WeightInput</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="jaxsnn.event.types.WeightRecurrent.html#jaxsnn.event.types.WeightRecurrent" title="jaxsnn.event.types.WeightRecurrent"><span class="pre">jaxsnn.event.types.WeightRecurrent</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="jaxsnn.event.types.StepState.html#jaxsnn.event.types.StepState" title="jaxsnn.event.types.StepState"><span class="pre">jaxsnn.event.types.StepState</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="jaxsnn.event.types.WeightInput.html#jaxsnn.event.types.WeightInput" title="jaxsnn.event.types.WeightInput"><span class="pre">jaxsnn.event.types.WeightInput</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="jaxsnn.event.types.WeightRecurrent.html#jaxsnn.event.types.WeightRecurrent" title="jaxsnn.event.types.WeightRecurrent"><span class="pre">jaxsnn.event.types.WeightRecurrent</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="jaxsnn.event.types.EventPropSpike.html#jaxsnn.event.types.EventPropSpike" title="jaxsnn.event.types.EventPropSpike"><span class="pre">jaxsnn.event.types.EventPropSpike</span></a><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#jaxsnn.event.stepping.step" title="Permalink to this definition"></a></dt>
-<dd><p>Find next spike (external or internal), and simulate to that point.</p>
-<dl class="simple">
-<dt>Args:</dt><dd><p>dynamics (Callable): Function describing the continuous neuron dynamics
-tr_dynamics (Callable): Function describing the transition dynamics
-t_max (float): Max time until which to run
-solver (Solver): Parallel root solver which returns the next event
-state (StepInput): (StepState, weights, int)</p>
+<dt id="jaxsnn.event.stepping.min_delay_check">
+<code class="sig-prename descclassname"><span class="pre">jaxsnn.event.stepping.</span></code><code class="sig-name descname"><span class="pre">min_delay_check</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_nodes</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_delays</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spikes</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="jaxsnn.event.types.EventT.html#jaxsnn.event.types.EventT" title="jaxsnn.event.types.EventT"><span class="pre">jaxsnn.event.types.EventT</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spike_time</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">jax.Array</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">jax.Array</span><span class="p"><span class="pre">,</span> </span><span class="pre">jax.Array</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#jaxsnn.event.stepping.min_delay_check" title="Permalink to this definition"></a></dt>
+<dd><p>Check if a given spike time is not too far ahead in the future.</p>
+<p>For each recurrently connected input layer, finds the latest spike
+time plus the minimum delay, then compares to the given spike time.
+This ensures that no input spike can reach the neuron before the
+time of the spike.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input_nodes</strong> – List of indices of input layers.</p></li>
+<li><p><strong>min_delays</strong> – Array of minimum delays per input connection.</p></li>
+<li><p><strong>spikes</strong> – List of spike records for all layers.</p></li>
+<li><p><strong>spike_time</strong> – The spike time to check.</p></li>
+</ul>
 </dd>
-<dt>Returns:</dt><dd><p>Tuple[StepInput, Spike]: New state after transition and stored spike</p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Tuple containing
+- boolean indicating if spike_time is safe,
+- the computed safe time (minimum allowed spike time).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="jaxsnn.event.stepping.multi_layer_step">
+<code class="sig-prename descclassname"><span class="pre">jaxsnn.event.stepping.</span></code><code class="sig-name descname"><span class="pre">multi_layer_step</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">step_fns</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Callable</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nodes</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_index_mapping</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">carry</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="jaxsnn.event.types.Carry.html#jaxsnn.event.types.Carry" title="jaxsnn.event.types.Carry"><span class="pre">jaxsnn.event.types.Carry</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">step_idx</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="jaxsnn.event.types.Carry.html#jaxsnn.event.types.Carry" title="jaxsnn.event.types.Carry"><span class="pre">jaxsnn.event.types.Carry</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#jaxsnn.event.stepping.multi_layer_step" title="Permalink to this definition"></a></dt>
+<dd><p>Perform one simulation step across multiple neuron layers.</p>
+<p>Iterates through all layers in the strongly connected component (SCC),
+applies their respective step functions, and updates spikes, states,
+queue heads, and queue indices accordingly.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>step_fns</strong> – Dictionary of step functions for each layer, keyed by node
+name.</p></li>
+<li><p><strong>nodes</strong> – List of node names in the SCC to process.</p></li>
+<li><p><strong>node_index_mapping</strong> – Dictionary mapping node names to their indices.</p></li>
+<li><p><strong>carry</strong> – Tuple (parameters, spikes, states, queue_heads,
+queue_indices).</p></li>
+<li><p><strong>step_idx</strong> – Current step index.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Updated carry tuple and an integer placeholder (always 0).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="jaxsnn.event.stepping.next_input">
+<code class="sig-prename descclassname"><span class="pre">jaxsnn.event.stepping.</span></code><code class="sig-name descname"><span class="pre">next_input</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_layers</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_delays</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spikes</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="jaxsnn.event.types.Spike.html#jaxsnn.event.types.Spike" title="jaxsnn.event.types.Spike"><span class="pre">jaxsnn.event.types.Spike</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">queue_heads</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">jax.Array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_max</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">jax.Array</span><span class="p"><span class="pre">,</span> </span><span class="pre">jax.Array</span><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="jaxsnn.event.types.Spike.html#jaxsnn.event.types.Spike" title="jaxsnn.event.types.Spike"><span class="pre">jaxsnn.event.types.Spike</span></a><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#jaxsnn.event.stepping.next_input" title="Permalink to this definition"></a></dt>
+<dd><p>Find the next input spike event across potentially multiple input layers.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="jaxsnn.event.stepping.step">
+<code class="sig-prename descclassname"><span class="pre">jaxsnn.event.stepping.</span></code><code class="sig-name descname"><span class="pre">step</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">next_input_fn</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="jaxsnn.event.types.Spike.html#jaxsnn.event.types.Spike" title="jaxsnn.event.types.Spike"><span class="pre">jaxsnn.event.types.Spike</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">jax.Array</span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">jax.Array</span><span class="p"><span class="pre">,</span> </span><span class="pre">jax.Array</span><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="jaxsnn.event.types.Spike.html#jaxsnn.event.types.Spike" title="jaxsnn.event.types.Spike"><span class="pre">jaxsnn.event.types.Spike</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_delay_check_fn</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="jaxsnn.event.types.Spike.html#jaxsnn.event.types.Spike" title="jaxsnn.event.types.Spike"><span class="pre">jaxsnn.event.types.Spike</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">jax.Array</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">jax.Array</span><span class="p"><span class="pre">,</span> </span><span class="pre">jax.Array</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dynamics</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="jaxsnn.base.types.BaseState.html#jaxsnn.base.types.BaseState" title="jaxsnn.base.types.BaseState"><span class="pre">jaxsnn.base.types.BaseState</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">jax.Array</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="jaxsnn.base.types.BaseState.html#jaxsnn.base.types.BaseState" title="jaxsnn.base.types.BaseState"><span class="pre">jaxsnn.base.types.BaseState</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tr_dynamics</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_max</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solver</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">StateT</span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="jaxsnn.event.types.Spike.html#jaxsnn.event.types.Spike" title="jaxsnn.event.types.Spike"><span class="pre">jaxsnn.event.types.Spike</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step_input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="jaxsnn.event.types.Step.html#jaxsnn.event.types.Step" title="jaxsnn.event.types.Step"><span class="pre">jaxsnn.event.types.Step</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="jaxsnn.event.types.Spike.html#jaxsnn.event.types.Spike" title="jaxsnn.event.types.Spike"><span class="pre">jaxsnn.event.types.Spike</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="jaxsnn.event.types.StepState.html#jaxsnn.event.types.StepState" title="jaxsnn.event.types.StepState"><span class="pre">jaxsnn.event.types.StepState</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">jax.Array</span><span class="p"><span class="pre">,</span> </span><span class="pre">jax.Array</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#jaxsnn.event.stepping.step" title="Permalink to this definition"></a></dt>
+<dd><p>Find the next spike (external or internal), and evolve state to that point.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>next_input_fn</strong> – Function to find the next input spike.</p></li>
+<li><p><strong>min_delay_check_fn</strong> – Function to check if spike is allowed.</p></li>
+<li><p><strong>dynamics</strong> – Function describing continuous neuron dynamics.</p></li>
+<li><p><strong>tr_dynamics</strong> – List of functions describing the transition after a
+spike.</p></li>
+<li><p><strong>t_max</strong> – Maximum simulation time for this step.</p></li>
+<li><p><strong>solver</strong> – Solver that returns the next internal event.</p></li>
+<li><p><strong>step_input</strong> – Tuple containing
+(weights, spikes, state, _, layer_idx, queue_heads, _).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Tuple containing
+- Spike: The new spike event.
+- StepState: Updated neuron state after transition.
+- QueueHead: Updated queue heads.
+- QueueIndex: Spike queue index of the spike event.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt id="jaxsnn.event.stepping.step_existing">
-<code class="sig-prename descclassname"><span class="pre">jaxsnn.event.stepping.</span></code><code class="sig-name descname"><span class="pre">step_existing</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dynamics</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tr_dynamics</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_max</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event_stepper</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="jaxsnn.base.types.LIState.html#jaxsnn.base.types.LIState" title="jaxsnn.base.types.LIState"><span class="pre">jaxsnn.base.types.LIState</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="jaxsnn.event.types.Spike.html#jaxsnn.event.types.Spike" title="jaxsnn.event.types.Spike"><span class="pre">jaxsnn.event.types.Spike</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step_input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="jaxsnn.event.types.StepState.html#jaxsnn.event.types.StepState" title="jaxsnn.event.types.StepState"><span class="pre">jaxsnn.event.types.StepState</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="jaxsnn.event.types.WeightInput.html#jaxsnn.event.types.WeightInput" title="jaxsnn.event.types.WeightInput"><span class="pre">jaxsnn.event.types.WeightInput</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="jaxsnn.event.types.WeightRecurrent.html#jaxsnn.event.types.WeightRecurrent" title="jaxsnn.event.types.WeightRecurrent"><span class="pre">jaxsnn.event.types.WeightRecurrent</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="jaxsnn.event.types.StepState.html#jaxsnn.event.types.StepState" title="jaxsnn.event.types.StepState"><span class="pre">jaxsnn.event.types.StepState</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="jaxsnn.event.types.WeightInput.html#jaxsnn.event.types.WeightInput" title="jaxsnn.event.types.WeightInput"><span class="pre">jaxsnn.event.types.WeightInput</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="jaxsnn.event.types.WeightRecurrent.html#jaxsnn.event.types.WeightRecurrent" title="jaxsnn.event.types.WeightRecurrent"><span class="pre">jaxsnn.event.types.WeightRecurrent</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="jaxsnn.event.types.EventPropSpike.html#jaxsnn.event.types.EventPropSpike" title="jaxsnn.event.types.EventPropSpike"><span class="pre">jaxsnn.event.types.EventPropSpike</span></a><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#jaxsnn.event.stepping.step_existing" title="Permalink to this definition"></a></dt>
-<dd><p>Find next spike (external or internal), and simulate to that point.</p>
+<code class="sig-prename descclassname"><span class="pre">jaxsnn.event.stepping.</span></code><code class="sig-name descname"><span class="pre">step_existing</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_layers</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dynamics</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transition_fns</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_max</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step_input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="jaxsnn.event.types.Step.html#jaxsnn.event.types.Step" title="jaxsnn.event.types.Step"><span class="pre">jaxsnn.event.types.Step</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="jaxsnn.event.types.Spike.html#jaxsnn.event.types.Spike" title="jaxsnn.event.types.Spike"><span class="pre">jaxsnn.event.types.Spike</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="jaxsnn.event.types.StepState.html#jaxsnn.event.types.StepState" title="jaxsnn.event.types.StepState"><span class="pre">jaxsnn.event.types.StepState</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">jax.Array</span><span class="p"><span class="pre">,</span> </span><span class="pre">jax.Array</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#jaxsnn.event.stepping.step_existing" title="Permalink to this definition"></a></dt>
+<dd><p>Simulate a single event-driven step for a spiking neuron layer using
+existing (from hardware) events.</p>
+<p>Finds the next relevant spike (known hardware spike or input event),
+advances the neuron state to that event, applies the appropriate
+transition, and updates all event queues and indices accordingly.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>dynamics</strong> – Function describing the continuous neuron dynamics</p></li>
-<li><p><strong>tr_dynamics</strong> – Function describing the transition dynamics</p></li>
-<li><p><strong>t_max</strong> – Max time until which to run</p></li>
-<li><p><strong>solver</strong> – Parallel root solver which returns the next event</p></li>
-<li><p><strong>state</strong> – (StepState, weights, int)</p></li>
+<li><p><strong>input_layers</strong> – List of input layer names.</p></li>
+<li><p><strong>valid_input_layer_indices</strong> – Indices of valid input layers for event
+matching.</p></li>
+<li><p><strong>dynamics</strong> – Function describing the continuous neuron dynamics.</p></li>
+<li><p><strong>transition_fns</strong> – List of transition functions for each possible
+input.</p></li>
+<li><p><strong>node</strong> – Name of the current layer/node.</p></li>
+<li><p><strong>t_max</strong> – Maximum simulation time for this step.</p></li>
+<li><p><strong>step_input</strong> – Step object containing all state, parameters, queues,
+and indices.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>New state after transition and stored spike</p>
+<dd class="field-even"><p>Tuple containing:
+- Spike: The spike event at this step (or empty if none).
+- StepState: Updated neuron state after the event.
+- QueueHead: Updated queue head indices for all inputs.
+- QueueIndex: Index of the input queue used for the event.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -155,7 +235,7 @@ state (StepInput): (StepState, weights, int)</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="jaxsnn.event.root.ttfs.partial.html" class="btn btn-neutral float-left" title="jaxsnn.event.root.ttfs.partial" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="jaxsnn.event.states.LIFState.html" class="btn btn-neutral float-left" title="jaxsnn.event.states.LIFState" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="jaxsnn.event.stepping.step.html" class="btn btn-neutral float-right" title="jaxsnn.event.stepping.step" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

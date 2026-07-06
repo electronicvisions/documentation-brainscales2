@@ -16,8 +16,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="jaxsnn.event.loss.EventPropSpike" href="jaxsnn.event.loss.EventPropSpike.html" />
-    <link rel="prev" title="jaxsnn.event.from_nir_data.TimeGriddedData" href="jaxsnn.event.from_nir_data.TimeGriddedData.html" /> 
+    <link rel="next" title="jaxsnn.event.loss.LIFState" href="jaxsnn.event.loss.LIFState.html" />
+    <link rel="prev" title="jaxsnn.event.hardware.transforms" href="jaxsnn.event.hardware.transforms.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -50,7 +50,6 @@
 <li class="toctree-l4"><a class="reference internal" href="jaxsnn.base.html">jaxsnn.base</a></li>
 <li class="toctree-l4"><a class="reference internal" href="jaxsnn.discrete.html">jaxsnn.discrete</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="jaxsnn.event.html">jaxsnn.event</a></li>
-<li class="toctree-l4"><a class="reference internal" href="jaxsnn.ConversionConfig.html">jaxsnn.ConversionConfig</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="hxtorch.html">hxtorch</a></li>
@@ -101,23 +100,23 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="jaxsnn.event.loss.EventPropSpike.html#jaxsnn.event.loss.EventPropSpike" title="jaxsnn.event.loss.EventPropSpike"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EventPropSpike</span></code></a>(time, idx, current)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="jaxsnn.event.loss.LIFState.html#jaxsnn.event.loss.LIFState" title="jaxsnn.event.loss.LIFState"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LIFState</span></code></a>(V, I)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="jaxsnn.event.loss.LIFState.html#jaxsnn.event.loss.LIFState" title="jaxsnn.event.loss.LIFState"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LIFState</span></code></a></p></td>
-<td><p>alias of <a class="reference internal" href="jaxsnn.base.types.LIState.html#jaxsnn.base.types.LIState" title="jaxsnn.base.types.LIState"><code class="xref py py-class docutils literal notranslate"><span class="pre">jaxsnn.base.types.LIState</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="jaxsnn.event.loss.Spike.html#jaxsnn.event.loss.Spike" title="jaxsnn.event.loss.Spike"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Spike</span></code></a>(time, idx, current, layer_idx, internal)</p></td>
+<td><p></p></td>
 </tr>
 </tbody>
 </table>
 <p class="rubric">Functions</p>
 <dl class="py function">
 <dt id="jaxsnn.event.loss.first_spike">
-<code class="sig-prename descclassname"><span class="pre">jaxsnn.event.loss.</span></code><code class="sig-name descname"><span class="pre">first_spike</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spikes</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="jaxsnn.event.types.EventPropSpike.html#jaxsnn.event.types.EventPropSpike" title="jaxsnn.event.types.EventPropSpike"><span class="pre">jaxsnn.event.types.EventPropSpike</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_outputs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">jax.Array</span><a class="headerlink" href="#jaxsnn.event.loss.first_spike" title="Permalink to this definition"></a></dt>
+<code class="sig-prename descclassname"><span class="pre">jaxsnn.event.loss.</span></code><code class="sig-name descname"><span class="pre">first_spike</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spikes</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="jaxsnn.event.types.Spike.html#jaxsnn.event.types.Spike" title="jaxsnn.event.types.Spike"><span class="pre">jaxsnn.event.types.Spike</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_outputs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">jax.Array</span><a class="headerlink" href="#jaxsnn.event.loss.first_spike" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt id="jaxsnn.event.loss.max_over_time">
-<code class="sig-prename descclassname"><span class="pre">jaxsnn.event.loss.</span></code><code class="sig-name descname"><span class="pre">max_over_time</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="jaxsnn.base.types.LIState.html#jaxsnn.base.types.LIState" title="jaxsnn.base.types.LIState"><span class="pre">jaxsnn.base.types.LIState</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">jax.Array</span><a class="headerlink" href="#jaxsnn.event.loss.max_over_time" title="Permalink to this definition"></a></dt>
+<code class="sig-prename descclassname"><span class="pre">jaxsnn.event.loss.</span></code><code class="sig-name descname"><span class="pre">max_over_time</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="jaxsnn.event.states.LIFState.html#jaxsnn.event.states.LIFState" title="jaxsnn.event.states.LIFState"><span class="pre">jaxsnn.event.states.LIFState</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">jax.Array</span><a class="headerlink" href="#jaxsnn.event.loss.max_over_time" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
@@ -146,8 +145,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="jaxsnn.event.from_nir_data.TimeGriddedData.html" class="btn btn-neutral float-left" title="jaxsnn.event.from_nir_data.TimeGriddedData" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="jaxsnn.event.loss.EventPropSpike.html" class="btn btn-neutral float-right" title="jaxsnn.event.loss.EventPropSpike" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="jaxsnn.event.hardware.transforms.html" class="btn btn-neutral float-left" title="jaxsnn.event.hardware.transforms" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="jaxsnn.event.loss.LIFState.html" class="btn btn-neutral float-right" title="jaxsnn.event.loss.LIFState" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
