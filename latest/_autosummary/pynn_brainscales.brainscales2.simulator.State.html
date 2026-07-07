@@ -156,19 +156,22 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.simulator.State.clear" title="pynn_brainscales.brainscales2.simulator.State.clear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.simulator.State.prepare_static_config" title="pynn_brainscales.brainscales2.simulator.State.prepare_static_config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">prepare_static_config</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.simulator.State.get_base_configuration" title="pynn_brainscales.brainscales2.simulator.State.get_base_configuration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_base_configuration</span></code></a>()</p></td>
+<td><p>Get base configuration.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.simulator.State.prepare_static_config" title="pynn_brainscales.brainscales2.simulator.State.prepare_static_config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">prepare_static_config</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.simulator.State.preprocess" title="pynn_brainscales.brainscales2.simulator.State.preprocess"><code class="xref py py-obj docutils literal notranslate"><span class="pre">preprocess</span></code></a>(snippet_begin_time, snippet_end_time)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.simulator.State.preprocess" title="pynn_brainscales.brainscales2.simulator.State.preprocess"><code class="xref py py-obj docutils literal notranslate"><span class="pre">preprocess</span></code></a>(snippet_begin_time, snippet_end_time)</p></td>
 <td><p>Execute all steps needed for the hardware back-end.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.simulator.State.reset" title="pynn_brainscales.brainscales2.simulator.State.reset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.simulator.State.reset" title="pynn_brainscales.brainscales2.simulator.State.reset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset</span></code></a>()</p></td>
 <td><p>Reset the state of the current network to time t = 0.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.simulator.State.run" title="pynn_brainscales.brainscales2.simulator.State.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.simulator.State.run" title="pynn_brainscales.brainscales2.simulator.State.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>()</p></td>
 <td><p>Performs a hardware run of the currently scheduled experiment.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.simulator.State.run_until" title="pynn_brainscales.brainscales2.simulator.State.run_until"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run_until</span></code></a>(tstop)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.simulator.State.run_until" title="pynn_brainscales.brainscales2.simulator.State.run_until"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run_until</span></code></a>(tstop)</p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -209,6 +212,18 @@ list, which is processed serially in run()</p>
 <dt id="pynn_brainscales.brainscales2.simulator.State.dt">
 <code class="sig-name descname"><span class="pre">dt</span></code><em class="property"><span class="pre">:</span> <span class="pre">Final</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">3.4e-05</span></em><a class="headerlink" href="#pynn_brainscales.brainscales2.simulator.State.dt" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.simulator.State.get_base_configuration">
+<code class="sig-name descname"><span class="pre">get_base_configuration</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">pylola_vx_v3.Chip</span><a class="headerlink" href="#pynn_brainscales.brainscales2.simulator.State.get_base_configuration" title="Permalink to this definition"></a></dt>
+<dd><p>Get base configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>initial configuration if supplied. Otherwise default
+chip object.</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt id="pynn_brainscales.brainscales2.simulator.State.prepare_static_config">
