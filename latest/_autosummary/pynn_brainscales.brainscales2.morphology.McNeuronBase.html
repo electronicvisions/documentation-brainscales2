@@ -193,6 +193,9 @@ PyNN.</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.morphology.McNeuronBase.get_logical_neuron" title="pynn_brainscales.brainscales2.morphology.McNeuronBase.get_logical_neuron"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_logical_neuron</span></code></a>(cell_in_pop)</p></td>
 <td><p>Extract parameters from parameter space and apply it to a logical</p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.morphology.McNeuronBase.validate_parameter_space" title="pynn_brainscales.brainscales2.morphology.McNeuronBase.validate_parameter_space"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_parameter_space</span></code></a>()</p></td>
+<td><p>Raise if the parameter space is not yet valid.</p></td>
+</tr>
 </tbody>
 </table>
 <p class="rubric">Attributes</p>
@@ -383,6 +386,15 @@ the configuration as a logical neuron.</p>
 <dt id="pynn_brainscales.brainscales2.morphology.McNeuronBase.units">
 <code class="sig-name descname"><span class="pre">units</span></code><em class="property"><span class="pre">:</span> <span class="pre">Final</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{'adaptation':</span> <span class="pre">'dimensionless',</span> <span class="pre">'exc_synin':</span> <span class="pre">'dimensionless',</span> <span class="pre">'inh_synin':</span> <span class="pre">'dimensionless',</span> <span class="pre">'v':</span> <span class="pre">'dimensionless'}</span></em><a class="headerlink" href="#pynn_brainscales.brainscales2.morphology.McNeuronBase.units" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
+
+<dl class="py method">
+<dt id="pynn_brainscales.brainscales2.morphology.McNeuronBase.validate_parameter_space">
+<code class="sig-name descname"><span class="pre">validate_parameter_space</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.morphology.McNeuronBase.validate_parameter_space" title="Permalink to this definition"></a></dt>
+<dd><p>Raise if the parameter space is not yet valid.</p>
+<p>The parameter space is only valid after the initial
+configuration has been applied. This is only the
+case after mapping.</p>
+</dd></dl>
 
 </dd></dl>
 

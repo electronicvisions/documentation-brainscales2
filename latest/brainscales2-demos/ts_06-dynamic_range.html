@@ -176,6 +176,10 @@ We save the nightly calibration in a variable such that we can use it later when
         <span class="n">population</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="n">number_of_neurons</span><span class="p">,</span>
                                      <span class="n">pynn</span><span class="o">.</span><span class="n">cells</span><span class="o">.</span><span class="n">HXNeuron</span><span class="p">())</span>
 
+        <span class="c1"># We have to perform the mapping to BrainScaleS-2 before we</span>
+        <span class="c1"># can access the parameters of the neurons</span>
+        <span class="n">pynn</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">pynn</span><span class="o">.</span><span class="n">RunCommand</span><span class="o">.</span><span class="n">PREPARE</span><span class="p">)</span>
+
         <span class="c1"># disable spiking</span>
         <span class="n">population</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">threshold_enable</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 

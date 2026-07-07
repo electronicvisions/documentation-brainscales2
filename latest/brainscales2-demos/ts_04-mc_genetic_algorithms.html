@@ -212,6 +212,10 @@ All neurons of the external population will spike simultaneously, introducing an
 <span class="sd">        &#39;&#39;&#39;</span>
         <span class="n">pop</span> <span class="o">=</span> <span class="n">pynn</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="n">pynn</span><span class="o">.</span><span class="n">cells</span><span class="o">.</span><span class="n">HXNeuron</span><span class="p">())</span>
 
+        <span class="c1"># We have to perform the mapping to BrainScaleS-2 before we</span>
+        <span class="c1"># can access the parameters of the neurons</span>
+        <span class="n">pynn</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">pynn</span><span class="o">.</span><span class="n">RunCommand</span><span class="o">.</span><span class="n">PREPARE</span><span class="p">)</span>
+
         <span class="c1"># Combine two neuron circuits to one compartment; &quot;disable&quot; second</span>
         <span class="c1"># neuron circuit</span>
         <span class="n">pynn</span><span class="o">.</span><span class="n">PopulationView</span><span class="p">(</span><span class="n">pop</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">length</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
