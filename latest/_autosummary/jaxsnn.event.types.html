@@ -239,6 +239,46 @@ __init__().</p>
 <p>It is an error to specify both default and default_factory.</p>
 </dd></dl>
 
+<dl class="py function">
+<dt id="jaxsnn.event.types.tree_map">
+<code class="sig-prename descclassname"><span class="pre">jaxsnn.event.types.</span></code><code class="sig-name descname"><span class="pre">tree_map</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">…</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="jaxsnn.event.types.Any.html#jaxsnn.event.types.Any" title="jaxsnn.event.types.Any"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tree</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="jaxsnn.event.types.Any.html#jaxsnn.event.types.Any" title="jaxsnn.event.types.Any"><span class="pre">Any</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">rest</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="jaxsnn.event.types.Any.html#jaxsnn.event.types.Any" title="jaxsnn.event.types.Any"><span class="pre">Any</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_leaf</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="jaxsnn.event.types.Any.html#jaxsnn.event.types.Any" title="jaxsnn.event.types.Any"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="jaxsnn.event.types.Any.html#jaxsnn.event.types.Any" title="jaxsnn.event.types.Any"><span class="pre">Any</span></a><a class="headerlink" href="#jaxsnn.event.types.tree_map" title="Permalink to this definition"></a></dt>
+<dd><p>Maps a multi-input function over pytree args to produce a new pytree.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>f: function that takes <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">+</span> <span class="pre">len(rest)</span></code> arguments, to be applied at the</dt><dd><p>corresponding leaves of the pytrees.</p>
+</dd>
+<dt>tree: a pytree to be mapped over, with each leaf providing the first</dt><dd><p>positional argument to <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p>
+</dd>
+<dt>rest: a tuple of pytrees, each of which has the same structure as <code class="docutils literal notranslate"><span class="pre">tree</span></code></dt><dd><p>or has <code class="docutils literal notranslate"><span class="pre">tree</span></code> as a prefix.</p>
+</dd>
+<dt>is_leaf: an optionally specified function that will be called at each</dt><dd><p>flattening step. It should return a boolean, which indicates whether
+the flattening should traverse the current object, or if it should be
+stopped immediately, with the whole subtree being treated as a leaf.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><p>A new pytree with the same structure as <code class="docutils literal notranslate"><span class="pre">tree</span></code> but with the value at each
+leaf given by <code class="docutils literal notranslate"><span class="pre">f(x,</span> <span class="pre">*xs)</span></code> where <code class="docutils literal notranslate"><span class="pre">x</span></code> is the value at the corresponding
+leaf in <code class="docutils literal notranslate"><span class="pre">tree</span></code> and <code class="docutils literal notranslate"><span class="pre">xs</span></code> is the tuple of values at corresponding nodes in
+<code class="docutils literal notranslate"><span class="pre">rest</span></code>.</p>
+</dd>
+</dl>
+<p>Examples:</p>
+<blockquote>
+<div><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">jax.tree_util</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">jax</span><span class="o">.</span><span class="n">tree_util</span><span class="o">.</span><span class="n">tree_map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="mi">42</span><span class="p">})</span>
+<span class="go">{&#39;x&#39;: 8, &#39;y&#39;: 43}</span>
+</pre></div>
+</div>
+<p>If multiple inputs are passed, the structure of the tree is taken from the
+first input; subsequent inputs need only have <code class="docutils literal notranslate"><span class="pre">tree</span></code> as a prefix:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">jax</span><span class="o">.</span><span class="n">tree_util</span><span class="o">.</span><span class="n">tree_map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
+<span class="go">[[5, 7, 9], [6, 1, 2]]</span>
+</pre></div>
+</div>
+</div></blockquote>
+</dd></dl>
+
 </div>
 
 
