@@ -128,8 +128,14 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.CoordinateSystem.assign_compartment_direct" title="pygrenade_vx.network.abstract.CoordinateSystem.assign_compartment_direct"><code class="xref py py-obj docutils literal notranslate"><span class="pre">assign_compartment_direct</span></code></a>(self, x, y, …)</p></td>
 <td><p>Assign compartment descriptor to the neuron circuit and to all directly connected neuron circuits.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.CoordinateSystem.clear" title="pygrenade_vx.network.abstract.CoordinateSystem.clear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear</span></code></a>(self)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.CoordinateSystem.assign_compartments" title="pygrenade_vx.network.abstract.CoordinateSystem.assign_compartments"><code class="xref py py-obj docutils literal notranslate"><span class="pre">assign_compartments</span></code></a>(self)</p></td>
+<td><p>Assign compartments on the coordinate system.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.CoordinateSystem.clear" title="pygrenade_vx.network.abstract.CoordinateSystem.clear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear</span></code></a>(self)</p></td>
 <td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.CoordinateSystem.clear_compartments" title="pygrenade_vx.network.abstract.CoordinateSystem.clear_compartments"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear_compartments</span></code></a>(self)</p></td>
+<td><p>Clear all assigned compartments.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.CoordinateSystem.clear_empty_connections" title="pygrenade_vx.network.abstract.CoordinateSystem.clear_empty_connections"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear_empty_connections</span></code></a>(self, x_max)</p></td>
 <td><p>Clear connections with open ends.</p></td>
@@ -185,8 +191,14 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.CoordinateSystem.get_compartment" title="pygrenade_vx.network.abstract.CoordinateSystem.get_compartment"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_compartment</span></code></a>(self, coordinate_x, coordinate_y)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.CoordinateSystem.get_config" title="pygrenade_vx.network.abstract.CoordinateSystem.get_config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_config</span></code></a>(self, x, y)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.CoordinateSystem.get_compartments" title="pygrenade_vx.network.abstract.CoordinateSystem.get_compartments"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_compartments</span></code></a>(self)</p></td>
+<td><p>Return set of all compartments.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.CoordinateSystem.get_config" title="pygrenade_vx.network.abstract.CoordinateSystem.get_config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_config</span></code></a>(self, x, y)</p></td>
 <td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.CoordinateSystem.get_resources" title="pygrenade_vx.network.abstract.CoordinateSystem.get_resources"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_resources</span></code></a>(self, compartment)</p></td>
+<td><p>Return number of neuron circuits allocated to the given compartment.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.CoordinateSystem.has_double_connections" title="pygrenade_vx.network.abstract.CoordinateSystem.has_double_connections"><code class="xref py py-obj docutils literal notranslate"><span class="pre">has_double_connections</span></code></a>(self, x_max)</p></td>
 <td><p>Check for connection both directly and via shared line.</p></td>
@@ -245,9 +257,21 @@
 </dd></dl>
 
 <dl class="py method">
+<dt id="pygrenade_vx.network.abstract.CoordinateSystem.assign_compartments">
+<code class="sig-name descname"><span class="pre">assign_compartments</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.CoordinateSystem</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#pygrenade_vx.network.abstract.CoordinateSystem.assign_compartments" title="Permalink to this definition"></a></dt>
+<dd><p>Assign compartments on the coordinate system.</p>
+</dd></dl>
+
+<dl class="py method">
 <dt id="pygrenade_vx.network.abstract.CoordinateSystem.clear">
 <code class="sig-name descname"><span class="pre">clear</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.CoordinateSystem</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#pygrenade_vx.network.abstract.CoordinateSystem.clear" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.CoordinateSystem.clear_compartments">
+<code class="sig-name descname"><span class="pre">clear_compartments</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.CoordinateSystem</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#pygrenade_vx.network.abstract.CoordinateSystem.clear_compartments" title="Permalink to this definition"></a></dt>
+<dd><p>Clear all assigned compartments.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt id="pygrenade_vx.network.abstract.CoordinateSystem.clear_empty_connections">
@@ -323,7 +347,7 @@
 
 <dl class="py method">
 <dt id="pygrenade_vx.network.abstract.CoordinateSystem.construct_neuron">
-<code class="sig-name descname"><span class="pre">construct_neuron</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.CoordinateSystem</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">_pygrenade_vx_network_abstract.Neuron</span><span class="p"><span class="pre">,</span> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">_pygrenade_vx_network_abstract.CompartmentOnNeuron</span><span class="p"><span class="pre">,</span> </span><span class="pre">_pygrenade_vx_network_abstract.CompartmentOnNeuron</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">_pygrenade_vx_network_abstract.CompartmentOnNeuron</span><span class="p"><span class="pre">,</span> </span><span class="pre">_pygrenade_vx_network_abstract.NumberTopBottom</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#pygrenade_vx.network.abstract.CoordinateSystem.construct_neuron" title="Permalink to this definition"></a></dt>
+<code class="sig-name descname"><span class="pre">construct_neuron</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.CoordinateSystem</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">_pygrenade_vx_network_abstract.Neuron</span><span class="p"><span class="pre">,</span> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">_pygrenade_vx_network_abstract.CompartmentOnNeuron</span><span class="p"><span class="pre">,</span> </span><span class="pre">_pygrenade_vx_network_abstract.NumberTopBottom</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#pygrenade_vx.network.abstract.CoordinateSystem.construct_neuron" title="Permalink to this definition"></a></dt>
 <dd><p>Construct a neuron based on the state of the coordinate-system.</p>
 </dd></dl>
 
@@ -361,9 +385,21 @@
 <dd></dd></dl>
 
 <dl class="py method">
+<dt id="pygrenade_vx.network.abstract.CoordinateSystem.get_compartments">
+<code class="sig-name descname"><span class="pre">get_compartments</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.CoordinateSystem</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#pygrenade_vx.network.abstract.CoordinateSystem.set" title="pygrenade_vx.network.abstract.CoordinateSystem.set"><span class="pre">set</span></a><span class="p"><span class="pre">[</span></span><span class="pre">_pygrenade_vx_network_abstract.CompartmentOnNeuron</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#pygrenade_vx.network.abstract.CoordinateSystem.get_compartments" title="Permalink to this definition"></a></dt>
+<dd><p>Return set of all compartments.</p>
+</dd></dl>
+
+<dl class="py method">
 <dt id="pygrenade_vx.network.abstract.CoordinateSystem.get_config">
 <code class="sig-name descname"><span class="pre">get_config</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.CoordinateSystem</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">_pygrenade_vx_network_abstract.UnplacedNeuronCircuit</span><a class="headerlink" href="#pygrenade_vx.network.abstract.CoordinateSystem.get_config" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.CoordinateSystem.get_resources">
+<code class="sig-name descname"><span class="pre">get_resources</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.CoordinateSystem</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compartment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.CompartmentOnNeuron</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">_pygrenade_vx_network_abstract.NumberTopBottom</span><a class="headerlink" href="#pygrenade_vx.network.abstract.CoordinateSystem.get_resources" title="Permalink to this definition"></a></dt>
+<dd><p>Return number of neuron circuits allocated to the given compartment.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt id="pygrenade_vx.network.abstract.CoordinateSystem.has_double_connections">
