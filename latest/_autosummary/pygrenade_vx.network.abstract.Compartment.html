@@ -104,8 +104,8 @@
 <code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygrenade_vx.network.abstract.Compartment.__init__" title="Permalink to this definition"></a></dt>
 <dd><p>Overloaded function.</p>
 <ol class="arabic simple">
-<li><p>__init__(self: _pygrenade_vx_network_abstract.Compartment, arg0: _pygrenade_vx_network_abstract.Compartment) -&gt; None</p></li>
 <li><p>__init__(self: _pygrenade_vx_network_abstract.Compartment) -&gt; None</p></li>
+<li><p>__init__(self: _pygrenade_vx_network_abstract.Compartment, arg0: _pygrenade_vx_network_abstract.Compartment) -&gt; None</p></li>
 </ol>
 </dd></dl>
 
@@ -119,13 +119,7 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.Compartment.__init__" title="pygrenade_vx.network.abstract.Compartment.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(*args, **kwargs)</p></td>
 <td><p>Overloaded function.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.Compartment.add" title="pygrenade_vx.network.abstract.Compartment.add"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add</span></code></a>(self, mechanism)</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.Compartment.copy" title="pygrenade_vx.network.abstract.Compartment.copy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy</span></code></a>(self)</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.Compartment.get" title="pygrenade_vx.network.abstract.Compartment.get"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get</span></code></a>(self, descriptor)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.Compartment.copy" title="pygrenade_vx.network.abstract.Compartment.copy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy</span></code></a>(self)</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.Compartment.get_hardware" title="pygrenade_vx.network.abstract.Compartment.get_hardware"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_hardware</span></code></a>(self, compartment, …)</p></td>
@@ -134,17 +128,74 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.Compartment.move" title="pygrenade_vx.network.abstract.Compartment.move"><code class="xref py py-obj docutils literal notranslate"><span class="pre">move</span></code></a>(self)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.Compartment.remove" title="pygrenade_vx.network.abstract.Compartment.remove"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove</span></code></a>(self, descriptor)</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.Compartment.set" title="pygrenade_vx.network.abstract.Compartment.set"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set</span></code></a>(self, descriptor, mechanism)</p></td>
-<td><p></p></td>
-</tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.Compartment.valid" title="pygrenade_vx.network.abstract.Compartment.valid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">valid</span></code></a>(self, parameter_space)</p></td>
 <td><p>Check if the given paramter space is valid for the compartment.</p></td>
 </tr>
 </tbody>
 </table>
+<p class="rubric">Attributes</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.Compartment.mechanisms" title="pygrenade_vx.network.abstract.Compartment.mechanisms"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mechanisms</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt id="pygrenade_vx.network.abstract.Compartment.Mechanisms">
+<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">Mechanisms</span></code><a class="headerlink" href="#pygrenade_vx.network.abstract.Compartment.Mechanisms" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_builtins.pybind11_object</span></code></p>
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.Compartment.Mechanisms.clear">
+<code class="sig-name descname"><span class="pre">clear</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.Compartment.Mechanisms</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#pygrenade_vx.network.abstract.Compartment.Mechanisms.clear" title="Permalink to this definition"></a></dt>
+<dd><p>Remove all elements in the map.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.Compartment.Mechanisms.contains">
+<code class="sig-name descname"><span class="pre">contains</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.Compartment.Mechanisms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.MechanismOnCompartment</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#pygrenade_vx.network.abstract.Compartment.Mechanisms.contains" title="Permalink to this definition"></a></dt>
+<dd><p>Get whether element for given key is present in map.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.Compartment.Mechanisms.empty">
+<code class="sig-name descname"><span class="pre">empty</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.Compartment.Mechanisms</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#pygrenade_vx.network.abstract.Compartment.Mechanisms.empty" title="Permalink to this definition"></a></dt>
+<dd><p>Get whether map is empty and contains no elements.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.Compartment.Mechanisms.erase">
+<code class="sig-name descname"><span class="pre">erase</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.Compartment.Mechanisms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.MechanismOnCompartment</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">int</span><a class="headerlink" href="#pygrenade_vx.network.abstract.Compartment.Mechanisms.erase" title="Permalink to this definition"></a></dt>
+<dd><p>Erase element for given key in map.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.Compartment.Mechanisms.get">
+<code class="sig-name descname"><span class="pre">get</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.Compartment.Mechanisms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg0</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.MechanismOnCompartment</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">_pygrenade_vx_network_abstract.Mechanism</span><a class="headerlink" href="#pygrenade_vx.network.abstract.Compartment.Mechanisms.get" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.Compartment.Mechanisms.insert">
+<code class="sig-name descname"><span class="pre">insert</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.Compartment.Mechanisms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.Mechanism</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">_pygrenade_vx_network_abstract.MechanismOnCompartment</span><a class="headerlink" href="#pygrenade_vx.network.abstract.Compartment.Mechanisms.insert" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.Compartment.Mechanisms.set">
+<code class="sig-name descname"><span class="pre">set</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.Compartment.Mechanisms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.MechanismOnCompartment</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.Mechanism</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#pygrenade_vx.network.abstract.Compartment.Mechanisms.set" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.Compartment.Mechanisms.size">
+<code class="sig-name descname"><span class="pre">size</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.Compartment.Mechanisms</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">int</span><a class="headerlink" href="#pygrenade_vx.network.abstract.Compartment.Mechanisms.size" title="Permalink to this definition"></a></dt>
+<dd><p>Get number of elements present in map.</p>
+</dd></dl>
+
+</dd></dl>
+
 <dl class="py class">
 <dt id="pygrenade_vx.network.abstract.Compartment.ParameterSpace">
 <em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">ParameterSpace</span></code><a class="headerlink" href="#pygrenade_vx.network.abstract.Compartment.ParameterSpace" title="Permalink to this definition"></a></dt>
@@ -186,18 +237,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt id="pygrenade_vx.network.abstract.Compartment.add">
-<code class="sig-name descname"><span class="pre">add</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.Compartment</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mechanism</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.Mechanism</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">_pygrenade_vx_network_abstract.MechanismOnCompartment</span><a class="headerlink" href="#pygrenade_vx.network.abstract.Compartment.add" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
 <dt id="pygrenade_vx.network.abstract.Compartment.copy">
 <code class="sig-name descname"><span class="pre">copy</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.Compartment</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">_pygrenade_vx_network_abstract.Compartment</span><a class="headerlink" href="#pygrenade_vx.network.abstract.Compartment.copy" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="pygrenade_vx.network.abstract.Compartment.get">
-<code class="sig-name descname"><span class="pre">get</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.Compartment</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">descriptor</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.MechanismOnCompartment</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">_pygrenade_vx_network_abstract.Mechanism</span><a class="headerlink" href="#pygrenade_vx.network.abstract.Compartment.get" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -206,18 +247,13 @@
 <dd></dd></dl>
 
 <dl class="py method">
+<dt id="pygrenade_vx.network.abstract.Compartment.mechanisms">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">mechanisms</span></code><a class="headerlink" href="#pygrenade_vx.network.abstract.Compartment.mechanisms" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt id="pygrenade_vx.network.abstract.Compartment.move">
 <code class="sig-name descname"><span class="pre">move</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.Compartment</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">_pygrenade_vx_network_abstract.Compartment</span><a class="headerlink" href="#pygrenade_vx.network.abstract.Compartment.move" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="pygrenade_vx.network.abstract.Compartment.remove">
-<code class="sig-name descname"><span class="pre">remove</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.Compartment</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">descriptor</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.MechanismOnCompartment</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#pygrenade_vx.network.abstract.Compartment.remove" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="pygrenade_vx.network.abstract.Compartment.set">
-<code class="sig-name descname"><span class="pre">set</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.Compartment</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">descriptor</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.MechanismOnCompartment</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mechanism</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.Mechanism</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#pygrenade_vx.network.abstract.Compartment.set" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
