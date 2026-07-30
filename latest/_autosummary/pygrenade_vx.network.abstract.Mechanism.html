@@ -118,7 +118,13 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.Mechanism.conflict" title="pygrenade_vx.network.abstract.Mechanism.conflict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">conflict</span></code></a>(self, other)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.Mechanism.get_hardware" title="pygrenade_vx.network.abstract.Mechanism.get_hardware"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_hardware</span></code></a>(self, compartment, …)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.Mechanism.get_hardware" title="pygrenade_vx.network.abstract.Mechanism.get_hardware"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_hardware</span></code></a>(self, parameter_space, environment)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.Mechanism.get_input_ports" title="pygrenade_vx.network.abstract.Mechanism.get_input_ports"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_input_ports</span></code></a>(self)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.Mechanism.get_output_ports" title="pygrenade_vx.network.abstract.Mechanism.get_output_ports"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_output_ports</span></code></a>(self)</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.Mechanism.valid" title="pygrenade_vx.network.abstract.Mechanism.valid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">valid</span></code></a>(self, parameter_space)</p></td>
@@ -134,7 +140,27 @@
 <dt id="pygrenade_vx.network.abstract.Mechanism.ParameterSpace.Parameterization">
 <em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">Parameterization</span></code><a class="headerlink" href="#pygrenade_vx.network.abstract.Mechanism.ParameterSpace.Parameterization" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_builtins.pybind11_object</span></code></p>
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.Mechanism.ParameterSpace.Parameterization.get_section">
+<code class="sig-name descname"><span class="pre">get_section</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.Mechanism.ParameterSpace.Parameterization</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sequence</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pygrenade_common.MultiIndexSequence</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">_pygrenade_vx_network_abstract.Mechanism.ParameterSpace.Parameterization</span><a class="headerlink" href="#pygrenade_vx.network.abstract.Mechanism.ParameterSpace.Parameterization.get_section" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.Mechanism.ParameterSpace.Parameterization.size">
+<code class="sig-name descname"><span class="pre">size</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.Mechanism.ParameterSpace.Parameterization</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">int</span><a class="headerlink" href="#pygrenade_vx.network.abstract.Mechanism.ParameterSpace.Parameterization.size" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
 </dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.Mechanism.ParameterSpace.get_section">
+<code class="sig-name descname"><span class="pre">get_section</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.Mechanism.ParameterSpace</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sequence</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pygrenade_common.MultiIndexSequence</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">_pygrenade_vx_network_abstract.Mechanism.ParameterSpace</span><a class="headerlink" href="#pygrenade_vx.network.abstract.Mechanism.ParameterSpace.get_section" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.Mechanism.ParameterSpace.size">
+<code class="sig-name descname"><span class="pre">size</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.Mechanism.ParameterSpace</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">int</span><a class="headerlink" href="#pygrenade_vx.network.abstract.Mechanism.ParameterSpace.size" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt id="pygrenade_vx.network.abstract.Mechanism.ParameterSpace.valid">
@@ -151,7 +177,17 @@
 
 <dl class="py method">
 <dt id="pygrenade_vx.network.abstract.Mechanism.get_hardware">
-<code class="sig-name descname"><span class="pre">get_hardware</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self:</span> <span class="pre">_pygrenade_vx_network_abstract.Mechanism</span></em>, <em class="sig-param"><span class="pre">compartment:</span> <span class="pre">grenade::vx::network::abstract::CompartmentOnNeuron</span></em>, <em class="sig-param"><span class="pre">parameter_space:</span> <span class="pre">_pygrenade_vx_network_abstract.Mechanism.ParameterSpace</span></em>, <em class="sig-param"><span class="pre">environment:</span> <span class="pre">grenade::vx::network::abstract::Environment</span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">list[dapr::PropertyHolder&lt;grenade::vx::network::abstract::HardwareConstraint,</span> <span class="pre">std::unique_ptr&gt;]</span><a class="headerlink" href="#pygrenade_vx.network.abstract.Mechanism.get_hardware" title="Permalink to this definition"></a></dt>
+<code class="sig-name descname"><span class="pre">get_hardware</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.Mechanism</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameter_space</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.Mechanism.ParameterSpace</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">environment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.MechanismEnvironment</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">list[dapr::PropertyHolder&lt;grenade::vx::network::abstract::HardwareConstraint,</span> <span class="pre">std::unique_ptr&gt;]</span><a class="headerlink" href="#pygrenade_vx.network.abstract.Mechanism.get_hardware" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.Mechanism.get_input_ports">
+<code class="sig-name descname"><span class="pre">get_input_ports</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.Mechanism</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">pygrenade_common.Vertex.Port</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#pygrenade_vx.network.abstract.Mechanism.get_input_ports" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.Mechanism.get_output_ports">
+<code class="sig-name descname"><span class="pre">get_output_ports</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.Mechanism</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">pygrenade_common.Vertex.Port</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#pygrenade_vx.network.abstract.Mechanism.get_output_ports" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">

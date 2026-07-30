@@ -16,7 +16,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="pygrenade_vx.network.abstract.SynapticInputEnvironmentConductance" href="pygrenade_vx.network.abstract.SynapticInputEnvironmentConductance.html" />
+    <link rel="next" title="pygrenade_vx.network.abstract.TimeInterval" href="pygrenade_vx.network.abstract.TimeInterval.html" />
     <link rel="prev" title="pygrenade_vx.network.abstract.SynapticInput" href="pygrenade_vx.network.abstract.SynapticInput.html" /> 
 </head>
 
@@ -98,15 +98,18 @@
 <dl class="py class">
 <dt id="pygrenade_vx.network.abstract.SynapticInputEnvironment">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">pygrenade_vx.network.abstract.</span></code><code class="sig-name descname"><span class="pre">SynapticInputEnvironment</span></code><a class="headerlink" href="#pygrenade_vx.network.abstract.SynapticInputEnvironment" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_builtins.pybind11_object</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">_pygrenade_vx_network_abstract.MechanismEnvironment</span></code></p>
 <dl class="py method">
 <dt id="pygrenade_vx.network.abstract.SynapticInputEnvironment.__init__">
 <code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygrenade_vx.network.abstract.SynapticInputEnvironment.__init__" title="Permalink to this definition"></a></dt>
 <dd><p>Overloaded function.</p>
 <ol class="arabic simple">
 <li><p>__init__(self: _pygrenade_vx_network_abstract.SynapticInputEnvironment) -&gt; None</p></li>
-<li><p>__init__(self: _pygrenade_vx_network_abstract.SynapticInputEnvironment, exitatory: bool, number: int) -&gt; None</p></li>
-<li><p>__init__(self: _pygrenade_vx_network_abstract.SynapticInputEnvironment, exitatory: bool, numbers: _pygrenade_vx_network_abstract.NumberTopBottom) -&gt; None</p></li>
+<li><p>__init__(self: _pygrenade_vx_network_abstract.SynapticInputEnvironment, number: int) -&gt; None</p></li>
+</ol>
+<p>Construct synaptic input environment.</p>
+<ol class="arabic simple" start="3">
+<li><p>__init__(self: _pygrenade_vx_network_abstract.SynapticInputEnvironment, numbers: _pygrenade_vx_network_abstract.NumberTopBottom) -&gt; None</p></li>
 <li><p>__init__(self: _pygrenade_vx_network_abstract.SynapticInputEnvironment, arg0: _pygrenade_vx_network_abstract.SynapticInputEnvironment) -&gt; None</p></li>
 </ol>
 </dd></dl>
@@ -136,27 +139,19 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.SynapticInputEnvironment.exitatory" title="pygrenade_vx.network.abstract.SynapticInputEnvironment.exitatory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">exitatory</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.SynapticInputEnvironment.number_of_inputs" title="pygrenade_vx.network.abstract.SynapticInputEnvironment.number_of_inputs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">number_of_inputs</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.SynapticInputEnvironment.number_of_inputs" title="pygrenade_vx.network.abstract.SynapticInputEnvironment.number_of_inputs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">number_of_inputs</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
 </table>
 <dl class="py method">
 <dt id="pygrenade_vx.network.abstract.SynapticInputEnvironment.copy">
-<code class="sig-name descname"><span class="pre">copy</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.SynapticInputEnvironment</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">_pygrenade_vx_network_abstract.SynapticInputEnvironment</span><a class="headerlink" href="#pygrenade_vx.network.abstract.SynapticInputEnvironment.copy" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="pygrenade_vx.network.abstract.SynapticInputEnvironment.exitatory">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">exitatory</span></code><a class="headerlink" href="#pygrenade_vx.network.abstract.SynapticInputEnvironment.exitatory" title="Permalink to this definition"></a></dt>
+<code class="sig-name descname"><span class="pre">copy</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.SynapticInputEnvironment</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">_pygrenade_vx_network_abstract.MechanismEnvironment</span><a class="headerlink" href="#pygrenade_vx.network.abstract.SynapticInputEnvironment.copy" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="pygrenade_vx.network.abstract.SynapticInputEnvironment.move">
-<code class="sig-name descname"><span class="pre">move</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.SynapticInputEnvironment</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">_pygrenade_vx_network_abstract.SynapticInputEnvironment</span><a class="headerlink" href="#pygrenade_vx.network.abstract.SynapticInputEnvironment.move" title="Permalink to this definition"></a></dt>
+<code class="sig-name descname"><span class="pre">move</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.SynapticInputEnvironment</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">_pygrenade_vx_network_abstract.MechanismEnvironment</span><a class="headerlink" href="#pygrenade_vx.network.abstract.SynapticInputEnvironment.move" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -173,7 +168,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="pygrenade_vx.network.abstract.SynapticInput.html" class="btn btn-neutral float-left" title="pygrenade_vx.network.abstract.SynapticInput" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="pygrenade_vx.network.abstract.SynapticInputEnvironmentConductance.html" class="btn btn-neutral float-right" title="pygrenade_vx.network.abstract.SynapticInputEnvironmentConductance" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="pygrenade_vx.network.abstract.TimeInterval.html" class="btn btn-neutral float-right" title="pygrenade_vx.network.abstract.TimeInterval" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

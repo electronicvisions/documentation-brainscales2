@@ -16,7 +16,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="pygrenade_vx.network.abstract.MechanismLeak" href="pygrenade_vx.network.abstract.MechanismLeak.html" />
+    <link rel="next" title="pygrenade_vx.network.abstract.MechanismEnvironment" href="pygrenade_vx.network.abstract.MechanismEnvironment.html" />
     <link rel="prev" title="pygrenade_vx.network.abstract.Mechanism" href="pygrenade_vx.network.abstract.Mechanism.html" /> 
 </head>
 
@@ -98,13 +98,13 @@
 <dl class="py class">
 <dt id="pygrenade_vx.network.abstract.MechanismCapacitance">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">pygrenade_vx.network.abstract.</span></code><code class="sig-name descname"><span class="pre">MechanismCapacitance</span></code><a class="headerlink" href="#pygrenade_vx.network.abstract.MechanismCapacitance" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">_pygrenade_vx_network_abstract.Mechanism</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">_pygrenade_vx_network_abstract.MechanismWithAnalogReadout</span></code></p>
 <dl class="py method">
 <dt id="pygrenade_vx.network.abstract.MechanismCapacitance.__init__">
 <code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygrenade_vx.network.abstract.MechanismCapacitance.__init__" title="Permalink to this definition"></a></dt>
 <dd><p>Overloaded function.</p>
 <ol class="arabic simple">
-<li><p>__init__(self: _pygrenade_vx_network_abstract.MechanismCapacitance) -&gt; None</p></li>
+<li><p>__init__(self: _pygrenade_vx_network_abstract.MechanismCapacitance, enable_analog_readout: bool = False) -&gt; None</p></li>
 <li><p>__init__(self: _pygrenade_vx_network_abstract.MechanismCapacitance, arg0: _pygrenade_vx_network_abstract.MechanismCapacitance) -&gt; None</p></li>
 </ol>
 </dd></dl>
@@ -125,15 +125,27 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.MechanismCapacitance.copy" title="pygrenade_vx.network.abstract.MechanismCapacitance.copy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy</span></code></a>(self)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.MechanismCapacitance.get_hardware" title="pygrenade_vx.network.abstract.MechanismCapacitance.get_hardware"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_hardware</span></code></a>(self, compartment, …)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.MechanismCapacitance.get_analog_readout_source" title="pygrenade_vx.network.abstract.MechanismCapacitance.get_analog_readout_source"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_analog_readout_source</span></code></a>(self)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.MechanismCapacitance.move" title="pygrenade_vx.network.abstract.MechanismCapacitance.move"><code class="xref py py-obj docutils literal notranslate"><span class="pre">move</span></code></a>(self)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.MechanismCapacitance.get_hardware" title="pygrenade_vx.network.abstract.MechanismCapacitance.get_hardware"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_hardware</span></code></a>(self, …)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.MechanismCapacitance.valid" title="pygrenade_vx.network.abstract.MechanismCapacitance.valid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">valid</span></code></a>(self, parameter_space)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.MechanismCapacitance.move" title="pygrenade_vx.network.abstract.MechanismCapacitance.move"><code class="xref py py-obj docutils literal notranslate"><span class="pre">move</span></code></a>(self)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.MechanismCapacitance.valid" title="pygrenade_vx.network.abstract.MechanismCapacitance.valid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">valid</span></code></a>(self, parameter_space)</p></td>
 <td><p>Check if paramter space is valid for the mechanism.</p></td>
 </tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
 </tbody>
 </table>
 <dl class="py class">
@@ -155,6 +167,11 @@
 <dd></dd></dl>
 
 <dl class="py method">
+<dt id="pygrenade_vx.network.abstract.MechanismCapacitance.ParameterSpace.Parameterization.get_section">
+<code class="sig-name descname"><span class="pre">get_section</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.MechanismCapacitance.ParameterSpace.Parameterization</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sequence</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pygrenade_common.MultiIndexSequence</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">_pygrenade_vx_network_abstract.Mechanism.ParameterSpace.Parameterization</span><a class="headerlink" href="#pygrenade_vx.network.abstract.MechanismCapacitance.ParameterSpace.Parameterization.get_section" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt id="pygrenade_vx.network.abstract.MechanismCapacitance.ParameterSpace.Parameterization.is_equal_to">
 <code class="sig-name descname"><span class="pre">is_equal_to</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.MechanismCapacitance.ParameterSpace.Parameterization</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.Mechanism.ParameterSpace.Parameterization</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#pygrenade_vx.network.abstract.MechanismCapacitance.ParameterSpace.Parameterization.is_equal_to" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
@@ -167,6 +184,11 @@
 <dl class="py method">
 <dt id="pygrenade_vx.network.abstract.MechanismCapacitance.ParameterSpace.Parameterization.print">
 <code class="sig-name descname"><span class="pre">print</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self:</span> <span class="pre">_pygrenade_vx_network_abstract.MechanismCapacitance.ParameterSpace.Parameterization</span></em>, <em class="sig-param"><span class="pre">os:</span> <span class="pre">std::ostream</span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">std::ostream</span><a class="headerlink" href="#pygrenade_vx.network.abstract.MechanismCapacitance.ParameterSpace.Parameterization.print" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.MechanismCapacitance.ParameterSpace.Parameterization.size">
+<code class="sig-name descname"><span class="pre">size</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.MechanismCapacitance.ParameterSpace.Parameterization</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">int</span><a class="headerlink" href="#pygrenade_vx.network.abstract.MechanismCapacitance.ParameterSpace.Parameterization.size" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -182,6 +204,11 @@
 <dd></dd></dl>
 
 <dl class="py method">
+<dt id="pygrenade_vx.network.abstract.MechanismCapacitance.ParameterSpace.get_section">
+<code class="sig-name descname"><span class="pre">get_section</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.MechanismCapacitance.ParameterSpace</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sequence</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pygrenade_common.MultiIndexSequence</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">_pygrenade_vx_network_abstract.Mechanism.ParameterSpace</span><a class="headerlink" href="#pygrenade_vx.network.abstract.MechanismCapacitance.ParameterSpace.get_section" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt id="pygrenade_vx.network.abstract.MechanismCapacitance.ParameterSpace.is_equal_to">
 <code class="sig-name descname"><span class="pre">is_equal_to</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.MechanismCapacitance.ParameterSpace</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.Mechanism.ParameterSpace</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#pygrenade_vx.network.abstract.MechanismCapacitance.ParameterSpace.is_equal_to" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
@@ -194,6 +221,11 @@
 <dl class="py method">
 <dt id="pygrenade_vx.network.abstract.MechanismCapacitance.ParameterSpace.print">
 <code class="sig-name descname"><span class="pre">print</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self:</span> <span class="pre">_pygrenade_vx_network_abstract.MechanismCapacitance.ParameterSpace</span></em>, <em class="sig-param"><span class="pre">os:</span> <span class="pre">std::ostream</span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">std::ostream</span><a class="headerlink" href="#pygrenade_vx.network.abstract.MechanismCapacitance.ParameterSpace.print" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.MechanismCapacitance.ParameterSpace.size">
+<code class="sig-name descname"><span class="pre">size</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.MechanismCapacitance.ParameterSpace</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">int</span><a class="headerlink" href="#pygrenade_vx.network.abstract.MechanismCapacitance.ParameterSpace.size" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -215,8 +247,13 @@
 <dd></dd></dl>
 
 <dl class="py method">
+<dt id="pygrenade_vx.network.abstract.MechanismCapacitance.get_analog_readout_source">
+<code class="sig-name descname"><span class="pre">get_analog_readout_source</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.MechanismCapacitance</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">pyhaldls_vx_v3.NeuronConfig.ReadoutSource</span><a class="headerlink" href="#pygrenade_vx.network.abstract.MechanismCapacitance.get_analog_readout_source" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt id="pygrenade_vx.network.abstract.MechanismCapacitance.get_hardware">
-<code class="sig-name descname"><span class="pre">get_hardware</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.MechanismCapacitance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compartment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.CompartmentOnNeuron</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mechanism_parameter_space</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.Mechanism.ParameterSpace</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">environment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.Environment</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">list[dapr::PropertyHolder&lt;grenade::vx::network::abstract::HardwareConstraint,</span> <span class="pre">std::unique_ptr&gt;]</span><a class="headerlink" href="#pygrenade_vx.network.abstract.MechanismCapacitance.get_hardware" title="Permalink to this definition"></a></dt>
+<code class="sig-name descname"><span class="pre">get_hardware</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.MechanismCapacitance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mechanism_parameter_space</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.Mechanism.ParameterSpace</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">environment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">_pygrenade_vx_network_abstract.MechanismEnvironment</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">list[dapr::PropertyHolder&lt;grenade::vx::network::abstract::HardwareConstraint,</span> <span class="pre">std::unique_ptr&gt;]</span><a class="headerlink" href="#pygrenade_vx.network.abstract.MechanismCapacitance.get_hardware" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -239,7 +276,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="pygrenade_vx.network.abstract.Mechanism.html" class="btn btn-neutral float-left" title="pygrenade_vx.network.abstract.Mechanism" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="pygrenade_vx.network.abstract.MechanismLeak.html" class="btn btn-neutral float-right" title="pygrenade_vx.network.abstract.MechanismLeak" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="pygrenade_vx.network.abstract.MechanismEnvironment.html" class="btn btn-neutral float-right" title="pygrenade_vx.network.abstract.MechanismEnvironment" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
