@@ -147,7 +147,7 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="jaxsnn.event.ConversionConfig.html#jaxsnn.event.ConversionConfig" title="jaxsnn.event.ConversionConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ConversionConfig</span></code></a>(t_max, n_steps, int], …)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="jaxsnn.event.ConversionConfig.html#jaxsnn.event.ConversionConfig" title="jaxsnn.event.ConversionConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ConversionConfig</span></code></a>(n_steps, int], t_max, …)</p></td>
 <td><p>Configuration for the conversion from NIR to jaxsnn.</p></td>
 </tr>
 </tbody>
@@ -155,14 +155,8 @@
 <p class="rubric">Functions</p>
 <dl class="py function">
 <dt id="jaxsnn.event.from_nir">
-<code class="sig-prename descclassname"><span class="pre">jaxsnn.event.</span></code><code class="sig-name descname"><span class="pre">from_nir</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">nir.ir.graph.NIRGraph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="jaxsnn.event.utils.from_nir.ConversionConfig.html#jaxsnn.event.utils.from_nir.ConversionConfig" title="jaxsnn.event.utils.from_nir.ConversionConfig"><span class="pre">jaxsnn.event.utils.from_nir.ConversionConfig</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jaxsnn.event.from_nir" title="Permalink to this definition"></a></dt>
-<dd><p>Convert NIRGraph to jax-snn Topology</p>
-<p>Restrictions for NIRGraph:
-- Only linear feed-forward SNNs are supported
-- CubaLIF and Linear layers are supported
-- Affine layers with bias==0 are currently supported
-- In terms of parameters, only homogeneous layers are supported
-- The analytical solver is only supported for non-external inputs</p>
+<code class="sig-prename descclassname"><span class="pre">jaxsnn.event.</span></code><code class="sig-name descname"><span class="pre">from_nir</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">nir.ir.graph.NIRGraph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="jaxsnn.event.utils.from_nir.ConversionConfig.html#jaxsnn.event.utils.from_nir.ConversionConfig" title="jaxsnn.event.utils.from_nir.ConversionConfig"><span class="pre">jaxsnn.event.utils.from_nir.ConversionConfig</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="jaxsnn.event.topology.Topology.html#jaxsnn.event.topology.Topology" title="jaxsnn.event.topology.Topology"><span class="pre">jaxsnn.event.topology.Topology</span></a><a class="headerlink" href="#jaxsnn.event.from_nir" title="Permalink to this definition"></a></dt>
+<dd><p>Convert NIRGraph to jaxsnn Topology</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -206,7 +200,7 @@ init, apply = topology.done()
 the spikes for a corresponding node of the jaxsnn_model. Empty events
 in jaxsnn are encoded by <cite>idx = -1</cite> and <cite>time = 2 * t_max</cite>.</p></li>
 <li><p><strong>topology</strong> – jaxsnn Topology object.</p></li>
-<li><p><strong>observables</strong> – Observables to be converted, by default (‘spikes’,)</p></li>
+<li><p><strong>observables</strong> – Observables to be converted, by default (“spikes”,)</p></li>
 </ul>
 </dd>
 </dl>

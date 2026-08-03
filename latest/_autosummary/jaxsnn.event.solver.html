@@ -109,6 +109,12 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="jaxsnn.event.solver.lif_analytical.html#module-jaxsnn.event.solver.lif_analytical" title="jaxsnn.event.solver.lif_analytical"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jaxsnn.event.solver.lif_analytical</span></code></a></p></td>
 <td><p>Analytically find the time of the next spike for a LIF neuron for the special cases of $      au_mem =        au_syn$ and $   au_mem = 2 *    au_syn$.</p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference internal" href="jaxsnn.event.solver.lif_analytical_double_time.html#module-jaxsnn.event.solver.lif_analytical_double_time" title="jaxsnn.event.solver.lif_analytical_double_time"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jaxsnn.event.solver.lif_analytical_double_time</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="jaxsnn.event.solver.lif_analytical_single_time.html#module-jaxsnn.event.solver.lif_analytical_single_time" title="jaxsnn.event.solver.lif_analytical_single_time"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jaxsnn.event.solver.lif_analytical_single_time</span></code></a></p></td>
+<td><p></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference internal" href="jaxsnn.event.solver.newton.html#module-jaxsnn.event.solver.newton" title="jaxsnn.event.solver.newton"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jaxsnn.event.solver.newton</span></code></a></p></td>
 <td><p></p></td>
 </tr>
@@ -136,17 +142,19 @@
 
 <dl class="py function">
 <dt id="jaxsnn.event.solver.ttfs_solver">
-<code class="sig-prename descclassname"><span class="pre">jaxsnn.event.solver.</span></code><code class="sig-name descname"><span class="pre">ttfs_solver</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tau_mem</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau_syn</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_th</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="jaxsnn.event.states.LIFState.html#jaxsnn.event.states.LIFState" title="jaxsnn.event.states.LIFState"><span class="pre">jaxsnn.event.states.LIFState</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_max</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">jax.Array</span><a class="headerlink" href="#jaxsnn.event.solver.ttfs_solver" title="Permalink to this definition"></a></dt>
-<dd><p>Find the next spike time for special cases $    au_mem =        au_syn$ and
-$   au_mem = 2 *    au_syn$</p>
-<dl class="simple">
-<dt>Args:</dt><dd><p>tau_mem (float): Membrane time constant
-tau_syn (float): Synaptic time constant
-v_th (float): Threshold Voltage
-state (LIFState): State of the neuron (voltage, current)
-t_max (float): Maximum time which is to be searched</p>
+<code class="sig-prename descclassname"><span class="pre">jaxsnn.event.solver.</span></code><code class="sig-name descname"><span class="pre">ttfs_solver</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tau_mem</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau_syn</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_th</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">leak</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Callable</span><a class="headerlink" href="#jaxsnn.event.solver.ttfs_solver" title="Permalink to this definition"></a></dt>
+<dd><p>Find the next spike time for the special case tau_mem = tau_syn.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tau_mem</strong> – Membrane time constant</p></li>
+<li><p><strong>tau_syn</strong> – Synaptic time constant</p></li>
+<li><p><strong>v_th</strong> – Threshold voltage</p></li>
+<li><p><strong>leak</strong> – Leak term</p></li>
+</ul>
 </dd>
-<dt>Returns:</dt><dd><p>float: Time of next threshold crossing or t_max if no crossing</p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Time of next threshold crossing or t_max if no crossing</p>
 </dd>
 </dl>
 </dd></dl>

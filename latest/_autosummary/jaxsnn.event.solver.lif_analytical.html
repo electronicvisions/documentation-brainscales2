@@ -16,7 +16,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="jaxsnn.event.solver.lif_analytical.LIFState" href="jaxsnn.event.solver.lif_analytical.LIFState.html" />
+    <link rel="next" title="jaxsnn.event.solver.lif_analytical.partial" href="jaxsnn.event.solver.lif_analytical.partial.html" />
     <link rel="prev" title="jaxsnn.event.solver.custom_root_ttfs.partial" href="jaxsnn.event.solver.custom_root_ttfs.partial.html" /> 
 </head>
 
@@ -107,53 +107,37 @@ affect gradient calculation.</p>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="jaxsnn.event.solver.lif_analytical.LIFState.html#jaxsnn.event.solver.lif_analytical.LIFState" title="jaxsnn.event.solver.lif_analytical.LIFState"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LIFState</span></code></a>(V, I)</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="jaxsnn.event.solver.lif_analytical.partial.html#jaxsnn.event.solver.lif_analytical.partial" title="jaxsnn.event.solver.lif_analytical.partial"><code class="xref py py-obj docutils literal notranslate"><span class="pre">partial</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="jaxsnn.event.solver.lif_analytical.partial.html#jaxsnn.event.solver.lif_analytical.partial" title="jaxsnn.event.solver.lif_analytical.partial"><code class="xref py py-obj docutils literal notranslate"><span class="pre">partial</span></code></a></p></td>
 <td><p>partial(func, <a href="#id1"><span class="problematic" id="id2">*</span></a>args, <a href="#id3"><span class="problematic" id="id4">**</span></a>keywords) - new function with partial application of the given arguments and keywords.</p></td>
 </tr>
 </tbody>
 </table>
 <p class="rubric">Functions</p>
 <dl class="py function">
-<dt id="jaxsnn.event.solver.lif_analytical.lambertw">
-<code class="sig-prename descclassname"><span class="pre">jaxsnn.event.solver.lif_analytical.</span></code><code class="sig-name descname"><span class="pre">lambertw</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_steps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jaxsnn.event.solver.lif_analytical.lambertw" title="Permalink to this definition"></a></dt>
+<dt id="jaxsnn.event.solver.lif_analytical.ttfs_double_time">
+<code class="sig-prename descclassname"><span class="pre">jaxsnn.event.solver.lif_analytical.</span></code><code class="sig-name descname"><span class="pre">ttfs_double_time</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tau_mem</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau_syn</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_th</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_leak</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="jaxsnn.event.states.LIFState.html#jaxsnn.event.states.LIFState" title="jaxsnn.event.states.LIFState"><span class="pre">jaxsnn.event.states.LIFState</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_max</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">jax.Array</span><a class="headerlink" href="#jaxsnn.event.solver.lif_analytical.ttfs_double_time" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="jaxsnn.event.solver.lif_analytical.ttfs_ratio1_inner">
-<code class="sig-prename descclassname"><span class="pre">jaxsnn.event.solver.lif_analytical.</span></code><code class="sig-name descname"><span class="pre">ttfs_ratio1_inner</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a_1</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">jax.Array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">jax.Array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w_arg</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">jax.Array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau_mem</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_max</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jaxsnn.event.solver.lif_analytical.ttfs_ratio1_inner" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt id="jaxsnn.event.solver.lif_analytical.ttfs_ratio1_inner_most">
-<code class="sig-prename descclassname"><span class="pre">jaxsnn.event.solver.lif_analytical.</span></code><code class="sig-name descname"><span class="pre">ttfs_ratio1_inner_most</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a_1</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">jax.Array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">jax.Array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w_arg</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">jax.Array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau_mem</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_max</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jaxsnn.event.solver.lif_analytical.ttfs_ratio1_inner_most" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt id="jaxsnn.event.solver.lif_analytical.ttfs_ratio2_inner">
-<code class="sig-prename descclassname"><span class="pre">jaxsnn.event.solver.lif_analytical.</span></code><code class="sig-name descname"><span class="pre">ttfs_ratio2_inner</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a_1</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">jax.Array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a_2</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">jax.Array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">second_term</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">jax.Array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau_mem</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_max</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jaxsnn.event.solver.lif_analytical.ttfs_ratio2_inner" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt id="jaxsnn.event.solver.lif_analytical.ttfs_ratio2_inner_most">
-<code class="sig-prename descclassname"><span class="pre">jaxsnn.event.solver.lif_analytical.</span></code><code class="sig-name descname"><span class="pre">ttfs_ratio2_inner_most</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a_1</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">jax.Array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">denominator</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">jax.Array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau_mem</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_max</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">jax.Array</span><a class="headerlink" href="#jaxsnn.event.solver.lif_analytical.ttfs_ratio2_inner_most" title="Permalink to this definition"></a></dt>
+<dt id="jaxsnn.event.solver.lif_analytical.ttfs_single_time">
+<code class="sig-prename descclassname"><span class="pre">jaxsnn.event.solver.lif_analytical.</span></code><code class="sig-name descname"><span class="pre">ttfs_single_time</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tau_mem</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau_syn</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_th</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">leak</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="jaxsnn.event.states.LIFState.html#jaxsnn.event.states.LIFState" title="jaxsnn.event.states.LIFState"><span class="pre">jaxsnn.event.states.LIFState</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_max</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">jax.Array</span><a class="headerlink" href="#jaxsnn.event.solver.lif_analytical.ttfs_single_time" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt id="jaxsnn.event.solver.lif_analytical.ttfs_solver">
-<code class="sig-prename descclassname"><span class="pre">jaxsnn.event.solver.lif_analytical.</span></code><code class="sig-name descname"><span class="pre">ttfs_solver</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tau_mem</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau_syn</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_th</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="jaxsnn.event.states.LIFState.html#jaxsnn.event.states.LIFState" title="jaxsnn.event.states.LIFState"><span class="pre">jaxsnn.event.states.LIFState</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_max</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">jax.Array</span><a class="headerlink" href="#jaxsnn.event.solver.lif_analytical.ttfs_solver" title="Permalink to this definition"></a></dt>
-<dd><p>Find the next spike time for special cases $    au_mem =        au_syn$ and
-$   au_mem = 2 *    au_syn$</p>
-<dl class="simple">
-<dt>Args:</dt><dd><p>tau_mem (float): Membrane time constant
-tau_syn (float): Synaptic time constant
-v_th (float): Threshold Voltage
-state (LIFState): State of the neuron (voltage, current)
-t_max (float): Maximum time which is to be searched</p>
+<code class="sig-prename descclassname"><span class="pre">jaxsnn.event.solver.lif_analytical.</span></code><code class="sig-name descname"><span class="pre">ttfs_solver</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tau_mem</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau_syn</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_th</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">leak</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Callable</span><a class="headerlink" href="#jaxsnn.event.solver.lif_analytical.ttfs_solver" title="Permalink to this definition"></a></dt>
+<dd><p>Find the next spike time for the special case tau_mem = tau_syn.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tau_mem</strong> – Membrane time constant</p></li>
+<li><p><strong>tau_syn</strong> – Synaptic time constant</p></li>
+<li><p><strong>v_th</strong> – Threshold voltage</p></li>
+<li><p><strong>leak</strong> – Leak term</p></li>
+</ul>
 </dd>
-<dt>Returns:</dt><dd><p>float: Time of next threshold crossing or t_max if no crossing</p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Time of next threshold crossing or t_max if no crossing</p>
 </dd>
 </dl>
 </dd></dl>
@@ -165,7 +149,7 @@ t_max (float): Maximum time which is to be searched</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="jaxsnn.event.solver.custom_root_ttfs.partial.html" class="btn btn-neutral float-left" title="jaxsnn.event.solver.custom_root_ttfs.partial" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="jaxsnn.event.solver.lif_analytical.LIFState.html" class="btn btn-neutral float-right" title="jaxsnn.event.solver.lif_analytical.LIFState" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="jaxsnn.event.solver.lif_analytical.partial.html" class="btn btn-neutral float-right" title="jaxsnn.event.solver.lif_analytical.partial" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
