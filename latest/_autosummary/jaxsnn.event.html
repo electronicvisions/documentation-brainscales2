@@ -190,6 +190,28 @@ init, apply = topology.done()
 </dd></dl>
 
 <dl class="py function">
+<dt id="jaxsnn.event.to_nir">
+<code class="sig-prename descclassname"><span class="pre">jaxsnn.event.</span></code><code class="sig-name descname"><span class="pre">to_nir</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">topology</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="jaxsnn.event.topology.Topology.html#jaxsnn.event.topology.Topology" title="jaxsnn.event.topology.Topology"><span class="pre">jaxsnn.event.topology.Topology</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">nir.ir.graph.NIRGraph</span><a class="headerlink" href="#jaxsnn.event.to_nir" title="Permalink to this definition"></a></dt>
+<dd><p>Convert a jaxsnn model to a NIRGraph.
+Note that the output node is not explicitly represented in the jaxsnn
+topology. Therefore, if an output node is desired in the NIRGraph, it can
+be specified explicitly via the <cite>output</cite> argument after which node of the
+jaxsnn topology the output node should be added.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>topology</strong> – jaxsnn topology to convert.</p></li>
+<li><p><strong>params</strong> – Parameters for the model.</p></li>
+<li><p><strong>output</strong> – Keys of the output nodes in the jaxsnn topology.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Converted NIRGraph.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt id="jaxsnn.event.to_nir_data">
 <code class="sig-prename descclassname"><span class="pre">jaxsnn.event.</span></code><code class="sig-name descname"><span class="pre">to_nir_data</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">jaxsnn_dict</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="jaxsnn.event.types.Spike.html#jaxsnn.event.types.Spike" title="jaxsnn.event.types.Spike"><span class="pre">jaxsnn.event.types.Spike</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">topology</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="jaxsnn.event.topology.Topology.html#jaxsnn.event.topology.Topology" title="jaxsnn.event.topology.Topology"><span class="pre">jaxsnn.event.topology.Topology</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">observables</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">('spikes')</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">nir.data_ir.graph.NIRGraphData</span><a class="headerlink" href="#jaxsnn.event.to_nir_data" title="Permalink to this definition"></a></dt>
 <dd><p>Convert a dict of Spikes (jax-snn representation) to NIRGraphData.</p>
