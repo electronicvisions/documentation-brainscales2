@@ -117,13 +117,16 @@ construct a neuron in the final implementation from it.</p>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.multicompartment.morphology_builder.Neuron.neuron_to_grenade" title="pygrenade_vx.network.abstract.multicompartment.morphology_builder.Neuron.neuron_to_grenade"><code class="xref py py-obj docutils literal notranslate"><span class="pre">neuron_to_grenade</span></code></a>()</p></td>
-<td><p>Build a grenade-neuron and adds compartments and compartment-connections to grenade-neuron.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.multicompartment.morphology_builder.Neuron.construct_parameter_space" title="pygrenade_vx.network.abstract.multicompartment.morphology_builder.Neuron.construct_parameter_space"><code class="xref py py-obj docutils literal notranslate"><span class="pre">construct_parameter_space</span></code></a>(lower_limits, …)</p></td>
+<td><p>Construct a parameter space with the given limits.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.multicompartment.morphology_builder.Neuron.reverse_translate" title="pygrenade_vx.network.abstract.multicompartment.morphology_builder.Neuron.reverse_translate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reverse_translate</span></code></a>(native_parameters)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.multicompartment.morphology_builder.Neuron.construct_parameterization" title="pygrenade_vx.network.abstract.multicompartment.morphology_builder.Neuron.construct_parameterization"><code class="xref py py-obj docutils literal notranslate"><span class="pre">construct_parameterization</span></code></a>(values)</p></td>
+<td><p>Construct a parameterization with the given values.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.multicompartment.morphology_builder.Neuron.reverse_translate" title="pygrenade_vx.network.abstract.multicompartment.morphology_builder.Neuron.reverse_translate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reverse_translate</span></code></a>(native_parameters)</p></td>
 <td><p>Return the neuron parameters.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.multicompartment.morphology_builder.Neuron.translate" title="pygrenade_vx.network.abstract.multicompartment.morphology_builder.Neuron.translate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">translate</span></code></a>(parameters[, copy])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.multicompartment.morphology_builder.Neuron.translate" title="pygrenade_vx.network.abstract.multicompartment.morphology_builder.Neuron.translate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">translate</span></code></a>(parameters[, copy])</p></td>
 <td><p>Return the neuron parameters.</p></td>
 </tr>
 </tbody>
@@ -141,10 +144,16 @@ construct a neuron in the final implementation from it.</p>
 <tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.multicompartment.morphology_builder.Neuron.compartments" title="pygrenade_vx.network.abstract.multicompartment.morphology_builder.Neuron.compartments"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compartments</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.multicompartment.morphology_builder.Neuron.connections" title="pygrenade_vx.network.abstract.multicompartment.morphology_builder.Neuron.connections"><code class="xref py py-obj docutils literal notranslate"><span class="pre">connections</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.multicompartment.morphology_builder.Neuron.connection_ids_grenade" title="pygrenade_vx.network.abstract.multicompartment.morphology_builder.Neuron.connection_ids_grenade"><code class="xref py py-obj docutils literal notranslate"><span class="pre">connection_ids_grenade</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.multicompartment.morphology_builder.Neuron.default_parameters" title="pygrenade_vx.network.abstract.multicompartment.morphology_builder.Neuron.default_parameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">default_parameters</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.multicompartment.morphology_builder.Neuron.connections" title="pygrenade_vx.network.abstract.multicompartment.morphology_builder.Neuron.connections"><code class="xref py py-obj docutils literal notranslate"><span class="pre">connections</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.multicompartment.morphology_builder.Neuron.default_parameters" title="pygrenade_vx.network.abstract.multicompartment.morphology_builder.Neuron.default_parameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">default_parameters</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.multicompartment.morphology_builder.Neuron.mechanisms_ids_grenade" title="pygrenade_vx.network.abstract.multicompartment.morphology_builder.Neuron.mechanisms_ids_grenade"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mechanisms_ids_grenade</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.multicompartment.morphology_builder.Neuron.translations" title="pygrenade_vx.network.abstract.multicompartment.morphology_builder.Neuron.translations"><code class="xref py py-obj docutils literal notranslate"><span class="pre">translations</span></code></a></p></td>
@@ -163,26 +172,58 @@ construct a neuron in the final implementation from it.</p>
 <dd></dd></dl>
 
 <dl class="py attribute">
+<dt id="pygrenade_vx.network.abstract.multicompartment.morphology_builder.Neuron.connection_ids_grenade">
+<code class="sig-name descname"><span class="pre">connection_ids_grenade</span></code><em class="property"> <span class="pre">=</span> <span class="pre">{}</span></em><a class="headerlink" href="#pygrenade_vx.network.abstract.multicompartment.morphology_builder.Neuron.connection_ids_grenade" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
 <dt id="pygrenade_vx.network.abstract.multicompartment.morphology_builder.Neuron.connections">
 <code class="sig-name descname"><span class="pre">connections</span></code><em class="property"> <span class="pre">=</span> <span class="pre">[]</span></em><a class="headerlink" href="#pygrenade_vx.network.abstract.multicompartment.morphology_builder.Neuron.connections" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.multicompartment.morphology_builder.Neuron.construct_parameter_space">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">construct_parameter_space</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lower_limits</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upper_limits</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygrenade_vx.network.abstract.multicompartment.morphology_builder.Neuron.construct_parameter_space" title="Permalink to this definition"></a></dt>
+<dd><p>Construct a parameter space with the given limits.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Lower_limits</dt>
+<dd class="field-odd"><p>Dictionary with lower limits. The key should be
+the full label to the different parameters.</p>
+</dd>
+<dt class="field-even">Lower_limits</dt>
+<dd class="field-even"><p>Dictionary with upper limits. The key should be
+the full label to the different parameters.</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Parameter space with the given limits.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.multicompartment.morphology_builder.Neuron.construct_parameterization">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">construct_parameterization</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygrenade_vx.network.abstract.multicompartment.morphology_builder.Neuron.construct_parameterization" title="Permalink to this definition"></a></dt>
+<dd><p>Construct a parameterization with the given values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>values</strong> – Dictionary with values. The key should be
+the full label to the different parameters.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Parameterization of the neuron.</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py attribute">
 <dt id="pygrenade_vx.network.abstract.multicompartment.morphology_builder.Neuron.default_parameters">
 <code class="sig-name descname"><span class="pre">default_parameters</span></code><em class="property"> <span class="pre">=</span> <span class="pre">{}</span></em><a class="headerlink" href="#pygrenade_vx.network.abstract.multicompartment.morphology_builder.Neuron.default_parameters" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
-<dt id="pygrenade_vx.network.abstract.multicompartment.morphology_builder.Neuron.neuron_to_grenade">
-<code class="sig-name descname"><span class="pre">neuron_to_grenade</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">_pygrenade_vx_network_abstract.Neuron</span><a class="headerlink" href="#pygrenade_vx.network.abstract.multicompartment.morphology_builder.Neuron.neuron_to_grenade" title="Permalink to this definition"></a></dt>
-<dd><p>Build a grenade-neuron and adds compartments
-and compartment-connections to grenade-neuron.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>Grenade object of the neuron.</p>
-</dd>
-</dl>
-</dd></dl>
+<dl class="py attribute">
+<dt id="pygrenade_vx.network.abstract.multicompartment.morphology_builder.Neuron.mechanisms_ids_grenade">
+<code class="sig-name descname"><span class="pre">mechanisms_ids_grenade</span></code><em class="property"> <span class="pre">=</span> <span class="pre">{}</span></em><a class="headerlink" href="#pygrenade_vx.network.abstract.multicompartment.morphology_builder.Neuron.mechanisms_ids_grenade" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt id="pygrenade_vx.network.abstract.multicompartment.morphology_builder.Neuron.reverse_translate">

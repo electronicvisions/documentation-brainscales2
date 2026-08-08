@@ -17,7 +17,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="pygrenade_vx.network.abstract.multicompartment.mechanisms.CurrentBasedSynapse" href="pygrenade_vx.network.abstract.multicompartment.mechanisms.CurrentBasedSynapse.html" />
-    <link rel="prev" title="pygrenade_vx.network.abstract.multicompartment.mechanisms.ABC" href="pygrenade_vx.network.abstract.multicompartment.mechanisms.ABC.html" /> 
+    <link rel="prev" title="pygrenade_vx.network.abstract.multicompartment.mechanisms.CapacitanceInterval" href="pygrenade_vx.network.abstract.multicompartment.mechanisms.CapacitanceInterval.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -99,18 +99,18 @@
 <h1>pygrenade_vx.network.abstract.multicompartment.mechanisms.ConductanceBasedSynapse<a class="headerlink" href="#pygrenade-vx-network-abstract-multicompartment-mechanisms-conductancebasedsynapse" title="Permalink to this headline"></a></h1>
 <dl class="py class">
 <dt id="pygrenade_vx.network.abstract.multicompartment.mechanisms.ConductanceBasedSynapse">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">pygrenade_vx.network.abstract.multicompartment.mechanisms.</span></code><code class="sig-name descname"><span class="pre">ConductanceBasedSynapse</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conductance</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">potential</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_constant</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygrenade_vx.network.abstract.multicompartment.mechanisms.ConductanceBasedSynapse" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">pygrenade_vx.network.abstract.multicompartment.mechanisms.</span></code><code class="sig-name descname"><span class="pre">ConductanceBasedSynapse</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">receptor_type</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'excitatory'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strength</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">500</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">potential</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">800</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">400</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_constant</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1e-05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">global_strength</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">600</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygrenade_vx.network.abstract.multicompartment.mechanisms.ConductanceBasedSynapse" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="pygrenade_vx.network.abstract.multicompartment.mechanisms.Mechanism.html#pygrenade_vx.network.abstract.multicompartment.mechanisms.Mechanism" title="pygrenade_vx.network.abstract.multicompartment.mechanisms.Mechanism"><code class="xref py py-class docutils literal notranslate"><span class="pre">pygrenade_vx.network.abstract.multicompartment.mechanisms.Mechanism</span></code></a></p>
 <p>Mechanism that defines the parameters of a
 conductance based synaptic input.</p>
 <dl class="py method">
 <dt id="pygrenade_vx.network.abstract.multicompartment.mechanisms.ConductanceBasedSynapse.__init__">
-<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conductance</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">potential</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_constant</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygrenade_vx.network.abstract.multicompartment.mechanisms.ConductanceBasedSynapse.__init__" title="Permalink to this definition"></a></dt>
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">receptor_type</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'excitatory'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strength</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">500</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">potential</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">800</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">400</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_constant</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1e-05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">global_strength</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">600</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygrenade_vx.network.abstract.multicompartment.mechanisms.ConductanceBasedSynapse.__init__" title="Permalink to this definition"></a></dt>
 <dd><p>Initialize a conductance based synapse.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>conductance</strong> – Strength of the synaptic input.</p></li>
+<li><p><strong>strength</strong> – Strength of the synaptic input.</p></li>
 <li><p><strong>potential</strong> – Reversal potential.</p></li>
 <li><p><strong>time_constant</strong> – Time constant of the synaptic input.</p></li>
 </ul>
@@ -125,8 +125,14 @@ conductance based synaptic input.</p>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.multicompartment.mechanisms.ConductanceBasedSynapse.__init__" title="pygrenade_vx.network.abstract.multicompartment.mechanisms.ConductanceBasedSynapse.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([conductance, potential, time_constant])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.multicompartment.mechanisms.ConductanceBasedSynapse.__init__" title="pygrenade_vx.network.abstract.multicompartment.mechanisms.ConductanceBasedSynapse.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([receptor_type, strength, …])</p></td>
 <td><p>Initialize a conductance based synapse.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.multicompartment.mechanisms.ConductanceBasedSynapse.construct_parameter_space" title="pygrenade_vx.network.abstract.multicompartment.mechanisms.ConductanceBasedSynapse.construct_parameter_space"><code class="xref py py-obj docutils literal notranslate"><span class="pre">construct_parameter_space</span></code></a>(lower_limits, …)</p></td>
+<td><p>Construct a parameter space with the given limits.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.multicompartment.mechanisms.ConductanceBasedSynapse.construct_parameterization" title="pygrenade_vx.network.abstract.multicompartment.mechanisms.ConductanceBasedSynapse.construct_parameterization"><code class="xref py py-obj docutils literal notranslate"><span class="pre">construct_parameterization</span></code></a>(values)</p></td>
+<td><p>Construct a parameterization for the given mechanism.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.multicompartment.mechanisms.ConductanceBasedSynapse.copy" title="pygrenade_vx.network.abstract.multicompartment.mechanisms.ConductanceBasedSynapse.copy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy</span></code></a>()</p></td>
 <td><p>Create copy of the mechanism.</p></td>
@@ -136,6 +142,40 @@ conductance based synaptic input.</p>
 </tr>
 </tbody>
 </table>
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.multicompartment.mechanisms.ConductanceBasedSynapse.construct_parameter_space">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">construct_parameter_space</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lower_limits</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upper_limits</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">_pygrenade_vx_network_abstract.MechanismSynapticInputConductance.ParameterSpace</span><a class="headerlink" href="#pygrenade_vx.network.abstract.multicompartment.mechanisms.ConductanceBasedSynapse.construct_parameter_space" title="Permalink to this definition"></a></dt>
+<dd><p>Construct a parameter space with the given limits.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lower_limits</strong> – Lower limits of the parameter space.
+The keys are the names of the parameters.</p></li>
+<li><p><strong>upper_limits</strong> – Upper limits of the parameter space.
+The keys are the names of the parameters.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Parameter space with the given limits.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.multicompartment.mechanisms.ConductanceBasedSynapse.construct_parameterization">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">construct_parameterization</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">grenade.MechanismSynapticInputConductance.Parameterization</span><a class="headerlink" href="#pygrenade_vx.network.abstract.multicompartment.mechanisms.ConductanceBasedSynapse.construct_parameterization" title="Permalink to this definition"></a></dt>
+<dd><p>Construct a parameterization for the given mechanism.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>values</strong> – Values for the different parameters.
+The keys are the names of the parameters.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Parameterization.</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py method">
 <dt id="pygrenade_vx.network.abstract.multicompartment.mechanisms.ConductanceBasedSynapse.copy">
 <code class="sig-name descname"><span class="pre">copy</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#pygrenade_vx.network.abstract.multicompartment.mechanisms.ConductanceBasedSynapse" title="pygrenade_vx.network.abstract.multicompartment.mechanisms.ConductanceBasedSynapse"><span class="pre">pygrenade_vx.network.abstract.multicompartment.mechanisms.ConductanceBasedSynapse</span></a><a class="headerlink" href="#pygrenade_vx.network.abstract.multicompartment.mechanisms.ConductanceBasedSynapse.copy" title="Permalink to this definition"></a></dt>
@@ -153,7 +193,7 @@ conductance based synaptic input.</p>
 <dd><p>Create the mechanism in grenade.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>Grenade object of the mechanism.</p>
+<dd class="field-odd"><p>Grenade object of the mechanism and its parameter space.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -166,7 +206,7 @@ conductance based synaptic input.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="pygrenade_vx.network.abstract.multicompartment.mechanisms.ABC.html" class="btn btn-neutral float-left" title="pygrenade_vx.network.abstract.multicompartment.mechanisms.ABC" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pygrenade_vx.network.abstract.multicompartment.mechanisms.CapacitanceInterval.html" class="btn btn-neutral float-left" title="pygrenade_vx.network.abstract.multicompartment.mechanisms.CapacitanceInterval" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="pygrenade_vx.network.abstract.multicompartment.mechanisms.CurrentBasedSynapse.html" class="btn btn-neutral float-right" title="pygrenade_vx.network.abstract.multicompartment.mechanisms.CurrentBasedSynapse" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

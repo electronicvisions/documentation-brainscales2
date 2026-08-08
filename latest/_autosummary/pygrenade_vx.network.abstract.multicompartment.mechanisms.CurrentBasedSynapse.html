@@ -16,7 +16,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="pygrenade_vx.network.abstract.multicompartment.mechanisms.Mechanism" href="pygrenade_vx.network.abstract.multicompartment.mechanisms.Mechanism.html" />
+    <link rel="next" title="pygrenade_vx.network.abstract.multicompartment.mechanisms.Fire" href="pygrenade_vx.network.abstract.multicompartment.mechanisms.Fire.html" />
     <link rel="prev" title="pygrenade_vx.network.abstract.multicompartment.mechanisms.ConductanceBasedSynapse" href="pygrenade_vx.network.abstract.multicompartment.mechanisms.ConductanceBasedSynapse.html" /> 
 </head>
 
@@ -99,19 +99,26 @@
 <h1>pygrenade_vx.network.abstract.multicompartment.mechanisms.CurrentBasedSynapse<a class="headerlink" href="#pygrenade-vx-network-abstract-multicompartment-mechanisms-currentbasedsynapse" title="Permalink to this headline"></a></h1>
 <dl class="py class">
 <dt id="pygrenade_vx.network.abstract.multicompartment.mechanisms.CurrentBasedSynapse">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">pygrenade_vx.network.abstract.multicompartment.mechanisms.</span></code><code class="sig-name descname"><span class="pre">CurrentBasedSynapse</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">current</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_constant</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygrenade_vx.network.abstract.multicompartment.mechanisms.CurrentBasedSynapse" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">pygrenade_vx.network.abstract.multicompartment.mechanisms.</span></code><code class="sig-name descname"><span class="pre">CurrentBasedSynapse</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">receptor_type</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'excitatory'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strength</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">500</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_constant</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1e-05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">global_strength</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">600</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygrenade_vx.network.abstract.multicompartment.mechanisms.CurrentBasedSynapse" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="pygrenade_vx.network.abstract.multicompartment.mechanisms.Mechanism.html#pygrenade_vx.network.abstract.multicompartment.mechanisms.Mechanism" title="pygrenade_vx.network.abstract.multicompartment.mechanisms.Mechanism"><code class="xref py py-class docutils literal notranslate"><span class="pre">pygrenade_vx.network.abstract.multicompartment.mechanisms.Mechanism</span></code></a></p>
-<p>Mechanism that defines the parameters
-of a current based synaptic input.</p>
+<p>Current-based synapse.</p>
+<p>Current-based synapse with a synaptic time constant and an input
+strength. If all synaptic inputs on a chip have the same strength, the
+synaptic current injected on the membrane is equalized between
+different synaptic inputs. Otherewise, the strength is directly
+translated to <cite>i_bias_gm</cite> of the synaptic input.</p>
 <dl class="py method">
 <dt id="pygrenade_vx.network.abstract.multicompartment.mechanisms.CurrentBasedSynapse.__init__">
-<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">current</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_constant</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygrenade_vx.network.abstract.multicompartment.mechanisms.CurrentBasedSynapse.__init__" title="Permalink to this definition"></a></dt>
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">receptor_type</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'excitatory'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strength</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">500</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_constant</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1e-05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">global_strength</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">600</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygrenade_vx.network.abstract.multicompartment.mechanisms.CurrentBasedSynapse.__init__" title="Permalink to this definition"></a></dt>
 <dd><p>Initialize a current based synapse.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>current</strong> – Strength of the synaptic input.</p></li>
-<li><p><strong>time_constant</strong> – Time constant of the synaptic input.</p></li>
+<li><p><strong>strength</strong> – Strength of the synaptic input.</p></li>
+<li><p><strong>time_constant</strong> – Time constant (in s) of the synaptic input.</p></li>
+<li><p><strong>global_strength</strong> – Gloabal scaling of the synaptic input
+strength. Translates to <cite>synapse_dac_bias</cite>. Has to be the same
+for all synaptic inputs on a chip.</p></li>
 </ul>
 </dd>
 </dl>
@@ -124,8 +131,14 @@ of a current based synaptic input.</p>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.multicompartment.mechanisms.CurrentBasedSynapse.__init__" title="pygrenade_vx.network.abstract.multicompartment.mechanisms.CurrentBasedSynapse.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([current, time_constant])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.multicompartment.mechanisms.CurrentBasedSynapse.__init__" title="pygrenade_vx.network.abstract.multicompartment.mechanisms.CurrentBasedSynapse.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([receptor_type, strength, …])</p></td>
 <td><p>Initialize a current based synapse.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.multicompartment.mechanisms.CurrentBasedSynapse.construct_parameter_space" title="pygrenade_vx.network.abstract.multicompartment.mechanisms.CurrentBasedSynapse.construct_parameter_space"><code class="xref py py-obj docutils literal notranslate"><span class="pre">construct_parameter_space</span></code></a>(lower_limits, …)</p></td>
+<td><p>Construct a parameter space with the given limits.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.multicompartment.mechanisms.CurrentBasedSynapse.construct_parameterization" title="pygrenade_vx.network.abstract.multicompartment.mechanisms.CurrentBasedSynapse.construct_parameterization"><code class="xref py py-obj docutils literal notranslate"><span class="pre">construct_parameterization</span></code></a>(values)</p></td>
+<td><p>Construct a parameterization for the given mechanism.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#pygrenade_vx.network.abstract.multicompartment.mechanisms.CurrentBasedSynapse.copy" title="pygrenade_vx.network.abstract.multicompartment.mechanisms.CurrentBasedSynapse.copy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy</span></code></a>()</p></td>
 <td><p>Create copy of the mechanism.</p></td>
@@ -135,6 +148,40 @@ of a current based synaptic input.</p>
 </tr>
 </tbody>
 </table>
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.multicompartment.mechanisms.CurrentBasedSynapse.construct_parameter_space">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">construct_parameter_space</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lower_limits</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upper_limits</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">_pygrenade_vx_network_abstract.MechanismSynapticInputCurrent.ParameterSpace</span><a class="headerlink" href="#pygrenade_vx.network.abstract.multicompartment.mechanisms.CurrentBasedSynapse.construct_parameter_space" title="Permalink to this definition"></a></dt>
+<dd><p>Construct a parameter space with the given limits.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lower_limits</strong> – Lower limits of the parameter space.
+The keys are the names of the parameters.</p></li>
+<li><p><strong>upper_limits</strong> – Upper limits of the parameter space.
+The keys are the names of the parameters.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Parameter space with the given limits.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pygrenade_vx.network.abstract.multicompartment.mechanisms.CurrentBasedSynapse.construct_parameterization">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">construct_parameterization</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">grenade.MechanismSynapticInputCurrent.Parameterization</span><a class="headerlink" href="#pygrenade_vx.network.abstract.multicompartment.mechanisms.CurrentBasedSynapse.construct_parameterization" title="Permalink to this definition"></a></dt>
+<dd><p>Construct a parameterization for the given mechanism.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>values</strong> – Values for the different parameters.
+The keys are the names of the parameters.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Parameterization.</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py method">
 <dt id="pygrenade_vx.network.abstract.multicompartment.mechanisms.CurrentBasedSynapse.copy">
 <code class="sig-name descname"><span class="pre">copy</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#pygrenade_vx.network.abstract.multicompartment.mechanisms.CurrentBasedSynapse" title="pygrenade_vx.network.abstract.multicompartment.mechanisms.CurrentBasedSynapse"><span class="pre">pygrenade_vx.network.abstract.multicompartment.mechanisms.CurrentBasedSynapse</span></a><a class="headerlink" href="#pygrenade_vx.network.abstract.multicompartment.mechanisms.CurrentBasedSynapse.copy" title="Permalink to this definition"></a></dt>
@@ -166,7 +213,7 @@ of a current based synaptic input.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="pygrenade_vx.network.abstract.multicompartment.mechanisms.ConductanceBasedSynapse.html" class="btn btn-neutral float-left" title="pygrenade_vx.network.abstract.multicompartment.mechanisms.ConductanceBasedSynapse" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="pygrenade_vx.network.abstract.multicompartment.mechanisms.Mechanism.html" class="btn btn-neutral float-right" title="pygrenade_vx.network.abstract.multicompartment.mechanisms.Mechanism" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="pygrenade_vx.network.abstract.multicompartment.mechanisms.Fire.html" class="btn btn-neutral float-right" title="pygrenade_vx.network.abstract.multicompartment.mechanisms.Fire" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
