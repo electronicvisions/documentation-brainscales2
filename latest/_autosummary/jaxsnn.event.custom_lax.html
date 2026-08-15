@@ -98,13 +98,30 @@
 <dl class="py function">
 <dt id="jaxsnn.event.custom_lax.cond">
 <code class="sig-prename descclassname"><span class="pre">jaxsnn.event.custom_lax.</span></code><code class="sig-name descname"><span class="pre">cond</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pred</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">true_fun</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">false_fun</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">operands</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jaxsnn.event.custom_lax.cond" title="Permalink to this definition"></a></dt>
-<dd><p>Call both function to evaluate compiled behaviour of <cite>jax.lax.scan</cite></p>
+<dd><p>Drop-in replacement for <cite>jax.lax.cond</cite>.</p>
+<p>Dispatches to <cite>jax.lax.cond</cite> or, in branch-free mode (see
+<cite>jaxsnn.event.set_branch_free</cite>), evaluates both branches and selects the
+result with <cite>jnp.where</cite>.</p>
 </dd></dl>
+
+<dl class="py function">
+<dt id="jaxsnn.event.custom_lax.is_branch_free">
+<code class="sig-prename descclassname"><span class="pre">jaxsnn.event.custom_lax.</span></code><code class="sig-name descname"><span class="pre">is_branch_free</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#jaxsnn.event.custom_lax.is_branch_free" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
 
 <dl class="py function">
 <dt id="jaxsnn.event.custom_lax.scan">
 <code class="sig-prename descclassname"><span class="pre">jaxsnn.event.custom_lax.</span></code><code class="sig-name descname"><span class="pre">scan</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inner_fn</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">length</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reverse</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jaxsnn.event.custom_lax.scan" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
+
+<dl class="py function">
+<dt id="jaxsnn.event.custom_lax.switch">
+<code class="sig-prename descclassname"><span class="pre">jaxsnn.event.custom_lax.</span></code><code class="sig-name descname"><span class="pre">switch</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">jax.Array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">branches</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">operands</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jaxsnn.event.custom_lax.switch" title="Permalink to this definition"></a></dt>
+<dd><p>Drop-in replacement for <cite>jax.lax.switch</cite>.</p>
+<p>Dispatches to <cite>jax.lax.switch</cite> or, in branch-free mode (see
+<cite>jaxsnn.event.set_branch_free</cite>), evaluates every branch and selects the
+result at <cite>index</cite> with <cite>jnp.where</cite>.</p>
+</dd></dl>
 
 <dl class="py function">
 <dt id="jaxsnn.event.custom_lax.tree_flatten">

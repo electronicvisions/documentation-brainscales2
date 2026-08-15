@@ -16,7 +16,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="jaxsnn.event.utils.from_nir" href="jaxsnn.event.utils.from_nir.html" />
+    <link rel="next" title="jaxsnn.event.utils.branch_free" href="jaxsnn.event.utils.branch_free.html" />
     <link rel="prev" title="jaxsnn.event.types.TypeVar" href="jaxsnn.event.types.TypeVar.html" /> 
 </head>
 
@@ -100,24 +100,39 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="jaxsnn.event.utils.from_nir.html#module-jaxsnn.event.utils.from_nir" title="jaxsnn.event.utils.from_nir"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jaxsnn.event.utils.from_nir</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="jaxsnn.event.utils.branch_free.html#module-jaxsnn.event.utils.branch_free" title="jaxsnn.event.utils.branch_free"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jaxsnn.event.utils.branch_free</span></code></a>([enabled])</p></td>
+<td><p>Context manager to temporarily switch branch-free mode for <cite>custom_lax.cond</cite>/<cite>switch</cite>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="jaxsnn.event.utils.from_nir.html#module-jaxsnn.event.utils.from_nir" title="jaxsnn.event.utils.from_nir"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jaxsnn.event.utils.from_nir</span></code></a></p></td>
 <td><p>Conversion of a NIR graph to jaxsnn model</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="jaxsnn.event.utils.from_nir_data.html#module-jaxsnn.event.utils.from_nir_data" title="jaxsnn.event.utils.from_nir_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jaxsnn.event.utils.from_nir_data</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="jaxsnn.event.utils.from_nir_data.html#module-jaxsnn.event.utils.from_nir_data" title="jaxsnn.event.utils.from_nir_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jaxsnn.event.utils.from_nir_data</span></code></a></p></td>
 <td><p>Translate NIRGraphData to a jaxsnn-compatible spike representation.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="jaxsnn.event.utils.time_it.html#module-jaxsnn.event.utils.time_it" title="jaxsnn.event.utils.time_it"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jaxsnn.event.utils.time_it</span></code></a>(timed_function, *args)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="jaxsnn.event.utils.time_it.html#module-jaxsnn.event.utils.time_it" title="jaxsnn.event.utils.time_it"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jaxsnn.event.utils.time_it</span></code></a>(timed_function, *args)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="jaxsnn.event.utils.to_nir.html#module-jaxsnn.event.utils.to_nir" title="jaxsnn.event.utils.to_nir"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jaxsnn.event.utils.to_nir</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="jaxsnn.event.utils.to_nir.html#module-jaxsnn.event.utils.to_nir" title="jaxsnn.event.utils.to_nir"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jaxsnn.event.utils.to_nir</span></code></a></p></td>
 <td><p>Conversion of a jaxsnn model to a NIR graph</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="jaxsnn.event.utils.to_nir_data.html#module-jaxsnn.event.utils.to_nir_data" title="jaxsnn.event.utils.to_nir_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jaxsnn.event.utils.to_nir_data</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="jaxsnn.event.utils.to_nir_data.html#module-jaxsnn.event.utils.to_nir_data" title="jaxsnn.event.utils.to_nir_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jaxsnn.event.utils.to_nir_data</span></code></a></p></td>
 <td><p>Translate spikes from a jaxsnn spike representation to NIRGraphData.</p></td>
 </tr>
 </tbody>
 </table>
 <span class="target" id="module-jaxsnn.event.utils"></span><p class="rubric">Functions</p>
+<dl class="py function">
+<dt id="jaxsnn.event.utils.branch_free">
+<code class="sig-prename descclassname"><span class="pre">jaxsnn.event.utils.</span></code><code class="sig-name descname"><span class="pre">branch_free</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">enabled</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jaxsnn.event.utils.branch_free" title="Permalink to this definition"></a></dt>
+<dd><p>Context manager to temporarily switch branch-free mode for
+<cite>custom_lax.cond</cite>/<cite>switch</cite>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="jaxsnn.event.utils.is_branch_free">
+<code class="sig-prename descclassname"><span class="pre">jaxsnn.event.utils.</span></code><code class="sig-name descname"><span class="pre">is_branch_free</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#jaxsnn.event.utils.is_branch_free" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
 <dl class="py function">
 <dt id="jaxsnn.event.utils.time_it">
 <code class="sig-prename descclassname"><span class="pre">jaxsnn.event.utils.</span></code><code class="sig-name descname"><span class="pre">time_it</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timed_function</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#jaxsnn.event.utils.time_it" title="Permalink to this definition"></a></dt>
@@ -130,7 +145,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="jaxsnn.event.types.TypeVar.html" class="btn btn-neutral float-left" title="jaxsnn.event.types.TypeVar" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="jaxsnn.event.utils.from_nir.html" class="btn btn-neutral float-right" title="jaxsnn.event.utils.from_nir" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="jaxsnn.event.utils.branch_free.html" class="btn btn-neutral float-right" title="jaxsnn.event.utils.branch_free" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

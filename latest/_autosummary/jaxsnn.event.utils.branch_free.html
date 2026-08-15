@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>jaxsnn.base.dataset.linear &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <title>jaxsnn.event.utils.branch_free &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -16,8 +16,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="jaxsnn.base.dataset.shd" href="jaxsnn.base.dataset.shd.html" />
-    <link rel="prev" title="jaxsnn.base.dataset.dataloader.Any" href="jaxsnn.base.dataset.dataloader.Any.html" /> 
+    <link rel="next" title="jaxsnn.event.utils.from_nir" href="jaxsnn.event.utils.from_nir.html" />
+    <link rel="prev" title="jaxsnn.event.utils" href="jaxsnn.event.utils.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -47,9 +47,9 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../apis_python.html">Python API</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="pynn_brainscales.brainscales2.html">pynn_brainscales.brainscales2</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="jaxsnn.html">jaxsnn</a><ul class="current">
-<li class="toctree-l4 current"><a class="reference internal" href="jaxsnn.base.html">jaxsnn.base</a></li>
+<li class="toctree-l4"><a class="reference internal" href="jaxsnn.base.html">jaxsnn.base</a></li>
 <li class="toctree-l4"><a class="reference internal" href="jaxsnn.discrete.html">jaxsnn.discrete</a></li>
-<li class="toctree-l4"><a class="reference internal" href="jaxsnn.event.html">jaxsnn.event</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="jaxsnn.event.html">jaxsnn.event</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="hxtorch.html">hxtorch</a></li>
@@ -80,11 +80,11 @@
           <li class="breadcrumb-item"><a href="../apis.html">BrainScaleS-2 API Documentation</a></li>
           <li class="breadcrumb-item"><a href="../apis_python.html">BrainScaleS-2 API Documentation</a></li>
           <li class="breadcrumb-item"><a href="jaxsnn.html">jaxsnn</a></li>
-          <li class="breadcrumb-item"><a href="jaxsnn.base.html">jaxsnn.base</a></li>
-          <li class="breadcrumb-item"><a href="jaxsnn.base.dataset.html">jaxsnn.base.dataset</a></li>
-      <li class="breadcrumb-item active">jaxsnn.base.dataset.linear</li>
+          <li class="breadcrumb-item"><a href="jaxsnn.event.html">jaxsnn.event</a></li>
+          <li class="breadcrumb-item"><a href="jaxsnn.event.utils.html">jaxsnn.event.utils</a></li>
+      <li class="breadcrumb-item active">jaxsnn.event.utils.branch_free</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/_autosummary/jaxsnn.base.dataset.linear.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/_autosummary/jaxsnn.event.utils.branch_free.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -92,22 +92,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="module-jaxsnn.base.dataset.linear">
-<span id="jaxsnn-base-dataset-linear"></span><h1>jaxsnn.base.dataset.linear<a class="headerlink" href="#module-jaxsnn.base.dataset.linear" title="Permalink to this headline"></a></h1>
-<p class="rubric">Functions</p>
-<dl class="py function">
-<dt id="jaxsnn.base.dataset.linear.linear_dataset">
-<code class="sig-prename descclassname"><span class="pre">jaxsnn.base.dataset.linear.</span></code><code class="sig-name descname"><span class="pre">linear_dataset</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rng</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">jax.Array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mirror</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bias_spike</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">jax.Array</span><span class="p"><span class="pre">,</span> </span><span class="pre">jax.Array</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#jaxsnn.base.dataset.linear.linear_dataset" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
+  <div class="section" id="module-jaxsnn.event.utils.branch_free">
+<span id="jaxsnn-event-utils-branch-free"></span><h1>jaxsnn.event.utils.branch_free<a class="headerlink" href="#module-jaxsnn.event.utils.branch_free" title="Permalink to this headline"></a></h1>
 </div>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="jaxsnn.base.dataset.dataloader.Any.html" class="btn btn-neutral float-left" title="jaxsnn.base.dataset.dataloader.Any" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="jaxsnn.base.dataset.shd.html" class="btn btn-neutral float-right" title="jaxsnn.base.dataset.shd" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="jaxsnn.event.utils.html" class="btn btn-neutral float-left" title="jaxsnn.event.utils" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="jaxsnn.event.utils.from_nir.html" class="btn btn-neutral float-right" title="jaxsnn.event.utils.from_nir" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

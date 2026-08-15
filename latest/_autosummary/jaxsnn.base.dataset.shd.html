@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>jaxsnn.base.dataset.linear &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <title>jaxsnn.base.dataset.shd &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -16,8 +16,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="jaxsnn.base.dataset.shd" href="jaxsnn.base.dataset.shd.html" />
-    <link rel="prev" title="jaxsnn.base.dataset.dataloader.Any" href="jaxsnn.base.dataset.dataloader.Any.html" /> 
+    <link rel="next" title="jaxsnn.base.dataset.yinyang" href="jaxsnn.base.dataset.yinyang.html" />
+    <link rel="prev" title="jaxsnn.base.dataset.linear" href="jaxsnn.base.dataset.linear.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -82,9 +82,9 @@
           <li class="breadcrumb-item"><a href="jaxsnn.html">jaxsnn</a></li>
           <li class="breadcrumb-item"><a href="jaxsnn.base.html">jaxsnn.base</a></li>
           <li class="breadcrumb-item"><a href="jaxsnn.base.dataset.html">jaxsnn.base.dataset</a></li>
-      <li class="breadcrumb-item active">jaxsnn.base.dataset.linear</li>
+      <li class="breadcrumb-item active">jaxsnn.base.dataset.shd</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/_autosummary/jaxsnn.base.dataset.linear.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/_autosummary/jaxsnn.base.dataset.shd.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -92,13 +92,20 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="module-jaxsnn.base.dataset.linear">
-<span id="jaxsnn-base-dataset-linear"></span><h1>jaxsnn.base.dataset.linear<a class="headerlink" href="#module-jaxsnn.base.dataset.linear" title="Permalink to this headline"></a></h1>
+  <div class="section" id="module-jaxsnn.base.dataset.shd">
+<span id="jaxsnn-base-dataset-shd"></span><h1>jaxsnn.base.dataset.shd<a class="headerlink" href="#module-jaxsnn.base.dataset.shd" title="Permalink to this headline"></a></h1>
+<p>SHD Dataset class</p>
 <p class="rubric">Functions</p>
 <dl class="py function">
-<dt id="jaxsnn.base.dataset.linear.linear_dataset">
-<code class="sig-prename descclassname"><span class="pre">jaxsnn.base.dataset.linear.</span></code><code class="sig-name descname"><span class="pre">linear_dataset</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rng</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">jax.Array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mirror</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bias_spike</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">jax.Array</span><span class="p"><span class="pre">,</span> </span><span class="pre">jax.Array</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#jaxsnn.base.dataset.linear.linear_dataset" title="Permalink to this definition"></a></dt>
+<dt id="jaxsnn.base.dataset.shd.download_and_extract_archive">
+<code class="sig-prename descclassname"><span class="pre">jaxsnn.base.dataset.shd.</span></code><code class="sig-name descname"><span class="pre">download_and_extract_archive</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">download_root</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">pathlib.Path</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#jaxsnn.base.dataset.shd.download_and_extract_archive" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
+
+<dl class="py function">
+<dt id="jaxsnn.base.dataset.shd.shd_dataset">
+<code class="sig-prename descclassname"><span class="pre">jaxsnn.base.dataset.shd.</span></code><code class="sig-name descname"><span class="pre">shd_dataset</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">train:</span> <span class="pre">bool</span></em>, <em class="sig-param"><span class="pre">download:</span> <span class="pre">bool</span></em>, <em class="sig-param"><span class="pre">t_max:</span> <span class="pre">float</span></em>, <em class="sig-param"><span class="pre">root:</span> <span class="pre">str</span></em>, <em class="sig-param"><span class="pre">time_scale:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">1.0</span></em>, <em class="sig-param"><span class="pre">channel_start:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">0</span></em>, <em class="sig-param"><span class="pre">channel_modulo:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">1</span></em>, <em class="sig-param"><span class="pre">num_samples:</span> <span class="pre">Optional[int</span></em>, <em class="sig-param"><span class="pre">None]</span> <span class="pre">=</span> <span class="pre">None</span></em>, <em class="sig-param"><span class="pre">dtype:</span> <span class="pre">numpy.dtype</span> <span class="pre">=</span> <span class="pre">&lt;class</span> <span class="pre">'numpy.float32'&gt;</span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">jax.Array</span><span class="p"><span class="pre">,</span> </span><span class="pre">jax.Array</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#jaxsnn.base.dataset.shd.shd_dataset" title="Permalink to this definition"></a></dt>
+<dd><p>SHD dataset</p>
+</dd></dl>
 
 </div>
 
@@ -106,8 +113,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="jaxsnn.base.dataset.dataloader.Any.html" class="btn btn-neutral float-left" title="jaxsnn.base.dataset.dataloader.Any" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="jaxsnn.base.dataset.shd.html" class="btn btn-neutral float-right" title="jaxsnn.base.dataset.shd" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="jaxsnn.base.dataset.linear.html" class="btn btn-neutral float-left" title="jaxsnn.base.dataset.linear" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="jaxsnn.base.dataset.yinyang.html" class="btn btn-neutral float-right" title="jaxsnn.base.dataset.yinyang" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
