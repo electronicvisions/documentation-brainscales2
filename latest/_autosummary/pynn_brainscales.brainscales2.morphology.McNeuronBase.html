@@ -132,15 +132,11 @@
 <dl class="py class">
 <dt id="pynn_brainscales.brainscales2.morphology.McNeuronBase">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">pynn_brainscales.brainscales2.morphology.</span></code><code class="sig-name descname"><span class="pre">McNeuronBase</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.morphology.McNeuronBase" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="pynn_brainscales.brainscales2.standardmodels.cells_base.StandardCellType.html#pynn_brainscales.brainscales2.standardmodels.cells_base.StandardCellType" title="pynn_brainscales.brainscales2.standardmodels.cells_base.StandardCellType"><code class="xref py py-class docutils literal notranslate"><span class="pre">pynn_brainscales.brainscales2.standardmodels.cells_base.StandardCellType</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
-<p>Base class for multi-compartmental neuron models.</p>
-<p>Contains the core functionality for multi-compartment neurons.
-It flattens the hierarchy of a <cite>lola.AtomicNeuron</cite>, for example
-<cite>lola.AtomicNeuron.multicompartment.i_bias_nmda</cite> is expressed as the
-parameter <cite>multicompartment_i_bias_nmda</cite>.
-Parameters related to the event routing, configuration of morphology and
-readout are not exposed since they are determined by other settings in
-PyNN.</p>
+<dd><p>Bases: <a class="reference internal" href="pynn_brainscales.brainscales2.morphology.mc_neuron_base.CommonBase.html#pynn_brainscales.brainscales2.morphology.mc_neuron_base.CommonBase" title="pynn_brainscales.brainscales2.morphology.mc_neuron_base.CommonBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">pynn_brainscales.brainscales2.morphology.mc_neuron_base.CommonBase</span></code></a></p>
+<p>Base class for manually constructed multi-compartmental neuron models.</p>
+<p>Used when compartments are manually assigned to neuron circuits and
+connections are manually set. Furthermore, parameters are in the
+hardware domain (and are not calibrated).</p>
 <dl class="simple">
 <dt>A subclass is expected to set the following member variables:</dt><dd><ul class="simple">
 <li><p>compartments: Dictionary of Compartment Ids and Compartments.</p></li>
