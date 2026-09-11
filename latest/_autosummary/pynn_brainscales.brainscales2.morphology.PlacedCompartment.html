@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>pynn_brainscales.brainscales2.morphology.Compartment &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <title>pynn_brainscales.brainscales2.morphology.PlacedCompartment &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -16,8 +16,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="pynn_brainscales.brainscales2.morphology.Iterable" href="pynn_brainscales.brainscales2.morphology.Iterable.html" />
-    <link rel="prev" title="pynn_brainscales.brainscales2.morphology.parts.SharedLineConnection" href="pynn_brainscales.brainscales2.morphology.parts.SharedLineConnection.html" /> 
+    <link rel="next" title="pynn_brainscales.brainscales2.morphology.SharedLineConnection" href="pynn_brainscales.brainscales2.morphology.SharedLineConnection.html" />
+    <link rel="prev" title="pynn_brainscales.brainscales2.morphology.MorphologyBuilder" href="pynn_brainscales.brainscales2.morphology.MorphologyBuilder.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -117,9 +117,9 @@
           <li class="breadcrumb-item"><a href="../apis_python.html">BrainScaleS-2 API Documentation</a></li>
           <li class="breadcrumb-item"><a href="pynn_brainscales.brainscales2.html">pynn_brainscales.brainscales2</a></li>
           <li class="breadcrumb-item"><a href="pynn_brainscales.brainscales2.morphology.html">pynn_brainscales.brainscales2.morphology</a></li>
-      <li class="breadcrumb-item active">pynn_brainscales.brainscales2.morphology.Compartment</li>
+      <li class="breadcrumb-item active">pynn_brainscales.brainscales2.morphology.PlacedCompartment</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/_autosummary/pynn_brainscales.brainscales2.morphology.Compartment.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/_autosummary/pynn_brainscales.brainscales2.morphology.PlacedCompartment.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -127,16 +127,18 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="pynn-brainscales-brainscales2-morphology-compartment">
-<h1>pynn_brainscales.brainscales2.morphology.Compartment<a class="headerlink" href="#pynn-brainscales-brainscales2-morphology-compartment" title="Permalink to this headline"></a></h1>
+  <div class="section" id="pynn-brainscales-brainscales2-morphology-placedcompartment">
+<h1>pynn_brainscales.brainscales2.morphology.PlacedCompartment<a class="headerlink" href="#pynn-brainscales-brainscales2-morphology-placedcompartment" title="Permalink to this headline"></a></h1>
 <dl class="py class">
-<dt id="pynn_brainscales.brainscales2.morphology.Compartment">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">pynn_brainscales.brainscales2.morphology.</span></code><code class="sig-name descname"><span class="pre">Compartment</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">positions</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connect_shared_line</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connect_conductance</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.morphology.Compartment" title="Permalink to this definition"></a></dt>
+<dt id="pynn_brainscales.brainscales2.morphology.PlacedCompartment">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">pynn_brainscales.brainscales2.morphology.</span></code><code class="sig-name descname"><span class="pre">PlacedCompartment</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">positions</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connect_shared_line</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connect_conductance</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.morphology.PlacedCompartment" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A single iso-potential compartment of a multi-compartmental neuron model.</p>
+<p>The neuron circuits representing this compartment have to be placed
+manually.</p>
 <dl class="py method">
-<dt id="pynn_brainscales.brainscales2.morphology.Compartment.__init__">
-<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">positions</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connect_shared_line</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connect_conductance</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.morphology.Compartment.__init__" title="Permalink to this definition"></a></dt>
+<dt id="pynn_brainscales.brainscales2.morphology.PlacedCompartment.__init__">
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">positions</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connect_shared_line</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connect_conductance</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynn_brainscales.brainscales2.morphology.PlacedCompartment.__init__" title="Permalink to this definition"></a></dt>
 <dd><p>Create a single compartment.</p>
 <p>Additional arguments are saved as parameters of the compartment.</p>
 <dl class="field-list simple">
@@ -162,7 +164,7 @@ line and their resistance.</p></li>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.morphology.Compartment.__init__" title="pynn_brainscales.brainscales2.morphology.Compartment.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(*, positions[, label, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.morphology.PlacedCompartment.__init__" title="pynn_brainscales.brainscales2.morphology.PlacedCompartment.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(*, positions[, label, …])</p></td>
 <td><p>Create a single compartment.</p></td>
 </tr>
 </tbody>
@@ -174,46 +176,46 @@ line and their resistance.</p></li>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.morphology.Compartment.connect_conductance" title="pynn_brainscales.brainscales2.morphology.Compartment.connect_conductance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">connect_conductance</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.morphology.PlacedCompartment.connect_conductance" title="pynn_brainscales.brainscales2.morphology.PlacedCompartment.connect_conductance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">connect_conductance</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.morphology.Compartment.connect_shared_line" title="pynn_brainscales.brainscales2.morphology.Compartment.connect_shared_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">connect_shared_line</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.morphology.PlacedCompartment.connect_shared_line" title="pynn_brainscales.brainscales2.morphology.PlacedCompartment.connect_shared_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">connect_shared_line</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.morphology.Compartment.label" title="pynn_brainscales.brainscales2.morphology.Compartment.label"><code class="xref py py-obj docutils literal notranslate"><span class="pre">label</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.morphology.PlacedCompartment.label" title="pynn_brainscales.brainscales2.morphology.PlacedCompartment.label"><code class="xref py py-obj docutils literal notranslate"><span class="pre">label</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.morphology.Compartment.positions" title="pynn_brainscales.brainscales2.morphology.Compartment.positions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">positions</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.morphology.PlacedCompartment.positions" title="pynn_brainscales.brainscales2.morphology.PlacedCompartment.positions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">positions</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.morphology.Compartment.size" title="pynn_brainscales.brainscales2.morphology.Compartment.size"><code class="xref py py-obj docutils literal notranslate"><span class="pre">size</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynn_brainscales.brainscales2.morphology.PlacedCompartment.size" title="pynn_brainscales.brainscales2.morphology.PlacedCompartment.size"><code class="xref py py-obj docutils literal notranslate"><span class="pre">size</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
 </table>
 <dl class="py method">
-<dt id="pynn_brainscales.brainscales2.morphology.Compartment.connect_conductance">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">connect_conductance</span></code><a class="headerlink" href="#pynn_brainscales.brainscales2.morphology.Compartment.connect_conductance" title="Permalink to this definition"></a></dt>
+<dt id="pynn_brainscales.brainscales2.morphology.PlacedCompartment.connect_conductance">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">connect_conductance</span></code><a class="headerlink" href="#pynn_brainscales.brainscales2.morphology.PlacedCompartment.connect_conductance" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="pynn_brainscales.brainscales2.morphology.Compartment.connect_shared_line">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">connect_shared_line</span></code><a class="headerlink" href="#pynn_brainscales.brainscales2.morphology.Compartment.connect_shared_line" title="Permalink to this definition"></a></dt>
+<dt id="pynn_brainscales.brainscales2.morphology.PlacedCompartment.connect_shared_line">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">connect_shared_line</span></code><a class="headerlink" href="#pynn_brainscales.brainscales2.morphology.PlacedCompartment.connect_shared_line" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="pynn_brainscales.brainscales2.morphology.Compartment.label">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">label</span></code><a class="headerlink" href="#pynn_brainscales.brainscales2.morphology.Compartment.label" title="Permalink to this definition"></a></dt>
+<dt id="pynn_brainscales.brainscales2.morphology.PlacedCompartment.label">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">label</span></code><a class="headerlink" href="#pynn_brainscales.brainscales2.morphology.PlacedCompartment.label" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="pynn_brainscales.brainscales2.morphology.Compartment.positions">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">positions</span></code><a class="headerlink" href="#pynn_brainscales.brainscales2.morphology.Compartment.positions" title="Permalink to this definition"></a></dt>
+<dt id="pynn_brainscales.brainscales2.morphology.PlacedCompartment.positions">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">positions</span></code><a class="headerlink" href="#pynn_brainscales.brainscales2.morphology.PlacedCompartment.positions" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="pynn_brainscales.brainscales2.morphology.Compartment.size">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">size</span></code><a class="headerlink" href="#pynn_brainscales.brainscales2.morphology.Compartment.size" title="Permalink to this definition"></a></dt>
+<dt id="pynn_brainscales.brainscales2.morphology.PlacedCompartment.size">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">size</span></code><a class="headerlink" href="#pynn_brainscales.brainscales2.morphology.PlacedCompartment.size" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -224,8 +226,8 @@ line and their resistance.</p></li>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="pynn_brainscales.brainscales2.morphology.parts.SharedLineConnection.html" class="btn btn-neutral float-left" title="pynn_brainscales.brainscales2.morphology.parts.SharedLineConnection" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="pynn_brainscales.brainscales2.morphology.Iterable.html" class="btn btn-neutral float-right" title="pynn_brainscales.brainscales2.morphology.Iterable" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="pynn_brainscales.brainscales2.morphology.MorphologyBuilder.html" class="btn btn-neutral float-left" title="pynn_brainscales.brainscales2.morphology.MorphologyBuilder" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pynn_brainscales.brainscales2.morphology.SharedLineConnection.html" class="btn btn-neutral float-right" title="pynn_brainscales.brainscales2.morphology.SharedLineConnection" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

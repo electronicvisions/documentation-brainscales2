@@ -114,7 +114,7 @@ You can find more detailed information about the multi-compartmental capabilitie
 
 <span class="kn">import</span> <span class="nn">pynn_brainscales.brainscales2</span> <span class="k">as</span> <span class="nn">pynn</span>
 <span class="kn">from</span> <span class="nn">pynn_brainscales.brainscales2.morphology</span> <span class="kn">import</span> <span class="n">create_mc_neuron</span><span class="p">,</span> \
-    <span class="n">Compartment</span><span class="p">,</span> <span class="n">SharedLineConnection</span>
+    <span class="n">PlacedCompartment</span><span class="p">,</span> <span class="n">SharedLineConnection</span>
 </pre></div>
 </div>
 <p>A default calibration is generated for every setup every night.
@@ -152,10 +152,10 @@ Once we defined all compartments and connections, we can create a new neuron typ
     <span class="n">connect_conductance</span> <span class="o">=</span> <span class="kc">None</span> <span class="k">if</span> <span class="n">n_comp</span> <span class="o">==</span> <span class="p">(</span><span class="n">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="k">else</span> \
         <span class="p">[(</span><span class="n">positions</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">200</span><span class="p">)]</span>
     <span class="n">compartments</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-        <span class="n">Compartment</span><span class="p">(</span><span class="n">positions</span><span class="o">=</span><span class="n">positions</span><span class="p">,</span>
-                    <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;comp_</span><span class="si">{</span><span class="n">n_comp</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
-                    <span class="n">connect_conductance</span><span class="o">=</span><span class="n">connect_conductance</span><span class="p">,</span>
-                    <span class="n">connect_shared_line</span><span class="o">=</span><span class="n">connect_shared_line</span><span class="p">))</span>
+        <span class="n">PlacedCompartment</span><span class="p">(</span><span class="n">positions</span><span class="o">=</span><span class="n">positions</span><span class="p">,</span>
+                          <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;comp_</span><span class="si">{</span><span class="n">n_comp</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+                          <span class="n">connect_conductance</span><span class="o">=</span><span class="n">connect_conductance</span><span class="p">,</span>
+                          <span class="n">connect_shared_line</span><span class="o">=</span><span class="n">connect_shared_line</span><span class="p">))</span>
 
 
 <span class="c1"># close shared line between neighboring compartments</span>
