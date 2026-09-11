@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>hxtorch.spiking.functional.superspike &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <title>hxtorch.spiking.modules.neuron.partial &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -16,8 +16,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="hxtorch.spiking.functional.superspike.SuperSpike" href="hxtorch.spiking.functional.superspike.SuperSpike.html" />
-    <link rel="prev" title="hxtorch.spiking.functional.step_integration_code_factory.CuBaStepCode" href="hxtorch.spiking.functional.step_integration_code_factory.CuBaStepCode.html" /> 
+    <link rel="next" title="hxtorch.spiking.modules.sparse_synapse" href="hxtorch.spiking.modules.sparse_synapse.html" />
+    <link rel="prev" title="hxtorch.spiking.modules.neuron.SynapseHandle" href="hxtorch.spiking.modules.neuron.SynapseHandle.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -84,10 +84,11 @@
           <li class="breadcrumb-item"><a href="../apis_python.html">BrainScaleS-2 API Documentation</a></li>
           <li class="breadcrumb-item"><a href="hxtorch.html">hxtorch</a></li>
           <li class="breadcrumb-item"><a href="hxtorch.spiking.html">hxtorch.spiking</a></li>
-          <li class="breadcrumb-item"><a href="hxtorch.spiking.functional.html">hxtorch.spiking.functional</a></li>
-      <li class="breadcrumb-item active">hxtorch.spiking.functional.superspike</li>
+          <li class="breadcrumb-item"><a href="hxtorch.spiking.modules.html">hxtorch.spiking.modules</a></li>
+          <li class="breadcrumb-item"><a href="hxtorch.spiking.modules.neuron.html">hxtorch.spiking.modules.neuron</a></li>
+      <li class="breadcrumb-item active">hxtorch.spiking.modules.neuron.partial</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/_autosummary/hxtorch.spiking.functional.superspike.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/_autosummary/hxtorch.spiking.modules.neuron.partial.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -95,28 +96,66 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="module-hxtorch.spiking.functional.superspike">
-<span id="hxtorch-spiking-functional-superspike"></span><h1>hxtorch.spiking.functional.superspike<a class="headerlink" href="#module-hxtorch.spiking.functional.superspike" title="Permalink to this headline"></a></h1>
-<p>Surrograte gradient for SuperSpike.
-Basically reimplemented from:
-<a class="reference external" href="https://github.com/norse/norse/blob/18cd8aa256c3e7b5a28a852f5e928b104bc637fc/norse/torch/functional/superspike.py#L33">https://github.com/norse/norse/blob/18cd8aa256c3e7b5a28a852f5e928b104bc637fc/norse/torch/functional/superspike.py#L33</a></p>
-<p class="rubric">Classes</p>
+  <div class="section" id="hxtorch-spiking-modules-neuron-partial">
+<h1>hxtorch.spiking.modules.neuron.partial<a class="headerlink" href="#hxtorch-spiking-modules-neuron-partial" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt id="hxtorch.spiking.modules.neuron.partial">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.modules.neuron.</span></code><code class="sig-name descname"><span class="pre">partial</span></code><a class="headerlink" href="#hxtorch.spiking.modules.neuron.partial" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>partial(func, <a href="#id1"><span class="problematic" id="id2">*</span></a>args, <a href="#id3"><span class="problematic" id="id4">**</span></a>keywords) - new function with partial application
+of the given arguments and keywords.</p>
+<dl class="py method">
+<dt id="hxtorch.spiking.modules.neuron.partial.__init__">
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.modules.neuron.partial.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<p class="rubric">Methods</p>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.functional.superspike.SuperSpike.html#hxtorch.spiking.functional.superspike.SuperSpike" title="hxtorch.spiking.functional.superspike.SuperSpike"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SuperSpike</span></code></a>(*args, **kwargs)</p></td>
-<td><p>Define Surrogate Gradient ‘SuperSpike’ (negative side of Fast Sigmoid) See: <a class="reference external" href="https://arxiv.org/abs/1705.11146">https://arxiv.org/abs/1705.11146</a></p></td>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.neuron.partial.args" title="hxtorch.spiking.modules.neuron.partial.args"><code class="xref py py-obj docutils literal notranslate"><span class="pre">args</span></code></a></p></td>
+<td><p>tuple of arguments to future partial calls</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.neuron.partial.func" title="hxtorch.spiking.modules.neuron.partial.func"><code class="xref py py-obj docutils literal notranslate"><span class="pre">func</span></code></a></p></td>
+<td><p>function object to use in future partial calls</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.modules.neuron.partial.keywords" title="hxtorch.spiking.modules.neuron.partial.keywords"><code class="xref py py-obj docutils literal notranslate"><span class="pre">keywords</span></code></a></p></td>
+<td><p>dictionary of keyword arguments to future partial calls</p></td>
 </tr>
 </tbody>
 </table>
-<p class="rubric">Functions</p>
-<dl class="py function">
-<dt id="hxtorch.spiking.functional.superspike.superspike_func">
-<code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.functional.superspike.</span></code><code class="sig-name descname"><span class="pre">superspike_func</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">torch.Tensor</span><a class="headerlink" href="#hxtorch.spiking.functional.superspike.superspike_func" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dl class="py attribute">
+<dt id="hxtorch.spiking.modules.neuron.partial.args">
+<code class="sig-name descname"><span class="pre">args</span></code><a class="headerlink" href="#hxtorch.spiking.modules.neuron.partial.args" title="Permalink to this definition"></a></dt>
+<dd><p>tuple of arguments to future partial calls</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="hxtorch.spiking.modules.neuron.partial.func">
+<code class="sig-name descname"><span class="pre">func</span></code><a class="headerlink" href="#hxtorch.spiking.modules.neuron.partial.func" title="Permalink to this definition"></a></dt>
+<dd><p>function object to use in future partial calls</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="hxtorch.spiking.modules.neuron.partial.keywords">
+<code class="sig-name descname"><span class="pre">keywords</span></code><a class="headerlink" href="#hxtorch.spiking.modules.neuron.partial.keywords" title="Permalink to this definition"></a></dt>
+<dd><p>dictionary of keyword arguments to future partial calls</p>
+</dd></dl>
+
+</dd></dl>
 
 </div>
 
@@ -124,8 +163,8 @@ Basically reimplemented from:
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="hxtorch.spiking.functional.step_integration_code_factory.CuBaStepCode.html" class="btn btn-neutral float-left" title="hxtorch.spiking.functional.step_integration_code_factory.CuBaStepCode" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="hxtorch.spiking.functional.superspike.SuperSpike.html" class="btn btn-neutral float-right" title="hxtorch.spiking.functional.superspike.SuperSpike" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="hxtorch.spiking.modules.neuron.SynapseHandle.html" class="btn btn-neutral float-left" title="hxtorch.spiking.modules.neuron.SynapseHandle" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="hxtorch.spiking.modules.sparse_synapse.html" class="btn btn-neutral float-right" title="hxtorch.spiking.modules.sparse_synapse" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

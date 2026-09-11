@@ -219,12 +219,10 @@ load a prepared calibration. Note, that changing “Neuron” hardware parameter
 becomes not effective. You can comment out the lines loading the calibration
 if you want to use different parameters but be aware than the this will trigger
 a hardware calibration which might take a long time.</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
-<span class="kn">import</span> <span class="nn">hxtorch</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">hxtorch</span>
 <span class="kn">import</span> <span class="nn">hxtorch.snn</span> <span class="k">as</span> <span class="nn">hxsnn</span>
 <span class="kn">import</span> <span class="nn">hxtorch.snn.functional</span> <span class="k">as</span> <span class="nn">F</span>
 <span class="kn">from</span> <span class="nn">hxtorch.core.utils</span> <span class="kn">import</span> <span class="n">calib_helper</span>
-<span class="kn">from</span> <span class="nn">hxtorch.snn.transforms</span> <span class="kn">import</span> <span class="n">weight_transforms</span>
 <span class="kn">from</span> <span class="nn">dlens_vx_v3</span> <span class="kn">import</span> <span class="n">halco</span>
 
 <span class="n">log</span> <span class="o">=</span> <span class="n">hxtorch</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;grenade.backend&quot;</span><span class="p">)</span>
@@ -305,8 +303,7 @@ a hardware calibration which might take a long time.</p>
             <span class="n">n_in</span> <span class="o">*</span> <span class="n">input_repetitions</span><span class="p">,</span>
             <span class="n">n_hidden</span><span class="p">,</span>
             <span class="n">experiment</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">experiment</span><span class="p">,</span>
-            <span class="n">transform</span><span class="o">=</span><span class="n">partial</span><span class="p">(</span>
-                <span class="n">weight_transforms</span><span class="o">.</span><span class="n">linear_saturating</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">weight_scale</span><span class="p">))</span>
+            <span class="n">weight_scale</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">weight_scale</span><span class="p">)</span>
 
         <span class="c1"># Initialize weights</span>
         <span class="k">if</span> <span class="n">weight_init_hidden</span><span class="p">:</span>
@@ -334,8 +331,7 @@ a hardware calibration which might take a long time.</p>
             <span class="n">n_hidden</span><span class="p">,</span>
             <span class="n">n_out</span><span class="p">,</span>
             <span class="n">experiment</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">experiment</span><span class="p">,</span>
-            <span class="n">transform</span><span class="o">=</span><span class="n">partial</span><span class="p">(</span>
-                <span class="n">weight_transforms</span><span class="o">.</span><span class="n">linear_saturating</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">weight_scale</span><span class="p">))</span>
+            <span class="n">weight_scale</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">weight_scale</span><span class="p">)</span>
 
         <span class="c1"># Readout layer</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">li_readout</span> <span class="o">=</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">LI</span><span class="p">(</span>
@@ -1109,9 +1105,7 @@ and one for the <code class="docutils literal notranslate"><span class="pre">Syn
             <span class="bp">self</span><span class="o">.</span><span class="n">n_in</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">input_repetitions</span><span class="p">,</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">n_hidden</span><span class="p">,</span>
             <span class="n">experiment</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">experiment</span><span class="p">,</span>
-            <span class="n">transform</span><span class="o">=</span><span class="n">partial</span><span class="p">(</span>
-                <span class="n">weight_transforms</span><span class="o">.</span><span class="n">linear_saturating</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">weight_scale</span><span class="p">))</span>
-
+            <span class="n">weight_scale</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">weight_scale</span><span class="p">)</span>
         <span class="c1"># Initialize weights</span>
         <span class="k">if</span> <span class="n">weight_init_hidden</span><span class="p">:</span>
             <span class="n">w</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_hidden</span><span class="p">,</span> <span class="n">n_in</span><span class="p">)</span>
@@ -1141,8 +1135,7 @@ and one for the <code class="docutils literal notranslate"><span class="pre">Syn
             <span class="n">n_hidden</span><span class="p">,</span>
             <span class="n">n_out</span><span class="p">,</span>
             <span class="n">experiment</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">experiment</span><span class="p">,</span>
-            <span class="n">transform</span><span class="o">=</span><span class="n">partial</span><span class="p">(</span>
-                <span class="n">weight_transforms</span><span class="o">.</span><span class="n">linear_saturating</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">weight_scale</span><span class="p">))</span>
+            <span class="n">weight_scale</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">weight_scale</span><span class="p">)</span>
 
         <span class="c1"># Readout layer</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">li_readout</span> <span class="o">=</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">LI</span><span class="p">(</span>

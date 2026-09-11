@@ -417,9 +417,7 @@ This approach prevents weight over-saturation and helps maintain consistency bet
                 <span class="n">cap</span><span class="o">=</span><span class="mf">1.</span> <span class="k">if</span> <span class="n">mock</span> <span class="k">else</span> <span class="mf">63.</span> <span class="o">/</span> <span class="n">weight_scale_hidden</span><span class="p">,</span>
                 <span class="n">weight_exp_rolloff</span><span class="o">=</span><span class="n">weight_exp_rolloff</span><span class="p">,</span>
                 <span class="n">use_quantization</span><span class="o">=</span><span class="n">use_quantization</span><span class="p">,</span>
-                <span class="n">transform</span><span class="o">=</span><span class="n">partial</span><span class="p">(</span>
-                    <span class="n">weight_transforms</span><span class="o">.</span><span class="n">linear_saturating</span><span class="p">,</span>
-                    <span class="n">scale</span><span class="o">=</span><span class="n">weight_scale_hidden</span><span class="p">))</span>
+                <span class="n">weight_scale</span><span class="o">=</span><span class="n">weight_scale_hidden</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">linear_hidden</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">linear</span><span class="p">)</span>
             <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;linear_hidden_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">linear</span><span class="p">)</span>
 
@@ -447,9 +445,7 @@ This approach prevents weight over-saturation and helps maintain consistency bet
                 <span class="n">cap</span><span class="o">=</span><span class="mf">1.</span> <span class="k">if</span> <span class="n">mock</span> <span class="k">else</span> <span class="mf">63.</span> <span class="o">/</span> <span class="n">weight_scale_output</span><span class="p">,</span>
                 <span class="n">weight_exp_rolloff</span><span class="o">=</span><span class="n">weight_exp_rolloff</span><span class="p">,</span>
                 <span class="n">use_quantization</span><span class="o">=</span><span class="n">use_quantization</span><span class="p">,</span>
-                <span class="n">transform</span><span class="o">=</span><span class="n">partial</span><span class="p">(</span>
-                    <span class="n">weight_transforms</span><span class="o">.</span><span class="n">linear_saturating</span><span class="p">,</span>
-                    <span class="n">scale</span><span class="o">=</span><span class="n">weight_scale_output</span><span class="p">))</span>
+                <span class="n">weight_scale</span><span class="o">=</span><span class="n">weight_scale_output</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">linear_output</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">linear</span><span class="p">)</span>
             <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;linear_output_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">linear</span><span class="p">)</span>
 

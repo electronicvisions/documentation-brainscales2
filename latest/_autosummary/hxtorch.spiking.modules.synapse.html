@@ -16,7 +16,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="hxtorch.spiking.modules.synapse.EventPropSynapse" href="hxtorch.spiking.modules.synapse.EventPropSynapse.html" />
+    <link rel="next" title="hxtorch.spiking.modules.synapse.Bounds" href="hxtorch.spiking.modules.synapse.Bounds.html" />
     <link rel="prev" title="hxtorch.spiking.modules.sparse_synapse.SynapseHandle" href="hxtorch.spiking.modules.sparse_synapse.SynapseHandle.html" /> 
 </head>
 
@@ -105,28 +105,31 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.modules.synapse.EventPropSynapse.html#hxtorch.spiking.modules.synapse.EventPropSynapse" title="hxtorch.spiking.modules.synapse.EventPropSynapse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EventPropSynapse</span></code></a>(in_features, out_features, …)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.modules.synapse.Bounds.html#hxtorch.spiking.modules.synapse.Bounds" title="hxtorch.spiking.modules.synapse.Bounds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Bounds</span></code></a>(lower, torch.Tensor]] =, upper, …)</p></td>
+<td><p>Class defining bounds of a finite value range and how to deal with the bounds in simulation. :param lower: The lower bound. :param upper: The upper bound. :param device: The device, the tensors containing the bounds are     transfered to. :param hardware_aware: When set to True, the saturation effect is     considered in the backward pass of the simulation; Else, the backward     function is set to be the identity function and <cite>torch.clamp()</cite> is used     instead of a surrogate. :param surrogate: Callable that implements a surrogate function for the     clamp function. Is needed in case of of a hardware aware     backpropagation.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.modules.synapse.EventPropSynapse.html#hxtorch.spiking.modules.synapse.EventPropSynapse" title="hxtorch.spiking.modules.synapse.EventPropSynapse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EventPropSynapse</span></code></a>(in_features, out_features, …)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.modules.synapse.LIFObservables.html#hxtorch.spiking.modules.synapse.LIFObservables" title="hxtorch.spiking.modules.synapse.LIFObservables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LIFObservables</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.modules.synapse.LIFObservables.html#hxtorch.spiking.modules.synapse.LIFObservables" title="hxtorch.spiking.modules.synapse.LIFObservables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LIFObservables</span></code></a></p></td>
 <td><p>alias of <a class="reference internal" href="hxtorch.spiking.handle.Handle_current_membrane_cadc_membrane_madc_spikes.html#hxtorch.spiking.handle.Handle_current_membrane_cadc_membrane_madc_spikes" title="hxtorch.spiking.handle.Handle_current_membrane_cadc_membrane_madc_spikes"><code class="xref py py-class docutils literal notranslate"><span class="pre">hxtorch.spiking.handle.Handle_current_membrane_cadc_membrane_madc_spikes</span></code></a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.modules.synapse.Parameter.html#hxtorch.spiking.modules.synapse.Parameter" title="hxtorch.spiking.modules.synapse.Parameter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Parameter</span></code></a>([data, requires_grad])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.modules.synapse.Parameter.html#hxtorch.spiking.modules.synapse.Parameter" title="hxtorch.spiking.modules.synapse.Parameter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Parameter</span></code></a>([data, requires_grad])</p></td>
 <td><p>A kind of Tensor that is to be considered a module parameter.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.modules.synapse.PlasticityRule.html#hxtorch.spiking.modules.synapse.PlasticityRule" title="hxtorch.spiking.modules.synapse.PlasticityRule"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PlasticityRule</span></code></a>(kernel, timer)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.modules.synapse.PlasticityRule.html#hxtorch.spiking.modules.synapse.PlasticityRule" title="hxtorch.spiking.modules.synapse.PlasticityRule"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PlasticityRule</span></code></a>(kernel, timer)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.modules.synapse.Projection.html#hxtorch.spiking.modules.synapse.Projection" title="hxtorch.spiking.modules.synapse.Projection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Projection</span></code></a>(*prj_args, **prj_kwargs)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.modules.synapse.Projection.html#hxtorch.spiking.modules.synapse.Projection" title="hxtorch.spiking.modules.synapse.Projection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Projection</span></code></a>(*prj_args, **prj_kwargs)</p></td>
 <td><p>Base class for projections on BSS-2</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.modules.synapse.ProjectionConnection.html#hxtorch.spiking.modules.synapse.ProjectionConnection" title="hxtorch.spiking.modules.synapse.ProjectionConnection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ProjectionConnection</span></code></a>(idx_pre, idx_post, weight)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.modules.synapse.ProjectionConnection.html#hxtorch.spiking.modules.synapse.ProjectionConnection" title="hxtorch.spiking.modules.synapse.ProjectionConnection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ProjectionConnection</span></code></a>(idx_pre, idx_post, weight)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.modules.synapse.Synapse.html#hxtorch.spiking.modules.synapse.Synapse" title="hxtorch.spiking.modules.synapse.Synapse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Synapse</span></code></a>(in_features, out_features, …)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.modules.synapse.Synapse.html#hxtorch.spiking.modules.synapse.Synapse" title="hxtorch.spiking.modules.synapse.Synapse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Synapse</span></code></a>(in_features, out_features, …[, …])</p></td>
 <td><p>Synapse layer</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.modules.synapse.SynapseHandle.html#hxtorch.spiking.modules.synapse.SynapseHandle" title="hxtorch.spiking.modules.synapse.SynapseHandle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SynapseHandle</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.modules.synapse.SynapseHandle.html#hxtorch.spiking.modules.synapse.SynapseHandle" title="hxtorch.spiking.modules.synapse.SynapseHandle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SynapseHandle</span></code></a></p></td>
 <td><p>alias of <a class="reference internal" href="hxtorch.spiking.handle.Handle_graded_spikes.html#hxtorch.spiking.handle.Handle_graded_spikes" title="hxtorch.spiking.handle.Handle_graded_spikes"><code class="xref py py-class docutils literal notranslate"><span class="pre">hxtorch.spiking.handle.Handle_graded_spikes</span></code></a></p></td>
 </tr>
 </tbody>
@@ -138,7 +141,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="hxtorch.spiking.modules.sparse_synapse.SynapseHandle.html" class="btn btn-neutral float-left" title="hxtorch.spiking.modules.sparse_synapse.SynapseHandle" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="hxtorch.spiking.modules.synapse.EventPropSynapse.html" class="btn btn-neutral float-right" title="hxtorch.spiking.modules.synapse.EventPropSynapse" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="hxtorch.spiking.modules.synapse.Bounds.html" class="btn btn-neutral float-right" title="hxtorch.spiking.modules.synapse.Bounds" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -107,11 +107,14 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.functional.mock.bounds.html#module-hxtorch.spiking.functional.mock.bounds" title="hxtorch.spiking.functional.mock.bounds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hxtorch.spiking.functional.mock.bounds</span></code></a></p></td>
 <td><p>Define dataclass that holds data needed to mock bounds (e.g.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.functional.mock.noise.html#module-hxtorch.spiking.functional.mock.noise" title="hxtorch.spiking.functional.mock.noise"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hxtorch.spiking.functional.mock.noise</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.functional.mock.discrete.html#module-hxtorch.spiking.functional.mock.discrete" title="hxtorch.spiking.functional.mock.discrete"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hxtorch.spiking.functional.mock.discrete</span></code></a></p></td>
+<td><p>Define torch.autograd.Function to mock discretization (e.g.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.functional.mock.noise.html#module-hxtorch.spiking.functional.mock.noise" title="hxtorch.spiking.functional.mock.noise"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hxtorch.spiking.functional.mock.noise</span></code></a></p></td>
 <td><p>Define dataclass and torch.autograd.Function to mock random noise</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.functional.mock.saturate.html#module-hxtorch.spiking.functional.mock.saturate" title="hxtorch.spiking.functional.mock.saturate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hxtorch.spiking.functional.mock.saturate</span></code></a>(…)</p></td>
-<td><p>Applies soft or hard thresholds. :param input: Tensor, to which the thresholds are applied to. :param bounds: Bounds object containing thesholds and information about how     the thresholds are to be applied to the input.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.functional.mock.saturate.html#module-hxtorch.spiking.functional.mock.saturate" title="hxtorch.spiking.functional.mock.saturate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hxtorch.spiking.functional.mock.saturate</span></code></a>(…)</p></td>
+<td><p>Applies thresholds. :param input: Tensor, to which the thresholds are applied to. :param bounds: Bounds object containing thesholds and the function, which     is used to apply the thresholds.</p></td>
 </tr>
 </tbody>
 </table>
@@ -123,12 +126,15 @@
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.functional.mock.Bounds.html#hxtorch.spiking.functional.mock.Bounds" title="hxtorch.spiking.functional.mock.Bounds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Bounds</span></code></a>(lower, torch.Tensor]] =, upper, …)</p></td>
-<td><p>Class defining bounds of a finite value range and how to deal with the bounds in simulation. :param lower: The lower bound. :param upper: The upper bound. :param device: The device, the tensors containing the bounds are     transfered to. :param hardware_aware: When set to True, the saturation effect is     considered in the backward pass of the simulation; Else, the backward     function is set to be the identity function and <cite>torch.clamp()</cite> is used     instead of a surrogate. :param surrogate: In case of of a hardware aware backpropagation, a smooth     surrogate function that approximates the clamp function is needed. <cite>surrogate</cite> is a string indicating which surrogate function is to be     used in forward- and backward pass to ensure continuous     differentiability. The surrogate is only applied, when     <cite>hardware_aware</cite> is set. The surrogate can be set to     <cite>“linear_rolloff”</cite>. :param rolloff_margin: Parameter of the linear roll off surrogate: Size of     the margin from the bounds inwards, in which the roll off is active. Value relative to the distance between the bounds. :param rolloff_margin_abs: Absolute size of the margin from the bounds     inwards, in which the roll off is active. This value is needed as a     fallback, in case one of the thresholds is infinite.</p></td>
+<td><p>Class defining bounds of a finite value range and how to deal with the bounds in simulation. :param lower: The lower bound. :param upper: The upper bound. :param device: The device, the tensors containing the bounds are     transfered to. :param hardware_aware: When set to True, the saturation effect is     considered in the backward pass of the simulation; Else, the backward     function is set to be the identity function and <cite>torch.clamp()</cite> is used     instead of a surrogate. :param surrogate: Callable that implements a surrogate function for the     clamp function. Is needed in case of of a hardware aware     backpropagation.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.functional.mock.RandomNoise.html#hxtorch.spiking.functional.mock.RandomNoise" title="hxtorch.spiking.functional.mock.RandomNoise"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RandomNoise</span></code></a>(std, torch.Tensor]] = None, …)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.functional.mock.Discrete.html#hxtorch.spiking.functional.mock.Discrete" title="hxtorch.spiking.functional.mock.Discrete"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Discrete</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Discretize values of a tensor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.functional.mock.RandomNoise.html#hxtorch.spiking.functional.mock.RandomNoise" title="hxtorch.spiking.functional.mock.RandomNoise"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RandomNoise</span></code></a>(std, torch.Tensor]] = None, …)</p></td>
 <td><p>Class defining gaussian random noise to mock the random noise of the membrane and adaptation state on hardware along the time axis.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.functional.mock.RandomNoiseAdd.html#hxtorch.spiking.functional.mock.RandomNoiseAdd" title="hxtorch.spiking.functional.mock.RandomNoiseAdd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RandomNoiseAdd</span></code></a>(*args, **kwargs)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.functional.mock.RandomNoiseAdd.html#hxtorch.spiking.functional.mock.RandomNoiseAdd" title="hxtorch.spiking.functional.mock.RandomNoiseAdd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RandomNoiseAdd</span></code></a>(*args, **kwargs)</p></td>
 <td><p>Add random noise to a tensor</p></td>
 </tr>
 </tbody>
@@ -137,11 +143,11 @@
 <dl class="py function">
 <dt id="hxtorch.spiking.functional.mock.saturate">
 <code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.functional.mock.</span></code><code class="sig-name descname"><span class="pre">saturate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bounds</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="hxtorch.spiking.functional.mock.bounds.Bounds.html#hxtorch.spiking.functional.mock.bounds.Bounds" title="hxtorch.spiking.functional.mock.bounds.Bounds"><span class="pre">hxtorch.spiking.functional.mock.bounds.Bounds</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">torch.Tensor</span><a class="headerlink" href="#hxtorch.spiking.functional.mock.saturate" title="Permalink to this definition"></a></dt>
-<dd><p>Applies soft or hard thresholds.
+<dd><p>Applies thresholds.
 :param input: Tensor, to which the thresholds are applied to.
-:param bounds: Bounds object containing thesholds and information about how</p>
+:param bounds: Bounds object containing thesholds and the function, which</p>
 <blockquote>
-<div><p>the thresholds are to be applied to the input.</p>
+<div><p>is used to apply the thresholds.</p>
 </div></blockquote>
 </dd></dl>
 

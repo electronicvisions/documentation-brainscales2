@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>hxtorch.spiking.functional.SuperSpike &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <title>hxtorch.spiking.functional.surrogates.spike.SuperSpike &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -16,8 +16,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="hxtorch.spiking.handle" href="hxtorch.spiking.handle.html" />
-    <link rel="prev" title="hxtorch.spiking.functional.EventPropSynapseFunction" href="hxtorch.spiking.functional.EventPropSynapseFunction.html" /> 
+    <link rel="next" title="hxtorch.spiking.functional.unterjubel" href="hxtorch.spiking.functional.unterjubel.html" />
+    <link rel="prev" title="hxtorch.spiking.functional.surrogates.spike" href="hxtorch.spiking.functional.surrogates.spike.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -85,9 +85,11 @@
           <li class="breadcrumb-item"><a href="hxtorch.html">hxtorch</a></li>
           <li class="breadcrumb-item"><a href="hxtorch.spiking.html">hxtorch.spiking</a></li>
           <li class="breadcrumb-item"><a href="hxtorch.spiking.functional.html">hxtorch.spiking.functional</a></li>
-      <li class="breadcrumb-item active">hxtorch.spiking.functional.SuperSpike</li>
+          <li class="breadcrumb-item"><a href="hxtorch.spiking.functional.surrogates.html">hxtorch.spiking.functional.surrogates</a></li>
+          <li class="breadcrumb-item"><a href="hxtorch.spiking.functional.surrogates.spike.html">hxtorch.spiking.functional.surrogates.spike</a></li>
+      <li class="breadcrumb-item active">hxtorch.spiking.functional.surrogates.spike.SuperSpike</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/_autosummary/hxtorch.spiking.functional.SuperSpike.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/_autosummary/hxtorch.spiking.functional.surrogates.spike.SuperSpike.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -95,17 +97,17 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="hxtorch-spiking-functional-superspike">
-<h1>hxtorch.spiking.functional.SuperSpike<a class="headerlink" href="#hxtorch-spiking-functional-superspike" title="Permalink to this headline"></a></h1>
+  <div class="section" id="hxtorch-spiking-functional-surrogates-spike-superspike">
+<h1>hxtorch.spiking.functional.surrogates.spike.SuperSpike<a class="headerlink" href="#hxtorch-spiking-functional-surrogates-spike-superspike" title="Permalink to this headline"></a></h1>
 <dl class="py class">
-<dt id="hxtorch.spiking.functional.SuperSpike">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.functional.</span></code><code class="sig-name descname"><span class="pre">SuperSpike</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.functional.SuperSpike" title="Permalink to this definition"></a></dt>
+<dt id="hxtorch.spiking.functional.surrogates.spike.SuperSpike">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">hxtorch.spiking.functional.surrogates.spike.</span></code><code class="sig-name descname"><span class="pre">SuperSpike</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.functional.surrogates.spike.SuperSpike" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">torch.autograd.function.Function</span></code></p>
 <p>Define Surrogate Gradient ‘SuperSpike’ (negative side of Fast Sigmoid)
 See: <a class="reference external" href="https://arxiv.org/abs/1705.11146">https://arxiv.org/abs/1705.11146</a></p>
 <dl class="py method">
-<dt id="hxtorch.spiking.functional.SuperSpike.__init__">
-<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.functional.SuperSpike.__init__" title="Permalink to this definition"></a></dt>
+<dt id="hxtorch.spiking.functional.surrogates.spike.SuperSpike.__init__">
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.functional.surrogates.spike.SuperSpike.__init__" title="Permalink to this definition"></a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
@@ -116,10 +118,10 @@ See: <a class="reference external" href="https://arxiv.org/abs/1705.11146">https
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.functional.SuperSpike.backward" title="hxtorch.spiking.functional.SuperSpike.backward"><code class="xref py py-obj docutils literal notranslate"><span class="pre">backward</span></code></a>(ctx, grad_output)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.functional.surrogates.spike.SuperSpike.backward" title="hxtorch.spiking.functional.surrogates.spike.SuperSpike.backward"><code class="xref py py-obj docutils literal notranslate"><span class="pre">backward</span></code></a>(ctx, grad_output)</p></td>
 <td><p>Implements surrogate gradient ‘SuperSpike’ for backward.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.functional.SuperSpike.forward" title="hxtorch.spiking.functional.SuperSpike.forward"><code class="xref py py-obj docutils literal notranslate"><span class="pre">forward</span></code></a>(ctx, input, alpha)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.functional.surrogates.spike.SuperSpike.forward" title="hxtorch.spiking.functional.surrogates.spike.SuperSpike.forward"><code class="xref py py-obj docutils literal notranslate"><span class="pre">forward</span></code></a>(ctx, input, alpha)</p></td>
 <td><p>Forward function, generating spikes at positions &gt; 0.</p></td>
 </tr>
 </tbody>
@@ -134,8 +136,8 @@ See: <a class="reference external" href="https://arxiv.org/abs/1705.11146">https
 </tbody>
 </table>
 <dl class="py method">
-<dt id="hxtorch.spiking.functional.SuperSpike.backward">
-<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">backward</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grad_output</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="p"><span class="pre">…</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#hxtorch.spiking.functional.SuperSpike.backward" title="Permalink to this definition"></a></dt>
+<dt id="hxtorch.spiking.functional.surrogates.spike.SuperSpike.backward">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">backward</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grad_output</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="p"><span class="pre">…</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#hxtorch.spiking.functional.surrogates.spike.SuperSpike.backward" title="Permalink to this definition"></a></dt>
 <dd><p>Implements surrogate gradient ‘SuperSpike’ for backward.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -148,8 +150,8 @@ See: <a class="reference external" href="https://arxiv.org/abs/1705.11146">https
 </dd></dl>
 
 <dl class="py method">
-<dt id="hxtorch.spiking.functional.SuperSpike.forward">
-<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">forward</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">torch.Tensor</span><a class="headerlink" href="#hxtorch.spiking.functional.SuperSpike.forward" title="Permalink to this definition"></a></dt>
+<dt id="hxtorch.spiking.functional.surrogates.spike.SuperSpike.forward">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">forward</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">torch.Tensor</span><a class="headerlink" href="#hxtorch.spiking.functional.surrogates.spike.SuperSpike.forward" title="Permalink to this definition"></a></dt>
 <dd><p>Forward function, generating spikes at positions &gt; 0.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -175,8 +177,8 @@ emitting a spike.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="hxtorch.spiking.functional.EventPropSynapseFunction.html" class="btn btn-neutral float-left" title="hxtorch.spiking.functional.EventPropSynapseFunction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="hxtorch.spiking.handle.html" class="btn btn-neutral float-right" title="hxtorch.spiking.handle" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="hxtorch.spiking.functional.surrogates.spike.html" class="btn btn-neutral float-left" title="hxtorch.spiking.functional.surrogates.spike" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="hxtorch.spiking.functional.unterjubel.html" class="btn btn-neutral float-right" title="hxtorch.spiking.functional.unterjubel" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

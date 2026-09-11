@@ -114,8 +114,7 @@
 <span class="n">setup_hardware_client</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="kn">import</span> <span class="nn">torch</span>
@@ -217,9 +216,7 @@ The second scaling is the scaling between the weights used in the sofware model 
 <p>First we want to align the membrane ranges.
 For this, we assume <code class="docutils literal notranslate"><span class="pre">leak=0</span></code>, <code class="docutils literal notranslate"><span class="pre">reset=0</span></code> and <code class="docutils literal notranslate"><span class="pre">threshold=1</span></code> for the LIF neuron in the numerics.
 <code class="docutils literal notranslate"><span class="pre">LIF</span></code>s can be parameterized with different values for the <code class="docutils literal notranslate"><span class="pre">model</span></code> in software which is used for gradient computation and the neuron on <code class="docutils literal notranslate"><span class="pre">hardware</span></code> using a <code class="docutils literal notranslate"><span class="pre">MixedHXModelParameter</span></code>:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">hxtorch.snn.transforms.weight_transforms</span> <span class="kn">import</span> <span class="n">linear_saturating</span>
-
-<span class="n">hxtorch</span><span class="o">.</span><span class="n">init_hardware</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hxtorch</span><span class="o">.</span><span class="n">init_hardware</span><span class="p">()</span>
 
 <span class="c1"># Model parameters</span>
 <span class="n">model_threshold</span> <span class="o">=</span> <span class="mf">1.</span>
@@ -252,7 +249,7 @@ For this, we assume <code class="docutils literal notranslate"><span class="pre"
             <span class="n">in_features</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
             <span class="n">out_features</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
             <span class="n">experiment</span><span class="o">=</span><span class="n">exp</span><span class="p">,</span>
-            <span class="n">transform</span><span class="o">=</span><span class="n">partial</span><span class="p">(</span><span class="n">linear_saturating</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">weight_scale</span><span class="p">))</span>
+            <span class="n">weight_scale</span><span class="o">=</span><span class="n">weight_scale</span><span class="p">)</span>
         <span class="n">lif</span> <span class="o">=</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">LIF</span><span class="p">(</span>
             <span class="n">size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
             <span class="n">experiment</span><span class="o">=</span><span class="n">exp</span><span class="p">,</span>
@@ -338,8 +335,7 @@ LI neuron layers are created by using <code class="docutils literal notranslate"
 <span class="n">exp</span><span class="o">.</span><span class="n">calibration</span> <span class="o">=</span> <span class="n">calib_helper</span><span class="o">.</span><span class="n">fixture_calibration_from_file</span><span class="p">(</span>
     <span class="s2">&quot;spiking_cocolist.pbin&quot;</span><span class="p">)</span>
 
-<span class="n">lin1</span> <span class="o">=</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">Synapse</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">exp</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">partial</span><span class="p">(</span>
-            <span class="n">linear_saturating</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">55</span><span class="p">))</span>
+<span class="n">lin1</span> <span class="o">=</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">Synapse</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">exp</span><span class="p">,</span> <span class="n">weight_scale</span><span class="o">=</span><span class="mi">55</span><span class="p">)</span>
 <span class="n">li</span> <span class="o">=</span> <span class="n">hxsnn</span><span class="o">.</span><span class="n">LI</span><span class="p">(</span>
     <span class="mi">3</span><span class="p">,</span>
     <span class="n">exp</span><span class="p">,</span>
