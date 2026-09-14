@@ -143,7 +143,10 @@ describe recurrence.</p>
 <tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.HXModuleWrapper.forward_func" title="hxtorch.spiking.HXModuleWrapper.forward_func"><code class="xref py py-obj docutils literal notranslate"><span class="pre">forward_func</span></code></a>(input[, hw_data])</p></td>
 <td><p>This function describes the unified functionality of all modules assigned to this wrapper. As for HXModules, this needs to be a PyTorch- differentiable function defined by PyTorch operations. The input and output of this member function is wrapped by (tuples of) <cite>Handles</cite>. The signature of this function is expected as: - Input: All input handles required for each module in <cite>modules</cite> as     positional arguments in the order given by <cite>modules</cite>. - Outputs: Output a tuple of handles each corresponding to the output     of one module in <cite>modules</cite>. The order is given by <cite>modules</cite>. - Additionally, hardware data can be accessed via a <cite>hw_data</cite> keyword     arguments to which the the hardware data is supplied via a tuple     holding the hardware data for each module.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.HXModuleWrapper.update" title="hxtorch.spiking.HXModuleWrapper.update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update</span></code></a>(**modules)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.HXModuleWrapper.isdisjoint" title="hxtorch.spiking.HXModuleWrapper.isdisjoint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isdisjoint</span></code></a>(wrapper)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.HXModuleWrapper.update" title="hxtorch.spiking.HXModuleWrapper.update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update</span></code></a>(**modules)</p></td>
 <td><p>Update the modules and the function in the wrapper.</p></td>
 </tr>
 </tbody>
@@ -226,6 +229,11 @@ holding the hardware data for each module.</p>
 </li>
 </ul>
 </dd></dl>
+
+<dl class="py method">
+<dt id="hxtorch.spiking.HXModuleWrapper.isdisjoint">
+<code class="sig-name descname"><span class="pre">isdisjoint</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wrapper</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="hxtorch.spiking.modules.hx_module_wrapper.HXModuleWrapper.html#hxtorch.spiking.modules.hx_module_wrapper.HXModuleWrapper" title="hxtorch.spiking.modules.hx_module_wrapper.HXModuleWrapper"><span class="pre">hxtorch.spiking.modules.hx_module_wrapper.HXModuleWrapper</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxtorch.spiking.HXModuleWrapper.isdisjoint" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt id="hxtorch.spiking.HXModuleWrapper.update">
