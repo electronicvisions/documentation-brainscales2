@@ -121,7 +121,7 @@ See: <a class="reference external" href="https://arxiv.org/abs/1705.11146">https
 <tr class="row-odd"><td><p><a class="reference internal" href="#hxtorch.spiking.functional.surrogates.spike.SuperSpike.backward" title="hxtorch.spiking.functional.surrogates.spike.SuperSpike.backward"><code class="xref py py-obj docutils literal notranslate"><span class="pre">backward</span></code></a>(ctx, grad_output)</p></td>
 <td><p>Implements surrogate gradient ‘SuperSpike’ for backward.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.functional.surrogates.spike.SuperSpike.forward" title="hxtorch.spiking.functional.surrogates.spike.SuperSpike.forward"><code class="xref py py-obj docutils literal notranslate"><span class="pre">forward</span></code></a>(ctx, input, alpha)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#hxtorch.spiking.functional.surrogates.spike.SuperSpike.forward" title="hxtorch.spiking.functional.surrogates.spike.SuperSpike.forward"><code class="xref py py-obj docutils literal notranslate"><span class="pre">forward</span></code></a>(ctx, input, alpha[, input_mean])</p></td>
 <td><p>Forward function, generating spikes at positions &gt; 0.</p></td>
 </tr>
 </tbody>
@@ -151,15 +151,18 @@ See: <a class="reference external" href="https://arxiv.org/abs/1705.11146">https
 
 <dl class="py method">
 <dt id="hxtorch.spiking.functional.surrogates.spike.SuperSpike.forward">
-<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">forward</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">torch.Tensor</span><a class="headerlink" href="#hxtorch.spiking.functional.surrogates.spike.SuperSpike.forward" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">forward</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_mean</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">torch.Tensor</span><a class="headerlink" href="#hxtorch.spiking.functional.surrogates.spike.SuperSpike.forward" title="Permalink to this definition"></a></dt>
 <dd><p>Forward function, generating spikes at positions &gt; 0.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>input</strong> – Tensor holding <cite>v_mem - v_th</cite>, of &gt; 0 a spike at the
-corresponding entry is generated. Saved for backward.</p></li>
+corresponding entry is generated. Saved for backward, if
+<cite>input_mean</cite> is not None.</p></li>
 <li><p><strong>alpha</strong> – Parameter controlling the slope of the surrogate
 derivative. Saved for backward.</p></li>
+<li><p><strong>input_mean</strong> – Tensor holding <cite>v_mem - v_th_mean</cite>. Saved for
+backward, if is not None.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>

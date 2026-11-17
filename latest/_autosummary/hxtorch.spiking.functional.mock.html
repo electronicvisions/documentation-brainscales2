@@ -110,10 +110,13 @@
 <tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.functional.mock.discrete.html#module-hxtorch.spiking.functional.mock.discrete" title="hxtorch.spiking.functional.mock.discrete"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hxtorch.spiking.functional.mock.discrete</span></code></a></p></td>
 <td><p>Define torch.autograd.Function to mock discretization (e.g.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.functional.mock.noise.html#module-hxtorch.spiking.functional.mock.noise" title="hxtorch.spiking.functional.mock.noise"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hxtorch.spiking.functional.mock.noise</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.functional.mock.fixed_pattern_noise.html#module-hxtorch.spiking.functional.mock.fixed_pattern_noise" title="hxtorch.spiking.functional.mock.fixed_pattern_noise"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hxtorch.spiking.functional.mock.fixed_pattern_noise</span></code></a></p></td>
+<td><p>Define torch.autograd.Functions for dealing with noisy parameters (with respect to fixed-pattern-noise).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.functional.mock.noise.html#module-hxtorch.spiking.functional.mock.noise" title="hxtorch.spiking.functional.mock.noise"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hxtorch.spiking.functional.mock.noise</span></code></a></p></td>
 <td><p>Define dataclass and torch.autograd.Function to mock random noise</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.functional.mock.saturate.html#module-hxtorch.spiking.functional.mock.saturate" title="hxtorch.spiking.functional.mock.saturate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hxtorch.spiking.functional.mock.saturate</span></code></a>(…)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.functional.mock.saturate.html#module-hxtorch.spiking.functional.mock.saturate" title="hxtorch.spiking.functional.mock.saturate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hxtorch.spiking.functional.mock.saturate</span></code></a>(…)</p></td>
 <td><p>Applies thresholds. :param input: Tensor, to which the thresholds are applied to. :param bounds: Bounds object containing thesholds and the function, which     is used to apply the thresholds.</p></td>
 </tr>
 </tbody>
@@ -130,6 +133,12 @@
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.functional.mock.Discrete.html#hxtorch.spiking.functional.mock.Discrete" title="hxtorch.spiking.functional.mock.Discrete"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Discrete</span></code></a>(*args, **kwargs)</p></td>
 <td><p>Discretize values of a tensor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.functional.mock.FixedPatternNoiseExponential.html#hxtorch.spiking.functional.mock.FixedPatternNoiseExponential" title="hxtorch.spiking.functional.mock.FixedPatternNoiseExponential"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FixedPatternNoiseExponential</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Compute exponential function of noisy values.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="hxtorch.spiking.functional.mock.FixedPatternNoiseMultiply.html#hxtorch.spiking.functional.mock.FixedPatternNoiseMultiply" title="hxtorch.spiking.functional.mock.FixedPatternNoiseMultiply"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FixedPatternNoiseMultiply</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Multiply noiy factors to tensor.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="hxtorch.spiking.functional.mock.RandomNoise.html#hxtorch.spiking.functional.mock.RandomNoise" title="hxtorch.spiking.functional.mock.RandomNoise"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RandomNoise</span></code></a>(std, torch.Tensor]] = None, …)</p></td>
 <td><p>Class defining gaussian random noise to mock the random noise of the membrane and adaptation state on hardware along the time axis.</p></td>
