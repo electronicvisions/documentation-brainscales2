@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Training an SNN on BrainScaleS-2 with jaxsnn and EventProp &mdash; BrainScaleS-2 Documentation 0.0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/visions.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Introduction to matrix multiplication" href="tp_00-introduction.html" />
+    <link rel="prev" title="Partitioning of Feedforward SNNs" href="ts_13-network_partitioning.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            BrainScaleS-2 Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Demos &amp; Examples</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="tutorial.html">Demos and Examples</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="ts_00-single_neuron.html">BrainScaleS-2 single neuron experiments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ts_01-superspike.html">Learning with the SuperSpike rule</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ts_02-plasticity_rate_coding.html">BrainScaleS-2 on-chip plasticity experiment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ts_03-multicompartment.html">Multicompartmental Neurons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ts_04-mc_genetic_algorithms.html">How to use Genetic Algorithms to automatically parameterize BrainScaleS-2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ts_05-yin_yang.html">Training an SNN on BrainScaleS-2 with PyTorch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ts_06-dynamic_range.html">Exploring the dynamic range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ts_07-pong.html">Pong</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ts_08-adex_complex_dynamics.html">Complex Neuron Dynamics with a Silicon Adaptive Exponential Integrate-and-Fire Neuron</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ts_09-inside_realtime_hook.html">Demonstration of inside realtime hook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ts_10-multiple_configs.html">Demonstration of multiple chip-reconfigurations during an experiment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ts_11-plasticity_homeostasis.html">BrainScaleS-2 on-chip plasticity experiment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ts_12-hxtorch_snn_intro.html">hxtorch.snn Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ts_13-network_partitioning.html">Partitioning of Feedforward SNNs</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Training an SNN on BrainScaleS-2 with <cite>jaxsnn</cite> and EventProp</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#spiking-neural-networks">Spiking Neural Networks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#optimizing-snns">Optimizing SNNs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-jaxsnn-library-for-event-driven-learning">The <code class="docutils literal notranslate"><span class="pre">jaxsnn</span></code> Library for Event-driven Learning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#types">Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#composing-topologies">Composing Topologies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#jaxsnn-supports-jax-s-function-transformations"><cite>jaxsnn</cite> supports JAX’s function transformations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#events-from-a-neuromorphic-backend">Events from a Neuromorphic Backend</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#event-stepping">Event-stepping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#learning-a-spike-time">Learning a Spike Time</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#training-an-snn-on-bss-2-to-solve-the-yin-yang-dataset">Training an SNN on BSS-2 to solve the Yin-Yang Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-yin-yang-dataset">The Yin-Yang dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#building-the-network">Building the network</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#training-the-network">Training the Network</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#references-and-further-reading">References and further reading</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tp_00-introduction.html">Introduction to matrix multiplication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tp_01-properties.html">Exploring the analog MAC operation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tp_02-yin_yang.html">Train DNNs on BrainScaleS-2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nmpi_00-non_interactive_queue_runner.html">Introduction to the non-interactive queue runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#executing-the-notebooks">Executing the Notebooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#shared-hardware-resources">Shared Hardware Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#final-test-hardware-execution">Final test: Hardware Execution</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="girlsday.html">Wie verarbeitet unser Gehirn Informationen?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fortgeschrittenen_praktikum.html">Welcome to the Advanced Physics Lab for Physicists by the Electronic Vision(s) Group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cns_00_overview.html">BrainScaleS-2 Computational Neuroscience Demo</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../software_components.html">Software Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../apis.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BrainScaleS-2 Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Welcome to the BrainScaleS-2 Demos &amp; Examples!</a></li>
+          <li class="breadcrumb-item"><a href="tutorial.html">Welcome to the BrainScaleS-2 Tutorial</a></li>
+      <li class="breadcrumb-item active">Training an SNN on BrainScaleS-2 with <cite>jaxsnn</cite> and EventProp</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/brainscales2-demos/ts_14-jaxsnn_yin_yang.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="training-an-snn-on-brainscales-2-with-jaxsnn-and-eventprop">
+<h1>Training an SNN on BrainScaleS-2 with <cite>jaxsnn</cite> and EventProp<a class="headerlink" href="#training-an-snn-on-brainscales-2-with-jaxsnn-and-eventprop" title="Permalink to this headline"></a></h1>
+<p>In this tutorial we create and train a spiking neural network (SNN) on the neuromorphic hardware system BrainScaleS-2 (BSS-2) [1].
+Particularly, we use the event-based <cite>jaxsnn</cite> [3] software framework to solve the Yin-Yang dataset [2].
+For training we rely on the EventProp [5] algorithm.
+<cite>jaxsnn</cite> is a JAX-based [4] library to simulate SNNs and optimize them in an event-driven manner, also on neuromorphic hardware.
+This tutorial will outline and showcase the basic principles of <cite>jaxsnn</cite> and how to use it to train an SNN on BSS-2.</p>
+<div class="section" id="spiking-neural-networks">
+<h2>Spiking Neural Networks<a class="headerlink" href="#spiking-neural-networks" title="Permalink to this headline"></a></h2>
+<p>SNNs are composed of neurons that communicate through discrete spike events in continuous time.
+Unlike traditional artificial neural networks, SNNs incorporate temporal dynamics, where each neuron’s internal state—such as membrane potential <span class="math notranslate nohighlight">\(V\)</span> and synaptic current <span class="math notranslate nohighlight">\(I\)</span>—evolves over time according to biophysically-inspired equations.
+Information is transmitted via spikes: when a neuron’s membrane potential reaches a threshold, it emits a spike, which is then received by post-synaptic neurons, triggering state changes in the neuron itself and its partners, thereby enabling complex temporal information processing.</p>
+<p>One commonly used neuron model is the leaky integrate-and-fire (LIF) neuron model described by the equations:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+    &amp; \text{Free dynamics}                  &amp;&amp; \quad \text{Transition condition}              &amp;&amp; \quad \text{Jumps at transition}   \\
+    &amp;\tau_{\mathrm{m}} \dot{V} = - V + I    &amp;&amp; \quad (V)_{n} - V_{\mathrm{th}} = 0 \text{, }(\dot{V})_{n} &gt; 0    &amp;&amp; \quad (V^{+})_{n} = V_{\mathrm{reset}}              \\
+    &amp;\tau_{\mathrm{s}} \dot{I} = - I        &amp;&amp; \quad \text{for any } n                        &amp;&amp; \quad I^{+} = I^{-} + W e_{n}
+\end{align*}\end{split}\]</div>
+<p>The free dynamics describe how the neuron state (<span class="math notranslate nohighlight">\(I\)</span>, <span class="math notranslate nohighlight">\(V\)</span>) evolves continuously over time.
+When certain transition conditions are met—such as a neuron’s membrane potential crossing its threshold <span class="math notranslate nohighlight">\(V_{\mathrm{th}}\)</span> or the arrival of a synaptic event—the neuron state undergoes discrete jumps.
+Here, <span class="math notranslate nohighlight">\(V_{\mathrm{reset}}\)</span> is the reset potential and <span class="math notranslate nohighlight">\(\tau_{\mathrm{m}}\)</span> and <span class="math notranslate nohighlight">\(\tau_{\mathrm{s}}\)</span> denote the membrane and synaptic time constants, respectively.
+<span class="math notranslate nohighlight">\(n\)</span> indexes the neuron.</p>
+<p>The figure below illustrates how the states of two neurons evolve over time as they receive events through different synapses:</p>
+<a class="reference internal image-reference" href="../_images/lif_example.png"><img alt="../_images/lif_example.png" class="align-center" src="../_images/lif_example.png" style="width: 50%;" /></a>
+<p>A key concept in SNNs is that both input and output, as well as internal communication between neurons, occur via spike events.
+Each spike event can be represented as a tuple <span class="math notranslate nohighlight">\((t_\mathrm{spike}, n)\)</span>, indicating the time and the neuron index.
+Thus, the output of an SNN is typically a sequence (e.g. a list) of such events.</p>
+<p>This event-based processing paradigm is why SNNs are described as performing event-driven information processing: they operate directly on streams of discrete events rather than continuous signals.</p>
+</div>
+<div class="section" id="optimizing-snns">
+<h2>Optimizing SNNs<a class="headerlink" href="#optimizing-snns" title="Permalink to this headline"></a></h2>
+<p>There are several approaches to optimizing spiking neural networks (SNNs) for a given task.
+In many machine learning applications, the neural dynamics of SNNs are discretized in time and integrated numerically.
+In such modeling schemes, network spikes are represented as binary tensors of shape <cite>(time_steps, neuron_index)</cite>, where a value of <cite>1</cite> indicates a spike event at a particular time step, and <cite>0</cite> otherwise.
+This discretization enables the use of established machine learning techniques, as SNNs can then be treated as recurrent neural networks (RNNs) and trained using backpropagation through time (BPTT).</p>
+<p>However, simulating SNNs on a discrete time grid introduces some limitations.
+The temporal resolution of spike times—and thus the information processing in the network—is constrained by the time step size.
+Achieving high temporal precision requires a fine time grid, which can significantly increase computational complexity, especially when spiking activity is sparse and much computation is spent simulating periods without events.</p>
+<p>To address these challenges, event-driven (or event-stepped) simulation offers a more efficient alternative. Instead of evolving the network state at every fixed time step, the simulation advances from one spike event to the next.
+This approach enables the use of real-valued spike times and aligns naturally with event-driven neuromorphic hardware, which processes and generates spikes with high temporal precision.
+Instead of dense binary tensors, spike data is represented more efficiently as sequences of discrete spike events. SNNs can be optimized in an event-driven manner using the EventProp [5] algorithm.</p>
+<p>In the plot below the difference between event-stepped and time-gridded is visualized:</p>
+<a class="reference internal image-reference" href="../_images/comparison.gif"><img alt="../_images/comparison.gif" class="align-center" src="../_images/comparison.gif" style="width: 90%;" /></a>
+<p>For event-stepped simulation and optimization of SNNs, we have developed the <cite>jaxsnn</cite> [3] library, which is the focus of this tutorial.</p>
+<div class="section" id="eventprop-for-event-stepped-optimization">
+<h3>EventProp for Event-stepped Optimization<a class="headerlink" href="#eventprop-for-event-stepped-optimization" title="Permalink to this headline"></a></h3>
+<p>In EventProp [5] we consider loss functions, which are to be minimized to solve a given task, of the form</p>
+<div class="math notranslate nohighlight">
+\[L = l_{\mathrm{p}} (t^{\mathrm{post}}) + \int_{0}^{T} l_{V} (V, t) \mathrm{d}t,\]</div>
+<p>where <span class="math notranslate nohighlight">\(l_{\mathrm{p}}(t^{\mathrm{post}})\)</span> and <span class="math notranslate nohighlight">\(l_{V} (V, t)\)</span> are smooth loss functions depending on the membrane potentials <span class="math notranslate nohighlight">\(V\)</span>, time <span class="math notranslate nohighlight">\(t\)</span> and set of post-synaptic spike times <span class="math notranslate nohighlight">\(t^\mathrm{post}\)</span>.</p>
+<p>The system’s forward dynamics, defined in the table above, can be introduced as constraints via Lagrange multipliers <span class="math notranslate nohighlight">\(\lambda_{V}\)</span> and <span class="math notranslate nohighlight">\(\lambda_{I}\)</span>, referring to the equation of the respective state variable.
+From this, an adjoint system of differential equations for the Lagrange multipliers can be found and solved in reverse time.
+They also undergo jumps at the spike times of neurons found by solving (or in our case emulating) the forward dynamics.
+Using the notation <span class="math notranslate nohighlight">\(’ = -\frac{\mathrm{d}}{\mathrm{d} t}\)</span>, the adjoint equations are</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+    &amp; \text{Free dynamics} &amp;&amp; \quad \text{Transition condition} &amp;&amp; \quad \text{Jumps at transition} \\
+    &amp; \tau_{\mathrm{m}} \lambda^{\prime}_{V} = - \lambda_{V} + \frac{\partial l_{V}}{\partial V}
+    &amp;&amp; \quad t - t^{\mathrm{post}}_{k} = 0
+    &amp;&amp; \quad \left(\lambda_{V}^{-} \right)_{n(k)} = \left(\lambda_{V}^{+} \right)_{n(k)} + \frac{1}{\tau_{\mathrm{m}} (\dot{V}^{-})_{n(k)} } \bigg[ \vartheta \left(\lambda_{V}^{+} \right)_{n(k)} \\
+    &amp; \tau_{\mathrm{s}} \lambda^{\prime}_{I} = - \lambda_{I} + \lambda_{V}
+    &amp;&amp; \quad \text{for any } k
+    &amp;&amp; \quad\quad + \left( W^{\top} \left( \lambda_{V}^{+} - \lambda_{I} \right) \right) + \frac{\partial l_{\mathrm{post}}}{\partial t^{\mathrm{post}}_{k}} + l_{V}^{-} - l_{V}^{+} \bigg]
+\end{align*}\end{split}\]</div>
+<p>The gradient with respect to the synaptic weight <span class="math notranslate nohighlight">\(w_{ji}\)</span>, connecting pre-synaptic neuron <span class="math notranslate nohighlight">\(i\)</span> to post-synaptic neuron <span class="math notranslate nohighlight">\(j\)</span>, then only depends on the synaptic time constant <span class="math notranslate nohighlight">\(\tau_\mathrm{s}\)</span> and the adjoint variable <span class="math notranslate nohighlight">\(\lambda_{I}\)</span> at spike times:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\mathrm{d} L}{\mathrm{d}w_{ji}} = - \tau_{\mathrm{s}}
+\sum_{\text{spikes from } i} (\lambda_{I})_{j}\]</div>
+<a class="reference internal image-reference" href="../_images/simulation_animation.gif"><img alt="../_images/simulation_animation.gif" class="align-center" src="../_images/simulation_animation.gif" style="width: 70%;" /></a>
+</div>
+</div>
+<div class="section" id="the-jaxsnn-library-for-event-driven-learning">
+<h2>The <code class="docutils literal notranslate"><span class="pre">jaxsnn</span></code> Library for Event-driven Learning<a class="headerlink" href="#the-jaxsnn-library-for-event-driven-learning" title="Permalink to this headline"></a></h2>
+<p>The <cite>jaxsnn</cite> library provides a powerful and flexible framework for event-driven learning with spiking neural networks (SNNs), supporting both simulation and deployment on neuromorphic hardware.
+Built on top of JAX, it leverages the strengths of NumPy while offering advanced features such as vectorization, automatic differentiation, and just-in-time (JIT) compilation for efficient computation.
+If you are new to JAX, you can find an introductory tutorial [here](<a class="reference external" href="https://docs.jax.dev/en/latest/tutorials.html">https://docs.jax.dev/en/latest/tutorials.html</a>).</p>
+<p>In <cite>jaxsnn</cite>, we follow the init-apply function approach.
+A network is described by a <cite>Topology</cite> to which modules, i.e. populations such as <cite>Source</cite> and <cite>LIF</cite> and projections such as <cite>Linear</cite>, are added and connected.
+From this, an init function initializing the network’s parameters and an apply function which defines the forward and backward pass of the network are created.
+For example we can create a network with a <cite>LIF</cite> layer receiving spikes from a <cite>Source</cite> like this:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">jax</span>
+<span class="kn">from</span> <span class="nn">jaxsnn.event.modules</span> <span class="kn">import</span> <span class="n">Source</span><span class="p">,</span> <span class="n">Linear</span><span class="p">,</span> <span class="n">LIF</span><span class="p">,</span> <span class="n">LIFParameters</span>
+<span class="kn">from</span> <span class="nn">jaxsnn.event.topology</span> <span class="kn">import</span> <span class="n">Topology</span>
+
+<span class="c1"># We use v_reset=-1000.0 to ensure the neuron only spikes once</span>
+<span class="c1"># For analytical event-based gradients in the LIF implementation tau_mem = 2*tau_syn or tau_syn = tau_mem must hold</span>
+<span class="n">lif_params</span> <span class="o">=</span> <span class="n">LIFParameters</span><span class="p">(</span>
+    <span class="n">v_reset</span><span class="o">=-</span><span class="mf">1000.0</span><span class="p">,</span>
+    <span class="n">v_th</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">tau_syn</span><span class="o">=</span><span class="mf">6e-3</span><span class="p">,</span>
+    <span class="n">tau_mem</span><span class="o">=</span><span class="mf">12e-3</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">builder</span> <span class="o">=</span> <span class="n">Topology</span><span class="p">(</span><span class="n">t_max</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+<span class="n">builder</span><span class="o">.</span><span class="n">add</span><span class="p">({</span>
+    <span class="s2">&quot;inp&quot;</span><span class="p">:</span> <span class="n">Source</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>
+    <span class="s2">&quot;syn&quot;</span><span class="p">:</span> <span class="n">Linear</span><span class="p">(</span><span class="n">mean</span><span class="o">=</span><span class="mf">2.8</span><span class="p">,</span> <span class="n">std</span><span class="o">=</span><span class="mf">0.02</span><span class="p">),</span>
+    <span class="s2">&quot;lif&quot;</span><span class="p">:</span> <span class="n">LIF</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_steps</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">lif_params</span><span class="p">)</span>
+<span class="p">})</span>
+<span class="n">builder</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
+    <span class="p">[(</span><span class="s2">&quot;inp&quot;</span><span class="p">,</span> <span class="s2">&quot;syn&quot;</span><span class="p">),</span>
+     <span class="p">(</span><span class="s2">&quot;syn&quot;</span><span class="p">,</span> <span class="s2">&quot;lif&quot;</span><span class="p">)]</span>
+<span class="p">)</span>
+<span class="n">init_fn</span><span class="p">,</span> <span class="n">apply_fn</span> <span class="o">=</span> <span class="n">builder</span><span class="o">.</span><span class="n">done</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Init function:&quot;</span><span class="p">,</span> <span class="n">init_fn</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Apply function:&quot;</span><span class="p">,</span> <span class="n">apply_fn</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="types">
+<h2>Types<a class="headerlink" href="#types" title="Permalink to this headline"></a></h2>
+<p>In <cite>jaxsnn</cite>, the <cite>apply_fn</cite> takes the batched input spikes of each source and the parameters of the network as input, and returns the events of each module.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jaxsnn.event.types</span> <span class="kn">import</span> <span class="n">Spike</span>
+<span class="kn">import</span> <span class="nn">jax.numpy</span> <span class="k">as</span> <span class="nn">jnp</span>
+
+<span class="c1"># Some input spikes</span>
+<span class="n">input_spikes</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;inp&quot;</span><span class="p">:</span> <span class="n">Spike</span><span class="p">(</span>
+        <span class="n">time</span><span class="o">=</span><span class="n">jnp</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.022</span><span class="p">]]),</span>
+        <span class="n">idx</span><span class="o">=</span><span class="n">jnp</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]),</span>
+        <span class="n">current</span><span class="o">=</span><span class="n">jnp</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">]]),</span>
+        <span class="n">layer_idx</span><span class="o">=</span><span class="n">jnp</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]),</span>
+        <span class="n">internal</span><span class="o">=</span><span class="n">jnp</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">]])</span>
+    <span class="p">)</span>
+<span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Input spikes:&quot;</span><span class="p">,</span> <span class="n">input_spikes</span><span class="p">)</span>
+
+
+<span class="c1"># Initialize the parameters</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">PRNGKey</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">weights</span> <span class="o">=</span> <span class="n">init_fn</span><span class="p">(</span><span class="n">rng</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Weights:&quot;</span><span class="p">,</span> <span class="n">weights</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Weights shape:&quot;</span><span class="p">,</span> <span class="n">weights</span><span class="p">[</span><span class="s2">&quot;syn&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Forward</span>
+<span class="n">events</span> <span class="o">=</span> <span class="n">apply_fn</span><span class="p">(</span><span class="n">input_spikes</span><span class="p">,</span> <span class="n">weights</span><span class="p">)</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">events</span><span class="p">[</span><span class="s2">&quot;lif&quot;</span><span class="p">]</span>
+<span class="c1"># The events of a layer include its input events, its own spikes are marked as internal</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Output spike:&quot;</span><span class="p">,</span> <span class="n">output</span><span class="p">[</span><span class="n">output</span><span class="o">.</span><span class="n">internal</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="composing-topologies">
+<h2>Composing Topologies<a class="headerlink" href="#composing-topologies" title="Permalink to this headline"></a></h2>
+<p>Multiple layers can be composed by adding them to a <cite>Topology</cite> and connecting them, enabling the construction of complex SNN architectures.
+Besides feed-forward architectures, arbitrary topologies including recurrence and delays are supported [6].</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">builder</span> <span class="o">=</span> <span class="n">Topology</span><span class="p">(</span><span class="n">t_max</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">builder</span><span class="o">.</span><span class="n">add</span><span class="p">({</span>
+    <span class="s2">&quot;inp&quot;</span><span class="p">:</span> <span class="n">Source</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>
+    <span class="s2">&quot;syn1&quot;</span><span class="p">:</span> <span class="n">Linear</span><span class="p">(</span><span class="n">mean</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">std</span><span class="o">=</span><span class="mf">0.3</span><span class="p">),</span>
+    <span class="s2">&quot;lif1&quot;</span><span class="p">:</span> <span class="n">LIF</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">n_steps</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">lif_params</span><span class="p">),</span>
+    <span class="s2">&quot;syn2&quot;</span><span class="p">:</span> <span class="n">Linear</span><span class="p">(</span><span class="n">mean</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">std</span><span class="o">=</span><span class="mf">0.8</span><span class="p">),</span>
+    <span class="s2">&quot;lif2&quot;</span><span class="p">:</span> <span class="n">LIF</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">n_steps</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">lif_params</span><span class="p">)</span>
+<span class="p">})</span>
+<span class="n">builder</span><span class="o">.</span><span class="n">connect</span><span class="p">([</span>
+    <span class="p">(</span><span class="s2">&quot;inp&quot;</span><span class="p">,</span> <span class="s2">&quot;syn1&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;syn1&quot;</span><span class="p">,</span> <span class="s2">&quot;lif1&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;lif1&quot;</span><span class="p">,</span> <span class="s2">&quot;syn2&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;syn2&quot;</span><span class="p">,</span> <span class="s2">&quot;lif2&quot;</span><span class="p">)</span>
+<span class="p">])</span>
+<span class="n">init_fn</span><span class="p">,</span> <span class="n">apply_fn</span> <span class="o">=</span> <span class="n">builder</span><span class="o">.</span><span class="n">done</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="jaxsnn-supports-jax-s-function-transformations">
+<h2><cite>jaxsnn</cite> supports JAX’s function transformations<a class="headerlink" href="#jaxsnn-supports-jax-s-function-transformations" title="Permalink to this headline"></a></h2>
+<p>The important thing to notice here is that those functions are pure Python functions working on JAX-compatible data types which can be transformed by <code class="docutils literal notranslate"><span class="pre">JAX</span></code>´s function transformations.
+Hence, <code class="docutils literal notranslate"><span class="pre">vmap</span></code>ping for adding a batch dimension (note, that the <cite>apply_fn</cite> is already batched), computing gradients via <code class="docutils literal notranslate"><span class="pre">JAX</span></code>’s auto-diff engine and JIT-compilation is fully supported.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># JITing the apply function</span>
+<span class="n">apply_fn_jit</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">jit</span><span class="p">(</span><span class="n">apply_fn</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;JITted apply function:&quot;</span><span class="p">,</span> <span class="n">apply_fn_jit</span><span class="p">)</span>
+
+<span class="c1"># Adding a batch dimension to the apply function (note that apply_fn is already batched)</span>
+<span class="n">apply_fn_batched</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">vmap</span><span class="p">(</span><span class="n">apply_fn</span><span class="p">,</span> <span class="n">in_axes</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Batched apply function:&quot;</span><span class="p">,</span> <span class="n">apply_fn_batched</span><span class="p">)</span>
+
+<span class="c1"># Computing the gradient of the apply function</span>
+<span class="n">apply_fn_grad</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">grad</span><span class="p">(</span><span class="n">apply_fn</span><span class="p">,</span> <span class="n">argnums</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Gradient of apply function:&quot;</span><span class="p">,</span> <span class="n">apply_fn_grad</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="events-from-a-neuromorphic-backend">
+<h2>Events from a Neuromorphic Backend<a class="headerlink" href="#events-from-a-neuromorphic-backend" title="Permalink to this headline"></a></h2>
+<p>The following draft shows how the forward dynamics of a model can be dispatched to a neuromorphic backend and the gradients can be computed based on return values from the hardware.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">jax</span>
+<span class="kn">from</span> <span class="nn">mymodel</span> <span class="kn">import</span> <span class="n">loss_fn</span><span class="p">,</span> <span class="n">run_on_hw</span><span class="p">,</span> <span class="n">calc_grads</span>
+
+<span class="nd">@jax</span><span class="o">.</span><span class="n">custom_vjp</span>
+<span class="k">def</span> <span class="nf">apply_fn</span><span class="p">(</span><span class="n">in_spikes</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+    <span class="c1"># dispatch experiment to neuromorphic hardware</span>
+    <span class="k">return</span> <span class="n">jax</span><span class="o">.</span><span class="n">pure_callback</span><span class="p">(</span><span class="n">run_on_hw</span><span class="p">,</span> <span class="n">out_type</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">in_spikes</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">apply_forward</span><span class="p">(</span><span class="n">in_spikes</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+    <span class="c1"># dispatch experiment to neuromorphic hardware</span>
+    <span class="n">hw_obsv</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">pure_callback</span><span class="p">(</span><span class="n">run_on_hw</span><span class="p">,</span> <span class="n">out_type</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">in_spikes</span><span class="p">)</span>
+    <span class="c1"># keep what the gradient computation needs, incl. the recordings</span>
+    <span class="c1"># possibly also model vjp for gradient computation in backward</span>
+    <span class="k">return</span> <span class="n">hw_obsv</span><span class="p">,</span> <span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">in_spikes</span><span class="p">,</span> <span class="n">hw_obsv</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">apply_backward</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">g</span><span class="p">):</span>
+    <span class="c1"># params, in_spikes, hw_obsv = res</span>
+    <span class="n">grad_in_spikes</span><span class="p">,</span> <span class="n">grad_params</span> <span class="o">=</span> <span class="n">calc_grads</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">g</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">grad_in_spikes</span><span class="p">,</span> <span class="n">grad_params</span><span class="p">)</span>
+
+<span class="n">apply_fn</span><span class="o">.</span><span class="n">defvjp</span><span class="p">(</span><span class="n">apply_forward</span><span class="p">,</span> <span class="n">apply_backward</span><span class="p">)</span>
+<span class="c1"># in_spikes and params defined</span>
+<span class="n">grads</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">grad</span><span class="p">(</span><span class="n">partial</span><span class="p">(</span><span class="n">loss_fn</span><span class="p">,</span> <span class="n">apply_fn</span><span class="p">))(</span><span class="n">in_spikes</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="event-stepping">
+<h2>Event-stepping<a class="headerlink" href="#event-stepping" title="Permalink to this headline"></a></h2>
+<p>The topology’s <cite>apply_fn</cite> splits the network graph into its independent strongly connected components (SCCs) and executes each SCC in topological order.
+Each SCC’s <cite>apply_fn</cite> function defines the SCC’s forward dynamics, which may be computed using either event-based or time-gridded approaches.</p>
+<a class="reference internal image-reference" href="../_images/jaxsnn_topo.png"><img alt="../_images/jaxsnn_topo.png" class="align-center" src="../_images/jaxsnn_topo.png" style="width: 50%;" /></a>
+<p>In our framework, event-based <cite>apply_fn</cite> functions follow a specific structure, illustrated in the figure below. For each <cite>apply_fn</cite> function, we specify the number of events (<cite>n_steps</cite>) to process, which includes both input events and internal events (such as output spikes from LIF neurons).
+At each event step, we determine whether and when the next output event will occur, based on the current neuron states of the layer at time <span class="math notranslate nohighlight">\(t_n\)</span>.</p>
+<a class="reference internal image-reference" href="../_images/jaxsnn.png"><img alt="../_images/jaxsnn.png" class="align-center" src="../_images/jaxsnn.png" style="width: 50%;" /></a>
+<p>This is accomplished by the “Event Finder,” a component that computes the next spike time given the current state.
+The Event Finder can for instance use analytical formulas or numerical root-finding algorithms to detect threshold crossings.
+If the computed output event occurs before the next input spike, we emit an output event with the spike time and neuron index.
+Otherwise, if the next input spike occurs earlier, we return the input event.</p>
+<p>After identifying the next event, we evolve all neuron states in the network to the corresponding time <span class="math notranslate nohighlight">\(t_{n+1}\)</span>, using the neuron model’s temporal dynamics.
+We then apply the appropriate state transitions for the event: for input events, this might involve increasing the input current of receiving neurons and for output events, the membrane potential may be reset.
+The specifics of event finding, state transitions, and dynamics are determined by the neuron model.</p>
+<p>Crucially, if all these operations are differentiable—such as when using analytical solutions for the forward dynamics (see TTFS [7])—then <cite>jax.grad</cite> can automatically compute gradients in an event-stepped manner.
+Alternatively, custom event-stepped gradients can be implemented, for example like the EventProp algorithm, which supports more general neuron dynamics.</p>
+</div>
+<div class="section" id="learning-a-spike-time">
+<h2>Learning a Spike Time<a class="headerlink" href="#learning-a-spike-time" title="Permalink to this headline"></a></h2>
+<p>To help you get started with <code class="docutils literal notranslate"><span class="pre">jaxsnn</span></code>, we will begin with a simple experiment: training a single leaky integrate-and-fire (LIF) neuron to emit a spike at a desired target time <span class="math notranslate nohighlight">\(t_\mathrm{target}\)</span>.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">target_time</span> <span class="o">=</span> <span class="mf">0.015</span>
+
+<span class="n">builder</span> <span class="o">=</span> <span class="n">Topology</span><span class="p">(</span><span class="n">t_max</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+<span class="n">builder</span><span class="o">.</span><span class="n">add</span><span class="p">({</span>
+    <span class="s2">&quot;inp&quot;</span><span class="p">:</span> <span class="n">Source</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>
+    <span class="s2">&quot;syn&quot;</span><span class="p">:</span> <span class="n">Linear</span><span class="p">(</span><span class="n">mean</span><span class="o">=</span><span class="mf">2.8</span><span class="p">,</span> <span class="n">std</span><span class="o">=</span><span class="mf">0.02</span><span class="p">),</span>
+    <span class="s2">&quot;lif&quot;</span><span class="p">:</span> <span class="n">LIF</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_steps</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">lif_params</span><span class="p">)</span>
+<span class="p">})</span>
+<span class="n">builder</span><span class="o">.</span><span class="n">connect</span><span class="p">([</span>
+    <span class="p">(</span><span class="s2">&quot;inp&quot;</span><span class="p">,</span> <span class="s2">&quot;syn&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;syn&quot;</span><span class="p">,</span> <span class="s2">&quot;lif&quot;</span><span class="p">),</span>
+<span class="p">])</span>
+<span class="n">init_fn</span><span class="p">,</span> <span class="n">apply_fn</span> <span class="o">=</span> <span class="n">builder</span><span class="o">.</span><span class="n">done</span><span class="p">()</span>
+
+
+<span class="n">input_spikes</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;inp&quot;</span><span class="p">:</span> <span class="n">Spike</span><span class="p">(</span>
+        <span class="n">time</span><span class="o">=</span><span class="n">jnp</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.022</span><span class="p">]]),</span>
+        <span class="n">idx</span><span class="o">=</span><span class="n">jnp</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]),</span>
+        <span class="n">current</span><span class="o">=</span><span class="n">jnp</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">]]),</span>
+        <span class="n">layer_idx</span><span class="o">=</span><span class="n">jnp</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]),</span>
+        <span class="n">internal</span><span class="o">=</span><span class="n">jnp</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">]])</span>
+    <span class="p">)</span>
+<span class="p">}</span>
+
+
+<span class="c1"># Initialize the parameters</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">PRNGKey</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">weights</span> <span class="o">=</span> <span class="n">init_fn</span><span class="p">(</span><span class="n">rng</span><span class="p">)</span>
+
+
+<span class="c1"># We now define a loss function that computes the squared error between the output spike time and a target time</span>
+<span class="k">def</span> <span class="nf">loss_fn</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">input_spikes</span><span class="p">,</span> <span class="n">target_time</span><span class="p">):</span>
+    <span class="n">output_spikes</span> <span class="o">=</span> <span class="n">apply_fn</span><span class="p">(</span><span class="n">input_spikes</span><span class="p">,</span> <span class="n">weights</span><span class="p">)[</span><span class="s2">&quot;lif&quot;</span><span class="p">]</span>
+    <span class="n">spike_time</span> <span class="o">=</span> <span class="n">output_spikes</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">jnp</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">output_spikes</span><span class="o">.</span><span class="n">internal</span><span class="p">[</span><span class="mi">0</span><span class="p">])]</span>
+    <span class="k">return</span> <span class="n">jnp</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">spike_time</span> <span class="o">-</span> <span class="n">target_time</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">),</span> <span class="n">spike_time</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rng</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">PRNGKey</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># We can use JAX&#39;s grad function to compute the gradient of the loss with respect to the weights</span>
+<span class="n">backward_fn</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">value_and_grad</span><span class="p">(</span><span class="n">loss_fn</span><span class="p">,</span> <span class="n">has_aux</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">weights</span> <span class="o">=</span> <span class="n">init_fn</span><span class="p">(</span><span class="n">rng</span><span class="p">)</span>
+
+
+<span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">time</span><span class="p">),</span> <span class="n">grad</span> <span class="o">=</span> <span class="n">backward_fn</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">input_spikes</span><span class="p">,</span> <span class="n">target_time</span><span class="p">)</span>
+    <span class="n">weights</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">tree_util</span><span class="o">.</span><span class="n">tree_map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">w</span><span class="p">,</span> <span class="n">g</span><span class="p">:</span> <span class="n">w</span> <span class="o">-</span> <span class="mf">1000.</span> <span class="o">*</span> <span class="n">g</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">grad</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Epoch </span><span class="si">{}</span><span class="s2">: Loss: </span><span class="si">{:.7f}</span><span class="s2">, Spike time: </span><span class="si">{:.7f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">epoch</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">time</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">_static.tutorial.jaxsnn_plots</span> <span class="kn">import</span> <span class="n">plot_training_progress</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Define a function to compute one epoch of training</span>
+<span class="k">def</span> <span class="nf">epoch_fn</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+    <span class="n">weights</span><span class="p">,</span> <span class="n">input_spikes</span> <span class="o">=</span> <span class="n">state</span>
+    <span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">time</span><span class="p">),</span> <span class="n">grad</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">value_and_grad</span><span class="p">(</span><span class="n">loss_fn</span><span class="p">,</span> <span class="n">has_aux</span><span class="o">=</span><span class="kc">True</span><span class="p">)(</span><span class="n">weights</span><span class="p">,</span> <span class="n">input_spikes</span><span class="p">,</span> <span class="mf">0.015</span><span class="p">)</span>
+    <span class="n">weights</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">tree_util</span><span class="o">.</span><span class="n">tree_map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">w</span><span class="p">,</span> <span class="n">g</span><span class="p">:</span> <span class="n">w</span> <span class="o">-</span> <span class="mf">500.</span> <span class="o">*</span> <span class="n">g</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">grad</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">input_spikes</span><span class="p">),</span> <span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">weights</span><span class="p">)</span>
+
+<span class="c1"># Initialize</span>
+<span class="n">weights</span> <span class="o">=</span> <span class="n">init_fn</span><span class="p">(</span><span class="n">rng</span><span class="p">)</span>
+
+<span class="c1"># We can use JAX&#39;s lax.scan to unroll the training loop</span>
+<span class="c1"># This implicitly jit compiles the loop, which leads to better performance</span>
+<span class="n">_</span><span class="p">,</span> <span class="p">(</span><span class="n">loss</span><span class="p">,</span> <span class="n">times</span><span class="p">,</span> <span class="n">weights</span><span class="p">)</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">lax</span><span class="o">.</span><span class="n">scan</span><span class="p">(</span><span class="n">epoch_fn</span><span class="p">,</span> <span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">input_spikes</span><span class="p">),</span> <span class="n">jnp</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">600</span><span class="p">))</span>
+
+<span class="c1"># Plot</span>
+<span class="n">weights_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">w</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">weights</span><span class="p">[</span><span class="s2">&quot;syn&quot;</span><span class="p">]])</span>
+<span class="n">plot_training_progress</span><span class="p">(</span><span class="n">loss</span><span class="p">,</span> <span class="n">times</span><span class="p">,</span> <span class="n">weights_arr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="training-an-snn-on-bss-2-to-solve-the-yin-yang-dataset">
+<h2>Training an SNN on BSS-2 to solve the Yin-Yang Dataset<a class="headerlink" href="#training-an-snn-on-bss-2-to-solve-the-yin-yang-dataset" title="Permalink to this headline"></a></h2>
+<p>In this example, we train a simple LIF network with one hidden layer to solve the Yin-Yang task on the BrainScaleS-2 neuromorphic hardware.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
+<span class="kn">from</span> <span class="nn">jaxsnn.base.dataset</span> <span class="kn">import</span> <span class="n">yinyang_dataset</span>
+
+<span class="n">rng</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">PRNGKey</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">param_rng</span><span class="p">,</span> <span class="n">train_rng</span><span class="p">,</span> <span class="n">test_rng</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">rng</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="n">batch_size</span> <span class="o">=</span> <span class="mi">64</span>
+<span class="n">n_train_batches</span> <span class="o">=</span> <span class="mi">78</span>
+<span class="n">n_test_batches</span> <span class="o">=</span> <span class="mi">46</span>
+<span class="n">train_samples</span> <span class="o">=</span> <span class="n">batch_size</span> <span class="o">*</span> <span class="n">n_train_batches</span>
+<span class="n">test_samples</span> <span class="o">=</span> <span class="n">batch_size</span> <span class="o">*</span> <span class="n">n_test_batches</span>
+
+<span class="n">xy_trainset</span> <span class="o">=</span> <span class="n">yinyang_dataset</span><span class="p">(</span>
+    <span class="n">train_rng</span><span class="p">,</span>
+    <span class="n">train_samples</span><span class="p">,</span>
+    <span class="n">mirror</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">bias_spike</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">xy_testset</span> <span class="o">=</span> <span class="n">yinyang_dataset</span><span class="p">(</span>
+    <span class="n">test_rng</span><span class="p">,</span>
+    <span class="n">test_samples</span><span class="p">,</span>
+    <span class="n">mirror</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">bias_spike</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Trainset: </span><span class="si">{</span><span class="n">xy_trainset</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="the-yin-yang-dataset">
+<h2>The Yin-Yang dataset<a class="headerlink" href="#the-yin-yang-dataset" title="Permalink to this headline"></a></h2>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">_static.tutorial.jaxsnn_plots</span> <span class="kn">import</span> <span class="n">plot_trainset_samples</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Extract data and targets from trainset</span>
+<span class="n">data</span><span class="p">,</span> <span class="n">targets</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">xy_trainset</span>
+
+<span class="c1"># Select one random sample</span>
+<span class="n">random_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+<span class="n">random_sample</span> <span class="o">=</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">random_index</span><span class="p">],</span> <span class="n">targets</span><span class="p">[</span><span class="n">random_index</span><span class="p">])</span>
+
+<span class="c1"># Call the function</span>
+<span class="n">plot_trainset_samples</span><span class="p">(</span><span class="n">data</span><span class="p">[:</span><span class="mi">500</span><span class="p">],</span> <span class="n">targets</span><span class="p">[:</span><span class="mi">500</span><span class="p">],</span> <span class="n">random_sample</span><span class="p">)</span>
+
+<span class="c1"># Keep the random sample as a variable</span>
+<span class="n">random_sample</span>
+</pre></div>
+</div>
+<div class="section" id="input-encoding">
+<h3>Input encoding<a class="headerlink" href="#input-encoding" title="Permalink to this headline"></a></h3>
+<p>If we want to use an SNN to classify a sample <span class="math notranslate nohighlight">\(i\)</span> in the Yin-Yang dataset, we have to translate the point <span class="math notranslate nohighlight">\((x_i, y_i)\)</span> to spikes.
+For this, we translate the value in each dimension, as well as their inverse <span class="math notranslate nohighlight">\((1-x_i, 1-y_i)\)</span>, to a spike time <span class="math notranslate nohighlight">\(t_n^i\)</span> of an input neuron <span class="math notranslate nohighlight">\(n\)</span> into a range <span class="math notranslate nohighlight">\([t_\text{early}, t_\text{late}]\)</span> [2]:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{bmatrix}
+    x_{i} \\
+    y_{i} \\
+    1 - x_{i} \\
+    1 - y_{i} \\
+\end{bmatrix}
+\longrightarrow
+\begin{bmatrix}
+    t^i_0 \\
+    t^i_1 \\
+    t^i_2 \\
+    t^i_3
+\end{bmatrix}
+= t_\text{early} +
+\begin{bmatrix}
+    x_{i} \\
+    y_{i} \\
+    1 - x_{i} \\
+    1 - y_{i}
+\end{bmatrix}
+\left( t_\text{late} - t_\text{early} \right)\end{split}\]</div>
+<p>.</p>
+<p>To increase activity in the network we add an additional input neuron that has a constant firing time <span class="math notranslate nohighlight">\(t^\text{bias}\)</span>, such that sample <span class="math notranslate nohighlight">\(i\)</span> is represented by the spike events <span class="math notranslate nohighlight">\((t^i_0, t^i_1, t^i_2, t^i_3, t^\text{bias}_4)^\top\)</span>.</p>
+<p>The dataset <code class="docutils literal notranslate"><span class="pre">yinyang_dataset</span></code> returns each data point in the form <span class="math notranslate nohighlight">\((x_i, y_i, 1-x_i, 1-y_i)\)</span>.
+To translate them into spike times we use the encoding function <code class="docutils literal notranslate"><span class="pre">spatio_temporal_encode</span></code>.
+Additionally, we also encode the target class into spike times.
+Our SNN has three output neurons, one for each class, and we want the correct neuron to spike earlier than the incorrect neurons.
+For this, the <code class="docutils literal notranslate"><span class="pre">target_temporal_encode</span></code> function translates the target class into a target spike time <cite>correct_target_time</cite> for the correct class and a target spike time <cite>wrong_target_time</cite> for the incorrect classes.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jaxsnn.event.encode</span> <span class="kn">import</span> <span class="n">spatio_temporal_encode</span><span class="p">,</span> <span class="n">target_temporal_encode</span><span class="p">,</span> <span class="n">encode</span>
+
+<span class="n">t_late</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="mf">6e-6</span>
+<span class="n">t_max</span> <span class="o">=</span> <span class="mf">4.0</span> <span class="o">*</span> <span class="mf">6e-6</span>
+
+<span class="c1"># Encoding</span>
+<span class="n">input_encoder_batched</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">jit</span><span class="p">(</span><span class="n">jax</span><span class="o">.</span><span class="n">vmap</span><span class="p">(</span><span class="n">partial</span><span class="p">(</span>
+    <span class="n">spatio_temporal_encode</span><span class="p">,</span>
+    <span class="n">t_late</span><span class="o">=</span><span class="n">t_late</span><span class="p">,</span>
+    <span class="n">duplication</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+    <span class="n">duplicate_neurons</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)))</span>
+
+<span class="n">target_encoder_batched</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">jit</span><span class="p">(</span><span class="n">jax</span><span class="o">.</span><span class="n">vmap</span><span class="p">(</span><span class="n">partial</span><span class="p">(</span>
+    <span class="n">target_temporal_encode</span><span class="p">,</span>
+    <span class="n">n_classes</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+    <span class="n">correct_target_time</span><span class="o">=</span><span class="mf">0.9</span> <span class="o">*</span> <span class="mf">6e-6</span><span class="p">,</span>
+    <span class="n">wrong_target_time</span><span class="o">=</span><span class="mf">1.1</span> <span class="o">*</span> <span class="mf">6e-6</span><span class="p">,</span>
+<span class="p">)))</span>
+
+<span class="n">trainset</span> <span class="o">=</span> <span class="n">encode</span><span class="p">(</span><span class="n">xy_trainset</span><span class="p">,</span> <span class="n">input_encoder_batched</span><span class="p">,</span> <span class="n">target_encoder_batched</span><span class="p">)</span>
+<span class="n">testset</span> <span class="o">=</span> <span class="n">encode</span><span class="p">(</span><span class="n">xy_testset</span><span class="p">,</span> <span class="n">input_encoder_batched</span><span class="p">,</span> <span class="n">target_encoder_batched</span><span class="p">)</span>
+
+<span class="c1"># Input spikes are assigned to the source node &quot;inp&quot; of the network</span>
+<span class="n">trainset</span> <span class="o">=</span> <span class="p">({</span><span class="s2">&quot;inp&quot;</span><span class="p">:</span> <span class="n">trainset</span><span class="p">[</span><span class="mi">0</span><span class="p">]},</span> <span class="n">trainset</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">testset</span> <span class="o">=</span> <span class="p">({</span><span class="s2">&quot;inp&quot;</span><span class="p">:</span> <span class="n">testset</span><span class="p">[</span><span class="mi">0</span><span class="p">]},</span> <span class="n">testset</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">_static.tutorial.jaxsnn_plots</span> <span class="kn">import</span> <span class="n">plot_encoding</span>
+
+<span class="n">encoded_spikes</span><span class="p">,</span> <span class="n">encoded_targets</span> <span class="o">=</span> <span class="n">trainset</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;inp&quot;</span><span class="p">],</span> <span class="n">trainset</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">plot_encoding</span><span class="p">(</span><span class="n">encoded_spikes</span><span class="p">,</span> <span class="n">encoded_targets</span><span class="p">,</span> <span class="n">targets</span><span class="p">,</span> <span class="n">random_index</span><span class="p">,</span> <span class="n">t_late</span><span class="p">,</span> <span class="n">t_max</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="building-the-network">
+<h2>Building the network<a class="headerlink" href="#building-the-network" title="Permalink to this headline"></a></h2>
+<p>In this section we the define the SNN we want to train on BSS-2.
+It consits of 25 input neurons, 100 hidden neurons and 3 output neurons, one for each possible class.
+The 5 input neurons required by the encoding in the previous section are repeated five times to increase the effective synaptic efficacy on BSS-2.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">jaxsnn</span>
+<span class="kn">from</span> <span class="nn">jaxsnn.event.topology</span> <span class="kn">import</span> <span class="n">Topology</span>
+<span class="kn">from</span> <span class="nn">jaxsnn.event.hardware.utils</span> <span class="kn">import</span> <span class="n">calib_helper</span>
+<span class="kn">from</span> <span class="nn">jaxsnn.event.hardware.parameter</span> <span class="kn">import</span> <span class="n">MixedHXModelParameter</span><span class="p">,</span> <span class="n">HXParameter</span>
+<span class="kn">from</span> <span class="nn">jaxsnn.event.modules.hx</span> <span class="kn">import</span> <span class="n">HXSource</span><span class="p">,</span> <span class="n">HXLIF</span><span class="p">,</span> <span class="n">HXLinear</span><span class="p">,</span> <span class="n">NeuronParameters</span>
+
+<span class="c1"># Model and hardware values of the neuron parameters</span>
+<span class="c1"># The refractory time ensures each neuron only spikes once</span>
+<span class="n">params</span> <span class="o">=</span> <span class="n">NeuronParameters</span><span class="p">(</span>
+    <span class="n">v_th</span><span class="o">=</span><span class="n">MixedHXModelParameter</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mi">150</span><span class="p">),</span>
+    <span class="n">v_leak</span><span class="o">=</span><span class="n">MixedHXModelParameter</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mi">80</span><span class="p">),</span>
+    <span class="n">v_reset</span><span class="o">=</span><span class="n">MixedHXModelParameter</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mi">80</span><span class="p">),</span>
+    <span class="n">refractory_time</span><span class="o">=</span><span class="n">HXParameter</span><span class="p">(</span><span class="mf">30e-6</span><span class="p">),</span>
+    <span class="n">i_synin_gm</span><span class="o">=</span><span class="n">HXParameter</span><span class="p">(</span><span class="mi">500</span><span class="p">),</span>
+    <span class="n">synapse_dac_bias</span><span class="o">=</span><span class="n">HXParameter</span><span class="p">(</span><span class="mi">1000</span><span class="p">),</span>
+    <span class="n">tau_syn</span><span class="o">=</span><span class="n">HXParameter</span><span class="p">(</span><span class="mf">6e-6</span><span class="p">),</span>
+    <span class="n">tau_mem</span><span class="o">=</span><span class="n">HXParameter</span><span class="p">(</span><span class="mf">12e-6</span><span class="p">),</span>
+<span class="p">)</span>
+
+<span class="n">input_size</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">*</span> <span class="mi">5</span>
+<span class="n">hidden_size</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">output_size</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="c1"># Correction of the hardware spike times in s</span>
+<span class="n">time_offset</span> <span class="o">=</span> <span class="o">-</span><span class="mf">8e-08</span>
+
+<span class="c1"># We need a hardware connections to know which calibration to load</span>
+<span class="n">jaxsnn</span><span class="o">.</span><span class="n">init_hardware</span><span class="p">()</span>
+<span class="n">calib_path</span> <span class="o">=</span> <span class="n">calib_helper</span><span class="o">.</span><span class="n">nightly_calib_path</span><span class="p">(</span><span class="s2">&quot;spiking3&quot;</span><span class="p">)</span>
+<span class="n">jaxsnn</span><span class="o">.</span><span class="n">release_hardware</span><span class="p">()</span>
+
+<span class="c1"># Build the network</span>
+<span class="n">builder</span> <span class="o">=</span> <span class="n">Topology</span><span class="p">(</span>
+    <span class="n">mock</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">t_max</span><span class="o">=</span><span class="n">t_max</span><span class="p">,</span>
+    <span class="n">backprop_method</span><span class="o">=</span><span class="s2">&quot;eventprop&quot;</span><span class="p">,</span>
+    <span class="n">calibration</span><span class="o">=</span><span class="n">calib_helper</span><span class="o">.</span><span class="n">fixture_calibration_from_file</span><span class="p">(</span><span class="n">calib_path</span><span class="p">),</span>
+<span class="p">)</span>
+<span class="n">builder</span><span class="o">.</span><span class="n">add</span><span class="p">({</span>
+    <span class="s2">&quot;inp&quot;</span><span class="p">:</span> <span class="n">HXSource</span><span class="p">(</span>
+        <span class="n">size</span><span class="o">=</span><span class="n">input_size</span><span class="p">,</span>
+        <span class="n">n_events</span><span class="o">=</span><span class="n">input_size</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="s2">&quot;syn_ih&quot;</span><span class="p">:</span> <span class="n">HXLinear</span><span class="p">(</span>
+        <span class="n">mean</span><span class="o">=</span><span class="mf">3.0</span> <span class="o">/</span> <span class="mi">5</span><span class="p">,</span>
+        <span class="n">std</span><span class="o">=</span><span class="mf">1.6</span> <span class="o">/</span> <span class="mi">5</span><span class="p">,</span>
+        <span class="n">weight_scale</span><span class="o">=</span><span class="mi">43</span><span class="p">,</span>  <span class="c1"># Scaling from model to hardware weights</span>
+    <span class="p">),</span>
+    <span class="s2">&quot;lif_h&quot;</span><span class="p">:</span> <span class="n">HXLIF</span><span class="p">(</span>
+        <span class="n">size</span><span class="o">=</span><span class="n">hidden_size</span><span class="p">,</span>
+        <span class="n">n_steps</span><span class="o">=</span><span class="n">input_size</span> <span class="o">+</span> <span class="n">hidden_size</span><span class="p">,</span>
+        <span class="n">n_hw_spikes</span><span class="o">=</span><span class="n">hidden_size</span><span class="p">,</span>
+        <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span>
+        <span class="n">time_offset</span><span class="o">=</span><span class="n">time_offset</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="s2">&quot;syn_ho&quot;</span><span class="p">:</span> <span class="n">HXLinear</span><span class="p">(</span>
+        <span class="n">mean</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+        <span class="n">std</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span>
+        <span class="n">weight_scale</span><span class="o">=</span><span class="mi">43</span><span class="p">,</span>  <span class="c1"># Scaling from model to hardware weights</span>
+    <span class="p">),</span>
+    <span class="s2">&quot;lif_o&quot;</span><span class="p">:</span> <span class="n">HXLIF</span><span class="p">(</span>
+        <span class="n">size</span><span class="o">=</span><span class="n">output_size</span><span class="p">,</span>
+        <span class="n">n_steps</span><span class="o">=</span><span class="n">hidden_size</span> <span class="o">+</span> <span class="n">output_size</span><span class="p">,</span>
+        <span class="n">n_hw_spikes</span><span class="o">=</span><span class="n">output_size</span><span class="p">,</span>
+        <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span>
+        <span class="n">time_offset</span><span class="o">=</span><span class="n">time_offset</span><span class="p">,</span>
+    <span class="p">)</span>
+<span class="p">})</span>
+<span class="n">builder</span><span class="o">.</span><span class="n">connect</span><span class="p">([</span>
+    <span class="p">(</span><span class="s2">&quot;inp&quot;</span><span class="p">,</span> <span class="s2">&quot;syn_ih&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;syn_ih&quot;</span><span class="p">,</span> <span class="s2">&quot;lif_h&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;lif_h&quot;</span><span class="p">,</span> <span class="s2">&quot;syn_ho&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;syn_ho&quot;</span><span class="p">,</span> <span class="s2">&quot;lif_o&quot;</span><span class="p">),</span>
+<span class="p">])</span>
+<span class="n">init_fn</span><span class="p">,</span> <span class="n">apply_fn</span> <span class="o">=</span> <span class="n">builder</span><span class="o">.</span><span class="n">done</span><span class="p">()</span>
+
+
+<span class="n">weights</span> <span class="o">=</span> <span class="n">init_fn</span><span class="p">(</span><span class="n">param_rng</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Model: </span><span class="si">{</span><span class="n">apply_fn</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>As loss function we use the mean squared error (MSE) between the first spike times of the output neurons and the target spike times.
+Since the target encoder demands the correct output neuron to spike earlier than the incorrect neurons, we can infer the predicted class by selecting the neuron with the earliest spike time during testing.
+We wrap the MSE loss function in a <cite>loss_wrapper</cite> which extracts the first spike times of the output neurons and computes the loss based on them.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jaxsnn.event.loss</span> <span class="kn">import</span> <span class="n">mse_loss</span>
+<span class="kn">from</span> <span class="nn">jaxsnn.examples.event.utils</span> <span class="kn">import</span> <span class="n">loss_wrapper</span>
+
+<span class="c1"># define loss and update function</span>
+<span class="n">loss_fn</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">jit</span><span class="p">(</span><span class="n">partial</span><span class="p">(</span>
+    <span class="n">loss_wrapper</span><span class="p">,</span>
+    <span class="n">apply_fn</span><span class="p">,</span>
+    <span class="n">mse_loss</span><span class="p">,</span>
+    <span class="n">params</span><span class="o">.</span><span class="n">tau_mem</span><span class="o">.</span><span class="n">model_value</span><span class="p">,</span>
+    <span class="s2">&quot;lif_o&quot;</span><span class="p">,</span>
+    <span class="n">output_size</span><span class="p">,</span>
+<span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="training-the-network">
+<h2>Training the Network<a class="headerlink" href="#training-the-network" title="Permalink to this headline"></a></h2>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">jax.numpy</span> <span class="k">as</span> <span class="nn">jnp</span>
+<span class="kn">import</span> <span class="nn">optax</span>
+<span class="kn">from</span> <span class="nn">jaxsnn.base.dataset.dataloader</span> <span class="kn">import</span> <span class="n">data_loader</span>
+<span class="kn">from</span> <span class="nn">jaxsnn.event</span> <span class="kn">import</span> <span class="n">custom_lax</span>
+
+<span class="c1"># Increase number of epochs for better accuracy...</span>
+<span class="n">epochs</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="n">scheduler</span> <span class="o">=</span> <span class="n">optax</span><span class="o">.</span><span class="n">exponential_decay</span><span class="p">(</span><span class="mf">5e-3</span><span class="p">,</span> <span class="n">n_train_batches</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">)</span>
+
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">optax</span><span class="o">.</span><span class="n">chain</span><span class="p">(</span>
+    <span class="n">optax</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="mf">0.01</span><span class="p">),</span>
+    <span class="n">optax</span><span class="o">.</span><span class="n">adam</span><span class="p">(</span><span class="n">scheduler</span><span class="p">),</span>
+<span class="p">)</span>
+
+<span class="n">opt_state</span> <span class="o">=</span> <span class="n">optimizer</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The forward pass is executed on BSS-2 within apply_fn</span>
+<span class="nd">@jax</span><span class="o">.</span><span class="n">jit</span>
+<span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+    <span class="n">opt_state</span><span class="p">,</span> <span class="n">weights</span> <span class="o">=</span> <span class="n">state</span>
+    <span class="n">value</span><span class="p">,</span> <span class="n">grad</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">value_and_grad</span><span class="p">(</span>
+        <span class="n">loss_fn</span><span class="p">,</span> <span class="n">has_aux</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)(</span>
+        <span class="n">weights</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">updates</span><span class="p">,</span> <span class="n">opt_state</span> <span class="o">=</span> <span class="n">optimizer</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">grad</span><span class="p">,</span> <span class="n">opt_state</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">weights</span><span class="p">)</span>
+    <span class="n">weights</span> <span class="o">=</span> <span class="n">optax</span><span class="o">.</span><span class="n">apply_updates</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">updates</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">(</span><span class="n">opt_state</span><span class="p">,</span> <span class="n">weights</span><span class="p">),</span> <span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">grad</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">train_fn</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+    <span class="n">opt_state</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">rng</span> <span class="o">=</span> <span class="n">state</span>
+
+    <span class="p">(</span><span class="n">opt_state</span><span class="p">,</span> <span class="n">weights</span><span class="p">),</span> <span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">grad</span><span class="p">)</span> <span class="o">=</span> <span class="n">update</span><span class="p">(</span>
+        <span class="p">(</span><span class="n">opt_state</span><span class="p">,</span> <span class="n">weights</span><span class="p">),</span> <span class="n">batch</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">(</span><span class="n">opt_state</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">rng</span><span class="p">),</span> <span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">grad</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">test_fn</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+    <span class="n">weights</span><span class="p">,</span> <span class="n">rng</span> <span class="o">=</span> <span class="n">weights</span>
+
+    <span class="n">loss_result</span> <span class="o">=</span> <span class="n">loss_fn</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">batch</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">rng</span><span class="p">),</span> <span class="n">loss_result</span>
+
+
+<span class="k">def</span> <span class="nf">loss_and_acc_scan</span><span class="p">(</span><span class="n">test_fn</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">dataset</span><span class="p">):</span>
+    <span class="n">weights</span><span class="p">,</span> <span class="p">(</span><span class="n">loss</span><span class="p">,</span> <span class="p">(</span><span class="n">t_first_spike</span><span class="p">,</span> <span class="n">recording</span><span class="p">))</span> <span class="o">=</span> <span class="n">custom_lax</span><span class="o">.</span><span class="n">scan</span><span class="p">(</span>
+        <span class="n">test_fn</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">dataset</span><span class="p">)</span>
+    <span class="n">accuracy</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">dataset</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="n">jnp</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span>
+        <span class="n">t_first_spike</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">jnp</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">loss</span><span class="p">),</span> <span class="n">jnp</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">accuracy</span><span class="p">),</span> <span class="n">t_first_spike</span><span class="p">,</span> <span class="n">recording</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">_static.tutorial.jaxsnn_plots</span> <span class="kn">import</span> <span class="n">create_plot</span>
+
+<span class="c1"># Function to update the plots</span>
+<span class="n">update_plots</span> <span class="o">=</span> <span class="n">create_plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">xy_testset</span><span class="p">,</span> <span class="n">test_samples</span><span class="p">,</span> <span class="n">output_size</span><span class="p">)</span>
+
+<span class="c1"># Initialize hardware connection</span>
+<span class="n">jaxsnn</span><span class="o">.</span><span class="n">init_hardware</span><span class="p">()</span>
+
+<span class="c1"># Train</span>
+<span class="k">def</span> <span class="nf">epoch</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+    <span class="n">opt_state</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">rng</span> <span class="o">=</span> <span class="n">state</span>
+    <span class="n">test_rng</span><span class="p">,</span> <span class="n">train_rng</span><span class="p">,</span> <span class="n">shuffle_rng</span><span class="p">,</span> <span class="n">rng</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">rng</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+
+    <span class="c1"># Train</span>
+    <span class="n">trainset_batched</span> <span class="o">=</span> <span class="n">data_loader</span><span class="p">(</span>
+        <span class="n">trainset</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">n_train_batches</span><span class="p">,</span> <span class="n">rng</span><span class="o">=</span><span class="n">shuffle_rng</span><span class="p">)</span>
+    <span class="p">(</span><span class="n">opt_state</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">_</span><span class="p">),</span> <span class="n">_</span> <span class="o">=</span> <span class="n">custom_lax</span><span class="o">.</span><span class="n">scan</span><span class="p">(</span>
+        <span class="n">train_fn</span><span class="p">,</span> <span class="p">(</span><span class="n">opt_state</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">train_rng</span><span class="p">),</span> <span class="n">trainset_batched</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Test</span>
+    <span class="n">testset_batched</span> <span class="o">=</span> <span class="n">data_loader</span><span class="p">(</span><span class="n">testset</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">n_test_batches</span><span class="p">)</span>
+    <span class="n">loss</span><span class="p">,</span> <span class="n">acc</span><span class="p">,</span> <span class="n">t_first_spike</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">loss_and_acc_scan</span><span class="p">(</span>
+        <span class="n">test_fn</span><span class="p">,</span> <span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">test_rng</span><span class="p">),</span> <span class="n">testset_batched</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Update plots</span>
+    <span class="n">update_plots</span><span class="p">(</span><span class="n">loss</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">acc</span><span class="p">,</span> <span class="n">t_first_spike</span><span class="p">)</span>
+
+    <span class="c1"># New state</span>
+    <span class="n">state</span> <span class="o">=</span> <span class="p">(</span><span class="n">opt_state</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">rng</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">state</span><span class="p">,</span> <span class="p">((</span><span class="n">loss</span><span class="p">,</span> <span class="n">acc</span><span class="p">),</span> <span class="n">weights</span><span class="p">,</span> <span class="n">t_first_spike</span><span class="p">)</span>
+
+<span class="n">rng</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">PRNGKey</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="c1"># train the net</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">custom_lax</span><span class="o">.</span><span class="n">scan</span><span class="p">(</span><span class="n">epoch</span><span class="p">,</span> <span class="p">(</span><span class="n">opt_state</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">rng</span><span class="p">),</span> <span class="n">jnp</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">epochs</span><span class="p">))</span>
+<span class="p">(</span><span class="n">opt_state</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">rng</span><span class="p">),</span> <span class="p">(</span><span class="n">test_result</span><span class="p">,</span> <span class="n">weights_over_time</span><span class="p">,</span> <span class="n">first_spike_times</span><span class="p">)</span> <span class="o">=</span> <span class="n">res</span>
+
+<span class="n">jaxsnn</span><span class="o">.</span><span class="n">release_hardware</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>We now have sucessfully trained an SNN on the BrainScaleS-2 neuromorphic hardware to solve the Yin-Yang dataset.
+The gradient calculation was performed using the event-based <cite>jaxsnn</cite> software framework with the EventProp algorithm.
+This required only very little hardware knowledge, and, noteably, the learning algorithm solely relied on spike recordings from the hardware.</p>
+</div>
+<div class="section" id="references-and-further-reading">
+<h2>References and further reading<a class="headerlink" href="#references-and-further-reading" title="Permalink to this headline"></a></h2>
+<p>[1] Pehle, C., Billaudelle, S., Cramer, B., Kaiser, J., Schreiber, K.,
+Stradmann, Y., Weis, J., Leibfried, A., Müller, E., and Schemmel, J. The
+BrainScaleS-2 accelerated neuromorphic system with hybrid plasticity.
+Frontiers in Neuroscience, 16, 2022. ISSN 1662-453X. [doi:
+10.3389/fnins.2022.795876](<a class="reference external" href="https://www.frontiersin.org/articles/10.3389/fnins.2022.795876/full">https://www.frontiersin.org/articles/10.3389/fnins.2022.795876/full</a>).</p>
+<p>[2] Kriener, L., Göltz, J., and Petrovici, M. A. The yin-yang dataset.
+In Neuro-Inspired Computational Elements Conference, NICE 2022,
+pp. 107–111, New York, NY, USA, 2022. Association for Computing
+Machinery. ISBN 9781450395595. [doi:
+10.1145/3517343.3517380](<a class="reference external" href="https://dl.acm.org/doi/10.1145/3517343.3517380">https://dl.acm.org/doi/10.1145/3517343.3517380</a>).</p>
+<p>[3] E. Müller, M. Althaus, E. Arnold, P. Spilger, C. Pehle and J. Schemmel, “jaxsnn: Event-driven Gradient Estimation for Analog Neuromorphic Hardware,” 2024 Neuro Inspired Computational Elements Conference (NICE), La Jolla, CA, USA, 2024, pp. 1-6, [doi: 10.1109/NICE61972.2024.10548709](10.1109/NICE61972.2024.10548709).</p>
+<p>[4] J. Bradbury, R. Frostig, P. Hawkins, M. J. Johnson, C. Leary, D. Maclaurin, G. Necula, A. Paszke, J. VanderPlas, S. Wanderman-Milne, Q Zhang, “JAX: composable transformations of Python+NumPy programs”, <a class="reference external" href="http://github.com/jax-ml/jax">http://github.com/jax-ml/jax</a>, 2018</p>
+<p>[5] Wunderlich, T.C., Pehle, C. Event-based backpropagation can compute
+exact gradients for spiking neural networks. Scientific Reports 11,
+12829 (2021). [doi:
+10.1038/s41598-021-91786-z](<a class="reference external" href="https://doi.org/10.1038/s41598-021-91786-z">https://doi.org/10.1038/s41598-021-91786-z</a>).</p>
+<p>[6] F. Fischer, “Event-based Learning of Synaptic Delays and Arbitrary Topologies,” Universität Heidelberg, 2025, Bachelor thesis</p>
+<p>[7] Göltz, J., Kriener, L., Baumbach, A. et al. Fast and energy-efficient neuromorphic deep learning with first-spike times. Nat Mach Intell 3, 823–835 (2021). [doi: 10.1038/s42256-021-00388-x](<a class="reference external" href="https://doi.org/10.1038/s42256-021-00388-x">https://doi.org/10.1038/s42256-021-00388-x</a>).</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ts_13-network_partitioning.html" class="btn btn-neutral float-left" title="Partitioning of Feedforward SNNs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="tp_00-introduction.html" class="btn btn-neutral float-right" title="Introduction to matrix multiplication" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Electronic Vision(s).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
